@@ -278,12 +278,12 @@ impl IPresentationManager_Vtbl {
         unsafe extern "system" fn SetTargetTime<Identity: ::windows::core::IUnknownImpl, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targettime: SystemInterruptTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTargetTime(::core::mem::transmute_copy(&targettime)).into()
+            (*this).SetTargetTime(::core::mem::transmute(&targettime)).into()
         }
         unsafe extern "system" fn SetPreferredPresentDuration<Identity: ::windows::core::IUnknownImpl, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preferredduration: SystemInterruptTime, deviationtolerance: SystemInterruptTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPreferredPresentDuration(::core::mem::transmute_copy(&preferredduration), ::core::mem::transmute_copy(&deviationtolerance)).into()
+            (*this).SetPreferredPresentDuration(::core::mem::transmute(&preferredduration), ::core::mem::transmute(&deviationtolerance)).into()
         }
         unsafe extern "system" fn ForceVSyncInterrupt<Identity: ::windows::core::IUnknownImpl, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forcevsyncinterrupt: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

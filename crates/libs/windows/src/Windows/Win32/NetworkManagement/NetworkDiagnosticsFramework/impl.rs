@@ -120,7 +120,7 @@ impl INetDiagHelper_Vtbl {
         unsafe extern "system" fn SetLifeTime<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lifetime: LIFE_TIME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLifeTime(::core::mem::transmute_copy(&lifetime)).into()
+            (*this).SetLifeTime(::core::mem::transmute(&lifetime)).into()
         }
         unsafe extern "system" fn GetCacheTime<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcachetime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

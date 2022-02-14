@@ -151,7 +151,7 @@ impl IClipServiceNotificationHelper_Vtbl {
         unsafe extern "system" fn ShowToast<Identity: ::windows::core::IUnknownImpl, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, titletext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bodytext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, packagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, appid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, launchcommand: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ShowToast(::core::mem::transmute_copy(&titletext), ::core::mem::transmute_copy(&bodytext), ::core::mem::transmute_copy(&packagename), ::core::mem::transmute_copy(&appid), ::core::mem::transmute_copy(&launchcommand)).into()
+            (*this).ShowToast(::core::mem::transmute(&titletext), ::core::mem::transmute(&bodytext), ::core::mem::transmute(&packagename), ::core::mem::transmute(&appid), ::core::mem::transmute(&launchcommand)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ShowToast: ShowToast::<Identity, Impl, OFFSET> }
     }
@@ -233,7 +233,7 @@ impl IEditionUpgradeBroker_Vtbl {
         unsafe extern "system" fn UpdateOperatingSystem<Identity: ::windows::core::IUnknownImpl, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameter: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UpdateOperatingSystem(::core::mem::transmute_copy(&parameter)).into()
+            (*this).UpdateOperatingSystem(::core::mem::transmute(&parameter)).into()
         }
         unsafe extern "system" fn ShowProductKeyUI<Identity: ::windows::core::IUnknownImpl, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

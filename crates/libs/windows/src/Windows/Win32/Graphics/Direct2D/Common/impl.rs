@@ -22,7 +22,7 @@ impl ID2D1SimplifiedGeometrySink_Vtbl {
         unsafe extern "system" fn BeginFigure<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).BeginFigure(::core::mem::transmute_copy(&startpoint), ::core::mem::transmute_copy(&figurebegin))
+            (*this).BeginFigure(::core::mem::transmute(&startpoint), ::core::mem::transmute_copy(&figurebegin))
         }
         unsafe extern "system" fn AddLines<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, points: *const D2D_POINT_2F, pointscount: u32) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

@@ -130,7 +130,7 @@ impl IMbnConnectionContext_Vtbl {
         unsafe extern "system" fn SetProvisionedContext<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provisionedcontexts: ::core::mem::ManuallyDrop<MBN_CONTEXT>, providerid: super::super::Foundation::PWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SetProvisionedContext(::core::mem::transmute_copy(&provisionedcontexts), ::core::mem::transmute_copy(&providerid)) {
+            match (*this).SetProvisionedContext(::core::mem::transmute(&provisionedcontexts), ::core::mem::transmute_copy(&providerid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *requestid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -590,7 +590,7 @@ impl IMbnDeviceServiceStateEvents_Vtbl {
         unsafe extern "system" fn OnSessionsStateChange<Identity: ::windows::core::IUnknownImpl, Impl: IMbnDeviceServiceStateEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnSessionsStateChange(::core::mem::transmute_copy(&interfaceid), ::core::mem::transmute_copy(&statechange)).into()
+            (*this).OnSessionsStateChange(::core::mem::transmute(&interfaceid), ::core::mem::transmute_copy(&statechange)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnSessionsStateChange: OnSessionsStateChange::<Identity, Impl, OFFSET> }
     }
@@ -622,7 +622,7 @@ impl IMbnDeviceServicesContext_Vtbl {
         unsafe extern "system" fn GetDeviceService<Identity: ::windows::core::IUnknownImpl, Impl: IMbnDeviceServicesContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceserviceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, mbndeviceservice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDeviceService(::core::mem::transmute_copy(&deviceserviceid)) {
+            match (*this).GetDeviceService(::core::mem::transmute(&deviceserviceid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *mbndeviceservice = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -734,7 +734,7 @@ impl IMbnDeviceServicesEvents_Vtbl {
         unsafe extern "system" fn OnInterfaceStateChange<Identity: ::windows::core::IUnknownImpl, Impl: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnInterfaceStateChange(::core::mem::transmute_copy(&interfaceid), ::core::mem::transmute_copy(&statechange)).into()
+            (*this).OnInterfaceStateChange(::core::mem::transmute(&interfaceid), ::core::mem::transmute_copy(&statechange)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -765,7 +765,7 @@ impl IMbnDeviceServicesManager_Vtbl {
         unsafe extern "system" fn GetDeviceServicesContext<Identity: ::windows::core::IUnknownImpl, Impl: IMbnDeviceServicesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkinterfaceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, mbndevicescontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDeviceServicesContext(::core::mem::transmute_copy(&networkinterfaceid)) {
+            match (*this).GetDeviceServicesContext(::core::mem::transmute(&networkinterfaceid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *mbndevicescontext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1468,7 +1468,7 @@ impl IMbnPinManagerEvents_Vtbl {
         unsafe extern "system" fn OnGetPinStateComplete<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPinManagerEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinmanager: ::windows::core::RawPtr, pininfo: MBN_PIN_INFO, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnGetPinStateComplete(::core::mem::transmute(&pinmanager), ::core::mem::transmute_copy(&pininfo), ::core::mem::transmute_copy(&requestid), ::core::mem::transmute_copy(&status)).into()
+            (*this).OnGetPinStateComplete(::core::mem::transmute(&pinmanager), ::core::mem::transmute(&pininfo), ::core::mem::transmute_copy(&requestid), ::core::mem::transmute_copy(&status)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

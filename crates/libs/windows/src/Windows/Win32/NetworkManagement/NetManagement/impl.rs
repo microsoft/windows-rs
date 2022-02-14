@@ -1166,7 +1166,7 @@ impl IProvisioningProfileWireless_Vtbl {
         unsafe extern "system" fn CreateProfile<Identity: ::windows::core::IUnknownImpl, Impl: IProvisioningProfileWireless_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmlwirelessconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrxmlconnectionconfigprofile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, padapterinstanceguid: *const ::windows::core::GUID, pulstatus: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateProfile(::core::mem::transmute_copy(&bstrxmlwirelessconfigprofile), ::core::mem::transmute_copy(&bstrxmlconnectionconfigprofile), ::core::mem::transmute_copy(&padapterinstanceguid)) {
+            match (*this).CreateProfile(::core::mem::transmute(&bstrxmlwirelessconfigprofile), ::core::mem::transmute(&bstrxmlconnectionconfigprofile), ::core::mem::transmute_copy(&padapterinstanceguid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pulstatus = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

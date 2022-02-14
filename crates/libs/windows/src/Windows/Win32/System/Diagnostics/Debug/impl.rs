@@ -661,7 +661,7 @@ impl IActiveScriptHostEncode_Vtbl {
         unsafe extern "system" fn EncodeScriptHostFile<Identity: ::windows::core::IUnknownImpl, Impl: IActiveScriptHostEncode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinfile: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstroutfile: *mut super::super::super::Foundation::BSTR, cflags: u32, bstrdefaultlang: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EncodeScriptHostFile(::core::mem::transmute_copy(&bstrinfile), ::core::mem::transmute_copy(&pbstroutfile), ::core::mem::transmute_copy(&cflags), ::core::mem::transmute_copy(&bstrdefaultlang)).into()
+            (*this).EncodeScriptHostFile(::core::mem::transmute(&bstrinfile), ::core::mem::transmute_copy(&pbstroutfile), ::core::mem::transmute_copy(&cflags), ::core::mem::transmute(&bstrdefaultlang)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EncodeScriptHostFile: EncodeScriptHostFile::<Identity, Impl, OFFSET> }
     }
@@ -1457,7 +1457,7 @@ impl IActiveScriptSiteTraceInfo_Vtbl {
         unsafe extern "system" fn SendScriptTraceInfo<Identity: ::windows::core::IUnknownImpl, Impl: IActiveScriptSiteTraceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stieventtype: SCRIPTTRACEINFO, guidcontextid: ::windows::core::GUID, dwscriptcontextcookie: u32, lscriptstatementstart: i32, lscriptstatementend: i32, dwreserved: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SendScriptTraceInfo(::core::mem::transmute_copy(&stieventtype), ::core::mem::transmute_copy(&guidcontextid), ::core::mem::transmute_copy(&dwscriptcontextcookie), ::core::mem::transmute_copy(&lscriptstatementstart), ::core::mem::transmute_copy(&lscriptstatementend), ::core::mem::transmute_copy(&dwreserved)).into()
+            (*this).SendScriptTraceInfo(::core::mem::transmute_copy(&stieventtype), ::core::mem::transmute(&guidcontextid), ::core::mem::transmute_copy(&dwscriptcontextcookie), ::core::mem::transmute_copy(&lscriptstatementstart), ::core::mem::transmute_copy(&lscriptstatementend), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SendScriptTraceInfo: SendScriptTraceInfo::<Identity, Impl, OFFSET> }
     }
@@ -1564,7 +1564,7 @@ impl IActiveScriptStringCompare_Vtbl {
         unsafe extern "system" fn StrComp<Identity: ::windows::core::IUnknownImpl, Impl: IActiveScriptStringCompare_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszstr1: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bszstr2: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, iret: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).StrComp(::core::mem::transmute_copy(&bszstr1), ::core::mem::transmute_copy(&bszstr2)) {
+            match (*this).StrComp(::core::mem::transmute(&bszstr1), ::core::mem::transmute(&bszstr2)) {
                 ::core::result::Result::Ok(ok__) => {
                     *iret = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1587,7 +1587,7 @@ impl IActiveScriptTraceInfo_Vtbl {
         unsafe extern "system" fn StartScriptTracing<Identity: ::windows::core::IUnknownImpl, Impl: IActiveScriptTraceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psitetraceinfo: ::windows::core::RawPtr, guidcontextid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).StartScriptTracing(::core::mem::transmute(&psitetraceinfo), ::core::mem::transmute_copy(&guidcontextid)).into()
+            (*this).StartScriptTracing(::core::mem::transmute(&psitetraceinfo), ::core::mem::transmute(&guidcontextid)).into()
         }
         unsafe extern "system" fn StopScriptTracing<Identity: ::windows::core::IUnknownImpl, Impl: IActiveScriptTraceInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1897,7 +1897,7 @@ impl IDataModelManager_Vtbl {
         unsafe extern "system" fn CreateTypedObject<Identity: ::windows::core::IUnknownImpl, Impl: IDataModelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, objectlocation: Location, objecttype: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateTypedObject(::core::mem::transmute(&context), ::core::mem::transmute_copy(&objectlocation), ::core::mem::transmute(&objecttype)) {
+            match (*this).CreateTypedObject(::core::mem::transmute(&context), ::core::mem::transmute(&objectlocation), ::core::mem::transmute(&objecttype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *object = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1908,7 +1908,7 @@ impl IDataModelManager_Vtbl {
         unsafe extern "system" fn CreateTypedObjectReference<Identity: ::windows::core::IUnknownImpl, Impl: IDataModelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, objectlocation: Location, objecttype: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateTypedObjectReference(::core::mem::transmute(&context), ::core::mem::transmute_copy(&objectlocation), ::core::mem::transmute(&objecttype)) {
+            match (*this).CreateTypedObjectReference(::core::mem::transmute(&context), ::core::mem::transmute(&objectlocation), ::core::mem::transmute(&objecttype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *object = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -21453,12 +21453,12 @@ impl IDebugHostMemory_Vtbl {
         unsafe extern "system" fn ReadBytes<Identity: ::windows::core::IUnknownImpl, Impl: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, location: Location, buffer: *mut ::core::ffi::c_void, buffersize: u64, bytesread: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ReadBytes(::core::mem::transmute(&context), ::core::mem::transmute_copy(&location), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&bytesread)).into()
+            (*this).ReadBytes(::core::mem::transmute(&context), ::core::mem::transmute(&location), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&bytesread)).into()
         }
         unsafe extern "system" fn WriteBytes<Identity: ::windows::core::IUnknownImpl, Impl: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, location: Location, buffer: *const ::core::ffi::c_void, buffersize: u64, byteswritten: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).WriteBytes(::core::mem::transmute(&context), ::core::mem::transmute_copy(&location), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
+            match (*this).WriteBytes(::core::mem::transmute(&context), ::core::mem::transmute(&location), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
                     *byteswritten = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -21469,17 +21469,17 @@ impl IDebugHostMemory_Vtbl {
         unsafe extern "system" fn ReadPointers<Identity: ::windows::core::IUnknownImpl, Impl: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, location: Location, count: u64, pointers: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ReadPointers(::core::mem::transmute(&context), ::core::mem::transmute_copy(&location), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&pointers)).into()
+            (*this).ReadPointers(::core::mem::transmute(&context), ::core::mem::transmute(&location), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&pointers)).into()
         }
         unsafe extern "system" fn WritePointers<Identity: ::windows::core::IUnknownImpl, Impl: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, location: Location, count: u64, pointers: *const u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WritePointers(::core::mem::transmute(&context), ::core::mem::transmute_copy(&location), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&pointers)).into()
+            (*this).WritePointers(::core::mem::transmute(&context), ::core::mem::transmute(&location), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&pointers)).into()
         }
         unsafe extern "system" fn GetDisplayStringForLocation<Identity: ::windows::core::IUnknownImpl, Impl: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, location: Location, verbose: u8, locationname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDisplayStringForLocation(::core::mem::transmute(&context), ::core::mem::transmute_copy(&location), ::core::mem::transmute_copy(&verbose)) {
+            match (*this).GetDisplayStringForLocation(::core::mem::transmute(&context), ::core::mem::transmute(&location), ::core::mem::transmute_copy(&verbose)) {
                 ::core::result::Result::Ok(ok__) => {
                     *locationname = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -21510,7 +21510,7 @@ impl IDebugHostMemory2_Vtbl {
         unsafe extern "system" fn LinearizeLocation<Identity: ::windows::core::IUnknownImpl, Impl: IDebugHostMemory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, location: Location, plinearizedlocation: *mut Location) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).LinearizeLocation(::core::mem::transmute(&context), ::core::mem::transmute_copy(&location)) {
+            match (*this).LinearizeLocation(::core::mem::transmute(&context), ::core::mem::transmute(&location)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plinearizedlocation = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -21966,7 +21966,7 @@ impl IDebugHostSymbols_Vtbl {
         unsafe extern "system" fn FindModuleByLocation<Identity: ::windows::core::IUnknownImpl, Impl: IDebugHostSymbols_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, modulelocation: Location, module: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).FindModuleByLocation(::core::mem::transmute(&context), ::core::mem::transmute_copy(&modulelocation)) {
+            match (*this).FindModuleByLocation(::core::mem::transmute(&context), ::core::mem::transmute(&modulelocation)) {
                 ::core::result::Result::Ok(ok__) => {
                     *module = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -21977,7 +21977,7 @@ impl IDebugHostSymbols_Vtbl {
         unsafe extern "system" fn GetMostDerivedObject<Identity: ::windows::core::IUnknownImpl, Impl: IDebugHostSymbols_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontext: ::windows::core::RawPtr, location: Location, objecttype: ::windows::core::RawPtr, derivedlocation: *mut Location, derivedtype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMostDerivedObject(::core::mem::transmute(&pcontext), ::core::mem::transmute_copy(&location), ::core::mem::transmute(&objecttype), ::core::mem::transmute_copy(&derivedlocation), ::core::mem::transmute_copy(&derivedtype)).into()
+            (*this).GetMostDerivedObject(::core::mem::transmute(&pcontext), ::core::mem::transmute(&location), ::core::mem::transmute(&objecttype), ::core::mem::transmute_copy(&derivedlocation), ::core::mem::transmute_copy(&derivedtype)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

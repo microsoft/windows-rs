@@ -62,7 +62,7 @@ impl IClassFactory2_Vtbl {
         unsafe extern "system" fn CreateInstanceLic<Identity: ::windows::core::IUnknownImpl, Impl: IClassFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, punkreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, bstrkey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateInstanceLic(::core::mem::transmute(&punkouter), ::core::mem::transmute(&punkreserved), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&bstrkey), ::core::mem::transmute_copy(&ppvobj)).into()
+            (*this).CreateInstanceLic(::core::mem::transmute(&punkouter), ::core::mem::transmute(&punkreserved), ::core::mem::transmute_copy(&riid), ::core::mem::transmute(&bstrkey), ::core::mem::transmute_copy(&ppvobj)).into()
         }
         Self {
             base: super::Com::IClassFactory_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -300,7 +300,7 @@ impl ICreateTypeInfo_Vtbl {
         unsafe extern "system" fn SetMops<Identity: ::windows::core::IUnknownImpl, Impl: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, bstrmops: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetMops(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&bstrmops)).into()
+            (*this).SetMops(::core::mem::transmute_copy(&index), ::core::mem::transmute(&bstrmops)).into()
         }
         unsafe extern "system" fn SetTypeIdldesc<Identity: ::windows::core::IUnknownImpl, Impl: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidldesc: *const super::Com::IDLDESC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -609,7 +609,7 @@ impl IDispError_Vtbl {
         unsafe extern "system" fn QueryErrorInfo<Identity: ::windows::core::IUnknownImpl, Impl: IDispError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guiderrortype: ::windows::core::GUID, ppde: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).QueryErrorInfo(::core::mem::transmute_copy(&guiderrortype)) {
+            match (*this).QueryErrorInfo(::core::mem::transmute(&guiderrortype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppde = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -697,7 +697,7 @@ impl IDispatchEx_Vtbl {
         unsafe extern "system" fn GetDispID<Identity: ::windows::core::IUnknownImpl, Impl: IDispatchEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, grfdex: u32, pid: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDispID(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&grfdex)) {
+            match (*this).GetDispID(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&grfdex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -713,7 +713,7 @@ impl IDispatchEx_Vtbl {
         unsafe extern "system" fn DeleteMemberByName<Identity: ::windows::core::IUnknownImpl, Impl: IDispatchEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, grfdex: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteMemberByName(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&grfdex)).into()
+            (*this).DeleteMemberByName(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&grfdex)).into()
         }
         unsafe extern "system" fn DeleteMemberByDispID<Identity: ::windows::core::IUnknownImpl, Impl: IDispatchEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -849,12 +849,12 @@ impl IDropTarget_Vtbl {
         unsafe extern "system" fn DragEnter<Identity: ::windows::core::IUnknownImpl, Impl: IDropTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataobj: ::windows::core::RawPtr, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DragEnter(::core::mem::transmute(&pdataobj), ::core::mem::transmute_copy(&grfkeystate), ::core::mem::transmute_copy(&pt), ::core::mem::transmute_copy(&pdweffect)).into()
+            (*this).DragEnter(::core::mem::transmute(&pdataobj), ::core::mem::transmute_copy(&grfkeystate), ::core::mem::transmute(&pt), ::core::mem::transmute_copy(&pdweffect)).into()
         }
         unsafe extern "system" fn DragOver<Identity: ::windows::core::IUnknownImpl, Impl: IDropTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DragOver(::core::mem::transmute_copy(&grfkeystate), ::core::mem::transmute_copy(&pt), ::core::mem::transmute_copy(&pdweffect)).into()
+            (*this).DragOver(::core::mem::transmute_copy(&grfkeystate), ::core::mem::transmute(&pt), ::core::mem::transmute_copy(&pdweffect)).into()
         }
         unsafe extern "system" fn DragLeave<Identity: ::windows::core::IUnknownImpl, Impl: IDropTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -864,7 +864,7 @@ impl IDropTarget_Vtbl {
         unsafe extern "system" fn Drop<Identity: ::windows::core::IUnknownImpl, Impl: IDropTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataobj: ::windows::core::RawPtr, grfkeystate: u32, pt: super::super::Foundation::POINTL, pdweffect: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Drop(::core::mem::transmute(&pdataobj), ::core::mem::transmute_copy(&grfkeystate), ::core::mem::transmute_copy(&pt), ::core::mem::transmute_copy(&pdweffect)).into()
+            (*this).Drop(::core::mem::transmute(&pdataobj), ::core::mem::transmute_copy(&grfkeystate), ::core::mem::transmute(&pt), ::core::mem::transmute_copy(&pdweffect)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -1144,7 +1144,7 @@ impl IFont_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: IFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&name)).into()
+            (*this).SetName(::core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn Size<Identity: ::windows::core::IUnknownImpl, Impl: IFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psize: *mut super::Com::CY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1160,7 +1160,7 @@ impl IFont_Vtbl {
         unsafe extern "system" fn SetSize<Identity: ::windows::core::IUnknownImpl, Impl: IFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: super::Com::CY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSize(::core::mem::transmute_copy(&size)).into()
+            (*this).SetSize(::core::mem::transmute(&size)).into()
         }
         unsafe extern "system" fn Bold<Identity: ::windows::core::IUnknownImpl, Impl: IFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbold: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2284,7 +2284,7 @@ impl IOleInPlaceSite_Vtbl {
         unsafe extern "system" fn Scroll<Identity: ::windows::core::IUnknownImpl, Impl: IOleInPlaceSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scrollextant: super::super::Foundation::SIZE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Scroll(::core::mem::transmute_copy(&scrollextant)).into()
+            (*this).Scroll(::core::mem::transmute(&scrollextant)).into()
         }
         unsafe extern "system" fn OnUIDeactivate<Identity: ::windows::core::IUnknownImpl, Impl: IOleInPlaceSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fundoable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4761,7 +4761,7 @@ impl IVBFormat_Vtbl {
         unsafe extern "system" fn Format<Identity: ::windows::core::IUnknownImpl, Impl: IVBFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdata: *mut super::Com::VARIANT, bstrformat: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Format(::core::mem::transmute_copy(&vdata), ::core::mem::transmute_copy(&bstrformat), ::core::mem::transmute_copy(&lpbuffer), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&sfirstdayofweek), ::core::mem::transmute_copy(&sfirstweekofyear), ::core::mem::transmute_copy(&rcb)).into()
+            (*this).Format(::core::mem::transmute_copy(&vdata), ::core::mem::transmute(&bstrformat), ::core::mem::transmute_copy(&lpbuffer), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&sfirstdayofweek), ::core::mem::transmute_copy(&sfirstweekofyear), ::core::mem::transmute_copy(&rcb)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Format: Format::<Identity, Impl, OFFSET> }
     }
@@ -4927,7 +4927,7 @@ impl IViewObjectEx_Vtbl {
         unsafe extern "system" fn QueryHitPoint<Identity: ::windows::core::IUnknownImpl, Impl: IViewObjectEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, ptlloc: super::super::Foundation::POINT, lclosehint: i32, phitresult: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).QueryHitPoint(::core::mem::transmute_copy(&dwaspect), ::core::mem::transmute_copy(&prectbounds), ::core::mem::transmute_copy(&ptlloc), ::core::mem::transmute_copy(&lclosehint)) {
+            match (*this).QueryHitPoint(::core::mem::transmute_copy(&dwaspect), ::core::mem::transmute_copy(&prectbounds), ::core::mem::transmute(&ptlloc), ::core::mem::transmute_copy(&lclosehint)) {
                 ::core::result::Result::Ok(ok__) => {
                     *phitresult = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

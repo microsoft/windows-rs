@@ -115,7 +115,7 @@ impl IDXCoreAdapterFactory_Vtbl {
         unsafe extern "system" fn RegisterEventNotification<Identity: ::windows::core::IUnknownImpl, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dxcoreobject: *mut ::core::ffi::c_void, notificationtype: DXCoreNotificationType, callbackfunction: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void, eventcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RegisterEventNotification(::core::mem::transmute(&dxcoreobject), ::core::mem::transmute_copy(&notificationtype), ::core::mem::transmute_copy(&callbackfunction), ::core::mem::transmute_copy(&callbackcontext)) {
+            match (*this).RegisterEventNotification(::core::mem::transmute(&dxcoreobject), ::core::mem::transmute_copy(&notificationtype), ::core::mem::transmute(&callbackfunction), ::core::mem::transmute_copy(&callbackcontext)) {
                 ::core::result::Result::Ok(ok__) => {
                     *eventcookie = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

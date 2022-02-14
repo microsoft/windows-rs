@@ -2291,17 +2291,17 @@ impl IWMDMProgress3_Vtbl {
         unsafe extern "system" fn Begin3<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMProgress3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: ::windows::core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Begin3(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&dwestimatedticks), ::core::mem::transmute_copy(&pcontext)).into()
+            (*this).Begin3(::core::mem::transmute(&eventid), ::core::mem::transmute_copy(&dwestimatedticks), ::core::mem::transmute_copy(&pcontext)).into()
         }
         unsafe extern "system" fn Progress3<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMProgress3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: ::windows::core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Progress3(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&dwtranspiredticks), ::core::mem::transmute_copy(&pcontext)).into()
+            (*this).Progress3(::core::mem::transmute(&eventid), ::core::mem::transmute_copy(&dwtranspiredticks), ::core::mem::transmute_copy(&pcontext)).into()
         }
         unsafe extern "system" fn End3<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMProgress3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: ::windows::core::GUID, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).End3(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&hrcompletioncode), ::core::mem::transmute_copy(&pcontext)).into()
+            (*this).End3(::core::mem::transmute(&eventid), ::core::mem::transmute_copy(&hrcompletioncode), ::core::mem::transmute_copy(&pcontext)).into()
         }
         Self {
             base: IWMDMProgress2_Vtbl::new::<Identity, Impl, OFFSET>(),

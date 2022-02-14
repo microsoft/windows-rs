@@ -103,7 +103,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn GetKeyLengthList<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprovidername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetKeyLengthList(::core::mem::transmute_copy(&bstrprovidername)) {
+            match (*this).GetKeyLengthList(::core::mem::transmute(&bstrprovidername)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -114,7 +114,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn GetHashAlgorithmList<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprovidername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetHashAlgorithmList(::core::mem::transmute_copy(&bstrprovidername)) {
+            match (*this).GetHashAlgorithmList(::core::mem::transmute(&bstrprovidername)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -125,7 +125,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn GetPrivateKeyContainerList<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprovidername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetPrivateKeyContainerList(::core::mem::transmute_copy(&bstrprovidername)) {
+            match (*this).GetPrivateKeyContainerList(::core::mem::transmute(&bstrprovidername)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -147,7 +147,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn CAImportPFX<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpasswd: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, boverwriteexistingkey: i16, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CAImportPFX(::core::mem::transmute_copy(&bstrfilename), ::core::mem::transmute_copy(&bstrpasswd), ::core::mem::transmute_copy(&boverwriteexistingkey)) {
+            match (*this).CAImportPFX(::core::mem::transmute(&bstrfilename), ::core::mem::transmute(&bstrpasswd), ::core::mem::transmute_copy(&boverwriteexistingkey)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -158,22 +158,22 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn SetCADistinguishedName<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcadn: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bignoreunicode: i16, boverwriteexistingkey: i16, boverwriteexistingcainds: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCADistinguishedName(::core::mem::transmute_copy(&bstrcadn), ::core::mem::transmute_copy(&bignoreunicode), ::core::mem::transmute_copy(&boverwriteexistingkey), ::core::mem::transmute_copy(&boverwriteexistingcainds)).into()
+            (*this).SetCADistinguishedName(::core::mem::transmute(&bstrcadn), ::core::mem::transmute_copy(&bignoreunicode), ::core::mem::transmute_copy(&boverwriteexistingkey), ::core::mem::transmute_copy(&boverwriteexistingcainds)).into()
         }
         unsafe extern "system" fn SetDatabaseInformation<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdbdirectory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrlogdirectory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsharedfolder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bforceoverwrite: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDatabaseInformation(::core::mem::transmute_copy(&bstrdbdirectory), ::core::mem::transmute_copy(&bstrlogdirectory), ::core::mem::transmute_copy(&bstrsharedfolder), ::core::mem::transmute_copy(&bforceoverwrite)).into()
+            (*this).SetDatabaseInformation(::core::mem::transmute(&bstrdbdirectory), ::core::mem::transmute(&bstrlogdirectory), ::core::mem::transmute(&bstrsharedfolder), ::core::mem::transmute_copy(&bforceoverwrite)).into()
         }
         unsafe extern "system" fn SetParentCAInformation<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcaconfiguration: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetParentCAInformation(::core::mem::transmute_copy(&bstrcaconfiguration)).into()
+            (*this).SetParentCAInformation(::core::mem::transmute(&bstrcaconfiguration)).into()
         }
         unsafe extern "system" fn SetWebCAInformation<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcaconfiguration: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetWebCAInformation(::core::mem::transmute_copy(&bstrcaconfiguration)).into()
+            (*this).SetWebCAInformation(::core::mem::transmute(&bstrcaconfiguration)).into()
         }
         unsafe extern "system" fn Install<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -250,7 +250,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn SetProviderName<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProviderName(::core::mem::transmute_copy(&bstrval)).into()
+            (*this).SetProviderName(::core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn Length<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -298,7 +298,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn SetContainerName<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetContainerName(::core::mem::transmute_copy(&bstrval)).into()
+            (*this).SetContainerName(::core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn HashAlgorithm<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -314,7 +314,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn SetHashAlgorithm<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetHashAlgorithm(::core::mem::transmute_copy(&bstrval)).into()
+            (*this).SetHashAlgorithm(::core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn ExistingCACertificate<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -330,7 +330,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn SetExistingCACertificate<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetExistingCACertificate(::core::mem::transmute_copy(&varval)).into()
+            (*this).SetExistingCACertificate(::core::mem::transmute(&varval)).into()
         }
         Self {
             base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -528,7 +528,7 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
         unsafe extern "system" fn SetApplicationPoolCredentials<Identity: ::windows::core::IUnknownImpl, Impl: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetApplicationPoolCredentials(::core::mem::transmute_copy(&bstrusername), ::core::mem::transmute_copy(&bstrpassword)).into()
+            (*this).SetApplicationPoolCredentials(::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrpassword)).into()
         }
         unsafe extern "system" fn Install<Identity: ::windows::core::IUnknownImpl, Impl: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -619,7 +619,7 @@ impl IMSCEPSetup_Vtbl {
         unsafe extern "system" fn SetAccountInformation<Identity: ::windows::core::IUnknownImpl, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAccountInformation(::core::mem::transmute_copy(&bstrusername), ::core::mem::transmute_copy(&bstrpassword)).into()
+            (*this).SetAccountInformation(::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrpassword)).into()
         }
         unsafe extern "system" fn IsMSCEPStoreEmpty<Identity: ::windows::core::IUnknownImpl, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbempty: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -646,7 +646,7 @@ impl IMSCEPSetup_Vtbl {
         unsafe extern "system" fn GetKeyLengthList<Identity: ::windows::core::IUnknownImpl, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bexchange: i16, bstrprovidername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetKeyLengthList(::core::mem::transmute_copy(&bexchange), ::core::mem::transmute_copy(&bstrprovidername)) {
+            match (*this).GetKeyLengthList(::core::mem::transmute_copy(&bexchange), ::core::mem::transmute(&bstrprovidername)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

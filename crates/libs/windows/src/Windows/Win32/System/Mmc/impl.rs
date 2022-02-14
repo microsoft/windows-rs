@@ -192,7 +192,7 @@ impl ContextMenu_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: ContextMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexorpath: ::core::mem::ManuallyDrop<super::Com::VARIANT>, menuitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&indexorpath)) {
+            match (*this).Item(::core::mem::transmute(&indexorpath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *menuitem = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -252,7 +252,7 @@ impl Document_Vtbl {
         unsafe extern "system" fn SaveAs<Identity: ::windows::core::IUnknownImpl, Impl: Document_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SaveAs(::core::mem::transmute_copy(&filename)).into()
+            (*this).SaveAs(::core::mem::transmute(&filename)).into()
         }
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl, Impl: Document_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, savechanges: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -306,7 +306,7 @@ impl Document_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: Document_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&name)).into()
+            (*this).SetName(::core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn Location<Identity: ::windows::core::IUnknownImpl, Impl: Document_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, location: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1938,7 +1938,7 @@ impl INodeProperties_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl, Impl: INodeProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr, szpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrproperty: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetProperty(::core::mem::transmute(&pdataobject), ::core::mem::transmute_copy(&szpropertyname)) {
+            match (*this).GetProperty(::core::mem::transmute(&pdataobject), ::core::mem::transmute(&szpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrproperty = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2758,7 +2758,7 @@ impl Node_Vtbl {
         unsafe extern "system" fn Property<Identity: ::windows::core::IUnknownImpl, Impl: Node_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyvalue: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Property(::core::mem::transmute_copy(&propertyname)) {
+            match (*this).Property(::core::mem::transmute(&propertyname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *propertyvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2889,7 +2889,7 @@ impl Properties_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, property: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&name)) {
+            match (*this).Item(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *property = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2911,7 +2911,7 @@ impl Properties_Vtbl {
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl, Impl: Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Remove(::core::mem::transmute_copy(&name)).into()
+            (*this).Remove(::core::mem::transmute(&name)).into()
         }
         Self {
             base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2948,7 +2948,7 @@ impl Property_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: Property_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetValue(::core::mem::transmute_copy(&value)).into()
+            (*this).SetValue(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: Property_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3191,7 +3191,7 @@ impl SnapIns_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: SnapIns_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapinnameorclsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, parentsnapin: ::core::mem::ManuallyDrop<super::Com::VARIANT>, properties: ::core::mem::ManuallyDrop<super::Com::VARIANT>, snapin: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Add(::core::mem::transmute_copy(&snapinnameorclsid), ::core::mem::transmute_copy(&parentsnapin), ::core::mem::transmute_copy(&properties)) {
+            match (*this).Add(::core::mem::transmute(&snapinnameorclsid), ::core::mem::transmute(&parentsnapin), ::core::mem::transmute(&properties)) {
                 ::core::result::Result::Ok(ok__) => {
                     *snapin = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3306,7 +3306,7 @@ impl View_Vtbl {
         unsafe extern "system" fn SnapinScopeObject<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>, scopenodeobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SnapinScopeObject(::core::mem::transmute_copy(&scopenode)) {
+            match (*this).SnapinScopeObject(::core::mem::transmute(&scopenode)) {
                 ::core::result::Result::Ok(ok__) => {
                     *scopenodeobject = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3376,7 +3376,7 @@ impl View_Vtbl {
         unsafe extern "system" fn DisplayScopeNodePropertySheet<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DisplayScopeNodePropertySheet(::core::mem::transmute_copy(&scopenode)).into()
+            (*this).DisplayScopeNodePropertySheet(::core::mem::transmute(&scopenode)).into()
         }
         unsafe extern "system" fn DisplaySelectionPropertySheet<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3386,7 +3386,7 @@ impl View_Vtbl {
         unsafe extern "system" fn CopyScopeNode<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CopyScopeNode(::core::mem::transmute_copy(&scopenode)).into()
+            (*this).CopyScopeNode(::core::mem::transmute(&scopenode)).into()
         }
         unsafe extern "system" fn CopySelection<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3396,7 +3396,7 @@ impl View_Vtbl {
         unsafe extern "system" fn DeleteScopeNode<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteScopeNode(::core::mem::transmute_copy(&scopenode)).into()
+            (*this).DeleteScopeNode(::core::mem::transmute(&scopenode)).into()
         }
         unsafe extern "system" fn DeleteSelection<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3406,17 +3406,17 @@ impl View_Vtbl {
         unsafe extern "system" fn RenameScopeNode<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RenameScopeNode(::core::mem::transmute_copy(&newname), ::core::mem::transmute_copy(&scopenode)).into()
+            (*this).RenameScopeNode(::core::mem::transmute(&newname), ::core::mem::transmute(&scopenode)).into()
         }
         unsafe extern "system" fn RenameSelectedItem<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RenameSelectedItem(::core::mem::transmute_copy(&newname)).into()
+            (*this).RenameSelectedItem(::core::mem::transmute(&newname)).into()
         }
         unsafe extern "system" fn ScopeNodeContextMenu<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>, contextmenu: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ScopeNodeContextMenu(::core::mem::transmute_copy(&scopenode)) {
+            match (*this).ScopeNodeContextMenu(::core::mem::transmute(&scopenode)) {
                 ::core::result::Result::Ok(ok__) => {
                     *contextmenu = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3438,7 +3438,7 @@ impl View_Vtbl {
         unsafe extern "system" fn RefreshScopeNode<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RefreshScopeNode(::core::mem::transmute_copy(&scopenode)).into()
+            (*this).RefreshScopeNode(::core::mem::transmute(&scopenode)).into()
         }
         unsafe extern "system" fn RefreshSelection<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3448,17 +3448,17 @@ impl View_Vtbl {
         unsafe extern "system" fn ExecuteSelectionMenuItem<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, menuitempath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ExecuteSelectionMenuItem(::core::mem::transmute_copy(&menuitempath)).into()
+            (*this).ExecuteSelectionMenuItem(::core::mem::transmute(&menuitempath)).into()
         }
         unsafe extern "system" fn ExecuteScopeNodeMenuItem<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, menuitempath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ExecuteScopeNodeMenuItem(::core::mem::transmute_copy(&menuitempath), ::core::mem::transmute_copy(&scopenode)).into()
+            (*this).ExecuteScopeNodeMenuItem(::core::mem::transmute(&menuitempath), ::core::mem::transmute(&scopenode)).into()
         }
         unsafe extern "system" fn ExecuteShellCommand<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, command: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, directory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, parameters: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, windowstate: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ExecuteShellCommand(::core::mem::transmute_copy(&command), ::core::mem::transmute_copy(&directory), ::core::mem::transmute_copy(&parameters), ::core::mem::transmute_copy(&windowstate)).into()
+            (*this).ExecuteShellCommand(::core::mem::transmute(&command), ::core::mem::transmute(&directory), ::core::mem::transmute(&parameters), ::core::mem::transmute(&windowstate)).into()
         }
         unsafe extern "system" fn Frame<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frame: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3505,7 +3505,7 @@ impl View_Vtbl {
         unsafe extern "system" fn SetStatusBarText<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statusbartext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetStatusBarText(::core::mem::transmute_copy(&statusbartext)).into()
+            (*this).SetStatusBarText(::core::mem::transmute(&statusbartext)).into()
         }
         unsafe extern "system" fn Memento<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, memento: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3521,7 +3521,7 @@ impl View_Vtbl {
         unsafe extern "system" fn ViewMemento<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, memento: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ViewMemento(::core::mem::transmute_copy(&memento)).into()
+            (*this).ViewMemento(::core::mem::transmute(&memento)).into()
         }
         unsafe extern "system" fn Columns<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, columns: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3548,7 +3548,7 @@ impl View_Vtbl {
         unsafe extern "system" fn ExportList<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, exportoptions: _ExportListOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ExportList(::core::mem::transmute_copy(&file), ::core::mem::transmute_copy(&exportoptions)).into()
+            (*this).ExportList(::core::mem::transmute(&file), ::core::mem::transmute_copy(&exportoptions)).into()
         }
         unsafe extern "system" fn ListViewMode<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: *mut _ListViewMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3827,7 +3827,7 @@ impl _Application_Vtbl {
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl, Impl: _Application_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Load(::core::mem::transmute_copy(&filename)).into()
+            (*this).Load(::core::mem::transmute(&filename)).into()
         }
         unsafe extern "system" fn Frame<Identity: ::windows::core::IUnknownImpl, Impl: _Application_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frame: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

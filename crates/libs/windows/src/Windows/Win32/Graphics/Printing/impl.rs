@@ -271,7 +271,7 @@ impl IBidiSpl2_Vtbl {
         unsafe extern "system" fn SendRecvXMLString<Identity: ::windows::core::IUnknownImpl, Impl: IBidiSpl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrequest: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrresponse: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SendRecvXMLString(::core::mem::transmute_copy(&bstrrequest)) {
+            match (*this).SendRecvXMLString(::core::mem::transmute(&bstrrequest)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrresponse = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2046,7 +2046,7 @@ impl IPrintSchemaCapabilities_Vtbl {
         unsafe extern "system" fn GetFeatureByKeyName<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSchemaCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrkeyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfeature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetFeatureByKeyName(::core::mem::transmute_copy(&bstrkeyname)) {
+            match (*this).GetFeatureByKeyName(::core::mem::transmute(&bstrkeyname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppfeature = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2057,7 +2057,7 @@ impl IPrintSchemaCapabilities_Vtbl {
         unsafe extern "system" fn GetFeature<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSchemaCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnamespaceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfeature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetFeature(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrnamespaceuri)) {
+            match (*this).GetFeature(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrnamespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppfeature = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2145,7 +2145,7 @@ impl IPrintSchemaCapabilities2_Vtbl {
         unsafe extern "system" fn GetParameterDefinition<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSchemaCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnamespaceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppparameterdefinition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetParameterDefinition(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrnamespaceuri)) {
+            match (*this).GetParameterDefinition(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrnamespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppparameterdefinition = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2277,7 +2277,7 @@ impl IPrintSchemaFeature_Vtbl {
         unsafe extern "system" fn GetOption<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSchemaFeature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnamespaceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppoption: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetOption(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrnamespaceuri)) {
+            match (*this).GetOption(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrnamespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppoption = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2367,7 +2367,7 @@ impl IPrintSchemaOption_Vtbl {
         unsafe extern "system" fn GetPropertyValue<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSchemaOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnamespaceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppxmlvaluenode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetPropertyValue(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrnamespaceuri)) {
+            match (*this).GetPropertyValue(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrnamespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppxmlvaluenode = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2701,7 +2701,7 @@ impl IPrintSchemaTicket_Vtbl {
         unsafe extern "system" fn GetFeatureByKeyName<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSchemaTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrkeyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfeature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetFeatureByKeyName(::core::mem::transmute_copy(&bstrkeyname)) {
+            match (*this).GetFeatureByKeyName(::core::mem::transmute(&bstrkeyname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppfeature = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2712,7 +2712,7 @@ impl IPrintSchemaTicket_Vtbl {
         unsafe extern "system" fn GetFeature<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSchemaTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnamespaceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfeature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetFeature(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrnamespaceuri)) {
+            match (*this).GetFeature(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrnamespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppfeature = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2800,7 +2800,7 @@ impl IPrintSchemaTicket2_Vtbl {
         unsafe extern "system" fn GetParameterInitializer<Identity: ::windows::core::IUnknownImpl, Impl: IPrintSchemaTicket2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrnamespaceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppparameterinitializer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetParameterInitializer(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrnamespaceuri)) {
+            match (*this).GetParameterInitializer(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrnamespaceuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppparameterinitializer = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2997,7 +2997,7 @@ impl IPrinterBidiSetRequestCallback_Vtbl {
         unsafe extern "system" fn Completed<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterBidiSetRequestCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrresponse: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Completed(::core::mem::transmute_copy(&bstrresponse), ::core::mem::transmute_copy(&hrstatus)).into()
+            (*this).Completed(::core::mem::transmute(&bstrresponse), ::core::mem::transmute_copy(&hrstatus)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Completed: Completed::<Identity, Impl, OFFSET> }
     }
@@ -3282,7 +3282,7 @@ impl IPrinterExtensionManager_Vtbl {
         unsafe extern "system" fn EnableEvents<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterExtensionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, printerdriverid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EnableEvents(::core::mem::transmute_copy(&printerdriverid)).into()
+            (*this).EnableEvents(::core::mem::transmute(&printerdriverid)).into()
         }
         unsafe extern "system" fn DisableEvents<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterExtensionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3310,7 +3310,7 @@ impl IPrinterExtensionRequest_Vtbl {
         unsafe extern "system" fn Cancel<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterExtensionRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, bstrlogmessage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Cancel(::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute_copy(&bstrlogmessage)).into()
+            (*this).Cancel(::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute(&bstrlogmessage)).into()
         }
         unsafe extern "system" fn Complete<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterExtensionRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3346,7 +3346,7 @@ impl IPrinterPropertyBag_Vtbl {
         unsafe extern "system" fn GetBool<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetBool(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetBool(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3357,12 +3357,12 @@ impl IPrinterPropertyBag_Vtbl {
         unsafe extern "system" fn SetBool<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bvalue: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBool(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bvalue)).into()
+            (*this).SetBool(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&bvalue)).into()
         }
         unsafe extern "system" fn GetInt32<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pnvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetInt32(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetInt32(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pnvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3373,12 +3373,12 @@ impl IPrinterPropertyBag_Vtbl {
         unsafe extern "system" fn SetInt32<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, nvalue: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetInt32(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&nvalue)).into()
+            (*this).SetInt32(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&nvalue)).into()
         }
         unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetString(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetString(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3389,22 +3389,22 @@ impl IPrinterPropertyBag_Vtbl {
         unsafe extern "system" fn SetString<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetString(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrvalue)).into()
+            (*this).SetString(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrvalue)).into()
         }
         unsafe extern "system" fn GetBytes<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcbvalue: *mut u32, ppvalue: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetBytes(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&pcbvalue), ::core::mem::transmute_copy(&ppvalue)).into()
+            (*this).GetBytes(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&pcbvalue), ::core::mem::transmute_copy(&ppvalue)).into()
         }
         unsafe extern "system" fn SetBytes<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, cbvalue: u32, pvalue: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBytes(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&cbvalue), ::core::mem::transmute_copy(&pvalue)).into()
+            (*this).SetBytes(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&cbvalue), ::core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn GetReadStream<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetReadStream(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetReadStream(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3415,7 +3415,7 @@ impl IPrinterPropertyBag_Vtbl {
         unsafe extern "system" fn GetWriteStream<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetWriteStream(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetWriteStream(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3476,7 +3476,7 @@ impl IPrinterQueue_Vtbl {
         unsafe extern "system" fn SendBidiQuery<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbidiquery: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SendBidiQuery(::core::mem::transmute_copy(&bstrbidiquery)).into()
+            (*this).SendBidiQuery(::core::mem::transmute(&bstrbidiquery)).into()
         }
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppropertybag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3512,7 +3512,7 @@ impl IPrinterQueue2_Vtbl {
         unsafe extern "system" fn SendBidiSetRequestAsync<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterQueue2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbidirequest: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcallback: ::windows::core::RawPtr, ppasyncoperation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SendBidiSetRequestAsync(::core::mem::transmute_copy(&bstrbidirequest), ::core::mem::transmute(&pcallback)) {
+            match (*this).SendBidiSetRequestAsync(::core::mem::transmute(&bstrbidirequest), ::core::mem::transmute(&pcallback)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppasyncoperation = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3551,7 +3551,7 @@ impl IPrinterQueueEvent_Vtbl {
         unsafe extern "system" fn OnBidiResponseReceived<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterQueueEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrresponse: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnBidiResponseReceived(::core::mem::transmute_copy(&bstrresponse), ::core::mem::transmute_copy(&hrstatus)).into()
+            (*this).OnBidiResponseReceived(::core::mem::transmute(&bstrresponse), ::core::mem::transmute_copy(&hrstatus)).into()
         }
         Self {
             base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3670,7 +3670,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
         unsafe extern "system" fn GetBool<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetBool(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetBool(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3681,12 +3681,12 @@ impl IPrinterScriptablePropertyBag_Vtbl {
         unsafe extern "system" fn SetBool<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bvalue: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBool(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bvalue)).into()
+            (*this).SetBool(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&bvalue)).into()
         }
         unsafe extern "system" fn GetInt32<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pnvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetInt32(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetInt32(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pnvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3697,12 +3697,12 @@ impl IPrinterScriptablePropertyBag_Vtbl {
         unsafe extern "system" fn SetInt32<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, nvalue: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetInt32(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&nvalue)).into()
+            (*this).SetInt32(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&nvalue)).into()
         }
         unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetString(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetString(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3713,12 +3713,12 @@ impl IPrinterScriptablePropertyBag_Vtbl {
         unsafe extern "system" fn SetString<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetString(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrvalue)).into()
+            (*this).SetString(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrvalue)).into()
         }
         unsafe extern "system" fn GetBytes<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pparray: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetBytes(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetBytes(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pparray = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3729,12 +3729,12 @@ impl IPrinterScriptablePropertyBag_Vtbl {
         unsafe extern "system" fn SetBytes<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, parray: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBytes(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute(&parray)).into()
+            (*this).SetBytes(::core::mem::transmute(&bstrname), ::core::mem::transmute(&parray)).into()
         }
         unsafe extern "system" fn GetReadStream<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetReadStream(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetReadStream(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppstream = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3745,7 +3745,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
         unsafe extern "system" fn GetWriteStream<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetWriteStream(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetWriteStream(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppstream = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3781,7 +3781,7 @@ impl IPrinterScriptablePropertyBag2_Vtbl {
         unsafe extern "system" fn GetReadStreamAsXML<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterScriptablePropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppxmlnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetReadStreamAsXML(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetReadStreamAsXML(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppxmlnode = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

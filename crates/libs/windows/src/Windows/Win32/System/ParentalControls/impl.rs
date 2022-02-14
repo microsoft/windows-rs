@@ -8,7 +8,7 @@ impl IWPCGamesSettings_Vtbl {
         unsafe extern "system" fn IsBlocked<Identity: ::windows::core::IUnknownImpl, Impl: IWPCGamesSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidappid: ::windows::core::GUID, pdwreasons: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsBlocked(::core::mem::transmute_copy(&guidappid)) {
+            match (*this).IsBlocked(::core::mem::transmute(&guidappid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pdwreasons = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -34,7 +34,7 @@ impl IWPCProviderConfig_Vtbl {
         unsafe extern "system" fn GetUserSummary<Identity: ::windows::core::IUnknownImpl, Impl: IWPCProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrusersummary: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetUserSummary(::core::mem::transmute_copy(&bstrsid)) {
+            match (*this).GetUserSummary(::core::mem::transmute(&bstrsid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrusersummary = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -45,12 +45,12 @@ impl IWPCProviderConfig_Vtbl {
         unsafe extern "system" fn Configure<Identity: ::windows::core::IUnknownImpl, Impl: IWPCProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Configure(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&bstrsid)).into()
+            (*this).Configure(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&bstrsid)).into()
         }
         unsafe extern "system" fn RequestOverride<Identity: ::windows::core::IUnknownImpl, Impl: IWPCProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RequestOverride(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&bstrpath), ::core::mem::transmute_copy(&dwflags)).into()
+            (*this).RequestOverride(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&bstrpath), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

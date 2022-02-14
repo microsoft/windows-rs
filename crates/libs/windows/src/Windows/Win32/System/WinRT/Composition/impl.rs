@@ -54,7 +54,7 @@ impl ICompositionDrawingSurfaceInterop_Vtbl {
         unsafe extern "system" fn Resize<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizepixels: super::super::super::Foundation::SIZE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Resize(::core::mem::transmute_copy(&sizepixels)).into()
+            (*this).Resize(::core::mem::transmute(&sizepixels)).into()
         }
         unsafe extern "system" fn Scroll<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

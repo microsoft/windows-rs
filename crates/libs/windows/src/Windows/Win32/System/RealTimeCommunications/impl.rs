@@ -310,7 +310,7 @@ impl IRTCBuddyGroup_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&bstrgroupname)).into()
+            (*this).SetName(::core::mem::transmute(&bstrgroupname)).into()
         }
         unsafe extern "system" fn AddBuddy<Identity: ::windows::core::IUnknownImpl, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuddy: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -358,7 +358,7 @@ impl IRTCBuddyGroup_Vtbl {
         unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetData(::core::mem::transmute_copy(&bstrdata)).into()
+            (*this).SetData(::core::mem::transmute(&bstrdata)).into()
         }
         unsafe extern "system" fn Profile<Identity: ::windows::core::IUnknownImpl, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -563,7 +563,7 @@ impl IRTCClient_Vtbl {
         unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pprofile: ::windows::core::RawPtr, lflags: i32, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateSession(::core::mem::transmute_copy(&entype), ::core::mem::transmute_copy(&bstrlocalphoneuri), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
+            match (*this).CreateSession(::core::mem::transmute_copy(&entype), ::core::mem::transmute(&bstrlocalphoneuri), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppsession = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -644,7 +644,7 @@ impl IRTCClient_Vtbl {
         unsafe extern "system" fn SetPreferredAudioDevice<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, bstrdevicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPreferredAudioDevice(::core::mem::transmute_copy(&endevice), ::core::mem::transmute_copy(&bstrdevicename)).into()
+            (*this).SetPreferredAudioDevice(::core::mem::transmute_copy(&endevice), ::core::mem::transmute(&bstrdevicename)).into()
         }
         unsafe extern "system" fn PreferredAudioDevice<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -692,7 +692,7 @@ impl IRTCClient_Vtbl {
         unsafe extern "system" fn SetPreferredVideoDevice<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdevicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPreferredVideoDevice(::core::mem::transmute_copy(&bstrdevicename)).into()
+            (*this).SetPreferredVideoDevice(::core::mem::transmute(&bstrdevicename)).into()
         }
         unsafe extern "system" fn PreferredVideoDevice<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -794,7 +794,7 @@ impl IRTCClient_Vtbl {
         unsafe extern "system" fn SetLocalUserURI<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruseruri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLocalUserURI(::core::mem::transmute_copy(&bstruseruri)).into()
+            (*this).SetLocalUserURI(::core::mem::transmute(&bstruseruri)).into()
         }
         unsafe extern "system" fn LocalUserName<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrusername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -810,7 +810,7 @@ impl IRTCClient_Vtbl {
         unsafe extern "system" fn SetLocalUserName<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLocalUserName(::core::mem::transmute_copy(&bstrusername)).into()
+            (*this).SetLocalUserName(::core::mem::transmute(&bstrusername)).into()
         }
         unsafe extern "system" fn PlayRing<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_RING_TYPE, bplay: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -942,12 +942,12 @@ impl IRTCClient2_Vtbl {
         unsafe extern "system" fn SetClientName<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclientname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetClientName(::core::mem::transmute_copy(&bstrclientname)).into()
+            (*this).SetClientName(::core::mem::transmute(&bstrclientname)).into()
         }
         unsafe extern "system" fn SetClientCurVer<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclientcurver: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetClientCurVer(::core::mem::transmute_copy(&bstrclientcurver)).into()
+            (*this).SetClientCurVer(::core::mem::transmute(&bstrclientcurver)).into()
         }
         unsafe extern "system" fn InitializeEx<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -957,7 +957,7 @@ impl IRTCClient2_Vtbl {
         unsafe extern "system" fn CreateSessionWithDescription<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsessiondescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pprofile: ::windows::core::RawPtr, lflags: i32, ppsession2: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateSessionWithDescription(::core::mem::transmute_copy(&bstrcontenttype), ::core::mem::transmute_copy(&bstrsessiondescription), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
+            match (*this).CreateSessionWithDescription(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppsession2 = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1075,12 +1075,12 @@ impl IRTCClientPortManagement_Vtbl {
         unsafe extern "system" fn StartListenAddressAndPort<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPortManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternallocaladdress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternallocalport: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).StartListenAddressAndPort(::core::mem::transmute_copy(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport)).into()
+            (*this).StartListenAddressAndPort(::core::mem::transmute(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport)).into()
         }
         unsafe extern "system" fn StopListenAddressAndPort<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPortManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternallocaladdress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternallocalport: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).StopListenAddressAndPort(::core::mem::transmute_copy(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport)).into()
+            (*this).StopListenAddressAndPort(::core::mem::transmute(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport)).into()
         }
         unsafe extern "system" fn GetPortRange<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPortManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1125,17 +1125,17 @@ impl IRTCClientPresence_Vtbl {
         unsafe extern "system" fn EnablePresence<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fusestorage: i16, varstorage: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EnablePresence(::core::mem::transmute_copy(&fusestorage), ::core::mem::transmute_copy(&varstorage)).into()
+            (*this).EnablePresence(::core::mem::transmute_copy(&fusestorage), ::core::mem::transmute(&varstorage)).into()
         }
         unsafe extern "system" fn Export<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varstorage: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Export(::core::mem::transmute_copy(&varstorage)).into()
+            (*this).Export(::core::mem::transmute(&varstorage)).into()
         }
         unsafe extern "system" fn Import<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varstorage: ::core::mem::ManuallyDrop<super::Com::VARIANT>, freplaceall: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Import(::core::mem::transmute_copy(&varstorage), ::core::mem::transmute_copy(&freplaceall)).into()
+            (*this).Import(::core::mem::transmute(&varstorage), ::core::mem::transmute_copy(&freplaceall)).into()
         }
         unsafe extern "system" fn EnumerateBuddies<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1162,7 +1162,7 @@ impl IRTCClientPresence_Vtbl {
         unsafe extern "system" fn Buddy<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Buddy(::core::mem::transmute_copy(&bstrpresentityuri)) {
+            match (*this).Buddy(::core::mem::transmute(&bstrpresentityuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppbuddy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1173,7 +1173,7 @@ impl IRTCClientPresence_Vtbl {
         unsafe extern "system" fn AddBuddy<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpersistent: i16, pprofile: ::windows::core::RawPtr, lflags: i32, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddBuddy(::core::mem::transmute_copy(&bstrpresentityuri), ::core::mem::transmute_copy(&bstrusername), ::core::mem::transmute_copy(&bstrdata), ::core::mem::transmute_copy(&fpersistent), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
+            match (*this).AddBuddy(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&fpersistent), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppbuddy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1211,7 +1211,7 @@ impl IRTCClientPresence_Vtbl {
         unsafe extern "system" fn Watcher<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Watcher(::core::mem::transmute_copy(&bstrpresentityuri)) {
+            match (*this).Watcher(::core::mem::transmute(&bstrpresentityuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwatcher = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1222,7 +1222,7 @@ impl IRTCClientPresence_Vtbl {
         unsafe extern "system" fn AddWatcher<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fblocked: i16, fpersistent: i16, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddWatcher(::core::mem::transmute_copy(&bstrpresentityuri), ::core::mem::transmute_copy(&bstrusername), ::core::mem::transmute_copy(&bstrdata), ::core::mem::transmute_copy(&fblocked), ::core::mem::transmute_copy(&fpersistent)) {
+            match (*this).AddWatcher(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&fblocked), ::core::mem::transmute_copy(&fpersistent)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwatcher = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1238,7 +1238,7 @@ impl IRTCClientPresence_Vtbl {
         unsafe extern "system" fn SetLocalPresenceInfo<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enstatus: RTC_PRESENCE_STATUS, bstrnotes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLocalPresenceInfo(::core::mem::transmute_copy(&enstatus), ::core::mem::transmute_copy(&bstrnotes)).into()
+            (*this).SetLocalPresenceInfo(::core::mem::transmute_copy(&enstatus), ::core::mem::transmute(&bstrnotes)).into()
         }
         unsafe extern "system" fn OfferWatcherMode<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penmode: *mut RTC_OFFER_WATCHER_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1322,7 +1322,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn EnablePresenceEx<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprofile: ::windows::core::RawPtr, varstorage: ::core::mem::ManuallyDrop<super::Com::VARIANT>, lflags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EnablePresenceEx(::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&varstorage), ::core::mem::transmute_copy(&lflags)).into()
+            (*this).EnablePresenceEx(::core::mem::transmute(&pprofile), ::core::mem::transmute(&varstorage), ::core::mem::transmute_copy(&lflags)).into()
         }
         unsafe extern "system" fn DisablePresence<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1332,7 +1332,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn AddGroup<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pprofile: ::windows::core::RawPtr, lflags: i32, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddGroup(::core::mem::transmute_copy(&bstrgroupname), ::core::mem::transmute_copy(&bstrdata), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
+            match (*this).AddGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&bstrdata), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppgroup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1370,7 +1370,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn Group<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Group(::core::mem::transmute_copy(&bstrgroupname)) {
+            match (*this).Group(::core::mem::transmute(&bstrgroupname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppgroup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1381,7 +1381,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn AddWatcherEx<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, enstate: RTC_WATCHER_STATE, fpersistent: i16, enscope: RTC_ACE_SCOPE, pprofile: ::windows::core::RawPtr, lflags: i32, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddWatcherEx(::core::mem::transmute_copy(&bstrpresentityuri), ::core::mem::transmute_copy(&bstrusername), ::core::mem::transmute_copy(&bstrdata), ::core::mem::transmute_copy(&enstate), ::core::mem::transmute_copy(&fpersistent), ::core::mem::transmute_copy(&enscope), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
+            match (*this).AddWatcherEx(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&enstate), ::core::mem::transmute_copy(&fpersistent), ::core::mem::transmute_copy(&enscope), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwatcher = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1392,7 +1392,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn WatcherEx<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).WatcherEx(::core::mem::transmute_copy(&enmode), ::core::mem::transmute_copy(&bstrpresentityuri)) {
+            match (*this).WatcherEx(::core::mem::transmute_copy(&enmode), ::core::mem::transmute(&bstrpresentityuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwatcher = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1403,7 +1403,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn SetPresenceProperty<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPresenceProperty(::core::mem::transmute_copy(&enproperty), ::core::mem::transmute_copy(&bstrproperty)).into()
+            (*this).SetPresenceProperty(::core::mem::transmute_copy(&enproperty), ::core::mem::transmute(&bstrproperty)).into()
         }
         unsafe extern "system" fn PresenceProperty<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1419,7 +1419,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn SetPresenceData<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnamespace: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPresenceData(::core::mem::transmute_copy(&bstrnamespace), ::core::mem::transmute_copy(&bstrdata)).into()
+            (*this).SetPresenceData(::core::mem::transmute(&bstrnamespace), ::core::mem::transmute(&bstrdata)).into()
         }
         unsafe extern "system" fn GetPresenceData<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1434,7 +1434,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn AddBuddyEx<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpersistent: i16, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: ::windows::core::RawPtr, lflags: i32, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddBuddyEx(::core::mem::transmute_copy(&bstrpresentityuri), ::core::mem::transmute_copy(&bstrusername), ::core::mem::transmute_copy(&bstrdata), ::core::mem::transmute_copy(&fpersistent), ::core::mem::transmute_copy(&ensubscriptiontype), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
+            match (*this).AddBuddyEx(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&fpersistent), ::core::mem::transmute_copy(&ensubscriptiontype), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppbuddy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1481,7 +1481,7 @@ impl IRTCClientProvisioning_Vtbl {
         unsafe extern "system" fn CreateProfile<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprofilexml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateProfile(::core::mem::transmute_copy(&bstrprofilexml)) {
+            match (*this).CreateProfile(::core::mem::transmute(&bstrprofilexml)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppprofile = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1524,7 +1524,7 @@ impl IRTCClientProvisioning_Vtbl {
         unsafe extern "system" fn GetProfile<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruseraccount: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstruserpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstruseruri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrserver: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ltransport: i32, lcookie: isize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetProfile(::core::mem::transmute_copy(&bstruseraccount), ::core::mem::transmute_copy(&bstruserpassword), ::core::mem::transmute_copy(&bstruseruri), ::core::mem::transmute_copy(&bstrserver), ::core::mem::transmute_copy(&ltransport), ::core::mem::transmute_copy(&lcookie)).into()
+            (*this).GetProfile(::core::mem::transmute(&bstruseraccount), ::core::mem::transmute(&bstruserpassword), ::core::mem::transmute(&bstruseruri), ::core::mem::transmute(&bstrserver), ::core::mem::transmute_copy(&ltransport), ::core::mem::transmute_copy(&lcookie)).into()
         }
         unsafe extern "system" fn SessionCapabilities<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsupportedsessions: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2488,17 +2488,17 @@ impl IRTCPortManager_Vtbl {
         unsafe extern "system" fn GetMapping<Identity: ::windows::core::IUnknownImpl, Impl: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremoteaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut super::super::Foundation::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut super::super::Foundation::BSTR, plexternallocalport: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMapping(::core::mem::transmute_copy(&bstrremoteaddress), ::core::mem::transmute_copy(&enporttype), ::core::mem::transmute_copy(&pbstrinternallocaladdress), ::core::mem::transmute_copy(&plinternallocalport), ::core::mem::transmute_copy(&pbstrexternallocaladdress), ::core::mem::transmute_copy(&plexternallocalport)).into()
+            (*this).GetMapping(::core::mem::transmute(&bstrremoteaddress), ::core::mem::transmute_copy(&enporttype), ::core::mem::transmute_copy(&pbstrinternallocaladdress), ::core::mem::transmute_copy(&plinternallocalport), ::core::mem::transmute_copy(&pbstrexternallocaladdress), ::core::mem::transmute_copy(&plexternallocalport)).into()
         }
         unsafe extern "system" fn UpdateRemoteAddress<Identity: ::windows::core::IUnknownImpl, Impl: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremoteaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrinternallocaladdress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternallocalport: i32, bstrexternallocaladdress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lexternallocalport: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UpdateRemoteAddress(::core::mem::transmute_copy(&bstrremoteaddress), ::core::mem::transmute_copy(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport), ::core::mem::transmute_copy(&bstrexternallocaladdress), ::core::mem::transmute_copy(&lexternallocalport)).into()
+            (*this).UpdateRemoteAddress(::core::mem::transmute(&bstrremoteaddress), ::core::mem::transmute(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport), ::core::mem::transmute(&bstrexternallocaladdress), ::core::mem::transmute_copy(&lexternallocalport)).into()
         }
         unsafe extern "system" fn ReleaseMapping<Identity: ::windows::core::IUnknownImpl, Impl: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternallocaladdress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternallocalport: i32, bstrexternallocaladdress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lexternallocaladdress: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ReleaseMapping(::core::mem::transmute_copy(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport), ::core::mem::transmute_copy(&bstrexternallocaladdress), ::core::mem::transmute_copy(&lexternallocaladdress)).into()
+            (*this).ReleaseMapping(::core::mem::transmute(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport), ::core::mem::transmute(&bstrexternallocaladdress), ::core::mem::transmute_copy(&lexternallocaladdress)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -2539,7 +2539,7 @@ impl IRTCPresenceContact_Vtbl {
         unsafe extern "system" fn SetPresentityURI<Identity: ::windows::core::IUnknownImpl, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPresentityURI(::core::mem::transmute_copy(&bstrpresentityuri)).into()
+            (*this).SetPresentityURI(::core::mem::transmute(&bstrpresentityuri)).into()
         }
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2555,7 +2555,7 @@ impl IRTCPresenceContact_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&bstrname)).into()
+            (*this).SetName(::core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Data<Identity: ::windows::core::IUnknownImpl, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2571,7 +2571,7 @@ impl IRTCPresenceContact_Vtbl {
         unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetData(::core::mem::transmute_copy(&bstrdata)).into()
+            (*this).SetData(::core::mem::transmute(&bstrdata)).into()
         }
         unsafe extern "system" fn Persistent<Identity: ::windows::core::IUnknownImpl, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfpersistent: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3017,7 +3017,7 @@ impl IRTCProfile_Vtbl {
         unsafe extern "system" fn SetCredentials<Identity: ::windows::core::IUnknownImpl, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruseruri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstruseraccount: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCredentials(::core::mem::transmute_copy(&bstruseruri), ::core::mem::transmute_copy(&bstruseraccount), ::core::mem::transmute_copy(&bstrpassword)).into()
+            (*this).SetCredentials(::core::mem::transmute(&bstruseruri), ::core::mem::transmute(&bstruseraccount), ::core::mem::transmute(&bstrpassword)).into()
         }
         unsafe extern "system" fn SessionCapabilities<Identity: ::windows::core::IUnknownImpl, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsupportedsessions: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3091,7 +3091,7 @@ impl IRTCProfile2_Vtbl {
         unsafe extern "system" fn SetRealm<Identity: ::windows::core::IUnknownImpl, Impl: IRTCProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRealm(::core::mem::transmute_copy(&bstrrealm)).into()
+            (*this).SetRealm(::core::mem::transmute(&bstrrealm)).into()
         }
         unsafe extern "system" fn AllowedAuth<Identity: ::windows::core::IUnknownImpl, Impl: IRTCProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plallowedauth: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3223,7 +3223,7 @@ impl IRTCReInviteEvent_Vtbl {
         unsafe extern "system" fn Accept<Identity: ::windows::core::IUnknownImpl, Impl: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsessiondescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Accept(::core::mem::transmute_copy(&bstrcontenttype), ::core::mem::transmute_copy(&bstrsessiondescription)).into()
+            (*this).Accept(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription)).into()
         }
         unsafe extern "system" fn Reject<Identity: ::windows::core::IUnknownImpl, Impl: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3485,12 +3485,12 @@ impl IRTCSession_Vtbl {
         unsafe extern "system" fn Redirect<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pprofile: ::windows::core::RawPtr, lflags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Redirect(::core::mem::transmute_copy(&entype), ::core::mem::transmute_copy(&bstrlocalphoneuri), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)).into()
+            (*this).Redirect(::core::mem::transmute_copy(&entype), ::core::mem::transmute(&bstrlocalphoneuri), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)).into()
         }
         unsafe extern "system" fn AddParticipant<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppparticipant: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddParticipant(::core::mem::transmute_copy(&bstraddress), ::core::mem::transmute_copy(&bstrname)) {
+            match (*this).AddParticipant(::core::mem::transmute(&bstraddress), ::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppparticipant = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3555,7 +3555,7 @@ impl IRTCSession_Vtbl {
         unsafe extern "system" fn SendMessage<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageheader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrmessage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lcookie: isize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SendMessage(::core::mem::transmute_copy(&bstrmessageheader), ::core::mem::transmute_copy(&bstrmessage), ::core::mem::transmute_copy(&lcookie)).into()
+            (*this).SendMessage(::core::mem::transmute(&bstrmessageheader), ::core::mem::transmute(&bstrmessage), ::core::mem::transmute_copy(&lcookie)).into()
         }
         unsafe extern "system" fn SendMessageStatus<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3575,7 +3575,7 @@ impl IRTCSession_Vtbl {
         unsafe extern "system" fn SetEncryptionKey<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, encryptionkey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetEncryptionKey(::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute_copy(&encryptionkey)).into()
+            (*this).SetEncryptionKey(::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute(&encryptionkey)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -3620,7 +3620,7 @@ impl IRTCSession2_Vtbl {
         unsafe extern "system" fn SendInfo<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinfoheader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrinfo: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lcookie: isize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SendInfo(::core::mem::transmute_copy(&bstrinfoheader), ::core::mem::transmute_copy(&bstrinfo), ::core::mem::transmute_copy(&lcookie)).into()
+            (*this).SendInfo(::core::mem::transmute(&bstrinfoheader), ::core::mem::transmute(&bstrinfo), ::core::mem::transmute_copy(&lcookie)).into()
         }
         unsafe extern "system" fn SetPreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3652,12 +3652,12 @@ impl IRTCSession2_Vtbl {
         unsafe extern "system" fn AnswerWithSessionDescription<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsessiondescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AnswerWithSessionDescription(::core::mem::transmute_copy(&bstrcontenttype), ::core::mem::transmute_copy(&bstrsessiondescription)).into()
+            (*this).AnswerWithSessionDescription(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription)).into()
         }
         unsafe extern "system" fn ReInviteWithSessionDescription<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsessiondescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lcookie: isize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ReInviteWithSessionDescription(::core::mem::transmute_copy(&bstrcontenttype), ::core::mem::transmute_copy(&bstrsessiondescription), ::core::mem::transmute_copy(&lcookie)).into()
+            (*this).ReInviteWithSessionDescription(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription), ::core::mem::transmute_copy(&lcookie)).into()
         }
         Self {
             base: IRTCSession_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3701,17 +3701,17 @@ impl IRTCSessionCallControl_Vtbl {
         unsafe extern "system" fn Forward<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrforwardtouri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Forward(::core::mem::transmute_copy(&bstrforwardtouri)).into()
+            (*this).Forward(::core::mem::transmute(&bstrforwardtouri)).into()
         }
         unsafe extern "system" fn Refer<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrefertouri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrrefercookie: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Refer(::core::mem::transmute_copy(&bstrrefertouri), ::core::mem::transmute_copy(&bstrrefercookie)).into()
+            (*this).Refer(::core::mem::transmute(&bstrrefertouri), ::core::mem::transmute(&bstrrefercookie)).into()
         }
         unsafe extern "system" fn SetReferredByURI<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreferredbyuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetReferredByURI(::core::mem::transmute_copy(&bstrreferredbyuri)).into()
+            (*this).SetReferredByURI(::core::mem::transmute(&bstrreferredbyuri)).into()
         }
         unsafe extern "system" fn ReferredByURI<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreferredbyuri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3727,7 +3727,7 @@ impl IRTCSessionCallControl_Vtbl {
         unsafe extern "system" fn SetReferCookie<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrefercookie: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetReferCookie(::core::mem::transmute_copy(&bstrrefercookie)).into()
+            (*this).SetReferCookie(::core::mem::transmute(&bstrrefercookie)).into()
         }
         unsafe extern "system" fn ReferCookie<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrefercookie: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3778,7 +3778,7 @@ impl IRTCSessionDescriptionManager_Vtbl {
         unsafe extern "system" fn EvaluateSessionDescription<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSessionDescriptionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsessiondescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfapplicationsession: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EvaluateSessionDescription(::core::mem::transmute_copy(&bstrcontenttype), ::core::mem::transmute_copy(&bstrsessiondescription), ::core::mem::transmute_copy(&pfapplicationsession)).into()
+            (*this).EvaluateSessionDescription(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription), ::core::mem::transmute_copy(&pfapplicationsession)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EvaluateSessionDescription: EvaluateSessionDescription::<Identity, Impl, OFFSET> }
     }
@@ -4229,12 +4229,12 @@ impl IRTCUserSearchQuery_Vtbl {
         unsafe extern "system" fn SetSearchTerm<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSearchTerm(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrvalue)).into()
+            (*this).SetSearchTerm(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrvalue)).into()
         }
         unsafe extern "system" fn SearchTerm<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SearchTerm(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).SearchTerm(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4272,7 +4272,7 @@ impl IRTCUserSearchQuery_Vtbl {
         unsafe extern "system" fn SetSearchDomain<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdomain: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSearchDomain(::core::mem::transmute_copy(&bstrdomain)).into()
+            (*this).SetSearchDomain(::core::mem::transmute(&bstrdomain)).into()
         }
         unsafe extern "system" fn SearchDomain<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdomain: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

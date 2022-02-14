@@ -205,7 +205,7 @@ impl IDXGIDebug_Vtbl {
         unsafe extern "system" fn ReportLiveObjects<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDebug_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, apiid: ::windows::core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ReportLiveObjects(::core::mem::transmute_copy(&apiid), ::core::mem::transmute_copy(&flags)).into()
+            (*this).ReportLiveObjects(::core::mem::transmute(&apiid), ::core::mem::transmute_copy(&flags)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportLiveObjects: ReportLiveObjects::<Identity, Impl, OFFSET> }
     }
@@ -844,7 +844,7 @@ impl IDXGIFactory4_Vtbl {
         unsafe extern "system" fn EnumAdapterByLuid<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapterluid: super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EnumAdapterByLuid(::core::mem::transmute_copy(&adapterluid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvadapter)).into()
+            (*this).EnumAdapterByLuid(::core::mem::transmute(&adapterluid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvadapter)).into()
         }
         unsafe extern "system" fn EnumWarpAdapter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1017,142 +1017,142 @@ impl IDXGIInfoQueue_Vtbl {
         unsafe extern "system" fn SetMessageCountLimit<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, messagecountlimit: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetMessageCountLimit(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&messagecountlimit)).into()
+            (*this).SetMessageCountLimit(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&messagecountlimit)).into()
         }
         unsafe extern "system" fn ClearStoredMessages<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ClearStoredMessages(::core::mem::transmute_copy(&producer))
+            (*this).ClearStoredMessages(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, messageindex: u64, pmessage: *mut DXGI_INFO_QUEUE_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMessage(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&messageindex), ::core::mem::transmute_copy(&pmessage), ::core::mem::transmute_copy(&pmessagebytelength)).into()
+            (*this).GetMessage(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&messageindex), ::core::mem::transmute_copy(&pmessage), ::core::mem::transmute_copy(&pmessagebytelength)).into()
         }
         unsafe extern "system" fn GetNumStoredMessagesAllowedByRetrievalFilters<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> u64 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetNumStoredMessagesAllowedByRetrievalFilters(::core::mem::transmute_copy(&producer))
+            (*this).GetNumStoredMessagesAllowedByRetrievalFilters(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn GetNumStoredMessages<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> u64 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetNumStoredMessages(::core::mem::transmute_copy(&producer))
+            (*this).GetNumStoredMessages(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn GetNumMessagesDiscardedByMessageCountLimit<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> u64 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetNumMessagesDiscardedByMessageCountLimit(::core::mem::transmute_copy(&producer))
+            (*this).GetNumMessagesDiscardedByMessageCountLimit(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn GetMessageCountLimit<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> u64 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMessageCountLimit(::core::mem::transmute_copy(&producer))
+            (*this).GetMessageCountLimit(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn GetNumMessagesAllowedByStorageFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> u64 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetNumMessagesAllowedByStorageFilter(::core::mem::transmute_copy(&producer))
+            (*this).GetNumMessagesAllowedByStorageFilter(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn GetNumMessagesDeniedByStorageFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> u64 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetNumMessagesDeniedByStorageFilter(::core::mem::transmute_copy(&producer))
+            (*this).GetNumMessagesDeniedByStorageFilter(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn AddStorageFilterEntries<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddStorageFilterEntries(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&pfilter)).into()
+            (*this).AddStorageFilterEntries(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&pfilter)).into()
         }
         unsafe extern "system" fn GetStorageFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetStorageFilter(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&pfilter), ::core::mem::transmute_copy(&pfilterbytelength)).into()
+            (*this).GetStorageFilter(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&pfilter), ::core::mem::transmute_copy(&pfilterbytelength)).into()
         }
         unsafe extern "system" fn ClearStorageFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ClearStorageFilter(::core::mem::transmute_copy(&producer))
+            (*this).ClearStorageFilter(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn PushEmptyStorageFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PushEmptyStorageFilter(::core::mem::transmute_copy(&producer)).into()
+            (*this).PushEmptyStorageFilter(::core::mem::transmute(&producer)).into()
         }
         unsafe extern "system" fn PushDenyAllStorageFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PushDenyAllStorageFilter(::core::mem::transmute_copy(&producer)).into()
+            (*this).PushDenyAllStorageFilter(::core::mem::transmute(&producer)).into()
         }
         unsafe extern "system" fn PushCopyOfStorageFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PushCopyOfStorageFilter(::core::mem::transmute_copy(&producer)).into()
+            (*this).PushCopyOfStorageFilter(::core::mem::transmute(&producer)).into()
         }
         unsafe extern "system" fn PushStorageFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PushStorageFilter(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&pfilter)).into()
+            (*this).PushStorageFilter(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&pfilter)).into()
         }
         unsafe extern "system" fn PopStorageFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PopStorageFilter(::core::mem::transmute_copy(&producer))
+            (*this).PopStorageFilter(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn GetStorageFilterStackSize<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> u32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetStorageFilterStackSize(::core::mem::transmute_copy(&producer))
+            (*this).GetStorageFilterStackSize(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn AddRetrievalFilterEntries<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddRetrievalFilterEntries(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&pfilter)).into()
+            (*this).AddRetrievalFilterEntries(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&pfilter)).into()
         }
         unsafe extern "system" fn GetRetrievalFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetRetrievalFilter(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&pfilter), ::core::mem::transmute_copy(&pfilterbytelength)).into()
+            (*this).GetRetrievalFilter(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&pfilter), ::core::mem::transmute_copy(&pfilterbytelength)).into()
         }
         unsafe extern "system" fn ClearRetrievalFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ClearRetrievalFilter(::core::mem::transmute_copy(&producer))
+            (*this).ClearRetrievalFilter(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn PushEmptyRetrievalFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PushEmptyRetrievalFilter(::core::mem::transmute_copy(&producer)).into()
+            (*this).PushEmptyRetrievalFilter(::core::mem::transmute(&producer)).into()
         }
         unsafe extern "system" fn PushDenyAllRetrievalFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PushDenyAllRetrievalFilter(::core::mem::transmute_copy(&producer)).into()
+            (*this).PushDenyAllRetrievalFilter(::core::mem::transmute(&producer)).into()
         }
         unsafe extern "system" fn PushCopyOfRetrievalFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PushCopyOfRetrievalFilter(::core::mem::transmute_copy(&producer)).into()
+            (*this).PushCopyOfRetrievalFilter(::core::mem::transmute(&producer)).into()
         }
         unsafe extern "system" fn PushRetrievalFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PushRetrievalFilter(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&pfilter)).into()
+            (*this).PushRetrievalFilter(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&pfilter)).into()
         }
         unsafe extern "system" fn PopRetrievalFilter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PopRetrievalFilter(::core::mem::transmute_copy(&producer))
+            (*this).PopRetrievalFilter(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn GetRetrievalFilterStackSize<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> u32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetRetrievalFilterStackSize(::core::mem::transmute_copy(&producer))
+            (*this).GetRetrievalFilterStackSize(::core::mem::transmute(&producer))
         }
         unsafe extern "system" fn AddMessage<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, id: i32, pdescription: super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddMessage(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&category), ::core::mem::transmute_copy(&severity), ::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&pdescription)).into()
+            (*this).AddMessage(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&category), ::core::mem::transmute_copy(&severity), ::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&pdescription)).into()
         }
         unsafe extern "system" fn AddApplicationMessage<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pdescription: super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1162,42 +1162,42 @@ impl IDXGIInfoQueue_Vtbl {
         unsafe extern "system" fn SetBreakOnCategory<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBreakOnCategory(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&category), ::core::mem::transmute_copy(&benable)).into()
+            (*this).SetBreakOnCategory(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&category), ::core::mem::transmute_copy(&benable)).into()
         }
         unsafe extern "system" fn SetBreakOnSeverity<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBreakOnSeverity(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&severity), ::core::mem::transmute_copy(&benable)).into()
+            (*this).SetBreakOnSeverity(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&severity), ::core::mem::transmute_copy(&benable)).into()
         }
         unsafe extern "system" fn SetBreakOnID<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, id: i32, benable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBreakOnID(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&benable)).into()
+            (*this).SetBreakOnID(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&benable)).into()
         }
         unsafe extern "system" fn GetBreakOnCategory<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetBreakOnCategory(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&category))
+            (*this).GetBreakOnCategory(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&category))
         }
         unsafe extern "system" fn GetBreakOnSeverity<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetBreakOnSeverity(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&severity))
+            (*this).GetBreakOnSeverity(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&severity))
         }
         unsafe extern "system" fn GetBreakOnID<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, id: i32) -> super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetBreakOnID(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&id))
+            (*this).GetBreakOnID(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&id))
         }
         unsafe extern "system" fn SetMuteDebugOutput<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, bmute: super::super::Foundation::BOOL) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetMuteDebugOutput(::core::mem::transmute_copy(&producer), ::core::mem::transmute_copy(&bmute))
+            (*this).SetMuteDebugOutput(::core::mem::transmute(&producer), ::core::mem::transmute_copy(&bmute))
         }
         unsafe extern "system" fn GetMuteDebugOutput<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID) -> super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMuteDebugOutput(::core::mem::transmute_copy(&producer))
+            (*this).GetMuteDebugOutput(::core::mem::transmute(&producer))
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

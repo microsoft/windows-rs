@@ -107,7 +107,7 @@ impl ISdoCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Add(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&ppitem)).into()
+            (*this).Add(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&ppitem)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -127,7 +127,7 @@ impl ISdoCollection_Vtbl {
         unsafe extern "system" fn IsNameUnique<Identity: ::windows::core::IUnknownImpl, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbool: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsNameUnique(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).IsNameUnique(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbool = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -219,7 +219,7 @@ impl ISdoDictionaryOld_Vtbl {
         unsafe extern "system" fn GetAttributeID<Identity: ::windows::core::IUnknownImpl, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrattributename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pid: *mut ATTRIBUTEID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetAttributeID(::core::mem::transmute_copy(&bstrattributename)) {
+            match (*this).GetAttributeID(::core::mem::transmute(&bstrattributename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -258,7 +258,7 @@ impl ISdoMachine_Vtbl {
         unsafe extern "system" fn Attach<Identity: ::windows::core::IUnknownImpl, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcomputername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Attach(::core::mem::transmute_copy(&bstrcomputername)).into()
+            (*this).Attach(::core::mem::transmute(&bstrcomputername)).into()
         }
         unsafe extern "system" fn GetDictionarySDO<Identity: ::windows::core::IUnknownImpl, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdictionarysdo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -274,7 +274,7 @@ impl ISdoMachine_Vtbl {
         unsafe extern "system" fn GetServiceSDO<Identity: ::windows::core::IUnknownImpl, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, edatastore: IASDATASTORE, bstrservicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppservicesdo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetServiceSDO(::core::mem::transmute_copy(&edatastore), ::core::mem::transmute_copy(&bstrservicename)) {
+            match (*this).GetServiceSDO(::core::mem::transmute_copy(&edatastore), ::core::mem::transmute(&bstrservicename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppservicesdo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -285,7 +285,7 @@ impl ISdoMachine_Vtbl {
         unsafe extern "system" fn GetUserSDO<Identity: ::windows::core::IUnknownImpl, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, edatastore: IASDATASTORE, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppusersdo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetUserSDO(::core::mem::transmute_copy(&edatastore), ::core::mem::transmute_copy(&bstrusername)) {
+            match (*this).GetUserSDO(::core::mem::transmute_copy(&edatastore), ::core::mem::transmute(&bstrusername)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppusersdo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -379,7 +379,7 @@ impl ISdoMachine2_Vtbl {
         unsafe extern "system" fn GetTemplatesSDO<Identity: ::windows::core::IUnknownImpl, Impl: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrservicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pptemplatessdo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetTemplatesSDO(::core::mem::transmute_copy(&bstrservicename)) {
+            match (*this).GetTemplatesSDO(::core::mem::transmute(&bstrservicename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pptemplatessdo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -395,12 +395,12 @@ impl ISdoMachine2_Vtbl {
         unsafe extern "system" fn SyncConfigAgainstTemplates<Identity: ::windows::core::IUnknownImpl, Impl: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrservicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppconfigroot: *mut *mut ::core::ffi::c_void, pptemplatesroot: *mut *mut ::core::ffi::c_void, bforcedsync: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SyncConfigAgainstTemplates(::core::mem::transmute_copy(&bstrservicename), ::core::mem::transmute_copy(&ppconfigroot), ::core::mem::transmute_copy(&pptemplatesroot), ::core::mem::transmute_copy(&bforcedsync)).into()
+            (*this).SyncConfigAgainstTemplates(::core::mem::transmute(&bstrservicename), ::core::mem::transmute_copy(&ppconfigroot), ::core::mem::transmute_copy(&pptemplatesroot), ::core::mem::transmute_copy(&bforcedsync)).into()
         }
         unsafe extern "system" fn ImportRemoteTemplates<Identity: ::windows::core::IUnknownImpl, Impl: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocaltemplatesroot: *mut ::core::ffi::c_void, bstrremotemachinename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ImportRemoteTemplates(::core::mem::transmute(&plocaltemplatesroot), ::core::mem::transmute_copy(&bstrremotemachinename)).into()
+            (*this).ImportRemoteTemplates(::core::mem::transmute(&plocaltemplatesroot), ::core::mem::transmute(&bstrremotemachinename)).into()
         }
         unsafe extern "system" fn Reload<Identity: ::windows::core::IUnknownImpl, Impl: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -480,12 +480,12 @@ impl ITemplateSdo_Vtbl {
         unsafe extern "system" fn AddToCollection<Identity: ::windows::core::IUnknownImpl, Impl: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcollection: ::windows::core::RawPtr, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddToCollection(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute(&pcollection), ::core::mem::transmute_copy(&ppitem)).into()
+            (*this).AddToCollection(::core::mem::transmute(&bstrname), ::core::mem::transmute(&pcollection), ::core::mem::transmute_copy(&ppitem)).into()
         }
         unsafe extern "system" fn AddToSdo<Identity: ::windows::core::IUnknownImpl, Impl: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, psdotarget: ::windows::core::RawPtr, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddToSdo(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute(&psdotarget), ::core::mem::transmute_copy(&ppitem)).into()
+            (*this).AddToSdo(::core::mem::transmute(&bstrname), ::core::mem::transmute(&psdotarget), ::core::mem::transmute_copy(&ppitem)).into()
         }
         unsafe extern "system" fn AddToSdoAsProperty<Identity: ::windows::core::IUnknownImpl, Impl: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psdotarget: ::windows::core::RawPtr, id: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

@@ -315,7 +315,7 @@ impl ISurfaceImageSourceNative_Vtbl {
         unsafe extern "system" fn BeginDraw<Identity: ::windows::core::IUnknownImpl, Impl: ISurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updaterect: super::super::super::Foundation::RECT, surface: *mut ::windows::core::RawPtr, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).BeginDraw(::core::mem::transmute_copy(&updaterect), ::core::mem::transmute_copy(&surface), ::core::mem::transmute_copy(&offset)).into()
+            (*this).BeginDraw(::core::mem::transmute(&updaterect), ::core::mem::transmute_copy(&surface), ::core::mem::transmute_copy(&offset)).into()
         }
         unsafe extern "system" fn EndDraw<Identity: ::windows::core::IUnknownImpl, Impl: ISurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -497,7 +497,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
         unsafe extern "system" fn Invalidate<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updaterect: super::super::super::Foundation::RECT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Invalidate(::core::mem::transmute_copy(&updaterect)).into()
+            (*this).Invalidate(::core::mem::transmute(&updaterect)).into()
         }
         unsafe extern "system" fn GetUpdateRectCount<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

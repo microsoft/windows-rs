@@ -176,7 +176,7 @@ impl IFaxAccountIncomingArchive_Vtbl {
         unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetMessage(::core::mem::transmute_copy(&bstrmessageid)) {
+            match (*this).GetMessage(::core::mem::transmute(&bstrmessageid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxincomingmessage = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -219,7 +219,7 @@ impl IFaxAccountIncomingQueue_Vtbl {
         unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountIncomingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetJob(::core::mem::transmute_copy(&bstrjobid)) {
+            match (*this).GetJob(::core::mem::transmute(&bstrjobid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxincomingjob = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -300,7 +300,7 @@ impl IFaxAccountOutgoingArchive_Vtbl {
         unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetMessage(::core::mem::transmute_copy(&bstrmessageid)) {
+            match (*this).GetMessage(::core::mem::transmute(&bstrmessageid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxoutgoingmessage = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -343,7 +343,7 @@ impl IFaxAccountOutgoingQueue_Vtbl {
         unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountOutgoingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetJob(::core::mem::transmute_copy(&bstrjobid)) {
+            match (*this).GetJob(::core::mem::transmute(&bstrjobid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxoutgoingjob = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -385,7 +385,7 @@ impl IFaxAccountSet_Vtbl {
         unsafe extern "system" fn GetAccount<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxaccount: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetAccount(::core::mem::transmute_copy(&bstraccountname)) {
+            match (*this).GetAccount(::core::mem::transmute(&bstraccountname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxaccount = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -396,7 +396,7 @@ impl IFaxAccountSet_Vtbl {
         unsafe extern "system" fn AddAccount<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxaccount: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddAccount(::core::mem::transmute_copy(&bstraccountname)) {
+            match (*this).AddAccount(::core::mem::transmute(&bstraccountname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxaccount = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -407,7 +407,7 @@ impl IFaxAccountSet_Vtbl {
         unsafe extern "system" fn RemoveAccount<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveAccount(::core::mem::transmute_copy(&bstraccountname)).into()
+            (*this).RemoveAccount(::core::mem::transmute(&bstraccountname)).into()
         }
         Self {
             base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -444,7 +444,7 @@ impl IFaxAccounts_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccounts_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxaccount: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&vindex)) {
+            match (*this).Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxaccount = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -607,7 +607,7 @@ impl IFaxActivityLogging_Vtbl {
         unsafe extern "system" fn SetDatabasePath<Identity: ::windows::core::IUnknownImpl, Impl: IFaxActivityLogging_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdatabasepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDatabasePath(::core::mem::transmute_copy(&bstrdatabasepath)).into()
+            (*this).SetDatabasePath(::core::mem::transmute(&bstrdatabasepath)).into()
         }
         unsafe extern "system" fn Refresh<Identity: ::windows::core::IUnknownImpl, Impl: IFaxActivityLogging_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -713,7 +713,7 @@ impl IFaxConfiguration_Vtbl {
         unsafe extern "system" fn SetArchiveLocation<Identity: ::windows::core::IUnknownImpl, Impl: IFaxConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivelocation: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetArchiveLocation(::core::mem::transmute_copy(&bstrarchivelocation)).into()
+            (*this).SetArchiveLocation(::core::mem::transmute(&bstrarchivelocation)).into()
         }
         unsafe extern "system" fn SizeQuotaWarning<Identity: ::windows::core::IUnknownImpl, Impl: IFaxConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsizequotawarning: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1192,7 +1192,7 @@ impl IFaxDevice_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDescription(::core::mem::transmute_copy(&bstrdescription)).into()
+            (*this).SetDescription(::core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn SendEnabled<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsendenabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1256,7 +1256,7 @@ impl IFaxDevice_Vtbl {
         unsafe extern "system" fn SetCSID<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCSID(::core::mem::transmute_copy(&bstrcsid)).into()
+            (*this).SetCSID(::core::mem::transmute(&bstrcsid)).into()
         }
         unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1272,7 +1272,7 @@ impl IFaxDevice_Vtbl {
         unsafe extern "system" fn SetTSID<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTSID(::core::mem::transmute_copy(&bstrtsid)).into()
+            (*this).SetTSID(::core::mem::transmute(&bstrtsid)).into()
         }
         unsafe extern "system" fn Refresh<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1287,7 +1287,7 @@ impl IFaxDevice_Vtbl {
         unsafe extern "system" fn GetExtensionProperty<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetExtensionProperty(::core::mem::transmute_copy(&bstrguid)) {
+            match (*this).GetExtensionProperty(::core::mem::transmute(&bstrguid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvproperty = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1298,12 +1298,12 @@ impl IFaxDevice_Vtbl {
         unsafe extern "system" fn SetExtensionProperty<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetExtensionProperty(::core::mem::transmute_copy(&bstrguid), ::core::mem::transmute_copy(&vproperty)).into()
+            (*this).SetExtensionProperty(::core::mem::transmute(&bstrguid), ::core::mem::transmute(&vproperty)).into()
         }
         unsafe extern "system" fn UseRoutingMethod<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmethodguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, buse: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UseRoutingMethod(::core::mem::transmute_copy(&bstrmethodguid), ::core::mem::transmute_copy(&buse)).into()
+            (*this).UseRoutingMethod(::core::mem::transmute(&bstrmethodguid), ::core::mem::transmute_copy(&buse)).into()
         }
         unsafe extern "system" fn RingingNow<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbringingnow: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1622,7 +1622,7 @@ impl IFaxDeviceProviders_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceProviders_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxdeviceprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&vindex)) {
+            match (*this).Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxdeviceprovider = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1676,7 +1676,7 @@ impl IFaxDevices_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&vindex)) {
+            match (*this).Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxdevice = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1772,7 +1772,7 @@ impl IFaxDocument_Vtbl {
         unsafe extern "system" fn SetBody<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbody: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBody(::core::mem::transmute_copy(&bstrbody)).into()
+            (*this).SetBody(::core::mem::transmute(&bstrbody)).into()
         }
         unsafe extern "system" fn Sender<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxsender: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1810,7 +1810,7 @@ impl IFaxDocument_Vtbl {
         unsafe extern "system" fn SetCoverPage<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcoverpage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCoverPage(::core::mem::transmute_copy(&bstrcoverpage)).into()
+            (*this).SetCoverPage(::core::mem::transmute(&bstrcoverpage)).into()
         }
         unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1826,7 +1826,7 @@ impl IFaxDocument_Vtbl {
         unsafe extern "system" fn SetSubject<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubject: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSubject(::core::mem::transmute_copy(&bstrsubject)).into()
+            (*this).SetSubject(::core::mem::transmute(&bstrsubject)).into()
         }
         unsafe extern "system" fn Note<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnote: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1842,7 +1842,7 @@ impl IFaxDocument_Vtbl {
         unsafe extern "system" fn SetNote<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnote: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetNote(::core::mem::transmute_copy(&bstrnote)).into()
+            (*this).SetNote(::core::mem::transmute(&bstrnote)).into()
         }
         unsafe extern "system" fn ScheduleTime<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatescheduletime: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1874,7 +1874,7 @@ impl IFaxDocument_Vtbl {
         unsafe extern "system" fn SetReceiptAddress<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreceiptaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetReceiptAddress(::core::mem::transmute_copy(&bstrreceiptaddress)).into()
+            (*this).SetReceiptAddress(::core::mem::transmute(&bstrreceiptaddress)).into()
         }
         unsafe extern "system" fn DocumentName<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocumentname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1890,7 +1890,7 @@ impl IFaxDocument_Vtbl {
         unsafe extern "system" fn SetDocumentName<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdocumentname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDocumentName(::core::mem::transmute_copy(&bstrdocumentname)).into()
+            (*this).SetDocumentName(::core::mem::transmute(&bstrdocumentname)).into()
         }
         unsafe extern "system" fn CallHandle<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcallhandle: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2007,7 +2007,7 @@ impl IFaxDocument_Vtbl {
         unsafe extern "system" fn Submit<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Submit(::core::mem::transmute_copy(&bstrfaxservername)) {
+            match (*this).Submit(::core::mem::transmute(&bstrfaxservername)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvfaxoutgoingjobids = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2120,12 +2120,12 @@ impl IFaxDocument2_Vtbl {
         unsafe extern "system" fn SetBodies<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbodies: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBodies(::core::mem::transmute_copy(&vbodies)).into()
+            (*this).SetBodies(::core::mem::transmute(&vbodies)).into()
         }
         unsafe extern "system" fn Submit2<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Submit2(::core::mem::transmute_copy(&bstrfaxservername), ::core::mem::transmute_copy(&pvfaxoutgoingjobids), ::core::mem::transmute_copy(&plerrorbodyfile)).into()
+            (*this).Submit2(::core::mem::transmute(&bstrfaxservername), ::core::mem::transmute_copy(&pvfaxoutgoingjobids), ::core::mem::transmute_copy(&plerrorbodyfile)).into()
         }
         unsafe extern "system" fn ConnectedSubmit2<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2539,7 +2539,7 @@ impl IFaxInboundRoutingExtensions_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingExtensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxinboundroutingextension: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&vindex)) {
+            match (*this).Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxinboundroutingextension = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2705,7 +2705,7 @@ impl IFaxInboundRoutingMethods_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingMethods_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxinboundroutingmethod: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&vindex)) {
+            match (*this).Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxinboundroutingmethod = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2789,7 +2789,7 @@ impl IFaxIncomingArchive_Vtbl {
         unsafe extern "system" fn SetArchiveFolder<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivefolder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetArchiveFolder(::core::mem::transmute_copy(&bstrarchivefolder)).into()
+            (*this).SetArchiveFolder(::core::mem::transmute(&bstrarchivefolder)).into()
         }
         unsafe extern "system" fn SizeQuotaWarning<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsizequotawarning: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2901,7 +2901,7 @@ impl IFaxIncomingArchive_Vtbl {
         unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetMessage(::core::mem::transmute_copy(&bstrmessageid)) {
+            match (*this).GetMessage(::core::mem::transmute(&bstrmessageid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxincomingmessage = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3149,7 +3149,7 @@ impl IFaxIncomingJob_Vtbl {
         unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CopyTiff(::core::mem::transmute_copy(&bstrtiffpath)).into()
+            (*this).CopyTiff(::core::mem::transmute(&bstrtiffpath)).into()
         }
         Self {
             base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3201,7 +3201,7 @@ impl IFaxIncomingJobs_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingJobs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxincomingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&vindex)) {
+            match (*this).Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxincomingjob = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3374,7 +3374,7 @@ impl IFaxIncomingMessage_Vtbl {
         unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CopyTiff(::core::mem::transmute_copy(&bstrtiffpath)).into()
+            (*this).CopyTiff(::core::mem::transmute(&bstrtiffpath)).into()
         }
         unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3438,7 +3438,7 @@ impl IFaxIncomingMessage2_Vtbl {
         unsafe extern "system" fn SetSubject<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubject: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSubject(::core::mem::transmute_copy(&bstrsubject)).into()
+            (*this).SetSubject(::core::mem::transmute(&bstrsubject)).into()
         }
         unsafe extern "system" fn SenderName<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsendername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3454,7 +3454,7 @@ impl IFaxIncomingMessage2_Vtbl {
         unsafe extern "system" fn SetSenderName<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsendername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSenderName(::core::mem::transmute_copy(&bstrsendername)).into()
+            (*this).SetSenderName(::core::mem::transmute(&bstrsendername)).into()
         }
         unsafe extern "system" fn SenderFaxNumber<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsenderfaxnumber: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3470,7 +3470,7 @@ impl IFaxIncomingMessage2_Vtbl {
         unsafe extern "system" fn SetSenderFaxNumber<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsenderfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSenderFaxNumber(::core::mem::transmute_copy(&bstrsenderfaxnumber)).into()
+            (*this).SetSenderFaxNumber(::core::mem::transmute(&bstrsenderfaxnumber)).into()
         }
         unsafe extern "system" fn HasCoverPage<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbhascoverpage: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3502,7 +3502,7 @@ impl IFaxIncomingMessage2_Vtbl {
         unsafe extern "system" fn SetRecipients<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrecipients: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRecipients(::core::mem::transmute_copy(&bstrrecipients)).into()
+            (*this).SetRecipients(::core::mem::transmute(&bstrrecipients)).into()
         }
         unsafe extern "system" fn WasReAssigned<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbwasreassigned: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3696,7 +3696,7 @@ impl IFaxIncomingQueue_Vtbl {
         unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetJob(::core::mem::transmute_copy(&bstrjobid)) {
+            match (*this).GetJob(::core::mem::transmute(&bstrjobid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxincomingjob = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4111,7 +4111,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxoutboundroutinggroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&vindex)) {
+            match (*this).Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxoutboundroutinggroup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4133,7 +4133,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutboundroutinggroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Add(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).Add(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxoutboundroutinggroup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4144,7 +4144,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Remove(::core::mem::transmute_copy(&vindex)).into()
+            (*this).Remove(::core::mem::transmute(&vindex)).into()
         }
         Self {
             base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4255,7 +4255,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
         unsafe extern "system" fn SetGroupName<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetGroupName(::core::mem::transmute_copy(&bstrgroupname)).into()
+            (*this).SetGroupName(::core::mem::transmute(&bstrgroupname)).into()
         }
         unsafe extern "system" fn Refresh<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4356,7 +4356,7 @@ impl IFaxOutboundRoutingRules_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingRules_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcountrycode: i32, lareacode: i32, busedevice: i16, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ldeviceid: i32, pfaxoutboundroutingrule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Add(::core::mem::transmute_copy(&lcountrycode), ::core::mem::transmute_copy(&lareacode), ::core::mem::transmute_copy(&busedevice), ::core::mem::transmute_copy(&bstrgroupname), ::core::mem::transmute_copy(&ldeviceid)) {
+            match (*this).Add(::core::mem::transmute_copy(&lcountrycode), ::core::mem::transmute_copy(&lareacode), ::core::mem::transmute_copy(&busedevice), ::core::mem::transmute(&bstrgroupname), ::core::mem::transmute_copy(&ldeviceid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxoutboundroutingrule = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4433,7 +4433,7 @@ impl IFaxOutgoingArchive_Vtbl {
         unsafe extern "system" fn SetArchiveFolder<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivefolder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetArchiveFolder(::core::mem::transmute_copy(&bstrarchivefolder)).into()
+            (*this).SetArchiveFolder(::core::mem::transmute(&bstrarchivefolder)).into()
         }
         unsafe extern "system" fn SizeQuotaWarning<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsizequotawarning: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4545,7 +4545,7 @@ impl IFaxOutgoingArchive_Vtbl {
         unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetMessage(::core::mem::transmute_copy(&bstrmessageid)) {
+            match (*this).GetMessage(::core::mem::transmute(&bstrmessageid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxoutgoingmessage = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4909,7 +4909,7 @@ impl IFaxOutgoingJob_Vtbl {
         unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CopyTiff(::core::mem::transmute_copy(&bstrtiffpath)).into()
+            (*this).CopyTiff(::core::mem::transmute(&bstrtiffpath)).into()
         }
         unsafe extern "system" fn Refresh<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5036,7 +5036,7 @@ impl IFaxOutgoingJobs_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJobs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxoutgoingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&vindex)) {
+            match (*this).Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxoutgoingjob = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5281,7 +5281,7 @@ impl IFaxOutgoingMessage_Vtbl {
         unsafe extern "system" fn CopyTiff<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CopyTiff(::core::mem::transmute_copy(&bstrtiffpath)).into()
+            (*this).CopyTiff(::core::mem::transmute(&bstrtiffpath)).into()
         }
         unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5690,7 +5690,7 @@ impl IFaxOutgoingQueue_Vtbl {
         unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetJob(::core::mem::transmute_copy(&bstrjobid)) {
+            match (*this).GetJob(::core::mem::transmute(&bstrjobid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxoutgoingjob = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5784,7 +5784,7 @@ impl IFaxReceiptOptions_Vtbl {
         unsafe extern "system" fn SetSMTPServer<Identity: ::windows::core::IUnknownImpl, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpserver: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSMTPServer(::core::mem::transmute_copy(&bstrsmtpserver)).into()
+            (*this).SetSMTPServer(::core::mem::transmute(&bstrsmtpserver)).into()
         }
         unsafe extern "system" fn SMTPPort<Identity: ::windows::core::IUnknownImpl, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsmtpport: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5816,7 +5816,7 @@ impl IFaxReceiptOptions_Vtbl {
         unsafe extern "system" fn SetSMTPSender<Identity: ::windows::core::IUnknownImpl, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpsender: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSMTPSender(::core::mem::transmute_copy(&bstrsmtpsender)).into()
+            (*this).SetSMTPSender(::core::mem::transmute(&bstrsmtpsender)).into()
         }
         unsafe extern "system" fn SMTPUser<Identity: ::windows::core::IUnknownImpl, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtpuser: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5832,7 +5832,7 @@ impl IFaxReceiptOptions_Vtbl {
         unsafe extern "system" fn SetSMTPUser<Identity: ::windows::core::IUnknownImpl, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpuser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSMTPUser(::core::mem::transmute_copy(&bstrsmtpuser)).into()
+            (*this).SetSMTPUser(::core::mem::transmute(&bstrsmtpuser)).into()
         }
         unsafe extern "system" fn AllowedReceipts<Identity: ::windows::core::IUnknownImpl, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pallowedreceipts: *mut FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5864,7 +5864,7 @@ impl IFaxReceiptOptions_Vtbl {
         unsafe extern "system" fn SetSMTPPassword<Identity: ::windows::core::IUnknownImpl, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtppassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSMTPPassword(::core::mem::transmute_copy(&bstrsmtppassword)).into()
+            (*this).SetSMTPPassword(::core::mem::transmute(&bstrsmtppassword)).into()
         }
         unsafe extern "system" fn Refresh<Identity: ::windows::core::IUnknownImpl, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5942,7 +5942,7 @@ impl IFaxRecipient_Vtbl {
         unsafe extern "system" fn SetFaxNumber<Identity: ::windows::core::IUnknownImpl, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFaxNumber(::core::mem::transmute_copy(&bstrfaxnumber)).into()
+            (*this).SetFaxNumber(::core::mem::transmute(&bstrfaxnumber)).into()
         }
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5958,7 +5958,7 @@ impl IFaxRecipient_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&bstrname)).into()
+            (*this).SetName(::core::mem::transmute(&bstrname)).into()
         }
         Self {
             base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -6019,7 +6019,7 @@ impl IFaxRecipients_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IFaxRecipients_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrrecipientname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfaxrecipient: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Add(::core::mem::transmute_copy(&bstrfaxnumber), ::core::mem::transmute_copy(&bstrrecipientname)) {
+            match (*this).Add(::core::mem::transmute(&bstrfaxnumber), ::core::mem::transmute(&bstrrecipientname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppfaxrecipient = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6072,7 +6072,7 @@ impl IFaxSecurity_Vtbl {
         unsafe extern "system" fn SetDescriptor<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSecurity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdescriptor: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDescriptor(::core::mem::transmute_copy(&vdescriptor)).into()
+            (*this).SetDescriptor(::core::mem::transmute(&vdescriptor)).into()
         }
         unsafe extern "system" fn GrantedRights<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSecurity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgrantedrights: *mut FAX_ACCESS_RIGHTS_ENUM) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6153,7 +6153,7 @@ impl IFaxSecurity2_Vtbl {
         unsafe extern "system" fn SetDescriptor<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSecurity2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdescriptor: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDescriptor(::core::mem::transmute_copy(&vdescriptor)).into()
+            (*this).SetDescriptor(::core::mem::transmute(&vdescriptor)).into()
         }
         unsafe extern "system" fn GrantedRights<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSecurity2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgrantedrights: *mut FAX_ACCESS_RIGHTS_ENUM_2) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6261,7 +6261,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetBillingCode<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbillingcode: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBillingCode(::core::mem::transmute_copy(&bstrbillingcode)).into()
+            (*this).SetBillingCode(::core::mem::transmute(&bstrbillingcode)).into()
         }
         unsafe extern "system" fn City<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcity: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6277,7 +6277,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetCity<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcity: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCity(::core::mem::transmute_copy(&bstrcity)).into()
+            (*this).SetCity(::core::mem::transmute(&bstrcity)).into()
         }
         unsafe extern "system" fn Company<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcompany: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6293,7 +6293,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetCompany<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcompany: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCompany(::core::mem::transmute_copy(&bstrcompany)).into()
+            (*this).SetCompany(::core::mem::transmute(&bstrcompany)).into()
         }
         unsafe extern "system" fn Country<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcountry: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6309,7 +6309,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetCountry<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcountry: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCountry(::core::mem::transmute_copy(&bstrcountry)).into()
+            (*this).SetCountry(::core::mem::transmute(&bstrcountry)).into()
         }
         unsafe extern "system" fn Department<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdepartment: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6325,7 +6325,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetDepartment<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdepartment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDepartment(::core::mem::transmute_copy(&bstrdepartment)).into()
+            (*this).SetDepartment(::core::mem::transmute(&bstrdepartment)).into()
         }
         unsafe extern "system" fn Email<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstremail: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6341,7 +6341,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetEmail<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstremail: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetEmail(::core::mem::transmute_copy(&bstremail)).into()
+            (*this).SetEmail(::core::mem::transmute(&bstremail)).into()
         }
         unsafe extern "system" fn FaxNumber<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfaxnumber: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6357,7 +6357,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetFaxNumber<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFaxNumber(::core::mem::transmute_copy(&bstrfaxnumber)).into()
+            (*this).SetFaxNumber(::core::mem::transmute(&bstrfaxnumber)).into()
         }
         unsafe extern "system" fn HomePhone<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrhomephone: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6373,7 +6373,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetHomePhone<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrhomephone: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetHomePhone(::core::mem::transmute_copy(&bstrhomephone)).into()
+            (*this).SetHomePhone(::core::mem::transmute(&bstrhomephone)).into()
         }
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6389,7 +6389,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&bstrname)).into()
+            (*this).SetName(::core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn TSID<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6405,7 +6405,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetTSID<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTSID(::core::mem::transmute_copy(&bstrtsid)).into()
+            (*this).SetTSID(::core::mem::transmute(&bstrtsid)).into()
         }
         unsafe extern "system" fn OfficePhone<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrofficephone: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6421,7 +6421,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetOfficePhone<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrofficephone: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetOfficePhone(::core::mem::transmute_copy(&bstrofficephone)).into()
+            (*this).SetOfficePhone(::core::mem::transmute(&bstrofficephone)).into()
         }
         unsafe extern "system" fn OfficeLocation<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrofficelocation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6437,7 +6437,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetOfficeLocation<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrofficelocation: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetOfficeLocation(::core::mem::transmute_copy(&bstrofficelocation)).into()
+            (*this).SetOfficeLocation(::core::mem::transmute(&bstrofficelocation)).into()
         }
         unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstate: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6453,7 +6453,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetState<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrstate: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetState(::core::mem::transmute_copy(&bstrstate)).into()
+            (*this).SetState(::core::mem::transmute(&bstrstate)).into()
         }
         unsafe extern "system" fn StreetAddress<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstreetaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6469,7 +6469,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetStreetAddress<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrstreetaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetStreetAddress(::core::mem::transmute_copy(&bstrstreetaddress)).into()
+            (*this).SetStreetAddress(::core::mem::transmute(&bstrstreetaddress)).into()
         }
         unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6485,7 +6485,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetTitle<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTitle(::core::mem::transmute_copy(&bstrtitle)).into()
+            (*this).SetTitle(::core::mem::transmute(&bstrtitle)).into()
         }
         unsafe extern "system" fn ZipCode<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrzipcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6501,7 +6501,7 @@ impl IFaxSender_Vtbl {
         unsafe extern "system" fn SetZipCode<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrzipcode: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetZipCode(::core::mem::transmute_copy(&bstrzipcode)).into()
+            (*this).SetZipCode(::core::mem::transmute(&bstrzipcode)).into()
         }
         unsafe extern "system" fn LoadDefaultSender<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6590,7 +6590,7 @@ impl IFaxServer_Vtbl {
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Connect(::core::mem::transmute_copy(&bstrservername)).into()
+            (*this).Connect(::core::mem::transmute(&bstrservername)).into()
         }
         unsafe extern "system" fn ServerName<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrservername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6765,7 +6765,7 @@ impl IFaxServer_Vtbl {
         unsafe extern "system" fn GetExtensionProperty<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetExtensionProperty(::core::mem::transmute_copy(&bstrguid)) {
+            match (*this).GetExtensionProperty(::core::mem::transmute(&bstrguid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvproperty = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6776,7 +6776,7 @@ impl IFaxServer_Vtbl {
         unsafe extern "system" fn SetExtensionProperty<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetExtensionProperty(::core::mem::transmute_copy(&bstrguid), ::core::mem::transmute_copy(&vproperty)).into()
+            (*this).SetExtensionProperty(::core::mem::transmute(&bstrguid), ::core::mem::transmute(&vproperty)).into()
         }
         unsafe extern "system" fn ListenToServerEvents<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6786,22 +6786,22 @@ impl IFaxServer_Vtbl {
         unsafe extern "system" fn RegisterDeviceProvider<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrfriendlyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrimagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, tspname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lfspiversion: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterDeviceProvider(::core::mem::transmute_copy(&bstrguid), ::core::mem::transmute_copy(&bstrfriendlyname), ::core::mem::transmute_copy(&bstrimagename), ::core::mem::transmute_copy(&tspname), ::core::mem::transmute_copy(&lfspiversion)).into()
+            (*this).RegisterDeviceProvider(::core::mem::transmute(&bstrguid), ::core::mem::transmute(&bstrfriendlyname), ::core::mem::transmute(&bstrimagename), ::core::mem::transmute(&tspname), ::core::mem::transmute_copy(&lfspiversion)).into()
         }
         unsafe extern "system" fn UnregisterDeviceProvider<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruniquename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterDeviceProvider(::core::mem::transmute_copy(&bstruniquename)).into()
+            (*this).UnregisterDeviceProvider(::core::mem::transmute(&bstruniquename)).into()
         }
         unsafe extern "system" fn RegisterInboundRoutingExtension<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrextensionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrfriendlyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrimagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, vmethods: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterInboundRoutingExtension(::core::mem::transmute_copy(&bstrextensionname), ::core::mem::transmute_copy(&bstrfriendlyname), ::core::mem::transmute_copy(&bstrimagename), ::core::mem::transmute_copy(&vmethods)).into()
+            (*this).RegisterInboundRoutingExtension(::core::mem::transmute(&bstrextensionname), ::core::mem::transmute(&bstrfriendlyname), ::core::mem::transmute(&bstrimagename), ::core::mem::transmute(&vmethods)).into()
         }
         unsafe extern "system" fn UnregisterInboundRoutingExtension<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrextensionuniquename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterInboundRoutingExtension(::core::mem::transmute_copy(&bstrextensionuniquename)).into()
+            (*this).UnregisterInboundRoutingExtension(::core::mem::transmute(&bstrextensionuniquename)).into()
         }
         unsafe extern "system" fn RegisteredEvents<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventtypes: *mut FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -7484,52 +7484,52 @@ impl _IFaxAccountNotify_Vtbl {
         unsafe extern "system" fn OnIncomingJobAdded<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnIncomingJobAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute_copy(&bstrjobid)).into()
+            (*this).OnIncomingJobAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnIncomingJobRemoved<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnIncomingJobRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute_copy(&bstrjobid)).into()
+            (*this).OnIncomingJobRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnIncomingJobChanged<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnIncomingJobChanged(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute_copy(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
+            (*this).OnIncomingJobChanged(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
         }
         unsafe extern "system" fn OnOutgoingJobAdded<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOutgoingJobAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute_copy(&bstrjobid)).into()
+            (*this).OnOutgoingJobAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnOutgoingJobRemoved<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOutgoingJobRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute_copy(&bstrjobid)).into()
+            (*this).OnOutgoingJobRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnOutgoingJobChanged<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOutgoingJobChanged(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute_copy(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
+            (*this).OnOutgoingJobChanged(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
         }
         unsafe extern "system" fn OnIncomingMessageAdded<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, faddedtoreceivefolder: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnIncomingMessageAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute_copy(&bstrmessageid), ::core::mem::transmute_copy(&faddedtoreceivefolder)).into()
+            (*this).OnIncomingMessageAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid), ::core::mem::transmute_copy(&faddedtoreceivefolder)).into()
         }
         unsafe extern "system" fn OnIncomingMessageRemoved<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fremovedfromreceivefolder: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnIncomingMessageRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute_copy(&bstrmessageid), ::core::mem::transmute_copy(&fremovedfromreceivefolder)).into()
+            (*this).OnIncomingMessageRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid), ::core::mem::transmute_copy(&fremovedfromreceivefolder)).into()
         }
         unsafe extern "system" fn OnOutgoingMessageAdded<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOutgoingMessageAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute_copy(&bstrmessageid)).into()
+            (*this).OnOutgoingMessageAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOutgoingMessageRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute_copy(&bstrmessageid)).into()
+            (*this).OnOutgoingMessageRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnServerShutDown<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -7590,52 +7590,52 @@ impl _IFaxServerNotify2_Vtbl {
         unsafe extern "system" fn OnIncomingJobAdded<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnIncomingJobAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&bstrjobid)).into()
+            (*this).OnIncomingJobAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnIncomingJobRemoved<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnIncomingJobRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&bstrjobid)).into()
+            (*this).OnIncomingJobRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnIncomingJobChanged<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnIncomingJobChanged(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
+            (*this).OnIncomingJobChanged(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
         }
         unsafe extern "system" fn OnOutgoingJobAdded<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOutgoingJobAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&bstrjobid)).into()
+            (*this).OnOutgoingJobAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnOutgoingJobRemoved<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOutgoingJobRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&bstrjobid)).into()
+            (*this).OnOutgoingJobRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnOutgoingJobChanged<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOutgoingJobChanged(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
+            (*this).OnOutgoingJobChanged(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
         }
         unsafe extern "system" fn OnIncomingMessageAdded<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnIncomingMessageAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&bstrmessageid)).into()
+            (*this).OnIncomingMessageAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnIncomingMessageRemoved<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnIncomingMessageRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&bstrmessageid)).into()
+            (*this).OnIncomingMessageRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnOutgoingMessageAdded<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOutgoingMessageAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&bstrmessageid)).into()
+            (*this).OnOutgoingMessageAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnOutgoingMessageRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&bstrmessageid)).into()
+            (*this).OnOutgoingMessageRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnReceiptOptionsChange<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -7700,7 +7700,7 @@ impl _IFaxServerNotify2_Vtbl {
         unsafe extern "system" fn OnNewCall<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, lcallid: i32, ldeviceid: i32, bstrcallerid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnNewCall(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&lcallid), ::core::mem::transmute_copy(&ldeviceid), ::core::mem::transmute_copy(&bstrcallerid)).into()
+            (*this).OnNewCall(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&lcallid), ::core::mem::transmute_copy(&ldeviceid), ::core::mem::transmute(&bstrcallerid)).into()
         }
         unsafe extern "system" fn OnServerShutDown<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
