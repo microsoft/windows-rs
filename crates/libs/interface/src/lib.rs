@@ -1,16 +1,18 @@
+use quote::quote;
 use syn::parse::{Parse, ParseStream};
 use syn::spanned::Spanned;
-use tokens::quote;
 
 #[proc_macro_attribute]
 pub fn interface(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    let attributes = syn::parse_macro_input!(attributes as Guid);
-    let typ = syn::parse_macro_input!(original_type as Interface);
-    let tokens = quote! {
-        compile_error!("`interface` macro is not yet implemented");
+    let guid = syn::parse_macro_input!(attributes as Guid);
+    let interface = syn::parse_macro_input!(original_type as Interface);
+    let tokens = match interface.gen_tokens(&guid) {
+        Ok(t) => t,
+        Err(e) => return e.to_compile_error().into(),
     };
-    tokens.parse::<proc_macro::TokenStream>().unwrap()
+    tokens.into()
 }
+
 macro_rules! bail {
     ($item:expr, $($msg:tt),*) => {
         return Err(syn::Error::new($item.span(), std::fmt::format(format_args!($($msg),*))));
@@ -42,6 +44,66 @@ macro_rules! expected_token {
 /// ```
 struct Guid(syn::LitStr);
 
+impl Guid {
+    fn chunks(&self) -> syn::Result<[String; 5]> {
+        fn ensure_length<'a>(part: Option<&'a str>, index: usize, length: usize, span: proc_macro2::Span) -> syn::Result<String> {
+            let part = match part {
+                Some(p) => p,
+                None => return Err(syn::Error::new(span, format!("The IID missing part at index {}", index,))),
+            };
+
+            if part.len() != length {
+                return Err(syn::Error::new(span, format!("The IID part at index {} must be {} characters long but was {} characters", index, length, part.len())));
+            }
+
+            Ok(part.to_owned())
+        }
+
+        let guid_value = self.0.value();
+        let mut delimited = guid_value.split('-').fuse();
+        let chunks = [ensure_length(delimited.next(), 0, 8, self.0.span())?, ensure_length(delimited.next(), 1, 4, self.0.span())?, ensure_length(delimited.next(), 2, 4, self.0.span())?, ensure_length(delimited.next(), 3, 4, self.0.span())?, ensure_length(delimited.next(), 4, 12, self.0.span())?];
+
+        Ok(chunks)
+    }
+
+    fn to_tokens(&self) -> syn::Result<proc_macro2::TokenStream> {
+        fn hex_lit(num: &str) -> syn::LitInt {
+            syn::LitInt::new(&format!("0x{}", num), proc_macro2::Span::call_site())
+        }
+
+        let chunks = self.chunks()?;
+        let data1 = hex_lit(&chunks[0]);
+        let data2 = hex_lit(&chunks[1]);
+        let data3 = hex_lit(&chunks[2]);
+        let (data4_1, data4_2) = chunks[3].split_at(2);
+        let data4_1 = hex_lit(data4_1);
+        let data4_2 = hex_lit(data4_2);
+        let (data4_3, rest) = chunks[4].split_at(2);
+        let data4_3 = hex_lit(data4_3);
+
+        let (data4_4, rest) = rest.split_at(2);
+        let data4_4 = hex_lit(data4_4);
+
+        let (data4_5, rest) = rest.split_at(2);
+        let data4_5 = hex_lit(data4_5);
+
+        let (data4_6, rest) = rest.split_at(2);
+        let data4_6 = hex_lit(data4_6);
+
+        let (data4_7, data4_8) = rest.split_at(2);
+        let data4_7 = hex_lit(data4_7);
+        let data4_8 = hex_lit(data4_8);
+        Ok(quote! {
+            ::windows::core::GUID {
+                data1: #data1,
+                data2: #data2,
+                data3: #data3,
+                data4: [#data4_1, #data4_2, #data4_3, #data4_4, #data4_5, #data4_6, #data4_7, #data4_8]
+            }
+        })
+    }
+}
+
 impl Parse for Guid {
     fn parse(cursor: ParseStream) -> syn::Result<Self> {
         let string: syn::LitStr = cursor.parse()?;
@@ -63,6 +125,65 @@ struct Interface {
     pub parent: Option<syn::Path>,
     pub methods: Vec<InterfaceMethod>,
     docs: Vec<syn::Attribute>,
+}
+
+impl Interface {
+    fn gen_tokens(&self, guid: &Guid) -> syn::Result<proc_macro2::TokenStream> {
+        let vis = &self.visibility;
+        let name = &self.name;
+        // TODO: support non-IUnknown parents
+        let parent = quote!(::windows::core::IUnknown);
+        let vtable_name = quote::format_ident!("{}_Vtbl", name);
+        let vtable = self.gen_vtable(&vtable_name);
+        let guid = guid.to_tokens()?;
+        Ok(quote! {
+            #[repr(transparent)]
+            #vis struct #name(#parent);
+
+            unsafe impl ::windows::core::Interface for #name {
+                type Vtable = #vtable_name;
+                const IID: ::windows::core::GUID = #guid;
+            }
+
+            #vtable
+        })
+    }
+
+    fn gen_vtable(&self, vtable_name: &syn::Ident) -> proc_macro2::TokenStream {
+        let vtable_entries = self
+            .methods
+            .iter()
+            .map(|m| {
+                let name = &m.name;
+                if m.args.iter().any(|a| !a.pass_through) {
+                    panic!("TODO: handle methods with non-pass through arguments");
+                }
+                let args = &m
+                    .args
+                    .iter()
+                    .map(|a| {
+                        let pat = &a.pat;
+                        let typ = &a.ty;
+                        quote! {
+                            #pat: #typ
+
+                        }
+                    })
+                    .collect::<Vec<_>>();
+                quote! {
+                    pub #name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, #(#args),*) -> ::windows::core::HRESULT,
+                }
+            })
+            .collect::<Vec<_>>();
+        quote! {
+            #[repr(C)]
+            #[doc(hidden)]
+            pub struct #vtable_name {
+                #(#vtable_entries)*
+            }
+
+        }
+    }
 }
 
 impl Parse for Interface {
@@ -128,10 +249,8 @@ impl syn::parse::Parse for InterfaceMethod {
                 syn::FnArg::Typed(p) => Some(p),
             })
             .map(|p| {
-                let mut filter = p.attrs.iter().filter(|a| a.path.is_ident("pass_through")).fuse();
-                let pass_through = filter.next().is_some();
+                let pass_through = matches!(&*p.ty, syn::Type::Ptr(_));
 
-                unexpected_token!(filter.next(), "function attribute");
                 Ok(InterfaceMethodArg { ty: p.ty, pat: p.pat, pass_through })
             })
             .collect::<Result<Vec<InterfaceMethodArg>, syn::Error>>()?;

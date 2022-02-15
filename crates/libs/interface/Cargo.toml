@@ -16,4 +16,5 @@ proc-macro = true
 
 [dependencies]
 syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full", "derive"] }
-tokens = { package = "windows-tokens", path = "../tokens", version = "0.32.0" }
+quote = "1.0"
+proc-macro2 = "1.0"
