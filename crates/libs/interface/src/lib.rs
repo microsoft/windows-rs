@@ -134,11 +134,14 @@ impl Interface {
         // TODO: support non-IUnknown parents
         let parent = quote!(::windows::core::IUnknown);
         let vtable_name = quote::format_ident!("{}_Vtbl", name);
-        let vtable = self.gen_vtable(&vtable_name);
         let guid = guid.to_tokens()?;
+        let implementation = self.gen_implementation();
+        let vtable = self.gen_vtable(&vtable_name);
+        let conversions = self.gen_conversions();
         Ok(quote! {
             #[repr(transparent)]
             #vis struct #name(#parent);
+            #implementation
 
             unsafe impl ::windows::core::Interface for #name {
                 type Vtable = #vtable_name;
@@ -146,7 +149,52 @@ impl Interface {
             }
 
             #vtable
+
+            #conversions
         })
+    }
+
+    fn gen_implementation(&self) -> proc_macro2::TokenStream {
+        let name = &self.name;
+        let methods = self
+            .methods
+            .iter()
+            .map(|m| {
+                let vis = &m.visibility;
+                let name = &m.name;
+
+                if m.args.iter().any(|a| !a.pass_through) {
+                    panic!("TODO: handle methods with non-pass through arguments");
+                }
+                let args = &m
+                    .args
+                    .iter()
+                    .map(|a| {
+                        let pat = &a.pat;
+                        let ty = &a.ty;
+                        quote! { #pat: #ty }
+                    })
+                    .collect::<Vec<_>>();
+                let params = &m
+                    .args
+                    .iter()
+                    .map(|a| {
+                        let pat = &a.pat;
+                        quote! { #pat }
+                    })
+                    .collect::<Vec<_>>();
+                quote! {
+                    #vis unsafe fn #name(&self, #(#args)*) -> ::windows::core::HRESULT {
+                        (::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), #(#params)*)
+                    }
+                }
+            })
+            .collect::<Vec<_>>();
+        quote! {
+            impl #name {
+                #(#methods)*
+            }
+        }
     }
 
     fn gen_vtable(&self, vtable_name: &syn::Ident) -> proc_macro2::TokenStream {
@@ -181,7 +229,51 @@ impl Interface {
             pub struct #vtable_name {
                 #(#vtable_entries)*
             }
+        }
+    }
 
+    fn gen_conversions(&self) -> proc_macro2::TokenStream {
+        let name = &self.name;
+        let name_string = format!("{}", name);
+        quote! {
+            impl ::core::convert::From<#name> for ::windows::core::IUnknown {
+                fn from(value: #name) -> Self {
+                    // TODO: handle when direct parent is not IUnknown
+                    value.0
+                }
+            }
+            impl ::core::convert::From<&#name> for ::windows::core::IUnknown {
+                fn from(value: &#name) -> Self {
+                    ::core::convert::From::from(::core::clone::Clone::clone(value))
+                }
+            }
+            impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for #name {
+                fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+                    ::windows::core::Param::Owned(self.into())
+                }
+            }
+            impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a #name {
+                fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+                    // TODO: handle when direct parent is not IUnknown
+                    ::windows::core::Param::Borrowed(&self.0)
+                }
+            }
+            impl ::core::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    Self(self.0.clone())
+                }
+            }
+            impl ::core::cmp::PartialEq for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+                }
+            }
+            impl ::core::cmp::Eq for #name {}
+            impl ::core::fmt::Debug for #name {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    f.debug_tuple(#name_string).field(&self.0).finish()
+                }
+            }
         }
     }
 }
