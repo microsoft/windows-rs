@@ -1,10 +1,10 @@
 [package]
-name = "windows-implement"
+name = "windows-interface"
 version = "0.32.0"
+edition = "2021"
 authors = ["Microsoft"]
-edition = "2018"
 license = "MIT OR Apache-2.0"
-description = "The implement macro for the windows crate"
+description = "The interface macro for the windows crate"
 repository = "https://github.com/microsoft/windows-rs"
 
 [package.metadata.docs.rs]

@@ -46,12 +46,14 @@ windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.32.0" }
 
 [dependencies]
 windows-implement = { path = "../implement",  version = "0.32.0", optional = true }
+windows-interface = { path = "../interface",  version = "0.32.0", optional = true }
 
 [features]
 default = []
 deprecated = []
 alloc = []
 implement = ["windows-implement"]
+interface = ["windows-interface"]
 AI = []
 AI_MachineLearning = ["AI"]
 AI_MachineLearning_Preview = ["AI_MachineLearning"]
