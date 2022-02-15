@@ -6,6 +6,6 @@ unsafe trait IUIAnimationVariable: IUnknown {
 }
 
 #[test]
-fn mix() -> Result<()> {
+fn com_works() -> Result<()> {
     Ok(())
 }

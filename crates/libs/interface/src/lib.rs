@@ -2,6 +2,15 @@ use quote::quote;
 use syn::parse::{Parse, ParseStream};
 use syn::spanned::Spanned;
 
+/// A COM interface definition
+///
+/// # Example
+/// ```rust
+/// #[interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
+/// unsafe trait IUIAnimationVariable: IUnknown {
+///     fn GetValue(&self, value: *mut f64) -> HRESULT;
+/// }
+/// ```
 #[proc_macro_attribute]
 pub fn interface(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let guid = syn::parse_macro_input!(attributes as Guid);
@@ -35,89 +44,12 @@ macro_rules! expected_token {
     };
 }
 
-/// Parsed interface guid attribute
-///
-/// ```rust
-/// #[interface("0000010c-0000-0000-C000-000000000046")]
-///           //^ this function parses this   
-/// unsafe trait IFoo {}
-/// ```
-struct Guid(syn::LitStr);
-
-impl Guid {
-    fn chunks(&self) -> syn::Result<[String; 5]> {
-        fn ensure_length<'a>(part: Option<&'a str>, index: usize, length: usize, span: proc_macro2::Span) -> syn::Result<String> {
-            let part = match part {
-                Some(p) => p,
-                None => return Err(syn::Error::new(span, format!("The IID missing part at index {}", index,))),
-            };
-
-            if part.len() != length {
-                return Err(syn::Error::new(span, format!("The IID part at index {} must be {} characters long but was {} characters", index, length, part.len())));
-            }
-
-            Ok(part.to_owned())
-        }
-
-        let guid_value = self.0.value();
-        let mut delimited = guid_value.split('-').fuse();
-        let chunks = [ensure_length(delimited.next(), 0, 8, self.0.span())?, ensure_length(delimited.next(), 1, 4, self.0.span())?, ensure_length(delimited.next(), 2, 4, self.0.span())?, ensure_length(delimited.next(), 3, 4, self.0.span())?, ensure_length(delimited.next(), 4, 12, self.0.span())?];
-
-        Ok(chunks)
-    }
-
-    fn to_tokens(&self) -> syn::Result<proc_macro2::TokenStream> {
-        fn hex_lit(num: &str) -> syn::LitInt {
-            syn::LitInt::new(&format!("0x{}", num), proc_macro2::Span::call_site())
-        }
-
-        let chunks = self.chunks()?;
-        let data1 = hex_lit(&chunks[0]);
-        let data2 = hex_lit(&chunks[1]);
-        let data3 = hex_lit(&chunks[2]);
-        let (data4_1, data4_2) = chunks[3].split_at(2);
-        let data4_1 = hex_lit(data4_1);
-        let data4_2 = hex_lit(data4_2);
-        let (data4_3, rest) = chunks[4].split_at(2);
-        let data4_3 = hex_lit(data4_3);
-
-        let (data4_4, rest) = rest.split_at(2);
-        let data4_4 = hex_lit(data4_4);
-
-        let (data4_5, rest) = rest.split_at(2);
-        let data4_5 = hex_lit(data4_5);
-
-        let (data4_6, rest) = rest.split_at(2);
-        let data4_6 = hex_lit(data4_6);
-
-        let (data4_7, data4_8) = rest.split_at(2);
-        let data4_7 = hex_lit(data4_7);
-        let data4_8 = hex_lit(data4_8);
-        Ok(quote! {
-            ::windows::core::GUID {
-                data1: #data1,
-                data2: #data2,
-                data3: #data3,
-                data4: [#data4_1, #data4_2, #data4_3, #data4_4, #data4_5, #data4_6, #data4_7, #data4_8]
-            }
-        })
-    }
-}
-
-impl Parse for Guid {
-    fn parse(cursor: ParseStream) -> syn::Result<Self> {
-        let string: syn::LitStr = cursor.parse()?;
-
-        Ok(Self(string))
-    }
-}
-
 /// Parsed interface
 ///
 /// ```rust
 /// #[interface("0000010c-0000-0000-C000-000000000046")]
 /// unsafe trait IFoo {}
-/// //^ this function parses this   
+/// //^ parses this   
 /// ```
 struct Interface {
     pub visibility: syn::Visibility,
@@ -128,6 +60,7 @@ struct Interface {
 }
 
 impl Interface {
+    /// Generates all the code needed for a COM interface
     fn gen_tokens(&self, guid: &Guid) -> syn::Result<proc_macro2::TokenStream> {
         let vis = &self.visibility;
         let name = &self.name;
@@ -154,6 +87,7 @@ impl Interface {
         })
     }
 
+    /// Generates the methods users can call on the COM interface pointer
     fn gen_implementation(&self) -> proc_macro2::TokenStream {
         let name = &self.name;
         let methods = self
@@ -166,15 +100,7 @@ impl Interface {
                 if m.args.iter().any(|a| !a.pass_through) {
                     panic!("TODO: handle methods with non-pass through arguments");
                 }
-                let args = &m
-                    .args
-                    .iter()
-                    .map(|a| {
-                        let pat = &a.pat;
-                        let ty = &a.ty;
-                        quote! { #pat: #ty }
-                    })
-                    .collect::<Vec<_>>();
+                let args = m.gen_args();
                 let params = &m
                     .args
                     .iter()
@@ -197,6 +123,7 @@ impl Interface {
         }
     }
 
+    /// Generates the vtable for a COM interface
     fn gen_vtable(&self, vtable_name: &syn::Ident) -> proc_macro2::TokenStream {
         let vtable_entries = self
             .methods
@@ -206,18 +133,7 @@ impl Interface {
                 if m.args.iter().any(|a| !a.pass_through) {
                     panic!("TODO: handle methods with non-pass through arguments");
                 }
-                let args = &m
-                    .args
-                    .iter()
-                    .map(|a| {
-                        let pat = &a.pat;
-                        let typ = &a.ty;
-                        quote! {
-                            #pat: #typ
-
-                        }
-                    })
-                    .collect::<Vec<_>>();
+                let args = m.gen_args();
                 quote! {
                     pub #name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, #(#args),*) -> ::windows::core::HRESULT,
                 }
@@ -232,6 +148,7 @@ impl Interface {
         }
     }
 
+    /// Generates various conversions such as from and to `IUnknown`
     fn gen_conversions(&self) -> proc_macro2::TokenStream {
         let name = &self.name;
         let name_string = format!("{}", name);
@@ -311,12 +228,113 @@ impl Parse for Interface {
     }
 }
 
+/// Parsed interface guid attribute
+///
+/// ```rust
+/// #[interface("0000010c-0000-0000-C000-000000000046")]
+///           //^ parses this   
+/// unsafe trait IFoo {}
+/// ```
+struct Guid(syn::LitStr);
+
+impl Guid {
+    /// The various chunks of a COM interface GUID separated by "-"
+    fn chunks(&self) -> syn::Result<[String; 5]> {
+        fn ensure_length<'a>(part: Option<&'a str>, index: usize, length: usize, span: proc_macro2::Span) -> syn::Result<String> {
+            let part = match part {
+                Some(p) => p,
+                None => return Err(syn::Error::new(span, format!("The IID missing part at index {}", index,))),
+            };
+
+            if part.len() != length {
+                return Err(syn::Error::new(span, format!("The IID part at index {} must be {} characters long but was {} characters", index, length, part.len())));
+            }
+
+            Ok(part.to_owned())
+        }
+
+        let guid_value = self.0.value();
+        let mut delimited = guid_value.split('-').fuse();
+        let chunks = [ensure_length(delimited.next(), 0, 8, self.0.span())?, ensure_length(delimited.next(), 1, 4, self.0.span())?, ensure_length(delimited.next(), 2, 4, self.0.span())?, ensure_length(delimited.next(), 3, 4, self.0.span())?, ensure_length(delimited.next(), 4, 12, self.0.span())?];
+
+        Ok(chunks)
+    }
+
+    fn to_tokens(&self) -> syn::Result<proc_macro2::TokenStream> {
+        fn hex_lit(num: &str) -> syn::LitInt {
+            syn::LitInt::new(&format!("0x{}", num), proc_macro2::Span::call_site())
+        }
+
+        let chunks = self.chunks()?;
+        let data1 = hex_lit(&chunks[0]);
+        let data2 = hex_lit(&chunks[1]);
+        let data3 = hex_lit(&chunks[2]);
+        let (data4_1, data4_2) = chunks[3].split_at(2);
+        let data4_1 = hex_lit(data4_1);
+        let data4_2 = hex_lit(data4_2);
+        let (data4_3, rest) = chunks[4].split_at(2);
+        let data4_3 = hex_lit(data4_3);
+
+        let (data4_4, rest) = rest.split_at(2);
+        let data4_4 = hex_lit(data4_4);
+
+        let (data4_5, rest) = rest.split_at(2);
+        let data4_5 = hex_lit(data4_5);
+
+        let (data4_6, rest) = rest.split_at(2);
+        let data4_6 = hex_lit(data4_6);
+
+        let (data4_7, data4_8) = rest.split_at(2);
+        let data4_7 = hex_lit(data4_7);
+        let data4_8 = hex_lit(data4_8);
+        Ok(quote! {
+            ::windows::core::GUID {
+                data1: #data1,
+                data2: #data2,
+                data3: #data3,
+                data4: [#data4_1, #data4_2, #data4_3, #data4_4, #data4_5, #data4_6, #data4_7, #data4_8]
+            }
+        })
+    }
+}
+
+impl Parse for Guid {
+    fn parse(cursor: ParseStream) -> syn::Result<Self> {
+        let string: syn::LitStr = cursor.parse()?;
+
+        Ok(Self(string))
+    }
+}
+
+/// A parsed interface method
+///
+/// ```rust
+/// #[interface("0000010c-0000-0000-C000-000000000046")]
+/// unsafe trait IFoo {
+///     fn GetValue(&self, value: *mut f64) -> HRESULT;
+///     //^ parses this   
+/// }
+/// ```
 struct InterfaceMethod {
     pub name: syn::Ident,
     pub visibility: syn::Visibility,
     pub args: Vec<InterfaceMethodArg>,
     pub ret: syn::ReturnType,
     pub docs: Vec<syn::Attribute>,
+}
+
+impl InterfaceMethod {
+    /// Generates arguments (of the form `$pat: $type`)
+    fn gen_args(&self) -> Vec<proc_macro2::TokenStream> {
+        self.args
+            .iter()
+            .map(|a| {
+                let pat = &a.pat;
+                let ty = &a.ty;
+                quote! { #pat: #ty }
+            })
+            .collect::<Vec<_>>()
+    }
 }
 
 impl syn::parse::Parse for InterfaceMethod {
@@ -352,8 +370,12 @@ impl syn::parse::Parse for InterfaceMethod {
     }
 }
 
+/// An argument to an interface method
 struct InterfaceMethodArg {
+    /// The type of the argument
     pub ty: Box<syn::Type>,
+    /// The name of the argument
     pub pat: Box<syn::Pat>,
+    /// Whether the argument needs transformation before crossing an FFI boundary
     pub pass_through: bool,
 }
