@@ -49,16 +49,16 @@ impl ICustomUri_Impl for CustomUri {
 }
 
 impl IUri_Impl for CustomUri {
-    fn GetPropertyBSTR(&self, uriprop: Uri_PROPERTY, pbstrproperty: *mut BSTR, dwflags: u32) -> ::windows::core::Result<()> {
+    fn GetPropertyBSTR(&self, _uriprop: Uri_PROPERTY, _pbstrproperty: *mut BSTR, _dwflags: u32) -> ::windows::core::Result<()> {
         todo!()
     }
-    fn GetPropertyLength(&self, uriprop: Uri_PROPERTY, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+    fn GetPropertyLength(&self, _uriprop: Uri_PROPERTY, _pcchproperty: *mut u32, _dwflags: u32) -> ::windows::core::Result<()> {
         todo!()
     }
-    fn GetPropertyDWORD(&self, uriprop: Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+    fn GetPropertyDWORD(&self, _uriprop: Uri_PROPERTY, _pdwproperty: *mut u32, _dwflags: u32) -> ::windows::core::Result<()> {
         todo!()
     }
-    fn HasProperty(&self, uriprop: Uri_PROPERTY) -> ::windows::core::Result<BOOL> {
+    fn HasProperty(&self, _uriprop: Uri_PROPERTY) -> ::windows::core::Result<BOOL> {
         todo!()
     }
     fn GetAbsoluteUri(&self) -> ::windows::core::Result<BSTR> {
@@ -121,7 +121,7 @@ impl IUri_Impl for CustomUri {
     fn GetProperties(&self) -> ::windows::core::Result<u32> {
         todo!()
     }
-    fn IsEqual(&self, puri: &::core::option::Option<IUri>) -> ::windows::core::Result<BOOL> {
+    fn IsEqual(&self, _puri: &::core::option::Option<IUri>) -> ::windows::core::Result<BOOL> {
         todo!()
     }
 }

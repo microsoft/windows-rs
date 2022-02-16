@@ -64,8 +64,8 @@ impl Interface {
     fn gen_tokens(&self, guid: &Guid) -> syn::Result<proc_macro2::TokenStream> {
         let vis = &self.visibility;
         let name = &self.name;
-        // TODO: support non-IUnknown parents
-        let parent = quote!(::windows::core::IUnknown);
+        let docs = &self.docs;
+        let parent = self.parent.as_ref().map(|p| quote!(#p)).unwrap_or_else(|| quote!(::windows::core::IUnknown));
         let vtable_name = quote::format_ident!("{}_Vtbl", name);
         let guid = guid.to_tokens()?;
         let implementation = self.gen_implementation();
@@ -75,6 +75,7 @@ impl Interface {
 
         Ok(quote! {
             #[repr(transparent)]
+            #(#docs)*
             #vis struct #name(#parent);
             #implementation
 
@@ -133,16 +134,19 @@ impl Interface {
             .iter()
             .map(|m| {
                 let name = &m.name;
+                let docs = &m.docs;
                 if m.args.iter().any(|a| !a.pass_through) {
                     panic!("TODO: handle methods with non-pass through arguments");
                 }
                 let args = m.gen_args();
                 quote! {
+                    #(#docs)*
                     unsafe fn #name(&self, #(#args)*) -> ::windows::core::HRESULT;
                 }
             })
             .collect::<Vec<_>>();
         quote! {
+            #[allow(non_camel_case_types)]
             #vis trait #name: Sized {
                 #(#methods)*
             }
@@ -159,12 +163,13 @@ impl Interface {
             .iter()
             .map(|m| {
                 let name = &m.name;
+                let ret = &m.ret;
                 if m.args.iter().any(|a| !a.pass_through) {
                     panic!("TODO: handle methods with non-pass through arguments");
                 }
                 let args = m.gen_args();
                 quote! {
-                    pub #name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, #(#args),*) -> ::windows::core::HRESULT,
+                    pub #name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, #(#args),*) #ret,
                 }
             })
             .collect::<Vec<_>>();
@@ -184,12 +189,11 @@ impl Interface {
                     })
                     .collect::<Vec<_>>();
                 quote! {
-
                     unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) -> ::windows::core::HRESULT {
-                    let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-                    let this = (*this).get_impl() as *mut Impl;
-                    (*this).#name(#(#params),*).into()
-                }
+                        let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+                        let this = (*this).get_impl() as *mut Impl;
+                        (*this).#name(#(#params),*).into()
+                    }
                 }
             })
             .collect::<Vec<_>>();
@@ -278,7 +282,6 @@ impl Parse for Interface {
         let mut docs = Vec::new();
         for attr in attributes.into_iter() {
             let path = &attr.path;
-            let tokens = &attr.tokens;
             if path.is_ident("doc") {
                 docs.push(attr);
             } else {
@@ -288,7 +291,7 @@ impl Parse for Interface {
 
         let visibility = input.parse::<syn::Visibility>()?;
         let _ = input.parse::<syn::Token![unsafe]>()?;
-        let interface = input.parse::<syn::Token![trait]>()?;
+        let _ = input.parse::<syn::Token![trait]>()?;
         let name = input.parse::<syn::Ident>()?;
         let mut parent = None;
         if name != "IUnknown" {
