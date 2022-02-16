@@ -84,7 +84,6 @@ jobs:
         cargo test --target ${{ matrix.target }} -p test_enums &&
         cargo test --target ${{ matrix.target }} -p test_handles &&
         cargo test --target ${{ matrix.target }} -p test_helpers &&
-        cargo test --target ${{ matrix.target }} -p test_interface &&
         cargo test --target ${{ matrix.target }} -p test_interop &&
         cargo test --target ${{ matrix.target }} -p test_lib &&
         cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&
@@ -134,6 +133,7 @@ jobs:
         cargo test --target ${{ matrix.target }} -p test_implement_data_object &&
         cargo test --target ${{ matrix.target }} -p test_implement_drop_target &&
         cargo test --target ${{ matrix.target }} -p test_implement_identity &&
+        cargo test --target ${{ matrix.target }} -p test_implement_interface &&
         cargo test --target ${{ matrix.target }} -p test_implement_map &&
         cargo test --target ${{ matrix.target }} -p test_implement_no_use &&
         cargo test --target ${{ matrix.target }} -p test_implement_null_result &&

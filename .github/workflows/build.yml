@@ -120,13 +120,13 @@ jobs:
         cargo clippy -p test_implement_data_object &&
         cargo clippy -p test_implement_drop_target &&
         cargo clippy -p test_implement_identity &&
+        cargo clippy -p test_implement_interface &&
         cargo clippy -p test_implement_map &&
         cargo clippy -p test_implement_no_use &&
         cargo clippy -p test_implement_null_result &&
         cargo clippy -p test_implement_properties &&
         cargo clippy -p test_implement_vector &&
         cargo clippy -p test_implement_winrt &&
-        cargo clippy -p test_interface &&
         cargo clippy -p test_interop &&
         cargo clippy -p test_lib &&
         cargo clippy -p test_matrix3x2 &&
