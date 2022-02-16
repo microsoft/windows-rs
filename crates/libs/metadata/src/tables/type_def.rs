@@ -580,6 +580,7 @@ impl TypeDef {
         }
 
         if features.add_type(self) {
+            features.add_attributes(self.attributes());
             match self.kind() {
                 TypeKind::Class => {
                     if let Some(def) = self.default_interface() {

@@ -122,5 +122,6 @@ impl MethodDef {
 
     pub(crate) fn combine_features(&self, features: &mut Features) {
         self.signature(&[]).combine_features(features);
+        features.add_attributes(self.attributes());
     }
 }

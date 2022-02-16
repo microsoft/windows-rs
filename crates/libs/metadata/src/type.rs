@@ -148,7 +148,7 @@ impl Type {
     pub fn is_callback(&self) -> bool {
         match self {
             // TODO: do we need to know there's a callback behind the pointer?
-            Type::ConstPtr((kind, _)) | Type::MutPtr((kind, _)) => kind.is_callback(),
+            Self::ConstPtr((kind, _)) | Self::MutPtr((kind, _)) => kind.is_callback(),
             Self::TypeDef(def) => def.is_callback(),
             _ => false,
         }
@@ -201,56 +201,56 @@ impl Type {
     }
 
     pub fn is_generic(&self) -> bool {
-        matches!(self, Type::GenericParam(_))
+        matches!(self, Self::GenericParam(_))
     }
 
     pub fn is_pointer(&self) -> bool {
-        matches!(self, Type::ConstPtr(_) | Type::MutPtr(_))
+        matches!(self, Self::ConstPtr(_) | Self::MutPtr(_))
     }
 
     pub fn is_void(&self) -> bool {
         match self {
             // TODO: do we care about void behind pointers?
-            Type::ConstPtr((kind, _)) | Type::MutPtr((kind, _)) => kind.is_void(),
-            Type::Void => true,
+            Self::ConstPtr((kind, _)) | Self::MutPtr((kind, _)) => kind.is_void(),
+            Self::Void => true,
             _ => false,
         }
     }
 
     pub fn deref(&self) -> Self {
         match self {
-            Type::ConstPtr((kind, 1)) => *kind.clone(),
-            Type::MutPtr((kind, 1)) => *kind.clone(),
-            Type::ConstPtr((kind, pointers)) => Type::ConstPtr((kind.clone(), pointers - 1)),
-            Type::MutPtr((kind, pointers)) => Type::MutPtr((kind.clone(), pointers - 1)),
+            Self::ConstPtr((kind, 1)) => *kind.clone(),
+            Self::MutPtr((kind, 1)) => *kind.clone(),
+            Self::ConstPtr((kind, pointers)) => Self::ConstPtr((kind.clone(), pointers - 1)),
+            Self::MutPtr((kind, pointers)) => Self::MutPtr((kind.clone(), pointers - 1)),
             _ => unimplemented!(),
         }
     }
 
     pub fn to_const(self) -> Self {
         match self {
-            Type::MutPtr((kind, pointers)) => Type::ConstPtr((kind, pointers)),
+            Self::MutPtr((kind, pointers)) => Self::ConstPtr((kind, pointers)),
             _ => self,
         }
     }
 
     pub fn is_winrt_array(&self) -> bool {
-        matches!(self, Type::WinrtArray(_))
+        matches!(self, Self::WinrtArray(_))
     }
 
     pub fn is_winrt_array_ref(&self) -> bool {
-        matches!(self, Type::WinrtArrayRef(_))
+        matches!(self, Self::WinrtArrayRef(_))
     }
 
     pub fn is_winrt_const_ref(&self) -> bool {
-        matches!(self, Type::WinrtConstRef(_))
+        matches!(self, Self::WinrtConstRef(_))
     }
 
     #[must_use]
-    pub fn underlying_type(&self) -> Type {
+    pub fn underlying_type(&self) -> Self {
         match self {
             Self::TypeDef(def) => def.underlying_type(),
-            Self::HRESULT => Type::I32,
+            Self::HRESULT => Self::I32,
             _ => self.clone(),
         }
     }
@@ -266,17 +266,20 @@ impl Type {
     pub fn features(&self) -> Features {
         let mut features = Features::new();
         self.combine_features(&mut features);
+        features.remove_feature(self.type_name().namespace);
         features
     }
 
     pub(crate) fn combine_features(&self, features: &mut Features) {
         match self {
-            Type::TypeDef(def) => def.combine_features(features),
-            Type::Win32Array((def, _)) => def.combine_features(features),
-            Type::ConstPtr((def, _)) => def.combine_features(features),
-            Type::MutPtr((def, _)) => def.combine_features(features),
-            Type::WinrtArray(def) => def.combine_features(features),
-            Type::WinrtArrayRef(def) => def.combine_features(features),
+            Self::MethodDef(def) => def.combine_features(features),
+            Self::Field(def) => def.combine_features(None, features),
+            Self::TypeDef(def) => def.combine_features(features),
+            Self::Win32Array((def, _)) => def.combine_features(features),
+            Self::ConstPtr((def, _)) => def.combine_features(features),
+            Self::MutPtr((def, _)) => def.combine_features(features),
+            Self::WinrtArray(def) => def.combine_features(features),
+            Self::WinrtArrayRef(def) => def.combine_features(features),
             _ => {}
         }
     }
@@ -290,24 +293,20 @@ mod tests {
     fn features() {
         let def = TypeReader::get().get_type(("Windows.Foundation", "IStringable")).unwrap();
         let features = def.features().get();
-        assert_eq!(features.len(), 1);
-        assert_eq!(features[0], "Windows.Foundation");
+        assert_eq!(features.len(), 0);
 
         let def = TypeReader::get().get_type(("Windows.Devices.Display.Core", "DisplayPresentationRate")).unwrap();
         let features = def.features().get();
-        assert_eq!(features.len(), 2);
-        assert_eq!(features[0], "Windows.Devices.Display.Core");
-        assert_eq!(features[1], "Windows.Foundation.Numerics");
+        assert_eq!(features.len(), 1);
+        assert_eq!(features[0], "Windows.Foundation.Numerics");
 
         let def = TypeReader::get().get_type(("Windows.Graphics.DirectX.Direct3D11", "Direct3DSurfaceDescription")).unwrap();
         let features = def.features().get();
-        assert_eq!(features.len(), 1);
-        assert_eq!(features[0], "Windows.Graphics.DirectX.Direct3D11");
+        assert_eq!(features.len(), 0);
 
         let def = TypeReader::get().get_type(("Windows.Win32.Security.Authorization.UI", "EFFPERM_RESULT_LIST")).unwrap();
         let features = def.features().get();
-        assert_eq!(features.len(), 2);
+        assert_eq!(features.len(), 1);
         assert_eq!(features[0], "Windows.Win32.Foundation");
-        assert_eq!(features[1], "Windows.Win32.Security.Authorization.UI");
     }
 }
