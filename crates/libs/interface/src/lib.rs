@@ -69,8 +69,10 @@ impl Interface {
         let vtable_name = quote::format_ident!("{}_Vtbl", name);
         let guid = guid.to_tokens()?;
         let implementation = self.gen_implementation();
+        let com_trait = self.get_com_trait();
         let vtable = self.gen_vtable(&vtable_name);
         let conversions = self.gen_conversions();
+
         Ok(quote! {
             #[repr(transparent)]
             #vis struct #name(#parent);
@@ -81,8 +83,8 @@ impl Interface {
                 const IID: ::windows::core::GUID = #guid;
             }
 
+            #com_trait
             #vtable
-
             #conversions
         })
     }
@@ -123,8 +125,33 @@ impl Interface {
         }
     }
 
+    fn get_com_trait(&self) -> proc_macro2::TokenStream {
+        let name = quote::format_ident!("{}_Impl", self.name);
+        let vis = &self.visibility;
+        let methods = self
+            .methods
+            .iter()
+            .map(|m| {
+                let name = &m.name;
+                if m.args.iter().any(|a| !a.pass_through) {
+                    panic!("TODO: handle methods with non-pass through arguments");
+                }
+                let args = m.gen_args();
+                quote! {
+                    unsafe fn #name(&self, #(#args)*) -> ::windows::core::HRESULT;
+                }
+            })
+            .collect::<Vec<_>>();
+        quote! {
+            #vis trait #name: Sized {
+                #(#methods)*
+            }
+        }
+    }
+
     /// Generates the vtable for a COM interface
     fn gen_vtable(&self, vtable_name: &syn::Ident) -> proc_macro2::TokenStream {
+        let name = &self.name;
         let vtable_entries = self
             .methods
             .iter()
@@ -139,11 +166,24 @@ impl Interface {
                 }
             })
             .collect::<Vec<_>>();
+        let trait_name = quote::format_ident!("{}_Impl", name);
         quote! {
             #[repr(C)]
             #[doc(hidden)]
             pub struct #vtable_name {
+                // TODO: handle non-IUnknown parents
+                pub base: ::windows::core::IUnknownVtbl,
                 #(#vtable_entries)*
+            }
+
+            impl #vtable_name {
+                pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>() -> Self {
+                    loop {}
+                }
+                
+                pub fn matches(iid: &windows::core::GUID) -> bool {
+                    iid == &<#name as ::windows::core::Interface>::IID
+                }
             }
         }
     }
