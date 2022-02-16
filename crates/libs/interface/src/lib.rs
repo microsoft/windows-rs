@@ -6,7 +6,7 @@ use syn::spanned::Spanned;
 ///
 /// # Example
 /// ```rust
-/// #[interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
+/// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
 /// unsafe trait IUIAnimationVariable: IUnknown {
 ///     fn GetValue(&self, value: *mut f64) -> HRESULT;
 /// }
@@ -47,7 +47,7 @@ macro_rules! expected_token {
 /// Parsed interface
 ///
 /// ```rust
-/// #[interface("0000010c-0000-0000-C000-000000000046")]
+/// #[windows_interface::interface("0000010c-0000-0000-C000-000000000046")]
 /// unsafe trait IFoo {}
 /// //^ parses this   
 /// ```
@@ -311,7 +311,7 @@ impl Parse for Interface {
 /// Parsed interface guid attribute
 ///
 /// ```rust
-/// #[interface("0000010c-0000-0000-C000-000000000046")]
+/// #[windows_interface::interface("0000010c-0000-0000-C000-000000000046")]
 ///           //^ parses this   
 /// unsafe trait IFoo {}
 /// ```
@@ -389,7 +389,7 @@ impl Parse for Guid {
 /// A parsed interface method
 ///
 /// ```rust
-/// #[interface("0000010c-0000-0000-C000-000000000046")]
+/// #[windows_interface::interface("0000010c-0000-0000-C000-000000000046")]
 /// unsafe trait IFoo {
 ///     fn GetValue(&self, value: *mut f64) -> HRESULT;
 ///     //^ parses this   
