@@ -62,12 +62,6 @@ impl Type {
             Self::MethodDef(def) => &def.0,
             Self::Field(def) => &def.0,
             Self::TypeDef(def) => &def.row,
-            Self::MutPtr((def, _)) => def.row(),
-            Self::ConstPtr((def, _)) => def.row(),
-            Self::Win32Array((def, _)) => def.row(),
-            Self::WinrtArray(def) => def.row(),
-            Self::WinrtArrayRef(def) => def.row(),
-            Self::WinrtConstRef(def) => def.row(),
             _ => unimplemented!(),
         }
     }
@@ -98,13 +92,7 @@ impl Type {
     pub fn type_name(&self) -> TypeName {
         match self {
             Self::TypeDef(def) => def.type_name(),
-            Self::MutPtr((def, _)) => def.type_name(),
-            Self::ConstPtr((def, _)) => def.type_name(),
-            Self::Win32Array((def, _)) => def.type_name(),
-            Self::WinrtArray(def) => def.type_name(),
-            Self::WinrtArrayRef(def) => def.type_name(),
-            Self::WinrtConstRef(def) => def.type_name(),
-            _ => TypeName::None,
+            _ => unimplemented!(),
         }
     }
 
