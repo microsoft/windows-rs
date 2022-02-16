@@ -152,6 +152,8 @@ impl Interface {
     /// Generates the vtable for a COM interface
     fn gen_vtable(&self, vtable_name: &syn::Ident) -> proc_macro2::TokenStream {
         let name = &self.name;
+        // TODO
+        let parent_vtable = quote!(::windows::core::IUnknownVtbl);
         let vtable_entries = self
             .methods
             .iter()
@@ -167,6 +169,40 @@ impl Interface {
             })
             .collect::<Vec<_>>();
         let trait_name = quote::format_ident!("{}_Impl", name);
+        let functions = self
+            .methods
+            .iter()
+            .map(|m| {
+                let name = &m.name;
+                let args = m.gen_args();
+                let params = &m
+                    .args
+                    .iter()
+                    .map(|a| {
+                        let pat = &a.pat;
+                        quote! { #pat }
+                    })
+                    .collect::<Vec<_>>();
+                quote! {
+
+                    unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) -> ::windows::core::HRESULT {
+                    let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+                    let this = (*this).get_impl() as *mut Impl;
+                    (*this).#name(#(#params),*).into()
+                }
+                }
+            })
+            .collect::<Vec<_>>();
+        let entries = self
+            .methods
+            .iter()
+            .map(|m| {
+                let name = &m.name;
+                quote! {
+                        #name: #name::<Identity, Impl, OFFSET>
+                }
+            })
+            .collect::<Vec<_>>();
         quote! {
             #[repr(C)]
             #[doc(hidden)]
@@ -178,9 +214,10 @@ impl Interface {
 
             impl #vtable_name {
                 pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>() -> Self {
-                    loop {}
+                    #(#functions)*
+                    Self { base: #parent_vtable::new::<Identity, OFFSET>(), #(#entries),* }
                 }
-                
+
                 pub fn matches(iid: &windows::core::GUID) -> bool {
                     iid == &<#name as ::windows::core::Interface>::IID
                 }
