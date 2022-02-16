@@ -320,7 +320,7 @@ struct Guid(syn::LitStr);
 impl Guid {
     /// The various chunks of a COM interface GUID separated by "-"
     fn chunks(&self) -> syn::Result<[String; 5]> {
-        fn ensure_length<'a>(part: Option<&'a str>, index: usize, length: usize, span: proc_macro2::Span) -> syn::Result<String> {
+        fn ensure_length(part: Option<&str>, index: usize, length: usize, span: proc_macro2::Span) -> syn::Result<String> {
             let part = match part {
                 Some(p) => p,
                 None => return Err(syn::Error::new(span, format!("The IID missing part at index {}", index,))),
