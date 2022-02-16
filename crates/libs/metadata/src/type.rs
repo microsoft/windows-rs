@@ -263,23 +263,23 @@ impl Type {
         }
     }
 
-    pub fn features(&self) -> Features {
-        let mut features = Features::new();
-        self.combine_features(&mut features);
-        features.remove_feature(self.type_name().namespace);
-        features
+    pub fn cfg(&self) -> Cfg {
+        let mut cfg = Cfg::new();
+        self.combine_cfg(&mut cfg);
+        cfg.remove_feature(self.type_name().namespace);
+        cfg
     }
 
-    pub(crate) fn combine_features(&self, features: &mut Features) {
+    pub(crate) fn combine_cfg(&self, cfg: &mut Cfg) {
         match self {
-            Self::MethodDef(def) => def.combine_features(features),
-            Self::Field(def) => def.combine_features(None, features),
-            Self::TypeDef(def) => def.combine_features(features),
-            Self::Win32Array((def, _)) => def.combine_features(features),
-            Self::ConstPtr((def, _)) => def.combine_features(features),
-            Self::MutPtr((def, _)) => def.combine_features(features),
-            Self::WinrtArray(def) => def.combine_features(features),
-            Self::WinrtArrayRef(def) => def.combine_features(features),
+            Self::MethodDef(def) => def.combine_cfg(cfg),
+            Self::Field(def) => def.combine_cfg(None, cfg),
+            Self::TypeDef(def) => def.combine_cfg(cfg),
+            Self::Win32Array((def, _)) => def.combine_cfg(cfg),
+            Self::ConstPtr((def, _)) => def.combine_cfg(cfg),
+            Self::MutPtr((def, _)) => def.combine_cfg(cfg),
+            Self::WinrtArray(def) => def.combine_cfg(cfg),
+            Self::WinrtArrayRef(def) => def.combine_cfg(cfg),
             _ => {}
         }
     }
@@ -290,22 +290,22 @@ mod tests {
     use super::*;
 
     #[test]
-    fn features() {
+    fn cfg() {
         let def = TypeReader::get().get_type(("Windows.Foundation", "IStringable")).unwrap();
-        let namespaces = def.features().namespaces();
+        let namespaces = def.cfg().namespaces();
         assert_eq!(namespaces.len(), 0);
 
         let def = TypeReader::get().get_type(("Windows.Devices.Display.Core", "DisplayPresentationRate")).unwrap();
-        let namespaces = def.features().namespaces();
+        let namespaces = def.cfg().namespaces();
         assert_eq!(namespaces.len(), 1);
         assert_eq!(namespaces[0], "Windows.Foundation.Numerics");
 
         let def = TypeReader::get().get_type(("Windows.Graphics.DirectX.Direct3D11", "Direct3DSurfaceDescription")).unwrap();
-        let namespaces = def.features().namespaces();
+        let namespaces = def.cfg().namespaces();
         assert_eq!(namespaces.len(), 0);
 
         let def = TypeReader::get().get_type(("Windows.Win32.Security.Authorization.UI", "EFFPERM_RESULT_LIST")).unwrap();
-        let namespaces = def.features().namespaces();
+        let namespaces = def.cfg().namespaces();
         assert_eq!(namespaces.len(), 1);
         assert_eq!(namespaces[0], "Windows.Win32.Foundation");
     }

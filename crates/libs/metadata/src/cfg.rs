@@ -1,12 +1,12 @@
 use super::*;
 use std::collections::*;
 
-pub struct Features{
+pub struct Cfg{
     types: BTreeMap<&'static str, BTreeSet<Row>>,
     arches: BTreeSet<&'static str>, 
 }
 
-impl Features {
+impl Cfg {
     pub fn namespaces(&self) -> Vec<&'static str> {
         let mut compact = Vec::<&'static str>::new();
         for feature in self.types.keys() {
@@ -19,6 +19,10 @@ impl Features {
             compact.push(feature);
         }
         compact
+    }
+
+    pub fn arches(&self) -> &BTreeSet<&'static str> {
+        &self.arches
     }
 
     pub(crate) fn new() -> Self {

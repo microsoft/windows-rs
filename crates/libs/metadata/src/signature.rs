@@ -63,9 +63,9 @@ impl Signature {
         self.params.iter().fold(0, |sum, param| sum + param.ty.size())
     }
 
-    pub(crate) fn combine_features(&self, features: &mut Features) {
-        self.return_type.iter().for_each(|def| def.combine_features(features));
-        self.params.iter().for_each(|def| def.ty.combine_features(features));
+    pub(crate) fn combine_cfg(&self, cfg: &mut Cfg) {
+        self.return_type.iter().for_each(|def| def.combine_cfg(cfg));
+        self.params.iter().for_each(|def| def.ty.combine_cfg(cfg));
     }
 }
 

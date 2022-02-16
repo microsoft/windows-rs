@@ -51,8 +51,8 @@ impl Field {
         self.attributes().any(|attribute| attribute.name() == name)
     }
 
-    pub(crate) fn combine_features(&self, enclosing: Option<&TypeDef>, features: &mut Features) {
-        self.get_type(enclosing).combine_features(features);
+    pub(crate) fn combine_cfg(&self, enclosing: Option<&TypeDef>, cfg: &mut Cfg) {
+        self.get_type(enclosing).combine_cfg(cfg);
     }
 }
 

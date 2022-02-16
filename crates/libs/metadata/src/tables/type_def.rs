@@ -574,32 +574,32 @@ impl TypeDef {
         }
     }
 
-    pub(crate) fn combine_features(&self, features: &mut Features) {
+    pub(crate) fn combine_cfg(&self, cfg: &mut Cfg) {
         for generic in &self.generics {
-            generic.combine_features(features);
+            generic.combine_cfg(cfg);
         }
 
-        if features.add_type(self) {
-            features.add_attributes(self.attributes());
+        if cfg.add_type(self) {
+            cfg.add_attributes(self.attributes());
             match self.kind() {
                 TypeKind::Class => {
                     if let Some(def) = self.default_interface() {
-                        features.add_feature(def.namespace());
+                        cfg.add_feature(def.namespace());
                     }
                 }
                 TypeKind::Interface => {
                     if !self.is_winrt() {
                         for def in self.vtable_types() {
                             if let Type::TypeDef(def) = def {
-                                features.add_feature(def.namespace());
+                                cfg.add_feature(def.namespace());
                             }
                         }
                     }
                 }
                 TypeKind::Struct => {
-                    self.fields().for_each(|field| field.combine_features(Some(self), features));
+                    self.fields().for_each(|field| field.combine_cfg(Some(self), cfg));
                 }
-                TypeKind::Delegate => self.invoke_method().combine_features(features),
+                TypeKind::Delegate => self.invoke_method().combine_cfg(cfg),
                 _ => {}
             }
         }
