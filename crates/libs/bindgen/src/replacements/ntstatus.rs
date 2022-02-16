@@ -21,7 +21,7 @@ pub fn gen() -> TokenStream {
             }
 
             #[inline]
-            pub fn ok(self) -> ::windows::core::Result<()> {
+            pub const fn ok(self) -> ::windows::core::Result<()> {
                 if self.is_ok() {
                     Ok(())
                 } else {

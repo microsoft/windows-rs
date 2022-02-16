@@ -5118,7 +5118,7 @@ impl NTSTATUS {
         ::windows::core::HRESULT(self.0 | 0x1000_0000)
     }
     #[inline]
-    pub fn ok(self) -> ::windows::core::Result<()> {
+    pub const fn ok(self) -> ::windows::core::Result<()> {
         if self.is_ok() {
             Ok(())
         } else {
