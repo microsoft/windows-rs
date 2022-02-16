@@ -82,6 +82,9 @@ pub type RawPtr = *mut core::ffi::c_void;
 #[cfg(feature = "implement")]
 pub use windows_implement::implement;
 
+#[cfg(feature = "interface")]
+pub use windows_interface::interface;
+
 extern "C" {
     #[doc(hidden)]
     pub fn memcmp(left: *const core::ffi::c_void, right: *const core::ffi::c_void, len: usize) -> i32;
