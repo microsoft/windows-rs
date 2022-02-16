@@ -62,6 +62,12 @@ impl Type {
             Self::MethodDef(def) => &def.0,
             Self::Field(def) => &def.0,
             Self::TypeDef(def) => &def.row,
+            Self::MutPtr((def, _)) => def.row(),
+            Self::ConstPtr((def, _)) => def.row(),
+            Self::Win32Array((def, _)) => def.row(),
+            Self::WinrtArray(def) => def.row(),
+            Self::WinrtArrayRef(def) => def.row(),
+            Self::WinrtConstRef(def) => def.row(),
             _ => unimplemented!(),
         }
     }
@@ -92,7 +98,13 @@ impl Type {
     pub fn type_name(&self) -> TypeName {
         match self {
             Self::TypeDef(def) => def.type_name(),
-            _ => unimplemented!(),
+            Self::MutPtr((def, _)) => def.type_name(),
+            Self::ConstPtr((def, _)) => def.type_name(),
+            Self::Win32Array((def, _)) => def.type_name(),
+            Self::WinrtArray(def) => def.type_name(),
+            Self::WinrtArrayRef(def) => def.type_name(),
+            Self::WinrtConstRef(def) => def.type_name(),
+            _ => TypeName::None,
         }
     }
 
@@ -261,5 +273,53 @@ impl Type {
             Self::TypeDef(def) => def.is_handle(),
             _ => false,
         }
+    }
+
+    pub fn features(&self) -> Features {
+        let mut features = Features::new();
+        self.combine_features(&mut features);
+        features
+    }
+
+    pub(crate) fn combine_features(&self, features: &mut Features) {
+        match self {
+            Type::TypeDef(def) => def.combine_features(features),
+            Type::Win32Array((def, _)) => def.combine_features(features),
+            Type::ConstPtr((def, _)) => def.combine_features(features),
+            Type::MutPtr((def, _)) => def.combine_features(features),
+            Type::WinrtArray(def) => def.combine_features(features),
+            Type::WinrtArrayRef(def) => def.combine_features(features),
+            _ => {}
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn features() {
+        let def = TypeReader::get().get_type(("Windows.Foundation", "IStringable")).unwrap();
+        let features = def.features().get();
+        assert_eq!(features.len(), 1);
+        assert_eq!(features[0], "Windows.Foundation");
+
+        let def = TypeReader::get().get_type(("Windows.Devices.Display.Core", "DisplayPresentationRate")).unwrap();
+        let features = def.features().get();
+        assert_eq!(features.len(), 2);
+        assert_eq!(features[0], "Windows.Devices.Display.Core");
+        assert_eq!(features[1], "Windows.Foundation.Numerics");
+
+        let def = TypeReader::get().get_type(("Windows.Graphics.DirectX.Direct3D11", "Direct3DSurfaceDescription")).unwrap();
+        let features = def.features().get();
+        assert_eq!(features.len(), 1);
+        assert_eq!(features[0], "Windows.Graphics.DirectX.Direct3D11");
+
+        let def = TypeReader::get().get_type(("Windows.Win32.Security.Authorization.UI", "EFFPERM_RESULT_LIST")).unwrap();
+        let features = def.features().get();
+        assert_eq!(features.len(), 2);
+        assert_eq!(features[0], "Windows.Win32.Foundation");
+        assert_eq!(features[1], "Windows.Win32.Security.Authorization.UI");
     }
 }

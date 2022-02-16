@@ -573,6 +573,36 @@ impl TypeDef {
             _ => AsyncKind::None,
         }
     }
+
+    pub(crate) fn combine_features(&self, features: &mut Features) {
+        for generic in &self.generics {
+            generic.combine_features(features);
+        }
+
+        if features.add_type(self) {
+            match self.kind() {
+                TypeKind::Class => {
+                    if let Some(def) = self.default_interface() {
+                        features.add_feature(def.namespace());
+                    }
+                }
+                TypeKind::Interface => {
+                    if !self.is_winrt() {
+                        for def in self.vtable_types() {
+                            if let Type::TypeDef(def) = def {
+                                features.add_feature(def.namespace());
+                            }
+                        }
+                    }
+                }
+                TypeKind::Struct => {
+                    self.fields().for_each(|field| field.combine_features(Some(self), features));
+                }
+                TypeKind::Delegate => self.invoke_method().combine_features(features),
+                _ => {}
+            }
+        }
+    }
 }
 
 struct Bases(TypeDef);

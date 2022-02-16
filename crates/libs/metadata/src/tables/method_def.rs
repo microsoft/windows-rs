@@ -119,4 +119,8 @@ impl MethodDef {
 
         Signature { params, return_type, return_param, preserve_sig }
     }
+
+    pub(crate) fn combine_features(&self, features: &mut Features) {
+        self.signature(&[]).combine_features(features);
+    }
 }

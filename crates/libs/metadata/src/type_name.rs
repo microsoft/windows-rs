@@ -1,3 +1,4 @@
+// TODO: can't these return &'static str?
 pub trait HasTypeName: Copy {
     fn namespace(&self) -> &str;
     fn name(&self) -> &str;
