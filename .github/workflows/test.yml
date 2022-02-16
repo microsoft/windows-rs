@@ -60,6 +60,7 @@ jobs:
     - name: Test stable
       run: |
         cargo test --target ${{ matrix.target }} -p windows-bindgen &&
+        cargo test --target ${{ matrix.target }} -p windows-interface &&
         cargo test --target ${{ matrix.target }} -p windows-metadata &&
         cargo test --target ${{ matrix.target }} -p windows-sys &&
         cargo test --target ${{ matrix.target }} -p windows-tokens &&
@@ -83,6 +84,7 @@ jobs:
         cargo test --target ${{ matrix.target }} -p test_enums &&
         cargo test --target ${{ matrix.target }} -p test_handles &&
         cargo test --target ${{ matrix.target }} -p test_helpers &&
+        cargo test --target ${{ matrix.target }} -p test_interface &&
         cargo test --target ${{ matrix.target }} -p test_interop &&
         cargo test --target ${{ matrix.target }} -p test_lib &&
         cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&

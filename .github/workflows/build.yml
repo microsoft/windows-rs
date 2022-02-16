@@ -72,6 +72,7 @@ jobs:
       run: |
         cargo clippy -p windows-bindgen &&
         cargo clippy -p windows-implement &&
+        cargo clippy -p windows-interface &&
         cargo clippy -p windows-metadata &&
         cargo clippy -p windows-sys &&
         cargo clippy -p windows-tokens &&
@@ -125,6 +126,7 @@ jobs:
         cargo clippy -p test_implement_properties &&
         cargo clippy -p test_implement_vector &&
         cargo clippy -p test_implement_winrt &&
+        cargo clippy -p test_interface &&
         cargo clippy -p test_interop &&
         cargo clippy -p test_lib &&
         cargo clippy -p test_matrix3x2 &&
