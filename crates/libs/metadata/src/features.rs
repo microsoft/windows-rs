@@ -3,11 +3,11 @@ use std::collections::*;
 
 pub struct Features{
     types: BTreeMap<&'static str, BTreeSet<Row>>,
-    arch: BTreeSet<&'static str>, 
+    arches: BTreeSet<&'static str>, 
 }
 
 impl Features {
-    pub fn get(&self) -> Vec<&'static str> {
+    pub fn namespaces(&self) -> Vec<&'static str> {
         let mut compact = Vec::<&'static str>::new();
         for feature in self.types.keys() {
             for pos in 0..compact.len() {
@@ -22,7 +22,7 @@ impl Features {
     }
 
     pub(crate) fn new() -> Self {
-        Self{types: BTreeMap::new(), arch: BTreeSet::new()}
+        Self{types: BTreeMap::new(), arches: BTreeSet::new()}
     }
 
     pub(crate) fn add_type(&mut self, def: &TypeDef) -> bool {
@@ -51,13 +51,13 @@ impl Features {
                 "SupportedArchitectureAttribute" => {
                     if let Some((_, ConstantValue::I32(value))) = attribute.args().get(0) {
                         if value & 1 == 1 {
-                            self.arch.insert("x86");
+                            self.arches.insert("x86");
                         }
                         if value & 2 == 2 {
-                            self.arch.insert("x86_64");
+                            self.arches.insert("x86_64");
                         }
                         if value & 4 == 4 {
-                            self.arch.insert("aarch64");
+                            self.arches.insert("aarch64");
                         }
                     }
                 }
@@ -73,8 +73,8 @@ impl Features {
         let mut union = Self::new();
         self.types.keys().for_each(|feature|union.add_feature(feature));
         other.types.keys().for_each(|feature|union.add_feature(feature));
-        self.arch.iter().for_each(|arch|{union.arch.insert(arch);});
-        other.arch.iter().for_each(|arch|{union.arch.insert(arch);});
+        self.arches.iter().for_each(|arch|{union.arches.insert(arch);});
+        other.arches.iter().for_each(|arch|{union.arches.insert(arch);});
         union
     }
 }

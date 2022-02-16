@@ -292,21 +292,21 @@ mod tests {
     #[test]
     fn features() {
         let def = TypeReader::get().get_type(("Windows.Foundation", "IStringable")).unwrap();
-        let features = def.features().get();
-        assert_eq!(features.len(), 0);
+        let namespaces = def.features().namespaces();
+        assert_eq!(namespaces.len(), 0);
 
         let def = TypeReader::get().get_type(("Windows.Devices.Display.Core", "DisplayPresentationRate")).unwrap();
-        let features = def.features().get();
-        assert_eq!(features.len(), 1);
-        assert_eq!(features[0], "Windows.Foundation.Numerics");
+        let namespaces = def.features().namespaces();
+        assert_eq!(namespaces.len(), 1);
+        assert_eq!(namespaces[0], "Windows.Foundation.Numerics");
 
         let def = TypeReader::get().get_type(("Windows.Graphics.DirectX.Direct3D11", "Direct3DSurfaceDescription")).unwrap();
-        let features = def.features().get();
-        assert_eq!(features.len(), 0);
+        let namespaces = def.features().namespaces();
+        assert_eq!(namespaces.len(), 0);
 
         let def = TypeReader::get().get_type(("Windows.Win32.Security.Authorization.UI", "EFFPERM_RESULT_LIST")).unwrap();
-        let features = def.features().get();
-        assert_eq!(features.len(), 1);
-        assert_eq!(features[0], "Windows.Win32.Foundation");
+        let namespaces = def.features().namespaces();
+        assert_eq!(namespaces.len(), 1);
+        assert_eq!(namespaces[0], "Windows.Win32.Foundation");
     }
 }
