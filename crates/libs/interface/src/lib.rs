@@ -5,7 +5,7 @@ use syn::spanned::Spanned;
 /// A COM interface definition
 ///
 /// # Example
-/// ```rust
+/// ```rust,ignore
 /// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
 /// unsafe trait IUIAnimationVariable: IUnknown {
 ///     fn GetValue(&self, value: *mut f64) -> HRESULT;
@@ -46,10 +46,12 @@ macro_rules! expected_token {
 
 /// Parsed interface
 ///
-/// ```rust
-/// #[windows_interface::interface("0000010c-0000-0000-C000-000000000046")]
-/// unsafe trait IFoo {}
+/// ```rust,ignore
+/// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
+/// unsafe trait IUIAnimationVariable: IUnknown {
 /// //^ parses this   
+///     fn GetValue(&self, value: *mut f64) -> HRESULT;
+/// }
 /// ```
 struct Interface {
     pub visibility: syn::Visibility,
@@ -310,10 +312,12 @@ impl Parse for Interface {
 
 /// Parsed interface guid attribute
 ///
-/// ```rust
-/// #[windows_interface::interface("0000010c-0000-0000-C000-000000000046")]
-///           //^ parses this   
-/// unsafe trait IFoo {}
+/// ```rust,ignore
+/// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
+///                              //^ parses this   
+/// unsafe trait IUIAnimationVariable: IUnknown {
+///     fn GetValue(&self, value: *mut f64) -> HRESULT;
+/// }
 /// ```
 struct Guid(syn::LitStr);
 
@@ -388,11 +392,11 @@ impl Parse for Guid {
 
 /// A parsed interface method
 ///
-/// ```rust
-/// #[windows_interface::interface("0000010c-0000-0000-C000-000000000046")]
-/// unsafe trait IFoo {
+/// ```rust,ignore
+/// #[windows_interface::interface("8CEEB155-2849-4ce5-9448-91FF70E1E4D9")]
+/// unsafe trait IUIAnimationVariable: IUnknown {
 ///     fn GetValue(&self, value: *mut f64) -> HRESULT;
-///     //^ parses this   
+///   //^ parses this   
 /// }
 /// ```
 struct InterfaceMethod {
