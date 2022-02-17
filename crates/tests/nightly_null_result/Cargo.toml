@@ -1,5 +1,5 @@
 [package]
-name = "test_implement_drop_target"
+name = "test_nightly_null_result"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
@@ -9,7 +9,6 @@ path = "../../libs/windows"
 features = [
     "implement",
     "Win32_Foundation",
-    "Win32_Graphics_Gdi", 
-    "Win32_System_Com_StructuredStorage",
-    "Win32_System_Ole",
+    "UI_Xaml_Markup",
+    "UI_Xaml_Interop",
 ]

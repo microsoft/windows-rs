@@ -1,5 +1,5 @@
 [package]
-name = "test_implement_map"
+name = "test_nightly_properties"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
@@ -8,5 +8,7 @@ edition = "2018"
 path = "../../libs/windows"
 features = [
     "implement",
-    "Foundation_Collections"
+    "Win32_Foundation",
+    "Win32_System_Com_StructuredStorage",
+    "Win32_UI_Shell_PropertiesSystem",
 ]
