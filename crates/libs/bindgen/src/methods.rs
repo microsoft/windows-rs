@@ -15,7 +15,8 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     let vname = virtual_names.add(method);
 
     let constraints = gen_param_constraints(params, gen);
-    let cfg = method.cfg();
+    let mut cfg = method.cfg();
+    cfg.add_feature(def.namespace());
     let doc = gen.doc(&cfg);
     let features = gen.cfg(&cfg);
     let args = params.iter().map(gen_winrt_abi_arg);
@@ -144,7 +145,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
     let name = method_names.add(method);
     let vname = virtual_names.add(method);
     let constraints = gen_param_constraints(&signature.params, gen);
-    let cfg = method.cfg();
+    let mut cfg = method.cfg();
+    cfg.add_feature(def.namespace());
     let doc = gen.doc(&cfg);
     let features = gen.cfg(&cfg);
 

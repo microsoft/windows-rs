@@ -175,7 +175,8 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 
         let name = method_names.add(&method);
         let signature = gen_vtbl_signature(def, &method, gen);
-        let cfg = method.cfg();
+        let mut cfg = method.cfg();
+        cfg.add_feature(def.namespace());
         let cfg_all = gen.cfg(&cfg);
         let cfg_not = gen.not_cfg(&cfg);
 
