@@ -65,7 +65,7 @@ impl Gen<'_> {
         } else {
             let mut tokens = format!("'{}'", to_feature(self.namespace));
 
-            for features in &cfg.features() {
+            for features in &cfg.features(self.namespace) {
                 tokens.push_str(&format!(", '{}'", to_feature(features)));
             }
 
@@ -88,7 +88,7 @@ impl Gen<'_> {
                 }
             };
 
-            let features = &cfg.features();
+            let features = &cfg.features(self.namespace);
             let features = match features.len() {
                 0 => quote! {},
                 1 => {
@@ -106,7 +106,7 @@ impl Gen<'_> {
     }
 
     pub(crate) fn not_cfg(&self, cfg: &Cfg) -> TokenStream {
-        let features = &cfg.features();
+        let features = &cfg.features(self.namespace);
         if !self.cfg || features.is_empty() {
             quote! {}
         } else {

@@ -578,7 +578,6 @@ impl TypeDef {
         let mut cfg = Cfg::new();
         self.combine_cfg(&mut cfg);
         cfg.add_attributes(self.attributes());
-        cfg.remove_feature(self.namespace());
         cfg
     }
 
@@ -608,7 +607,6 @@ impl TypeDef {
         }
 
         cfg.add_attributes(self.attributes());
-        cfg.remove_feature(self.namespace());
         cfg
     }
 
