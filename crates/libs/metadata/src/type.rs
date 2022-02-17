@@ -266,7 +266,6 @@ impl Type {
     pub fn cfg(&self) -> Cfg {
         let mut cfg = Cfg::new();
         self.combine_cfg(&mut cfg);
-        cfg.remove_feature(self.type_name().namespace);
         cfg
     }
 
@@ -282,31 +281,5 @@ impl Type {
             Self::WinrtArrayRef(def) => def.combine_cfg(cfg),
             _ => {}
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn cfg() {
-        let def = TypeReader::get().get_type(("Windows.Foundation", "IStringable")).unwrap();
-        let namespaces = def.cfg().namespaces();
-        assert_eq!(namespaces.len(), 0);
-
-        let def = TypeReader::get().get_type(("Windows.Devices.Display.Core", "DisplayPresentationRate")).unwrap();
-        let namespaces = def.cfg().namespaces();
-        assert_eq!(namespaces.len(), 1);
-        assert_eq!(namespaces[0], "Windows.Foundation.Numerics");
-
-        let def = TypeReader::get().get_type(("Windows.Graphics.DirectX.Direct3D11", "Direct3DSurfaceDescription")).unwrap();
-        let namespaces = def.cfg().namespaces();
-        assert_eq!(namespaces.len(), 0);
-
-        let def = TypeReader::get().get_type(("Windows.Win32.Security.Authorization.UI", "EFFPERM_RESULT_LIST")).unwrap();
-        let namespaces = def.cfg().namespaces();
-        assert_eq!(namespaces.len(), 1);
-        assert_eq!(namespaces[0], "Windows.Win32.Foundation");
     }
 }

@@ -120,8 +120,14 @@ impl MethodDef {
         Signature { params, return_type, return_param, preserve_sig }
     }
 
+    pub fn cfg(&self) -> Cfg {
+        let mut cfg = Cfg::new();
+        self.combine_cfg(&mut cfg);
+        cfg.add_attributes(self.attributes());
+        cfg
+    }
+
     pub(crate) fn combine_cfg(&self, cfg: &mut Cfg) {
         self.signature(&[]).combine_cfg(cfg);
-        cfg.add_attributes(self.attributes());
     }
 }

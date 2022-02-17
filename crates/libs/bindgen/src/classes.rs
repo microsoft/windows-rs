@@ -22,9 +22,9 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
 
-    let cfg = gen.type_cfg(def);
-    let features = cfg.gen(gen);
-    let doc = cfg.gen_doc(gen);
+    let cfg = def.cfg();
+    let doc = gen.doc(&cfg);
+    let features = gen.cfg(&cfg);
 
     for (def, kind) in &interfaces {
         if gen.min_xaml && *kind == InterfaceKind::Base && gen.namespace.starts_with("Windows.UI.Xaml") && !def.namespace().starts_with("Windows.Foundation") {
@@ -43,7 +43,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             if def.methods().next().is_some() {
                 let interface_name = format_token!("{}", def.name());
                 let interface_type = gen_type_name(def, gen);
-                let features = gen.type_cfg(def).gen(gen);
+                let features = gen.cfg(&def.cfg());
 
                 let hidden = if gen.doc {
                     quote! { #[doc(hidden)] }
@@ -129,7 +129,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
 fn gen_agile(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     if def.is_agile() {
         let name = gen_type_ident(def, gen);
-        let cfg = cfg.gen(gen);
+        let cfg = gen.cfg(cfg);
         quote! {
             #cfg
             unsafe impl ::core::marker::Send for #name {}
@@ -147,7 +147,7 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 
     for def in &[Type::IUnknown, Type::IInspectable] {
         let into = gen_element_name(def, gen);
-        let cfg = cfg.gen(gen);
+        let cfg = gen.cfg(cfg);
         tokens.combine(&quote! {
             #cfg
             impl ::core::convert::From<#name> for #into {
@@ -186,7 +186,8 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         }
 
         let into = gen_type_name(&def, gen);
-        let cfg = cfg.union(gen.type_cfg(&def)).gen(gen);
+        // TODO: simplify - maybe provide + operator?
+        let cfg = gen.cfg(&cfg.union(&def.cfg()));
 
         tokens.combine(&quote! {
             #cfg
@@ -222,7 +223,7 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 
     for def in def.bases() {
         let into = gen_type_name(&def, gen);
-        let cfg = cfg.union(gen.type_cfg(&def)).gen(gen);
+        let cfg = gen.cfg(&cfg.union(&def.cfg()));
 
         tokens.combine(&quote! {
             #cfg

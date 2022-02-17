@@ -574,13 +574,50 @@ impl TypeDef {
         }
     }
 
+    pub fn cfg(&self) -> Cfg {
+        let mut cfg = Cfg::new();
+        self.combine_cfg(&mut cfg);
+        cfg.add_attributes(self.attributes());
+        cfg.remove_feature(self.namespace());
+        cfg
+    }
+
+    pub fn impl_cfg(&self) -> Cfg {
+        let mut cfg = Cfg::new();
+
+        fn combine(def: &TypeDef, cfg: &mut Cfg) {
+            def.combine_cfg(cfg);
+
+            for method in def.methods() {
+                method.combine_cfg(cfg);
+            }
+        }
+
+        combine(self, &mut cfg);
+
+        for def in self.vtable_types() {
+            if let Type::TypeDef(def) = def {
+                combine(&def, &mut cfg);
+            }
+        }
+
+        if self.is_winrt() {
+            for def in self.required_interfaces() {
+                combine(&def, &mut cfg);
+            }
+        }
+
+        cfg.add_attributes(self.attributes());
+        cfg.remove_feature(self.namespace());
+        cfg
+    }
+
     pub(crate) fn combine_cfg(&self, cfg: &mut Cfg) {
         for generic in &self.generics {
             generic.combine_cfg(cfg);
         }
 
         if cfg.add_type(self) {
-            cfg.add_attributes(self.attributes());
             match self.kind() {
                 TypeKind::Class => {
                     if let Some(def) = self.default_interface() {

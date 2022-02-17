@@ -11,7 +11,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let constraints = gen_type_constraints(def, gen);
     let generics = gen_type_generics(def, gen);
     let phantoms = gen_named_phantoms(def, gen);
-    let cfg = gen.type_impl_cfg(def);
+    let cfg = def.impl_cfg();
     let mut requires = quote! {};
 
     fn gen_required_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
@@ -44,7 +44,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 
     let runtime_name = gen_runtime_name(def, &cfg, gen);
-    let cfg = cfg.gen(gen);
+    let cfg = gen.cfg(&cfg);
     let mut method_names = MethodNames::new();
     method_names.add_vtable_types(def);
 

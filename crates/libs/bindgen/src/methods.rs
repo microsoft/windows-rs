@@ -15,7 +15,9 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     let vname = virtual_names.add(method);
 
     let constraints = gen_param_constraints(params, gen);
-    let cfg = gen.method_cfg(def, method).gen_with_doc(gen);
+    let cfg = gen.method_cfg(def, method);
+    let doc = gen.doc(&cfg);
+    let features = gen.cfg(&cfg);
     let args = params.iter().map(gen_winrt_abi_arg);
     let params = gen_winrt_params(params, gen);
     let interface_name = gen_type_name(def, gen);
@@ -87,7 +89,8 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
 
     match kind {
         InterfaceKind::Default => quote! {
-            #cfg
+            #doc
+            #features
             pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
                 let this = self;
                 unsafe {
@@ -97,7 +100,8 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         },
         InterfaceKind::NonDefault | InterfaceKind::Base => {
             quote! {
-                #cfg
+                #doc
+                #features
                 pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
                     let this = &::windows::core::Interface::cast::<#interface_name>(self)?;
                     unsafe {
@@ -108,7 +112,8 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         }
         InterfaceKind::Static => {
             quote! {
-                #cfg
+                #doc
+                #features
                 pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
                     Self::#interface_name(|this| unsafe { #vcall })
                 }
@@ -116,11 +121,13 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         }
         InterfaceKind::Composable => {
             quote! {
-                #cfg
+                #doc
+                #features
                 pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
                     Self::#interface_name(|this| unsafe { #vcall_none })
                 }
-                #cfg
+                #doc
+                #features
                 pub fn #name_compose<#constraints T: ::windows::core::Compose>(#params  compose: T) -> ::windows::core::Result<#return_type_tokens> {
                     Self::#interface_name(|this| unsafe {
                         let (derived__, base__) = ::windows::core::Compose::compose(compose);
@@ -137,7 +144,9 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
     let name = method_names.add(method);
     let vname = virtual_names.add(method);
     let constraints = gen_param_constraints(&signature.params, gen);
-    let cfg = gen.method_cfg(def, method).gen_with_doc(gen);
+    let cfg = gen.method_cfg(def, method);
+    let doc = gen.doc(&cfg);
+    let features = gen.cfg(&cfg);
 
     let mut bases = quote! {};
 
@@ -152,7 +161,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
-                #cfg
+                #doc
+                #features
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params) -> ::windows::core::Result<T> {
                     let mut result__ = ::core::option::Option::None;
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -165,7 +175,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
-                #cfg
+                #doc
+                #features
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
@@ -181,7 +192,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let abi_return_type_tokens = gen_abi_element_name(&return_type, gen);
 
             quote! {
-                #cfg
+                #doc
+                #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
                     let mut result__: #abi_return_type_tokens = ::core::mem::zeroed();
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)* ::core::mem::transmute(&mut result__))
@@ -194,7 +206,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
-                #cfg
+                #doc
+                #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<()> {
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)*).ok()
                 }
@@ -207,7 +220,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let return_type = gen_abi_element_name(&signature.return_type.unwrap(), gen);
 
             quote! {
-                #cfg
+                #doc
+                #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
                     let mut result__: #return_type = :: core::mem::zeroed();
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
@@ -222,7 +236,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let return_type = gen_return_sig(&signature, gen);
 
             quote! {
-                #cfg
+                #doc
+                #features
                 pub unsafe fn #name<#constraints>(&self, #params) #return_type {
                     ::core::mem::transmute((::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)*))
                 }
@@ -233,7 +248,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
-                #cfg
+                #doc
+                #features
                 pub unsafe fn #name<#constraints>(&self, #params) {
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)*)
                 }

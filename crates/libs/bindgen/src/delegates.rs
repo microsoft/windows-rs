@@ -25,9 +25,9 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     let method = def.invoke_method();
     let signature = method.signature(&def.generics);
     let fn_constraint = gen_fn_constraint(def, &method, gen);
-    let cfg = gen.type_cfg(def);
-    let doc = cfg.gen_doc(gen);
-    let features = cfg.gen(gen);
+    let cfg = def.cfg();
+    let doc = gen.doc(&cfg);
+    let features = gen.cfg(&cfg);
     let vtbl_signature = gen_vtbl_signature(def, &method, gen);
     let invoke = gen_winrt_method(def, InterfaceKind::Default, &method, &mut MethodNames::new(), &mut MethodNames::new(), gen);
     let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) });
