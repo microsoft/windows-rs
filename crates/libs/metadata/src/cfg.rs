@@ -1,7 +1,7 @@
 use super::*;
 use std::collections::*;
 
-#[derive(Clone)]
+#[derive(Default, Clone)]
 pub struct Cfg {
     types: BTreeMap<&'static str, BTreeSet<Row>>,
     arches: BTreeSet<&'static str>,
@@ -83,10 +83,8 @@ fn starts_with(namespace: &str, feature: &str) -> bool {
         return true;
     }
 
-    if namespace.len() > feature.len() {
-        if namespace.as_bytes().get(feature.len()) == Some(&b'.') {
-            return namespace.starts_with(feature);
-        }
+    if namespace.len() > feature.len() && namespace.as_bytes().get(feature.len()) == Some(&b'.') {
+        return namespace.starts_with(feature);
     }
 
     false
