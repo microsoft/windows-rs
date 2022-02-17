@@ -243,7 +243,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpCache
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpCacheDirectiveHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpCacheDirectiveHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -263,7 +263,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpCacheDirectiveHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpCacheDirectiveHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -470,7 +470,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpChall
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpChallengeHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpChallengeHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -490,7 +490,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpChallengeHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpChallengeHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -707,7 +707,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpChall
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpChallengeHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpChallengeHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -727,7 +727,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpChallengeHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpChallengeHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -910,7 +910,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpConne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpConnectionOptionHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpConnectionOptionHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -930,7 +930,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpConnectionOptionHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpConnectionOptionHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1147,7 +1147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpConne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpConnectionOptionHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpConnectionOptionHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1167,7 +1167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpConnectionOptionHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpConnectionOptionHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1350,7 +1350,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpContentCodingHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpContentCodingHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1370,7 +1370,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpContentCodingHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpContentCodingHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1587,7 +1587,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpContentCodingHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpContentCodingHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1607,7 +1607,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpContentCodingHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpContentCodingHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1806,7 +1806,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpContentCodingWithQualityHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpContentCodingWithQualityHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1826,7 +1826,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpContentCodingWithQualityHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpContentCodingWithQualityHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2043,7 +2043,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpContentCodingWithQualityHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpContentCodingWithQualityHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2063,7 +2063,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpContentCodingWithQualityHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpContentCodingWithQualityHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2314,7 +2314,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpContentDispositionHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpContentDispositionHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2334,7 +2334,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpContentDispositionHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpContentDispositionHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2658,7 +2658,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpContentHeaderCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpContentHeaderCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2678,7 +2678,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpContentHeaderCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpContentHeaderCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2907,7 +2907,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpContentRangeHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpContentRangeHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2927,7 +2927,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpContentRangeHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpContentRangeHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3078,7 +3078,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpCooki
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpCookiePairHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpCookiePairHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3098,7 +3098,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpCookiePairHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpCookiePairHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3315,7 +3315,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpCooki
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpCookiePairHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpCookiePairHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3335,7 +3335,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpCookiePairHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpCookiePairHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3542,7 +3542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpCrede
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpCredentialsHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpCredentialsHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3562,7 +3562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpCredentialsHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpCredentialsHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3691,7 +3691,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpDateO
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpDateOrDeltaHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpDateOrDeltaHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3711,7 +3711,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpDateOrDeltaHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpDateOrDeltaHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3871,7 +3871,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpExpec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpExpectationHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpExpectationHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3891,7 +3891,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpExpectationHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpExpectationHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4108,7 +4108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpExpec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpExpectationHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpExpectationHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4128,7 +4128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpExpectationHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpExpectationHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4397,7 +4397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpLangu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpLanguageHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpLanguageHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4417,7 +4417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpLanguageHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpLanguageHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4616,7 +4616,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpLangu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpLanguageRangeWithQualityHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpLanguageRangeWithQualityHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4636,7 +4636,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpLanguageRangeWithQualityHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpLanguageRangeWithQualityHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4853,7 +4853,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpLangu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpLanguageRangeWithQualityHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpLanguageRangeWithQualityHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4873,7 +4873,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpLanguageRangeWithQualityHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpLanguageRangeWithQualityHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5083,7 +5083,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpMedia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpMediaTypeHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpMediaTypeHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5103,7 +5103,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpMediaTypeHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpMediaTypeHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5283,7 +5283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpMedia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpMediaTypeWithQualityHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpMediaTypeWithQualityHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5303,7 +5303,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpMediaTypeWithQualityHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpMediaTypeWithQualityHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5520,7 +5520,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpMedia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpMediaTypeWithQualityHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpMediaTypeWithQualityHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5540,7 +5540,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpMediaTypeWithQualityHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpMediaTypeWithQualityHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5809,7 +5809,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpMetho
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpMethodHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpMethodHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5829,7 +5829,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpMethodHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpMethodHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6032,7 +6032,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpNameV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpNameValueHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpNameValueHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6052,7 +6052,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpN
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpNameValueHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpNameValueHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6198,7 +6198,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpProdu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpProductHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpProductHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6218,7 +6218,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpProductHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpProductHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6364,7 +6364,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpProdu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpProductInfoHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpProductInfoHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6384,7 +6384,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpProductInfoHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpProductInfoHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6601,7 +6601,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpProdu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpProductInfoHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpProductInfoHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6621,7 +6621,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpProductInfoHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpProductInfoHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7061,7 +7061,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpReque
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpRequestHeaderCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpRequestHeaderCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7081,7 +7081,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpRequestHeaderCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpRequestHeaderCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7426,7 +7426,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpRespo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpResponseHeaderCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpResponseHeaderCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7446,7 +7446,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpResponseHeaderCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpResponseHeaderCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7638,7 +7638,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpTrans
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpTransferCodingHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpTransferCodingHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7658,7 +7658,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpTransferCodingHeaderValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpTransferCodingHeaderValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7875,7 +7875,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpTrans
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpTransferCodingHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpTransferCodingHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7895,7 +7895,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpTransferCodingHeaderValueCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpTransferCodingHeaderValueCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

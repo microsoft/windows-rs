@@ -25,7 +25,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearning
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ILearningModelDeviceFactoryNative {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelDeviceFactoryNative {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -85,7 +85,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearning
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ILearningModelOperatorProviderNative {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelOperatorProviderNative {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -143,7 +143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearning
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ILearningModelSessionOptionsNative {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelSessionOptionsNative {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -204,7 +204,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITensorNa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITensorNative {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITensorNative {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -264,7 +264,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITensorSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITensorStaticsNative {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITensorStaticsNative {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

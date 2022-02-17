@@ -253,7 +253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PdfDocume
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PdfDocument {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PdfDocument {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -273,7 +273,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PdfDo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfDocument {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PdfDocument {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -404,7 +404,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PdfPage {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PdfPage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PdfPage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -424,7 +424,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PdfPa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfPage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PdfPage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -552,7 +552,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PdfPageDi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PdfPageDimensions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PdfPageDimensions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -572,7 +572,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PdfPa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfPageDimensions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PdfPageDimensions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -718,7 +718,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PdfPageRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PdfPageRenderOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PdfPageRenderOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -738,7 +738,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PdfPa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfPageRenderOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PdfPageRenderOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

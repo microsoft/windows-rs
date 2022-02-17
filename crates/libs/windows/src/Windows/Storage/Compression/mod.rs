@@ -150,7 +150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Compresso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Compressor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Compressor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -170,7 +170,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Compr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Compressor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Compressor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -316,7 +316,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Decompres
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Decompressor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Decompressor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -336,7 +336,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Decom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Decompressor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Decompressor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

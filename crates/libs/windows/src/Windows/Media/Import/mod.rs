@@ -743,7 +743,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportDeleteImportedItemsFromSourceResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportDeleteImportedItemsFromSourceResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -763,7 +763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportDeleteImportedItemsFromSourceResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportDeleteImportedItemsFromSourceResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1082,7 +1082,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportFindItemsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportFindItemsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1102,7 +1102,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportFindItemsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportFindItemsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1273,7 +1273,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportImportItemsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportImportItemsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1293,7 +1293,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportImportItemsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportImportItemsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1501,7 +1501,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1521,7 +1521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1586,7 +1586,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportItemImportedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportItemImportedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1606,7 +1606,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportItemImportedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportItemImportedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1777,7 +1777,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1797,7 +1797,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1938,7 +1938,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportSelectionChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportSelectionChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1958,7 +1958,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportSelectionChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportSelectionChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2126,7 +2126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2146,7 +2146,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2254,7 +2254,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportSidecar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportSidecar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2274,7 +2274,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportSidecar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportSidecar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2493,7 +2493,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2513,7 +2513,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2706,7 +2706,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportStorageMedium {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportStorageMedium {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2726,7 +2726,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportStorageMedium {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportStorageMedium {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2931,7 +2931,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoImpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PhotoImportVideoSegment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoImportVideoSegment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2951,7 +2951,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Photo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PhotoImportVideoSegment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoImportVideoSegment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

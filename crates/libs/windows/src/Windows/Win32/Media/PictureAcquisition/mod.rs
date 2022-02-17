@@ -161,7 +161,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPhotoAcq
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPhotoAcquire {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPhotoAcquire {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -238,7 +238,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPhotoAcq
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPhotoAcquireDeviceSelectionDialog {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPhotoAcquireDeviceSelectionDialog {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -349,7 +349,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPhotoAcq
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPhotoAcquireItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPhotoAcquireItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -450,7 +450,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPhotoAcq
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPhotoAcquireOptionsDialog {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPhotoAcquireOptionsDialog {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -532,7 +532,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPhotoAcq
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPhotoAcquirePlugin {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPhotoAcquirePlugin {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -677,7 +677,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPhotoAcq
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPhotoAcquireProgressCB {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPhotoAcquireProgressCB {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -831,7 +831,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPhotoAcq
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPhotoAcquireSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPhotoAcquireSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -962,7 +962,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPhotoAcq
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPhotoAcquireSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPhotoAcquireSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1037,7 +1037,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPhotoPro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPhotoProgressActionCB {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPhotoProgressActionCB {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1181,7 +1181,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPhotoPro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPhotoProgressDialog {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPhotoProgressDialog {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1350,7 +1350,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUserInpu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUserInputString {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUserInputString {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

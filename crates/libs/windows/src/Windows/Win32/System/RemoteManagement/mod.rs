@@ -1093,7 +1093,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSMan {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSMan {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSMan {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1117,7 +1117,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSMan {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSMan {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSMan {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1233,7 +1233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSManCon
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSManConnectionOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSManConnectionOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1257,7 +1257,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSManConnect
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSManConnectionOptions {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSManConnectionOptions {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1380,7 +1380,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSManCon
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSManConnectionOptionsEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1404,7 +1404,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSManConnect
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSManConnectionOptionsEx {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1428,7 +1428,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWSManConnectionOptions> for IWSManConne
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWSManConnectionOptions> for &IWSManConnectionOptionsEx {
+impl<'a> ::windows::core::IntoParam<'a, IWSManConnectionOptions> for &'a IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::core::Param<'a, IWSManConnectionOptions> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1587,7 +1587,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSManCon
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSManConnectionOptionsEx2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1611,7 +1611,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSManConnect
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSManConnectionOptionsEx2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1635,7 +1635,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWSManConnectionOptions> for IWSManConne
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWSManConnectionOptions> for &IWSManConnectionOptionsEx2 {
+impl<'a> ::windows::core::IntoParam<'a, IWSManConnectionOptions> for &'a IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWSManConnectionOptions> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1659,7 +1659,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWSManConnectionOptionsEx> for IWSManCon
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWSManConnectionOptionsEx> for &IWSManConnectionOptionsEx2 {
+impl<'a> ::windows::core::IntoParam<'a, IWSManConnectionOptionsEx> for &'a IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWSManConnectionOptionsEx> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1771,7 +1771,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSManEnu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSManEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSManEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1795,7 +1795,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSManEnumera
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSManEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSManEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2014,7 +2014,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSManEx 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSManEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSManEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2038,7 +2038,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSManEx {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSManEx {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSManEx {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2062,7 +2062,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWSMan> for IWSManEx {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWSMan> for &IWSManEx {
+impl<'a> ::windows::core::IntoParam<'a, IWSMan> for &'a IWSManEx {
     fn into_param(self) -> ::windows::core::Param<'a, IWSMan> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2303,7 +2303,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSManEx2
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSManEx2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSManEx2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2327,7 +2327,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSManEx2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSManEx2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSManEx2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2351,7 +2351,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWSMan> for IWSManEx2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWSMan> for &IWSManEx2 {
+impl<'a> ::windows::core::IntoParam<'a, IWSMan> for &'a IWSManEx2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWSMan> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2375,7 +2375,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWSManEx> for IWSManEx2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWSManEx> for &IWSManEx2 {
+impl<'a> ::windows::core::IntoParam<'a, IWSManEx> for &'a IWSManEx2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWSManEx> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2626,7 +2626,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSManEx3
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSManEx3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSManEx3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2650,7 +2650,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSManEx3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSManEx3 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSManEx3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2674,7 +2674,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWSMan> for IWSManEx3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWSMan> for &IWSManEx3 {
+impl<'a> ::windows::core::IntoParam<'a, IWSMan> for &'a IWSManEx3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWSMan> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2698,7 +2698,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWSManEx> for IWSManEx3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWSManEx> for &IWSManEx3 {
+impl<'a> ::windows::core::IntoParam<'a, IWSManEx> for &'a IWSManEx3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWSManEx> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2722,7 +2722,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWSManEx2> for IWSManEx3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWSManEx2> for &IWSManEx3 {
+impl<'a> ::windows::core::IntoParam<'a, IWSManEx2> for &'a IWSManEx3 {
     fn into_param(self) -> ::windows::core::Param<'a, IWSManEx2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2819,7 +2819,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSManInt
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSManInternal {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSManInternal {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2843,7 +2843,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSManInterna
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSManInternal {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSManInternal {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2999,7 +2999,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSManRes
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSManResourceLocator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSManResourceLocator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3023,7 +3023,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSManResourc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSManResourceLocator {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSManResourceLocator {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3124,7 +3124,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSManRes
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSManResourceLocatorInternal {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSManResourceLocatorInternal {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3267,7 +3267,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSManSes
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWSManSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSManSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3291,7 +3291,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSManSession
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWSManSession {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSManSession {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

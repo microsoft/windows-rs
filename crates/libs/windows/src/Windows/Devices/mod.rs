@@ -126,7 +126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILowLevel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ILowLevelDevicesAggregateProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -146,7 +146,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILowL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ILowLevelDevicesAggregateProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -353,7 +353,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LowLevelD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LowLevelDevicesAggregateProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -373,7 +373,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LowLe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LowLevelDevicesAggregateProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LowLevelDevicesAggregateProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -468,7 +468,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LowLevelD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LowLevelDevicesController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LowLevelDevicesController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -488,7 +488,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LowLe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LowLevelDevicesController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LowLevelDevicesController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

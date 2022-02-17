@@ -147,7 +147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PreviewBu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PreviewBuildsManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PreviewBuildsManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -167,7 +167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Previ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PreviewBuildsManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PreviewBuildsManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -233,7 +233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PreviewBu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PreviewBuildsState {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PreviewBuildsState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -253,7 +253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Previ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PreviewBuildsState {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PreviewBuildsState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

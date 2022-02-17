@@ -47,7 +47,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITpmVirtu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITpmVirtualSmartCardManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITpmVirtualSmartCardManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -157,7 +157,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITpmVirtu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITpmVirtualSmartCardManager2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITpmVirtualSmartCardManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -177,7 +177,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManager> for ITpmVir
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManager> for &ITpmVirtualSmartCardManager2 {
+impl<'a> ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManager> for &'a ITpmVirtualSmartCardManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, ITpmVirtualSmartCardManager> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -308,7 +308,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITpmVirtu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITpmVirtualSmartCardManager3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITpmVirtualSmartCardManager3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -328,7 +328,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManager> for ITpmVir
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManager> for &ITpmVirtualSmartCardManager3 {
+impl<'a> ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManager> for &'a ITpmVirtualSmartCardManager3 {
     fn into_param(self) -> ::windows::core::Param<'a, ITpmVirtualSmartCardManager> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -348,7 +348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManager2> for ITpmVi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManager2> for &ITpmVirtualSmartCardManager3 {
+impl<'a> ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManager2> for &'a ITpmVirtualSmartCardManager3 {
     fn into_param(self) -> ::windows::core::Param<'a, ITpmVirtualSmartCardManager2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -410,7 +410,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITpmVirtu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITpmVirtualSmartCardManagerStatusCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITpmVirtualSmartCardManagerStatusCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

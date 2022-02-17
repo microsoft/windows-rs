@@ -176,7 +176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileExten
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FileExtensionVector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileExtensionVector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -200,7 +200,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileE
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FileExtensionVector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileExtensionVector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -462,7 +462,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileOpenP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FileOpenPicker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileOpenPicker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -482,7 +482,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileO
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FileOpenPicker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileOpenPicker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -634,7 +634,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FilePicke
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FilePickerFileTypesOrderedMap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FilePickerFileTypesOrderedMap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -658,7 +658,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileP
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FilePickerFileTypesOrderedMap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FilePickerFileTypesOrderedMap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -843,7 +843,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FilePicke
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FilePickerSelectedFilesArray {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FilePickerSelectedFilesArray {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -867,7 +867,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileP
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FilePickerSelectedFilesArray {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FilePickerSelectedFilesArray {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1131,7 +1131,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileSaveP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FileSavePicker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileSavePicker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1151,7 +1151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FileSavePicker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileSavePicker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1322,7 +1322,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FolderPic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FolderPicker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FolderPicker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1342,7 +1342,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Folde
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FolderPicker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FolderPicker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

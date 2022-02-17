@@ -263,7 +263,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Credentia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CredentialPickerOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CredentialPickerOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -283,7 +283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Crede
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CredentialPickerOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CredentialPickerOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -395,7 +395,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Credentia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CredentialPickerResults {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CredentialPickerResults {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -415,7 +415,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Crede
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CredentialPickerResults {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CredentialPickerResults {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

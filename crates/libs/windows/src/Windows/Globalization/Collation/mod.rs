@@ -65,7 +65,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Character
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CharacterGrouping {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CharacterGrouping {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -85,7 +85,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Chara
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CharacterGrouping {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CharacterGrouping {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -230,7 +230,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Character
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CharacterGroupings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CharacterGroupings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -250,7 +250,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Chara
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CharacterGroupings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CharacterGroupings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

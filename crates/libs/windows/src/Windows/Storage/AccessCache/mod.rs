@@ -225,7 +225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AccessLis
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AccessListEntryView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AccessListEntryView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -249,7 +249,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Acces
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AccessListEntryView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AccessListEntryView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -496,7 +496,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IStorageItemAccessList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageItemAccessList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -516,7 +516,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStorageItemAccessList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStorageItemAccessList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -682,7 +682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ItemRemov
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ItemRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ItemRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -702,7 +702,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ItemR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ItemRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ItemRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -961,7 +961,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageIt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageItemAccessList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageItemAccessList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -981,7 +981,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Stora
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageItemAccessList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageItemAccessList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1209,7 +1209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageIt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageItemMostRecentlyUsedList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageItemMostRecentlyUsedList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1229,7 +1229,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Stora
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageItemMostRecentlyUsedList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageItemMostRecentlyUsedList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

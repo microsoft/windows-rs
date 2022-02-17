@@ -2977,7 +2977,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAccounti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAccountingProviderConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAccountingProviderConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3061,7 +3061,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAuthenti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAuthenticationProviderConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAuthenticationProviderConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3147,7 +3147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEAPProvi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEAPProviderConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEAPProviderConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3248,7 +3248,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEAPProvi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEAPProviderConfig2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEAPProviderConfig2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3268,7 +3268,7 @@ impl<'a> ::windows::core::IntoParam<'a, IEAPProviderConfig> for IEAPProviderConf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IEAPProviderConfig> for &IEAPProviderConfig2 {
+impl<'a> ::windows::core::IntoParam<'a, IEAPProviderConfig> for &'a IEAPProviderConfig2 {
     fn into_param(self) -> ::windows::core::Param<'a, IEAPProviderConfig> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3362,7 +3362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEAPProvi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEAPProviderConfig3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEAPProviderConfig3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3382,7 +3382,7 @@ impl<'a> ::windows::core::IntoParam<'a, IEAPProviderConfig> for IEAPProviderConf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IEAPProviderConfig> for &IEAPProviderConfig3 {
+impl<'a> ::windows::core::IntoParam<'a, IEAPProviderConfig> for &'a IEAPProviderConfig3 {
     fn into_param(self) -> ::windows::core::Param<'a, IEAPProviderConfig> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3402,7 +3402,7 @@ impl<'a> ::windows::core::IntoParam<'a, IEAPProviderConfig2> for IEAPProviderCon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IEAPProviderConfig2> for &IEAPProviderConfig3 {
+impl<'a> ::windows::core::IntoParam<'a, IEAPProviderConfig2> for &'a IEAPProviderConfig3 {
     fn into_param(self) -> ::windows::core::Param<'a, IEAPProviderConfig2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3466,7 +3466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRouterPr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRouterProtocolConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRouterProtocolConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

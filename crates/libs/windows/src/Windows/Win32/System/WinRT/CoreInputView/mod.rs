@@ -25,7 +25,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICoreFrameworkInputViewInterop {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICoreFrameworkInputViewInterop {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45,7 +45,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICore
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreFrameworkInputViewInterop {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICoreFrameworkInputViewInterop {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

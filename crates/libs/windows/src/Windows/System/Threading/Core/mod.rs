@@ -163,7 +163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Prealloca
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PreallocatedWorkItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PreallocatedWorkItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -183,7 +183,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Preal
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PreallocatedWorkItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PreallocatedWorkItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -367,7 +367,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SignalNot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SignalNotifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SignalNotifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -387,7 +387,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Signa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SignalNotifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SignalNotifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

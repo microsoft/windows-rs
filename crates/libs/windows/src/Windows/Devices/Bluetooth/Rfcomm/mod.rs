@@ -401,7 +401,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RfcommDev
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RfcommDeviceService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RfcommDeviceService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -421,7 +421,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Rfcom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RfcommDeviceService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RfcommDeviceService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -521,7 +521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RfcommDev
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RfcommDeviceServicesResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RfcommDeviceServicesResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -541,7 +541,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Rfcom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RfcommDeviceServicesResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RfcommDeviceServicesResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -683,7 +683,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RfcommSer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RfcommServiceId {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RfcommServiceId {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -703,7 +703,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Rfcom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RfcommServiceId {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RfcommServiceId {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -807,7 +807,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RfcommSer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RfcommServiceProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RfcommServiceProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -827,7 +827,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Rfcom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RfcommServiceProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RfcommServiceProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

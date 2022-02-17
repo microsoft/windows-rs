@@ -139,7 +139,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportCacheable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportCacheable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -163,7 +163,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportCacheable {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportCacheable {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -315,7 +315,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -339,7 +339,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportClient {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportClient {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -466,7 +466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -490,7 +490,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportCollection {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -621,7 +621,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportConfigurationManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportConfigurationManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -645,7 +645,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportConfigurationManager {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportConfigurationManager {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -791,7 +791,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportConfigurationManager2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportConfigurationManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -815,7 +815,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportConfigurationManager2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportConfigurationManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -839,7 +839,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportConfigurationManager> for I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportConfigurationManager> for &IWdsTransportConfigurationManager2 {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportConfigurationManager> for &'a IWdsTransportConfigurationManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportConfigurationManager> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -954,7 +954,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -978,7 +978,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportContent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportContent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1100,7 +1100,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportContentProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportContentProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1124,7 +1124,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportContentProvider {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportContentProvider {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1259,7 +1259,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportDiagnosticsPolicy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportDiagnosticsPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1283,7 +1283,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportDiagnosticsPolicy {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportDiagnosticsPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1307,7 +1307,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTranspor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &IWdsTransportDiagnosticsPolicy {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &'a IWdsTransportDiagnosticsPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1401,7 +1401,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1425,7 +1425,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportManager {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportManager {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1566,7 +1566,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportMulticastSessionPolicy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportMulticastSessionPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1590,7 +1590,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportMulticastSessionPolicy {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportMulticastSessionPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1614,7 +1614,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTranspor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &IWdsTransportMulticastSessionPolicy {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &'a IWdsTransportMulticastSessionPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1815,7 +1815,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespace {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespace {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1839,7 +1839,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportNamespace {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespace {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2089,7 +2089,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespaceAutoCast {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespaceAutoCast {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2113,7 +2113,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportNamespaceAutoCast {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespaceAutoCast {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2137,7 +2137,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTranspor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &IWdsTransportNamespaceAutoCast {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &'a IWdsTransportNamespaceAutoCast {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2239,7 +2239,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespaceManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespaceManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2263,7 +2263,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportNamespaceManager {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespaceManager {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2472,7 +2472,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespaceScheduledCast {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespaceScheduledCast {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2496,7 +2496,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportNamespaceScheduledCast {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespaceScheduledCast {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2520,7 +2520,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTranspor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &IWdsTransportNamespaceScheduledCast {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &'a IWdsTransportNamespaceScheduledCast {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2736,7 +2736,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespaceScheduledCastAutoStart {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespaceScheduledCastAutoStart {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2760,7 +2760,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportNamespaceScheduledCastAutoStart {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespaceScheduledCastAutoStart {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2784,7 +2784,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTranspor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &IWdsTransportNamespaceScheduledCastAutoStart {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &'a IWdsTransportNamespaceScheduledCastAutoStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2808,7 +2808,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for &IWdsTransportNamespaceScheduledCastAutoStart {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for &'a IWdsTransportNamespaceScheduledCastAutoStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespaceScheduledCast> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3009,7 +3009,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportNamespaceScheduledCastManualStart {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespaceScheduledCastManualStart {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3033,7 +3033,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportNamespaceScheduledCastManualStart {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespaceScheduledCastManualStart {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3057,7 +3057,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTranspor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &IWdsTransportNamespaceScheduledCastManualStart {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &'a IWdsTransportNamespaceScheduledCastManualStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3081,7 +3081,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for &IWdsTransportNamespaceScheduledCastManualStart {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for &'a IWdsTransportNamespaceScheduledCastManualStart {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespaceScheduledCast> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3193,7 +3193,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportServer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportServer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3217,7 +3217,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportServer {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportServer {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3352,7 +3352,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportServer2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportServer2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3376,7 +3376,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportServer2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportServer2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3400,7 +3400,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServer> for IWdsTransportSe
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServer> for &IWdsTransportServer2 {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServer> for &'a IWdsTransportServer2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportServer> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3563,7 +3563,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportServicePolicy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportServicePolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3587,7 +3587,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportServicePolicy {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportServicePolicy {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3611,7 +3611,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTranspor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &IWdsTransportServicePolicy {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &'a IWdsTransportServicePolicy {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3821,7 +3821,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportServicePolicy2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportServicePolicy2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3845,7 +3845,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportServicePolicy2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportServicePolicy2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3869,7 +3869,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTranspor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &IWdsTransportServicePolicy2 {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &'a IWdsTransportServicePolicy2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3893,7 +3893,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServicePolicy> for IWdsTran
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServicePolicy> for &IWdsTransportServicePolicy2 {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServicePolicy> for &'a IWdsTransportServicePolicy2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportServicePolicy> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4026,7 +4026,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4050,7 +4050,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportSession {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportSession {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4179,7 +4179,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportSetupManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportSetupManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4203,7 +4203,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportSetupManager {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportSetupManager {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4334,7 +4334,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportSetupManager2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportSetupManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4358,7 +4358,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportSetupManager2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportSetupManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4382,7 +4382,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWdsTransportSetupManager> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportSetupManager> for &IWdsTransportSetupManager2 {
+impl<'a> ::windows::core::IntoParam<'a, IWdsTransportSetupManager> for &'a IWdsTransportSetupManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportSetupManager> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4508,7 +4508,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportTftpClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportTftpClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4532,7 +4532,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportTftpClient {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportTftpClient {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4635,7 +4635,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTrans
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWdsTransportTftpManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportTftpManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4659,7 +4659,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransport
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IWdsTransportTftpManager {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportTftpManager {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

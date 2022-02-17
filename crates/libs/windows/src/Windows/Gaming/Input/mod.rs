@@ -201,7 +201,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ArcadeSti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ArcadeStick {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ArcadeStick {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -221,7 +221,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Arcad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ArcadeStick {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ArcadeStick {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -582,7 +582,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FlightSti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FlightStick {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FlightStick {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -602,7 +602,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Fligh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FlightStick {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FlightStick {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1145,7 +1145,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Gamepad {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Gamepad {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Gamepad {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1165,7 +1165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Gamep
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gamepad {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Gamepad {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1454,7 +1454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Headset {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Headset {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Headset {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1474,7 +1474,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Heads
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Headset {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Headset {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1700,7 +1700,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGameCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGameController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGameController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1720,7 +1720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGameController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IGameController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1816,7 +1816,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGameCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGameControllerBatteryInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGameControllerBatteryInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1836,7 +1836,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGameControllerBatteryInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IGameControllerBatteryInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2485,7 +2485,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RacingWhe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RacingWheel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RacingWheel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2505,7 +2505,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Racin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RacingWheel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RacingWheel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2956,7 +2956,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RawGameCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RawGameController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RawGameController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2976,7 +2976,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RawGa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RawGameController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RawGameController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3300,7 +3300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UINavigat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UINavigationController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UINavigationController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3320,7 +3320,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UINav
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UINavigationController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UINavigationController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -392,7 +392,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentAction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentAction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -412,7 +412,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentAction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentAction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -548,7 +548,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentAvailabilityChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentAvailabilityChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -568,7 +568,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentAvailabilityChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentAvailabilityChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -642,7 +642,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -662,7 +662,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -772,7 +772,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -792,7 +792,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -903,7 +903,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentContainer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentContainer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -923,7 +923,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentContainer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentContainer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1002,7 +1002,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentFile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentFile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1026,7 +1026,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentFile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentFile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1136,7 +1136,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentImage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentImage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1156,7 +1156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentImage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentImage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1328,7 +1328,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1348,7 +1348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1421,7 +1421,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentItemState {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentItemState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1441,7 +1441,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentItemState {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentItemState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1530,7 +1530,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1550,7 +1550,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1651,7 +1651,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1671,7 +1671,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1810,7 +1810,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentSubscription {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentSubscription {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1830,7 +1830,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentSubscription {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentSubscription {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1931,7 +1931,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentSubscriptionOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentSubscriptionOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1951,7 +1951,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentSubscriptionOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentSubscriptionOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2145,7 +2145,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TargetedContentValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2165,7 +2165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Targe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TargetedContentValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

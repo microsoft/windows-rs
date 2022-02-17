@@ -8134,7 +8134,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Anal
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1AnalysisTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1AnalysisTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8229,7 +8229,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Bitm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Bitmap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Bitmap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8249,7 +8249,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Bitmap {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Bitmap {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Bitmap {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8269,7 +8269,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for ID2D1Bitmap {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &ID2D1Bitmap {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &'a ID2D1Bitmap {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Image> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8411,7 +8411,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Bitm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Bitmap1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8431,7 +8431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Bitmap1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Bitmap1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8451,7 +8451,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for ID2D1Bitmap1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &ID2D1Bitmap1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &'a ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Image> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8471,7 +8471,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Bitmap> for ID2D1Bitmap1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Bitmap> for &ID2D1Bitmap1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Bitmap> for &'a ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Bitmap> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8583,7 +8583,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Bitm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1BitmapBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1BitmapBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8603,7 +8603,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1BitmapBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1BitmapBrush {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1BitmapBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8623,7 +8623,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for ID2D1BitmapBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &ID2D1BitmapBrush {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &'a ID2D1BitmapBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Brush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8743,7 +8743,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Bitm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1BitmapBrush1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8763,7 +8763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1BitmapBrush1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1BitmapBrush1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8783,7 +8783,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for ID2D1BitmapBrush1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &ID2D1BitmapBrush1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &'a ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Brush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8803,7 +8803,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1BitmapBrush> for ID2D1BitmapBrush1 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1BitmapBrush> for &ID2D1BitmapBrush1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1BitmapBrush> for &'a ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1BitmapBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9125,7 +9125,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Bitm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1BitmapRenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1BitmapRenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9145,7 +9145,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1BitmapRenderTarg
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1BitmapRenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1BitmapRenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9165,7 +9165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for ID2D1BitmapRender
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &ID2D1BitmapRenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &'a ID2D1BitmapRenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderTarget> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9237,7 +9237,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Blen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1BlendTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1BlendTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9257,7 +9257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for ID2D1BlendTransf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &ID2D1BlendTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &'a ID2D1BlendTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1TransformNode> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9277,7 +9277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1ConcreteTransform> for ID2D1BlendTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1ConcreteTransform> for &ID2D1BlendTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1ConcreteTransform> for &'a ID2D1BlendTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1ConcreteTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9358,7 +9358,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Bord
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1BorderTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1BorderTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9378,7 +9378,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for ID2D1BorderTrans
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &ID2D1BorderTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &'a ID2D1BorderTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1TransformNode> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9398,7 +9398,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1ConcreteTransform> for ID2D1BorderT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1ConcreteTransform> for &ID2D1BorderTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1ConcreteTransform> for &'a ID2D1BorderTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1ConcreteTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9466,7 +9466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Boun
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1BoundsAdjustmentTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1BoundsAdjustmentTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9486,7 +9486,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for ID2D1BoundsAdjus
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &ID2D1BoundsAdjustmentTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &'a ID2D1BoundsAdjustmentTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1TransformNode> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9566,7 +9566,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Brus
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Brush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Brush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9586,7 +9586,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Brush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Brush {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Brush {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9662,7 +9662,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Colo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1ColorContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1ColorContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9682,7 +9682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1ColorContext {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1ColorContext {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1ColorContext {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9766,7 +9766,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Colo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1ColorContext1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1ColorContext1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9786,7 +9786,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1ColorContext1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1ColorContext1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1ColorContext1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9806,7 +9806,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1ColorContext> for ID2D1ColorContext
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1ColorContext> for &ID2D1ColorContext1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1ColorContext> for &'a ID2D1ColorContext1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1ColorContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9877,7 +9877,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Comm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1CommandList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1CommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9897,7 +9897,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1CommandList {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1CommandList {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1CommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9917,7 +9917,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for ID2D1CommandList {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &ID2D1CommandList {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &'a ID2D1CommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Image> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10082,7 +10082,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Comm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1CommandSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1CommandSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10313,7 +10313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Comm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1CommandSink1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1CommandSink1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10333,7 +10333,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for ID2D1CommandSink1 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for &ID2D1CommandSink1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for &'a ID2D1CommandSink1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10514,7 +10514,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Comm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1CommandSink2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1CommandSink2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10534,7 +10534,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for ID2D1CommandSink2 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for &ID2D1CommandSink2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for &'a ID2D1CommandSink2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10554,7 +10554,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for ID2D1CommandSink2
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for &ID2D1CommandSink2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for &'a ID2D1CommandSink2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10744,7 +10744,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Comm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1CommandSink3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10764,7 +10764,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for ID2D1CommandSink3 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for &ID2D1CommandSink3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for &'a ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10784,7 +10784,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for ID2D1CommandSink3
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for &ID2D1CommandSink3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for &'a ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10804,7 +10804,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink2> for ID2D1CommandSink3
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink2> for &ID2D1CommandSink3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink2> for &'a ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10993,7 +10993,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Comm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1CommandSink4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11013,7 +11013,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for ID2D1CommandSink4 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for &ID2D1CommandSink4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for &'a ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11033,7 +11033,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for ID2D1CommandSink4
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for &ID2D1CommandSink4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for &'a ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11053,7 +11053,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink2> for ID2D1CommandSink4
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink2> for &ID2D1CommandSink4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink2> for &'a ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11073,7 +11073,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink3> for ID2D1CommandSink4
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink3> for &ID2D1CommandSink4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink3> for &'a ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11267,7 +11267,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Comm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1CommandSink5 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11287,7 +11287,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for ID2D1CommandSink5 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for &ID2D1CommandSink5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink> for &'a ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11307,7 +11307,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for ID2D1CommandSink5
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for &ID2D1CommandSink5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink1> for &'a ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11327,7 +11327,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink2> for ID2D1CommandSink5
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink2> for &ID2D1CommandSink5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink2> for &'a ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11347,7 +11347,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink3> for ID2D1CommandSink5
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink3> for &ID2D1CommandSink5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink3> for &'a ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11367,7 +11367,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink4> for ID2D1CommandSink5
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink4> for &ID2D1CommandSink5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1CommandSink4> for &'a ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1CommandSink4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11450,7 +11450,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Comp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1ComputeInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1ComputeInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11470,7 +11470,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderInfo> for ID2D1ComputeInfo {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderInfo> for &ID2D1ComputeInfo {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderInfo> for &'a ID2D1ComputeInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11552,7 +11552,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Comp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1ComputeTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1ComputeTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11572,7 +11572,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for ID2D1ComputeTran
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &ID2D1ComputeTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &'a ID2D1ComputeTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1TransformNode> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11592,7 +11592,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Transform> for ID2D1ComputeTransfor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Transform> for &ID2D1ComputeTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Transform> for &'a ID2D1ComputeTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Transform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11660,7 +11660,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Conc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1ConcreteTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1ConcreteTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11680,7 +11680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for ID2D1ConcreteTra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &ID2D1ConcreteTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &'a ID2D1ConcreteTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1TransformNode> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12005,7 +12005,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1DCRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DCRenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DCRenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12025,7 +12025,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1DCRenderTarget {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1DCRenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1DCRenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12045,7 +12045,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for ID2D1DCRenderTarg
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DCRenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &'a ID2D1DCRenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderTarget> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12126,7 +12126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Device {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Device {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12146,7 +12146,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Device {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Device {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Device {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12244,7 +12244,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Device1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Device1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12264,7 +12264,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Device1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Device1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Device1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12284,7 +12284,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for ID2D1Device1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &ID2D1Device1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &'a ID2D1Device1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12392,7 +12392,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Device2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Device2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12412,7 +12412,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Device2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Device2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Device2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12432,7 +12432,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for ID2D1Device2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &ID2D1Device2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &'a ID2D1Device2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12452,7 +12452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for ID2D1Device2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for &ID2D1Device2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for &'a ID2D1Device2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12568,7 +12568,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Device3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Device3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12588,7 +12588,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Device3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Device3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Device3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12608,7 +12608,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for ID2D1Device3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &ID2D1Device3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &'a ID2D1Device3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12628,7 +12628,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for ID2D1Device3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for &ID2D1Device3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for &'a ID2D1Device3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12648,7 +12648,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for ID2D1Device3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for &ID2D1Device3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for &'a ID2D1Device3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12772,7 +12772,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Device4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Device4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12792,7 +12792,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Device4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Device4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Device4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12812,7 +12812,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for ID2D1Device4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &ID2D1Device4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &'a ID2D1Device4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12832,7 +12832,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for ID2D1Device4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for &ID2D1Device4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for &'a ID2D1Device4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12852,7 +12852,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for ID2D1Device4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for &ID2D1Device4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for &'a ID2D1Device4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12872,7 +12872,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device3> for ID2D1Device4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device3> for &ID2D1Device4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device3> for &'a ID2D1Device4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13003,7 +13003,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Device5 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Device5 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13023,7 +13023,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Device5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Device5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Device5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13043,7 +13043,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for ID2D1Device5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &ID2D1Device5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &'a ID2D1Device5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13063,7 +13063,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for ID2D1Device5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for &ID2D1Device5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for &'a ID2D1Device5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13083,7 +13083,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for ID2D1Device5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for &ID2D1Device5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for &'a ID2D1Device5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13103,7 +13103,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device3> for ID2D1Device5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device3> for &ID2D1Device5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device3> for &'a ID2D1Device5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13123,7 +13123,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device4> for ID2D1Device5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device4> for &ID2D1Device5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device4> for &'a ID2D1Device5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13257,7 +13257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Device6 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Device6 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13277,7 +13277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Device6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Device6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Device6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13297,7 +13297,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for ID2D1Device6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &ID2D1Device6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device> for &'a ID2D1Device6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13317,7 +13317,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for ID2D1Device6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for &ID2D1Device6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device1> for &'a ID2D1Device6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13337,7 +13337,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for ID2D1Device6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for &ID2D1Device6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device2> for &'a ID2D1Device6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13357,7 +13357,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device3> for ID2D1Device6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device3> for &ID2D1Device6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device3> for &'a ID2D1Device6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13377,7 +13377,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device4> for ID2D1Device6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device4> for &ID2D1Device6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device4> for &'a ID2D1Device6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13397,7 +13397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Device5> for ID2D1Device6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Device5> for &ID2D1Device6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Device5> for &'a ID2D1Device6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Device5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13892,7 +13892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DeviceContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DeviceContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13912,7 +13912,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1DeviceContext {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13932,7 +13932,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContex
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &'a ID2D1DeviceContext {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderTarget> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14547,7 +14547,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DeviceContext1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14567,7 +14567,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14587,7 +14587,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContex
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &'a ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderTarget> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14607,7 +14607,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &'a ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15176,7 +15176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DeviceContext2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15196,7 +15196,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15216,7 +15216,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContex
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &'a ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderTarget> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15236,7 +15236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &'a ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15256,7 +15256,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for &ID2D1DeviceContext2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for &'a ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15860,7 +15860,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DeviceContext3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15880,7 +15880,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15900,7 +15900,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContex
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &'a ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderTarget> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15920,7 +15920,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &'a ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15940,7 +15940,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for &ID2D1DeviceContext3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for &'a ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15960,7 +15960,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for &ID2D1DeviceContext3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for &'a ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16572,7 +16572,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DeviceContext4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16592,7 +16592,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16612,7 +16612,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContex
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &'a ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderTarget> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16632,7 +16632,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &'a ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16652,7 +16652,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for &ID2D1DeviceContext4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for &'a ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16672,7 +16672,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for &ID2D1DeviceContext4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for &'a ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16692,7 +16692,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext3> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext3> for &ID2D1DeviceContext4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext3> for &'a ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17349,7 +17349,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DeviceContext5 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17369,7 +17369,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17389,7 +17389,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContex
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &'a ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderTarget> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17409,7 +17409,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &'a ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17429,7 +17429,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for &ID2D1DeviceContext5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for &'a ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17449,7 +17449,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for &ID2D1DeviceContext5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for &'a ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17469,7 +17469,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext3> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext3> for &ID2D1DeviceContext5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext3> for &'a ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17489,7 +17489,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext4> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext4> for &ID2D1DeviceContext5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext4> for &'a ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18139,7 +18139,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Devi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DeviceContext6 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18159,7 +18159,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18179,7 +18179,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContex
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &'a ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderTarget> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18199,7 +18199,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext> for &'a ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18219,7 +18219,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for &ID2D1DeviceContext6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext1> for &'a ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18239,7 +18239,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for &ID2D1DeviceContext6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext2> for &'a ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18259,7 +18259,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext3> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext3> for &ID2D1DeviceContext6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext3> for &'a ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18279,7 +18279,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext4> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext4> for &ID2D1DeviceContext6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext4> for &'a ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18299,7 +18299,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext5> for ID2D1DeviceCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext5> for &ID2D1DeviceContext6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DeviceContext5> for &'a ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DeviceContext5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18390,7 +18390,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Draw
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DrawInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DrawInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18410,7 +18410,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderInfo> for ID2D1DrawInfo {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderInfo> for &ID2D1DrawInfo {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderInfo> for &'a ID2D1DrawInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18489,7 +18489,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Draw
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DrawTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DrawTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18509,7 +18509,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for ID2D1DrawTransfo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &ID2D1DrawTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &'a ID2D1DrawTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1TransformNode> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18529,7 +18529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Transform> for ID2D1DrawTransform {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Transform> for &ID2D1DrawTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Transform> for &'a ID2D1DrawTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Transform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18604,7 +18604,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Draw
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DrawingStateBlock {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DrawingStateBlock {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18624,7 +18624,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1DrawingStateBloc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1DrawingStateBlock {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1DrawingStateBlock {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18724,7 +18724,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Draw
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1DrawingStateBlock1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1DrawingStateBlock1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18744,7 +18744,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1DrawingStateBloc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1DrawingStateBlock1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1DrawingStateBlock1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18764,7 +18764,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1DrawingStateBlock> for ID2D1Drawing
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1DrawingStateBlock> for &ID2D1DrawingStateBlock1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1DrawingStateBlock> for &'a ID2D1DrawingStateBlock1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1DrawingStateBlock> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18892,7 +18892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Effe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Effect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Effect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18912,7 +18912,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Properties> for ID2D1Effect {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Properties> for &ID2D1Effect {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Properties> for &'a ID2D1Effect {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Properties> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19076,7 +19076,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Effe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1EffectContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1EffectContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19282,7 +19282,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Effe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1EffectContext1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1EffectContext1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19302,7 +19302,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1EffectContext> for ID2D1EffectConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1EffectContext> for &ID2D1EffectContext1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1EffectContext> for &'a ID2D1EffectContext1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1EffectContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19476,7 +19476,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Effe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1EffectContext2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1EffectContext2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19496,7 +19496,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1EffectContext> for ID2D1EffectConte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1EffectContext> for &ID2D1EffectContext2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1EffectContext> for &'a ID2D1EffectContext2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1EffectContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19516,7 +19516,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1EffectContext1> for ID2D1EffectCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1EffectContext1> for &ID2D1EffectContext2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1EffectContext1> for &'a ID2D1EffectContext2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1EffectContext1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19586,7 +19586,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Effe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1EffectImpl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1EffectImpl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19720,7 +19720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Elli
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1EllipseGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1EllipseGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19740,7 +19740,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1EllipseGeometry 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1EllipseGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1EllipseGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19760,7 +19760,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for ID2D1EllipseGeometry 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &ID2D1EllipseGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &'a ID2D1EllipseGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Geometry> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19892,7 +19892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Fact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Factory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Factory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20115,7 +20115,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Fact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Factory1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Factory1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20135,7 +20135,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for ID2D1Factory1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &ID2D1Factory1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &'a ID2D1Factory1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20345,7 +20345,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Fact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Factory2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Factory2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20365,7 +20365,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for ID2D1Factory2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &ID2D1Factory2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &'a ID2D1Factory2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20385,7 +20385,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for ID2D1Factory2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory2 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &'a ID2D1Factory2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20580,7 +20580,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Fact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Factory3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Factory3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20600,7 +20600,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for ID2D1Factory3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &ID2D1Factory3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &'a ID2D1Factory3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20620,7 +20620,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for ID2D1Factory3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &'a ID2D1Factory3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20640,7 +20640,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for ID2D1Factory3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for &ID2D1Factory3 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for &'a ID2D1Factory3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20841,7 +20841,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Fact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Factory4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Factory4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20861,7 +20861,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for ID2D1Factory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &ID2D1Factory4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &'a ID2D1Factory4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20881,7 +20881,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for ID2D1Factory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &'a ID2D1Factory4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20901,7 +20901,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for ID2D1Factory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for &ID2D1Factory4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for &'a ID2D1Factory4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20921,7 +20921,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for ID2D1Factory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for &ID2D1Factory4 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for &'a ID2D1Factory4 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21128,7 +21128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Fact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Factory5 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Factory5 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21148,7 +21148,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for ID2D1Factory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &ID2D1Factory5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &'a ID2D1Factory5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21168,7 +21168,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for ID2D1Factory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &'a ID2D1Factory5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21188,7 +21188,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for ID2D1Factory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for &ID2D1Factory5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for &'a ID2D1Factory5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21208,7 +21208,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for ID2D1Factory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for &ID2D1Factory5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for &'a ID2D1Factory5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21228,7 +21228,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory4> for ID2D1Factory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory4> for &ID2D1Factory5 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory4> for &'a ID2D1Factory5 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21441,7 +21441,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Fact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Factory6 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Factory6 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21461,7 +21461,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for ID2D1Factory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &ID2D1Factory6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &'a ID2D1Factory6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21481,7 +21481,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for ID2D1Factory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &'a ID2D1Factory6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21501,7 +21501,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for ID2D1Factory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for &ID2D1Factory6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for &'a ID2D1Factory6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21521,7 +21521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for ID2D1Factory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for &ID2D1Factory6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for &'a ID2D1Factory6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21541,7 +21541,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory4> for ID2D1Factory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory4> for &ID2D1Factory6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory4> for &'a ID2D1Factory6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21561,7 +21561,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory5> for ID2D1Factory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory5> for &ID2D1Factory6 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory5> for &'a ID2D1Factory6 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21780,7 +21780,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Fact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Factory7 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Factory7 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21800,7 +21800,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for ID2D1Factory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &ID2D1Factory7 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory> for &'a ID2D1Factory7 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21820,7 +21820,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for ID2D1Factory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory7 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory1> for &'a ID2D1Factory7 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21840,7 +21840,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for ID2D1Factory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for &ID2D1Factory7 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory2> for &'a ID2D1Factory7 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21860,7 +21860,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for ID2D1Factory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for &ID2D1Factory7 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory3> for &'a ID2D1Factory7 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21880,7 +21880,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory4> for ID2D1Factory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory4> for &ID2D1Factory7 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory4> for &'a ID2D1Factory7 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21900,7 +21900,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory5> for ID2D1Factory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory5> for &ID2D1Factory7 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory5> for &'a ID2D1Factory7 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21920,7 +21920,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory6> for ID2D1Factory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory6> for &ID2D1Factory7 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Factory6> for &'a ID2D1Factory7 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Factory6> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21985,7 +21985,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1GdiI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GdiInteropRenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1GdiInteropRenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22057,7 +22057,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1GdiM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GdiMetafile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1GdiMetafile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22077,7 +22077,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1GdiMetafile {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1GdiMetafile {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1GdiMetafile {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22156,7 +22156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1GdiM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GdiMetafile1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1GdiMetafile1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22176,7 +22176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1GdiMetafile1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1GdiMetafile1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1GdiMetafile1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22196,7 +22196,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1GdiMetafile> for ID2D1GdiMetafile1 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1GdiMetafile> for &ID2D1GdiMetafile1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1GdiMetafile> for &'a ID2D1GdiMetafile1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1GdiMetafile> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22255,7 +22255,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1GdiM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GdiMetafileSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1GdiMetafileSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22314,7 +22314,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1GdiM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GdiMetafileSink1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1GdiMetafileSink1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22334,7 +22334,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1GdiMetafileSink> for ID2D1GdiMetafi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1GdiMetafileSink> for &ID2D1GdiMetafileSink1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1GdiMetafileSink> for &'a ID2D1GdiMetafileSink1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1GdiMetafileSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22461,7 +22461,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Geom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Geometry {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Geometry {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22481,7 +22481,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Geometry {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Geometry {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Geometry {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22672,7 +22672,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Geom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GeometryGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1GeometryGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22692,7 +22692,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1GeometryGroup {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1GeometryGroup {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1GeometryGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22712,7 +22712,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for ID2D1GeometryGroup {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &ID2D1GeometryGroup {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &'a ID2D1GeometryGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Geometry> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22772,7 +22772,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Geom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GeometryRealization {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1GeometryRealization {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22792,7 +22792,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1GeometryRealizat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1GeometryRealization {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1GeometryRealization {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22908,7 +22908,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Geom
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GeometrySink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1GeometrySink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22932,7 +22932,7 @@ impl<'a> ::windows::core::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink> for
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl<'a> ::windows::core::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink> for &ID2D1GeometrySink {
+impl<'a> ::windows::core::IntoParam<'a, Common::ID2D1SimplifiedGeometrySink> for &'a ID2D1GeometrySink {
     fn into_param(self) -> ::windows::core::Param<'a, Common::ID2D1SimplifiedGeometrySink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23021,7 +23021,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Grad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GradientMesh {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1GradientMesh {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23041,7 +23041,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1GradientMesh {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1GradientMesh {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1GradientMesh {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23117,7 +23117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Grad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GradientStopCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1GradientStopCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23137,7 +23137,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1GradientStopColl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1GradientStopCollection {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1GradientStopCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23236,7 +23236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Grad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1GradientStopCollection1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1GradientStopCollection1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23256,7 +23256,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1GradientStopColl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1GradientStopCollection1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1GradientStopCollection1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23276,7 +23276,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1GradientStopCollection> for ID2D1Gr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1GradientStopCollection> for &ID2D1GradientStopCollection1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1GradientStopCollection> for &'a ID2D1GradientStopCollection1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1GradientStopCollection> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23613,7 +23613,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Hwnd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1HwndRenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1HwndRenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23633,7 +23633,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1HwndRenderTarget
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1HwndRenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1HwndRenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23653,7 +23653,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for ID2D1HwndRenderTa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &ID2D1HwndRenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1RenderTarget> for &'a ID2D1HwndRenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1RenderTarget> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23716,7 +23716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Imag
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Image {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Image {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23736,7 +23736,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Image {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Image {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Image {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23850,7 +23850,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Imag
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1ImageBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1ImageBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23870,7 +23870,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1ImageBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1ImageBrush {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1ImageBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23890,7 +23890,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for ID2D1ImageBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &ID2D1ImageBrush {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &'a ID2D1ImageBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Brush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23970,7 +23970,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Imag
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1ImageSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1ImageSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23990,7 +23990,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1ImageSource {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1ImageSource {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1ImageSource {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24010,7 +24010,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for ID2D1ImageSource {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &ID2D1ImageSource {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &'a ID2D1ImageSource {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Image> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24094,7 +24094,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Imag
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1ImageSourceFromWic {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24114,7 +24114,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1ImageSourceFromW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1ImageSourceFromWic {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24134,7 +24134,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for ID2D1ImageSourceFromWic 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &ID2D1ImageSourceFromWic {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &'a ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Image> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24154,7 +24154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1ImageSource> for ID2D1ImageSourceFr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1ImageSource> for &ID2D1ImageSourceFromWic {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1ImageSource> for &'a ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1ImageSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24265,7 +24265,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Ink 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Ink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Ink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24285,7 +24285,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Ink {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Ink {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Ink {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24373,7 +24373,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1InkS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1InkStyle {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1InkStyle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24393,7 +24393,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1InkStyle {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1InkStyle {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1InkStyle {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24464,7 +24464,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Laye
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Layer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Layer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24484,7 +24484,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Layer {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Layer {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Layer {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24588,7 +24588,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Line
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1LinearGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1LinearGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24608,7 +24608,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1LinearGradientBr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1LinearGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1LinearGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24628,7 +24628,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for ID2D1LinearGradientBrush
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &ID2D1LinearGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &'a ID2D1LinearGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Brush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24699,7 +24699,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Look
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1LookupTable3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1LookupTable3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24719,7 +24719,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1LookupTable3D {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1LookupTable3D {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1LookupTable3D {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24778,7 +24778,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Mesh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Mesh {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Mesh {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24798,7 +24798,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1Mesh {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1Mesh {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1Mesh {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24862,7 +24862,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Mult
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Multithread {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Multithread {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24934,7 +24934,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Offs
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1OffsetTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1OffsetTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24954,7 +24954,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for ID2D1OffsetTrans
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &ID2D1OffsetTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &'a ID2D1OffsetTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1TransformNode> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25109,7 +25109,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Path
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1PathGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1PathGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25129,7 +25129,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1PathGeometry {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1PathGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1PathGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25149,7 +25149,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for ID2D1PathGeometry {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &ID2D1PathGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &'a ID2D1PathGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Geometry> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25312,7 +25312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Path
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1PathGeometry1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25332,7 +25332,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1PathGeometry1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1PathGeometry1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25352,7 +25352,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for ID2D1PathGeometry1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &ID2D1PathGeometry1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &'a ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Geometry> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25372,7 +25372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1PathGeometry> for ID2D1PathGeometry
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1PathGeometry> for &ID2D1PathGeometry1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1PathGeometry> for &'a ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1PathGeometry> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25435,7 +25435,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Prin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1PrintControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1PrintControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25539,7 +25539,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Prop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Properties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Properties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25678,7 +25678,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Radi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1RadialGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1RadialGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25698,7 +25698,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1RadialGradientBr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1RadialGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1RadialGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25718,7 +25718,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for ID2D1RadialGradientBrush
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &ID2D1RadialGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &'a ID2D1RadialGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Brush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25870,7 +25870,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Rect
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1RectangleGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1RectangleGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25890,7 +25890,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1RectangleGeometr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1RectangleGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1RectangleGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25910,7 +25910,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for ID2D1RectangleGeometr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &ID2D1RectangleGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &'a ID2D1RectangleGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Geometry> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25981,7 +25981,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Rend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1RenderInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1RenderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26303,7 +26303,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Rend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1RenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1RenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26323,7 +26323,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1RenderTarget {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1RenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1RenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26529,7 +26529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Reso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Resource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Resource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26584,7 +26584,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Reso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1ResourceTexture {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1ResourceTexture {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26716,7 +26716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Roun
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1RoundedRectangleGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1RoundedRectangleGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26736,7 +26736,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1RoundedRectangle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1RoundedRectangleGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1RoundedRectangleGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26756,7 +26756,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for ID2D1RoundedRectangle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &ID2D1RoundedRectangleGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &'a ID2D1RoundedRectangleGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Geometry> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26844,7 +26844,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Soli
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1SolidColorBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SolidColorBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26864,7 +26864,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1SolidColorBrush 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1SolidColorBrush {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1SolidColorBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26884,7 +26884,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for ID2D1SolidColorBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &ID2D1SolidColorBrush {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Brush> for &'a ID2D1SolidColorBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Brush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26971,7 +26971,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Sour
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1SourceTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SourceTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26991,7 +26991,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for ID2D1SourceTrans
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &ID2D1SourceTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &'a ID2D1SourceTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1TransformNode> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27011,7 +27011,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Transform> for ID2D1SourceTransform
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Transform> for &ID2D1SourceTransform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Transform> for &'a ID2D1SourceTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Transform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27093,7 +27093,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Spri
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1SpriteBatch {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SpriteBatch {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27113,7 +27113,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1SpriteBatch {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1SpriteBatch {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1SpriteBatch {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27217,7 +27217,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Stro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1StrokeStyle {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1StrokeStyle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27237,7 +27237,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1StrokeStyle {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1StrokeStyle {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1StrokeStyle {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27340,7 +27340,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Stro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1StrokeStyle1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1StrokeStyle1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27360,7 +27360,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1StrokeStyle1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1StrokeStyle1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1StrokeStyle1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27380,7 +27380,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1StrokeStyle> for ID2D1StrokeStyle1 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1StrokeStyle> for &ID2D1StrokeStyle1 {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1StrokeStyle> for &'a ID2D1StrokeStyle1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1StrokeStyle> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27444,7 +27444,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1SvgA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1SvgAttribute {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SvgAttribute {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27464,7 +27464,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1SvgAttribute {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1SvgAttribute {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1SvgAttribute {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27579,7 +27579,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1SvgD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1SvgDocument {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SvgDocument {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27599,7 +27599,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1SvgDocument {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1SvgDocument {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1SvgDocument {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27826,7 +27826,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1SvgE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1SvgElement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SvgElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27846,7 +27846,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1SvgElement {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1SvgElement {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1SvgElement {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28001,7 +28001,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1SvgG
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1SvgGlyphStyle {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SvgGlyphStyle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28021,7 +28021,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1SvgGlyphStyle {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1SvgGlyphStyle {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1SvgGlyphStyle {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28121,7 +28121,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1SvgP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1SvgPaint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SvgPaint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28141,7 +28141,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1SvgPaint {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1SvgPaint {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1SvgPaint {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28161,7 +28161,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for ID2D1SvgPaint {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for &ID2D1SvgPaint {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for &'a ID2D1SvgPaint {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1SvgAttribute> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28281,7 +28281,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1SvgP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1SvgPathData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SvgPathData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28301,7 +28301,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1SvgPathData {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1SvgPathData {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1SvgPathData {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28321,7 +28321,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for ID2D1SvgPathData 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for &ID2D1SvgPathData {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for &'a ID2D1SvgPathData {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1SvgAttribute> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28414,7 +28414,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1SvgP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1SvgPointCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SvgPointCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28434,7 +28434,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1SvgPointCollecti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1SvgPointCollection {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1SvgPointCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28454,7 +28454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for ID2D1SvgPointColl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for &ID2D1SvgPointCollection {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for &'a ID2D1SvgPointCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1SvgAttribute> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28551,7 +28551,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1SvgS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1SvgStrokeDashArray {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1SvgStrokeDashArray {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28571,7 +28571,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1SvgStrokeDashArr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1SvgStrokeDashArray {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1SvgStrokeDashArray {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28591,7 +28591,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for ID2D1SvgStrokeDas
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for &ID2D1SvgStrokeDashArray {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1SvgAttribute> for &'a ID2D1SvgStrokeDashArray {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1SvgAttribute> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28656,7 +28656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Tess
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1TessellationSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1TessellationSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28731,7 +28731,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Tran
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1Transform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1Transform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28751,7 +28751,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for ID2D1Transform {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &ID2D1Transform {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1TransformNode> for &'a ID2D1Transform {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1TransformNode> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28849,7 +28849,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Tran
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1TransformGraph {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1TransformGraph {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28912,7 +28912,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Tran
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1TransformNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1TransformNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29048,7 +29048,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Tran
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1TransformedGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1TransformedGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29068,7 +29068,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1TransformedGeome
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1TransformedGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1TransformedGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29088,7 +29088,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for ID2D1TransformedGeome
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &ID2D1TransformedGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Geometry> for &'a ID2D1TransformedGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Geometry> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29155,7 +29155,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Tran
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1TransformedImageSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1TransformedImageSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29175,7 +29175,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for ID2D1TransformedImage
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &ID2D1TransformedImageSource {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Resource> for &'a ID2D1TransformedImageSource {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29195,7 +29195,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for ID2D1TransformedImageSou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &ID2D1TransformedImageSource {
+impl<'a> ::windows::core::IntoParam<'a, ID2D1Image> for &'a ID2D1TransformedImageSource {
     fn into_param(self) -> ::windows::core::Param<'a, ID2D1Image> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29255,7 +29255,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID2D1Vert
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID2D1VertexBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID2D1VertexBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

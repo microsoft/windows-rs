@@ -214,7 +214,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Accelerom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Accelerometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Accelerometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -234,7 +234,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Accel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Accelerometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Accelerometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -330,7 +330,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Accelerom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AccelerometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AccelerometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -350,7 +350,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Accel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AccelerometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AccelerometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -458,7 +458,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Accelerom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AccelerometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AccelerometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -478,7 +478,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Accel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AccelerometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AccelerometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -543,7 +543,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Accelerom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AccelerometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AccelerometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -563,7 +563,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Accel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AccelerometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AccelerometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -664,7 +664,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Accelerom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AccelerometerShakenEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AccelerometerShakenEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -684,7 +684,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Accel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AccelerometerShakenEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AccelerometerShakenEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -851,7 +851,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ActivityS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ActivitySensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivitySensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -871,7 +871,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Activ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ActivitySensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivitySensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -953,7 +953,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ActivityS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ActivitySensorReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivitySensorReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -973,7 +973,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Activ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ActivitySensorReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivitySensorReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1038,7 +1038,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ActivityS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ActivitySensorReadingChangeReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivitySensorReadingChangeReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1058,7 +1058,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Activ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ActivitySensorReadingChangeReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivitySensorReadingChangeReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1123,7 +1123,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ActivityS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ActivitySensorReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivitySensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1143,7 +1143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Activ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ActivitySensorReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivitySensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1243,7 +1243,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ActivityS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ActivitySensorTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivitySensorTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1263,7 +1263,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Activ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ActivitySensorTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivitySensorTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1445,7 +1445,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Altimeter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Altimeter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Altimeter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1465,7 +1465,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Altim
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Altimeter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Altimeter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1557,7 +1557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Altimeter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AltimeterReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AltimeterReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1577,7 +1577,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Altim
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AltimeterReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AltimeterReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1642,7 +1642,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Altimeter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AltimeterReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AltimeterReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1662,7 +1662,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Altim
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AltimeterReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AltimeterReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1832,7 +1832,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Barometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Barometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Barometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1852,7 +1852,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Barom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Barometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1922,7 +1922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Barometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BarometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1942,7 +1942,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Barom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BarometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2034,7 +2034,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Barometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BarometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2054,7 +2054,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Barom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BarometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2119,7 +2119,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Barometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BarometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2139,7 +2139,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Barom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BarometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2324,7 +2324,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Compass {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Compass {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Compass {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2344,7 +2344,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Compa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Compass {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Compass {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2414,7 +2414,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CompassDa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CompassDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompassDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2434,7 +2434,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Compa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CompassDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompassDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2543,7 +2543,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CompassRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CompassReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompassReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2563,7 +2563,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Compa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CompassReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompassReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2628,7 +2628,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CompassRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CompassReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompassReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2648,7 +2648,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Compa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CompassReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompassReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2833,7 +2833,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Gyrometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Gyrometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Gyrometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2853,7 +2853,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Gyrom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gyrometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Gyrometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2949,7 +2949,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Gyrometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GyrometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GyrometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2969,7 +2969,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Gyrom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GyrometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GyrometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3077,7 +3077,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Gyrometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GyrometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GyrometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3097,7 +3097,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Gyrom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GyrometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GyrometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3162,7 +3162,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Gyrometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GyrometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GyrometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3182,7 +3182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Gyrom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GyrometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GyrometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3265,7 +3265,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HingeAngl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HingeAngleReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HingeAngleReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3285,7 +3285,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Hinge
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HingeAngleReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HingeAngleReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3431,7 +3431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HingeAngl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HingeAngleSensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HingeAngleSensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3451,7 +3451,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Hinge
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HingeAngleSensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HingeAngleSensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3516,7 +3516,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HingeAngl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HingeAngleSensorReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HingeAngleSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3536,7 +3536,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Hinge
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HingeAngleSensorReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HingeAngleSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5651,7 +5651,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISensorDa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISensorDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISensorDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5671,7 +5671,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISens
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISensorDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISensorDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6070,7 +6070,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Inclinome
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Inclinometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Inclinometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6090,7 +6090,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Incli
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inclinometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Inclinometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6186,7 +6186,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Inclinome
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InclinometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InclinometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6206,7 +6206,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Incli
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InclinometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InclinometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6322,7 +6322,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Inclinome
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InclinometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InclinometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6342,7 +6342,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Incli
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InclinometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InclinometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6407,7 +6407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Inclinome
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InclinometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InclinometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6427,7 +6427,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Incli
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InclinometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InclinometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6597,7 +6597,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LightSens
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LightSensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LightSensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6617,7 +6617,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Light
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LightSensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LightSensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6700,7 +6700,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LightSens
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LightSensorDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LightSensorDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6720,7 +6720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Light
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LightSensorDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LightSensorDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6812,7 +6812,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LightSens
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LightSensorReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LightSensorReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6832,7 +6832,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Light
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LightSensorReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LightSensorReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6897,7 +6897,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LightSens
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LightSensorReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LightSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6917,7 +6917,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Light
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LightSensorReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LightSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7102,7 +7102,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Magnetome
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Magnetometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Magnetometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7122,7 +7122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Magne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magnetometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Magnetometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7254,7 +7254,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Magnetome
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MagnetometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagnetometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7274,7 +7274,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Magne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MagnetometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagnetometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7390,7 +7390,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Magnetome
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MagnetometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagnetometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7410,7 +7410,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Magne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MagnetometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagnetometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7475,7 +7475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Magnetome
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MagnetometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagnetometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7495,7 +7495,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Magne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MagnetometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagnetometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7718,7 +7718,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Orientati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OrientationSensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OrientationSensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7738,7 +7738,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Orien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OrientationSensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OrientationSensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7846,7 +7846,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Orientati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OrientationSensorReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OrientationSensorReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7866,7 +7866,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Orien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OrientationSensorReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OrientationSensorReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7931,7 +7931,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Orientati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OrientationSensorReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OrientationSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7951,7 +7951,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Orien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OrientationSensorReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OrientationSensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8126,7 +8126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Pedometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Pedometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Pedometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8146,7 +8146,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Pedom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pedometer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Pedometer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8215,7 +8215,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Pedometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PedometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PedometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8235,7 +8235,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Pedom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PedometerDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PedometerDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8348,7 +8348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Pedometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PedometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PedometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8368,7 +8368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Pedom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PedometerReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PedometerReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8433,7 +8433,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Pedometer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PedometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PedometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8453,7 +8453,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Pedom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PedometerReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PedometerReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8635,7 +8635,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Proximity
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ProximitySensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProximitySensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8655,7 +8655,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Proxi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ProximitySensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProximitySensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8724,7 +8724,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Proximity
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ProximitySensorDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProximitySensorDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8744,7 +8744,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Proxi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ProximitySensorDataThreshold {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProximitySensorDataThreshold {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8842,7 +8842,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Proximity
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ProximitySensorDisplayOnOffController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProximitySensorDisplayOnOffController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8866,7 +8866,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Proxi
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ProximitySensorDisplayOnOffController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProximitySensorDisplayOnOffController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8977,7 +8977,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Proximity
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ProximitySensorReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProximitySensorReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8997,7 +8997,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Proxi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ProximitySensorReading {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProximitySensorReading {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9062,7 +9062,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Proximity
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ProximitySensorReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProximitySensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9082,7 +9082,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Proxi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ProximitySensorReadingChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProximitySensorReadingChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9155,7 +9155,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SensorDat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SensorDataThresholdTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SensorDataThresholdTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9175,7 +9175,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Senso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SensorDataThresholdTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SensorDataThresholdTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9298,7 +9298,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SensorQua
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SensorQuaternion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SensorQuaternion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9318,7 +9318,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Senso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SensorQuaternion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SensorQuaternion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9481,7 +9481,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SensorRot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SensorRotationMatrix {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SensorRotationMatrix {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9501,7 +9501,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Senso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SensorRotationMatrix {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SensorRotationMatrix {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9720,7 +9720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SimpleOri
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SimpleOrientationSensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SimpleOrientationSensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9740,7 +9740,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Simpl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SimpleOrientationSensor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SimpleOrientationSensor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9814,7 +9814,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SimpleOri
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SimpleOrientationSensorOrientationChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SimpleOrientationSensorOrientationChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9834,7 +9834,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Simpl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SimpleOrientationSensorOrientationChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SimpleOrientationSensorOrientationChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -322,7 +322,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -342,7 +342,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICBitmap {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &IWICBitmap {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICBitmap {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -420,7 +420,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapClipper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapClipper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -440,7 +440,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICBitmapClipper 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &IWICBitmapClipper {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICBitmapClipper {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -595,7 +595,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapCodecInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapCodecInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -615,7 +615,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICBitmapCodecIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &IWICBitmapCodecInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICBitmapCodecInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -711,7 +711,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapCodecProgressNotification {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapCodecProgressNotification {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -816,7 +816,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapDecoder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapDecoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1003,7 +1003,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapDecoderInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapDecoderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1023,7 +1023,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICBitmapDecoder
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &IWICBitmapDecoderInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICBitmapDecoderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1043,7 +1043,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapCodecInfo> for IWICBitmapDecod
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapCodecInfo> for &IWICBitmapDecoderInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapCodecInfo> for &'a IWICBitmapDecoderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapCodecInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1147,7 +1147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapEncoder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapEncoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1322,7 +1322,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapEncoderInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapEncoderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1342,7 +1342,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICBitmapEncoder
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &IWICBitmapEncoderInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICBitmapEncoderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1362,7 +1362,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapCodecInfo> for IWICBitmapEncod
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapCodecInfo> for &IWICBitmapEncoderInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapCodecInfo> for &'a IWICBitmapEncoderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapCodecInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1438,7 +1438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapFlipRotator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapFlipRotator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1458,7 +1458,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICBitmapFlipRota
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &IWICBitmapFlipRotator {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICBitmapFlipRotator {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1544,7 +1544,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapFrameDecode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapFrameDecode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1564,7 +1564,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICBitmapFrameDec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &IWICBitmapFrameDecode {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICBitmapFrameDecode {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1663,7 +1663,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapFrameEncode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapFrameEncode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1745,7 +1745,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapLock {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapLock {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1824,7 +1824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapScaler {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapScaler {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1844,7 +1844,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICBitmapScaler {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &IWICBitmapScaler {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICBitmapScaler {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1916,7 +1916,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1989,7 +1989,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICBitmapSourceTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapSourceTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2073,7 +2073,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICColor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICColorContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICColorContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2157,7 +2157,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICColor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICColorTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICColorTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2177,7 +2177,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICColorTransform
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &IWICColorTransform {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICColorTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2397,7 +2397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICCompo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICComponentFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICComponentFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2417,7 +2417,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICImagingFactory> for IWICComponentFac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICImagingFactory> for &IWICComponentFactory {
+impl<'a> ::windows::core::IntoParam<'a, IWICImagingFactory> for &'a IWICComponentFactory {
     fn into_param(self) -> ::windows::core::Param<'a, IWICImagingFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2523,7 +2523,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICCompo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICComponentInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICComponentInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2604,7 +2604,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICDdsDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICDdsDecoder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICDdsDecoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2674,7 +2674,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICDdsEn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICDdsEncoder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICDdsEncoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2747,7 +2747,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICDdsFr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICDdsFrameDecode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICDdsFrameDecode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2979,7 +2979,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICDevel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICDevelopRaw {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICDevelopRaw {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2999,7 +2999,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICDevelopRaw {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &IWICDevelopRaw {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICDevelopRaw {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3019,7 +3019,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapFrameDecode> for IWICDevelopRa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapFrameDecode> for &IWICDevelopRaw {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapFrameDecode> for &'a IWICDevelopRaw {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapFrameDecode> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3108,7 +3108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICDevel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICDevelopRawNotificationCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICDevelopRawNotificationCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3177,7 +3177,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICEnumM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICEnumMetadataItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICEnumMetadataItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3243,7 +3243,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICFastM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICFastMetadataEncoder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICFastMetadataEncoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3326,7 +3326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICForma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICFormatConverter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICFormatConverter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3346,7 +3346,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICFormatConverte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &IWICFormatConverter {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICFormatConverter {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3450,7 +3450,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICForma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICFormatConverterInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICFormatConverterInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3470,7 +3470,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICFormatConvert
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &IWICFormatConverterInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICFormatConverterInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3653,7 +3653,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICImagi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICImagingFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICImagingFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3796,7 +3796,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICJpegF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICJpegFrameDecode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICJpegFrameDecode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3890,7 +3890,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICJpegF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICJpegFrameEncode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICJpegFrameEncode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3974,7 +3974,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICMetadataBlockReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataBlockReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4073,7 +4073,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICMetadataBlockWriter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataBlockWriter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4093,7 +4093,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICMetadataBlockReader> for IWICMetadat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataBlockReader> for &IWICMetadataBlockWriter {
+impl<'a> ::windows::core::IntoParam<'a, IWICMetadataBlockReader> for &'a IWICMetadataBlockWriter {
     fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataBlockReader> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4225,7 +4225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICMetadataHandlerInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataHandlerInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4245,7 +4245,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICMetadataHandl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &IWICMetadataHandlerInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICMetadataHandlerInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4338,7 +4338,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICMetadataQueryReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataQueryReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4432,7 +4432,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICMetadataQueryWriter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataQueryWriter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4452,7 +4452,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICMetadataQueryReader> for IWICMetadat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataQueryReader> for &IWICMetadataQueryWriter {
+impl<'a> ::windows::core::IntoParam<'a, IWICMetadataQueryReader> for &'a IWICMetadataQueryWriter {
     fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataQueryReader> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4540,7 +4540,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICMetadataReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4694,7 +4694,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICMetadataReaderInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataReaderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4714,7 +4714,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICMetadataReade
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &IWICMetadataReaderInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICMetadataReaderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4734,7 +4734,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICMetadataHandlerInfo> for IWICMetadat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataHandlerInfo> for &IWICMetadataReaderInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICMetadataHandlerInfo> for &'a IWICMetadataReaderInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataHandlerInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4839,7 +4839,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICMetadataWriter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataWriter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4859,7 +4859,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICMetadataReader> for IWICMetadataWrit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataReader> for &IWICMetadataWriter {
+impl<'a> ::windows::core::IntoParam<'a, IWICMetadataReader> for &'a IWICMetadataWriter {
     fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataReader> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5008,7 +5008,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICMetadataWriterInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataWriterInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5028,7 +5028,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICMetadataWrite
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &IWICMetadataWriterInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICMetadataWriterInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5048,7 +5048,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICMetadataHandlerInfo> for IWICMetadat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataHandlerInfo> for &IWICMetadataWriterInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICMetadataHandlerInfo> for &'a IWICMetadataWriterInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataHandlerInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5150,7 +5150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPalet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICPalette {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPalette {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5268,7 +5268,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPersi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICPersistStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPersistStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5292,7 +5292,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for &IWICPersistStream {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for &'a IWICPersistStream {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersist> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5316,7 +5316,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistStrea
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistStream> for &IWICPersistStream {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistStream> for &'a IWICPersistStream {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersistStream> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5444,7 +5444,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPixel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICPixelFormatInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPixelFormatInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5464,7 +5464,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICPixelFormatIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &IWICPixelFormatInfo {
+impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICPixelFormatInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5594,7 +5594,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPixel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICPixelFormatInfo2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPixelFormatInfo2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5614,7 +5614,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICPixelFormatIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &IWICPixelFormatInfo2 {
+impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICPixelFormatInfo2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5634,7 +5634,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICPixelFormatInfo> for IWICPixelFormat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICPixelFormatInfo> for &IWICPixelFormatInfo2 {
+impl<'a> ::windows::core::IntoParam<'a, IWICPixelFormatInfo> for &'a IWICPixelFormatInfo2 {
     fn into_param(self) -> ::windows::core::Param<'a, IWICPixelFormatInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5697,7 +5697,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPlana
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICPlanarBitmapFrameEncode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPlanarBitmapFrameEncode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5758,7 +5758,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPlana
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICPlanarBitmapSourceTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPlanarBitmapSourceTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5844,7 +5844,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPlana
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICPlanarFormatConverter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPlanarFormatConverter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5864,7 +5864,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICPlanarFormatCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &IWICPlanarFormatConverter {
+impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICPlanarFormatConverter {
     fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5923,7 +5923,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICProgr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICProgressCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICProgressCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5988,7 +5988,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICProgr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICProgressiveLevelControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICProgressiveLevelControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6124,7 +6124,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICStrea
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6148,7 +6148,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialSt
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream> for &IWICStream {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream> for &'a IWICStream {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::ISequentialStream> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6172,7 +6172,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IStream> for 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IStream> for &IWICStream {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IStream> for &'a IWICStream {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IStream> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6261,7 +6261,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICStrea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICStreamProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICStreamProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -35,7 +35,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INetworkTransportSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkTransportSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -101,7 +101,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INotifica
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INotificationTransportSync {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INotificationTransportSync {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -206,7 +206,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCBuddy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -226,7 +226,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for IRTCBuddy {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &IRTCBuddy {
+impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &'a IRTCBuddy {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -376,7 +376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCBuddy2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddy2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -396,7 +396,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for IRTCBuddy2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &IRTCBuddy2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &'a IRTCBuddy2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -416,7 +416,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCBuddy> for IRTCBuddy2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCBuddy> for &IRTCBuddy2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCBuddy> for &'a IRTCBuddy2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCBuddy> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -516,7 +516,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddy
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCBuddyEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddyEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -540,7 +540,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCBuddyEven
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCBuddyEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCBuddyEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -646,7 +646,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddy
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCBuddyEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddyEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -670,7 +670,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCBuddyEven
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCBuddyEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCBuddyEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -694,7 +694,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCBuddyEvent> for IRTCBuddyEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCBuddyEvent> for &IRTCBuddyEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCBuddyEvent> for &'a IRTCBuddyEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCBuddyEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -802,7 +802,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCBuddyGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddyGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -924,7 +924,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCBuddy
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCBuddyGroupEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCBuddyGroupEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -948,7 +948,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCBuddyGrou
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCBuddyGroupEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCBuddyGroupEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1208,7 +1208,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1593,7 +1593,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCClient2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClient2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1613,7 +1613,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCClient> for IRTCClient2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCClient> for &IRTCClient2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCClient> for &'a IRTCClient2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCClient> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1723,7 +1723,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClien
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCClientEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1747,7 +1747,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCClientEve
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCClientEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCClientEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1819,7 +1819,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCClientPortManagement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientPortManagement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1970,7 +1970,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCClientPresence {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientPresence {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2240,7 +2240,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCClientPresence2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientPresence2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2260,7 +2260,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCClientPresence> for IRTCClientPresen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCClientPresence> for &IRTCClientPresence2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCClientPresence> for &'a IRTCClientPresence2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCClientPresence> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2396,7 +2396,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCClientProvisioning {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientProvisioning {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2501,7 +2501,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCClien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCClientProvisioning2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCClientProvisioning2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2521,7 +2521,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCClientProvisioning> for IRTCClientPr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCClientProvisioning> for &IRTCClientProvisioning2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCClientProvisioning> for &'a IRTCClientProvisioning2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCClientProvisioning> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2616,7 +2616,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCColle
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2640,7 +2640,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCCollectio
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCCollection {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2730,7 +2730,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCDispatchEventNotification {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCDispatchEventNotification {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2754,7 +2754,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCDispatchE
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCDispatchEventNotification {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCDispatchEventNotification {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2827,7 +2827,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCEnumBuddies {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumBuddies {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2898,7 +2898,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumG
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCEnumGroups {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumGroups {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2969,7 +2969,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCEnumParticipants {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumParticipants {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3040,7 +3040,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCEnumPresenceDevices {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumPresenceDevices {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3111,7 +3111,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCEnumProfiles {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumProfiles {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3182,7 +3182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCEnumUserSearchResults {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumUserSearchResults {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3253,7 +3253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEnumW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCEnumWatchers {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEnumWatchers {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3312,7 +3312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCEvent
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCEventNotification {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCEventNotification {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3416,7 +3416,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCInfoE
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCInfoEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCInfoEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3440,7 +3440,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCInfoEvent
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCInfoEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCInfoEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3554,7 +3554,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCInten
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCIntensityEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCIntensityEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3578,7 +3578,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCIntensity
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCIntensityEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCIntensityEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3681,7 +3681,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCMedia
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCMediaEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCMediaEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3705,7 +3705,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCMediaEven
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCMediaEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCMediaEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3825,7 +3825,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCMedia
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCMediaRequestEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCMediaRequestEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3849,7 +3849,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCMediaRequ
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCMediaRequestEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCMediaRequestEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3972,7 +3972,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCMessa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCMessagingEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCMessagingEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3996,7 +3996,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCMessaging
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCMessagingEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCMessagingEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4091,7 +4091,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCParti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCParticipant {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCParticipant {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4195,7 +4195,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCParti
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCParticipantStateChangeEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCParticipantStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4219,7 +4219,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCParticipa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCParticipantStateChangeEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCParticipantStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4293,7 +4293,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPortM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCPortManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPortManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4397,7 +4397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPrese
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCPresenceContact {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPresenceContact {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4517,7 +4517,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPrese
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCPresenceDataEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPresenceDataEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4541,7 +4541,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCPresenceD
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCPresenceDataEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCPresenceDataEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4628,7 +4628,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPrese
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCPresenceDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPresenceDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4741,7 +4741,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPrese
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCPresencePropertyEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPresencePropertyEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4765,7 +4765,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCPresenceP
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCPresencePropertyEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCPresencePropertyEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4875,7 +4875,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCPrese
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCPresenceStatusEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCPresenceStatusEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4899,7 +4899,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCPresenceS
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCPresenceStatusEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCPresenceStatusEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5068,7 +5068,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCProfi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5305,7 +5305,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCProfi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCProfile2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCProfile2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5325,7 +5325,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCProfile> for IRTCProfile2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCProfile> for &IRTCProfile2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCProfile> for &'a IRTCProfile2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCProfile> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5428,7 +5428,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCProfi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCProfileEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCProfileEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5452,7 +5452,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCProfileEv
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCProfileEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCProfileEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5559,7 +5559,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCProfi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCProfileEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCProfileEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5583,7 +5583,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCProfileEv
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCProfileEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCProfileEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5607,7 +5607,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCProfileEvent> for IRTCProfileEvent2 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCProfileEvent> for &IRTCProfileEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCProfileEvent> for &'a IRTCProfileEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCProfileEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5716,7 +5716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCReInv
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCReInviteEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCReInviteEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5740,7 +5740,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCReInviteE
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCReInviteEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCReInviteEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5856,7 +5856,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCRegis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCRegistrationStateChangeEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCRegistrationStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5880,7 +5880,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCRegistrat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCRegistrationStateChangeEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCRegistrationStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5992,7 +5992,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCRoami
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCRoamingEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCRoamingEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6016,7 +6016,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCRoamingEv
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCRoamingEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCRoamingEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6176,7 +6176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6393,7 +6393,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSession2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSession2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6413,7 +6413,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCSession> for IRTCSession2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCSession> for &IRTCSession2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCSession> for &'a IRTCSession2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCSession> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6523,7 +6523,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionCallControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionCallControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6605,7 +6605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionDescriptionManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionDescriptionManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6708,7 +6708,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionOperationCompleteEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionOperationCompleteEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6732,7 +6732,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionOp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionOperationCompleteEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionOperationCompleteEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6854,7 +6854,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionOperationCompleteEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionOperationCompleteEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6878,7 +6878,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionOp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionOperationCompleteEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionOperationCompleteEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6902,7 +6902,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCSessionOperationCompleteEvent> for I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCSessionOperationCompleteEvent> for &IRTCSessionOperationCompleteEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCSessionOperationCompleteEvent> for &'a IRTCSessionOperationCompleteEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCSessionOperationCompleteEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6967,7 +6967,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionPortManagement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionPortManagement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7067,7 +7067,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionReferStatusEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionReferStatusEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7091,7 +7091,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionRe
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionReferStatusEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionReferStatusEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7217,7 +7217,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionReferredEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionReferredEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7241,7 +7241,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionRe
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionReferredEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionReferredEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7362,7 +7362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionStateChangeEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7386,7 +7386,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionSt
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionStateChangeEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionStateChangeEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7518,7 +7518,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCSessi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCSessionStateChangeEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCSessionStateChangeEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7542,7 +7542,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCSessionSt
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCSessionStateChangeEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCSessionStateChangeEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7566,7 +7566,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCSessionStateChangeEvent> for IRTCSes
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCSessionStateChangeEvent> for &IRTCSessionStateChangeEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCSessionStateChangeEvent> for &'a IRTCSessionStateChangeEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCSessionStateChangeEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7638,7 +7638,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCUserS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCUserSearch {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCUserSearch {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7727,7 +7727,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCUserS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCUserSearchQuery {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCUserSearchQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7805,7 +7805,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCUserS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCUserSearchResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCUserSearchResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7923,7 +7923,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCUserS
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCUserSearchResultsEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCUserSearchResultsEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7947,7 +7947,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCUserSearc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCUserSearchResultsEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCUserSearchResultsEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8064,7 +8064,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCWatch
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8084,7 +8084,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for IRTCWatcher {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &IRTCWatcher {
+impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &'a IRTCWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8197,7 +8197,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCWatch
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCWatcher2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCWatcher2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8217,7 +8217,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for IRTCWatcher2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &IRTCWatcher2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCPresenceContact> for &'a IRTCWatcher2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCPresenceContact> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8237,7 +8237,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCWatcher> for IRTCWatcher2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRTCWatcher> for &IRTCWatcher2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCWatcher> for &'a IRTCWatcher2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCWatcher> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8322,7 +8322,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCWatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCWatcherEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCWatcherEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8346,7 +8346,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCWatcherEv
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCWatcherEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCWatcherEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8446,7 +8446,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCWatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRTCWatcherEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCWatcherEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8470,7 +8470,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCWatcherEv
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IRTCWatcherEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCWatcherEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8494,7 +8494,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRTCWatcherEvent> for IRTCWatcherEvent2 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IRTCWatcherEvent> for &IRTCWatcherEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, IRTCWatcherEvent> for &'a IRTCWatcherEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IRTCWatcherEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8562,7 +8562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITranspor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransportSettingsInternal {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransportSettingsInternal {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

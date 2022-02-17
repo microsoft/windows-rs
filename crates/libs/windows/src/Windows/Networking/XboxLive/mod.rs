@@ -474,7 +474,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XboxLiveDeviceAddress {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveDeviceAddress {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -494,7 +494,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XboxLiveDeviceAddress {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveDeviceAddress {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -660,7 +660,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XboxLiveEndpointPair {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveEndpointPair {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -680,7 +680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XboxLiveEndpointPair {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveEndpointPair {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -831,7 +831,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XboxLiveEndpointPairCreationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveEndpointPairCreationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -851,7 +851,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XboxLiveEndpointPairCreationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveEndpointPairCreationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1004,7 +1004,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XboxLiveEndpointPairStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveEndpointPairStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1024,7 +1024,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XboxLiveEndpointPairStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveEndpointPairStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1209,7 +1209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XboxLiveEndpointPairTemplate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveEndpointPairTemplate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1229,7 +1229,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XboxLiveEndpointPairTemplate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveEndpointPairTemplate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1294,7 +1294,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XboxLiveInboundEndpointPairCreatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveInboundEndpointPairCreatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1314,7 +1314,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XboxLiveInboundEndpointPairCreatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveInboundEndpointPairCreatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1605,7 +1605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveQ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XboxLiveQualityOfServiceMeasurement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveQualityOfServiceMeasurement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1625,7 +1625,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XboxLiveQualityOfServiceMeasurement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveQualityOfServiceMeasurement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1799,7 +1799,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveQ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XboxLiveQualityOfServiceMetricResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveQualityOfServiceMetricResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1819,7 +1819,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XboxLiveQualityOfServiceMetricResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveQualityOfServiceMetricResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1901,7 +1901,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XboxLiveQ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XboxLiveQualityOfServicePrivatePayloadResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XboxLiveQualityOfServicePrivatePayloadResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1921,7 +1921,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XboxL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XboxLiveQualityOfServicePrivatePayloadResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XboxLiveQualityOfServicePrivatePayloadResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

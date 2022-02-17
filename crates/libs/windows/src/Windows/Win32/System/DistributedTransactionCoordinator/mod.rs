@@ -237,7 +237,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuCon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuConfigure {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuConfigure {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -288,7 +288,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuRecovery {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuRecovery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -343,7 +343,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuRecoveryFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuRecoveryFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -398,7 +398,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuRecoveryInitiatedByDtc {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuRecoveryInitiatedByDtc {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -453,7 +453,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuRecoveryInitiatedByDtcStatusWork {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuRecoveryInitiatedByDtcStatusWork {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -557,7 +557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuRecoveryInitiatedByDtcTransWork {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuRecoveryInitiatedByDtcTransWork {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -628,7 +628,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuRecoveryInitiatedByLu {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuRecoveryInitiatedByLu {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -711,7 +711,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuRecoveryInitiatedByLuWork {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuRecoveryInitiatedByLuWork {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -794,7 +794,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuRmE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuRmEnlistment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuRmEnlistment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -857,7 +857,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuRmE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuRmEnlistmentFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuRmEnlistmentFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -944,7 +944,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuRmE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuRmEnlistmentSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuRmEnlistmentSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1032,7 +1032,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuSub
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuSubordinateDtc {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuSubordinateDtc {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1096,7 +1096,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuSub
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuSubordinateDtcFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuSubordinateDtcFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1179,7 +1179,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcLuSub
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcLuSubordinateDtcSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcLuSubordinateDtcSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1307,7 +1307,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcNetwo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcNetworkAccessConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcNetworkAccessConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1507,7 +1507,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcNetwo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcNetworkAccessConfig2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcNetworkAccessConfig2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1527,7 +1527,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig> for IDtcNetwork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig> for &IDtcNetworkAccessConfig2 {
+impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig> for &'a IDtcNetworkAccessConfig2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDtcNetworkAccessConfig> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1707,7 +1707,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcNetwo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcNetworkAccessConfig3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcNetworkAccessConfig3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1727,7 +1727,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig> for IDtcNetwork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig> for &IDtcNetworkAccessConfig3 {
+impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig> for &'a IDtcNetworkAccessConfig3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDtcNetworkAccessConfig> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1747,7 +1747,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig2> for IDtcNetwor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig2> for &IDtcNetworkAccessConfig3 {
+impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig2> for &'a IDtcNetworkAccessConfig3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDtcNetworkAccessConfig2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1816,7 +1816,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcToXaH
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcToXaHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcToXaHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1879,7 +1879,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcToXaH
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcToXaHelperFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcToXaHelperFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1953,7 +1953,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcToXaH
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcToXaHelperSinglePipe {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcToXaHelperSinglePipe {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2034,7 +2034,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcToXaM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcToXaMapper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDtcToXaMapper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2098,7 +2098,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGetDispe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGetDispenser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGetDispenser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2155,7 +2155,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKernelTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IKernelTransaction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKernelTransaction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2217,7 +2217,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILastReso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ILastResourceManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILastResourceManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2277,7 +2277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrepareI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrepareInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrepareInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2338,7 +2338,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrepareI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrepareInfo2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrepareInfo2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2399,7 +2399,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRMHelper
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRMHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRMHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2471,7 +2471,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IResource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IResourceManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IResourceManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2553,7 +2553,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IResource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IResourceManager2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IResourceManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2573,7 +2573,7 @@ impl<'a> ::windows::core::IntoParam<'a, IResourceManager> for IResourceManager2 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IResourceManager> for &IResourceManager2 {
+impl<'a> ::windows::core::IntoParam<'a, IResourceManager> for &'a IResourceManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, IResourceManager> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2637,7 +2637,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IResource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IResourceManagerFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IResourceManagerFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2702,7 +2702,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IResource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IResourceManagerFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IResourceManagerFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2722,7 +2722,7 @@ impl<'a> ::windows::core::IntoParam<'a, IResourceManagerFactory> for IResourceMa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IResourceManagerFactory> for &IResourceManagerFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, IResourceManagerFactory> for &'a IResourceManagerFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, IResourceManagerFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2809,7 +2809,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IResource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IResourceManagerRejoinable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IResourceManagerRejoinable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2829,7 +2829,7 @@ impl<'a> ::windows::core::IntoParam<'a, IResourceManager> for IResourceManagerRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IResourceManager> for &IResourceManagerRejoinable {
+impl<'a> ::windows::core::IntoParam<'a, IResourceManager> for &'a IResourceManagerRejoinable {
     fn into_param(self) -> ::windows::core::Param<'a, IResourceManager> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2849,7 +2849,7 @@ impl<'a> ::windows::core::IntoParam<'a, IResourceManager2> for IResourceManagerR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IResourceManager2> for &IResourceManagerRejoinable {
+impl<'a> ::windows::core::IntoParam<'a, IResourceManager2> for &'a IResourceManagerRejoinable {
     fn into_param(self) -> ::windows::core::Param<'a, IResourceManager2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2904,7 +2904,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IResource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IResourceManagerSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IResourceManagerSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3056,7 +3056,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITipHelpe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITipHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITipHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3113,7 +3113,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITipPullS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITipPullSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITipPullSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3176,7 +3176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITipTrans
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITipTransaction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITipTransaction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3244,7 +3244,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITmNodeNa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITmNodeName {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITmNodeName {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3314,7 +3314,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransaction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransaction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3398,7 +3398,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransaction2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransaction2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3418,7 +3418,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITransaction> for ITransaction2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITransaction> for &ITransaction2 {
+impl<'a> ::windows::core::IntoParam<'a, ITransaction> for &'a ITransaction2 {
     fn into_param(self) -> ::windows::core::Param<'a, ITransaction> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3438,7 +3438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITransactionCloner> for ITransaction2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITransactionCloner> for &ITransaction2 {
+impl<'a> ::windows::core::IntoParam<'a, ITransactionCloner> for &'a ITransaction2 {
     fn into_param(self) -> ::windows::core::Param<'a, ITransactionCloner> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3509,7 +3509,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionCloner {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionCloner {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3529,7 +3529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITransaction> for ITransactionCloner {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITransaction> for &ITransactionCloner {
+impl<'a> ::windows::core::IntoParam<'a, ITransaction> for &'a ITransactionCloner {
     fn into_param(self) -> ::windows::core::Param<'a, ITransaction> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3590,7 +3590,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionDispenser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionDispenser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3655,7 +3655,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionEnlistmentAsync {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionEnlistmentAsync {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3720,7 +3720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionExport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionExport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3782,7 +3782,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionExportFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionExportFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3839,7 +3839,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionImport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionImport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3899,7 +3899,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionImportWhereabouts {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionImportWhereabouts {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3955,7 +3955,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionLastEnlistmentAsync {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionLastEnlistmentAsync {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4014,7 +4014,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionLastResourceAsync {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionLastResourceAsync {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4074,7 +4074,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4144,7 +4144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionOutcomeEvents {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionOutcomeEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4225,7 +4225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionPhase0EnlistmentAsync {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionPhase0EnlistmentAsync {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4285,7 +4285,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionPhase0Factory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionPhase0Factory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4345,7 +4345,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionPhase0NotifyAsync {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionPhase0NotifyAsync {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4418,7 +4418,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionReceiver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionReceiver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4477,7 +4477,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionReceiverFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionReceiverFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4546,7 +4546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4624,7 +4624,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionResourceAsync {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionResourceAsync {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4705,7 +4705,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionTransmitter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionTransmitter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4765,7 +4765,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionTransmitterFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionTransmitterFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4820,7 +4820,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionVoterBallotAsync2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionVoterBallotAsync2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4876,7 +4876,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionVoterFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionVoterFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4949,7 +4949,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionVoterNotifyAsync2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITransactionVoterNotifyAsync2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4969,7 +4969,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITransactionOutcomeEvents> for ITransact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITransactionOutcomeEvents> for &ITransactionVoterNotifyAsync2 {
+impl<'a> ::windows::core::IntoParam<'a, ITransactionOutcomeEvents> for &'a ITransactionVoterNotifyAsync2 {
     fn into_param(self) -> ::windows::core::Param<'a, ITransactionOutcomeEvents> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5028,7 +5028,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXAConfig
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXAConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXAConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5084,7 +5084,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXAObtain
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXAObtainRMInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXAObtainRMInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5140,7 +5140,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXATransL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXATransLookup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXATransLookup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5197,7 +5197,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXATransL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXATransLookup2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXATransLookup2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

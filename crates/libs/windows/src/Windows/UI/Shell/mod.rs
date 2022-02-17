@@ -46,7 +46,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAdaptive
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAdaptiveCard {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdaptiveCard {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -66,7 +66,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAdap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAdaptiveCard {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAdaptiveCard {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -132,7 +132,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAdaptive
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAdaptiveCardBuilderStatics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdaptiveCardBuilderStatics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -152,7 +152,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAdap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAdaptiveCardBuilderStatics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAdaptiveCardBuilderStatics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -447,7 +447,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SecurityA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SecurityAppManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SecurityAppManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -467,7 +467,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Secur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SecurityAppManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SecurityAppManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -650,7 +650,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ShareWind
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ShareWindowCommandEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ShareWindowCommandEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -670,7 +670,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Share
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ShareWindowCommandEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ShareWindowCommandEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -784,7 +784,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ShareWind
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ShareWindowCommandSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ShareWindowCommandSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -804,7 +804,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Share
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ShareWindowCommandSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ShareWindowCommandSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -952,7 +952,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TaskbarMa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TaskbarManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TaskbarManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -972,7 +972,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Taskb
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TaskbarManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TaskbarManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -213,7 +213,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitmapDa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBitmapData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBitmapData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -327,7 +327,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVisualTreeService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVisualTreeService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -475,7 +475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVisualTreeService2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVisualTreeService2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -495,7 +495,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService> for IVisualTreeServi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService> for &IVisualTreeService2 {
+impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService> for &'a IVisualTreeService2 {
     fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeService> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -645,7 +645,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVisualTreeService3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVisualTreeService3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -665,7 +665,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService> for IVisualTreeServi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService> for &IVisualTreeService3 {
+impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService> for &'a IVisualTreeService3 {
     fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeService> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -685,7 +685,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService2> for IVisualTreeServ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService2> for &IVisualTreeService3 {
+impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService2> for &'a IVisualTreeService3 {
     fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeService2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -750,7 +750,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVisualTreeServiceCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVisualTreeServiceCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -814,7 +814,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVisualTreeServiceCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVisualTreeServiceCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -834,7 +834,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVisualTreeServiceCallback> for IVisualT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeServiceCallback> for &IVisualTreeServiceCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, IVisualTreeServiceCallback> for &'a IVisualTreeServiceCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeServiceCallback> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -929,7 +929,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXamlDiag
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXamlDiagnostics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXamlDiagnostics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

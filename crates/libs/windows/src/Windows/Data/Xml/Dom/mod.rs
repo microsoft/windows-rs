@@ -301,7 +301,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DtdEntity
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DtdEntity {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DtdEntity {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -321,7 +321,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DtdEn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DtdEntity {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DtdEntity {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -688,7 +688,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DtdNotati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DtdNotation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DtdNotation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -708,7 +708,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DtdNo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DtdNotation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DtdNotation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1135,7 +1135,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlChara
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXmlCharacterData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlCharacterData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1155,7 +1155,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXmlC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXmlCharacterData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXmlCharacterData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1740,7 +1740,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlNode 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXmlNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1760,7 +1760,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXmlN
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXmlNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXmlNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1930,7 +1930,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlNodeS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXmlNodeSelector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlNodeSelector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1950,7 +1950,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXmlN
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXmlNodeSelector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXmlNodeSelector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2032,7 +2032,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlNodeS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXmlNodeSerializer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlNodeSerializer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2052,7 +2052,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXmlN
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXmlNodeSerializer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXmlNodeSerializer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2412,7 +2412,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlText 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXmlText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2432,7 +2432,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXmlT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXmlText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXmlText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2910,7 +2910,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlAttrib
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlAttribute {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlAttribute {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2930,7 +2930,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlAt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlAttribute {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlAttribute {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3338,7 +3338,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlCDataS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlCDataSection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlCDataSection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3358,7 +3358,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlCD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlCDataSection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlCDataSection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3802,7 +3802,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlCommen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlComment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlComment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3822,7 +3822,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlComment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlComment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4406,7 +4406,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlDocume
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlDocument {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlDocument {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4426,7 +4426,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlDo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlDocument {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlDocument {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4777,7 +4777,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlDocume
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlDocumentFragment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlDocumentFragment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4797,7 +4797,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlDo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlDocumentFragment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlDocumentFragment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5172,7 +5172,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlDocume
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlDocumentType {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlDocumentType {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5192,7 +5192,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlDo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlDocumentType {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlDocumentType {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5323,7 +5323,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlDomImp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlDomImplementation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlDomImplementation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5343,7 +5343,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlDo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlDomImplementation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlDomImplementation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5720,7 +5720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlElemen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlElement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5740,7 +5740,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlEl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlElement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6091,7 +6091,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlEntity
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlEntityReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlEntityReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6111,7 +6111,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlEn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlEntityReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlEntityReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6306,7 +6306,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlLoadSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlLoadSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlLoadSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6326,7 +6326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlLo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlLoadSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlLoadSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6508,7 +6508,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlNamedN
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlNamedNodeMap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlNamedNodeMap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6528,7 +6528,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlNa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlNamedNodeMap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlNamedNodeMap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6714,7 +6714,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlNodeLi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlNodeList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlNodeList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6734,7 +6734,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlNo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlNodeList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlNodeList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7092,7 +7092,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlProces
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlProcessingInstruction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlProcessingInstruction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7112,7 +7112,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlPr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlProcessingInstruction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlProcessingInstruction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7520,7 +7520,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XmlText {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XmlText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XmlText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7540,7 +7540,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XmlTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XmlText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

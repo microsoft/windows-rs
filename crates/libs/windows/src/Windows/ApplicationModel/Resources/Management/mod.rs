@@ -202,7 +202,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IndexedRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IndexedResourceCandidate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IndexedResourceCandidate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -222,7 +222,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Index
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IndexedResourceCandidate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IndexedResourceCandidate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -295,7 +295,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IndexedRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IndexedResourceQualifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IndexedResourceQualifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -315,7 +315,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Index
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IndexedResourceQualifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IndexedResourceQualifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -466,7 +466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceI
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceIndexer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceIndexer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -490,7 +490,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceIndexer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceIndexer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

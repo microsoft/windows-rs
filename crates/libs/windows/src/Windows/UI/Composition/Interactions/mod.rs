@@ -186,7 +186,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Compositi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CompositionConditionalValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompositionConditionalValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -206,7 +206,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Compo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CompositionConditionalValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompositionConditionalValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -478,7 +478,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Compositi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CompositionInteractionSourceCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompositionInteractionSourceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -498,7 +498,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Compo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CompositionInteractionSourceCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompositionInteractionSourceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -647,7 +647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICompositionInteractionSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICompositionInteractionSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -667,7 +667,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IComp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICompositionInteractionSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICompositionInteractionSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1212,7 +1212,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInteract
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInteractionTrackerOwner {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInteractionTrackerOwner {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1232,7 +1232,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInteractionTrackerOwner {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IInteractionTrackerOwner {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1807,7 +1807,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionSourceConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionSourceConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1827,7 +1827,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionSourceConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionSourceConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2459,7 +2459,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTracker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTracker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2479,7 +2479,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTracker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTracker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2654,7 +2654,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerCustomAnimationStateEnteredArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerCustomAnimationStateEnteredArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2674,7 +2674,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerCustomAnimationStateEnteredArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerCustomAnimationStateEnteredArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2747,7 +2747,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerIdleStateEnteredArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerIdleStateEnteredArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2767,7 +2767,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerIdleStateEnteredArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerIdleStateEnteredArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2923,7 +2923,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerInertiaModifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInertiaModifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2943,7 +2943,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerInertiaModifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInertiaModifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3205,7 +3205,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerInertiaMotion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInertiaMotion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3225,7 +3225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerInertiaMotion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInertiaMotion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3507,7 +3507,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerInertiaNaturalMotion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInertiaNaturalMotion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3527,7 +3527,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerInertiaNaturalMotion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInertiaNaturalMotion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3809,7 +3809,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerInertiaRestingValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInertiaRestingValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3829,7 +3829,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerInertiaRestingValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInertiaRestingValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4050,7 +4050,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerInertiaStateEnteredArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInertiaStateEnteredArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4070,7 +4070,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerInertiaStateEnteredArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInertiaStateEnteredArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4143,7 +4143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerInteractingStateEnteredArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInteractingStateEnteredArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4163,7 +4163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerInteractingStateEnteredArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInteractingStateEnteredArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4262,7 +4262,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerRequestIgnoredArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerRequestIgnoredArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4282,7 +4282,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerRequestIgnoredArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerRequestIgnoredArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4364,7 +4364,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerValuesChangedArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerValuesChangedArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4384,7 +4384,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerValuesChangedArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerValuesChangedArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4540,7 +4540,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerVector2InertiaModifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerVector2InertiaModifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4560,7 +4560,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerVector2InertiaModifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerVector2InertiaModifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4822,7 +4822,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Interacti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InteractionTrackerVector2InertiaNaturalMotion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerVector2InertiaNaturalMotion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4842,7 +4842,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Inter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InteractionTrackerVector2InertiaNaturalMotion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerVector2InertiaNaturalMotion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5330,7 +5330,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VisualInt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VisualInteractionSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VisualInteractionSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5350,7 +5350,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Visua
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VisualInteractionSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VisualInteractionSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

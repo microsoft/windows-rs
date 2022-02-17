@@ -130,7 +130,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIComman
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUICommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUICommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -150,7 +150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IUICo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IUICommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IUICommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -360,7 +360,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MessageDi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MessageDialog {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MessageDialog {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -380,7 +380,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Messa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MessageDialog {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MessageDialog {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -577,7 +577,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PopupMenu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PopupMenu {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PopupMenu {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -597,7 +597,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Popup
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PopupMenu {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PopupMenu {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -724,7 +724,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UICommand
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UICommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UICommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -744,7 +744,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UICom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UICommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UICommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -951,7 +951,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UICommand
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UICommandSeparator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UICommandSeparator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -971,7 +971,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UICom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UICommandSeparator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UICommandSeparator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

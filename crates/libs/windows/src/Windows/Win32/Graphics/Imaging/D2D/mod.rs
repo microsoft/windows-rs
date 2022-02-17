@@ -34,7 +34,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICImage
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICImageEncoder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICImageEncoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -233,7 +233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICImagi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICImagingFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICImagingFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -253,7 +253,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::IWICImagingFactory> for IWICImagi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IWICImagingFactory> for &IWICImagingFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, super::IWICImagingFactory> for &'a IWICImagingFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::IWICImagingFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -43,7 +43,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AsyncIBac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AsyncIBackgroundCopyCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AsyncIBackgroundCopyCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1392,7 +1392,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBITSExte
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBITSExtensionSetup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBITSExtensionSetup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1416,7 +1416,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IBITSExtensionSetup {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IBITSExtensionSetup {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1513,7 +1513,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBITSExte
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBITSExtensionSetupFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBITSExtensionSetupFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1537,7 +1537,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IBITSExtensionSetupFactory {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IBITSExtensionSetupFactory {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1609,7 +1609,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1674,7 +1674,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyCallback1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyCallback1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1743,7 +1743,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1763,7 +1763,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback> for IBackground
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback> for &IBackgroundCopyCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback> for &'a IBackgroundCopyCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyCallback> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1834,7 +1834,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyCallback3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyCallback3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1854,7 +1854,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback> for IBackground
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback> for &IBackgroundCopyCallback3 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback> for &'a IBackgroundCopyCallback3 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyCallback> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1874,7 +1874,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback2> for IBackgroun
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback2> for &IBackgroundCopyCallback3 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback2> for &'a IBackgroundCopyCallback3 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyCallback2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1952,7 +1952,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyError {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyError {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2034,7 +2034,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyFile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2123,7 +2123,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyFile2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2143,7 +2143,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &IBackgroundCopyFile2 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &'a IBackgroundCopyFile2 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2248,7 +2248,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyFile3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2268,7 +2268,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &IBackgroundCopyFile3 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &'a IBackgroundCopyFile3 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2288,7 +2288,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &IBackgroundCopyFile3 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &'a IBackgroundCopyFile3 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2408,7 +2408,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyFile4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2428,7 +2428,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &IBackgroundCopyFile4 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &'a IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2448,7 +2448,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &IBackgroundCopyFile4 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &'a IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2468,7 +2468,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for IBackgroundCop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for &IBackgroundCopyFile4 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for &'a IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2584,7 +2584,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyFile5 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2604,7 +2604,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &IBackgroundCopyFile5 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &'a IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2624,7 +2624,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &IBackgroundCopyFile5 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &'a IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2644,7 +2644,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for IBackgroundCop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for &IBackgroundCopyFile5 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for &'a IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2664,7 +2664,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile4> for IBackgroundCop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile4> for &IBackgroundCopyFile5 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile4> for &'a IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2799,7 +2799,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyFile6 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2819,7 +2819,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &IBackgroundCopyFile6 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &'a IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2839,7 +2839,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &IBackgroundCopyFile6 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &'a IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2859,7 +2859,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for IBackgroundCop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for &IBackgroundCopyFile6 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for &'a IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2879,7 +2879,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile4> for IBackgroundCop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile4> for &IBackgroundCopyFile6 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile4> for &'a IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2899,7 +2899,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile5> for IBackgroundCop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile5> for &IBackgroundCopyFile6 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile5> for &'a IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3022,7 +3022,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3247,7 +3247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyJob {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3397,7 +3397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyJob1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3653,7 +3653,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyJob2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3673,7 +3673,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &IBackgroundCopyJob2 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &'a IBackgroundCopyJob2 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3957,7 +3957,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyJob3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3977,7 +3977,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &IBackgroundCopyJob3 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &'a IBackgroundCopyJob3 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3997,7 +3997,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for IBackgroundCopy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for &IBackgroundCopyJob3 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for &'a IBackgroundCopyJob3 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4297,7 +4297,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyJob4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4317,7 +4317,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &IBackgroundCopyJob4 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &'a IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4337,7 +4337,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for IBackgroundCopy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for &IBackgroundCopyJob4 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for &'a IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4357,7 +4357,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob3> for IBackgroundCopy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob3> for &IBackgroundCopyJob4 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob3> for &'a IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4667,7 +4667,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyJob5 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4687,7 +4687,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &IBackgroundCopyJob5 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &'a IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4707,7 +4707,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for IBackgroundCopy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for &IBackgroundCopyJob5 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for &'a IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4727,7 +4727,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob3> for IBackgroundCopy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob3> for &IBackgroundCopyJob5 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob3> for &'a IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4747,7 +4747,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob4> for IBackgroundCopy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob4> for &IBackgroundCopyJob5 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob4> for &'a IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4844,7 +4844,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyJobHttpOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJobHttpOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4967,7 +4967,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyJobHttpOptions2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJobHttpOptions2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4987,7 +4987,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions> for IBack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions> for &IBackgroundCopyJobHttpOptions2 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions> for &'a IBackgroundCopyJobHttpOptions2 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJobHttpOptions> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5103,7 +5103,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyJobHttpOptions3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJobHttpOptions3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5123,7 +5123,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions> for IBack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions> for &IBackgroundCopyJobHttpOptions3 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions> for &'a IBackgroundCopyJobHttpOptions3 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJobHttpOptions> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5143,7 +5143,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions2> for IBac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions2> for &IBackgroundCopyJobHttpOptions3 {
+impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions2> for &'a IBackgroundCopyJobHttpOptions3 {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJobHttpOptions2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5216,7 +5216,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5291,7 +5291,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyQMgr {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyQMgr {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5348,7 +5348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCopyServerCertificateValidationCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyServerCertificateValidationCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5417,7 +5417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitsPeer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBitsPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBitsPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5542,7 +5542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitsPeer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBitsPeerCacheAdministration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBitsPeerCacheAdministration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5645,7 +5645,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitsPeer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBitsPeerCacheRecord {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBitsPeerCacheRecord {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5734,7 +5734,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitsToke
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBitsTokenOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBitsTokenOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5814,7 +5814,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumBackgroundCopyFiles {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBackgroundCopyFiles {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5891,7 +5891,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumBackgroundCopyGroups {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBackgroundCopyGroups {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5968,7 +5968,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumBackgroundCopyJobs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBackgroundCopyJobs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6045,7 +6045,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumBackgroundCopyJobs1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBackgroundCopyJobs1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6122,7 +6122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBits
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumBitsPeerCacheRecords {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBitsPeerCacheRecords {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6199,7 +6199,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBits
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumBitsPeers {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBitsPeers {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

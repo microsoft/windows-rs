@@ -172,7 +172,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DualSimTi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DualSimTile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DualSimTile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -192,7 +192,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DualS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DualSimTile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DualSimTile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -294,7 +294,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IToastNot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IToastNotificationManagerStatics3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IToastNotificationManagerStatics3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -314,7 +314,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IToas
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IToastNotificationManagerStatics3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IToastNotificationManagerStatics3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

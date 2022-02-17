@@ -380,7 +380,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NamedReso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NamedResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NamedResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -400,7 +400,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Named
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NamedResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NamedResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -532,7 +532,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceCandidate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceCandidate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -552,7 +552,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceCandidate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceCandidate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -718,7 +718,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceC
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceCandidateVectorView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceCandidateVectorView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -742,7 +742,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceCandidateVectorView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceCandidateVectorView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -976,7 +976,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -996,7 +996,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1127,7 +1127,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceC
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceContextLanguagesVectorView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceContextLanguagesVectorView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1151,7 +1151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceContextLanguagesVectorView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceContextLanguagesVectorView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1377,7 +1377,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1397,7 +1397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1545,7 +1545,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceMap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceMap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1565,7 +1565,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceMap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceMap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1723,7 +1723,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceM
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceMapIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceMapIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1747,7 +1747,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceMapIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceMapIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1903,7 +1903,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceM
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceMapMapView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceMapMapView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1927,7 +1927,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceMapMapView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceMapMapView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2087,7 +2087,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceM
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceMapMapViewIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceMapMapViewIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2111,7 +2111,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceMapMapViewIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceMapMapViewIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2236,7 +2236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceQ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceQualifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceQualifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2256,7 +2256,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceQualifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceQualifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2384,7 +2384,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceQ
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceQualifierMapView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceQualifierMapView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2408,7 +2408,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceQualifierMapView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceQualifierMapView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2629,7 +2629,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceQ
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceQualifierObservableMap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceQualifierObservableMap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2653,7 +2653,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceQualifierObservableMap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceQualifierObservableMap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2898,7 +2898,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceQ
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ResourceQualifierVectorView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceQualifierVectorView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2922,7 +2922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Resou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ResourceQualifierVectorView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceQualifierVectorView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

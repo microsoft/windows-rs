@@ -25,7 +25,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISoftware
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISoftwareBitmapNative {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISoftwareBitmapNative {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45,7 +45,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISoft
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISoftwareBitmapNative {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISoftwareBitmapNative {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -108,7 +108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISoftware
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISoftwareBitmapNativeFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISoftwareBitmapNativeFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -128,7 +128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISoft
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISoftwareBitmapNativeFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISoftwareBitmapNativeFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

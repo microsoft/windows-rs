@@ -752,7 +752,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialAnchor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialAnchor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -772,7 +772,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialAnchor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialAnchor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -887,7 +887,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialAnchorExportSufficiency {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialAnchorExportSufficiency {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -907,7 +907,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialAnchorExportSufficiency {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialAnchorExportSufficiency {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1002,7 +1002,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialAnchorExporter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialAnchorExporter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1022,7 +1022,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialAnchorExporter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialAnchorExporter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1108,7 +1108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1128,7 +1128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1212,7 +1212,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialAnchorStore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialAnchorStore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1232,7 +1232,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialAnchorStore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialAnchorStore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1559,7 +1559,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialBo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialBoundingVolume {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialBoundingVolume {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1579,7 +1579,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialBoundingVolume {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialBoundingVolume {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1645,7 +1645,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialCoordinateSystem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialCoordinateSystem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1665,7 +1665,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialCoordinateSystem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialCoordinateSystem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1767,7 +1767,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialEn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialEntity {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialEntity {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1787,7 +1787,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialEntity {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialEntity {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1852,7 +1852,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialEn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialEntityAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialEntityAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1872,7 +1872,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialEntityAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialEntityAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1937,7 +1937,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialEn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialEntityRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialEntityRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1957,7 +1957,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialEntityRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialEntityRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2060,7 +2060,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialEn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialEntityStore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialEntityStore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2080,7 +2080,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialEntityStore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialEntityStore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2145,7 +2145,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialEn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialEntityUpdatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialEntityUpdatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2165,7 +2165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialEntityUpdatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialEntityUpdatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2300,7 +2300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialEn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialEntityWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialEntityWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2320,7 +2320,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialEntityWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialEntityWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2524,7 +2524,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialLo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialLocation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialLocation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2544,7 +2544,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialLocation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialLocation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2729,7 +2729,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialLo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialLocator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialLocator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2749,7 +2749,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialLocator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialLocator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2858,7 +2858,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialLo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialLocatorAttachedFrameOfReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialLocatorAttachedFrameOfReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2878,7 +2878,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialLocatorAttachedFrameOfReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialLocatorAttachedFrameOfReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2948,7 +2948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialLo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialLocatorPositionalTrackingDeactivatingEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2968,7 +2968,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialLocatorPositionalTrackingDeactivatingEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3250,7 +3250,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialStageFrameOfReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialStageFrameOfReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3270,7 +3270,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialStageFrameOfReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialStageFrameOfReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3335,7 +3335,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialStationaryFrameOfReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialStationaryFrameOfReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3355,7 +3355,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialStationaryFrameOfReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialStationaryFrameOfReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

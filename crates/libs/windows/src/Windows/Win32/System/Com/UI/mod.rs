@@ -24,7 +24,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDummyHIC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDummyHICONIncluder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDummyHICONIncluder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -88,7 +88,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IThumbnai
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IThumbnailExtractor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IThumbnailExtractor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

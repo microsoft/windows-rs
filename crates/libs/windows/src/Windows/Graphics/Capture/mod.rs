@@ -81,7 +81,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Direct3D1
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Direct3D11CaptureFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Direct3D11CaptureFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -101,7 +101,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Direc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Direct3D11CaptureFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Direct3D11CaptureFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -262,7 +262,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Direct3D1
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Direct3D11CaptureFramePool {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Direct3D11CaptureFramePool {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -282,7 +282,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Direc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Direct3D11CaptureFramePool {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Direct3D11CaptureFramePool {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -483,7 +483,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GraphicsC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GraphicsCaptureItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GraphicsCaptureItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -503,7 +503,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Graph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GraphicsCaptureItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GraphicsCaptureItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -576,7 +576,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GraphicsC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GraphicsCapturePicker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GraphicsCapturePicker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -596,7 +596,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Graph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GraphicsCapturePicker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GraphicsCapturePicker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -702,7 +702,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GraphicsC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GraphicsCaptureSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GraphicsCaptureSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -722,7 +722,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Graph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GraphicsCaptureSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GraphicsCaptureSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -14640,7 +14640,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAdvanced
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAdvancedMediaCapture {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdvancedMediaCapture {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14695,7 +14695,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAdvanced
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAdvancedMediaCaptureInitializationSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdvancedMediaCaptureInitializationSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14751,7 +14751,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAdvanced
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAdvancedMediaCaptureSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdvancedMediaCaptureSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14806,7 +14806,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAudioSourceProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioSourceProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14866,7 +14866,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IClusterD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IClusterDetector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IClusterDetector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14989,7 +14989,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICodecAPI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICodecAPI {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICodecAPI {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15182,7 +15182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecodeCommandList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15206,7 +15206,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecodeCommandList {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15230,7 +15230,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecodeCommandList {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15254,7 +15254,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoDecodeCommandList {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &'a ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15457,7 +15457,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecodeCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15481,7 +15481,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecodeCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15505,7 +15505,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecodeCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15529,7 +15529,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoDecodeCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &'a ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15553,7 +15553,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList> for ID3D12
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList> for &ID3D12VideoDecodeCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList> for &'a ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecodeCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15734,7 +15734,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15758,7 +15758,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15782,7 +15782,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15806,7 +15806,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoDecodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &'a ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15830,7 +15830,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList> for ID3D12
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList> for &ID3D12VideoDecodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList> for &'a ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecodeCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15854,7 +15854,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList1> for ID3D1
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList1> for &ID3D12VideoDecodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecodeCommandList1> for &'a ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecodeCommandList1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15959,7 +15959,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecoder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15983,7 +15983,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecoder {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16007,7 +16007,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecoder {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16031,7 +16031,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoDecoder {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &'a ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16129,7 +16129,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecoder1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16153,7 +16153,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecoder1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16177,7 +16177,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecoder1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16201,7 +16201,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoDecoder1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &'a ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16225,7 +16225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecoder> for ID3D12VideoDecod
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecoder> for &ID3D12VideoDecoder1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecoder> for &'a ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecoder> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16320,7 +16320,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecoderHeap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16344,7 +16344,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecoderHeap {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16368,7 +16368,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecoderHeap {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16392,7 +16392,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoDecoderHeap {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &'a ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16494,7 +16494,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDecoderHeap1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16518,7 +16518,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecoderHeap1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16542,7 +16542,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecoderHeap1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16566,7 +16566,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoDecoderHeap1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &'a ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16590,7 +16590,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecoderHeap> for ID3D12VideoD
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecoderHeap> for &ID3D12VideoDecoderHeap1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDecoderHeap> for &'a ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDecoderHeap> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16668,7 +16668,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16761,7 +16761,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDevice1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoDevice1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16781,7 +16781,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice> for ID3D12VideoDevice
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice> for &ID3D12VideoDevice1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice> for &'a ID3D12VideoDevice1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDevice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16901,7 +16901,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDevice2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoDevice2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16921,7 +16921,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice> for ID3D12VideoDevice
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice> for &ID3D12VideoDevice2 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice> for &'a ID3D12VideoDevice2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDevice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16941,7 +16941,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice1> for ID3D12VideoDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice1> for &ID3D12VideoDevice2 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice1> for &'a ID3D12VideoDevice2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDevice1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17084,7 +17084,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoDevice3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17104,7 +17104,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice> for ID3D12VideoDevice
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice> for &ID3D12VideoDevice3 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice> for &'a ID3D12VideoDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDevice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17124,7 +17124,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice1> for ID3D12VideoDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice1> for &ID3D12VideoDevice3 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice1> for &'a ID3D12VideoDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDevice1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17144,7 +17144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice2> for ID3D12VideoDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice2> for &ID3D12VideoDevice3 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoDevice2> for &'a ID3D12VideoDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoDevice2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17310,7 +17310,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoEncodeCommandList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17334,7 +17334,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoEncodeCommandList {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17358,7 +17358,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoEncodeCommandList {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17382,7 +17382,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoEncodeCommandList {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &'a ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17608,7 +17608,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoEncodeCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17632,7 +17632,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoEncodeCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17656,7 +17656,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoEncodeCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17680,7 +17680,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoEncodeCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &'a ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17704,7 +17704,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList> for ID3D12
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList> for &ID3D12VideoEncodeCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList> for &'a ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoEncodeCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17899,7 +17899,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoEncodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17923,7 +17923,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoEncodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17947,7 +17947,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoEncodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17971,7 +17971,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoEncodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &'a ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17995,7 +17995,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList> for ID3D12
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList> for &ID3D12VideoEncodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList> for &'a ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoEncodeCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18019,7 +18019,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList1> for ID3D1
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList1> for &ID3D12VideoEncodeCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoEncodeCommandList1> for &'a ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoEncodeCommandList1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18143,7 +18143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoEncoder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18167,7 +18167,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoEncoder {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18191,7 +18191,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoEncoder {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18215,7 +18215,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoEncoder {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &'a ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18340,7 +18340,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoEncoderHeap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18364,7 +18364,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoEncoderHeap {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18388,7 +18388,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoEncoderHeap {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18412,7 +18412,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoEncoderHeap {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &'a ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18516,7 +18516,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoExtensionCommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18540,7 +18540,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoExtensionCommand {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18564,7 +18564,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoExtensionCommand {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18588,7 +18588,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoExtensionCommand {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &'a ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18688,7 +18688,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoMotionEstimator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18712,7 +18712,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoMotionEstimator {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18736,7 +18736,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoMotionEstimator {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18760,7 +18760,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoMotionEstimator {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &'a ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18863,7 +18863,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoMotionVectorHeap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18887,7 +18887,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoMotionVectorHeap {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18911,7 +18911,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoMotionVectorHeap {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18935,7 +18935,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoMotionVectorHeap {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &'a ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19097,7 +19097,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoProcessCommandList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19121,7 +19121,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoProcessCommandList {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19145,7 +19145,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoProcessCommandList {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19169,7 +19169,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoProcessCommandList {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &'a ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19372,7 +19372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoProcessCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19396,7 +19396,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoProcessCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19420,7 +19420,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoProcessCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19444,7 +19444,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoProcessCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &'a ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19468,7 +19468,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList> for ID3D1
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList> for &ID3D12VideoProcessCommandList1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList> for &'a ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19649,7 +19649,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoProcessCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19673,7 +19673,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoProcessCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19697,7 +19697,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoProcessCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19721,7 +19721,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoProcessCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &'a ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19745,7 +19745,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList> for ID3D1
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList> for &ID3D12VideoProcessCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList> for &'a ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessCommandList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19769,7 +19769,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList1> for ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList1> for &ID3D12VideoProcessCommandList2 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessCommandList1> for &'a ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessCommandList1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19888,7 +19888,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoProcessor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19912,7 +19912,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoProcessor {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19936,7 +19936,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoProcessor {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19960,7 +19960,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoProcessor {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &'a ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20081,7 +20081,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D12Vid
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D12VideoProcessor1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20105,7 +20105,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoProcessor1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &'a ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20129,7 +20129,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoProcessor1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &'a ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20153,7 +20153,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoProcessor1 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &'a ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20177,7 +20177,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessor> for ID3D12VideoPro
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessor> for &ID3D12VideoProcessor1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D12VideoProcessor> for &'a ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D12VideoProcessor> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20274,7 +20274,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXVAHD_D
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXVAHD_Device {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXVAHD_Device {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20368,7 +20368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXVAHD_V
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXVAHD_VideoProcessor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXVAHD_VideoProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20431,7 +20431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3D9ExOverlayExtension {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirect3D9ExOverlayExtension {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20506,7 +20506,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DAuthenticatedChannel9 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirect3DAuthenticatedChannel9 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20603,7 +20603,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DCryptoSession9 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirect3DCryptoSession9 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20685,7 +20685,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DDevice9Video {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirect3DDevice9Video {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20780,7 +20780,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DDeviceManager9 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirect3DDeviceManager9 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20863,7 +20863,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectXV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectXVideoAccelerationService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectXVideoAccelerationService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20949,7 +20949,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectXV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectXVideoDecoder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectXVideoDecoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21040,7 +21040,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectXV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectXVideoDecoderService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectXVideoDecoderService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21060,7 +21060,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectXVideoAccelerationService> for ID
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectXVideoAccelerationService> for &IDirectXVideoDecoderService {
+impl<'a> ::windows::core::IntoParam<'a, IDirectXVideoAccelerationService> for &'a IDirectXVideoDecoderService {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectXVideoAccelerationService> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21132,7 +21132,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectXV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectXVideoMemoryConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectXVideoMemoryConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21215,7 +21215,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectXV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectXVideoProcessor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectXVideoProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21328,7 +21328,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectXV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectXVideoProcessorService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectXVideoProcessorService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21348,7 +21348,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectXVideoAccelerationService> for ID
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectXVideoAccelerationService> for &IDirectXVideoProcessorService {
+impl<'a> ::windows::core::IntoParam<'a, IDirectXVideoAccelerationService> for &'a IDirectXVideoProcessorService {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectXVideoAccelerationService> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21436,7 +21436,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEVRFilte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEVRFilterConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEVRFilterConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21506,7 +21506,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEVRFilte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEVRFilterConfigEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEVRFilterConfigEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21526,7 +21526,7 @@ impl<'a> ::windows::core::IntoParam<'a, IEVRFilterConfig> for IEVRFilterConfigEx
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IEVRFilterConfig> for &IEVRFilterConfigEx {
+impl<'a> ::windows::core::IntoParam<'a, IEVRFilterConfig> for &'a IEVRFilterConfigEx {
     fn into_param(self) -> ::windows::core::Param<'a, IEVRFilterConfig> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21599,7 +21599,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEVRTrust
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEVRTrustedVideoPlugin {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEVRTrustedVideoPlugin {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21673,7 +21673,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEVRVideo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEVRVideoStreamControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEVRVideoStreamControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21743,7 +21743,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileClie
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFileClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21838,7 +21838,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileIo {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFileIo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileIo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21935,7 +21935,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMF2DBuff
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMF2DBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMF2DBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22034,7 +22034,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMF2DBuff
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMF2DBuffer2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMF2DBuffer2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22054,7 +22054,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMF2DBuffer> for IMF2DBuffer2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMF2DBuffer> for &IMF2DBuffer2 {
+impl<'a> ::windows::core::IntoParam<'a, IMF2DBuffer> for &'a IMF2DBuffer2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMF2DBuffer> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22139,7 +22139,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFASFCon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFASFContentInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFASFContentInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22258,7 +22258,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFASFInd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFASFIndexer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFASFIndexer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22368,7 +22368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFASFMul
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFASFMultiplexer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFASFMultiplexer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22467,7 +22467,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFASFMut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFASFMutualExclusion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFASFMutualExclusion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22738,7 +22738,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFASFPro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFASFProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFASFProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22758,7 +22758,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFASFProfile {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFASFProfile {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFASFProfile {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -22862,7 +22862,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFASFSpl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFASFSplitter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFASFSplitter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23104,7 +23104,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFASFStr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFASFStreamConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFASFStreamConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23124,7 +23124,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFASFStreamConfig {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFASFStreamConfig {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFASFStreamConfig {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23206,7 +23206,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFASFStr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFASFStreamPrioritization {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFASFStreamPrioritization {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23327,7 +23327,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFASFStr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFASFStreamSelector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFASFStreamSelector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23543,7 +23543,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFActiva
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFActivate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFActivate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23563,7 +23563,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFActivate {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFActivate {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFActivate {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23624,7 +23624,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFAsyncC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFAsyncCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFAsyncCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23692,7 +23692,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFAsyncC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFAsyncCallbackLogging {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFAsyncCallbackLogging {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23712,7 +23712,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAsyncCallback> for IMFAsyncCallbackLo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAsyncCallback> for &IMFAsyncCallbackLogging {
+impl<'a> ::windows::core::IntoParam<'a, IMFAsyncCallback> for &'a IMFAsyncCallbackLogging {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAsyncCallback> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23786,7 +23786,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFAsyncR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFAsyncResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFAsyncResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -23980,7 +23980,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFAttrib
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFAttributes {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFAttributes {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24252,7 +24252,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFAudioM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFAudioMediaType {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFAudioMediaType {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24272,7 +24272,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFAudioMediaType {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFAudioMediaType {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFAudioMediaType {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24292,7 +24292,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaType> for IMFAudioMediaType {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaType> for &IMFAudioMediaType {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaType> for &'a IMFAudioMediaType {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaType> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24377,7 +24377,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFAudioP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFAudioPolicy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFAudioPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24467,7 +24467,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFAudioS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFAudioStreamVolume {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFAudioStreamVolume {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24530,7 +24530,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFBuffer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFBufferListNotify {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFBufferListNotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24651,7 +24651,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFByteSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFByteStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFByteStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24732,7 +24732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFByteSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFByteStreamBuffering {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFByteStreamBuffering {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24792,7 +24792,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFByteSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFByteStreamCacheControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFByteStreamCacheControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24861,7 +24861,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFByteSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFByteStreamCacheControl2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFByteStreamCacheControl2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24881,7 +24881,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFByteStreamCacheControl> for IMFByteSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFByteStreamCacheControl> for &IMFByteStreamCacheControl2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFByteStreamCacheControl> for &'a IMFByteStreamCacheControl2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFByteStreamCacheControl> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -24955,7 +24955,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFByteSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFByteStreamHandler {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFByteStreamHandler {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25017,7 +25017,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFByteSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFByteStreamProxyClassFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFByteStreamProxyClassFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25082,7 +25082,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFByteSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFByteStreamTimeSeek {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFByteStreamTimeSeek {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25150,7 +25150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCamera
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCameraOcclusionStateMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCameraOcclusionStateMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25208,7 +25208,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCamera
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCameraOcclusionStateReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCameraOcclusionStateReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25263,7 +25263,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCamera
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCameraOcclusionStateReportCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCameraOcclusionStateReportCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25322,7 +25322,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCamera
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCameraSyncObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCameraSyncObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25409,7 +25409,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCaptureEngine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCaptureEngine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25474,7 +25474,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCaptureEngineClassFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCaptureEngineClassFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25529,7 +25529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCaptureEngineOnEventCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCaptureEngineOnEventCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25584,7 +25584,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCaptureEngineOnSampleCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCaptureEngineOnSampleCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25643,7 +25643,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCaptureEngineOnSampleCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCaptureEngineOnSampleCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25663,7 +25663,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFCaptureEngineOnSampleCallback> for IM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFCaptureEngineOnSampleCallback> for &IMFCaptureEngineOnSampleCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFCaptureEngineOnSampleCallback> for &'a IMFCaptureEngineOnSampleCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFCaptureEngineOnSampleCallback> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25727,7 +25727,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCapturePhotoConfirmation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCapturePhotoConfirmation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25816,7 +25816,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCapturePhotoSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCapturePhotoSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25836,7 +25836,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for IMFCapturePhotoSink 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for &IMFCapturePhotoSink {
+impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for &'a IMFCapturePhotoSink {
     fn into_param(self) -> ::windows::core::Param<'a, IMFCaptureSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25957,7 +25957,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCapturePreviewSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCapturePreviewSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25977,7 +25977,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for IMFCapturePreviewSin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for &IMFCapturePreviewSink {
+impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for &'a IMFCapturePreviewSink {
     fn into_param(self) -> ::windows::core::Param<'a, IMFCaptureSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26097,7 +26097,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCaptureRecordSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCaptureRecordSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26117,7 +26117,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for IMFCaptureRecordSink
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for &IMFCaptureRecordSink {
+impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for &'a IMFCaptureRecordSink {
     fn into_param(self) -> ::windows::core::Param<'a, IMFCaptureSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26199,7 +26199,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCaptureSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCaptureSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26281,7 +26281,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCaptureSink2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCaptureSink2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26301,7 +26301,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for IMFCaptureSink2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for &IMFCaptureSink2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFCaptureSink> for &'a IMFCaptureSink2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFCaptureSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26419,7 +26419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCaptur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCaptureSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCaptureSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26497,7 +26497,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCdmSus
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCdmSuspendNotify {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCdmSuspendNotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26573,7 +26573,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFClock 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFClock {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFClock {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26637,7 +26637,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFClockC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFClockConsumer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFClockConsumer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26709,7 +26709,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFClockS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFClockStateSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFClockStateSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26791,7 +26791,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFCollec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26878,7 +26878,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFConten
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFContentDecryptionModule {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFContentDecryptionModule {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26953,7 +26953,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFConten
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFContentDecryptionModuleAccess {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFContentDecryptionModuleAccess {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27026,7 +27026,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFConten
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFContentDecryptionModuleFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFContentDecryptionModuleFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27122,7 +27122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFConten
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFContentDecryptionModuleSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFContentDecryptionModuleSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27198,7 +27198,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFConten
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFContentDecryptionModuleSessionCallbacks {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFContentDecryptionModuleSessionCallbacks {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27258,7 +27258,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFConten
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFContentDecryptorContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFContentDecryptorContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27341,7 +27341,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFConten
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFContentEnabler {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFContentEnabler {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27412,7 +27412,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFConten
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFContentProtectionDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFContentProtectionDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27472,7 +27472,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFConten
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFContentProtectionManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFContentProtectionManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27533,7 +27533,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFD3D12S
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFD3D12SynchronizationObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFD3D12SynchronizationObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27608,7 +27608,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFD3D12S
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFD3D12SynchronizationObjectCommands {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFD3D12SynchronizationObjectCommands {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27679,7 +27679,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFDLNASi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFDLNASinkInit {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFDLNASinkInit {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27742,7 +27742,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFDRMNet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFDRMNetHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFDRMNetHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27814,7 +27814,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFDXGIBu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFDXGIBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFDXGIBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27903,7 +27903,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFDXGIDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFDXGIDeviceManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFDXGIDeviceManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -27983,7 +27983,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFDXGIDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFDXGIDeviceManagerSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFDXGIDeviceManagerSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28046,7 +28046,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFDesire
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFDesiredSample {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFDesiredSample {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28123,7 +28123,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFExtend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFExtendedCameraControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFExtendedCameraControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28184,7 +28184,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFExtend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFExtendedCameraController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFExtendedCameraController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28249,7 +28249,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFExtend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFExtendedCameraIntrinsicModel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFExtendedCameraIntrinsicModel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28329,7 +28329,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFExtend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFExtendedCameraIntrinsics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFExtendedCameraIntrinsics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28394,7 +28394,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFExtend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFExtendedCameraIntrinsicsDistortionModel6KT {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFExtendedCameraIntrinsicsDistortionModel6KT {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28455,7 +28455,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFExtend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFExtendedCameraIntrinsicsDistortionModelArcTan {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFExtendedCameraIntrinsicsDistortionModelArcTan {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28513,7 +28513,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFExtend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFExtendedDRMTypeSupport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFExtendedDRMTypeSupport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28571,7 +28571,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFFieldO
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFFieldOfUseMFTUnlock {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFFieldOfUseMFTUnlock {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28672,7 +28672,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFFinali
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFFinalizableMediaSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFFinalizableMediaSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28692,7 +28692,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaSink> for IMFFinalizableMediaSin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaSink> for &IMFFinalizableMediaSink {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaSink> for &'a IMFFinalizableMediaSink {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28749,7 +28749,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFGetSer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFGetService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFGetService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28809,7 +28809,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFHDCPSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFHDCPStatus {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFHDCPStatus {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -28940,7 +28940,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFHttpDo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFHttpDownloadRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFHttpDownloadRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29036,7 +29036,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFHttpDo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFHttpDownloadSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFHttpDownloadSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29101,7 +29101,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFHttpDo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFHttpDownloadSessionProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFHttpDownloadSessionProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29169,7 +29169,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFImageS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFImageSharingEngine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFImageSharingEngine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29231,7 +29231,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFImageS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFImageSharingEngineClassFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFImageSharingEngineClassFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29311,7 +29311,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFInputT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFInputTrustAuthority {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFInputTrustAuthority {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29372,7 +29372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFLocalM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFLocalMFTRegistration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFLocalMFTRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29448,7 +29448,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29693,7 +29693,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29841,7 +29841,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineAudioEndpointId {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineAudioEndpointId {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29914,7 +29914,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineClassFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineClassFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -29973,7 +29973,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineClassFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineClassFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -30033,7 +30033,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineClassFactory3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineClassFactory3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -30092,7 +30092,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineClassFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineClassFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -30178,7 +30178,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineClassFactoryEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineClassFactoryEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -30198,7 +30198,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngineClassFactory> for IMFMedia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngineClassFactory> for &IMFMediaEngineClassFactoryEx {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngineClassFactory> for &'a IMFMediaEngineClassFactoryEx {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaEngineClassFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -30266,7 +30266,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineEME {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineEME {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -30327,7 +30327,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineEMENotify {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineEMENotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -30753,7 +30753,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -30773,7 +30773,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngine> for IMFMediaEngineEx {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngine> for &IMFMediaEngineEx {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngine> for &'a IMFMediaEngineEx {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaEngine> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -30937,7 +30937,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineExtension {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineExtension {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31001,7 +31001,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineNeedKeyNotify {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineNeedKeyNotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31056,7 +31056,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineNotify {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineNotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31112,7 +31112,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineOPMInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineOPMInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31194,7 +31194,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineProtectedContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineProtectedContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31287,7 +31287,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineSrcElements {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineSrcElements {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31397,7 +31397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineSrcElementsEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineSrcElementsEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31417,7 +31417,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngineSrcElements> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngineSrcElements> for &IMFMediaEngineSrcElementsEx {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngineSrcElements> for &'a IMFMediaEngineSrcElementsEx {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaEngineSrcElements> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31489,7 +31489,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineSupportsSourceTransfer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineSupportsSourceTransfer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31549,7 +31549,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineTransferSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineTransferSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31614,7 +31614,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEngineWebSupport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEngineWebSupport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31686,7 +31686,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaError {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaError {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31900,7 +31900,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31920,7 +31920,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFMediaEvent {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFMediaEvent {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFMediaEvent {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -31996,7 +31996,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEventGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEventGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32084,7 +32084,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaEventQueue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaEventQueue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32168,7 +32168,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaK
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaKeySession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaKeySession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32281,7 +32281,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaK
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaKeySession2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaKeySession2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32301,7 +32301,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaKeySession> for IMFMediaKeySessi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaKeySession> for &IMFMediaKeySession2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaKeySession> for &'a IMFMediaKeySession2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaKeySession> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32376,7 +32376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaK
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaKeySessionNotify {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaKeySessionNotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32454,7 +32454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaK
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaKeySessionNotify2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaKeySessionNotify2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32474,7 +32474,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaKeySessionNotify> for IMFMediaKe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaKeySessionNotify> for &IMFMediaKeySessionNotify2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaKeySessionNotify> for &'a IMFMediaKeySessionNotify2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaKeySessionNotify> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32547,7 +32547,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaK
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaKeySystemAccess {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaKeySystemAccess {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32630,7 +32630,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaK
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaKeys {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaKeys {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32725,7 +32725,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaK
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaKeys2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaKeys2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32745,7 +32745,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaKeys> for IMFMediaKeys2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaKeys> for &IMFMediaKeys2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaKeys> for &'a IMFMediaKeys2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaKeys> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32861,7 +32861,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -32881,7 +32881,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaSess
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaSession {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &'a IMFMediaSession {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaEventGenerator> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33140,7 +33140,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSharingEngine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSharingEngine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33160,7 +33160,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngine> for IMFMediaSharingEngin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngine> for &IMFMediaSharingEngine {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaEngine> for &'a IMFMediaSharingEngine {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaEngine> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33219,7 +33219,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSharingEngineClassFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSharingEngineClassFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33312,7 +33312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33375,7 +33375,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSinkPreroll {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSinkPreroll {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33472,7 +33472,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33492,7 +33492,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaSour
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaSource {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &'a IMFMediaSource {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaEventGenerator> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33615,7 +33615,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSource2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSource2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33635,7 +33635,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaSour
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaSource2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &'a IMFMediaSource2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaEventGenerator> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33655,7 +33655,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaSource> for IMFMediaSource2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaSource> for &IMFMediaSource2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaSource> for &'a IMFMediaSource2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33675,7 +33675,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaSourceEx> for IMFMediaSource2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaSourceEx> for &IMFMediaSource2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaSourceEx> for &'a IMFMediaSource2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaSourceEx> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33786,7 +33786,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSourceEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSourceEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33806,7 +33806,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaSour
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaSourceEx {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &'a IMFMediaSourceEx {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaEventGenerator> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33826,7 +33826,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaSource> for IMFMediaSourceEx {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaSource> for &IMFMediaSourceEx {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaSource> for &'a IMFMediaSourceEx {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33922,7 +33922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSourceExtension {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSourceExtension {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -33996,7 +33996,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSourceExtensionLiveSeekableRange {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSourceExtensionLiveSeekableRange {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34060,7 +34060,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSourceExtensionNotify {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSourceExtensionNotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34117,7 +34117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSourcePresentationProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSourcePresentationProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34173,7 +34173,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaSourceTopologyProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaSourceTopologyProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34257,7 +34257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34277,7 +34277,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaStre
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaStream {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &'a IMFMediaStream {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaEventGenerator> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34372,7 +34372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaStream2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaStream2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34392,7 +34392,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaStre
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaStream2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &'a IMFMediaStream2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaEventGenerator> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34412,7 +34412,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaStream> for IMFMediaStream2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaStream> for &IMFMediaStream2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaStream> for &'a IMFMediaStream2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaStream> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34468,7 +34468,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaStreamSourceSampleRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaStreamSourceSampleRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34546,7 +34546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaTimeRange {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaTimeRange {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34768,7 +34768,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaType {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaType {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34788,7 +34788,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFMediaType {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFMediaType {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFMediaType {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34875,7 +34875,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMediaT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMediaTypeHandler {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMediaTypeHandler {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -34970,7 +34970,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMetada
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMetadata {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMetadata {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35053,7 +35053,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMetada
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMetadataProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMetadataProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35114,7 +35114,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMuxStr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMuxStreamAttributesManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMuxStreamAttributesManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35194,7 +35194,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMuxStr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMuxStreamMediaTypeManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMuxStreamMediaTypeManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35264,7 +35264,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFMuxStr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFMuxStreamSampleManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMuxStreamSampleManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35343,7 +35343,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFNetCre
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFNetCredential {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFNetCredential {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35427,7 +35427,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFNetCre
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFNetCredentialCache {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFNetCredentialCache {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35501,7 +35501,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFNetCre
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFNetCredentialManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFNetCredentialManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35577,7 +35577,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFNetCro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFNetCrossOriginSupport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFNetCrossOriginSupport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35659,7 +35659,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFNetPro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFNetProxyLocator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFNetProxyLocator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35726,7 +35726,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFNetPro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFNetProxyLocatorFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFNetProxyLocatorFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35791,7 +35791,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFNetRes
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFNetResourceFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFNetResourceFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35863,7 +35863,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFNetSch
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFNetSchemeHandlerConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFNetSchemeHandlerConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -35924,7 +35924,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFObject
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFObjectReferenceStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFObjectReferenceStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -36130,7 +36130,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFOutput
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFOutputPolicy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFOutputPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -36150,7 +36150,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFOutputPolicy {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFOutputPolicy {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFOutputPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -36357,7 +36357,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFOutput
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFOutputSchema {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFOutputSchema {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -36377,7 +36377,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFOutputSchema {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFOutputSchema {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFOutputSchema {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -36439,7 +36439,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFOutput
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFOutputTrustAuthority {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFOutputTrustAuthority {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -36495,7 +36495,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPMPCli
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPMPClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPMPClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -36550,7 +36550,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPMPCli
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPMPClientApp {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPMPClientApp {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -36615,7 +36615,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPMPHos
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPMPHost {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPMPHost {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -36685,7 +36685,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPMPHos
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPMPHostApp {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPMPHostApp {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -36754,7 +36754,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPMPSer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPMPServer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPMPServer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -36907,7 +36907,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPMedia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPMediaItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPMediaItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -37182,7 +37182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPMedia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPMediaPlayer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPMediaPlayer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -37309,7 +37309,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPMedia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPMediaPlayerCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPMediaPlayerCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -37393,7 +37393,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPlugin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPluginControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPluginControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -37495,7 +37495,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPlugin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPluginControl2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPluginControl2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -37515,7 +37515,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFPluginControl> for IMFPluginControl2 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFPluginControl> for &IMFPluginControl2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFPluginControl> for &'a IMFPluginControl2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFPluginControl> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -37624,7 +37624,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPresen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPresentationClock {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPresentationClock {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -37644,7 +37644,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFClock> for IMFPresentationClock {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFClock> for &IMFPresentationClock {
+impl<'a> ::windows::core::IntoParam<'a, IMFClock> for &'a IMFPresentationClock {
     fn into_param(self) -> ::windows::core::Param<'a, IMFClock> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -37864,7 +37864,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPresen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPresentationDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPresentationDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -37884,7 +37884,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFPresentationDescri
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFPresentationDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFPresentationDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -37971,7 +37971,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFPresen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFPresentationTimeSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPresentationTimeSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -37991,7 +37991,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFClock> for IMFPresentationTimeSource 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFClock> for &IMFPresentationTimeSource {
+impl<'a> ::windows::core::IntoParam<'a, IMFClock> for &'a IMFPresentationTimeSource {
     fn into_param(self) -> ::windows::core::Param<'a, IMFClock> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38051,7 +38051,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFProtec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFProtectedEnvironmentAccess {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFProtectedEnvironmentAccess {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38125,7 +38125,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFQualit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFQualityAdvise {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFQualityAdvise {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38207,7 +38207,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFQualit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFQualityAdvise2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFQualityAdvise2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38227,7 +38227,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFQualityAdvise> for IMFQualityAdvise2 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFQualityAdvise> for &IMFQualityAdvise2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFQualityAdvise> for &'a IMFQualityAdvise2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFQualityAdvise> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38288,7 +38288,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFQualit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFQualityAdviseLimits {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFQualityAdviseLimits {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38364,7 +38364,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFQualit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFQualityManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFQualityManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38430,7 +38430,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFRateCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFRateControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRateControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38505,7 +38505,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFRateSu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFRateSupport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRateSupport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38576,7 +38576,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFReadWr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFReadWriteClassFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFReadWriteClassFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38644,7 +38644,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFRealTi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFRealTimeClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRealTimeClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38713,7 +38713,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFRealTi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFRealTimeClientEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRealTimeClientEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38774,7 +38774,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFRelati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFRelativePanelReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRelativePanelReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38848,7 +38848,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFRelati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFRelativePanelWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRelativePanelWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38868,7 +38868,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFShutdown> for IMFRelativePanelWatcher
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFShutdown> for &IMFRelativePanelWatcher {
+impl<'a> ::windows::core::IntoParam<'a, IMFShutdown> for &'a IMFRelativePanelWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, IMFShutdown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38925,7 +38925,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFRemote
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFRemoteAsyncCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRemoteAsyncCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -38980,7 +38980,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFRemote
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFRemoteDesktopPlugin {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRemoteDesktopPlugin {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39039,7 +39039,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFRemote
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFRemoteProxy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRemoteProxy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39113,7 +39113,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSAMISt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSAMIStyle {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSAMIStyle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39201,7 +39201,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSSLCer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSSLCertificateManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSSLCertificateManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39470,7 +39470,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSample
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSample {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSample {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39490,7 +39490,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFSample {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFSample {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFSample {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39562,7 +39562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSample
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSampleAllocatorControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSampleAllocatorControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39646,7 +39646,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSample
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSampleGrabberSinkCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSampleGrabberSinkCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39666,7 +39666,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFClockStateSink> for IMFSampleGrabberS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFClockStateSink> for &IMFSampleGrabberSinkCallback {
+impl<'a> ::windows::core::IntoParam<'a, IMFClockStateSink> for &'a IMFSampleGrabberSinkCallback {
     fn into_param(self) -> ::windows::core::Param<'a, IMFClockStateSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39755,7 +39755,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSample
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSampleGrabberSinkCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSampleGrabberSinkCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39775,7 +39775,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFClockStateSink> for IMFSampleGrabberS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFClockStateSink> for &IMFSampleGrabberSinkCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFClockStateSink> for &'a IMFSampleGrabberSinkCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFClockStateSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39795,7 +39795,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFSampleGrabberSinkCallback> for IMFSam
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFSampleGrabberSinkCallback> for &IMFSampleGrabberSinkCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFSampleGrabberSinkCallback> for &'a IMFSampleGrabberSinkCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFSampleGrabberSinkCallback> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39858,7 +39858,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSample
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSampleOutputStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSampleOutputStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -39933,7 +39933,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSample
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSampleProtection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSampleProtection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40005,7 +40005,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSaveJo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSaveJob {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSaveJob {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40072,7 +40072,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFScheme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSchemeHandler {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSchemeHandler {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40133,7 +40133,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSecure
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSecureBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSecureBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40192,7 +40192,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSecure
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSecureChannel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSecureChannel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40249,7 +40249,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSeekIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSeekInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSeekInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40319,7 +40319,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSensor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSensorActivitiesReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSensorActivitiesReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40379,7 +40379,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSensor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSensorActivitiesReportCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSensorActivitiesReportCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40438,7 +40438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSensor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSensorActivityMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSensorActivityMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40510,7 +40510,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSensor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSensorActivityReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSensorActivityReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40614,7 +40614,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSensor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSensorDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSensorDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40715,7 +40715,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSensor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSensorGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSensorGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40798,7 +40798,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSensor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSensorProcessActivity {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSensorProcessActivity {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40879,7 +40879,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSensor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSensorProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSensorProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -40968,7 +40968,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSensor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSensorProfileCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSensorProfileCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41178,7 +41178,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSensor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSensorStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSensorStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41198,7 +41198,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFSensorStream {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFSensorStream {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFSensorStream {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41275,7 +41275,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSensor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSensorTransformFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSensorTransformFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41354,7 +41354,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSequen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSequencerSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSequencerSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41414,7 +41414,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSharin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSharingEngineClassFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSharingEngineClassFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41474,7 +41474,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFShutdo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFShutdown {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFShutdown {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41531,7 +41531,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSigned
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSignedLibrary {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSignedLibrary {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41605,7 +41605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSimple
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSimpleAudioVolume {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSimpleAudioVolume {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41711,7 +41711,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSinkWr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSinkWriter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSinkWriter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41780,7 +41780,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSinkWr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSinkWriterCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSinkWriterCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41848,7 +41848,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSinkWr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSinkWriterCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSinkWriterCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41868,7 +41868,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFSinkWriterCallback> for IMFSinkWriter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFSinkWriterCallback> for &IMFSinkWriterCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFSinkWriterCallback> for &'a IMFSinkWriterCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFSinkWriterCallback> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -41928,7 +41928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSinkWr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSinkWriterEncoderConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSinkWriterEncoderConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42030,7 +42030,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSinkWr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSinkWriterEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSinkWriterEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42050,7 +42050,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFSinkWriter> for IMFSinkWriterEx {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFSinkWriter> for &IMFSinkWriterEx {
+impl<'a> ::windows::core::IntoParam<'a, IMFSinkWriter> for &'a IMFSinkWriterEx {
     fn into_param(self) -> ::windows::core::Param<'a, IMFSinkWriter> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42151,7 +42151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSourceBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSourceBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42224,7 +42224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSourceBufferAppendMode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSourceBufferAppendMode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42284,7 +42284,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSourceBufferList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSourceBufferList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42356,7 +42356,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSourceBufferNotify {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSourceBufferNotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42415,7 +42415,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSourceOpenMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSourceOpenMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42514,7 +42514,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSourceReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSourceReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42598,7 +42598,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSourceReaderCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSourceReaderCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42671,7 +42671,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSourceReaderCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSourceReaderCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42691,7 +42691,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFSourceReaderCallback> for IMFSourceRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFSourceReaderCallback> for &IMFSourceReaderCallback2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFSourceReaderCallback> for &'a IMFSourceReaderCallback2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFSourceReaderCallback> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42808,7 +42808,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSourceReaderEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSourceReaderEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42828,7 +42828,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFSourceReader> for IMFSourceReaderEx {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFSourceReader> for &IMFSourceReaderEx {
+impl<'a> ::windows::core::IntoParam<'a, IMFSourceReader> for &'a IMFSourceReaderEx {
     fn into_param(self) -> ::windows::core::Param<'a, IMFSourceReader> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -42914,7 +42914,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSource
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSourceResolver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSourceResolver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43031,7 +43031,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSpatia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSpatialAudioObjectBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSpatialAudioObjectBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43051,7 +43051,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaBuffer> for IMFSpatialAudioObjec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaBuffer> for &IMFSpatialAudioObjectBuffer {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaBuffer> for &'a IMFSpatialAudioObjectBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaBuffer> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43331,7 +43331,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSpatia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSpatialAudioSample {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSpatialAudioSample {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43351,7 +43351,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFSpatialAudioSample
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFSpatialAudioSample {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFSpatialAudioSample {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43371,7 +43371,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFSample> for IMFSpatialAudioSample {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFSample> for &IMFSpatialAudioSample {
+impl<'a> ::windows::core::IntoParam<'a, IMFSample> for &'a IMFSpatialAudioSample {
     fn into_param(self) -> ::windows::core::Param<'a, IMFSample> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43573,7 +43573,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFStream
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFStreamDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFStreamDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43593,7 +43593,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFStreamDescriptor {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFStreamDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFStreamDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43692,7 +43692,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFStream
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFStreamSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFStreamSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43712,7 +43712,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for IMFStreamSin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &IMFStreamSink {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaEventGenerator> for &'a IMFStreamSink {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaEventGenerator> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43776,7 +43776,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFStream
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFStreamingSinkConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFStreamingSinkConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43838,7 +43838,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFSystem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFSystemId {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSystemId {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -43910,7 +43910,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimeco
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimecodeTranslate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimecodeTranslate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44040,7 +44040,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44126,7 +44126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextBinary {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextBinary {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44192,7 +44192,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextBouten {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextBouten {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44295,7 +44295,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextCue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextCue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44394,7 +44394,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextCueList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextCueList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44471,7 +44471,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextFormattedText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextFormattedText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44556,7 +44556,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextNotify {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextNotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44675,7 +44675,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextRegion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextRegion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44767,7 +44767,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextRuby {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextRuby {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44892,7 +44892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextStyle {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextStyle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44994,7 +44994,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextStyle2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextStyle2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45114,7 +45114,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextTrack {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextTrack {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45209,7 +45209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimedT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimedTextTrackList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimedTextTrackList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45271,7 +45271,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTimer 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTimer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTimer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45327,7 +45327,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTopoLo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTopoLoader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTopoLoader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45563,7 +45563,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTopolo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTopology {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTopology {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45583,7 +45583,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFTopology {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFTopology {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFTopology {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45853,7 +45853,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTopolo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTopologyNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTopologyNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45873,7 +45873,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFTopologyNode {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFTopologyNode {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFTopologyNode {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45943,7 +45943,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTopolo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTopologyNodeAttributeEditor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTopologyNodeAttributeEditor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -45998,7 +45998,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTopolo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTopologyServiceLookup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTopologyServiceLookup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46057,7 +46057,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTopolo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTopologyServiceLookupClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTopologyServiceLookupClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46113,7 +46113,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTracke
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTrackedSample {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTrackedSample {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46191,7 +46191,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTransc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTranscodeProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTranscodeProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46265,7 +46265,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTransc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTranscodeSinkInfoProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTranscodeSinkInfoProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46425,7 +46425,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTransf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46503,7 +46503,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTruste
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTrustedInput {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTrustedInput {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46570,7 +46570,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFTruste
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFTrustedOutput {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTrustedOutput {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46647,7 +46647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoCaptureSampleAllocator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoCaptureSampleAllocator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46667,7 +46667,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFVideoSampleAllocator> for IMFVideoCap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFVideoSampleAllocator> for &IMFVideoCaptureSampleAllocator {
+impl<'a> ::windows::core::IntoParam<'a, IMFVideoSampleAllocator> for &'a IMFVideoCaptureSampleAllocator {
     fn into_param(self) -> ::windows::core::Param<'a, IMFVideoSampleAllocator> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46723,7 +46723,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoDeviceID {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoDeviceID {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46852,7 +46852,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoDisplayControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoDisplayControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47117,7 +47117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoMediaType {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoMediaType {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47137,7 +47137,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFVideoMediaType {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFVideoMediaType {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFVideoMediaType {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47157,7 +47157,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFMediaType> for IMFVideoMediaType {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFMediaType> for &IMFVideoMediaType {
+impl<'a> ::windows::core::IntoParam<'a, IMFMediaType> for &'a IMFVideoMediaType {
     fn into_param(self) -> ::windows::core::Param<'a, IMFMediaType> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47232,7 +47232,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoMixerBitmap {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoMixerBitmap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47313,7 +47313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoMixerControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoMixerControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47394,7 +47394,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoMixerControl2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoMixerControl2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47414,7 +47414,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFVideoMixerControl> for IMFVideoMixerC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFVideoMixerControl> for &IMFVideoMixerControl2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFVideoMixerControl> for &'a IMFVideoMixerControl2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFVideoMixerControl> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47470,7 +47470,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoPositionMapper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoPositionMapper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47550,7 +47550,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoPresenter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoPresenter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47570,7 +47570,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFClockStateSink> for IMFVideoPresenter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFClockStateSink> for &IMFVideoPresenter {
+impl<'a> ::windows::core::IntoParam<'a, IMFClockStateSink> for &'a IMFVideoPresenter {
     fn into_param(self) -> ::windows::core::Param<'a, IMFClockStateSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47678,7 +47678,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoProcessor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47770,7 +47770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoProcessorControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoProcessorControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47876,7 +47876,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoProcessorControl2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoProcessorControl2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -47896,7 +47896,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFVideoProcessorControl> for IMFVideoPr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFVideoProcessorControl> for &IMFVideoProcessorControl2 {
+impl<'a> ::windows::core::IntoParam<'a, IMFVideoProcessorControl> for &'a IMFVideoProcessorControl2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFVideoProcessorControl> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48011,7 +48011,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoProcessorControl3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoProcessorControl3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48031,7 +48031,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFVideoProcessorControl> for IMFVideoPr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFVideoProcessorControl> for &IMFVideoProcessorControl3 {
+impl<'a> ::windows::core::IntoParam<'a, IMFVideoProcessorControl> for &'a IMFVideoProcessorControl3 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFVideoProcessorControl> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48051,7 +48051,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFVideoProcessorControl2> for IMFVideoP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFVideoProcessorControl2> for &IMFVideoProcessorControl3 {
+impl<'a> ::windows::core::IntoParam<'a, IMFVideoProcessorControl2> for &'a IMFVideoProcessorControl3 {
     fn into_param(self) -> ::windows::core::Param<'a, IMFVideoProcessorControl2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48112,7 +48112,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoRenderer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoRenderer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48167,7 +48167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoRendererEffectControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoRendererEffectControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48235,7 +48235,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoSampleAllocator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoSampleAllocator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48298,7 +48298,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoSampleAllocatorCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoSampleAllocatorCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48371,7 +48371,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoSampleAllocatorEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoSampleAllocatorEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48391,7 +48391,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFVideoSampleAllocator> for IMFVideoSam
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFVideoSampleAllocator> for &IMFVideoSampleAllocatorEx {
+impl<'a> ::windows::core::IntoParam<'a, IMFVideoSampleAllocator> for &'a IMFVideoSampleAllocatorEx {
     fn into_param(self) -> ::windows::core::Param<'a, IMFVideoSampleAllocator> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48446,7 +48446,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoSampleAllocatorNotify {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoSampleAllocatorNotify {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48505,7 +48505,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVideoS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVideoSampleAllocatorNotifyEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVideoSampleAllocatorNotifyEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48525,7 +48525,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFVideoSampleAllocatorNotify> for IMFVi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFVideoSampleAllocatorNotify> for &IMFVideoSampleAllocatorNotifyEx {
+impl<'a> ::windows::core::IntoParam<'a, IMFVideoSampleAllocatorNotify> for &'a IMFVideoSampleAllocatorNotifyEx {
     fn into_param(self) -> ::windows::core::Param<'a, IMFVideoSampleAllocatorNotify> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48767,7 +48767,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFVirtua
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFVirtualCamera {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVirtualCamera {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48787,7 +48787,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for IMFVirtualCamera {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &IMFVirtualCamera {
+impl<'a> ::windows::core::IntoParam<'a, IMFAttributes> for &'a IMFVirtualCamera {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAttributes> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -48917,7 +48917,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFWorkQu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFWorkQueueServices {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFWorkQueueServices {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49057,7 +49057,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFWorkQu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMFWorkQueueServicesEx {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFWorkQueueServicesEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49077,7 +49077,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFWorkQueueServices> for IMFWorkQueueSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFWorkQueueServices> for &IMFWorkQueueServicesEx {
+impl<'a> ::windows::core::IntoParam<'a, IMFWorkQueueServices> for &'a IMFWorkQueueServicesEx {
     fn into_param(self) -> ::windows::core::Param<'a, IMFWorkQueueServices> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49155,7 +49155,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOPMVideo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOPMVideoOutput {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOPMVideoOutput {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49218,7 +49218,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayToCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPlayToControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayToControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49283,7 +49283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayToCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPlayToControlWithCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayToControlWithCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49303,7 +49303,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayToControl> for IPlayToControlWithCa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPlayToControl> for &IPlayToControlWithCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, IPlayToControl> for &'a IPlayToControlWithCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, IPlayToControl> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49359,7 +49359,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayToSo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPlayToSourceClassFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayToSourceClassFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49457,7 +49457,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IToc {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IToc {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IToc {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49545,7 +49545,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITocColle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITocCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITocCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49634,7 +49634,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITocEntry
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITocEntry {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITocEntry {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49719,7 +49719,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITocEntry
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITocEntryList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITocEntryList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49809,7 +49809,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITocParse
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITocParser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITocParser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49874,7 +49874,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IValidate
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IValidateBinding {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IValidateBinding {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49941,7 +49941,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMCodecL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMCodecLeakyBucket {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMCodecLeakyBucket {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -49999,7 +49999,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMCodecO
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMCodecOutputTimestamp {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMCodecOutputTimestamp {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50059,7 +50059,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMCodecP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMCodecPrivateData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMCodecPrivateData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50124,7 +50124,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMCodecP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMCodecProps {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMCodecProps {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50192,7 +50192,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMCodecS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMCodecStrings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMCodecStrings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50258,7 +50258,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMColorC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMColorConvProps {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMColorConvProps {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50314,7 +50314,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMColorL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMColorLegalizerProps {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMColorLegalizerProps {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50382,7 +50382,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMFrameI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMFrameInterpProps {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMFrameInterpProps {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50451,7 +50451,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMInterl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMInterlaceProps {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMInterlaceProps {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50512,7 +50512,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMResamp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMResamplerProps {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMResamplerProps {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50584,7 +50584,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMResize
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMResizerProps {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMResizerProps {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50644,7 +50644,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMSample
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMSampleExtensionSupport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMSampleExtensionSupport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50702,7 +50702,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMValida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMValidate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMValidate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50761,7 +50761,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMVideoD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMVideoDecoderHurryup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMVideoDecoderHurryup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50827,7 +50827,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMVideoD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMVideoDecoderReconBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMVideoDecoderReconBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -50890,7 +50890,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMVideoF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWMVideoForceKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMVideoForceKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -51380,7 +51380,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MFASYNCRE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MFASYNCRESULT {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MFASYNCRESULT {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -51400,7 +51400,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMFAsyncResult> for MFASYNCRESULT {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMFAsyncResult> for &MFASYNCRESULT {
+impl<'a> ::windows::core::IntoParam<'a, IMFAsyncResult> for &'a MFASYNCRESULT {
     fn into_param(self) -> ::windows::core::Param<'a, IMFAsyncResult> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

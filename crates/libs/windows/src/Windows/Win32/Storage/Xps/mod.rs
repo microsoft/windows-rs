@@ -387,7 +387,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsDocum
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsDocumentPackageTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsDocumentPackageTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -454,7 +454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsDocum
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsDocumentPackageTarget3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsDocumentPackageTarget3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -528,7 +528,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMBru
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -548,7 +548,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -804,7 +804,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMCan
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMCanvas {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMCanvas {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -824,7 +824,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMCanvas {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMCanvas {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMCanvas {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -844,7 +844,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMVisual> for IXpsOMCanvas {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMVisual> for &IXpsOMCanvas {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMVisual> for &'a IXpsOMCanvas {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMVisual> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -947,7 +947,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMCol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMColorProfileResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMColorProfileResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -967,7 +967,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMColorProfileResour
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMColorProfileResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMColorProfileResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -987,7 +987,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for IXpsOMColorProfileRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &IXpsOMColorProfileResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &'a IXpsOMColorProfileResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMResource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1077,7 +1077,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMCol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMColorProfileResourceCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMColorProfileResourceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1334,7 +1334,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMCor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMCoreProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMCoreProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1354,7 +1354,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMCoreProperties {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMCoreProperties {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMCoreProperties {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1560,7 +1560,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMDas
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMDashCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMDashCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1666,7 +1666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMDic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMDictionary {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMDictionary {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1790,7 +1790,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMDoc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMDocument {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMDocument {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1810,7 +1810,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMDocument {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMDocument {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMDocument {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1894,7 +1894,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMDoc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMDocumentCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMDocumentCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1980,7 +1980,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMDoc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMDocumentSequence {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMDocumentSequence {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2000,7 +2000,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMDocumentSequence {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMDocumentSequence {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMDocumentSequence {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2081,7 +2081,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMDoc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMDocumentStructureResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMDocumentStructureResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2101,7 +2101,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMDocumentStructureR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMDocumentStructureResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMDocumentStructureResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2121,7 +2121,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for IXpsOMDocumentStruct
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &IXpsOMDocumentStructureResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &'a IXpsOMDocumentStructureResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMResource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2207,7 +2207,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMFon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMFontResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMFontResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2227,7 +2227,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMFontResource {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMFontResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMFontResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2247,7 +2247,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for IXpsOMFontResource {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &IXpsOMFontResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &'a IXpsOMFontResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMResource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2338,7 +2338,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMFon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMFontResourceCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMFontResourceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2452,7 +2452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMGeo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMGeometry {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2472,7 +2472,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMGeometry {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMGeometry {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMGeometry {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2611,7 +2611,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMGeo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMGeometryFigure {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMGeometryFigure {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2720,7 +2720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMGeo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMGeometryFigureCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMGeometryFigureCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3044,7 +3044,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMGly
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMGlyphs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMGlyphs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3064,7 +3064,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMGlyphs {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMGlyphs {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMGlyphs {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3084,7 +3084,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMVisual> for IXpsOMGlyphs {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMVisual> for &IXpsOMGlyphs {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMVisual> for &'a IXpsOMGlyphs {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMVisual> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3261,7 +3261,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMGly
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMGlyphsEditor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMGlyphsEditor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3414,7 +3414,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMGra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3434,7 +3434,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMGradientBrush
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3454,7 +3454,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for IXpsOMGradientBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &IXpsOMGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &'a IXpsOMGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3547,7 +3547,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMGra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMGradientStop {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMGradientStop {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3629,7 +3629,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMGra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMGradientStopCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMGradientStopCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3779,7 +3779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMIma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMImageBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMImageBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3799,7 +3799,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMImageBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMImageBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMImageBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3819,7 +3819,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for IXpsOMImageBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &IXpsOMImageBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &'a IXpsOMImageBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3839,7 +3839,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMTileBrush> for IXpsOMImageBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMTileBrush> for &IXpsOMImageBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMTileBrush> for &'a IXpsOMImageBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMTileBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3921,7 +3921,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMIma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMImageResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMImageResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3941,7 +3941,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMImageResource {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMImageResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMImageResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3961,7 +3961,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for IXpsOMImageResource 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &IXpsOMImageResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &'a IXpsOMImageResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMResource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4052,7 +4052,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMIma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMImageResourceCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMImageResourceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4202,7 +4202,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMLin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMLinearGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4222,7 +4222,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMLinearGradien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMLinearGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4242,7 +4242,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for IXpsOMLinearGradientBru
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &IXpsOMLinearGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &'a IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4262,7 +4262,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMGradientBrush> for IXpsOMLinearGra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMGradientBrush> for &IXpsOMLinearGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMGradientBrush> for &'a IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMGradientBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4341,7 +4341,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMMat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMMatrixTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMMatrixTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4361,7 +4361,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMMatrixTransfo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMMatrixTransform {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMMatrixTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4425,7 +4425,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMNam
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMNameCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMNameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4707,7 +4707,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMObj
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMObjectFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMObjectFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5187,7 +5187,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMObj
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMObjectFactory1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMObjectFactory1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5207,7 +5207,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMObjectFactory> for IXpsOMObjectFac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMObjectFactory> for &IXpsOMObjectFactory1 {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMObjectFactory> for &'a IXpsOMObjectFactory1 {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMObjectFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5344,7 +5344,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPackage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPackage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5479,7 +5479,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPackage1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPackage1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5499,7 +5499,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPackage> for IXpsOMPackage1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPackage> for &IXpsOMPackage1 {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPackage> for &'a IXpsOMPackage1 {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPackage> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5564,7 +5564,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPackageTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPackageTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5641,7 +5641,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPackageWriter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPackageWriter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5735,7 +5735,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPackageWriter3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPackageWriter3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5755,7 +5755,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPackageWriter> for IXpsOMPackageWr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPackageWriter> for &IXpsOMPackageWriter3D {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPackageWriter> for &'a IXpsOMPackageWriter3D {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPackageWriter> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5933,7 +5933,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPag
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5953,7 +5953,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMPage {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMPage {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMPage {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6179,7 +6179,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPag
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPage1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPage1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6199,7 +6199,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMPage1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMPage1 {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMPage1 {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6219,7 +6219,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPage> for IXpsOMPage1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPage> for &IXpsOMPage1 {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPage> for &'a IXpsOMPage1 {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPage> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6355,7 +6355,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPag
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPageReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPageReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6454,7 +6454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPag
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPageReferenceCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPageReferenceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6521,7 +6521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPar
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPart {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPart {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6599,7 +6599,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPar
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPartResources {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPartResources {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6683,7 +6683,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPar
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPartUriCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPartUriCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7070,7 +7070,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPath {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPath {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7090,7 +7090,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMPath {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMPath {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMPath {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7110,7 +7110,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMVisual> for IXpsOMPath {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMVisual> for &IXpsOMPath {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMVisual> for &'a IXpsOMPath {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMVisual> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7255,7 +7255,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMPri
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMPrintTicketResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMPrintTicketResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7275,7 +7275,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMPrintTicketResourc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMPrintTicketResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMPrintTicketResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7295,7 +7295,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for IXpsOMPrintTicketRes
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &IXpsOMPrintTicketResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &'a IXpsOMPrintTicketResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMResource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7452,7 +7452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMRad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMRadialGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7472,7 +7472,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMRadialGradien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMRadialGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7492,7 +7492,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for IXpsOMRadialGradientBru
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &IXpsOMRadialGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &'a IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7512,7 +7512,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMGradientBrush> for IXpsOMRadialGra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMGradientBrush> for &IXpsOMRadialGradientBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMGradientBrush> for &'a IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMGradientBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7589,7 +7589,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMRem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMRemoteDictionaryResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMRemoteDictionaryResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7609,7 +7609,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMRemoteDictionaryRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMRemoteDictionaryResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMRemoteDictionaryResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7629,7 +7629,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for IXpsOMRemoteDictiona
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &IXpsOMRemoteDictionaryResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &'a IXpsOMRemoteDictionaryResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMResource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7711,7 +7711,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMRem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMRemoteDictionaryResource1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7731,7 +7731,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMRemoteDictionaryRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMRemoteDictionaryResource1 {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7751,7 +7751,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for IXpsOMRemoteDictiona
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &IXpsOMRemoteDictionaryResource1 {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &'a IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMResource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7771,7 +7771,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMRemoteDictionaryResource> for IXps
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMRemoteDictionaryResource> for &IXpsOMRemoteDictionaryResource1 {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMRemoteDictionaryResource> for &'a IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMRemoteDictionaryResource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7858,7 +7858,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMRem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMRemoteDictionaryResourceCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMRemoteDictionaryResourceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7929,7 +7929,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMRes
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7949,7 +7949,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMResource {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8009,7 +8009,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMSha
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMShareable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMShareable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8088,7 +8088,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMSig
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMSignatureBlockResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMSignatureBlockResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8108,7 +8108,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMSignatureBlockReso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMSignatureBlockResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMSignatureBlockResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8128,7 +8128,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for IXpsOMSignatureBlock
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &IXpsOMSignatureBlockResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &'a IXpsOMSignatureBlockResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMResource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8219,7 +8219,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMSig
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMSignatureBlockResourceCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMSignatureBlockResourceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8311,7 +8311,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMSol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMSolidColorBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMSolidColorBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8331,7 +8331,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMSolidColorBru
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMSolidColorBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMSolidColorBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8351,7 +8351,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for IXpsOMSolidColorBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &IXpsOMSolidColorBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &'a IXpsOMSolidColorBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8431,7 +8431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMSto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMStoryFragmentsResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMStoryFragmentsResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8451,7 +8451,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for IXpsOMStoryFragmentsReso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &IXpsOMStoryFragmentsResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMPart> for &'a IXpsOMStoryFragmentsResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMPart> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8471,7 +8471,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for IXpsOMStoryFragments
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &IXpsOMStoryFragmentsResource {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMResource> for &'a IXpsOMStoryFragmentsResource {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMResource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8536,7 +8536,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMThu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMThumbnailGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMThumbnailGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8661,7 +8661,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMTil
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMTileBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMTileBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8681,7 +8681,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMTileBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMTileBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMTileBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8701,7 +8701,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for IXpsOMTileBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &IXpsOMTileBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &'a IXpsOMTileBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8906,7 +8906,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMVis
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMVisual {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMVisual {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8926,7 +8926,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMVisual {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMVisual {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMVisual {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9144,7 +9144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMVis
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMVisualBrush {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9164,7 +9164,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for IXpsOMVisualBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &IXpsOMVisualBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMShareable> for &'a IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMShareable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9184,7 +9184,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for IXpsOMVisualBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &IXpsOMVisualBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMBrush> for &'a IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9204,7 +9204,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXpsOMTileBrush> for IXpsOMVisualBrush {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXpsOMTileBrush> for &IXpsOMVisualBrush {
+impl<'a> ::windows::core::IntoParam<'a, IXpsOMTileBrush> for &'a IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::core::Param<'a, IXpsOMTileBrush> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9292,7 +9292,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsOMVis
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsOMVisualCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsOMVisualCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9413,7 +9413,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsSignature {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsSignature {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9527,7 +9527,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsSignatureBlock {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsSignatureBlock {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9605,7 +9605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsSignatureBlockCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsSignatureBlockCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9672,7 +9672,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsSignatureCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsSignatureCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9783,7 +9783,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsSignatureManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsSignatureManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9932,7 +9932,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsSignatureRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsSignatureRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10038,7 +10038,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsSignatureRequestCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsSignatureRequestCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10182,7 +10182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXpsSigni
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXpsSigningOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsSigningOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

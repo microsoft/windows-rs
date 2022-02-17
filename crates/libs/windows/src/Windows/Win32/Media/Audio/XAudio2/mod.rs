@@ -662,7 +662,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXAPO {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXAPO {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXAPO {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -741,7 +741,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXAPOHrtf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXAPOHrtfParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXAPOHrtfParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -803,7 +803,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXAPOPara
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXAPOParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXAPOParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -899,7 +899,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXAudio2 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXAudio2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXAudio2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1023,7 +1023,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXAudio2E
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXAudio2Extension {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXAudio2Extension {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1158,7 +1158,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXAudio2Voice> for IXAudio2MasteringVoic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXAudio2Voice> for &IXAudio2MasteringVoice {
+impl<'a> ::windows::core::IntoParam<'a, IXAudio2Voice> for &'a IXAudio2MasteringVoice {
     fn into_param(self) -> ::windows::core::Param<'a, IXAudio2Voice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1327,7 +1327,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXAudio2Voice> for IXAudio2SourceVoice {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXAudio2Voice> for &IXAudio2SourceVoice {
+impl<'a> ::windows::core::IntoParam<'a, IXAudio2Voice> for &'a IXAudio2SourceVoice {
     fn into_param(self) -> ::windows::core::Param<'a, IXAudio2Voice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1465,7 +1465,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXAudio2Voice> for IXAudio2SubmixVoice {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IXAudio2Voice> for &IXAudio2SubmixVoice {
+impl<'a> ::windows::core::IntoParam<'a, IXAudio2Voice> for &'a IXAudio2SubmixVoice {
     fn into_param(self) -> ::windows::core::Param<'a, IXAudio2Voice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

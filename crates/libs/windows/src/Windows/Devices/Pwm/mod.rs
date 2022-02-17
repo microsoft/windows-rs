@@ -240,7 +240,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PwmContro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PwmController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PwmController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -260,7 +260,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PwmCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PwmController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PwmController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -375,7 +375,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PwmPin {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PwmPin {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PwmPin {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -395,7 +395,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PwmPi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PwmPin {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PwmPin {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

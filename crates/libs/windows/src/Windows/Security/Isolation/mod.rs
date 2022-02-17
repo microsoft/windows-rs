@@ -780,7 +780,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -800,7 +800,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1144,7 +1144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentCreateResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentCreateResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1164,7 +1164,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentCreateResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentCreateResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1293,7 +1293,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentFile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentFile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1313,7 +1313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentFile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentFile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1458,7 +1458,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentLaunchFileResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentLaunchFileResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1478,7 +1478,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentLaunchFileResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentLaunchFileResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1705,7 +1705,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1725,7 +1725,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1848,7 +1848,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentOwnerRegistrationData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentOwnerRegistrationData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1868,7 +1868,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentOwnerRegistrationData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentOwnerRegistrationData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1941,7 +1941,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentOwnerRegistrationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentOwnerRegistrationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1961,7 +1961,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentOwnerRegistrationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentOwnerRegistrationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2071,7 +2071,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentPostMessageResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentPostMessageResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2091,7 +2091,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentPostMessageResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentPostMessageResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2218,7 +2218,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentProcess {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentProcess {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2238,7 +2238,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentProcess {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentProcess {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2385,7 +2385,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentShareFileRequestOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentShareFileRequestOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2405,7 +2405,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentShareFileRequestOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentShareFileRequestOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2486,7 +2486,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentShareFileResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentShareFileResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2506,7 +2506,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentShareFileResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentShareFileResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2621,7 +2621,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentShareFolderRequestOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentShareFolderRequestOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2641,7 +2641,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentShareFolderRequestOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentShareFolderRequestOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2714,7 +2714,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentShareFolderResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentShareFolderResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2734,7 +2734,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentShareFolderResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentShareFolderResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2852,7 +2852,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentStartProcessResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentStartProcessResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2872,7 +2872,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentStartProcessResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentStartProcessResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2986,7 +2986,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentTelemetryParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentTelemetryParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3006,7 +3006,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentTelemetryParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentTelemetryParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3088,7 +3088,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IsolatedWindowsEnvironmentUserInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentUserInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3108,7 +3108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Isola
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsolatedWindowsEnvironmentUserInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentUserInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

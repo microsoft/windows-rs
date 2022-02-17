@@ -87,7 +87,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFindSimi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFindSimilarResults {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFindSimilarResults {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -144,7 +144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcCompa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRdcComparator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcComparator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -213,7 +213,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcFileR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRdcFileReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcFileReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -297,7 +297,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcFileW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRdcFileWriter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcFileWriter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -317,7 +317,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRdcFileReader> for IRdcFileWriter {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRdcFileReader> for &IRdcFileWriter {
+impl<'a> ::windows::core::IntoParam<'a, IRdcFileReader> for &'a IRdcFileWriter {
     fn into_param(self) -> ::windows::core::Param<'a, IRdcFileReader> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -380,7 +380,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcGener
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRdcGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -453,7 +453,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcGener
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRdcGeneratorFilterMaxParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcGeneratorFilterMaxParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -525,7 +525,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcGener
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRdcGeneratorParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcGeneratorParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -613,7 +613,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcLibra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRdcLibrary {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcLibrary {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -680,7 +680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRdcSignatureReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcSignatureReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -744,7 +744,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcSimil
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRdcSimilarityGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcSimilarityGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -831,7 +831,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilari
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISimilarity {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarity {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -933,7 +933,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilari
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISimilarityFileIdTable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityFileIdTable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1003,7 +1003,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilari
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISimilarityReportProgress {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityReportProgress {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1059,7 +1059,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilari
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISimilarityTableDumpState {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityTableDumpState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1131,7 +1131,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilari
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISimilarityTraitsMappedView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityTraitsMappedView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1220,7 +1220,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilari
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISimilarityTraitsMapping {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityTraitsMapping {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1312,7 +1312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilari
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISimilarityTraitsTable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityTraitsTable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

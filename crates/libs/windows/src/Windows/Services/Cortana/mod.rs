@@ -156,7 +156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CortanaAc
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CortanaActionableInsights {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CortanaActionableInsights {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -180,7 +180,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Corta
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CortanaActionableInsights {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CortanaActionableInsights {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -289,7 +289,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CortanaAc
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CortanaActionableInsightsOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CortanaActionableInsightsOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -313,7 +313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Corta
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CortanaActionableInsightsOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CortanaActionableInsightsOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -529,7 +529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CortanaPe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CortanaPermissionsManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CortanaPermissionsManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -553,7 +553,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Corta
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CortanaPermissionsManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CortanaPermissionsManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -671,7 +671,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CortanaSe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CortanaSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CortanaSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -695,7 +695,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Corta
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CortanaSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CortanaSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

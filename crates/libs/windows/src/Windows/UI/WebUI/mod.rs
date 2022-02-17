@@ -56,7 +56,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Activated
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ActivatedDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivatedDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -76,7 +76,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Activ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ActivatedDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivatedDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -236,7 +236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Activated
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ActivatedOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivatedOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -256,7 +256,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Activ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ActivatedOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivatedOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -333,7 +333,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Backgroun
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BackgroundActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -357,7 +357,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Backg
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BackgroundActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -561,7 +561,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EnteredBa
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EnteredBackgroundEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -585,7 +585,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Enter
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EnteredBackgroundEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -893,7 +893,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HtmlPrint
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HtmlPrintDocumentSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HtmlPrintDocumentSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -913,7 +913,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HtmlP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HtmlPrintDocumentSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HtmlPrintDocumentSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1013,7 +1013,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IActivate
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IActivatedEventArgsDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActivatedEventArgsDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1033,7 +1033,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IActi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IActivatedEventArgsDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IActivatedEventArgsDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1290,7 +1290,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebUIBac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebUIBackgroundTaskInstance {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebUIBackgroundTaskInstance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1310,7 +1310,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebUIBackgroundTaskInstance {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWebUIBackgroundTaskInstance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1403,7 +1403,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebUINav
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebUINavigatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebUINavigatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1423,7 +1423,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebUINavigatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWebUINavigatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1597,7 +1597,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LeavingBa
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LeavingBackgroundEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1621,7 +1621,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Leavi
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LeavingBackgroundEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1919,7 +1919,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NewWebUIV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NewWebUIViewCreatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NewWebUIViewCreatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1939,7 +1939,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NewWe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NewWebUIViewCreatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NewWebUIViewCreatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2131,7 +2131,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Suspendin
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SuspendingDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SuspendingDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2155,7 +2155,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Suspe
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SuspendingDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SuspendingDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2258,7 +2258,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Suspendin
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SuspendingEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SuspendingEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2282,7 +2282,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Suspe
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SuspendingEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SuspendingEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2491,7 +2491,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Suspendin
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SuspendingOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SuspendingOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2515,7 +2515,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Suspe
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SuspendingOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SuspendingOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2822,7 +2822,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIAppo
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2846,7 +2846,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3106,7 +3106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIAppo
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3130,7 +3130,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3390,7 +3390,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIAppo
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3414,7 +3414,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3692,7 +3692,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIAppo
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3716,7 +3716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3985,7 +3985,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIAppo
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4009,7 +4009,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4301,7 +4301,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIBack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIBackgroundTaskInstanceRuntimeClass {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIBackgroundTaskInstanceRuntimeClass {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4321,7 +4321,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIBackgroundTaskInstanceRuntimeClass {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIBackgroundTaskInstanceRuntimeClass {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4490,7 +4490,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIBarc
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIBarcodeScannerPreviewActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIBarcodeScannerPreviewActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4514,7 +4514,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIBarcodeScannerPreviewActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIBarcodeScannerPreviewActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4743,7 +4743,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUICach
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUICachedFileUpdaterActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUICachedFileUpdaterActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4767,7 +4767,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUICachedFileUpdaterActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUICachedFileUpdaterActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4992,7 +4992,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUICame
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUICameraSettingsActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUICameraSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5016,7 +5016,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUICameraSettingsActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUICameraSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5215,7 +5215,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIComm
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUICommandLineActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUICommandLineActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5239,7 +5239,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUICommandLineActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUICommandLineActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5486,7 +5486,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUICont
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIContactCallActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIContactCallActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5510,7 +5510,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIContactCallActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIContactCallActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5744,7 +5744,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUICont
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIContactMapActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIContactMapActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5768,7 +5768,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIContactMapActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIContactMapActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6011,7 +6011,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUICont
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIContactMessageActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIContactMessageActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6035,7 +6035,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIContactMessageActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIContactMessageActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6269,7 +6269,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUICont
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIContactPanelActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIContactPanelActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6293,7 +6293,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIContactPanelActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIContactPanelActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6513,7 +6513,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUICont
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIContactPickerActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIContactPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6537,7 +6537,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIContactPickerActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIContactPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6754,7 +6754,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUICont
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIContactPostActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIContactPostActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6778,7 +6778,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIContactPostActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIContactPostActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7021,7 +7021,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUICont
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIContactVideoCallActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIContactVideoCallActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7045,7 +7045,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIContactVideoCallActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIContactVideoCallActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7288,7 +7288,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIDevi
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIDeviceActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIDeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7312,7 +7312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIDeviceActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIDeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7563,7 +7563,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIDevi
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIDevicePairingActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIDevicePairingActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7587,7 +7587,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIDevicePairingActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIDevicePairingActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7839,7 +7839,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIDial
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIDialReceiverActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIDialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7863,7 +7863,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIDialReceiverActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIDialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8167,7 +8167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIFile
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIFileActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIFileActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8191,7 +8191,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIFileActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIFileActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8477,7 +8477,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIFile
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIFileOpenPickerActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIFileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8501,7 +8501,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIFileOpenPickerActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIFileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8761,7 +8761,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIFile
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIFileOpenPickerContinuationEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIFileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8785,7 +8785,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIFileOpenPickerContinuationEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIFileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9054,7 +9054,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIFile
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIFileSavePickerActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIFileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9078,7 +9078,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIFileSavePickerActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIFileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9338,7 +9338,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIFile
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIFileSavePickerContinuationEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIFileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9362,7 +9362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIFileSavePickerContinuationEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIFileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9622,7 +9622,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIFold
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIFolderPickerContinuationEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIFolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9646,7 +9646,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIFolderPickerContinuationEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIFolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9933,7 +9933,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUILaun
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUILaunchActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9957,7 +9957,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUILaunchActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUILaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10269,7 +10269,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUILock
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUILockScreenActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUILockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10293,7 +10293,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUILockScreenActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUILockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10562,7 +10562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUILock
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUILockScreenCallActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUILockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10586,7 +10586,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUILockScreenCallActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUILockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10819,7 +10819,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUILock
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUILockScreenComponentActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUILockScreenComponentActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10843,7 +10843,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUILockScreenComponentActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUILockScreenComponentActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10955,7 +10955,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUINavi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUINavigatedDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUINavigatedDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10975,7 +10975,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUINavigatedDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUINavigatedDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11038,7 +11038,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUINavi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUINavigatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUINavigatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11058,7 +11058,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUINavigatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUINavigatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11143,7 +11143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUINavi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUINavigatedOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUINavigatedOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11163,7 +11163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUINavigatedOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUINavigatedOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11284,7 +11284,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIPhon
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIPhoneCallActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIPhoneCallActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11308,7 +11308,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIPhoneCallActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIPhoneCallActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11528,7 +11528,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIPrin
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIPrint3DWorkflowActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIPrint3DWorkflowActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11552,7 +11552,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIPrint3DWorkflowActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIPrint3DWorkflowActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11742,7 +11742,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIPrin
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIPrintTaskSettingsActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIPrintTaskSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11766,7 +11766,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIPrintTaskSettingsActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIPrintTaskSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11947,7 +11947,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIPrin
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11971,7 +11971,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12171,7 +12171,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIProt
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIProtocolActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12195,7 +12195,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIProtocolActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12508,7 +12508,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIProt
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIProtocolForResultsActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12532,7 +12532,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIProtocolForResultsActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12835,7 +12835,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIRest
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIRestrictedLaunchActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIRestrictedLaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12859,7 +12859,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIRestrictedLaunchActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIRestrictedLaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13102,7 +13102,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUISear
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUISearchActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUISearchActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13126,7 +13126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUISearchActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUISearchActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13377,7 +13377,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIShar
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIShareTargetActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIShareTargetActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13401,7 +13401,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIShareTargetActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIShareTargetActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13626,7 +13626,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIStar
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIStartupTaskActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIStartupTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13650,7 +13650,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIStartupTaskActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIStartupTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13888,7 +13888,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIToas
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIToastNotificationActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIToastNotificationActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13912,7 +13912,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIToastNotificationActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIToastNotificationActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14128,7 +14128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIUser
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIUserDataAccountProviderActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIUserDataAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14152,7 +14152,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIUserDataAccountProviderActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIUserDataAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14792,7 +14792,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIView
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14812,7 +14812,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14985,7 +14985,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIVoic
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIVoiceCommandActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIVoiceCommandActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15009,7 +15009,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIVoiceCommandActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIVoiceCommandActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15243,7 +15243,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIWall
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIWalletActionActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIWalletActionActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15267,7 +15267,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIWalletActionActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIWalletActionActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15466,7 +15466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIWebA
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIWebAccountProviderActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIWebAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15490,7 +15490,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIWebAccountProviderActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIWebAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15715,7 +15715,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIWebA
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUIWebAuthenticationBrokerContinuationEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUIWebAuthenticationBrokerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15739,7 +15739,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUIWebAuthenticationBrokerContinuationEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUIWebAuthenticationBrokerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

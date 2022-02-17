@@ -178,7 +178,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAccessib
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAccessibleWinSAT {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAccessibleWinSAT {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -202,7 +202,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IAccessibleWi
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IAccessibleWinSAT {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IAccessibleWinSAT {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -226,7 +226,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::UI::Accessibility::IAccess
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::UI::Accessibility::IAccessible> for &IAccessibleWinSAT {
+impl<'a> ::windows::core::IntoParam<'a, super::super::UI::Accessibility::IAccessible> for &'a IAccessibleWinSAT {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::UI::Accessibility::IAccessible> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -300,7 +300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInitiate
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInitiateWinSATAssessment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInitiateWinSATAssessment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -404,7 +404,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProvideW
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IProvideWinSATAssessmentInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IProvideWinSATAssessmentInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -428,7 +428,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IProvideWinSA
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IProvideWinSATAssessmentInfo {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IProvideWinSATAssessmentInfo {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -549,7 +549,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProvideW
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IProvideWinSATResultsInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IProvideWinSATResultsInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -573,7 +573,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IProvideWinSA
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IProvideWinSATResultsInfo {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IProvideWinSATResultsInfo {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -649,7 +649,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProvideW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IProvideWinSATVisuals {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IProvideWinSATVisuals {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -737,7 +737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IQueryAll
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IQueryAllWinSATAssessments {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IQueryAllWinSATAssessments {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -761,7 +761,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IQueryAllWinS
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IQueryAllWinSATAssessments {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IQueryAllWinSATAssessments {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -826,7 +826,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IQueryOEM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IQueryOEMWinSATCustomization {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IQueryOEMWinSATCustomization {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -917,7 +917,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IQueryRec
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IQueryRecentWinSATAssessment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IQueryRecentWinSATAssessment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -941,7 +941,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IQueryRecentW
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IQueryRecentWinSATAssessment {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IQueryRecentWinSATAssessment {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1015,7 +1015,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWinSATIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWinSATInitiateEvents {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWinSATInitiateEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

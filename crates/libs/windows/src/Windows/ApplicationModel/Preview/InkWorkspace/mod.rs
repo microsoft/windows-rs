@@ -99,7 +99,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkWorksp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkWorkspaceHostedAppManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkWorkspaceHostedAppManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -119,7 +119,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkWo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkWorkspaceHostedAppManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkWorkspaceHostedAppManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

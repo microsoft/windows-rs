@@ -263,7 +263,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVpnChann
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVpnChannelStatics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVpnChannelStatics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -283,7 +283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVpnC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVpnChannelStatics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVpnChannelStatics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -376,7 +376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVpnCrede
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVpnCredential {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVpnCredential {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -396,7 +396,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVpnC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVpnCredential {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVpnCredential {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -570,7 +570,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVpnCusto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVpnCustomPrompt {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVpnCustomPrompt {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -590,7 +590,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVpnC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVpnCustomPrompt {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVpnCustomPrompt {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -707,7 +707,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVpnCusto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVpnCustomPromptElement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVpnCustomPromptElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -727,7 +727,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVpnC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVpnCustomPromptElement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVpnCustomPromptElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -925,7 +925,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVpnDomai
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVpnDomainNameInfoFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVpnDomainNameInfoFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -945,7 +945,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVpnD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVpnDomainNameInfoFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVpnDomainNameInfoFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1061,7 +1061,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVpnInter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVpnInterfaceIdFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVpnInterfaceIdFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1081,7 +1081,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVpnI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVpnInterfaceIdFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVpnInterfaceIdFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1254,7 +1254,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVpnNames
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVpnNamespaceInfoFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVpnNamespaceInfoFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1274,7 +1274,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVpnN
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVpnNamespaceInfoFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVpnNamespaceInfoFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1431,7 +1431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVpnPacke
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVpnPacketBufferFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVpnPacketBufferFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1451,7 +1451,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVpnP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVpnPacketBufferFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVpnPacketBufferFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1591,7 +1591,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVpnPlugI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVpnPlugIn {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVpnPlugIn {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1611,7 +1611,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVpnP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVpnPlugIn {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVpnPlugIn {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1783,7 +1783,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVpnProfi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVpnProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVpnProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1803,7 +1803,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVpnP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVpnProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVpnProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1952,7 +1952,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVpnRoute
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVpnRouteFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVpnRouteFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1972,7 +1972,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVpnR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVpnRouteFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVpnRouteFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2185,7 +2185,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnAppId 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnAppId {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnAppId {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2205,7 +2205,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnAp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnAppId {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnAppId {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2639,7 +2639,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnChanne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnChannel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnChannel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2659,7 +2659,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnChannel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnChannel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2724,7 +2724,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnChanne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnChannelActivityEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnChannelActivityEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2744,7 +2744,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnChannelActivityEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnChannelActivityEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2843,7 +2843,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnChanne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnChannelActivityStateChangedArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnChannelActivityStateChangedArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2863,7 +2863,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnChannelActivityStateChangedArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnChannelActivityStateChangedArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2954,7 +2954,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnChanne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnChannelConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnChannelConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2974,7 +2974,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnChannelConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnChannelConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3129,7 +3129,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnCreden
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnCredential {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnCredential {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3149,7 +3149,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnCredential {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnCredential {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3334,7 +3334,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnCustom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnCustomCheckBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnCustomCheckBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3354,7 +3354,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnCustomCheckBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnCustomCheckBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3502,7 +3502,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnCustom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnCustomComboBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnCustomComboBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3522,7 +3522,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnCustomComboBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnCustomComboBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3681,7 +3681,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnCustom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnCustomEditBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnCustomEditBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3701,7 +3701,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnCustomEditBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnCustomEditBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3826,7 +3826,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnCustom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnCustomErrorBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnCustomErrorBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3846,7 +3846,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnCustomErrorBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnCustomErrorBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3992,7 +3992,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnCustom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnCustomPromptBooleanInput {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnCustomPromptBooleanInput {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4012,7 +4012,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnCustomPromptBooleanInput {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnCustomPromptBooleanInput {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4154,7 +4154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnCustom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnCustomPromptOptionSelector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnCustomPromptOptionSelector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4174,7 +4174,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnCustomPromptOptionSelector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnCustomPromptOptionSelector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4312,7 +4312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnCustom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnCustomPromptText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnCustomPromptText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4332,7 +4332,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnCustomPromptText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnCustomPromptText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4491,7 +4491,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnCustom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnCustomPromptTextInput {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnCustomPromptTextInput {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4511,7 +4511,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnCustomPromptTextInput {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnCustomPromptTextInput {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4649,7 +4649,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnCustom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnCustomTextBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnCustomTextBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4669,7 +4669,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnCu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnCustomTextBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnCustomTextBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4813,7 +4813,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnDomain
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnDomainNameAssignment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnDomainNameAssignment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4833,7 +4833,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnDo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnDomainNameAssignment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnDomainNameAssignment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4956,7 +4956,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnDomain
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnDomainNameInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnDomainNameInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4976,7 +4976,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnDo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnDomainNameInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnDomainNameInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5129,7 +5129,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnForegr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnForegroundActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnForegroundActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5149,7 +5149,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnForegroundActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnForegroundActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5264,7 +5264,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnForegr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnForegroundActivationOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnForegroundActivationOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5284,7 +5284,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnForegroundActivationOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnForegroundActivationOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5397,7 +5397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnInterf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnInterfaceId {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnInterfaceId {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5417,7 +5417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnInterfaceId {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnInterfaceId {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5562,7 +5562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnManage
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnManagementAgent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnManagementAgent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5582,7 +5582,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnMa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnManagementAgent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnManagementAgent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5763,7 +5763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnNamesp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnNamespaceAssignment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnNamespaceAssignment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5783,7 +5783,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnNa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnNamespaceAssignment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnNamespaceAssignment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5896,7 +5896,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnNamesp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnNamespaceInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnNamespaceInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5916,7 +5916,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnNa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnNamespaceInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnNamespaceInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6150,7 +6150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnNative
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnNativeProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnNativeProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6170,7 +6170,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnNa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnNativeProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnNativeProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6352,7 +6352,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnPacket
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnPacketBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnPacketBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6372,7 +6372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnPa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnPacketBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnPacketBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6506,7 +6506,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnPacket
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnPacketBufferList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnPacketBufferList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6526,7 +6526,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnPa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnPacketBufferList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnPacketBufferList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6669,7 +6669,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnPicked
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnPickedCredential {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnPickedCredential {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6689,7 +6689,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnPi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnPickedCredential {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnPickedCredential {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6884,7 +6884,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnPlugIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnPlugInProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnPlugInProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6904,7 +6904,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnPl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnPlugInProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnPlugInProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7021,7 +7021,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnRoute 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnRoute {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnRoute {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7041,7 +7041,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnRo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnRoute {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnRoute {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7178,7 +7178,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnRouteA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnRouteAssignment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnRouteAssignment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7198,7 +7198,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnRo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnRouteAssignment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnRouteAssignment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7298,7 +7298,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnSystem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnSystemHealth {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnSystemHealth {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7318,7 +7318,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnSy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnSystemHealth {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnSystemHealth {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7471,7 +7471,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnTraffi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnTrafficFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnTrafficFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7491,7 +7491,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnTrafficFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnTrafficFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7590,7 +7590,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VpnTraffi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VpnTrafficFilterAssignment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VpnTrafficFilterAssignment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7610,7 +7610,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VpnTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnTrafficFilterAssignment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VpnTrafficFilterAssignment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -888,7 +888,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Calendar 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Calendar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Calendar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -908,7 +908,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Calen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Calendar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Calendar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1146,7 +1146,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CurrencyA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CurrencyAmount {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CurrencyAmount {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1166,7 +1166,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Curre
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CurrencyAmount {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CurrencyAmount {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2506,7 +2506,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Geographi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GeographicRegion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeographicRegion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2526,7 +2526,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geogr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GeographicRegion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeographicRegion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3378,7 +3378,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JapaneseP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &JapanesePhoneme {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JapanesePhoneme {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3398,7 +3398,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Japan
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &JapanesePhoneme {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JapanesePhoneme {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3594,7 +3594,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Language 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Language {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Language {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3614,7 +3614,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Langu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Language {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Language {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

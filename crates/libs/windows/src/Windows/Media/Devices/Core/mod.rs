@@ -183,7 +183,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CameraInt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CameraIntrinsics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CameraIntrinsics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -203,7 +203,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Camer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CameraIntrinsics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CameraIntrinsics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -296,7 +296,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DepthCorr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DepthCorrelatedCoordinateMapper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DepthCorrelatedCoordinateMapper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -316,7 +316,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Depth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DepthCorrelatedCoordinateMapper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DepthCorrelatedCoordinateMapper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -447,7 +447,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameControlCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameControlCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -467,7 +467,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameControlCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameControlCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -584,7 +584,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -604,7 +604,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -696,7 +696,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameExpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameExposureCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameExposureCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -716,7 +716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameExposureCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameExposureCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -803,7 +803,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameExpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameExposureCompensationCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameExposureCompensationCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -823,7 +823,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameExposureCompensationCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameExposureCompensationCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -893,7 +893,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameExpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameExposureCompensationControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameExposureCompensationControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -913,7 +913,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameExposureCompensationControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameExposureCompensationControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -996,7 +996,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameExpo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameExposureControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameExposureControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1016,7 +1016,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameExposureControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameExposureControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1095,7 +1095,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameFlas
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameFlashCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameFlashCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1115,7 +1115,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameFlashCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameFlashCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1222,7 +1222,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameFlas
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameFlashControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameFlashControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1242,7 +1242,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameFlashControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameFlashControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1364,7 +1364,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameFocu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameFocusCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameFocusCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1384,7 +1384,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameFocusCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameFocusCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1454,7 +1454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameFocu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameFocusControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameFocusControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1474,7 +1474,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameFocusControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameFocusControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1561,7 +1561,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameIsoS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameIsoSpeedCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameIsoSpeedCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1581,7 +1581,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameIsoSpeedCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameIsoSpeedCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1664,7 +1664,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameIsoS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameIsoSpeedControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameIsoSpeedControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1684,7 +1684,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameIsoSpeedControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameIsoSpeedControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2213,7 +2213,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VariableP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VariablePhotoSequenceController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VariablePhotoSequenceController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2233,7 +2233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Varia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VariablePhotoSequenceController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VariablePhotoSequenceController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

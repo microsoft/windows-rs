@@ -693,7 +693,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JumpList 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &JumpList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JumpList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -713,7 +713,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JumpL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &JumpList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JumpList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -867,7 +867,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JumpListI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &JumpListItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JumpListItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -887,7 +887,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JumpL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &JumpListItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JumpListItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1399,7 +1399,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Secondary
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SecondaryTile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SecondaryTile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1419,7 +1419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Secon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SecondaryTile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SecondaryTile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1654,7 +1654,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Secondary
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SecondaryTileVisualElements {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SecondaryTileVisualElements {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1674,7 +1674,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Secon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SecondaryTileVisualElements {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SecondaryTileVisualElements {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1805,7 +1805,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StartScre
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StartScreenManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StartScreenManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1825,7 +1825,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Start
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StartScreenManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StartScreenManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1925,7 +1925,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TileMixed
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TileMixedRealityModel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TileMixedRealityModel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1945,7 +1945,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TileM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TileMixedRealityModel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TileMixedRealityModel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2174,7 +2174,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VisualEle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VisualElementsRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VisualElementsRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2194,7 +2194,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Visua
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VisualElementsRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VisualElementsRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2256,7 +2256,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VisualEle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VisualElementsRequestDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VisualElementsRequestDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2276,7 +2276,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Visua
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VisualElementsRequestDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VisualElementsRequestDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2341,7 +2341,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VisualEle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VisualElementsRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VisualElementsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2361,7 +2361,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Visua
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VisualElementsRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VisualElementsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
