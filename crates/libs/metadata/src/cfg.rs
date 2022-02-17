@@ -2,14 +2,14 @@ use super::*;
 use std::collections::*;
 
 #[derive(Clone)]
-pub struct Cfg{
+pub struct Cfg {
     types: BTreeMap<&'static str, BTreeSet<Row>>,
-    arches: BTreeSet<&'static str>, 
+    arches: BTreeSet<&'static str>,
 }
 
 impl Cfg {
     pub fn new() -> Self {
-        Self{types: BTreeMap::new(), arches: BTreeSet::new()}
+        Self { types: BTreeMap::new(), arches: BTreeSet::new() }
     }
 
     pub fn features(&self, namespace: &str) -> Vec<&'static str> {
@@ -66,19 +66,23 @@ impl Cfg {
 
     pub fn union(&self, other: &Self) -> Self {
         let mut union = Self::new();
-        self.types.keys().for_each(|feature|union.add_feature(feature));
-        other.types.keys().for_each(|feature|union.add_feature(feature));
-        self.arches.iter().for_each(|arch|{union.arches.insert(arch);});
-        other.arches.iter().for_each(|arch|{union.arches.insert(arch);});
+        self.types.keys().for_each(|feature| union.add_feature(feature));
+        other.types.keys().for_each(|feature| union.add_feature(feature));
+        self.arches.iter().for_each(|arch| {
+            union.arches.insert(arch);
+        });
+        other.arches.iter().for_each(|arch| {
+            union.arches.insert(arch);
+        });
         union
     }
 }
 
-fn starts_with(namespace: &str, feature:&str) -> bool {
+fn starts_with(namespace: &str, feature: &str) -> bool {
     if namespace == feature {
         return true;
     }
-    
+
     if namespace.len() > feature.len() {
         if namespace.as_bytes().get(feature.len()) == Some(&b'.') {
             return namespace.starts_with(feature);

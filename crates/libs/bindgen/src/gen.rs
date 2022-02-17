@@ -58,7 +58,7 @@ impl Gen<'_> {
         cfg.add_feature(def.namespace());
         cfg
     }
-    
+
     pub(crate) fn doc(&self, cfg: &Cfg) -> TokenStream {
         if !self.doc {
             quote! {}

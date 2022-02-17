@@ -1,8 +1,8 @@
 mod async_kind;
 mod blob;
+mod cfg;
 mod codes;
 mod constant_value;
-mod cfg;
 mod file;
 mod guid;
 mod interface_kind;
@@ -21,9 +21,9 @@ mod workspace;
 
 pub use async_kind::*;
 pub use blob::*;
+pub use cfg::*;
 pub use codes::*;
 pub use constant_value::*;
-pub use cfg::*;
 pub use file::*;
 pub use guid::*;
 pub use interface_kind::*;
