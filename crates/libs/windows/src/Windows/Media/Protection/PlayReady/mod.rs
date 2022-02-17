@@ -142,7 +142,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDClosed
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDClosedCaptionDataReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDClosedCaptionDataReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -166,7 +166,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDCl
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDClosedCaptionDataReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDClosedCaptionDataReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -266,7 +266,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDCustom
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDCustomData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDCustomData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -290,7 +290,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDCu
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDCustomData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDCustomData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -453,7 +453,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDDownlo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDDownloadEngine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDDownloadEngine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -477,7 +477,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDDo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDDownloadEngine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDDownloadEngine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -619,7 +619,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDDownlo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDDownloadEngineNotifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDDownloadEngineNotifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -643,7 +643,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDDo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDDownloadEngineNotifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDDownloadEngineNotifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -746,7 +746,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDLicens
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDLicenseFetchCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDLicenseFetchCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -770,7 +770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDLi
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDLicenseFetchCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDLicenseFetchCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -877,7 +877,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDLicens
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDLicenseFetchDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDLicenseFetchDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -901,7 +901,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDLi
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDLicenseFetchDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDLicenseFetchDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1015,7 +1015,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDLicens
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDLicenseFetchResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDLicenseFetchResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1039,7 +1039,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDLi
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDLicenseFetchResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDLicenseFetchResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1149,7 +1149,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDMessen
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDMessenger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDMessenger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1173,7 +1173,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDMe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDMessenger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDMessenger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1268,7 +1268,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDProxim
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDProximityDetectionCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDProximityDetectionCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1292,7 +1292,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDPr
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDProximityDetectionCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDProximityDetectionCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1399,7 +1399,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDRegist
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDRegistrationCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDRegistrationCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1423,7 +1423,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDRe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDRegistrationCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDRegistrationCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1518,7 +1518,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDSendRe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDSendResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDSendResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1542,7 +1542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDSe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDSendResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDSendResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1625,7 +1625,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDStartR
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDStartResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDStartResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1649,7 +1649,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDSt
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDStartResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDStartResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1732,7 +1732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDStorag
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDStorageFileHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDStorageFileHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1756,7 +1756,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDSt
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDStorageFileHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDStorageFileHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1866,7 +1866,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDStream
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDStreamParser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDStreamParser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1890,7 +1890,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDSt
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDStreamParser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDStreamParser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2004,7 +2004,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDStream
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDStreamParserNotifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDStreamParserNotifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2028,7 +2028,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDSt
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDStreamParserNotifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDStreamParserNotifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2232,7 +2232,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INDTransm
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INDTransmitterProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INDTransmitterProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2256,7 +2256,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INDTr
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INDTransmitterProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INDTransmitterProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2497,7 +2497,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayRead
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPlayReadyDomain {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyDomain {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2517,7 +2517,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlay
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPlayReadyDomain {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyDomain {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2717,7 +2717,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayRead
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPlayReadyLicense {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyLicense {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2737,7 +2737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlay
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPlayReadyLicense {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyLicense {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2931,7 +2931,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayRead
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPlayReadyLicenseAcquisitionServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2951,7 +2951,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlay
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPlayReadyLicenseAcquisitionServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3130,7 +3130,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayRead
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPlayReadyLicenseSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyLicenseSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3150,7 +3150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlay
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPlayReadyLicenseSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyLicenseSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3231,7 +3231,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayRead
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPlayReadyLicenseSession2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyLicenseSession2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3251,7 +3251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlay
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPlayReadyLicenseSession2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyLicenseSession2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3519,7 +3519,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayRead
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPlayReadySecureStopServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3539,7 +3539,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlay
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPlayReadySecureStopServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3750,7 +3750,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPlayRead
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPlayReadyServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlayReadyServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3770,7 +3770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPlay
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPlayReadyServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPlayReadyServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4287,7 +4287,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDClient 
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NDClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4311,7 +4311,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDCli
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NDClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4497,7 +4497,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDCustomD
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NDCustomData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDCustomData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4521,7 +4521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDCus
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NDCustomData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDCustomData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4658,7 +4658,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDDownloa
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NDDownloadEngineNotifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDDownloadEngineNotifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4682,7 +4682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDDow
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NDDownloadEngineNotifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDDownloadEngineNotifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4823,7 +4823,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDLicense
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NDLicenseFetchDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDLicenseFetchDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4847,7 +4847,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDLic
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NDLicenseFetchDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDLicenseFetchDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5084,7 +5084,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDStorage
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NDStorageFileHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDStorageFileHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5108,7 +5108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDSto
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NDStorageFileHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDStorageFileHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5233,7 +5233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDStreamP
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NDStreamParserNotifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDStreamParserNotifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5257,7 +5257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDStr
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NDStreamParserNotifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDStreamParserNotifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5401,7 +5401,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NDTCPMess
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NDTCPMessenger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NDTCPMessenger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5425,7 +5425,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NDTCP
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NDTCPMessenger {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NDTCPMessenger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5645,7 +5645,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyContentHeader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyContentHeader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5665,7 +5665,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyContentHeader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyContentHeader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5814,7 +5814,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyDomain {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyDomain {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5834,7 +5834,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyDomain {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyDomain {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5962,7 +5962,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyDomainIterable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyDomainIterable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5986,7 +5986,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyDomainIterable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyDomainIterable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6116,7 +6116,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyDomainIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyDomainIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6140,7 +6140,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyDomainIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyDomainIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6352,7 +6352,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyDomainJoinServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyDomainJoinServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6372,7 +6372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyDomainJoinServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyDomainJoinServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6589,7 +6589,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyDomainLeaveServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyDomainLeaveServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6609,7 +6609,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyDomainLeaveServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyDomainLeaveServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6831,7 +6831,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyITADataGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyITADataGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6851,7 +6851,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyITADataGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyITADataGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6998,7 +6998,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyIndividualizationServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyIndividualizationServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7018,7 +7018,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyIndividualizationServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyIndividualizationServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7206,7 +7206,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyLicense {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyLicense {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7226,7 +7226,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyLicense {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyLicense {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7438,7 +7438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyLicenseAcquisitionServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7458,7 +7458,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyLicenseAcquisitionServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7637,7 +7637,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyLicenseIterable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyLicenseIterable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7661,7 +7661,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyLicenseIterable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyLicenseIterable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7791,7 +7791,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyLicenseIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyLicenseIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7815,7 +7815,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyLicenseIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyLicenseIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7951,7 +7951,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyLicenseSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyLicenseSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7971,7 +7971,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyLicenseSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyLicenseSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8175,7 +8175,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyMeteringReportServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyMeteringReportServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8195,7 +8195,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyMeteringReportServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyMeteringReportServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8386,7 +8386,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadyRevocationServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadyRevocationServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8406,7 +8406,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadyRevocationServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadyRevocationServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8556,7 +8556,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadySecureStopIterable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadySecureStopIterable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8580,7 +8580,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadySecureStopIterable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadySecureStopIterable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8710,7 +8710,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadySecureStopIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadySecureStopIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8734,7 +8734,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadySecureStopIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadySecureStopIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8961,7 +8961,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadySecureStopServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8981,7 +8981,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadySecureStopServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9128,7 +9128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlayReady
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PlayReadySoapMessage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlayReadySoapMessage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9148,7 +9148,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlayR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PlayReadySoapMessage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlayReadySoapMessage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

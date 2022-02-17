@@ -141,7 +141,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICreateDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICreateDeviceAccessAsync {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICreateDeviceAccessAsync {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -207,7 +207,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDeviceIo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDeviceIoControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDeviceIoControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -264,7 +264,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDeviceRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDeviceRequestCompletionCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDeviceRequestCompletionCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

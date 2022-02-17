@@ -26,7 +26,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioFra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAudioFrameNative {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioFrameNative {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -46,7 +46,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAudi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAudioFrameNative {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAudioFrameNative {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -103,7 +103,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioFra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAudioFrameNativeFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioFrameNativeFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -123,7 +123,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAudi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAudioFrameNativeFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAudioFrameNativeFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -187,7 +187,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVideoFra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVideoFrameNative {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVideoFrameNative {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -207,7 +207,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVide
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVideoFrameNative {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVideoFrameNative {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -265,7 +265,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVideoFra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVideoFrameNativeFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVideoFrameNativeFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -285,7 +285,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVide
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVideoFrameNativeFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVideoFrameNativeFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

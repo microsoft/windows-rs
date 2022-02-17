@@ -175,7 +175,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameChatM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameChatMessageReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameChatMessageReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -195,7 +195,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameChatMessageReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameChatMessageReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -282,7 +282,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameChatO
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameChatOverlay {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameChatOverlay {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -302,7 +302,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameChatOverlay {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameChatOverlay {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -387,7 +387,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameChatO
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameChatOverlayMessageSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameChatOverlayMessageSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -407,7 +407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameChatOverlayMessageSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameChatOverlayMessageSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -546,7 +546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameUIPro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameUIProviderActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameUIProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -566,7 +566,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameUIProviderActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameUIProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

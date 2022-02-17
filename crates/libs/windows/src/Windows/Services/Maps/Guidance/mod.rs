@@ -147,7 +147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GuidanceA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GuidanceAudioNotificationRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GuidanceAudioNotificationRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -167,7 +167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Guida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GuidanceAudioNotificationRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GuidanceAudioNotificationRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -307,7 +307,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GuidanceL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GuidanceLaneInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GuidanceLaneInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -327,7 +327,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Guida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GuidanceLaneInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GuidanceLaneInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -552,7 +552,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GuidanceM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GuidanceManeuver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GuidanceManeuver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -572,7 +572,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Guida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GuidanceManeuver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GuidanceManeuver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -750,7 +750,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GuidanceM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GuidanceMapMatchedCoordinate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GuidanceMapMatchedCoordinate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -770,7 +770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Guida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GuidanceMapMatchedCoordinate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GuidanceMapMatchedCoordinate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1098,7 +1098,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GuidanceN
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GuidanceNavigator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GuidanceNavigator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1118,7 +1118,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Guida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GuidanceNavigator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GuidanceNavigator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1183,7 +1183,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GuidanceR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GuidanceReroutedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GuidanceReroutedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1203,7 +1203,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Guida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GuidanceReroutedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GuidanceReroutedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1342,7 +1342,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GuidanceR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GuidanceRoadSegment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GuidanceRoadSegment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1362,7 +1362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Guida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GuidanceRoadSegment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GuidanceRoadSegment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1462,7 +1462,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GuidanceR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GuidanceRoadSignpost {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GuidanceRoadSignpost {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1482,7 +1482,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Guida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GuidanceRoadSignpost {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GuidanceRoadSignpost {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1619,7 +1619,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GuidanceR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GuidanceRoute {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GuidanceRoute {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1639,7 +1639,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Guida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GuidanceRoute {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GuidanceRoute {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1752,7 +1752,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GuidanceT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GuidanceTelemetryCollector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GuidanceTelemetryCollector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1772,7 +1772,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Guida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GuidanceTelemetryCollector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GuidanceTelemetryCollector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1944,7 +1944,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GuidanceU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GuidanceUpdatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GuidanceUpdatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1964,7 +1964,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Guida
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GuidanceUpdatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GuidanceUpdatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

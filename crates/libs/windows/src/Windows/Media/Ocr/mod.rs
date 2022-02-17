@@ -211,7 +211,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OcrEngine
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OcrEngine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OcrEngine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -231,7 +231,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OcrEn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OcrEngine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OcrEngine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -305,7 +305,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OcrLine {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OcrLine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OcrLine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -325,7 +325,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OcrLi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OcrLine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OcrLine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -408,7 +408,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OcrResult
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OcrResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OcrResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -428,7 +428,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OcrRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OcrResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OcrResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -502,7 +502,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OcrWord {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OcrWord {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OcrWord {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -522,7 +522,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OcrWo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OcrWord {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OcrWord {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

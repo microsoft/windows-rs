@@ -797,7 +797,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentAd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentAddress {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentAddress {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -817,7 +817,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentAddress {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentAddress {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -894,7 +894,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentCa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentCanMakePaymentResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentCanMakePaymentResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -914,7 +914,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentCanMakePaymentResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentCanMakePaymentResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1068,7 +1068,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentCu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentCurrencyAmount {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentCurrencyAmount {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1088,7 +1088,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentCurrencyAmount {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentCurrencyAmount {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1230,7 +1230,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1250,7 +1250,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1370,7 +1370,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentDetailsModifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentDetailsModifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1390,7 +1390,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentDetailsModifier {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentDetailsModifier {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1498,7 +1498,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentIt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1518,7 +1518,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1618,7 +1618,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentMe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentMediator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentMediator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1638,7 +1638,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentMediator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentMediator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1732,7 +1732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentMe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentMerchantInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentMerchantInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1752,7 +1752,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentMerchantInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentMerchantInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1847,7 +1847,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentMe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentMethodData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentMethodData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1867,7 +1867,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentMethodData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentMethodData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2031,7 +2031,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentOp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2051,7 +2051,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2191,7 +2191,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2211,7 +2211,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2331,7 +2331,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentRequestChangedArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentRequestChangedArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2351,7 +2351,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentRequestChangedArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentRequestChangedArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2548,7 +2548,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentRequestChangedResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentRequestChangedResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2568,7 +2568,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentRequestChangedResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentRequestChangedResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2711,7 +2711,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentRequestSubmitResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentRequestSubmitResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2731,7 +2731,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentRequestSubmitResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentRequestSubmitResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2845,7 +2845,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentResponse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentResponse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2865,7 +2865,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentResponse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentResponse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3000,7 +3000,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentSh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentShippingOption {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentShippingOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3020,7 +3020,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentShippingOption {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentShippingOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3147,7 +3147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaymentTo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaymentToken {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaymentToken {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3167,7 +3167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Payme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaymentToken {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaymentToken {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -77,7 +77,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppServic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppServiceClosedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppServiceClosedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -97,7 +97,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppServiceClosedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppServiceClosedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -314,7 +314,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppServic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppServiceConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppServiceConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -334,7 +334,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppServiceConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppServiceConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -466,7 +466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppServic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppServiceDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppServiceDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -486,7 +486,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppServiceDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppServiceDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -561,7 +561,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppServic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -581,7 +581,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppServiceRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppServiceRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -654,7 +654,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppServic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppServiceRequestReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppServiceRequestReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -674,7 +674,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppServiceRequestReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppServiceRequestReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -748,7 +748,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppServic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppServiceResponse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppServiceResponse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -768,7 +768,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppServiceResponse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppServiceResponse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -917,7 +917,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppServic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppServiceTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppServiceTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -937,7 +937,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppServiceTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppServiceTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1258,7 +1258,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Stateless
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StatelessAppServiceResponse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StatelessAppServiceResponse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1278,7 +1278,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for State
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StatelessAppServiceResponse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StatelessAppServiceResponse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

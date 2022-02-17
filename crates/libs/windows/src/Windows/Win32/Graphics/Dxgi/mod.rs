@@ -3158,7 +3158,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIAdap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIAdapter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIAdapter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3178,7 +3178,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIAdapter {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIAdapter {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIAdapter {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3273,7 +3273,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIAdap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIAdapter1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIAdapter1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3293,7 +3293,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIAdapter1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIAdapter1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIAdapter1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3313,7 +3313,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for IDXGIAdapter1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for &IDXGIAdapter1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for &'a IDXGIAdapter1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIAdapter> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3412,7 +3412,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIAdap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIAdapter2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIAdapter2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3432,7 +3432,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIAdapter2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIAdapter2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIAdapter2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3452,7 +3452,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for IDXGIAdapter2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for &IDXGIAdapter2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for &'a IDXGIAdapter2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIAdapter> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3472,7 +3472,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter1> for IDXGIAdapter2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter1> for &IDXGIAdapter2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter1> for &'a IDXGIAdapter2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIAdapter1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3600,7 +3600,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIAdap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIAdapter3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIAdapter3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3620,7 +3620,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIAdapter3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIAdapter3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIAdapter3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3640,7 +3640,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for IDXGIAdapter3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for &IDXGIAdapter3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for &'a IDXGIAdapter3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIAdapter> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3660,7 +3660,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter1> for IDXGIAdapter3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter1> for &IDXGIAdapter3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter1> for &'a IDXGIAdapter3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIAdapter1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3680,7 +3680,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter2> for IDXGIAdapter3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter2> for &IDXGIAdapter3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter2> for &'a IDXGIAdapter3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIAdapter2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3822,7 +3822,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIAdap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIAdapter4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIAdapter4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3842,7 +3842,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIAdapter4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIAdapter4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIAdapter4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3862,7 +3862,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for IDXGIAdapter4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for &IDXGIAdapter4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter> for &'a IDXGIAdapter4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIAdapter> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3882,7 +3882,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter1> for IDXGIAdapter4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter1> for &IDXGIAdapter4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter1> for &'a IDXGIAdapter4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIAdapter1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3902,7 +3902,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter2> for IDXGIAdapter4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter2> for &IDXGIAdapter4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter2> for &'a IDXGIAdapter4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIAdapter2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3922,7 +3922,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter3> for IDXGIAdapter4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter3> for &IDXGIAdapter4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIAdapter3> for &'a IDXGIAdapter4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIAdapter3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3980,7 +3980,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIDebu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIDebug {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIDebug {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4048,7 +4048,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIDebu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIDebug1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIDebug1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4068,7 +4068,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDebug> for IDXGIDebug1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDebug> for &IDXGIDebug1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDebug> for &'a IDXGIDebug1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDebug> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4166,7 +4166,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIDeco
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIDecodeSwapChain {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIDecodeSwapChain {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4277,7 +4277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIDevi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4297,7 +4297,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIDevice {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIDevice {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIDevice {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4404,7 +4404,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIDevi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIDevice1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIDevice1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4424,7 +4424,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIDevice1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIDevice1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIDevice1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4444,7 +4444,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for IDXGIDevice1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for &IDXGIDevice1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for &'a IDXGIDevice1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDevice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4560,7 +4560,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIDevi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIDevice2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIDevice2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4580,7 +4580,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIDevice2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIDevice2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIDevice2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4600,7 +4600,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for IDXGIDevice2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for &IDXGIDevice2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for &'a IDXGIDevice2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDevice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4620,7 +4620,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice1> for IDXGIDevice2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice1> for &IDXGIDevice2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice1> for &'a IDXGIDevice2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDevice1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4747,7 +4747,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIDevi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIDevice3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4767,7 +4767,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIDevice3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIDevice3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4787,7 +4787,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for IDXGIDevice3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for &IDXGIDevice3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for &'a IDXGIDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDevice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4807,7 +4807,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice1> for IDXGIDevice3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice1> for &IDXGIDevice3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice1> for &'a IDXGIDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDevice1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4827,7 +4827,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice2> for IDXGIDevice3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice2> for &IDXGIDevice3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice2> for &'a IDXGIDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDevice2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4955,7 +4955,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIDevi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIDevice4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIDevice4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4975,7 +4975,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIDevice4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIDevice4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIDevice4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4995,7 +4995,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for IDXGIDevice4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for &IDXGIDevice4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice> for &'a IDXGIDevice4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDevice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5015,7 +5015,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice1> for IDXGIDevice4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice1> for &IDXGIDevice4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice1> for &'a IDXGIDevice4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDevice1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5035,7 +5035,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice2> for IDXGIDevice4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice2> for &IDXGIDevice4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice2> for &'a IDXGIDevice4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDevice2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5055,7 +5055,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice3> for IDXGIDevice4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice3> for &IDXGIDevice4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDevice3> for &'a IDXGIDevice4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDevice3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5129,7 +5129,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIDevi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIDeviceSubObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIDeviceSubObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5149,7 +5149,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIDeviceSubObject {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIDeviceSubObject {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIDeviceSubObject {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5210,7 +5210,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIDisp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIDisplayControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIDisplayControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5313,7 +5313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIFact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5333,7 +5333,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIFactory {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIFactory {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIFactory {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5455,7 +5455,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIFact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIFactory1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIFactory1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5475,7 +5475,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIFactory1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIFactory1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIFactory1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5495,7 +5495,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for IDXGIFactory1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &IDXGIFactory1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &'a IDXGIFactory1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5666,7 +5666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIFact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5686,7 +5686,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIFactory2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5706,7 +5706,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for IDXGIFactory2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &IDXGIFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &'a IDXGIFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5726,7 +5726,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for IDXGIFactory2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &'a IDXGIFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5934,7 +5934,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIFact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIFactory3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIFactory3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5954,7 +5954,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIFactory3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIFactory3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIFactory3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5974,7 +5974,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for IDXGIFactory3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &IDXGIFactory3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &'a IDXGIFactory3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5994,7 +5994,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for IDXGIFactory3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &'a IDXGIFactory3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6014,7 +6014,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for IDXGIFactory3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for &IDXGIFactory3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for &'a IDXGIFactory3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6196,7 +6196,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIFact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6216,7 +6216,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIFactory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6236,7 +6236,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for IDXGIFactory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &IDXGIFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &'a IDXGIFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6256,7 +6256,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for IDXGIFactory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &'a IDXGIFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6276,7 +6276,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for IDXGIFactory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for &IDXGIFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for &'a IDXGIFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6296,7 +6296,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for IDXGIFactory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for &IDXGIFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for &'a IDXGIFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6486,7 +6486,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIFact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6506,7 +6506,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIFactory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6526,7 +6526,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for IDXGIFactory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &IDXGIFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &'a IDXGIFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6546,7 +6546,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for IDXGIFactory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &'a IDXGIFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6566,7 +6566,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for IDXGIFactory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for &IDXGIFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for &'a IDXGIFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6586,7 +6586,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for IDXGIFactory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for &IDXGIFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for &'a IDXGIFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6606,7 +6606,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory4> for IDXGIFactory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory4> for &IDXGIFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory4> for &'a IDXGIFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6797,7 +6797,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIFact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6817,7 +6817,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6837,7 +6837,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for IDXGIFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &IDXGIFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &'a IDXGIFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6857,7 +6857,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for IDXGIFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &'a IDXGIFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6877,7 +6877,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for IDXGIFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for &IDXGIFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for &'a IDXGIFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6897,7 +6897,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for IDXGIFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for &IDXGIFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for &'a IDXGIFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6917,7 +6917,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory4> for IDXGIFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory4> for &IDXGIFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory4> for &'a IDXGIFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6937,7 +6937,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory5> for IDXGIFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory5> for &IDXGIFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory5> for &'a IDXGIFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7138,7 +7138,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIFact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7158,7 +7158,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7178,7 +7178,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for IDXGIFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &IDXGIFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory> for &'a IDXGIFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7198,7 +7198,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for IDXGIFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory1> for &'a IDXGIFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7218,7 +7218,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for IDXGIFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for &IDXGIFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory2> for &'a IDXGIFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7238,7 +7238,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for IDXGIFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for &IDXGIFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory3> for &'a IDXGIFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7258,7 +7258,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory4> for IDXGIFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory4> for &IDXGIFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory4> for &'a IDXGIFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7278,7 +7278,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory5> for IDXGIFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory5> for &IDXGIFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory5> for &'a IDXGIFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7298,7 +7298,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory6> for IDXGIFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory6> for &IDXGIFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIFactory6> for &'a IDXGIFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIFactory6> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7365,7 +7365,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIFact
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIFactoryMedia {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIFactoryMedia {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7581,7 +7581,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIInfo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIInfoQueue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIInfoQueue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7728,7 +7728,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIKeye
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIKeyedMutex {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIKeyedMutex {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7748,7 +7748,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIKeyedMutex {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIKeyedMutex {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIKeyedMutex {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7768,7 +7768,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for IDXGIKeyedMute
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGIKeyedMutex {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &'a IDXGIKeyedMutex {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDeviceSubObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7837,7 +7837,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIObje
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7967,7 +7967,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIOutp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIOutput {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIOutput {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7987,7 +7987,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIOutput {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIOutput {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIOutput {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8165,7 +8165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIOutp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIOutput1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIOutput1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8185,7 +8185,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIOutput1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIOutput1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIOutput1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8205,7 +8205,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for IDXGIOutput1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &IDXGIOutput1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &'a IDXGIOutput1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8365,7 +8365,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIOutp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIOutput2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIOutput2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8385,7 +8385,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIOutput2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIOutput2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIOutput2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8405,7 +8405,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for IDXGIOutput2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &IDXGIOutput2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &'a IDXGIOutput2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8425,7 +8425,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for IDXGIOutput2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for &IDXGIOutput2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for &'a IDXGIOutput2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8585,7 +8585,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIOutp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIOutput3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIOutput3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8605,7 +8605,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIOutput3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIOutput3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIOutput3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8625,7 +8625,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for IDXGIOutput3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &IDXGIOutput3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &'a IDXGIOutput3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8645,7 +8645,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for IDXGIOutput3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for &IDXGIOutput3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for &'a IDXGIOutput3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8665,7 +8665,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for IDXGIOutput3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for &IDXGIOutput3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for &'a IDXGIOutput3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8831,7 +8831,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIOutp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIOutput4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIOutput4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8851,7 +8851,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIOutput4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIOutput4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIOutput4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8871,7 +8871,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for IDXGIOutput4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &IDXGIOutput4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &'a IDXGIOutput4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8891,7 +8891,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for IDXGIOutput4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for &IDXGIOutput4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for &'a IDXGIOutput4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8911,7 +8911,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for IDXGIOutput4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for &IDXGIOutput4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for &'a IDXGIOutput4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8931,7 +8931,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput3> for IDXGIOutput4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput3> for &IDXGIOutput4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput3> for &'a IDXGIOutput4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9103,7 +9103,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIOutp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIOutput5 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIOutput5 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9123,7 +9123,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIOutput5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIOutput5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIOutput5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9143,7 +9143,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for IDXGIOutput5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &IDXGIOutput5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &'a IDXGIOutput5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9163,7 +9163,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for IDXGIOutput5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for &IDXGIOutput5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for &'a IDXGIOutput5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9183,7 +9183,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for IDXGIOutput5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for &IDXGIOutput5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for &'a IDXGIOutput5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9203,7 +9203,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput3> for IDXGIOutput5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput3> for &IDXGIOutput5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput3> for &'a IDXGIOutput5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9223,7 +9223,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput4> for IDXGIOutput5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput4> for &IDXGIOutput5 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput4> for &'a IDXGIOutput5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9406,7 +9406,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIOutp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIOutput6 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIOutput6 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9426,7 +9426,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIOutput6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIOutput6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIOutput6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9446,7 +9446,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for IDXGIOutput6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &IDXGIOutput6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput> for &'a IDXGIOutput6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9466,7 +9466,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for IDXGIOutput6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for &IDXGIOutput6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput1> for &'a IDXGIOutput6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9486,7 +9486,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for IDXGIOutput6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for &IDXGIOutput6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput2> for &'a IDXGIOutput6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9506,7 +9506,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput3> for IDXGIOutput6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput3> for &IDXGIOutput6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput3> for &'a IDXGIOutput6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9526,7 +9526,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput4> for IDXGIOutput6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput4> for &IDXGIOutput6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput4> for &'a IDXGIOutput6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9546,7 +9546,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput5> for IDXGIOutput6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput5> for &IDXGIOutput6 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIOutput5> for &'a IDXGIOutput6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIOutput5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9656,7 +9656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIOutp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIOutputDuplication {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIOutputDuplication {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9676,7 +9676,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIOutputDuplication 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIOutputDuplication {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIOutputDuplication {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9791,7 +9791,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIReso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9811,7 +9811,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIResource {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIResource {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIResource {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9831,7 +9831,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for IDXGIResource 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGIResource {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &'a IDXGIResource {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDeviceSubObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9941,7 +9941,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGIReso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGIResource1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGIResource1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9961,7 +9961,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGIResource1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGIResource1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGIResource1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9981,7 +9981,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for IDXGIResource1
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGIResource1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &'a IDXGIResource1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDeviceSubObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10001,7 +10001,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIResource> for IDXGIResource1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIResource> for &IDXGIResource1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIResource> for &'a IDXGIResource1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIResource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10092,7 +10092,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGISurf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGISurface {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGISurface {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10112,7 +10112,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGISurface {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGISurface {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGISurface {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10132,7 +10132,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISurface {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISurface {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &'a IDXGISurface {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDeviceSubObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10235,7 +10235,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGISurf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGISurface1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGISurface1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10255,7 +10255,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGISurface1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGISurface1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGISurface1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10275,7 +10275,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISurface1 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISurface1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &'a IDXGISurface1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDeviceSubObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10295,7 +10295,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISurface> for IDXGISurface1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISurface> for &IDXGISurface1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISurface> for &'a IDXGISurface1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISurface> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10404,7 +10404,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGISurf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGISurface2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGISurface2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10424,7 +10424,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGISurface2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGISurface2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGISurface2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10444,7 +10444,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISurface2 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISurface2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &'a IDXGISurface2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDeviceSubObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10464,7 +10464,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISurface> for IDXGISurface2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISurface> for &IDXGISurface2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISurface> for &'a IDXGISurface2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISurface> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10484,7 +10484,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISurface1> for IDXGISurface2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISurface1> for &IDXGISurface2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISurface1> for &'a IDXGISurface2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISurface1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10607,7 +10607,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGISwap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGISwapChain {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGISwapChain {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10627,7 +10627,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGISwapChain {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGISwapChain {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGISwapChain {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10647,7 +10647,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISwapChain
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISwapChain {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &'a IDXGISwapChain {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDeviceSubObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10852,7 +10852,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGISwap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGISwapChain1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGISwapChain1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10872,7 +10872,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGISwapChain1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGISwapChain1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGISwapChain1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10892,7 +10892,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISwapChain
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISwapChain1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &'a IDXGISwapChain1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDeviceSubObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10912,7 +10912,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for IDXGISwapChain1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for &IDXGISwapChain1 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for &'a IDXGISwapChain1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISwapChain> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11155,7 +11155,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGISwap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGISwapChain2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGISwapChain2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11175,7 +11175,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGISwapChain2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGISwapChain2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGISwapChain2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11195,7 +11195,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISwapChain
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISwapChain2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &'a IDXGISwapChain2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDeviceSubObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11215,7 +11215,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for IDXGISwapChain2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for &IDXGISwapChain2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for &'a IDXGISwapChain2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISwapChain> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11235,7 +11235,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain1> for IDXGISwapChain2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain1> for &IDXGISwapChain2 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain1> for &'a IDXGISwapChain2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISwapChain1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11476,7 +11476,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGISwap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGISwapChain3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGISwapChain3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11496,7 +11496,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGISwapChain3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGISwapChain3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGISwapChain3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11516,7 +11516,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISwapChain
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISwapChain3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &'a IDXGISwapChain3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDeviceSubObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11536,7 +11536,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for IDXGISwapChain3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for &IDXGISwapChain3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for &'a IDXGISwapChain3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISwapChain> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11556,7 +11556,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain1> for IDXGISwapChain3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain1> for &IDXGISwapChain3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain1> for &'a IDXGISwapChain3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISwapChain1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11576,7 +11576,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain2> for IDXGISwapChain3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain2> for &IDXGISwapChain3 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain2> for &'a IDXGISwapChain3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISwapChain2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11824,7 +11824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGISwap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGISwapChain4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGISwapChain4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11844,7 +11844,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for IDXGISwapChain4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &IDXGISwapChain4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIObject> for &'a IDXGISwapChain4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11864,7 +11864,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISwapChain
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISwapChain4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGIDeviceSubObject> for &'a IDXGISwapChain4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGIDeviceSubObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11884,7 +11884,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for IDXGISwapChain4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for &IDXGISwapChain4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain> for &'a IDXGISwapChain4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISwapChain> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11904,7 +11904,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain1> for IDXGISwapChain4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain1> for &IDXGISwapChain4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain1> for &'a IDXGISwapChain4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISwapChain1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11924,7 +11924,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain2> for IDXGISwapChain4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain2> for &IDXGISwapChain4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain2> for &'a IDXGISwapChain4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISwapChain2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11944,7 +11944,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain3> for IDXGISwapChain4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain3> for &IDXGISwapChain4 {
+impl<'a> ::windows::core::IntoParam<'a, IDXGISwapChain3> for &'a IDXGISwapChain4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDXGISwapChain3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12008,7 +12008,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGISwap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGISwapChainMedia {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGISwapChainMedia {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12069,7 +12069,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDXGraphi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDXGraphicsAnalysis {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDXGraphicsAnalysis {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

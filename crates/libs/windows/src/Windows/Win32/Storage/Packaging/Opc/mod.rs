@@ -39,7 +39,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcCerti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcCertificateEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcCertificateEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -117,7 +117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcCerti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcCertificateSet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcCertificateSet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -251,7 +251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcDigit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcDigitalSignature {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcDigitalSignature {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -353,7 +353,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcDigit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcDigitalSignatureEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcDigitalSignatureEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -456,7 +456,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcDigit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcDigitalSignatureManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcDigitalSignatureManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -571,7 +571,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcFacto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -653,7 +653,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcPacka
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcPackage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcPackage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -733,7 +733,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcPart 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcPart {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcPart {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -819,7 +819,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcPartE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcPartEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcPartEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -907,7 +907,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcPartS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcPartSet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcPartSet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1163,7 +1163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcPartU
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcPartUri {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcPartUri {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1187,7 +1187,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri> 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri> for &IOpcPartUri {
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri> for &'a IOpcPartUri {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IUri> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1211,7 +1211,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOpcUri> for IOpcPartUri {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IOpcUri> for &IOpcPartUri {
+impl<'a> ::windows::core::IntoParam<'a, IOpcUri> for &'a IOpcPartUri {
     fn into_param(self) -> ::windows::core::Param<'a, IOpcUri> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1308,7 +1308,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcRelationship {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationship {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1397,7 +1397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcRelationshipEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationshipEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1468,7 +1468,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcRelationshipSelector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationshipSelector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1545,7 +1545,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcRelationshipSelectorEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationshipSelectorEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1620,7 +1620,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcRelationshipSelectorSet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationshipSelectorSet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1716,7 +1716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcRelat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcRelationshipSet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcRelationshipSet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1795,7 +1795,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignatureCustomObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureCustomObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1868,7 +1868,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignatureCustomObjectEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureCustomObjectEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1942,7 +1942,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignatureCustomObjectSet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureCustomObjectSet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2022,7 +2022,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignaturePartReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignaturePartReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2108,7 +2108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignaturePartReferenceEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignaturePartReferenceEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2183,7 +2183,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignaturePartReferenceSet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignaturePartReferenceSet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2272,7 +2272,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignatureReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2362,7 +2362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignatureReferenceEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureReferenceEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2437,7 +2437,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignatureReferenceSet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureReferenceSet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2524,7 +2524,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignatureRelationshipReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureRelationshipReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2608,7 +2608,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignatureRelationshipReferenceEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureRelationshipReferenceEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2688,7 +2688,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSignatureRelationshipReferenceSet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSignatureRelationshipReferenceSet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2832,7 +2832,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcSigni
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcSigningOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcSigningOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3094,7 +3094,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOpcUri {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOpcUri {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOpcUri {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3118,7 +3118,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri> 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri> for &IOpcUri {
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IUri> for &'a IOpcUri {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IUri> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

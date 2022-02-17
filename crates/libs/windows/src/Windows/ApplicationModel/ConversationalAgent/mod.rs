@@ -287,7 +287,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Activatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ActivationSignalDetectionConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivationSignalDetectionConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -307,7 +307,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Activ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ActivationSignalDetectionConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivationSignalDetectionConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -406,7 +406,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Activatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ActivationSignalDetectionConfigurationCreationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivationSignalDetectionConfigurationCreationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -426,7 +426,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Activ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ActivationSignalDetectionConfigurationCreationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivationSignalDetectionConfigurationCreationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -869,7 +869,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Activatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ActivationSignalDetector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ActivationSignalDetector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -889,7 +889,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Activ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ActivationSignalDetector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ActivationSignalDetector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1151,7 +1151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Conversat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConversationalAgentDetectorManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentDetectorManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1171,7 +1171,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conve
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConversationalAgentDetectorManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentDetectorManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1584,7 +1584,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Conversat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConversationalAgentSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1604,7 +1604,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conve
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConversationalAgentSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1686,7 +1686,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Conversat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConversationalAgentSessionInterruptedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentSessionInterruptedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1706,7 +1706,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conve
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConversationalAgentSessionInterruptedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentSessionInterruptedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1895,7 +1895,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Conversat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConversationalAgentSignal {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentSignal {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1915,7 +1915,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conve
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConversationalAgentSignal {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentSignal {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1971,7 +1971,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Conversat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConversationalAgentSignalDetectedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentSignalDetectedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1991,7 +1991,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conve
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConversationalAgentSignalDetectedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentSignalDetectedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2130,7 +2130,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Conversat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConversationalAgentSystemStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConversationalAgentSystemStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2150,7 +2150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conve
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConversationalAgentSystemStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConversationalAgentSystemStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2288,7 +2288,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Detection
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DetectionConfigurationAvailabilityChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DetectionConfigurationAvailabilityChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2308,7 +2308,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Detec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DetectionConfigurationAvailabilityChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DetectionConfigurationAvailabilityChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2406,7 +2406,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Detection
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DetectionConfigurationAvailabilityInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DetectionConfigurationAvailabilityInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2426,7 +2426,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Detec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DetectionConfigurationAvailabilityInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DetectionConfigurationAvailabilityInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -238,7 +238,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CachedFil
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CachedFileUpdaterUI {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CachedFileUpdaterUI {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -258,7 +258,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Cache
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CachedFileUpdaterUI {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CachedFileUpdaterUI {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -368,7 +368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileUpdat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FileUpdateRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileUpdateRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -388,7 +388,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FileUpdateRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileUpdateRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -448,7 +448,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileUpdat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FileUpdateRequestDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileUpdateRequestDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -468,7 +468,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FileUpdateRequestDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileUpdateRequestDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -531,7 +531,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileUpdat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FileUpdateRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileUpdateRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -551,7 +551,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FileUpdateRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileUpdateRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -869,7 +869,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IStorageProviderHandlerFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageProviderHandlerFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -889,7 +889,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStorageProviderHandlerFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStorageProviderHandlerFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1006,7 +1006,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IStorageProviderItemPropertySource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageProviderItemPropertySource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1026,7 +1026,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStorageProviderItemPropertySource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStorageProviderItemPropertySource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1095,7 +1095,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IStorageProviderPropertyCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageProviderPropertyCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1115,7 +1115,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStorageProviderPropertyCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStorageProviderPropertyCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1231,7 +1231,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IStorageProviderStatusSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageProviderStatusSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1251,7 +1251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStorageProviderStatusSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStorageProviderStatusSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1448,7 +1448,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IStorageProviderUriSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageProviderUriSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1468,7 +1468,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStorageProviderUriSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStorageProviderUriSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1679,7 +1679,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoragePr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageProviderError {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderError {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1699,7 +1699,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Stora
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageProviderError {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderError {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1786,7 +1786,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoragePr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageProviderErrorCommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderErrorCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1806,7 +1806,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Stora
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageProviderErrorCommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderErrorCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1891,7 +1891,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoragePr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageProviderFileTypeInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderFileTypeInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1911,7 +1911,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Stora
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageProviderFileTypeInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderFileTypeInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2014,7 +2014,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoragePr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageProviderGetContentInfoForPathResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderGetContentInfoForPathResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2034,7 +2034,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Stora
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageProviderGetContentInfoForPathResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderGetContentInfoForPathResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2124,7 +2124,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoragePr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageProviderGetPathForContentUriResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderGetPathForContentUriResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2144,7 +2144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Stora
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageProviderGetPathForContentUriResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderGetPathForContentUriResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2502,7 +2502,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoragePr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageProviderItemProperty {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderItemProperty {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2522,7 +2522,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Stora
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageProviderItemProperty {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderItemProperty {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2612,7 +2612,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoragePr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageProviderItemPropertyDefinition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderItemPropertyDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2632,7 +2632,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Stora
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageProviderItemPropertyDefinition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderItemPropertyDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2840,7 +2840,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoragePr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageProviderStatus {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderStatus {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2860,7 +2860,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Stora
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageProviderStatus {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderStatus {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3154,7 +3154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoragePr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorageProviderSyncRootInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderSyncRootInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3174,7 +3174,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Stora
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorageProviderSyncRootInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderSyncRootInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

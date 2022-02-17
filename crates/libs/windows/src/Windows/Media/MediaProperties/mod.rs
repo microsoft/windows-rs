@@ -223,7 +223,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioEnco
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -243,7 +243,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -403,7 +403,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Container
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ContainerEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContainerEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -423,7 +423,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conta
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ContainerEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContainerEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -913,7 +913,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaEnc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMediaEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -933,7 +933,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMedi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMediaEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1446,7 +1446,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ImageEnco
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ImageEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ImageEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1466,7 +1466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Image
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ImageEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ImageEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1737,7 +1737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaEnco
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaEncodingProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaEncodingProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1757,7 +1757,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaEncodingProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaEncodingProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2415,7 +2415,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaProp
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaPropertySet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2439,7 +2439,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaPropertySet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2576,7 +2576,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaRati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaRatio {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaRatio {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2596,7 +2596,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaRatio {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaRatio {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2928,7 +2928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TimedMeta
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TimedMetadataEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TimedMetadataEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2948,7 +2948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Timed
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TimedMetadataEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TimedMetadataEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3204,7 +3204,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoEnco
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VideoEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3224,7 +3224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Video
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VideoEncodingProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoEncodingProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

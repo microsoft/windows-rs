@@ -24,7 +24,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IComponen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IComponentConnector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IComponentConnector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -44,7 +44,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IComp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IComponentConnector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IComponentConnector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -110,7 +110,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IComponen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IComponentConnector2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IComponentConnector2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -130,7 +130,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IComp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IComponentConnector2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IComponentConnector2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -198,7 +198,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDataTemp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDataTemplateComponent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDataTemplateComponent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -218,7 +218,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IData
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IDataTemplateComponent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDataTemplateComponent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -348,7 +348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXamlBind
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXamlBindScopeDiagnostics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXamlBindScopeDiagnostics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -368,7 +368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXaml
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXamlBindScopeDiagnostics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXamlBindScopeDiagnostics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -580,7 +580,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXamlMemb
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXamlMember {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXamlMember {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -600,7 +600,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXaml
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXamlMember {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXamlMember {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -690,7 +690,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXamlMeta
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXamlMetadataProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXamlMetadataProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -710,7 +710,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXaml
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXamlMetadataProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXamlMetadataProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -935,7 +935,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXamlType
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXamlType {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXamlType {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -955,7 +955,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXaml
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXamlType {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXamlType {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1177,7 +1177,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXamlType
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXamlType2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXamlType2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1197,7 +1197,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXaml
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXamlType2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IXamlType2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1327,7 +1327,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MarkupExt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MarkupExtension {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MarkupExtension {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1347,7 +1347,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Marku
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MarkupExtension {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MarkupExtension {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1417,7 +1417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XamlBinar
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XamlBinaryWriter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XamlBinaryWriter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1437,7 +1437,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XamlB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XamlBinaryWriter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XamlBinaryWriter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1646,7 +1646,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XamlBindi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XamlBindingHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XamlBindingHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1666,7 +1666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XamlB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XamlBindingHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XamlBindingHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1732,7 +1732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XamlMarku
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XamlMarkupHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XamlMarkupHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1752,7 +1752,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XamlM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XamlMarkupHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XamlMarkupHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1828,7 +1828,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XamlReade
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &XamlReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XamlReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1848,7 +1848,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for XamlR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XamlReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a XamlReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

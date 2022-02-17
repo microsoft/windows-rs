@@ -649,7 +649,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionAffineTransform2DEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionAffineTransform2DEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -669,7 +669,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionAf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionAffineTransform2DEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionAffineTransform2DEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -689,7 +689,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionAffineTransform2DEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionAffineTransform2DEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -779,7 +779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -881,7 +881,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionArithmeticCompositeEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionArithmeticCompositeEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -901,7 +901,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionAr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionArithmeticCompositeEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionArithmeticCompositeEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -921,7 +921,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionArithmeticCompositeEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionArithmeticCompositeEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -996,7 +996,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionBlendEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionBlendEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1016,7 +1016,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionBl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionBlendEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionBlendEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1036,7 +1036,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionBlendEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionBlendEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1136,7 +1136,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionBrightnessEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionBrightnessEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1156,7 +1156,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionBr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionBrightnessEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionBrightnessEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1176,7 +1176,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionBrightnessEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionBrightnessEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1241,7 +1241,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionClip {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionClip {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1318,7 +1318,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionColorMatrixEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionColorMatrixEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1338,7 +1338,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionColorMatrixEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionColorMatrixEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1358,7 +1358,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionColorMatrixEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionColorMatrixEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1431,7 +1431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionCompositeEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionCompositeEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1451,7 +1451,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionCompositeEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionCompositeEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1471,7 +1471,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionCompositeEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionCompositeEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1544,7 +1544,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionDelegatedInkTrail {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionDelegatedInkTrail {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1725,7 +1725,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionDesktopDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionDesktopDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1745,7 +1745,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for IDCompositionD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for &IDCompositionDesktopDevice {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for &'a IDCompositionDesktopDevice {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionDevice2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1932,7 +1932,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2133,7 +2133,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionDevice2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionDevice2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2384,7 +2384,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionDevice3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2404,7 +2404,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for IDCompositionD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for &IDCompositionDevice3 {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for &'a IDCompositionDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionDevice2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2475,7 +2475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionDeviceDebug {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionDeviceDebug {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2526,7 +2526,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2588,7 +2588,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionEffectGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionEffectGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2608,7 +2608,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionEf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionEffectGroup {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionEffectGroup {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2665,7 +2665,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionFilterEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionFilterEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2685,7 +2685,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionFi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionFilterEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionFilterEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2753,7 +2753,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionGaussianBlurEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionGaussianBlurEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2773,7 +2773,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionGa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionGaussianBlurEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionGaussianBlurEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2793,7 +2793,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionGaussianBlurEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionGaussianBlurEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2861,7 +2861,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionHueRotationEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionHueRotationEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2881,7 +2881,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionHu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionHueRotationEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionHueRotationEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2901,7 +2901,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionHueRotationEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionHueRotationEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2963,7 +2963,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionInkTrailDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionInkTrailDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3108,7 +3108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionLinearTransferEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionLinearTransferEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3128,7 +3128,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionLi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionLinearTransferEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionLinearTransferEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3148,7 +3148,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionLinearTransferEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionLinearTransferEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3247,7 +3247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionMatrixTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionMatrixTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3267,7 +3267,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionMa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionMatrixTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionMatrixTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3287,7 +3287,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionMatrixTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &'a IDCompositionMatrixTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3307,7 +3307,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionMatrixTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &'a IDCompositionMatrixTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3376,7 +3376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionMatrixTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionMatrixTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3396,7 +3396,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionMa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionMatrixTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionMatrixTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3416,7 +3416,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionMatrixTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &'a IDCompositionMatrixTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3568,7 +3568,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionRectangleClip {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionRectangleClip {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3588,7 +3588,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionClip> for IDCompositionRect
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionClip> for &IDCompositionRectangleClip {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionClip> for &'a IDCompositionRectangleClip {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionClip> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3686,7 +3686,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionRotateTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionRotateTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3706,7 +3706,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionRo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionRotateTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionRotateTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3726,7 +3726,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionRotateTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &'a IDCompositionRotateTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3746,7 +3746,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionRotateTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &'a IDCompositionRotateTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3858,7 +3858,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionRotateTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionRotateTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3878,7 +3878,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionRo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionRotateTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionRotateTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3898,7 +3898,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionRotateTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &'a IDCompositionRotateTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3974,7 +3974,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionSaturationEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionSaturationEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3994,7 +3994,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionSa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionSaturationEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionSaturationEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4014,7 +4014,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionSaturationEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionSaturationEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4098,7 +4098,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionScaleTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionScaleTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4118,7 +4118,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionSc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionScaleTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionScaleTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4138,7 +4138,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionScaleTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &'a IDCompositionScaleTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4158,7 +4158,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionScaleTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &'a IDCompositionScaleTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4264,7 +4264,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionScaleTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionScaleTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4284,7 +4284,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionSc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionScaleTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionScaleTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4304,7 +4304,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionScaleTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &'a IDCompositionScaleTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4415,7 +4415,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionShadowEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionShadowEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4435,7 +4435,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionSh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionShadowEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionShadowEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4455,7 +4455,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionShadowEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionShadowEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4551,7 +4551,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionSkewTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionSkewTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4571,7 +4571,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionSk
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionSkewTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionSkewTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4591,7 +4591,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionSkewTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &'a IDCompositionSkewTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4611,7 +4611,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionSkewTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &'a IDCompositionSkewTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4691,7 +4691,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionSurface {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionSurface {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4764,7 +4764,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionSurfaceFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionSurfaceFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4899,7 +4899,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTableTransferEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionTableTransferEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4919,7 +4919,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionTa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionTableTransferEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionTableTransferEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4939,7 +4939,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionTableTransferEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionTableTransferEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5025,7 +5025,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5075,7 +5075,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5095,7 +5095,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5115,7 +5115,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &'a IDCompositionTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5164,7 +5164,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5184,7 +5184,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5250,7 +5250,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTranslateTransform {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionTranslateTransform {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5270,7 +5270,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionTranslateTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionTranslateTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5290,7 +5290,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTranslateTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &'a IDCompositionTranslateTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5310,7 +5310,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionTranslateTransform {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &'a IDCompositionTranslateTransform {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5388,7 +5388,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTranslateTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionTranslateTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5408,7 +5408,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionTr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionTranslateTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionTranslateTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5428,7 +5428,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTranslateTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &'a IDCompositionTranslateTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5521,7 +5521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTurbulenceEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionTurbulenceEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5541,7 +5541,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionTu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionTurbulenceEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &'a IDCompositionTurbulenceEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5561,7 +5561,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionTurbulenceEffect {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &'a IDCompositionTurbulenceEffect {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5664,7 +5664,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionVirtualSurface {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionVirtualSurface {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5684,7 +5684,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionSurface> for IDCompositionV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionSurface> for &IDCompositionVirtualSurface {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionSurface> for &'a IDCompositionVirtualSurface {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionSurface> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5810,7 +5810,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionVisual {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionVisual {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5965,7 +5965,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionVisual2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionVisual2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5985,7 +5985,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for IDCompositionVi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for &IDCompositionVisual2 {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for &'a IDCompositionVisual2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6167,7 +6167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionVisual3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionVisual3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6187,7 +6187,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for IDCompositionVi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for &IDCompositionVisual3 {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for &'a IDCompositionVisual3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6207,7 +6207,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for IDCompositionV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for &IDCompositionVisual3 {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for &'a IDCompositionVisual3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6227,7 +6227,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisualDebug> for IDComposit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisualDebug> for &IDCompositionVisual3 {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisualDebug> for &'a IDCompositionVisual3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisualDebug> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6387,7 +6387,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionVisualDebug {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDCompositionVisualDebug {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6407,7 +6407,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for IDCompositionVi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for &IDCompositionVisualDebug {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for &'a IDCompositionVisualDebug {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6427,7 +6427,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for IDCompositionV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for &IDCompositionVisualDebug {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for &'a IDCompositionVisualDebug {
     fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

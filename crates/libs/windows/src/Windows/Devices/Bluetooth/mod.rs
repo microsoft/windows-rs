@@ -182,7 +182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothAdapter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothAdapter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -202,7 +202,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothAdapter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothAdapter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -379,7 +379,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothClassOfDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothClassOfDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -399,7 +399,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothClassOfDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothClassOfDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -763,7 +763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -783,7 +783,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -902,7 +902,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothDeviceId {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothDeviceId {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -922,7 +922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothDeviceId {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothDeviceId {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1064,7 +1064,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothLEAppearance {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothLEAppearance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1084,7 +1084,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothLEAppearance {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothLEAppearance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1539,7 +1539,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothLEConnectionParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothLEConnectionParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1559,7 +1559,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothLEConnectionParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothLEConnectionParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1632,7 +1632,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothLEConnectionPhy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothLEConnectionPhy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1652,7 +1652,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothLEConnectionPhy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothLEConnectionPhy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1733,7 +1733,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothLEConnectionPhyInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothLEConnectionPhyInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1753,7 +1753,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothLEConnectionPhyInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothLEConnectionPhyInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2143,7 +2143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothLEDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothLEDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2163,7 +2163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothLEDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothLEDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2304,7 +2304,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothLEPreferredConnectionParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothLEPreferredConnectionParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2324,7 +2324,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothLEPreferredConnectionParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothLEPreferredConnectionParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2395,7 +2395,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothLEPreferredConnectionParametersRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothLEPreferredConnectionParametersRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2415,7 +2415,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothLEPreferredConnectionParametersRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothLEPreferredConnectionParametersRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2816,7 +2816,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Bluetooth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BluetoothSignalStrengthFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BluetoothSignalStrengthFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2836,7 +2836,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bluet
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BluetoothSignalStrengthFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BluetoothSignalStrengthFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

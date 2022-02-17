@@ -105,7 +105,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CustomDev
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CustomDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CustomDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -125,7 +125,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Custo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CustomDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CustomDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -306,7 +306,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IIOContro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IIOControlCode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IIOControlCode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -326,7 +326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IIOCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IIOControlCode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IIOControlCode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -568,7 +568,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOControl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOControlCode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOControlCode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -588,7 +588,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IOCon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IOControlCode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IOControlCode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

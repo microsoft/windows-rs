@@ -313,7 +313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CurrencyF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CurrencyFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CurrencyFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -333,7 +333,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Curre
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CurrencyFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CurrencyFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -810,7 +810,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DecimalFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DecimalFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DecimalFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -830,7 +830,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Decim
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DecimalFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DecimalFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1116,7 +1116,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INumberFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1136,7 +1136,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumb
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INumberFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1220,7 +1220,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberFormatter2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INumberFormatter2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1240,7 +1240,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumb
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberFormatter2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INumberFormatter2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1398,7 +1398,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberFormatterOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INumberFormatterOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1418,7 +1418,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumb
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberFormatterOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INumberFormatterOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1519,7 +1519,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberPa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberParser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INumberParser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1539,7 +1539,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumb
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberParser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INumberParser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1656,7 +1656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberRo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberRounder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INumberRounder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1676,7 +1676,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumb
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberRounder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INumberRounder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1752,7 +1752,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberRo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberRounderOption {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INumberRounderOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1772,7 +1772,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumb
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberRounderOption {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INumberRounderOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1912,7 +1912,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISignedZe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISignedZeroOption {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISignedZeroOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1932,7 +1932,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISign
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISignedZeroOption {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISignedZeroOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2020,7 +2020,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISignific
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISignificantDigitsOption {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISignificantDigitsOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2040,7 +2040,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISign
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISignificantDigitsOption {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISignificantDigitsOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2210,7 +2210,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Increment
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IncrementNumberRounder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IncrementNumberRounder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2230,7 +2230,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Incre
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IncrementNumberRounder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IncrementNumberRounder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2367,7 +2367,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NumeralSy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NumeralSystemTranslator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NumeralSystemTranslator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2387,7 +2387,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Numer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NumeralSystemTranslator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NumeralSystemTranslator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2676,7 +2676,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PercentFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PercentFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PercentFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2696,7 +2696,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PercentFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PercentFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3139,7 +3139,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PermilleF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PermilleFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PermilleFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3159,7 +3159,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Permi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PermilleFormatter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PermilleFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3494,7 +3494,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Significa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SignificantDigitsNumberRounder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SignificantDigitsNumberRounder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3514,7 +3514,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Signi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SignificantDigitsNumberRounder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SignificantDigitsNumberRounder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

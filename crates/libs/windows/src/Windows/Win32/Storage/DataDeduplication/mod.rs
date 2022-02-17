@@ -527,7 +527,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDedupBac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDedupBackupSupport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDedupBackupSupport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -599,7 +599,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDedupChu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDedupChunkLibrary {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDedupChunkLibrary {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -717,7 +717,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDedupDat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDedupDataPort {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDedupDataPort {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -810,7 +810,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDedupDat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDedupDataPortManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDedupDataPortManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -885,7 +885,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDedupIte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDedupIterateChunksHash32 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDedupIterateChunksHash32 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -954,7 +954,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDedupRea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDedupReadFileCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDedupReadFileCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

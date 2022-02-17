@@ -125,7 +125,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IObjectAr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IObjectArray {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IObjectArray {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -203,7 +203,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IObjectCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IObjectCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IObjectCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -223,7 +223,7 @@ impl<'a> ::windows::core::IntoParam<'a, IObjectArray> for IObjectCollection {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IObjectArray> for &IObjectCollection {
+impl<'a> ::windows::core::IntoParam<'a, IObjectArray> for &'a IObjectCollection {
     fn into_param(self) -> ::windows::core::Param<'a, IObjectArray> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

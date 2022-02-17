@@ -82,7 +82,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQAppl
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQApplication {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQApplication {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -106,7 +106,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQApplicat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQApplication {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQApplication {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -237,7 +237,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQAppl
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQApplication2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQApplication2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -261,7 +261,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQApplicat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQApplication2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQApplication2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -285,7 +285,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication> for IMSMQApplication2 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication> for &IMSMQApplication2 {
+impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication> for &'a IMSMQApplication2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMSMQApplication> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -480,7 +480,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQAppl
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQApplication3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQApplication3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -504,7 +504,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQApplicat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQApplication3 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQApplication3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -528,7 +528,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication> for IMSMQApplication3 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication> for &IMSMQApplication3 {
+impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication> for &'a IMSMQApplication3 {
     fn into_param(self) -> ::windows::core::Param<'a, IMSMQApplication> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -552,7 +552,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication2> for IMSMQApplication3
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication2> for &IMSMQApplication3 {
+impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication2> for &'a IMSMQApplication3 {
     fn into_param(self) -> ::windows::core::Param<'a, IMSMQApplication2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -680,7 +680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQColl
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -704,7 +704,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQCollecti
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQCollection {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -800,7 +800,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQCoor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQCoordinatedTransactionDispenser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQCoordinatedTransactionDispenser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -824,7 +824,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQCoordina
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQCoordinatedTransactionDispenser {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQCoordinatedTransactionDispenser {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -924,7 +924,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQCoor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQCoordinatedTransactionDispenser2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQCoordinatedTransactionDispenser2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -948,7 +948,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQCoordina
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQCoordinatedTransactionDispenser2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQCoordinatedTransactionDispenser2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1052,7 +1052,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQCoor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQCoordinatedTransactionDispenser3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQCoordinatedTransactionDispenser3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1076,7 +1076,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQCoordina
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQCoordinatedTransactionDispenser3 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQCoordinatedTransactionDispenser3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1242,7 +1242,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQDest
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQDestination {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQDestination {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1266,7 +1266,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQDestinat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQDestination {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQDestination {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1397,7 +1397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQEven
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1421,7 +1421,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1511,7 +1511,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQEven
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1535,7 +1535,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1559,7 +1559,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent> for IMSMQEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent> for &IMSMQEvent2 {
+impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent> for &'a IMSMQEvent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMSMQEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1653,7 +1653,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQEven
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQEvent3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQEvent3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1677,7 +1677,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQEvent3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQEvent3 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQEvent3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1701,7 +1701,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent> for IMSMQEvent3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent> for &IMSMQEvent3 {
+impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent> for &'a IMSMQEvent3 {
     fn into_param(self) -> ::windows::core::Param<'a, IMSMQEvent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1725,7 +1725,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent2> for IMSMQEvent3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent2> for &IMSMQEvent3 {
+impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent2> for &'a IMSMQEvent3 {
     fn into_param(self) -> ::windows::core::Param<'a, IMSMQEvent2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1857,7 +1857,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQMana
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQManagement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQManagement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1881,7 +1881,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQManageme
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQManagement {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQManagement {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2229,7 +2229,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQMess
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQMessage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQMessage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2253,7 +2253,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQMessage 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQMessage {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQMessage {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2824,7 +2824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQMess
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQMessage2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQMessage2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2848,7 +2848,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQMessage2
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQMessage2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQMessage2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3585,7 +3585,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQMess
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQMessage3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQMessage3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3609,7 +3609,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQMessage3
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQMessage3 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQMessage3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4398,7 +4398,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQMess
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQMessage4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQMessage4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4422,7 +4422,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQMessage4
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQMessage4 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQMessage4 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4821,7 +4821,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQOutg
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQOutgoingQueueManagement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQOutgoingQueueManagement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4845,7 +4845,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQOutgoing
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQOutgoingQueueManagement {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQOutgoingQueueManagement {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4869,7 +4869,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMSMQManagement> for IMSMQOutgoingQueueM
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQManagement> for &IMSMQOutgoingQueueManagement {
+impl<'a> ::windows::core::IntoParam<'a, IMSMQManagement> for &'a IMSMQOutgoingQueueManagement {
     fn into_param(self) -> ::windows::core::Param<'a, IMSMQManagement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4976,7 +4976,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQPriv
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQPrivateDestination {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQPrivateDestination {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5000,7 +5000,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQPrivateD
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQPrivateDestination {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQPrivateDestination {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5107,7 +5107,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQPriv
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQPrivateEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQPrivateEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5131,7 +5131,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQPrivateE
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQPrivateEvent {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQPrivateEvent {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5230,7 +5230,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQuer
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQuery {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5254,7 +5254,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQuery {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQuery {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQuery {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5354,7 +5354,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQuer
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQuery2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQuery2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5378,7 +5378,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQuery2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQuery2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQuery2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5503,7 +5503,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQuer
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQuery3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQuery3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5527,7 +5527,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQuery3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQuery3 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQuery3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5656,7 +5656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQuer
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQuery4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQuery4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5680,7 +5680,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQuery4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQuery4 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQuery4 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5845,7 +5845,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5869,7 +5869,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueue {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueue {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueue {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6092,7 +6092,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueue2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueue2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6116,7 +6116,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueue2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueue2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueue2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6438,7 +6438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueue3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueue3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6462,7 +6462,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueue3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueue3 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueue3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6836,7 +6836,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueue4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueue4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6860,7 +6860,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueue4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueue4 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueue4 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7201,7 +7201,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueueInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7225,7 +7225,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInf
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueueInfo {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfo {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7550,7 +7550,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueueInfo2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfo2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7574,7 +7574,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInf
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueueInfo2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfo2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7942,7 +7942,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueueInfo3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfo3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7966,7 +7966,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInf
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueueInfo3 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfo3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8348,7 +8348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueueInfo4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfo4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8372,7 +8372,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInf
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueueInfo4 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfo4 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8565,7 +8565,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueueInfos {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfos {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8589,7 +8589,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInf
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueueInfos {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfos {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8694,7 +8694,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueueInfos2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfos2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8718,7 +8718,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInf
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueueInfos2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfos2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8827,7 +8827,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueueInfos3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfos3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8851,7 +8851,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInf
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueueInfos3 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfos3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8960,7 +8960,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueueInfos4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfos4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8984,7 +8984,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInf
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueueInfos4 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfos4 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9142,7 +9142,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueu
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQQueueManagement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueManagement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9166,7 +9166,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueMan
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQQueueManagement {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueManagement {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9190,7 +9190,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMSMQManagement> for IMSMQQueueManagemen
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQManagement> for &IMSMQQueueManagement {
+impl<'a> ::windows::core::IntoParam<'a, IMSMQManagement> for &'a IMSMQQueueManagement {
     fn into_param(self) -> ::windows::core::Param<'a, IMSMQManagement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9298,7 +9298,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTran
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQTransaction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransaction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9322,7 +9322,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransact
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQTransaction {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransaction {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9441,7 +9441,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTran
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQTransaction2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransaction2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9465,7 +9465,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransact
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQTransaction2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransaction2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9489,7 +9489,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction> for IMSMQTransaction2 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction> for &IMSMQTransaction2 {
+impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction> for &'a IMSMQTransaction2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMSMQTransaction> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9613,7 +9613,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTran
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQTransaction3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransaction3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9637,7 +9637,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransact
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQTransaction3 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransaction3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9661,7 +9661,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction> for IMSMQTransaction3 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction> for &IMSMQTransaction3 {
+impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction> for &'a IMSMQTransaction3 {
     fn into_param(self) -> ::windows::core::Param<'a, IMSMQTransaction> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9685,7 +9685,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction2> for IMSMQTransaction3
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction2> for &IMSMQTransaction3 {
+impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction2> for &'a IMSMQTransaction3 {
     fn into_param(self) -> ::windows::core::Param<'a, IMSMQTransaction2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9779,7 +9779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTran
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQTransactionDispenser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransactionDispenser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9803,7 +9803,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransact
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQTransactionDispenser {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransactionDispenser {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9903,7 +9903,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTran
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQTransactionDispenser2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransactionDispenser2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9927,7 +9927,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransact
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQTransactionDispenser2 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransactionDispenser2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10031,7 +10031,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTran
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSMQTransactionDispenser3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransactionDispenser3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10055,7 +10055,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransact
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &IMSMQTransactionDispenser3 {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransactionDispenser3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11854,7 +11854,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _DMSMQEve
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &_DMSMQEventEvents {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _DMSMQEventEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11878,7 +11878,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for _DMSMQEventEv
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &_DMSMQEventEvents {
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a _DMSMQEventEvents {
     fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

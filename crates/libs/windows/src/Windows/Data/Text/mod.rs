@@ -110,7 +110,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Alternate
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AlternateWordForm {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AlternateWordForm {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -130,7 +130,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Alter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AlternateWordForm {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AlternateWordForm {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -542,7 +542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Selectabl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SelectableWordSegment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SelectableWordSegment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -562,7 +562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Selec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SelectableWordSegment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SelectableWordSegment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -759,7 +759,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Selectabl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SelectableWordsSegmenter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SelectableWordsSegmenter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -779,7 +779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Selec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SelectableWordsSegmenter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SelectableWordsSegmenter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -873,7 +873,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SemanticT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SemanticTextQuery {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SemanticTextQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -893,7 +893,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Seman
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SemanticTextQuery {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SemanticTextQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -996,7 +996,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TextConve
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TextConversionGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TextConversionGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1016,7 +1016,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TextConversionGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TextConversionGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1089,7 +1089,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TextPhone
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TextPhoneme {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TextPhoneme {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1109,7 +1109,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TextPhoneme {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TextPhoneme {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1245,7 +1245,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TextPredi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TextPredictionGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TextPredictionGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1265,7 +1265,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TextPredictionGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TextPredictionGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1431,7 +1431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TextRever
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TextReverseConversionGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TextReverseConversionGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1451,7 +1451,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TextReverseConversionGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TextReverseConversionGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1797,7 +1797,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WordSegme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WordSegment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WordSegment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1817,7 +1817,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WordS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WordSegment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WordSegment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2014,7 +2014,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WordsSegm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WordsSegmenter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WordsSegmenter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2034,7 +2034,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Words
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WordsSegmenter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WordsSegmenter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

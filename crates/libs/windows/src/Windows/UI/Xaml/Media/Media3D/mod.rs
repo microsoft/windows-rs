@@ -301,7 +301,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Composite
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CompositeTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompositeTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -321,7 +321,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Compo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CompositeTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompositeTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -665,7 +665,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Matrix3DH
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Matrix3DHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Matrix3DHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -685,7 +685,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Matri
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Matrix3DHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Matrix3DHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -814,7 +814,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perspecti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerspectiveTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerspectiveTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -834,7 +834,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Persp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerspectiveTransform3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerspectiveTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -930,7 +930,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Transform
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Transform3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Transform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -950,7 +950,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Trans
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Transform3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Transform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

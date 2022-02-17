@@ -111,7 +111,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContentRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ContentRestrictionsBrowsePolicy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContentRestrictionsBrowsePolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -131,7 +131,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ContentRestrictionsBrowsePolicy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContentRestrictionsBrowsePolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -420,7 +420,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RatedCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RatedContentDescription {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RatedContentDescription {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -440,7 +440,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Rated
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RatedContentDescription {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RatedContentDescription {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -558,7 +558,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RatedCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RatedContentRestrictions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RatedContentRestrictions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -578,7 +578,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Rated
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RatedContentRestrictions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RatedContentRestrictions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

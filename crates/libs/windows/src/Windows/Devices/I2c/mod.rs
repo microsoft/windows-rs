@@ -136,7 +136,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for I2cConnec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &I2cConnectionSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a I2cConnectionSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -156,7 +156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for I2cCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &I2cConnectionSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I2cConnectionSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -242,7 +242,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for I2cContro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &I2cController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a I2cController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -262,7 +262,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for I2cCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &I2cController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I2cController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -407,7 +407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for I2cDevice
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &I2cDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a I2cDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -427,7 +427,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for I2cDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &I2cDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I2cDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -698,7 +698,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for II2cDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &II2cDeviceStatics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a II2cDeviceStatics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -718,7 +718,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for II2cD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &II2cDeviceStatics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a II2cDeviceStatics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -136,7 +136,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebUICom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebUICommandBarElement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebUICommandBarElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -156,7 +156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebUICommandBarElement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWebUICommandBarElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -212,7 +212,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebUICom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebUICommandBarIcon {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebUICommandBarIcon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -232,7 +232,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebUICommandBarIcon {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWebUICommandBarIcon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -826,7 +826,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIComm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUICommandBar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUICommandBar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -846,7 +846,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUICommandBar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUICommandBar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -938,7 +938,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIComm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUICommandBarBitmapIcon {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUICommandBarBitmapIcon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -958,7 +958,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUICommandBarBitmapIcon {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUICommandBarBitmapIcon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1107,7 +1107,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIComm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUICommandBarConfirmationButton {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUICommandBarConfirmationButton {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1127,7 +1127,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUICommandBarConfirmationButton {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUICommandBarConfirmationButton {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1293,7 +1293,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIComm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUICommandBarIconButton {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUICommandBarIconButton {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1313,7 +1313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUICommandBarIconButton {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUICommandBarIconButton {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1400,7 +1400,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIComm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUICommandBarItemInvokedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUICommandBarItemInvokedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1420,7 +1420,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUICommandBarItemInvokedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUICommandBarItemInvokedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1486,7 +1486,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIComm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUICommandBarSizeChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUICommandBarSizeChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1506,7 +1506,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUICommandBarSizeChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUICommandBarSizeChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1595,7 +1595,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebUIComm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebUICommandBarSymbolIcon {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebUICommandBarSymbolIcon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1615,7 +1615,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebUICommandBarSymbolIcon {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebUICommandBarSymbolIcon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

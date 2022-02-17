@@ -45,7 +45,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWPCGames
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWPCGamesSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWPCGamesSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -65,7 +65,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWPCSettings> for IWPCGamesSettings {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWPCSettings> for &IWPCGamesSettings {
+impl<'a> ::windows::core::IntoParam<'a, IWPCSettings> for &'a IWPCGamesSettings {
     fn into_param(self) -> ::windows::core::Param<'a, IWPCSettings> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -132,7 +132,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWPCProvi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWPCProviderConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWPCProviderConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -202,7 +202,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWPCProvi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWPCProviderState {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWPCProviderState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -259,7 +259,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWPCProvi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWPCProviderSupport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWPCProviderSupport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -327,7 +327,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWPCSetti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWPCSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWPCSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -414,7 +414,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWPCWebSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWPCWebSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWPCWebSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -434,7 +434,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWPCSettings> for IWPCWebSettings {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWPCSettings> for &IWPCWebSettings {
+impl<'a> ::windows::core::IntoParam<'a, IWPCSettings> for &'a IWPCWebSettings {
     fn into_param(self) -> ::windows::core::Param<'a, IWPCSettings> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -517,7 +517,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWindowsParentalControls {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsParentalControls {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -537,7 +537,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWindowsParentalControlsCore> for IWindo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWindowsParentalControlsCore> for &IWindowsParentalControls {
+impl<'a> ::windows::core::IntoParam<'a, IWindowsParentalControlsCore> for &'a IWindowsParentalControls {
     fn into_param(self) -> ::windows::core::Param<'a, IWindowsParentalControlsCore> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -613,7 +613,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWindowsParentalControlsCore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsParentalControlsCore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

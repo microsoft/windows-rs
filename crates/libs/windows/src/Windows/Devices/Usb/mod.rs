@@ -651,7 +651,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbBulkIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbBulkInEndpointDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbBulkInEndpointDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -671,7 +671,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbBu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbBulkInEndpointDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbBulkInEndpointDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -780,7 +780,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbBulkIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbBulkInPipe {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbBulkInPipe {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -800,7 +800,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbBu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbBulkInPipe {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbBulkInPipe {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -881,7 +881,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbBulkOu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbBulkOutEndpointDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbBulkOutEndpointDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -901,7 +901,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbBu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbBulkOutEndpointDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbBulkOutEndpointDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -997,7 +997,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbBulkOu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbBulkOutPipe {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbBulkOutPipe {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1017,7 +1017,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbBu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbBulkOutPipe {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbBulkOutPipe {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1100,7 +1100,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbConfig
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1120,7 +1120,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1228,7 +1228,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbConfig
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbConfigurationDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbConfigurationDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1248,7 +1248,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbConfigurationDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbConfigurationDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1401,7 +1401,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbContro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbControlRequestType {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbControlRequestType {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1421,7 +1421,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbControlRequestType {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbControlRequestType {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1535,7 +1535,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbDescri
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1555,7 +1555,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1719,7 +1719,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbDevice
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1739,7 +1739,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1872,7 +1872,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbDevice
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbDeviceClass {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbDeviceClass {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1892,7 +1892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbDeviceClass {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbDeviceClass {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2017,7 +2017,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbDevice
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbDeviceClasses {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbDeviceClasses {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2037,7 +2037,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbDeviceClasses {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbDeviceClasses {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2142,7 +2142,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbDevice
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbDeviceDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbDeviceDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2162,7 +2162,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbDeviceDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbDeviceDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2294,7 +2294,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbEndpoi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbEndpointDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbEndpointDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2314,7 +2314,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbEn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbEndpointDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbEndpointDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2469,7 +2469,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbInterface {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterface {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2489,7 +2489,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbInterface {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterface {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2605,7 +2605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbInterfaceDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterfaceDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2625,7 +2625,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbInterfaceDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterfaceDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2752,7 +2752,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbInterfaceSetting {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterfaceSetting {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2772,7 +2772,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbInterfaceSetting {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterfaceSetting {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2862,7 +2862,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbInterruptInEndpointDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterruptInEndpointDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2882,7 +2882,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbInterruptInEndpointDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterruptInEndpointDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2948,7 +2948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbInterruptInEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterruptInEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2968,7 +2968,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbInterruptInEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterruptInEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3057,7 +3057,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbInterruptInPipe {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterruptInPipe {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3077,7 +3077,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbInterruptInPipe {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterruptInPipe {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3167,7 +3167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbInterruptOutEndpointDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterruptOutEndpointDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3187,7 +3187,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbInterruptOutEndpointDescriptor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterruptOutEndpointDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3283,7 +3283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbInterruptOutPipe {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterruptOutPipe {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3303,7 +3303,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbInterruptOutPipe {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterruptOutPipe {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3510,7 +3510,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbSetupP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UsbSetupPacket {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbSetupPacket {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3530,7 +3530,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbSetupPacket {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbSetupPacket {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

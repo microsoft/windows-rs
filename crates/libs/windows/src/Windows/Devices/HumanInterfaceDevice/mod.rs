@@ -94,7 +94,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidBoolea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HidBooleanControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidBooleanControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -114,7 +114,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidBo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidBooleanControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidBooleanControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -228,7 +228,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidBoolea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HidBooleanControlDescription {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidBooleanControlDescription {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -248,7 +248,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidBo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidBooleanControlDescription {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidBooleanControlDescription {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -337,7 +337,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidCollec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HidCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -357,7 +357,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -646,7 +646,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidDevice
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HidDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -666,7 +666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -804,7 +804,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidFeatur
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HidFeatureReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidFeatureReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -824,7 +824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidFe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidFeatureReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidFeatureReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -948,7 +948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidInputR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HidInputReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidInputReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -968,7 +968,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidInputReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidInputReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1033,7 +1033,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidInputR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HidInputReportReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidInputReportReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1053,7 +1053,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidInputReportReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidInputReportReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1176,7 +1176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidNumeri
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HidNumericControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidNumericControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1196,7 +1196,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidNu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidNumericControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidNumericControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1382,7 +1382,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidNumeri
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HidNumericControlDescription {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidNumericControlDescription {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1402,7 +1402,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidNu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidNumericControlDescription {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidNumericControlDescription {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1514,7 +1514,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HidOutput
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HidOutputReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HidOutputReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1534,7 +1534,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HidOu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidOutputReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HidOutputReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

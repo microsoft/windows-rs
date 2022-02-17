@@ -82,7 +82,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11On1
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11On12Device {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D11On12Device {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -164,7 +164,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11On1
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11On12Device1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D11On12Device1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -184,7 +184,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11On12Device> for ID3D11On12Device1 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11On12Device> for &ID3D11On12Device1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11On12Device> for &'a ID3D11On12Device1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D11On12Device> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -266,7 +266,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11On1
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11On12Device2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D11On12Device2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -286,7 +286,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11On12Device> for ID3D11On12Device2 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11On12Device> for &ID3D11On12Device2 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11On12Device> for &'a ID3D11On12Device2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D11On12Device> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -306,7 +306,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11On12Device1> for ID3D11On12Device2
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11On12Device1> for &ID3D11On12Device2 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11On12Device1> for &'a ID3D11On12Device2 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D11On12Device1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -543,7 +543,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WalletBar
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WalletBarcode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WalletBarcode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -563,7 +563,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Walle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WalletBarcode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WalletBarcode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1102,7 +1102,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WalletIte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WalletItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WalletItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1122,7 +1122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Walle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WalletItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WalletItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1256,7 +1256,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WalletIte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WalletItemCustomProperty {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WalletItemCustomProperty {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1276,7 +1276,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Walle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WalletItemCustomProperty {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WalletItemCustomProperty {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1462,7 +1462,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WalletIte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WalletItemStore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WalletItemStore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1482,7 +1482,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Walle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WalletItemStore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WalletItemStore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1594,7 +1594,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WalletRel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WalletRelevantLocation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WalletRelevantLocation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1614,7 +1614,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Walle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WalletRelevantLocation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WalletRelevantLocation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1793,7 +1793,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WalletTra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WalletTransaction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WalletTransaction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1813,7 +1813,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Walle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WalletTransaction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WalletTransaction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1895,7 +1895,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WalletVer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WalletVerb {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WalletVerb {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1915,7 +1915,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Walle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WalletVerb {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WalletVerb {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

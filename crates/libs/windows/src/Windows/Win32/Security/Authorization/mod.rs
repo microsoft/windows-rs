@@ -4225,7 +4225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzApplic
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzApplication {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzApplication {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4249,7 +4249,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzApplication {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzApplication {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4927,7 +4927,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzApplic
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzApplication2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzApplication2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4951,7 +4951,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzApplication2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzApplication2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4975,7 +4975,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzApplication> for IAzApplication2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzApplication> for &IAzApplication2 {
+impl<'a> ::windows::core::IntoParam<'a, IAzApplication> for &'a IAzApplication2 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzApplication> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5495,7 +5495,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzApplic
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzApplication3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzApplication3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5519,7 +5519,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzApplication3 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzApplication3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5543,7 +5543,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzApplication> for IAzApplication3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzApplication> for &IAzApplication3 {
+impl<'a> ::windows::core::IntoParam<'a, IAzApplication> for &'a IAzApplication3 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzApplication> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5567,7 +5567,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzApplication2> for IAzApplication3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzApplication2> for &IAzApplication3 {
+impl<'a> ::windows::core::IntoParam<'a, IAzApplication2> for &'a IAzApplication3 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzApplication2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5871,7 +5871,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzApplic
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzApplicationGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzApplicationGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5895,7 +5895,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzApplicationGroup {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzApplicationGroup {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6310,7 +6310,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzApplic
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzApplicationGroup2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzApplicationGroup2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6334,7 +6334,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzApplicationGroup2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzApplicationGroup2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6358,7 +6358,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzApplicationGroup> for IAzApplicationG
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzApplicationGroup> for &IAzApplicationGroup2 {
+impl<'a> ::windows::core::IntoParam<'a, IAzApplicationGroup> for &'a IAzApplicationGroup2 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzApplicationGroup> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6486,7 +6486,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzApplic
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzApplicationGroups {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzApplicationGroups {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6510,7 +6510,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzApplicationGroups {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzApplicationGroups {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6616,7 +6616,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzApplic
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzApplications {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzApplications {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6640,7 +6640,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzApplications {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzApplications {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7001,7 +7001,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzAuthor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzAuthorizationStore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzAuthorizationStore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7025,7 +7025,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzAuthorizationStore {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzAuthorizationStore {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7578,7 +7578,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzAuthor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzAuthorizationStore2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzAuthorizationStore2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7602,7 +7602,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzAuthorizationStore2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzAuthorizationStore2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7626,7 +7626,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzAuthorizationStore> for IAzAuthorizat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzAuthorizationStore> for &IAzAuthorizationStore2 {
+impl<'a> ::windows::core::IntoParam<'a, IAzAuthorizationStore> for &'a IAzAuthorizationStore2 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzAuthorizationStore> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8024,7 +8024,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzAuthor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzAuthorizationStore3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzAuthorizationStore3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8048,7 +8048,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzAuthorizationStore3 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzAuthorizationStore3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8072,7 +8072,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzAuthorizationStore> for IAzAuthorizat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzAuthorizationStore> for &IAzAuthorizationStore3 {
+impl<'a> ::windows::core::IntoParam<'a, IAzAuthorizationStore> for &'a IAzAuthorizationStore3 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzAuthorizationStore> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8096,7 +8096,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzAuthorizationStore2> for IAzAuthoriza
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzAuthorizationStore2> for &IAzAuthorizationStore3 {
+impl<'a> ::windows::core::IntoParam<'a, IAzAuthorizationStore2> for &'a IAzAuthorizationStore3 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzAuthorizationStore2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8207,7 +8207,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzBizRul
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzBizRuleContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzBizRuleContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8231,7 +8231,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzBizRuleContext {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzBizRuleContext {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8360,7 +8360,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzBizRul
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzBizRuleInterfaces {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzBizRuleInterfaces {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8384,7 +8384,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzBizRuleInterfaces {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzBizRuleInterfaces {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8516,7 +8516,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzBizRul
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzBizRuleParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzBizRuleParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8540,7 +8540,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzBizRuleParameters {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzBizRuleParameters {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8729,7 +8729,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzClient
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzClientContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzClientContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8753,7 +8753,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzClientContext {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzClientContext {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9007,7 +9007,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzClient
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzClientContext2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzClientContext2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9031,7 +9031,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzClientContext2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzClientContext2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9055,7 +9055,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzClientContext> for IAzClientContext2 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzClientContext> for &IAzClientContext2 {
+impl<'a> ::windows::core::IntoParam<'a, IAzClientContext> for &'a IAzClientContext2 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzClientContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9329,7 +9329,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzClient
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzClientContext3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzClientContext3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9353,7 +9353,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzClientContext3 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzClientContext3 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9377,7 +9377,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzClientContext> for IAzClientContext3 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzClientContext> for &IAzClientContext3 {
+impl<'a> ::windows::core::IntoParam<'a, IAzClientContext> for &'a IAzClientContext3 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzClientContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9401,7 +9401,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzClientContext2> for IAzClientContext3
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzClientContext2> for &IAzClientContext3 {
+impl<'a> ::windows::core::IntoParam<'a, IAzClientContext2> for &'a IAzClientContext3 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzClientContext2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9527,7 +9527,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzNameRe
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzNameResolver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzNameResolver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9551,7 +9551,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzNameResolver {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzNameResolver {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9654,7 +9654,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzObject
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzObjectPicker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzObjectPicker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9678,7 +9678,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzObjectPicker {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzObjectPicker {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9834,7 +9834,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzOperat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9858,7 +9858,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzOperation {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10054,7 +10054,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzOperat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzOperation2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzOperation2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10078,7 +10078,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzOperation2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzOperation2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10102,7 +10102,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzOperation> for IAzOperation2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzOperation> for &IAzOperation2 {
+impl<'a> ::windows::core::IntoParam<'a, IAzOperation> for &'a IAzOperation2 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzOperation> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10206,7 +10206,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzOperat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzOperations {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzOperations {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10230,7 +10230,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzOperations {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzOperations {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10332,7 +10332,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzPrinci
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzPrincipalLocator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzPrincipalLocator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10356,7 +10356,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzPrincipalLocator {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzPrincipalLocator {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10593,7 +10593,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzRole {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzRole {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzRole {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10617,7 +10617,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzRole {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzRole {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10976,7 +10976,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzRoleAs
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzRoleAssignment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzRoleAssignment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11000,7 +11000,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzRoleAssignment {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzRoleAssignment {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11024,7 +11024,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzRole> for IAzRoleAssignment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzRole> for &IAzRoleAssignment {
+impl<'a> ::windows::core::IntoParam<'a, IAzRole> for &'a IAzRoleAssignment {
     fn into_param(self) -> ::windows::core::Param<'a, IAzRole> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11140,7 +11140,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzRoleAs
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzRoleAssignments {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzRoleAssignments {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11164,7 +11164,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzRoleAssignments {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzRoleAssignments {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11417,7 +11417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzRoleDe
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzRoleDefinition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzRoleDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11441,7 +11441,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzRoleDefinition {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzRoleDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11465,7 +11465,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzTask> for IAzRoleDefinition {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzTask> for &IAzRoleDefinition {
+impl<'a> ::windows::core::IntoParam<'a, IAzTask> for &'a IAzRoleDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, IAzTask> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11581,7 +11581,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzRoleDe
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzRoleDefinitions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzRoleDefinitions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11605,7 +11605,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzRoleDefinitions {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzRoleDefinitions {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11711,7 +11711,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzRoles 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzRoles {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzRoles {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11735,7 +11735,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzRoles {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzRoles {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12035,7 +12035,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzScope 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzScope {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzScope {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12059,7 +12059,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzScope {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzScope {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12551,7 +12551,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzScope2
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzScope2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzScope2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12575,7 +12575,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzScope2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzScope2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12599,7 +12599,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzScope> for IAzScope2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzScope> for &IAzScope2 {
+impl<'a> ::windows::core::IntoParam<'a, IAzScope> for &'a IAzScope2 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzScope> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12731,7 +12731,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzScopes
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzScopes {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzScopes {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12755,7 +12755,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzScopes {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzScopes {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12986,7 +12986,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzTask {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzTask {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzTask {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13010,7 +13010,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzTask {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzTask {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13345,7 +13345,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzTask2 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzTask2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzTask2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13369,7 +13369,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzTask2 {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzTask2 {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13393,7 +13393,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAzTask> for IAzTask2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAzTask> for &IAzTask2 {
+impl<'a> ::windows::core::IntoParam<'a, IAzTask> for &'a IAzTask2 {
     fn into_param(self) -> ::windows::core::Param<'a, IAzTask> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13497,7 +13497,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAzTasks 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAzTasks {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAzTasks {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13521,7 +13521,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAzTasks {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IAzTasks {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -168,7 +168,7 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
                 }
             }
             #cfg
-            impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
+            impl<'a> ::windows::core::IntoParam<'a, #into> for &'a #name {
                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
                     ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
                 }

@@ -373,7 +373,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearning
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ILearningModelVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -397,7 +397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILear
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ILearningModelVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -656,7 +656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ImageVari
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ImageVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ImageVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -680,7 +680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Image
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ImageVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ImageVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -849,7 +849,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Inferenci
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InferencingOptionsPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InferencingOptionsPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -873,7 +873,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Infer
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InferencingOptionsPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InferencingOptionsPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1031,7 +1031,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningM
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LearningModelBindingPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelBindingPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1055,7 +1055,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Learn
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LearningModelBindingPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelBindingPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1247,7 +1247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningM
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LearningModelDescriptionPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelDescriptionPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1271,7 +1271,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Learn
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LearningModelDescriptionPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelDescriptionPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1403,7 +1403,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningM
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LearningModelEvaluationResultPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelEvaluationResultPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1427,7 +1427,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Learn
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LearningModelEvaluationResultPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelEvaluationResultPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1604,7 +1604,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningM
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LearningModelPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1628,7 +1628,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Learn
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LearningModelPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1732,7 +1732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningM
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LearningModelVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1756,7 +1756,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Learn
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LearningModelVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1922,7 +1922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapVariab
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MapVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1946,7 +1946,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapVa
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2085,7 +2085,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SequenceV
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SequenceVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SequenceVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2109,7 +2109,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Seque
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SequenceVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SequenceVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2257,7 +2257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorVar
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TensorVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2281,7 +2281,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Tenso
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TensorVariableDescriptorPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorVariableDescriptorPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

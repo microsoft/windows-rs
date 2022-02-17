@@ -167,7 +167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioDevi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioDeviceInputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioDeviceInputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -187,7 +187,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioDeviceInputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioDeviceInputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -472,7 +472,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioDevi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioDeviceOutputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioDeviceOutputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -492,7 +492,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioDeviceOutputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioDeviceOutputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -834,7 +834,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioFile
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioFileInputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioFileInputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -854,7 +854,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioFileInputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioFileInputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1144,7 +1144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioFile
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioFileOutputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioFileOutputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1164,7 +1164,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioFileOutputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioFileOutputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1277,7 +1277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioFrameCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioFrameCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1297,7 +1297,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioFrameCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioFrameCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1524,7 +1524,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioFrameInputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioFrameInputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1544,7 +1544,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioFrameInputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioFrameInputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1778,7 +1778,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioFrameOutputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioFrameOutputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1798,7 +1798,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioFrameOutputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioFrameOutputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2209,7 +2209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioGrap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioGraph {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioGraph {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2229,7 +2229,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioGraph {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioGraph {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2331,7 +2331,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioGrap
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioGraphBatchUpdater {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioGraphBatchUpdater {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2355,7 +2355,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioGraphBatchUpdater {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioGraphBatchUpdater {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2461,7 +2461,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioGrap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioGraphConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioGraphConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2481,7 +2481,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioGraphConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioGraphConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2684,7 +2684,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioGrap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioGraphSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioGraphSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2704,7 +2704,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioGraphSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioGraphSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2805,7 +2805,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioGrap
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioGraphUnrecoverableErrorOccurredEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioGraphUnrecoverableErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2825,7 +2825,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioGraphUnrecoverableErrorOccurredEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioGraphUnrecoverableErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3022,7 +3022,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioNode
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioNodeEmitter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioNodeEmitter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3042,7 +3042,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioNodeEmitter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioNodeEmitter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3123,7 +3123,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioNode
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioNodeEmitterConeProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioNodeEmitterConeProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3143,7 +3143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioNodeEmitterConeProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioNodeEmitterConeProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3285,7 +3285,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioNode
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioNodeEmitterDecayModel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioNodeEmitterDecayModel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3305,7 +3305,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioNodeEmitterDecayModel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioNodeEmitterDecayModel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3378,7 +3378,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioNode
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioNodeEmitterNaturalDecayModelProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioNodeEmitterNaturalDecayModelProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3398,7 +3398,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioNodeEmitterNaturalDecayModelProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioNodeEmitterNaturalDecayModelProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3552,7 +3552,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioNode
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioNodeEmitterShape {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioNodeEmitterShape {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3572,7 +3572,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioNodeEmitterShape {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioNodeEmitterShape {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3728,7 +3728,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioNode
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioNodeListener {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioNodeListener {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3748,7 +3748,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioNodeListener {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioNodeListener {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3892,7 +3892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioPlay
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioPlaybackConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioPlaybackConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3912,7 +3912,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioPlaybackConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioPlaybackConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4011,7 +4011,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioPlay
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioPlaybackConnectionOpenResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioPlaybackConnectionOpenResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4031,7 +4031,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioPlaybackConnectionOpenResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioPlaybackConnectionOpenResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4248,7 +4248,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioStat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioStateMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioStateMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4268,7 +4268,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioStateMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioStateMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4434,7 +4434,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioSubm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioSubmixNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioSubmixNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4454,7 +4454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioSubmixNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioSubmixNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4627,7 +4627,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CreateAud
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CreateAudioDeviceInputNodeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CreateAudioDeviceInputNodeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4647,7 +4647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Creat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CreateAudioDeviceInputNodeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CreateAudioDeviceInputNodeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4728,7 +4728,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CreateAud
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CreateAudioDeviceOutputNodeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CreateAudioDeviceOutputNodeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4748,7 +4748,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Creat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CreateAudioDeviceOutputNodeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CreateAudioDeviceOutputNodeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4829,7 +4829,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CreateAud
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CreateAudioFileInputNodeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CreateAudioFileInputNodeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4849,7 +4849,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Creat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CreateAudioFileInputNodeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CreateAudioFileInputNodeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4930,7 +4930,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CreateAud
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CreateAudioFileOutputNodeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CreateAudioFileOutputNodeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4950,7 +4950,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Creat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CreateAudioFileOutputNodeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CreateAudioFileOutputNodeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5031,7 +5031,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CreateAud
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CreateAudioGraphResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CreateAudioGraphResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5051,7 +5051,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Creat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CreateAudioGraphResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CreateAudioGraphResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5132,7 +5132,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CreateMed
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CreateMediaSourceAudioInputNodeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CreateMediaSourceAudioInputNodeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5152,7 +5152,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Creat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CreateMediaSourceAudioInputNodeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CreateMediaSourceAudioInputNodeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5278,7 +5278,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EchoEffec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EchoEffectDefinition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EchoEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5298,7 +5298,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EchoE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EchoEffectDefinition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EchoEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5420,7 +5420,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Equalizer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EqualizerBand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EqualizerBand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5440,7 +5440,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Equal
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EqualizerBand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EqualizerBand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5536,7 +5536,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Equalizer
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EqualizerEffectDefinition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EqualizerEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5556,7 +5556,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Equal
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EqualizerEffectDefinition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EqualizerEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5647,7 +5647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FrameInpu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameInputNodeQuantumStartedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameInputNodeQuantumStartedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5667,7 +5667,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameInputNodeQuantumStartedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameInputNodeQuantumStartedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6234,7 +6234,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioInp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAudioInputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioInputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6254,7 +6254,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAudi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAudioInputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAudioInputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6475,7 +6475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioInp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAudioInputNode2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioInputNode2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6495,7 +6495,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAudi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAudioInputNode2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAudioInputNode2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6700,7 +6700,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioNod
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAudioNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6720,7 +6720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAudi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAudioNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAudioNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7113,7 +7113,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioNod
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAudioNodeWithListener {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioNodeWithListener {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7133,7 +7133,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAudi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAudioNodeWithListener {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAudioNodeWithListener {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7981,7 +7981,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LimiterEf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LimiterEffectDefinition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LimiterEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8001,7 +8001,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Limit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LimiterEffectDefinition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LimiterEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8299,7 +8299,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaSour
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaSourceAudioInputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaSourceAudioInputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8319,7 +8319,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaSourceAudioInputNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaSourceAudioInputNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8902,7 +8902,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ReverbEff
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ReverbEffectDefinition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ReverbEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8922,7 +8922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Rever
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ReverbEffectDefinition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ReverbEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9013,7 +9013,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SetDefaul
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SetDefaultSpatialAudioFormatResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SetDefaultSpatialAudioFormatResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9033,7 +9033,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SetDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SetDefaultSpatialAudioFormatResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SetDefaultSpatialAudioFormatResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9204,7 +9204,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialAu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialAudioDeviceConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialAudioDeviceConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9224,7 +9224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialAudioDeviceConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialAudioDeviceConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9324,7 +9324,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialAu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialAudioFormatConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialAudioFormatConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9344,7 +9344,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialAudioFormatConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialAudioFormatConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

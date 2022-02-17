@@ -90,7 +90,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAdcContr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAdcControllerProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdcControllerProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -110,7 +110,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAdcC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAdcControllerProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAdcControllerProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -186,7 +186,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAdcProvi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAdcProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdcProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -206,7 +206,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAdcP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAdcProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAdcProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -69,7 +69,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GpioPinPr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GpioPinProviderValueChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GpioPinProviderValueChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -89,7 +89,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GpioP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GpioPinProviderValueChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GpioPinProviderValueChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -132,7 +132,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGpioCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGpioControllerProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGpioControllerProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -152,7 +152,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGpio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGpioControllerProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IGpioControllerProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -291,7 +291,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGpioPinP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGpioPinProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGpioPinProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -311,7 +311,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGpio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGpioPinProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IGpioPinProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -426,7 +426,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGpioProv
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGpioProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGpioProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -446,7 +446,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGpio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGpioProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IGpioProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

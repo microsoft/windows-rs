@@ -8916,7 +8916,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput2A {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput2A {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8936,7 +8936,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for IDirectInput2A {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for &IDirectInput2A {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for &'a IDirectInput2A {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInputA> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9018,7 +9018,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput2W {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput2W {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9038,7 +9038,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for IDirectInput2W {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for &IDirectInput2W {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for &'a IDirectInput2W {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInputW> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9124,7 +9124,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput7A {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput7A {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9144,7 +9144,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for IDirectInput7A {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for &IDirectInput7A {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInputA> for &'a IDirectInput7A {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInputA> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9164,7 +9164,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInput2A> for IDirectInput7A {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInput2A> for &IDirectInput7A {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInput2A> for &'a IDirectInput7A {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInput2A> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9247,7 +9247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput7W {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput7W {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9267,7 +9267,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for IDirectInput7W {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for &IDirectInput7W {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInputW> for &'a IDirectInput7W {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInputW> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9287,7 +9287,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInput2W> for IDirectInput7W {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInput2W> for &IDirectInput7W {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInput2W> for &'a IDirectInput7W {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInput2W> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9376,7 +9376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput8A {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput8A {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9490,7 +9490,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInput8W {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInput8W {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9589,7 +9589,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputA {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputA {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9759,7 +9759,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice2A {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice2A {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9779,7 +9779,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for IDirectInputDev
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDevice2A {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for &'a IDirectInputDevice2A {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceA> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9950,7 +9950,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice2W {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice2W {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9970,7 +9970,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for IDirectInputDev
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDevice2W {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for &'a IDirectInputDevice2W {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceW> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10151,7 +10151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice7A {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice7A {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10171,7 +10171,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for IDirectInputDev
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDevice7A {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceA> for &'a IDirectInputDevice7A {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceA> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10191,7 +10191,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputDevice2A> for IDirectInputDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDevice2A> for &IDirectInputDevice7A {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInputDevice2A> for &'a IDirectInputDevice7A {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDevice2A> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10362,7 +10362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice7W {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice7W {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10382,7 +10382,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for IDirectInputDev
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDevice7W {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInputDeviceW> for &'a IDirectInputDevice7W {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDeviceW> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10402,7 +10402,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDirectInputDevice2W> for IDirectInputDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirectInputDevice2W> for &IDirectInputDevice7W {
+impl<'a> ::windows::core::IntoParam<'a, IDirectInputDevice2W> for &'a IDirectInputDevice7W {
     fn into_param(self) -> ::windows::core::Param<'a, IDirectInputDevice2W> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10591,7 +10591,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice8A {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice8A {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10843,7 +10843,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDevice8W {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDevice8W {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11025,7 +11025,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDeviceA {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDeviceA {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11176,7 +11176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputDeviceW {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputDeviceW {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11297,7 +11297,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11404,7 +11404,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputEffectDriver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputEffectDriver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11537,7 +11537,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputJoyConfig {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputJoyConfig {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11699,7 +11699,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputJoyConfig8 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputJoyConfig8 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11812,7 +11812,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectInputW {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectInputW {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

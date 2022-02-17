@@ -190,7 +190,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NotePlace
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NotePlacementChangedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NotePlacementChangedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -210,7 +210,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NoteP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NotePlacementChangedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NotePlacementChangedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -283,7 +283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NoteVisib
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NoteVisibilityChangedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NoteVisibilityChangedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -303,7 +303,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NoteV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NoteVisibilityChangedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NoteVisibilityChangedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -503,7 +503,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NotesWind
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NotesWindowManagerPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NotesWindowManagerPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -523,7 +523,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Notes
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NotesWindowManagerPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NotesWindowManagerPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -600,7 +600,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NotesWind
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NotesWindowManagerPreviewShowNoteOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NotesWindowManagerPreviewShowNoteOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -620,7 +620,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Notes
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NotesWindowManagerPreviewShowNoteOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NotesWindowManagerPreviewShowNoteOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

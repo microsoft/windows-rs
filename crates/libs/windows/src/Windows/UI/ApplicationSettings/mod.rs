@@ -122,7 +122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AccountsS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AccountsSettingsPane {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AccountsSettingsPane {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -142,7 +142,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Accou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AccountsSettingsPane {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AccountsSettingsPane {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -263,7 +263,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AccountsS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AccountsSettingsPaneCommandsRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AccountsSettingsPaneCommandsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -283,7 +283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Accou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AccountsSettingsPaneCommandsRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AccountsSettingsPaneCommandsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -343,7 +343,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AccountsS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AccountsSettingsPaneEventDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AccountsSettingsPaneEventDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -363,7 +363,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Accou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AccountsSettingsPaneEventDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AccountsSettingsPaneEventDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -456,7 +456,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Credentia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CredentialCommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CredentialCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -476,7 +476,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Crede
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CredentialCommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CredentialCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1068,7 +1068,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SettingsC
     }
 }
 #[cfg(feature = "UI_Popups")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SettingsCommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SettingsCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1092,7 +1092,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Setti
     }
 }
 #[cfg(feature = "UI_Popups")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SettingsCommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SettingsCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1270,7 +1270,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SettingsP
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SettingsPane {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SettingsPane {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1294,7 +1294,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Setti
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SettingsPane {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SettingsPane {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1371,7 +1371,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SettingsP
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SettingsPaneCommandsRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SettingsPaneCommandsRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1395,7 +1395,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Setti
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SettingsPaneCommandsRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SettingsPaneCommandsRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1472,7 +1472,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SettingsP
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SettingsPaneCommandsRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SettingsPaneCommandsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1496,7 +1496,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Setti
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SettingsPaneCommandsRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SettingsPaneCommandsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1692,7 +1692,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebAccoun
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebAccountCommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebAccountCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1712,7 +1712,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebAc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebAccountCommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebAccountCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1857,7 +1857,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebAccoun
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebAccountInvokedArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebAccountInvokedArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1877,7 +1877,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebAc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebAccountInvokedArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebAccountInvokedArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1962,7 +1962,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebAccoun
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebAccountProviderCommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebAccountProviderCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1982,7 +1982,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebAc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebAccountProviderCommand {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebAccountProviderCommand {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -170,7 +170,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IJsonValu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IJsonValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IJsonValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -190,7 +190,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IJson
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IJsonValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IJsonValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -557,7 +557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JsonArray
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &JsonArray {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JsonArray {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -577,7 +577,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JsonA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &JsonArray {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JsonArray {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1064,7 +1064,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JsonObjec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &JsonObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JsonObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1084,7 +1084,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JsonO
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &JsonObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JsonObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1358,7 +1358,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JsonValue
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &JsonValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JsonValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1378,7 +1378,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JsonV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &JsonValue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JsonValue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

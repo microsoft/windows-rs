@@ -820,7 +820,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsAggreg
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IKsAggregateControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsAggregateControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -888,7 +888,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsContro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IKsControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -951,7 +951,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsFormat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IKsFormatSupport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsFormatSupport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1011,7 +1011,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsJackCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IKsJackContainerId {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsJackContainerId {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1073,7 +1073,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsJackDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IKsJackDescription {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsJackDescription {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1138,7 +1138,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsJackDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IKsJackDescription2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsJackDescription2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1196,7 +1196,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsJackSi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IKsJackSinkInformation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsJackSinkInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1265,7 +1265,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsProper
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IKsPropertySet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsPropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1322,7 +1322,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKsTopolo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IKsTopology {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsTopology {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

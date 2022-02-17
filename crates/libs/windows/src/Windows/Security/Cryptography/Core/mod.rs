@@ -293,7 +293,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Asymmetri
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AsymmetricKeyAlgorithmProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AsymmetricKeyAlgorithmProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -313,7 +313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Asymm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AsymmetricKeyAlgorithmProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AsymmetricKeyAlgorithmProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -532,7 +532,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Cryptogra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CryptographicHash {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CryptographicHash {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -552,7 +552,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Crypt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CryptographicHash {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CryptographicHash {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -653,7 +653,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Cryptogra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CryptographicKey {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CryptographicKey {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -673,7 +673,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Crypt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CryptographicKey {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CryptographicKey {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1193,7 +1193,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Encrypted
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EncryptedAndAuthenticatedData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EncryptedAndAuthenticatedData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1213,7 +1213,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Encry
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EncryptedAndAuthenticatedData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EncryptedAndAuthenticatedData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1362,7 +1362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HashAlgor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HashAlgorithmProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HashAlgorithmProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1382,7 +1382,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HashA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HashAlgorithmProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HashAlgorithmProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2271,7 +2271,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeyDeriva
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &KeyDerivationAlgorithmProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeyDerivationAlgorithmProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2291,7 +2291,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeyDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyDerivationAlgorithmProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeyDerivationAlgorithmProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2425,7 +2425,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeyDeriva
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &KeyDerivationParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeyDerivationParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2445,7 +2445,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeyDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyDerivationParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeyDerivationParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2602,7 +2602,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MacAlgori
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MacAlgorithmProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MacAlgorithmProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2622,7 +2622,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MacAl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MacAlgorithmProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MacAlgorithmProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2889,7 +2889,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Symmetric
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SymmetricKeyAlgorithmProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SymmetricKeyAlgorithmProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2909,7 +2909,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Symme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SymmetricKeyAlgorithmProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SymmetricKeyAlgorithmProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

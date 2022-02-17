@@ -163,7 +163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Automatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AutomationRemoteOperationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AutomationRemoteOperationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -183,7 +183,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Autom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AutomationRemoteOperationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AutomationRemoteOperationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -343,7 +343,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CoreAutom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CoreAutomationRemoteOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CoreAutomationRemoteOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -363,7 +363,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CoreA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CoreAutomationRemoteOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CoreAutomationRemoteOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -438,7 +438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CoreAutom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CoreAutomationRemoteOperationContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CoreAutomationRemoteOperationContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -458,7 +458,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CoreA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CoreAutomationRemoteOperationContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CoreAutomationRemoteOperationContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -510,7 +510,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreAuto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICoreAutomationConnectionBoundObjectProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICoreAutomationConnectionBoundObjectProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -530,7 +530,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICore
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreAutomationConnectionBoundObjectProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICoreAutomationConnectionBoundObjectProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -660,7 +660,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreAuto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICoreAutomationRemoteOperationExtensionProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICoreAutomationRemoteOperationExtensionProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -680,7 +680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICore
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreAutomationRemoteOperationExtensionProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICoreAutomationRemoteOperationExtensionProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -951,7 +951,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteAut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteAutomationClientSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteAutomationClientSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -971,7 +971,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteAutomationClientSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteAutomationClientSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1044,7 +1044,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteAut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteAutomationConnectionRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteAutomationConnectionRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1064,7 +1064,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteAutomationConnectionRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteAutomationConnectionRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1129,7 +1129,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteAut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteAutomationDisconnectedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteAutomationDisconnectedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1149,7 +1149,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteAutomationDisconnectedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteAutomationDisconnectedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1239,7 +1239,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteAut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteAutomationWindow {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteAutomationWindow {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1259,7 +1259,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteAutomationWindow {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteAutomationWindow {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

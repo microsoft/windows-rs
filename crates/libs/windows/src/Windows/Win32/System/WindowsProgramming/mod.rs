@@ -3265,7 +3265,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICameraUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICameraUIControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICameraUIControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3360,7 +3360,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICameraUI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICameraUIControlEventCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICameraUIControlEventCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3426,7 +3426,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IClipServ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IClipServiceNotificationHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IClipServiceNotificationHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3485,7 +3485,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContaine
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IContainerActivationHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContainerActivationHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3541,7 +3541,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDefaultB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDefaultBrowserSyncSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDefaultBrowserSyncSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3599,7 +3599,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDeleteBr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDeleteBrowsingHistory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDeleteBrowsingHistory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3709,7 +3709,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEditionU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEditionUpgradeBroker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEditionUpgradeBroker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3793,7 +3793,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEditionU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEditionUpgradeHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEditionUpgradeHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4481,7 +4481,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWindowsLockModeHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsLockModeHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

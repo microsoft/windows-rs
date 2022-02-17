@@ -67,7 +67,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceAcc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceAccessChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceAccessChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -87,7 +87,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceAccessChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceAccessChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -193,7 +193,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceAcc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceAccessInformation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceAccessInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -213,7 +213,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceAccessInformation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceAccessInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -353,7 +353,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceCon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceConnectionChangeTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceConnectionChangeTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -373,7 +373,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceConnectionChangeTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceConnectionChangeTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -438,7 +438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceDis
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceDisconnectButtonClickedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceDisconnectButtonClickedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -458,7 +458,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceDisconnectButtonClickedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceDisconnectButtonClickedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -721,7 +721,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceInf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceInformation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -741,7 +741,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceInformation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -872,7 +872,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceInf
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceInformationCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceInformationCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -896,7 +896,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceInformationCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceInformationCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1049,7 +1049,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceInf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceInformationCustomPairing {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceInformationCustomPairing {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1069,7 +1069,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceInformationCustomPairing {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceInformationCustomPairing {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1259,7 +1259,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceInf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceInformationPairing {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceInformationPairing {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1279,7 +1279,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceInformationPairing {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceInformationPairing {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1361,7 +1361,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceInf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceInformationUpdate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceInformationUpdate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1381,7 +1381,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceInformationUpdate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceInformationUpdate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1589,7 +1589,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DevicePai
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DevicePairingRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DevicePairingRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1609,7 +1609,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DevicePairingRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DevicePairingRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1682,7 +1682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DevicePai
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DevicePairingResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DevicePairingResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1702,7 +1702,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DevicePairingResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DevicePairingResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1928,7 +1928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DevicePic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DevicePicker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DevicePicker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1948,7 +1948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DevicePicker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DevicePicker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2108,7 +2108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DevicePic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DevicePickerAppearance {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DevicePickerAppearance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2128,7 +2128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DevicePickerAppearance {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DevicePickerAppearance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2267,7 +2267,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DevicePic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DevicePickerFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DevicePickerFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2287,7 +2287,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DevicePickerFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DevicePickerFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2352,7 +2352,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceSel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceSelectedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceSelectedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2372,7 +2372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceSelectedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceSelectedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2559,7 +2559,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceThu
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceThumbnail {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2583,7 +2583,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceThumbnail {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2806,7 +2806,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceUnp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceUnpairingResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceUnpairingResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2826,7 +2826,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceUnpairingResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceUnpairingResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3022,7 +3022,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceWat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3042,7 +3042,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3123,7 +3123,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceWat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceWatcherEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceWatcherEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3143,7 +3143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceWatcherEvent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceWatcherEvent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3282,7 +3282,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceWat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceWatcherTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceWatcherTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3302,7 +3302,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Devic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceWatcherTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceWatcherTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3391,7 +3391,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Enclosure
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EnclosureLocation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EnclosureLocation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3411,7 +3411,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Enclo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EnclosureLocation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EnclosureLocation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3820,7 +3820,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDevicePa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDevicePairingSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDevicePairingSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3840,7 +3840,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDevi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IDevicePairingSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDevicePairingSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

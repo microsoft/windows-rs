@@ -252,7 +252,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlReade
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXmlReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -364,7 +364,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlResol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXmlResolver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlResolver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -554,7 +554,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlWrite
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXmlWriter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlWriter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -823,7 +823,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXmlWrite
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXmlWriterLite {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXmlWriterLite {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -8545,7 +8545,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuot
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDiskQuotaControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8569,7 +8569,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IConnectionPo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IConnectionPointContainer> for &IDiskQuotaControl {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IConnectionPointContainer> for &'a IDiskQuotaControl {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IConnectionPointContainer> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8674,7 +8674,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDiskQuotaEvents {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8791,7 +8791,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDiskQuotaUser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaUser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8890,7 +8890,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDiskQuot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDiskQuotaUserBatch {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDiskQuotaUserBatch {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8961,7 +8961,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumDisk
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumDiskQuotaUsers {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumDiskQuotaUsers {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -149,7 +149,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Playlist 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Playlist {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Playlist {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -169,7 +169,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Playl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Playlist {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Playlist {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

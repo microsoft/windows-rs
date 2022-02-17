@@ -106,7 +106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Condition
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConditionForceEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConditionForceEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -126,7 +126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Condi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConditionForceEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConditionForceEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -291,7 +291,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConstantF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConstantForceEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConstantForceEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -311,7 +311,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Const
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConstantForceEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConstantForceEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -622,7 +622,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ForceFeed
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ForceFeedbackMotor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ForceFeedbackMotor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -642,7 +642,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Force
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ForceFeedbackMotor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ForceFeedbackMotor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -750,7 +750,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IForceFee
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IForceFeedbackEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IForceFeedbackEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -770,7 +770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IForc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IForceFeedbackEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IForceFeedbackEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1019,7 +1019,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PeriodicF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PeriodicForceEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PeriodicForceEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1039,7 +1039,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PeriodicForceEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PeriodicForceEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1217,7 +1217,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RampForce
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RampForceEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RampForceEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1237,7 +1237,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RampF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RampForceEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RampForceEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -1358,7 +1358,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMarshal 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMarshal {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMarshal {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1438,7 +1438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMarshal2
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMarshal2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMarshal2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1458,7 +1458,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMarshal> for IMarshal2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMarshal> for &IMarshal2 {
+impl<'a> ::windows::core::IntoParam<'a, IMarshal> for &'a IMarshal2 {
     fn into_param(self) -> ::windows::core::Param<'a, IMarshal> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1562,7 +1562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMarshali
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMarshalingStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMarshalingStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1582,7 +1582,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::ISequentialStream> for IMarshalin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::ISequentialStream> for &IMarshalingStream {
+impl<'a> ::windows::core::IntoParam<'a, super::ISequentialStream> for &'a IMarshalingStream {
     fn into_param(self) -> ::windows::core::Param<'a, super::ISequentialStream> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1602,7 +1602,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::IStream> for IMarshalingStream {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IStream> for &IMarshalingStream {
+impl<'a> ::windows::core::IntoParam<'a, super::IStream> for &'a IMarshalingStream {
     fn into_param(self) -> ::windows::core::Param<'a, super::IStream> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

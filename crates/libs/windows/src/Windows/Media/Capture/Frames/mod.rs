@@ -74,7 +74,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioMedi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AudioMediaFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioMediaFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -94,7 +94,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Audio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AudioMediaFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioMediaFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -168,7 +168,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BufferMed
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BufferMediaFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BufferMediaFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -188,7 +188,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Buffe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BufferMediaFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BufferMediaFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -294,7 +294,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DepthMedi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DepthMediaFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DepthMediaFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -314,7 +314,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Depth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DepthMediaFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DepthMediaFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -387,7 +387,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DepthMedi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DepthMediaFrameFormat {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DepthMediaFrameFormat {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -407,7 +407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Depth
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DepthMediaFrameFormat {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DepthMediaFrameFormat {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1046,7 +1046,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InfraredM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InfraredMediaFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InfraredMediaFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1066,7 +1066,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Infra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InfraredMediaFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InfraredMediaFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1122,7 +1122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaFrameArrivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaFrameArrivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1142,7 +1142,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaFrameArrivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaFrameArrivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1250,7 +1250,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaFrameFormat {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaFrameFormat {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1270,7 +1270,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaFrameFormat {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaFrameFormat {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1387,7 +1387,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaFrameReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaFrameReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1407,7 +1407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaFrameReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaFrameReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1643,7 +1643,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaFrameReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaFrameReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1663,7 +1663,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaFrameReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaFrameReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1812,7 +1812,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaFrameSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaFrameSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1832,7 +1832,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaFrameSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaFrameSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1943,7 +1943,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaFrameSourceController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaFrameSourceController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1963,7 +1963,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaFrameSourceController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaFrameSourceController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2036,7 +2036,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaFrameSourceGetPropertyResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaFrameSourceGetPropertyResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2056,7 +2056,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaFrameSourceGetPropertyResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaFrameSourceGetPropertyResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2204,7 +2204,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaFrameSourceGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaFrameSourceGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2224,7 +2224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaFrameSourceGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaFrameSourceGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2366,7 +2366,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaFram
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaFrameSourceInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaFrameSourceInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2386,7 +2386,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaFrameSourceInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaFrameSourceInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2519,7 +2519,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MultiSour
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MultiSourceMediaFrameArrivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MultiSourceMediaFrameArrivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2539,7 +2539,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Multi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MultiSourceMediaFrameArrivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MultiSourceMediaFrameArrivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2656,7 +2656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MultiSour
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MultiSourceMediaFrameReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MultiSourceMediaFrameReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2676,7 +2676,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Multi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MultiSourceMediaFrameReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MultiSourceMediaFrameReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2810,7 +2810,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MultiSour
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MultiSourceMediaFrameReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MultiSourceMediaFrameReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2830,7 +2830,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Multi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MultiSourceMediaFrameReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MultiSourceMediaFrameReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2980,7 +2980,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoMedi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VideoMediaFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoMediaFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3000,7 +3000,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Video
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VideoMediaFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoMediaFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3089,7 +3089,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoMedi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VideoMediaFrameFormat {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoMediaFrameFormat {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3109,7 +3109,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Video
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VideoMediaFrameFormat {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoMediaFrameFormat {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

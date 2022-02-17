@@ -104,7 +104,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ScreenRea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ScreenReaderPositionChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ScreenReaderPositionChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -124,7 +124,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Scree
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ScreenReaderPositionChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ScreenReaderPositionChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -211,7 +211,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ScreenRea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ScreenReaderService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ScreenReaderService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -231,7 +231,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Scree
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ScreenReaderService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ScreenReaderService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

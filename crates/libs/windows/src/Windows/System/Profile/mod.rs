@@ -114,7 +114,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Analytics
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AnalyticsVersionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AnalyticsVersionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -134,7 +134,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Analy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AnalyticsVersionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AnalyticsVersionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -277,7 +277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HardwareT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HardwareToken {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HardwareToken {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -297,7 +297,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Hardw
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HardwareToken {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HardwareToken {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1011,7 +1011,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemIde
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SystemIdentificationInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemIdentificationInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1031,7 +1031,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syste
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SystemIdentificationInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemIdentificationInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1207,7 +1207,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Unsupport
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UnsupportedAppRequirement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UnsupportedAppRequirement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1227,7 +1227,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Unsup
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UnsupportedAppRequirement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UnsupportedAppRequirement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

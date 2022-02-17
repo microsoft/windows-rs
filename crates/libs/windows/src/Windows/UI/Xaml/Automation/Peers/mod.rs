@@ -217,7 +217,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppBarAut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppBarAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppBarAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -237,7 +237,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppBa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppBarAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppBarAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -475,7 +475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppBarBut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppBarButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppBarButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -495,7 +495,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppBa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppBarButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppBarButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -726,7 +726,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppBarTog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppBarToggleButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppBarToggleButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -746,7 +746,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppBa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppBarToggleButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppBarToggleButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -948,7 +948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AutoSugge
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AutoSuggestBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AutoSuggestBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -968,7 +968,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AutoS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AutoSuggestBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AutoSuggestBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1960,7 +1960,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Automatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1980,7 +1980,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Autom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2128,7 +2128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Automatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AutomationPeerAnnotation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AutomationPeerAnnotation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2148,7 +2148,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Autom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AutomationPeerAnnotation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AutomationPeerAnnotation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2291,7 +2291,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ButtonAut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2311,7 +2311,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Butto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2473,7 +2473,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ButtonBas
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ButtonBaseAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ButtonBaseAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2493,7 +2493,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Butto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ButtonBaseAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ButtonBaseAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2662,7 +2662,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CalendarD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CalendarDatePickerAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CalendarDatePickerAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2682,7 +2682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Calen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CalendarDatePickerAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CalendarDatePickerAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2873,7 +2873,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CaptureEl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CaptureElementAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CaptureElementAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2893,7 +2893,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Captu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CaptureElementAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CaptureElementAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3032,7 +3032,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CheckBoxA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CheckBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CheckBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3052,7 +3052,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Check
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CheckBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CheckBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3257,7 +3257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ColorPick
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ColorPickerSliderAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ColorPickerSliderAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3277,7 +3277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Color
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ColorPickerSliderAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ColorPickerSliderAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3482,7 +3482,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ColorSpec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ColorSpectrumAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ColorSpectrumAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3502,7 +3502,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Color
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ColorSpectrumAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ColorSpectrumAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3761,7 +3761,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ComboBoxA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ComboBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ComboBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3781,7 +3781,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Combo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ComboBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ComboBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4090,7 +4090,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ComboBoxI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ComboBoxItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ComboBoxItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4110,7 +4110,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Combo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ComboBoxItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ComboBoxItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4253,7 +4253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ComboBoxI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ComboBoxItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ComboBoxItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4273,7 +4273,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Combo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ComboBoxItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ComboBoxItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4510,7 +4510,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DatePicke
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DatePickerAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DatePickerAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4530,7 +4530,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DateP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DatePickerAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DatePickerAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4646,7 +4646,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DatePicke
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DatePickerFlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DatePickerFlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4666,7 +4666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DateP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DatePickerFlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DatePickerFlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4805,7 +4805,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FlipViewA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FlipViewAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FlipViewAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4825,7 +4825,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FlipV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FlipViewAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FlipViewAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5056,7 +5056,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FlipViewI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FlipViewItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FlipViewItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5076,7 +5076,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FlipV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FlipViewItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FlipViewItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5219,7 +5219,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FlipViewI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FlipViewItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FlipViewItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5239,7 +5239,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FlipV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FlipViewItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FlipViewItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5476,7 +5476,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FlyoutPre
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5496,7 +5496,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Flyou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5660,7 +5660,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Framework
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FrameworkElementAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FrameworkElementAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5680,7 +5680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Frame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FrameworkElementAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FrameworkElementAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5799,7 +5799,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GridViewA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GridViewAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GridViewAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5819,7 +5819,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GridV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GridViewAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GridViewAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6096,7 +6096,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GridViewH
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GridViewHeaderItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GridViewHeaderItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6116,7 +6116,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GridV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GridViewHeaderItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GridViewHeaderItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6275,7 +6275,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GridViewI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GridViewItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GridViewItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6295,7 +6295,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GridV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GridViewItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GridViewItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6438,7 +6438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GridViewI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GridViewItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GridViewItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6458,7 +6458,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GridV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GridViewItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GridViewItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6695,7 +6695,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GroupItem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GroupItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GroupItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6715,7 +6715,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Group
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GroupItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GroupItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6854,7 +6854,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HubAutoma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HubAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HubAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6874,7 +6874,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HubAu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HubAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HubAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7019,7 +7019,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HubSectio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HubSectionAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HubSectionAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7039,7 +7039,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HubSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HubSectionAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HubSectionAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7210,7 +7210,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Hyperlink
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HyperlinkButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HyperlinkButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7230,7 +7230,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Hyper
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HyperlinkButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HyperlinkButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10216,7 +10216,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ImageAuto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ImageAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ImageAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10236,7 +10236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Image
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ImageAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ImageAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10352,7 +10352,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkToolba
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkToolbarAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkToolbarAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10372,7 +10372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkTo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkToolbarAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkToolbarAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10531,7 +10531,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ItemAutom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10551,7 +10551,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ItemA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10713,7 +10713,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ItemsCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ItemsControlAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ItemsControlAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10733,7 +10733,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Items
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ItemsControlAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ItemsControlAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10898,7 +10898,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListBoxAu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10918,7 +10918,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11149,7 +11149,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListBoxIt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListBoxItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListBoxItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11169,7 +11169,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListBoxItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListBoxItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11312,7 +11312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListBoxIt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListBoxItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListBoxItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11332,7 +11332,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListBoxItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListBoxItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11546,7 +11546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListPicke
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListPickerFlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListPickerFlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11566,7 +11566,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListPickerFlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListPickerFlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11705,7 +11705,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListViewA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListViewAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListViewAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11725,7 +11725,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListViewAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListViewAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12020,7 +12020,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListViewB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListViewBaseAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListViewBaseAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12040,7 +12040,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListViewBaseAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListViewBaseAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12274,7 +12274,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListViewB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListViewBaseHeaderItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListViewBaseHeaderItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12294,7 +12294,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListViewBaseHeaderItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListViewBaseHeaderItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12433,7 +12433,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListViewH
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListViewHeaderItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListViewHeaderItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12453,7 +12453,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListViewHeaderItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListViewHeaderItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12612,7 +12612,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListViewI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListViewItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListViewItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12632,7 +12632,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListViewItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListViewItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12775,7 +12775,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListViewI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListViewItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListViewItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12795,7 +12795,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListViewItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListViewItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13133,7 +13133,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoopingSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LoopingSelectorAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoopingSelectorAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13153,7 +13153,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Loopi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LoopingSelectorAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoopingSelectorAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13416,7 +13416,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoopingSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LoopingSelectorItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoopingSelectorItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13436,7 +13436,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Loopi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LoopingSelectorItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoopingSelectorItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13611,7 +13611,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoopingSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LoopingSelectorItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoopingSelectorItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13631,7 +13631,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Loopi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LoopingSelectorItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoopingSelectorItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13913,7 +13913,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapContro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MapControlAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapControlAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13933,7 +13933,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapControlAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapControlAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14150,7 +14150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaElem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaElementAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaElementAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14170,7 +14170,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaElementAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaElementAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14309,7 +14309,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlay
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaPlayerElementAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlayerElementAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14329,7 +14329,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaPlayerElementAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlayerElementAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14468,7 +14468,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaTran
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MediaTransportControlsAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaTransportControlsAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14488,7 +14488,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Media
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MediaTransportControlsAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaTransportControlsAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14627,7 +14627,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MenuBarAu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MenuBarAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MenuBarAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14647,7 +14647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MenuB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MenuBarAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MenuBarAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14813,7 +14813,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MenuBarIt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MenuBarItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MenuBarItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14833,7 +14833,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MenuB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MenuBarItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MenuBarItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15030,7 +15030,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MenuFlyou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MenuFlyoutItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MenuFlyoutItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15050,7 +15050,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MenuF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MenuFlyoutItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MenuFlyoutItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15215,7 +15215,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MenuFlyou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MenuFlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MenuFlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15235,7 +15235,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MenuF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MenuFlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MenuFlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15420,7 +15420,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Navigatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NavigationViewItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NavigationViewItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15440,7 +15440,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Navig
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NavigationViewItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NavigationViewItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15599,7 +15599,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PasswordB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PasswordBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PasswordBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15619,7 +15619,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Passw
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PasswordBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PasswordBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15824,7 +15824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PersonPic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PersonPictureAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PersonPictureAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15844,7 +15844,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perso
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PersonPictureAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PersonPictureAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15960,7 +15960,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PickerFly
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PickerFlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PickerFlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15980,7 +15980,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Picke
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PickerFlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PickerFlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16203,7 +16203,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PivotAuto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PivotAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PivotAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16223,7 +16223,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Pivot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PivotAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PivotAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16451,7 +16451,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PivotItem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PivotItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PivotItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16471,7 +16471,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Pivot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PivotItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PivotItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16648,7 +16648,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PivotItem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PivotItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PivotItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16668,7 +16668,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Pivot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PivotItemDataAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PivotItemDataAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16885,7 +16885,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProgressB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ProgressBarAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProgressBarAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16905,7 +16905,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Progr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ProgressBarAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProgressBarAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17090,7 +17090,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProgressR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ProgressRingAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProgressRingAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17110,7 +17110,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Progr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ProgressRingAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProgressRingAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17285,7 +17285,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RadioButt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RadioButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RadioButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17305,7 +17305,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Radio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RadioButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RadioButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17596,7 +17596,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RangeBase
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RangeBaseAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RangeBaseAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17616,7 +17616,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Range
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RangeBaseAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RangeBaseAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17781,7 +17781,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RatingCon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RatingControlAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RatingControlAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17801,7 +17801,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Ratin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RatingControlAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RatingControlAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17984,7 +17984,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RepeatBut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RepeatButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RepeatButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18004,7 +18004,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Repea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RepeatButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RepeatButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18189,7 +18189,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RichEditB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RichEditBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RichEditBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18209,7 +18209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RichE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RichEditBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RichEditBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18348,7 +18348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RichTextB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RichTextBlockAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RichTextBlockAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18368,7 +18368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RichT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RichTextBlockAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RichTextBlockAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18507,7 +18507,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RichTextB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RichTextBlockOverflowAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RichTextBlockOverflowAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18527,7 +18527,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RichT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RichTextBlockOverflowAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RichTextBlockOverflowAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18666,7 +18666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ScrollBar
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ScrollBarAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ScrollBarAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18686,7 +18686,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Scrol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ScrollBarAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ScrollBarAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18937,7 +18937,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ScrollVie
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ScrollViewerAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ScrollViewerAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18957,7 +18957,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Scrol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ScrollViewerAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ScrollViewerAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19122,7 +19122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SearchBox
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SearchBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SearchBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19142,7 +19142,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Searc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SearchBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SearchBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19308,7 +19308,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SelectorA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SelectorAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SelectorAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19328,7 +19328,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Selec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SelectorAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SelectorAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19573,7 +19573,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SelectorI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SelectorItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SelectorItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19593,7 +19593,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Selec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SelectorItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SelectorItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19799,7 +19799,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SemanticZ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SemanticZoomAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SemanticZoomAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19819,7 +19819,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Seman
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SemanticZoomAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SemanticZoomAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19984,7 +19984,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SettingsF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SettingsFlyoutAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SettingsFlyoutAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20004,7 +20004,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Setti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SettingsFlyoutAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SettingsFlyoutAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20143,7 +20143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SliderAut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SliderAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SliderAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20163,7 +20163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Slide
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SliderAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SliderAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20348,7 +20348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TextBlock
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TextBlockAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TextBlockAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20368,7 +20368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TextBlockAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TextBlockAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20507,7 +20507,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TextBoxAu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TextBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TextBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20527,7 +20527,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TextBoxAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TextBoxAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20666,7 +20666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ThumbAuto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ThumbAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ThumbAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20686,7 +20686,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Thumb
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ThumbAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ThumbAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20825,7 +20825,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TimePicke
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TimePickerAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TimePickerAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20845,7 +20845,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TimeP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TimePickerAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TimePickerAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20961,7 +20961,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TimePicke
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TimePickerFlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TimePickerFlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20981,7 +20981,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TimeP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TimePickerFlyoutPresenterAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TimePickerFlyoutPresenterAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21135,7 +21135,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToggleBut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ToggleButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToggleButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21155,7 +21155,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Toggl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ToggleButtonAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToggleButtonAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21355,7 +21355,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToggleMen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ToggleMenuFlyoutItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToggleMenuFlyoutItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21375,7 +21375,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Toggl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ToggleMenuFlyoutItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToggleMenuFlyoutItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21555,7 +21555,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToggleSwi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ToggleSwitchAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToggleSwitchAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21575,7 +21575,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Toggl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ToggleSwitchAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToggleSwitchAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21761,7 +21761,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TreeViewI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TreeViewItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TreeViewItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21781,7 +21781,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TreeV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TreeViewItemAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TreeViewItemAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21966,7 +21966,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TreeViewL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TreeViewListAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TreeViewListAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -21986,7 +21986,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TreeV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TreeViewListAutomationPeer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TreeViewListAutomationPeer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

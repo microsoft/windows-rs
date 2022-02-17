@@ -58,7 +58,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DetectedF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DetectedFace {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DetectedFace {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -78,7 +78,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Detec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DetectedFace {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DetectedFace {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -219,7 +219,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FaceDetec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FaceDetector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FaceDetector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -239,7 +239,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FaceD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FaceDetector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FaceDetector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -371,7 +371,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FaceTrack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FaceTracker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FaceTracker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -391,7 +391,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FaceT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FaceTracker {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FaceTracker {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

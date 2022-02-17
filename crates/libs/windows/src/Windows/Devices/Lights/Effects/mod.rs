@@ -290,7 +290,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILampArra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ILampArrayEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILampArrayEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -310,7 +310,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILamp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ILampArrayEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILampArrayEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -623,7 +623,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LampArray
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LampArrayBitmapEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LampArrayBitmapEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -643,7 +643,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LampA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LampArrayBitmapEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LampArrayBitmapEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -737,7 +737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LampArray
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LampArrayBitmapRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LampArrayBitmapRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -757,7 +757,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LampA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LampArrayBitmapRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LampArrayBitmapRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -955,7 +955,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LampArray
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LampArrayBlinkEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LampArrayBlinkEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -975,7 +975,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LampA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LampArrayBlinkEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LampArrayBlinkEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1137,7 +1137,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LampArray
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LampArrayColorRampEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LampArrayColorRampEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1157,7 +1157,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LampA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LampArrayColorRampEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LampArrayColorRampEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1306,7 +1306,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LampArray
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LampArrayCustomEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LampArrayCustomEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1326,7 +1326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LampA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LampArrayCustomEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LampArrayCustomEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1591,7 +1591,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LampArray
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LampArrayEffectPlaylist {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LampArrayEffectPlaylist {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1611,7 +1611,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LampA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LampArrayEffectPlaylist {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LampArrayEffectPlaylist {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1871,7 +1871,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LampArray
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LampArraySolidEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LampArraySolidEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1891,7 +1891,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LampA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LampArraySolidEffect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LampArraySolidEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2003,7 +2003,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LampArray
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LampArrayUpdateRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LampArrayUpdateRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2023,7 +2023,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LampA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LampArrayUpdateRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LampArrayUpdateRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

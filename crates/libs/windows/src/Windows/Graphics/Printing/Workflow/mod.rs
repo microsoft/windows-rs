@@ -690,7 +690,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowBackgroundSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowBackgroundSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -710,7 +710,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowBackgroundSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowBackgroundSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -798,7 +798,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowBackgroundSetupRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowBackgroundSetupRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -818,7 +818,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowBackgroundSetupRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowBackgroundSetupRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -904,7 +904,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -924,7 +924,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1024,7 +1024,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowForegroundSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowForegroundSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1044,7 +1044,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowForegroundSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowForegroundSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1127,7 +1127,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowForegroundSetupRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowForegroundSetupRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1147,7 +1147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowForegroundSetupRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowForegroundSetupRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1282,7 +1282,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowJobActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowJobActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1302,7 +1302,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowJobActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowJobActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1454,7 +1454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowJobBackgroundSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowJobBackgroundSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1474,7 +1474,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowJobBackgroundSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowJobBackgroundSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1556,7 +1556,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowJobNotificationEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowJobNotificationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1576,7 +1576,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowJobNotificationEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowJobNotificationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1664,7 +1664,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowJobStartingEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowJobStartingEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1684,7 +1684,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowJobStartingEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowJobStartingEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1749,7 +1749,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowJobTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowJobTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1769,7 +1769,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowJobTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowJobTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1869,7 +1869,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowJobUISession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowJobUISession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1889,7 +1889,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowJobUISession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowJobUISession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1959,7 +1959,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowObjectModelSourceFileContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowObjectModelSourceFileContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1979,7 +1979,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowObjectModelSourceFileContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowObjectModelSourceFileContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2035,7 +2035,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowObjectModelTargetPackage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowObjectModelTargetPackage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2055,7 +2055,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowObjectModelTargetPackage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowObjectModelTargetPackage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2156,7 +2156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowPdlConverter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowPdlConverter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2176,7 +2176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowPdlConverter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowPdlConverter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2266,7 +2266,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowPdlDataAvailableEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowPdlDataAvailableEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2286,7 +2286,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowPdlDataAvailableEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowPdlDataAvailableEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2418,7 +2418,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowPdlModificationRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowPdlModificationRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2438,7 +2438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowPdlModificationRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowPdlModificationRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2521,7 +2521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowPdlSourceContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowPdlSourceContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2541,7 +2541,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowPdlSourceContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowPdlSourceContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2612,7 +2612,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowPdlTargetStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowPdlTargetStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2632,7 +2632,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowPdlTargetStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowPdlTargetStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2759,7 +2759,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowPrinterJob {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowPrinterJob {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2779,7 +2779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowPrinterJob {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowPrinterJob {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2934,7 +2934,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowSourceContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowSourceContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2954,7 +2954,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowSourceContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowSourceContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3020,7 +3020,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowSpoolStreamContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowSpoolStreamContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3040,7 +3040,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowSpoolStreamContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowSpoolStreamContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3106,7 +3106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowStreamTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowStreamTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3126,7 +3126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowStreamTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowStreamTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3209,7 +3209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowSubmittedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowSubmittedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3229,7 +3229,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowSubmittedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowSubmittedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3307,7 +3307,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowSubmittedOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowSubmittedOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3327,7 +3327,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowSubmittedOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowSubmittedOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3435,7 +3435,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3455,7 +3455,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3520,7 +3520,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3540,7 +3540,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3641,7 +3641,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowUIActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowUIActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3661,7 +3661,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowUIActivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowUIActivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3823,7 +3823,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowUILauncher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowUILauncher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3843,7 +3843,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowUILauncher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowUILauncher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3917,7 +3917,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintWork
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PrintWorkflowXpsDataAvailableEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintWorkflowXpsDataAvailableEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3937,7 +3937,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PrintWorkflowXpsDataAvailableEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintWorkflowXpsDataAvailableEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

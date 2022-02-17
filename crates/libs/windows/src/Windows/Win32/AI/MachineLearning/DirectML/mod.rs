@@ -7184,7 +7184,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLBindi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLBindingTable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLBindingTable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7204,7 +7204,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLBindingTable {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLBindingTable {
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &'a IDMLBindingTable {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7224,7 +7224,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLBindingTable {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLBindingTable {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &'a IDMLBindingTable {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7309,7 +7309,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLComma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLCommandRecorder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLCommandRecorder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7329,7 +7329,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLCommandRecorder {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLCommandRecorder {
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &'a IDMLCommandRecorder {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7349,7 +7349,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLCommandRecorder
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLCommandRecorder {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &'a IDMLCommandRecorder {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7431,7 +7431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLCompi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLCompiledOperator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLCompiledOperator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7451,7 +7451,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLCompiledOperator {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLCompiledOperator {
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &'a IDMLCompiledOperator {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7471,7 +7471,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLCompiledOperato
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLCompiledOperator {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &'a IDMLCompiledOperator {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7491,7 +7491,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for IDMLCompiledOperator {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &IDMLCompiledOperator {
+impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &'a IDMLCompiledOperator {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7511,7 +7511,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for IDMLCompiledOperat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for &IDMLCompiledOperator {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for &'a IDMLCompiledOperator {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLDispatchable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7566,7 +7566,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLDebug
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLDebugDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLDebugDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7682,7 +7682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7702,7 +7702,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLDevice {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLDevice {
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &'a IDMLDevice {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7831,7 +7831,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLDevice1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLDevice1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7851,7 +7851,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLDevice1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLDevice1 {
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &'a IDMLDevice1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7871,7 +7871,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLDevice> for IDMLDevice1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDevice> for &IDMLDevice1 {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDevice> for &'a IDMLDevice1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLDevice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7944,7 +7944,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLDeviceChild {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLDeviceChild {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7964,7 +7964,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLDeviceChild {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLDeviceChild {
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &'a IDMLDeviceChild {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8043,7 +8043,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLDispa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLDispatchable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLDispatchable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8063,7 +8063,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLDispatchable {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLDispatchable {
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &'a IDMLDispatchable {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8083,7 +8083,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLDispatchable {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLDispatchable {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &'a IDMLDispatchable {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8103,7 +8103,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for IDMLDispatchable {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &IDMLDispatchable {
+impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &'a IDMLDispatchable {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8171,7 +8171,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLObjec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8250,7 +8250,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLOpera
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLOperator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLOperator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8270,7 +8270,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLOperator {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLOperator {
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &'a IDMLOperator {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8290,7 +8290,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLOperator {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLOperator {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &'a IDMLOperator {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8372,7 +8372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLOpera
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLOperatorInitializer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8392,7 +8392,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLOperatorInitializer 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLOperatorInitializer {
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &'a IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8412,7 +8412,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLOperatorInitial
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLOperatorInitializer {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &'a IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8432,7 +8432,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for IDMLOperatorInitialize
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &IDMLOperatorInitializer {
+impl<'a> ::windows::core::IntoParam<'a, IDMLPageable> for &'a IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLPageable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8452,7 +8452,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for IDMLOperatorInitia
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for &IDMLOperatorInitializer {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDispatchable> for &'a IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLDispatchable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8525,7 +8525,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDMLPagea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDMLPageable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDMLPageable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8545,7 +8545,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for IDMLPageable {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &IDMLPageable {
+impl<'a> ::windows::core::IntoParam<'a, IDMLObject> for &'a IDMLPageable {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLObject> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8565,7 +8565,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for IDMLPageable {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &IDMLPageable {
+impl<'a> ::windows::core::IntoParam<'a, IDMLDeviceChild> for &'a IDMLPageable {
     fn into_param(self) -> ::windows::core::Param<'a, IDMLDeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

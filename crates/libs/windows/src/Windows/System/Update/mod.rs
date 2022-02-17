@@ -254,7 +254,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemUpd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SystemUpdateItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemUpdateItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -274,7 +274,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syste
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SystemUpdateItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemUpdateItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -396,7 +396,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemUpd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SystemUpdateLastErrorInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemUpdateLastErrorInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -416,7 +416,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syste
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SystemUpdateLastErrorInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemUpdateLastErrorInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

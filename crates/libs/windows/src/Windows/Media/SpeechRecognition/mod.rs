@@ -162,7 +162,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpeechRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISpeechRecognitionConstraint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpeechRecognitionConstraint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -182,7 +182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISpee
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISpeechRecognitionConstraint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISpeechRecognitionConstraint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -736,7 +736,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechCon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechContinuousRecognitionCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechContinuousRecognitionCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -756,7 +756,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechContinuousRecognitionCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechContinuousRecognitionCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -855,7 +855,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechCon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechContinuousRecognitionResultGeneratedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechContinuousRecognitionResultGeneratedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -875,7 +875,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechContinuousRecognitionResultGeneratedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechContinuousRecognitionResultGeneratedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1027,7 +1027,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechCon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechContinuousRecognitionSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechContinuousRecognitionSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1047,7 +1047,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechContinuousRecognitionSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechContinuousRecognitionSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1151,7 +1151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognitionCompilationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionCompilationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1171,7 +1171,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognitionCompilationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionCompilationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1412,7 +1412,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognitionGrammarFileConstraint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionGrammarFileConstraint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1432,7 +1432,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognitionGrammarFileConstraint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionGrammarFileConstraint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1519,7 +1519,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognitionHypothesis {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionHypothesis {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1539,7 +1539,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognitionHypothesis {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionHypothesis {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1604,7 +1604,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognitionHypothesisGeneratedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionHypothesisGeneratedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1624,7 +1624,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognitionHypothesisGeneratedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionHypothesisGeneratedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1758,7 +1758,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognitionListConstraint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionListConstraint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1778,7 +1778,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognitionListConstraint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionListConstraint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1865,7 +1865,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognitionQualityDegradingEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionQualityDegradingEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1885,7 +1885,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognitionQualityDegradingEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionQualityDegradingEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2026,7 +2026,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognitionResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2046,7 +2046,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognitionResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2190,7 +2190,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognitionSemanticInterpretation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionSemanticInterpretation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2210,7 +2210,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognitionSemanticInterpretation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionSemanticInterpretation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2349,7 +2349,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognitionTopicConstraint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionTopicConstraint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2369,7 +2369,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognitionTopicConstraint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionTopicConstraint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2495,7 +2495,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognitionVoiceCommandDefinitionConstraint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionVoiceCommandDefinitionConstraint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2515,7 +2515,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognitionVoiceCommandDefinitionConstraint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionVoiceCommandDefinitionConstraint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2793,7 +2793,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognizer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognizer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2813,7 +2813,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognizer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognizer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2943,7 +2943,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognizerStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognizerStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2963,7 +2963,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognizerStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognizerStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3065,7 +3065,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognizerTimeouts {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognizerTimeouts {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3085,7 +3085,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognizerTimeouts {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognizerTimeouts {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3194,7 +3194,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpeechRecognizerUIOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognizerUIOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3214,7 +3214,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Speec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpeechRecognizerUIOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognizerUIOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3324,7 +3324,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VoiceComm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VoiceCommandSet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VoiceCommandSet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3344,7 +3344,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Voice
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VoiceCommandSet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VoiceCommandSet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

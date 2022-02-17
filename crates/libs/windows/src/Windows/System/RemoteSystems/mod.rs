@@ -378,7 +378,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRemoteSy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRemoteSystemFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRemoteSystemFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -398,7 +398,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IRemo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IRemoteSystemFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IRemoteSystemFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1444,7 +1444,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1464,7 +1464,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1565,7 +1565,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1585,7 +1585,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1699,7 +1699,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemApp {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemApp {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1719,7 +1719,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemApp {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemApp {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1821,7 +1821,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemAppRegistration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemAppRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1841,7 +1841,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemAppRegistration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemAppRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1952,7 +1952,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemAuthorizationKindFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemAuthorizationKindFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1972,7 +1972,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemAuthorizationKindFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemAuthorizationKindFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2072,7 +2072,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemConnectionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemConnectionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2092,7 +2092,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemConnectionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemConnectionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2216,7 +2216,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemConnectionRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemConnectionRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2236,7 +2236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemConnectionRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemConnectionRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2349,7 +2349,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemDiscoveryTypeFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemDiscoveryTypeFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2369,7 +2369,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemDiscoveryTypeFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemDiscoveryTypeFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2447,7 +2447,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemEnumerationCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemEnumerationCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2467,7 +2467,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemEnumerationCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemEnumerationCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2546,7 +2546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemKindFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemKindFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2566,7 +2566,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemKindFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemKindFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2763,7 +2763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2783,7 +2783,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2914,7 +2914,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2934,7 +2934,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3025,7 +3025,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3045,7 +3045,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3154,7 +3154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3174,7 +3174,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionController {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionController {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3247,7 +3247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionCreationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionCreationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3267,7 +3267,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionCreationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionCreationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3367,7 +3367,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionDisconnectedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionDisconnectedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3387,7 +3387,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionDisconnectedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionDisconnectedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3504,7 +3504,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3524,7 +3524,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3597,7 +3597,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionInvitation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionInvitation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3617,7 +3617,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionInvitation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionInvitation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3696,7 +3696,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionInvitationListener {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionInvitationListener {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3716,7 +3716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionInvitationListener {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionInvitationListener {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3781,7 +3781,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionInvitationReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionInvitationReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3801,7 +3801,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionInvitationReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionInvitationReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3871,7 +3871,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionJoinRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionJoinRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3891,7 +3891,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionJoinRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionJoinRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3965,7 +3965,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionJoinRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionJoinRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3985,7 +3985,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionJoinRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionJoinRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4058,7 +4058,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionJoinResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionJoinResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4078,7 +4078,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionJoinResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionJoinResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4241,7 +4241,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionMessageChannel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionMessageChannel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4261,7 +4261,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionMessageChannel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionMessageChannel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4372,7 +4372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4392,7 +4392,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4466,7 +4466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionParticipant {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionParticipant {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4486,7 +4486,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionParticipant {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionParticipant {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4551,7 +4551,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionParticipantAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionParticipantAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4571,7 +4571,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionParticipantAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionParticipantAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4636,7 +4636,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionParticipantRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionParticipantRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4656,7 +4656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionParticipantRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionParticipantRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4776,7 +4776,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionParticipantWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionParticipantWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4796,7 +4796,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionParticipantWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionParticipantWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4899,7 +4899,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4919,7 +4919,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4984,7 +4984,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionUpdatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionUpdatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5004,7 +5004,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionUpdatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionUpdatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5078,7 +5078,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionValueSetReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionValueSetReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5098,7 +5098,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionValueSetReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionValueSetReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5218,7 +5218,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemSessionWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5238,7 +5238,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemSessionWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5423,7 +5423,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemStatusTypeFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemStatusTypeFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5443,7 +5443,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemStatusTypeFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemStatusTypeFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5530,7 +5530,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemUpdatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemUpdatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5550,7 +5550,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemUpdatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemUpdatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5700,7 +5700,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5720,7 +5720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5820,7 +5820,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemWatcherErrorOccurredEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemWatcherErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5840,7 +5840,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemWatcherErrorOccurredEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemWatcherErrorOccurredEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5919,7 +5919,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RemoteSystemWebAccountFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemWebAccountFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5939,7 +5939,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Remot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RemoteSystemWebAccountFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemWebAccountFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -117,7 +117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpDiagn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpDiagnosticProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpDiagnosticProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -137,7 +137,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpDiagnosticProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpDiagnosticProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -252,7 +252,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpDiagn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpDiagnosticProviderRequestResponseCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -272,7 +272,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpDiagnosticProviderRequestResponseCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -410,7 +410,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpDiagn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpDiagnosticProviderRequestResponseTimestamps {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpDiagnosticProviderRequestResponseTimestamps {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -430,7 +430,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpDiagnosticProviderRequestResponseTimestamps {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpDiagnosticProviderRequestResponseTimestamps {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -545,7 +545,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpDiagn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpDiagnosticProviderRequestSentEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpDiagnosticProviderRequestSentEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -565,7 +565,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpDiagnosticProviderRequestSentEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpDiagnosticProviderRequestSentEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -647,7 +647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpDiagn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpDiagnosticProviderResponseReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpDiagnosticProviderResponseReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -667,7 +667,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpDiagnosticProviderResponseReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpDiagnosticProviderResponseReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -794,7 +794,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HttpDiagn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HttpDiagnosticSourceLocation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HttpDiagnosticSourceLocation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -814,7 +814,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HttpD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HttpDiagnosticSourceLocation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HttpDiagnosticSourceLocation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

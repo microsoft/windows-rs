@@ -25411,7 +25411,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICertSrvS
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICertSrvSetup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICertSrvSetup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25435,7 +25435,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &ICertSrvSetup {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a ICertSrvSetup {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25643,7 +25643,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICertSrvS
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICertSrvSetupKeyInformation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICertSrvSetupKeyInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25667,7 +25667,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &ICertSrvSetupKeyInformation {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a ICertSrvSetupKeyInformation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25808,7 +25808,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICertSrvS
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICertSrvSetupKeyInformationCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICertSrvSetupKeyInformationCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25832,7 +25832,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &ICertSrvSetupKeyInformationCollection {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a ICertSrvSetupKeyInformationCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25956,7 +25956,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICertific
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICertificateEnrollmentPolicyServerSetup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICertificateEnrollmentPolicyServerSetup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -25980,7 +25980,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &ICertificateEnrollmentPolicyServerSetup {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a ICertificateEnrollmentPolicyServerSetup {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26117,7 +26117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICertific
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICertificateEnrollmentServerSetup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICertificateEnrollmentServerSetup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26141,7 +26141,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &ICertificateEnrollmentServerSetup {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a ICertificateEnrollmentServerSetup {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26313,7 +26313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSCEPSet
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMSCEPSetup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSCEPSetup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -26337,7 +26337,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IMSCEPSetup {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IMSCEPSetup {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -3431,7 +3431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAVIEditS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAVIEditStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAVIEditStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3518,7 +3518,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAVIFile 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAVIFile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAVIFile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3620,7 +3620,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAVIPersi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAVIPersistFile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAVIPersistFile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3644,7 +3644,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for &IAVIPersistFile {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for &'a IAVIPersistFile {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersist> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3668,7 +3668,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistFile>
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistFile> for &IAVIPersistFile {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistFile> for &'a IAVIPersistFile {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersistFile> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3772,7 +3772,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAVIStrea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAVIStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAVIStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3850,7 +3850,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAVIStrea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAVIStreaming {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAVIStreaming {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5152,7 +5152,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGetFrame
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGetFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGetFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

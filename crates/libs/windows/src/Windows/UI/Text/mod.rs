@@ -159,7 +159,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContentLi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ContentLinkInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContentLinkInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -179,7 +179,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ContentLinkInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContentLinkInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -495,7 +495,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FontWeigh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FontWeights {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FontWeights {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -515,7 +515,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FontW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FontWeights {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FontWeights {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1018,7 +1018,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextChar
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITextCharacterFormat {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextCharacterFormat {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1038,7 +1038,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IText
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ITextCharacterFormat {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ITextCharacterFormat {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1345,7 +1345,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextDocu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITextDocument {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextDocument {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1365,7 +1365,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IText
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ITextDocument {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ITextDocument {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1814,7 +1814,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextPara
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITextParagraphFormat {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextParagraphFormat {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1834,7 +1834,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IText
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ITextParagraphFormat {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ITextParagraphFormat {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2280,7 +2280,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextRang
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITextRange {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextRange {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2300,7 +2300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IText
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ITextRange {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ITextRange {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2842,7 +2842,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextSele
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITextSelection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextSelection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2862,7 +2862,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IText
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ITextSelection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ITextSelection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3674,7 +3674,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RichEditT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RichEditTextDocument {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RichEditTextDocument {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3694,7 +3694,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RichE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RichEditTextDocument {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RichEditTextDocument {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4127,7 +4127,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RichEditT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RichEditTextRange {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RichEditTextRange {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4147,7 +4147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RichE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RichEditTextRange {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RichEditTextRange {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

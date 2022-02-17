@@ -381,7 +381,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WiFiAdapt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WiFiAdapter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WiFiAdapter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -401,7 +401,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WiFiA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFiAdapter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WiFiAdapter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -549,7 +549,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WiFiAvail
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WiFiAvailableNetwork {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WiFiAvailableNetwork {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -569,7 +569,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WiFiA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFiAvailableNetwork {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WiFiAvailableNetwork {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -669,7 +669,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WiFiConne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WiFiConnectionResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WiFiConnectionResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -689,7 +689,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WiFiC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFiConnectionResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WiFiConnectionResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -838,7 +838,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WiFiNetwo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WiFiNetworkReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WiFiNetworkReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -858,7 +858,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WiFiN
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFiNetworkReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WiFiNetworkReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1009,7 +1009,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WiFiWpsCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WiFiWpsConfigurationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WiFiWpsConfigurationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1029,7 +1029,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WiFiW
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFiWpsConfigurationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WiFiWpsConfigurationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

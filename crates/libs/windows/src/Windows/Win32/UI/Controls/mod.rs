@@ -5837,7 +5837,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IImageLis
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IImageList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IImageList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6141,7 +6141,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IImageLis
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IImageList2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IImageList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6161,7 +6161,7 @@ impl<'a> ::windows::core::IntoParam<'a, IImageList> for IImageList2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IImageList> for &IImageList2 {
+impl<'a> ::windows::core::IntoParam<'a, IImageList> for &'a IImageList2 {
     fn into_param(self) -> ::windows::core::Param<'a, IImageList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

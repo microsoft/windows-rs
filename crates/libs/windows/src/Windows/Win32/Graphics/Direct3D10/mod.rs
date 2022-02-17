@@ -6883,7 +6883,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Asy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Asynchronous {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Asynchronous {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6903,7 +6903,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10Asynchronou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10Asynchronous {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10Asynchronous {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6978,7 +6978,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Ble
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10BlendState {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10BlendState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6998,7 +6998,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10BlendState 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10BlendState {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10BlendState {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7078,7 +7078,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Ble
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10BlendState1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10BlendState1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7098,7 +7098,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10BlendState1
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10BlendState1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10BlendState1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7118,7 +7118,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10BlendState> for ID3D10BlendState1 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10BlendState> for &ID3D10BlendState1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10BlendState> for &'a ID3D10BlendState1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10BlendState> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7212,7 +7212,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Buf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Buffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Buffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7232,7 +7232,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10Buffer {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10Buffer {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10Buffer {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7252,7 +7252,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for ID3D10Buffer {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for &ID3D10Buffer {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for &'a ID3D10Buffer {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7341,7 +7341,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Cou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Counter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Counter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7361,7 +7361,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10Counter {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10Counter {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10Counter {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7381,7 +7381,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10Asynchronous> for ID3D10Counter {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10Asynchronous> for &ID3D10Counter {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10Asynchronous> for &'a ID3D10Counter {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10Asynchronous> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7463,7 +7463,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Deb
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Debug {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Debug {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7547,7 +7547,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Dep
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10DepthStencilState {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10DepthStencilState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7567,7 +7567,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10DepthStenci
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10DepthStencilState {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10DepthStencilState {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7646,7 +7646,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Dep
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10DepthStencilView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10DepthStencilView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7666,7 +7666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10DepthStenci
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10DepthStencilView {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10DepthStencilView {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7686,7 +7686,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for ID3D10DepthStencilView {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for &ID3D10DepthStencilView {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for &'a ID3D10DepthStencilView {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10View> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8165,7 +8165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Dev
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Device {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Device {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8823,7 +8823,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Dev
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Device1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Device1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8843,7 +8843,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10Device> for ID3D10Device1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10Device> for &ID3D10Device1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10Device> for &'a ID3D10Device1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10Device> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8918,7 +8918,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Dev
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10DeviceChild {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10DeviceChild {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9034,7 +9034,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Eff
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Effect {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Effect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9237,7 +9237,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectBl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectBlendVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectBlendVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9416,7 +9416,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectConstantBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectConstantBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9587,7 +9587,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectDepthStencilVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectDepthStencilVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9765,7 +9765,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectDepthStencilViewVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectDepthStencilViewVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9957,7 +9957,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectMa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectMatrixVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectMatrixVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10106,7 +10106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Eff
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10EffectPool {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10EffectPool {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10274,7 +10274,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectRa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectRasterizerVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectRasterizerVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10452,7 +10452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectRenderTargetViewVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectRenderTargetViewVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10622,7 +10622,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectSa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectSamplerVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectSamplerVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10835,7 +10835,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectSc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectScalarVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectScalarVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11032,7 +11032,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectSh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectShaderResourceVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectShaderResourceVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11225,7 +11225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectSh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectShaderVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectShaderVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11407,7 +11407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectStringVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectStringVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11967,7 +11967,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for ID3D10EffectVe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &ID3D10EffectVectorVariable {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10EffectVariable> for &'a ID3D10EffectVectorVariable {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10EffectVariable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12057,7 +12057,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Geo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10GeometryShader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10GeometryShader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12077,7 +12077,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10GeometrySha
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10GeometryShader {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10GeometryShader {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12277,7 +12277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Inf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10InfoQueue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10InfoQueue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12408,7 +12408,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Inp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10InputLayout {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10InputLayout {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12428,7 +12428,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10InputLayout
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10InputLayout {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10InputLayout {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12496,7 +12496,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Mul
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Multithread {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Multithread {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12572,7 +12572,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Pix
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10PixelShader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10PixelShader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12592,7 +12592,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10PixelShader
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10PixelShader {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10PixelShader {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12678,7 +12678,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Pre
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Predicate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Predicate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12698,7 +12698,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10Predicate {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10Predicate {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10Predicate {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12718,7 +12718,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10Asynchronous> for ID3D10Predicate 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10Asynchronous> for &ID3D10Predicate {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10Asynchronous> for &'a ID3D10Predicate {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10Asynchronous> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12738,7 +12738,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10Query> for ID3D10Predicate {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10Query> for &ID3D10Predicate {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10Query> for &'a ID3D10Predicate {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10Query> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12824,7 +12824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Que
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Query {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Query {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12844,7 +12844,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10Query {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10Query {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10Query {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12864,7 +12864,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10Asynchronous> for ID3D10Query {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10Asynchronous> for &ID3D10Query {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10Asynchronous> for &'a ID3D10Query {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10Asynchronous> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12936,7 +12936,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Ras
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10RasterizerState {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10RasterizerState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12956,7 +12956,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10RasterizerS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10RasterizerState {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10RasterizerState {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13035,7 +13035,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Ren
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10RenderTargetView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10RenderTargetView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13055,7 +13055,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10RenderTarge
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10RenderTargetView {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10RenderTargetView {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13075,7 +13075,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for ID3D10RenderTargetView {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for &ID3D10RenderTargetView {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for &'a ID3D10RenderTargetView {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10View> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13157,7 +13157,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Res
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Resource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Resource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13177,7 +13177,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10Resource {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10Resource {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10Resource {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13250,7 +13250,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Sam
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10SamplerState {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10SamplerState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13270,7 +13270,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10SamplerStat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10SamplerState {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10SamplerState {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13354,7 +13354,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Sha
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10ShaderReflection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10ShaderReflection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13507,7 +13507,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Sha
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10ShaderReflection1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10ShaderReflection1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13785,7 +13785,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Sha
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10ShaderResourceView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10ShaderResourceView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13805,7 +13805,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10ShaderResou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10ShaderResourceView {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10ShaderResourceView {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13825,7 +13825,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for ID3D10ShaderResourceView
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for &ID3D10ShaderResourceView {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for &'a ID3D10ShaderResourceView {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10View> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13909,7 +13909,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Sha
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10ShaderResourceView1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10ShaderResourceView1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13929,7 +13929,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10ShaderResou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10ShaderResourceView1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10ShaderResourceView1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13949,7 +13949,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for ID3D10ShaderResourceView
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for &ID3D10ShaderResourceView1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10View> for &'a ID3D10ShaderResourceView1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10View> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13969,7 +13969,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10ShaderResourceView> for ID3D10Shad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10ShaderResourceView> for &ID3D10ShaderResourceView1 {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10ShaderResourceView> for &'a ID3D10ShaderResourceView1 {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10ShaderResourceView> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14040,7 +14040,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Sta
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10StateBlock {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10StateBlock {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14104,7 +14104,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Swi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10SwitchToRef {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10SwitchToRef {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14203,7 +14203,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Tex
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Texture1D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Texture1D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14223,7 +14223,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10Texture1D {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10Texture1D {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10Texture1D {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14243,7 +14243,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for ID3D10Texture1D {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for &ID3D10Texture1D {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for &'a ID3D10Texture1D {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14341,7 +14341,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Tex
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Texture2D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Texture2D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14361,7 +14361,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10Texture2D {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10Texture2D {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10Texture2D {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14381,7 +14381,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for ID3D10Texture2D {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for &ID3D10Texture2D {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for &'a ID3D10Texture2D {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14479,7 +14479,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Tex
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10Texture3D {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10Texture3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14499,7 +14499,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10Texture3D {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10Texture3D {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10Texture3D {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14519,7 +14519,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for ID3D10Texture3D {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for &ID3D10Texture3D {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10Resource> for &'a ID3D10Texture3D {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14591,7 +14591,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Ver
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10VertexShader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10VertexShader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14611,7 +14611,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10VertexShade
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10VertexShader {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10VertexShader {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14681,7 +14681,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D10Vie
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D10View {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D10View {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14701,7 +14701,7 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for ID3D10View {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &ID3D10View {
+impl<'a> ::windows::core::IntoParam<'a, ID3D10DeviceChild> for &'a ID3D10View {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D10DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

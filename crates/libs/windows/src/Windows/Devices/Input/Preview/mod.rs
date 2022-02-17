@@ -145,7 +145,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GazeDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GazeDevicePreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GazeDevicePreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -165,7 +165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GazeD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GazeDevicePreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GazeDevicePreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -230,7 +230,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GazeDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GazeDeviceWatcherAddedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GazeDeviceWatcherAddedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -250,7 +250,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GazeD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GazeDeviceWatcherAddedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GazeDeviceWatcherAddedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -377,7 +377,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GazeDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GazeDeviceWatcherPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GazeDeviceWatcherPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -397,7 +397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GazeD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GazeDeviceWatcherPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GazeDeviceWatcherPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -462,7 +462,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GazeDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GazeDeviceWatcherRemovedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GazeDeviceWatcherRemovedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -482,7 +482,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GazeD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GazeDeviceWatcherRemovedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GazeDeviceWatcherRemovedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -547,7 +547,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GazeDevic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GazeDeviceWatcherUpdatedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GazeDeviceWatcherUpdatedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -567,7 +567,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GazeD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GazeDeviceWatcherUpdatedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GazeDeviceWatcherUpdatedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -645,7 +645,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GazeEnter
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GazeEnteredPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GazeEnteredPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -665,7 +665,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GazeE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GazeEnteredPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GazeEnteredPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -743,7 +743,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GazeExite
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GazeExitedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GazeExitedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -763,7 +763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GazeE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GazeExitedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GazeExitedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -884,7 +884,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GazeInput
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GazeInputSourcePreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GazeInputSourcePreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -904,7 +904,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GazeI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GazeInputSourcePreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GazeInputSourcePreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -991,7 +991,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GazeMoved
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GazeMovedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GazeMovedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1011,7 +1011,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GazeM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GazeMovedPreviewEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GazeMovedPreviewEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1111,7 +1111,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GazePoint
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GazePointPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GazePointPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1131,7 +1131,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GazeP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GazePointPreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GazePointPreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

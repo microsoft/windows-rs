@@ -1952,7 +1952,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionColorFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionColorFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1976,7 +1976,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionColorFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionColorFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2092,7 +2092,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionColorFrameArrivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionColorFrameArrivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2116,7 +2116,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionColorFrameArrivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionColorFrameArrivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2242,7 +2242,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionColorFrameReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionColorFrameReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2266,7 +2266,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionColorFrameReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionColorFrameReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2657,7 +2657,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionColorFrameSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionColorFrameSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2681,7 +2681,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionColorFrameSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionColorFrameSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2762,7 +2762,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionColorFrameSourceAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionColorFrameSourceAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2786,7 +2786,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionColorFrameSourceAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionColorFrameSourceAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2867,7 +2867,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionColorFrameSourceRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionColorFrameSourceRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2891,7 +2891,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionColorFrameSourceRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionColorFrameSourceRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3044,7 +3044,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionColorFrameSourceWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionColorFrameSourceWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3068,7 +3068,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionColorFrameSourceWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionColorFrameSourceWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3170,7 +3170,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionControlSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionControlSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3194,7 +3194,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionControlSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionControlSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3325,7 +3325,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionDepthCorrelatedCameraIntrinsics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionDepthCorrelatedCameraIntrinsics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3349,7 +3349,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionDepthCorrelatedCameraIntrinsics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionDepthCorrelatedCameraIntrinsics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3454,7 +3454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionDepthCorrelatedCoordinateMapper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionDepthCorrelatedCoordinateMapper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3478,7 +3478,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionDepthCorrelatedCoordinateMapper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionDepthCorrelatedCoordinateMapper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3565,7 +3565,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionDepthFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionDepthFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3589,7 +3589,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionDepthFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionDepthFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3705,7 +3705,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionDepthFrameArrivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionDepthFrameArrivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3729,7 +3729,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionDepthFrameArrivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionDepthFrameArrivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3855,7 +3855,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionDepthFrameReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionDepthFrameReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3879,7 +3879,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionDepthFrameReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionDepthFrameReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4270,7 +4270,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionDepthFrameSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionDepthFrameSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4294,7 +4294,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionDepthFrameSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionDepthFrameSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4375,7 +4375,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionDepthFrameSourceAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionDepthFrameSourceAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4399,7 +4399,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionDepthFrameSourceAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionDepthFrameSourceAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4480,7 +4480,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionDepthFrameSourceRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionDepthFrameSourceRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4504,7 +4504,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionDepthFrameSourceRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionDepthFrameSourceRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4657,7 +4657,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionDepthFrameSourceWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionDepthFrameSourceWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4681,7 +4681,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionDepthFrameSourceWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionDepthFrameSourceWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4815,7 +4815,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionFrameSourcePropertiesChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionFrameSourcePropertiesChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4839,7 +4839,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionFrameSourcePropertiesChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionFrameSourcePropertiesChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4929,7 +4929,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionFrameSourcePropertyChangeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionFrameSourcePropertyChangeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4953,7 +4953,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionFrameSourcePropertyChangeResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionFrameSourcePropertyChangeResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5086,7 +5086,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionInfraredFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionInfraredFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5110,7 +5110,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionInfraredFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionInfraredFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5226,7 +5226,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionInfraredFrameArrivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionInfraredFrameArrivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5250,7 +5250,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionInfraredFrameArrivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionInfraredFrameArrivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5376,7 +5376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionInfraredFrameReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionInfraredFrameReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5400,7 +5400,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionInfraredFrameReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionInfraredFrameReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5791,7 +5791,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionInfraredFrameSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionInfraredFrameSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5815,7 +5815,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionInfraredFrameSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionInfraredFrameSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5896,7 +5896,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionInfraredFrameSourceAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionInfraredFrameSourceAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5920,7 +5920,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionInfraredFrameSourceAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionInfraredFrameSourceAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6001,7 +6001,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionInfraredFrameSourceRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionInfraredFrameSourceRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6025,7 +6025,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionInfraredFrameSourceRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionInfraredFrameSourceRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6178,7 +6178,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionInfraredFrameSourceWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionInfraredFrameSourceWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6202,7 +6202,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionInfraredFrameSourceWatcher {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionInfraredFrameSourceWatcher {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6328,7 +6328,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Perceptio
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PerceptionVideoProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionVideoProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6352,7 +6352,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Perce
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PerceptionVideoProfile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionVideoProfile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

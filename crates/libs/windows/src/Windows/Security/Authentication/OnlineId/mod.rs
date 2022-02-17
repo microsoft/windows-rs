@@ -309,7 +309,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OnlineIdAuthenticator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdAuthenticator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -329,7 +329,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Onlin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OnlineIdAuthenticator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdAuthenticator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -410,7 +410,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OnlineIdServiceTicket {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdServiceTicket {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -430,7 +430,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Onlin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OnlineIdServiceTicket {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdServiceTicket {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -522,7 +522,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OnlineIdServiceTicketRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdServiceTicketRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -542,7 +542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Onlin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OnlineIdServiceTicketRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdServiceTicketRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -657,7 +657,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OnlineIdSystemAuthenticatorForUser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdSystemAuthenticatorForUser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -677,7 +677,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Onlin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OnlineIdSystemAuthenticatorForUser {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdSystemAuthenticatorForUser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -750,7 +750,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OnlineIdSystemIdentity {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdSystemIdentity {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -770,7 +770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Onlin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OnlineIdSystemIdentity {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdSystemIdentity {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -851,7 +851,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OnlineIdSystemTicketResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdSystemTicketResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -871,7 +871,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Onlin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OnlineIdSystemTicketResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdSystemTicketResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1067,7 +1067,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SignOutUs
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SignOutUserOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SignOutUserOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1091,7 +1091,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SignO
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SignOutUserOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SignOutUserOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1309,7 +1309,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserAuthe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UserAuthenticationOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserAuthenticationOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1333,7 +1333,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserA
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UserAuthenticationOperation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserAuthenticationOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1509,7 +1509,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserIdent
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UserIdentity {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserIdentity {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1529,7 +1529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UserIdentity {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserIdentity {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -586,7 +586,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInertiaP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInertiaProcessor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInertiaProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -784,7 +784,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IManipula
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IManipulationProcessor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IManipulationProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1177,7 +1177,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IManipul
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &_IManipulationEvents {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IManipulationEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

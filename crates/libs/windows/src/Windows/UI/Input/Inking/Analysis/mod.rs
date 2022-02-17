@@ -157,7 +157,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkAnaly
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInkAnalysisNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkAnalysisNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -177,7 +177,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkAnalysisNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IInkAnalysisNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -348,7 +348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkAnaly
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInkAnalyzerFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkAnalyzerFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -368,7 +368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkAnalyzerFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IInkAnalyzerFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -571,7 +571,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkAnalysisInkBullet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisInkBullet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -591,7 +591,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkAnalysisInkBullet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisInkBullet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -756,7 +756,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkAnalysisInkDrawing {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisInkDrawing {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -776,7 +776,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkAnalysisInkDrawing {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisInkDrawing {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -932,7 +932,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkAnalysisInkWord {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisInkWord {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -952,7 +952,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkAnalysisInkWord {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisInkWord {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1107,7 +1107,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkAnalysisLine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisLine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1127,7 +1127,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkAnalysisLine {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisLine {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1274,7 +1274,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkAnalysisListItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisListItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1294,7 +1294,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkAnalysisListItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisListItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1433,7 +1433,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkAnalysisNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1453,7 +1453,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkAnalysisNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1641,7 +1641,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkAnalysisParagraph {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisParagraph {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1661,7 +1661,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkAnalysisParagraph {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisParagraph {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1748,7 +1748,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkAnalysisResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1768,7 +1768,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkAnalysisResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1902,7 +1902,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkAnalysisRoot {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisRoot {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1922,7 +1922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkAnalysisRoot {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisRoot {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2138,7 +2138,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalys
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkAnalysisWritingRegion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisWritingRegion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2158,7 +2158,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkAnalysisWritingRegion {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisWritingRegion {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2306,7 +2306,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalyz
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &InkAnalyzer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalyzer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2326,7 +2326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkAnalyzer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalyzer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

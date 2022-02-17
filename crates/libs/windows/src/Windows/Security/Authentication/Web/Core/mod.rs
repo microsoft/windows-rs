@@ -74,7 +74,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FindAllAc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FindAllAccountsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FindAllAccountsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -94,7 +94,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FindA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FindAllAccountsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FindAllAccountsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -567,7 +567,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebAccoun
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebAccountEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebAccountEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -587,7 +587,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebAc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebAccountEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebAccountEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -704,7 +704,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebAccoun
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebAccountMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebAccountMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -724,7 +724,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebAc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebAccountMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebAccountMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -957,7 +957,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebProvid
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebProviderError {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebProviderError {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -977,7 +977,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebPr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebProviderError {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebProviderError {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1135,7 +1135,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebTokenR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebTokenRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebTokenRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1155,7 +1155,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebTo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebTokenRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebTokenRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1280,7 +1280,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebTokenR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebTokenRequestResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebTokenRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1300,7 +1300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebTo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebTokenRequestResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebTokenRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1464,7 +1464,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebTokenR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &WebTokenResponse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebTokenResponse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1484,7 +1484,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebTo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebTokenResponse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebTokenResponse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

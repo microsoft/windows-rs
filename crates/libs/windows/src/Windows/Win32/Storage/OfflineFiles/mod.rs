@@ -36,7 +36,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumOffl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumOfflineFilesItems {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumOfflineFilesItems {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -107,7 +107,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumOffl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumOfflineFilesSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumOfflineFilesSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -247,7 +247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesCache {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesCache {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -444,7 +444,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesCache2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesCache2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -464,7 +464,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesCache> for IOfflineFilesCac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesCache> for &IOfflineFilesCache2 {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesCache> for &'a IOfflineFilesCache2 {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesCache> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -554,7 +554,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesChangeInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesChangeInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -648,7 +648,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesConnectionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesConnectionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -737,7 +737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesDirectoryItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesDirectoryItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -757,7 +757,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesDire
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &IOfflineFilesDirectoryItem {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &'a IOfflineFilesDirectoryItem {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -817,7 +817,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesDirtyInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesDirtyInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -881,7 +881,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesErrorInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesErrorInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1056,7 +1056,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesEvents {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesEvents {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1335,7 +1335,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesEvents2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesEvents2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1355,7 +1355,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for IOfflineFilesEv
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for &IOfflineFilesEvents2 {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for &'a IOfflineFilesEvents2 {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1582,7 +1582,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesEvents3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesEvents3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1602,7 +1602,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for IOfflineFilesEv
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for &IOfflineFilesEvents3 {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for &'a IOfflineFilesEvents3 {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1622,7 +1622,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents2> for IOfflineFilesE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents2> for &IOfflineFilesEvents3 {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents2> for &'a IOfflineFilesEvents3 {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1860,7 +1860,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesEvents4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1880,7 +1880,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for IOfflineFilesEv
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for &IOfflineFilesEvents4 {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for &'a IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1900,7 +1900,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents2> for IOfflineFilesE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents2> for &IOfflineFilesEvents4 {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents2> for &'a IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1920,7 +1920,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents3> for IOfflineFilesE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents3> for &IOfflineFilesEvents4 {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents3> for &'a IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1985,7 +1985,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesEventsFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesEventsFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2079,7 +2079,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesFileItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesFileItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2099,7 +2099,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesFile
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &IOfflineFilesFileItem {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &'a IOfflineFilesFileItem {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2172,7 +2172,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesFileSysInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesFileSysInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2234,7 +2234,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesGhostInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesGhostInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2314,7 +2314,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2385,7 +2385,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesItemContainer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesItemContainer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2451,7 +2451,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesItemFilter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesItemFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2536,7 +2536,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesPinInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesPinInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2638,7 +2638,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesPinInfo2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesPinInfo2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2658,7 +2658,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesPinInfo> for IOfflineFilesP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesPinInfo> for &IOfflineFilesPinInfo2 {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesPinInfo> for &'a IOfflineFilesPinInfo2 {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesPinInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2728,7 +2728,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesProgress {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesProgress {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2813,7 +2813,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesServerItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesServerItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2833,7 +2833,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesServ
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &IOfflineFilesServerItem {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &'a IOfflineFilesServerItem {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2928,7 +2928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesSetting {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSetting {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3018,7 +3018,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesShareInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesShareInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3100,7 +3100,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesShareItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesShareItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3120,7 +3120,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesShar
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &IOfflineFilesShareItem {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &'a IOfflineFilesShareItem {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3198,7 +3198,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesSimpleProgress {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSimpleProgress {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3218,7 +3218,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesProgress> for IOfflineFiles
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesProgress> for &IOfflineFilesSimpleProgress {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesProgress> for &'a IOfflineFilesSimpleProgress {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesProgress> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3281,7 +3281,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesSuspend {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSuspend {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3340,7 +3340,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesSuspendInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSuspendInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3399,7 +3399,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesSyncConflictHandler {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSyncConflictHandler {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3500,7 +3500,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesSyncErrorInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSyncErrorInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3520,7 +3520,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesErrorInfo> for IOfflineFile
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesErrorInfo> for &IOfflineFilesSyncErrorInfo {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesErrorInfo> for &'a IOfflineFilesSyncErrorInfo {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesErrorInfo> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3598,7 +3598,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesSyncErrorItemInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSyncErrorItemInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3682,7 +3682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesSyncProgress {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSyncProgress {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3702,7 +3702,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesProgress> for IOfflineFiles
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesProgress> for &IOfflineFilesSyncProgress {
+impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesProgress> for &'a IOfflineFilesSyncProgress {
     fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesProgress> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3766,7 +3766,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IOfflineFilesTransparentCacheInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesTransparentCacheInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

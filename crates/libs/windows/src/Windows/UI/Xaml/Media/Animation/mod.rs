@@ -56,7 +56,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AddDelete
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AddDeleteThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AddDeleteThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -76,7 +76,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AddDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AddDeleteThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AddDeleteThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -205,7 +205,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackEase 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BackEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -225,7 +225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BackEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -342,7 +342,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BasicConn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BasicConnectedAnimationConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BasicConnectedAnimationConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -362,7 +362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Basic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BasicConnectedAnimationConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BasicConnectedAnimationConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -471,7 +471,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BeginStor
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BeginStoryboard {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BeginStoryboard {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -491,7 +491,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Begin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BeginStoryboard {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BeginStoryboard {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -640,7 +640,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BounceEas
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &BounceEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BounceEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -660,7 +660,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Bounc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &BounceEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BounceEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -764,7 +764,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CircleEas
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CircleEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CircleEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -784,7 +784,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Circl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CircleEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CircleEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1034,7 +1034,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ColorAnim
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ColorAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ColorAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1054,7 +1054,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Color
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ColorAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ColorAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1192,7 +1192,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ColorAnim
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ColorAnimationUsingKeyFrames {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ColorAnimationUsingKeyFrames {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1212,7 +1212,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Color
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ColorAnimationUsingKeyFrames {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ColorAnimationUsingKeyFrames {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1356,7 +1356,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ColorKeyF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ColorKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ColorKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1376,7 +1376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Color
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ColorKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ColorKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1585,7 +1585,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ColorKeyF
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ColorKeyFrameCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ColorKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1609,7 +1609,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Color
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ColorKeyFrameCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ColorKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1770,7 +1770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CommonNav
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CommonNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CommonNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1790,7 +1790,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Commo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CommonNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CommonNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1956,7 +1956,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Connected
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConnectedAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectedAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1976,7 +1976,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConnectedAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectedAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2068,7 +2068,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Connected
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConnectedAnimationConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectedAnimationConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2088,7 +2088,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConnectedAnimationConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectedAnimationConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2203,7 +2203,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Connected
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ConnectedAnimationService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectedAnimationService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2223,7 +2223,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conne
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ConnectedAnimationService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectedAnimationService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2332,7 +2332,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContentTh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ContentThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContentThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2352,7 +2352,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conte
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ContentThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContentThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2537,7 +2537,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Continuum
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ContinuumNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContinuumNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2557,7 +2557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Conti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ContinuumNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContinuumNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2661,7 +2661,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CubicEase
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CubicEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CubicEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2681,7 +2681,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Cubic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CubicEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CubicEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2798,7 +2798,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DirectCon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DirectConnectedAnimationConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DirectConnectedAnimationConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2818,7 +2818,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Direc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DirectConnectedAnimationConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DirectConnectedAnimationConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2902,7 +2902,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DiscreteC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DiscreteColorKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DiscreteColorKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2922,7 +2922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Discr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DiscreteColorKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DiscreteColorKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3026,7 +3026,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DiscreteD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DiscreteDoubleKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DiscreteDoubleKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3046,7 +3046,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Discr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DiscreteDoubleKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DiscreteDoubleKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3150,7 +3150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DiscreteO
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DiscreteObjectKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DiscreteObjectKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3170,7 +3170,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Discr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DiscreteObjectKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DiscreteObjectKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3274,7 +3274,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DiscreteP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DiscretePointKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DiscretePointKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3294,7 +3294,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Discr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DiscretePointKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DiscretePointKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3509,7 +3509,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DoubleAni
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DoubleAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DoubleAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3529,7 +3529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Doubl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DoubleAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DoubleAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3667,7 +3667,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DoubleAni
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DoubleAnimationUsingKeyFrames {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DoubleAnimationUsingKeyFrames {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3687,7 +3687,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Doubl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DoubleAnimationUsingKeyFrames {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DoubleAnimationUsingKeyFrames {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3831,7 +3831,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DoubleKey
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DoubleKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DoubleKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3851,7 +3851,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Doubl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DoubleKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DoubleKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4060,7 +4060,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DoubleKey
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DoubleKeyFrameCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DoubleKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4084,7 +4084,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Doubl
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DoubleKeyFrameCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DoubleKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4227,7 +4227,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DragItemT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DragItemThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DragItemThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4247,7 +4247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DragI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DragItemThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DragItemThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4418,7 +4418,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DragOverT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DragOverThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DragOverThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4438,7 +4438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DragO
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DragOverThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DragOverThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4542,7 +4542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DrillInNa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DrillInNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DrillInNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4562,7 +4562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Drill
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DrillInNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DrillInNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4751,7 +4751,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DrillInTh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DrillInThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DrillInThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4771,7 +4771,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Drill
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DrillInThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DrillInThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4960,7 +4960,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DrillOutT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DrillOutThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DrillOutThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4980,7 +4980,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Drill
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DrillOutThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DrillOutThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5109,7 +5109,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DropTarge
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DropTargetItemThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DropTargetItemThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5129,7 +5129,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DropT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DropTargetItemThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DropTargetItemThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5258,7 +5258,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EasingCol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EasingColorKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EasingColorKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5278,7 +5278,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Easin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EasingColorKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EasingColorKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5407,7 +5407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EasingDou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EasingDoubleKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EasingDoubleKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5427,7 +5427,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Easin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EasingDoubleKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EasingDoubleKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5557,7 +5557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EasingFun
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EasingFunctionBase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EasingFunctionBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5577,7 +5577,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Easin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EasingFunctionBase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EasingFunctionBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5721,7 +5721,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EasingPoi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EasingPointKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EasingPointKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5741,7 +5741,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Easin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EasingPointKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EasingPointKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5872,7 +5872,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EdgeUIThe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EdgeUIThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EdgeUIThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5892,7 +5892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EdgeU
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EdgeUIThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EdgeUIThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6041,7 +6041,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ElasticEa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ElasticEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ElasticEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6061,7 +6061,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Elast
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ElasticEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ElasticEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6188,7 +6188,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EntranceN
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EntranceNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EntranceNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6208,7 +6208,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Entra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EntranceNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EntranceNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6377,7 +6377,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EntranceT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &EntranceThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EntranceThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6397,7 +6397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Entra
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EntranceThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EntranceThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6526,7 +6526,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Exponenti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ExponentialEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ExponentialEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6546,7 +6546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Expon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ExponentialEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ExponentialEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6675,7 +6675,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FadeInThe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FadeInThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FadeInThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6695,7 +6695,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FadeI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FadeInThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FadeInThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6824,7 +6824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FadeOutTh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FadeOutThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FadeOutThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6844,7 +6844,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FadeO
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FadeOutThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FadeOutThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7008,7 +7008,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GravityCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GravityConnectedAnimationConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GravityConnectedAnimationConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7028,7 +7028,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Gravi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GravityConnectedAnimationConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GravityConnectedAnimationConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9651,7 +9651,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeySpline
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &KeySpline {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeySpline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9671,7 +9671,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeySp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeySpline {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeySpline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9807,7 +9807,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeyTimeHe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &KeyTimeHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeyTimeHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9827,7 +9827,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeyTi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyTimeHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeyTimeHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9891,7 +9891,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LinearCol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LinearColorKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LinearColorKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9911,7 +9911,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Linea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LinearColorKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LinearColorKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10015,7 +10015,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LinearDou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LinearDoubleKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LinearDoubleKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10035,7 +10035,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Linea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LinearDoubleKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LinearDoubleKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10139,7 +10139,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LinearPoi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LinearPointKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LinearPointKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10159,7 +10159,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Linea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LinearPointKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LinearPointKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10288,7 +10288,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Navigatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NavigationThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NavigationThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10308,7 +10308,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Navig
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NavigationThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NavigationThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10404,7 +10404,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Navigatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10424,7 +10424,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Navig
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10542,7 +10542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ObjectAni
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ObjectAnimationUsingKeyFrames {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ObjectAnimationUsingKeyFrames {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10562,7 +10562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Objec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ObjectAnimationUsingKeyFrames {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ObjectAnimationUsingKeyFrames {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10706,7 +10706,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ObjectKey
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ObjectKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ObjectKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10726,7 +10726,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Objec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ObjectKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ObjectKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10935,7 +10935,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ObjectKey
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ObjectKeyFrameCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ObjectKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10959,7 +10959,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Objec
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ObjectKeyFrameCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ObjectKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11104,7 +11104,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PaneTheme
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PaneThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PaneThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11124,7 +11124,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PaneT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PaneThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PaneThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11339,7 +11339,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PointAnim
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PointAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PointAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11359,7 +11359,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Point
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PointAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PointAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11497,7 +11497,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PointAnim
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PointAnimationUsingKeyFrames {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PointAnimationUsingKeyFrames {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11517,7 +11517,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Point
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PointAnimationUsingKeyFrames {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PointAnimationUsingKeyFrames {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11663,7 +11663,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PointKeyF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PointKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PointKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11683,7 +11683,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Point
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PointKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PointKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11892,7 +11892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PointKeyF
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PointKeyFrameCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PointKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11916,7 +11916,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Point
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PointKeyFrameCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PointKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12059,7 +12059,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PointerDo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PointerDownThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PointerDownThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12079,7 +12079,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Point
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PointerDownThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PointerDownThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12208,7 +12208,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PointerUp
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PointerUpThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PointerUpThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12228,7 +12228,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Point
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PointerUpThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PointerUpThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12397,7 +12397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PopInThem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PopInThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PopInThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12417,7 +12417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PopIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PopInThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PopInThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12546,7 +12546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PopOutThe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PopOutThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PopOutThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12566,7 +12566,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PopOu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PopOutThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PopOutThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12715,7 +12715,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PopupThem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PopupThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PopupThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12735,7 +12735,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Popup
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PopupThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PopupThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12864,7 +12864,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PowerEase
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PowerEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PowerEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12884,7 +12884,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Power
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PowerEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PowerEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12988,7 +12988,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Quadratic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &QuadraticEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a QuadraticEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13008,7 +13008,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Quadr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &QuadraticEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a QuadraticEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13112,7 +13112,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for QuarticEa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &QuarticEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a QuarticEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13132,7 +13132,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Quart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &QuarticEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a QuarticEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13236,7 +13236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for QuinticEa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &QuinticEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a QuinticEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13256,7 +13256,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Quint
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &QuinticEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a QuinticEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13360,7 +13360,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ReorderTh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ReorderThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ReorderThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13380,7 +13380,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Reord
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ReorderThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ReorderThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13578,7 +13578,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RepeatBeh
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RepeatBehaviorHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RepeatBehaviorHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13598,7 +13598,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Repea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RepeatBehaviorHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RepeatBehaviorHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13762,7 +13762,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Repositio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RepositionThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RepositionThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13782,7 +13782,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Repos
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RepositionThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RepositionThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13911,7 +13911,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Repositio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RepositionThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RepositionThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13931,7 +13931,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Repos
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RepositionThemeTransition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RepositionThemeTransition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14035,7 +14035,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SineEase 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SineEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SineEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14055,7 +14055,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SineE
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SineEase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SineEase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14219,7 +14219,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SlideNavi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SlideNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SlideNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14239,7 +14239,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Slide
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SlideNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SlideNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14368,7 +14368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SplineCol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SplineColorKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SplineColorKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14388,7 +14388,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Splin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SplineColorKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SplineColorKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14517,7 +14517,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SplineDou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SplineDoubleKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SplineDoubleKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14537,7 +14537,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Splin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SplineDoubleKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SplineDoubleKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14666,7 +14666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SplinePoi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SplinePointKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SplinePointKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14686,7 +14686,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Splin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SplinePointKeyFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SplinePointKeyFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15017,7 +15017,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SplitClos
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SplitCloseThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SplitCloseThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15037,7 +15037,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Split
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SplitCloseThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SplitCloseThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15368,7 +15368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SplitOpen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SplitOpenThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SplitOpenThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15388,7 +15388,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Split
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SplitOpenThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SplitOpenThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15600,7 +15600,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Storyboar
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Storyboard {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Storyboard {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15620,7 +15620,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Story
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Storyboard {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Storyboard {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15724,7 +15724,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SuppressN
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SuppressNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SuppressNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15744,7 +15744,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Suppr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SuppressNavigationTransitionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SuppressNavigationTransitionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15913,7 +15913,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SwipeBack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SwipeBackThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SwipeBackThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15933,7 +15933,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Swipe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SwipeBackThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SwipeBackThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16102,7 +16102,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SwipeHint
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SwipeHintThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SwipeHintThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16122,7 +16122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Swipe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SwipeHintThemeAnimation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SwipeHintThemeAnimation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16376,7 +16376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Timeline 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Timeline {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Timeline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16396,7 +16396,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Timel
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Timeline {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Timeline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16605,7 +16605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TimelineC
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TimelineCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TimelineCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16629,7 +16629,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Timel
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TimelineCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TimelineCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16739,7 +16739,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Transitio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Transition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Transition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16759,7 +16759,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Trans
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Transition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Transition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16968,7 +16968,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Transitio
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TransitionCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TransitionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16992,7 +16992,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Trans
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TransitionCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TransitionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

@@ -257,7 +257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Certifica
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Certificate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Certificate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -277,7 +277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Certi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Certificate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Certificate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -359,7 +359,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Certifica
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CertificateChain {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CertificateChain {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -379,7 +379,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Certi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CertificateChain {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CertificateChain {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -592,7 +592,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Certifica
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CertificateExtension {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CertificateExtension {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -612,7 +612,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Certi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CertificateExtension {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CertificateExtension {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -780,7 +780,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Certifica
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CertificateKeyUsages {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CertificateKeyUsages {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -800,7 +800,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Certi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CertificateKeyUsages {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CertificateKeyUsages {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -964,7 +964,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Certifica
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CertificateQuery {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CertificateQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -984,7 +984,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Certi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CertificateQuery {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CertificateQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1295,7 +1295,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Certifica
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CertificateRequestProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CertificateRequestProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1315,7 +1315,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Certi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CertificateRequestProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CertificateRequestProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1390,7 +1390,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Certifica
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CertificateStore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CertificateStore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1410,7 +1410,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Certi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CertificateStore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CertificateStore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1620,7 +1620,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChainBuil
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ChainBuildingParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChainBuildingParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1640,7 +1640,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Chain
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ChainBuildingParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChainBuildingParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1732,7 +1732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ChainVali
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ChainValidationParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ChainValidationParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1752,7 +1752,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Chain
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ChainValidationParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ChainValidationParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1915,7 +1915,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CmsAttach
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CmsAttachedSignature {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CmsAttachedSignature {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1935,7 +1935,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CmsAt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsAttachedSignature {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CmsAttachedSignature {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2045,7 +2045,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CmsDetach
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CmsDetachedSignature {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CmsDetachedSignature {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2065,7 +2065,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CmsDe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsDetachedSignature {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CmsDetachedSignature {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2163,7 +2163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CmsSigner
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CmsSignerInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CmsSignerInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2183,7 +2183,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CmsSi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsSignerInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CmsSignerInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2266,7 +2266,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CmsTimest
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CmsTimestampInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CmsTimestampInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2286,7 +2286,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CmsTi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsTimestampInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CmsTimestampInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3737,7 +3737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PfxImport
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PfxImportParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PfxImportParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3757,7 +3757,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PfxIm
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PfxImportParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PfxImportParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4007,7 +4007,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SubjectAl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SubjectAlternativeNameInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SubjectAlternativeNameInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4027,7 +4027,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Subje
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SubjectAlternativeNameInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SubjectAlternativeNameInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4129,7 +4129,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserCerti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UserCertificateEnrollmentManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserCertificateEnrollmentManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4149,7 +4149,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UserCertificateEnrollmentManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserCertificateEnrollmentManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4232,7 +4232,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserCerti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UserCertificateStore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserCertificateStore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4252,7 +4252,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UserCertificateStore {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserCertificateStore {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

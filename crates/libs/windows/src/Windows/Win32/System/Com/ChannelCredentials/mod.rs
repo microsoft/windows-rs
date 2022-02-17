@@ -89,7 +89,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IChannelC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IChannelCredentials {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IChannelCredentials {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -109,7 +109,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::IDispatch> for IChannelCredential
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IDispatch> for &IChannelCredentials {
+impl<'a> ::windows::core::IntoParam<'a, super::IDispatch> for &'a IChannelCredentials {
     fn into_param(self) -> ::windows::core::Param<'a, super::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

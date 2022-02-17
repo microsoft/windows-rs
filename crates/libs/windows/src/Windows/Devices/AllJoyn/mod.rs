@@ -224,7 +224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynAb
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynAboutData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynAboutData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -248,7 +248,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynAboutData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynAboutData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -486,7 +486,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynAb
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynAboutDataView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynAboutDataView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -510,7 +510,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynAboutDataView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynAboutDataView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -647,7 +647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynAc
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynAcceptSessionJoinerEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynAcceptSessionJoinerEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -671,7 +671,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynAcceptSessionJoinerEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynAcceptSessionJoinerEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -770,7 +770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynAu
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynAuthenticationCompleteEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynAuthenticationCompleteEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -794,7 +794,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynAuthenticationCompleteEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynAuthenticationCompleteEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1130,7 +1130,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynBu
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynBusAttachment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynBusAttachment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1154,7 +1154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynBusAttachment {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynBusAttachment {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1288,7 +1288,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynBu
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynBusAttachmentStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynBusAttachmentStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1312,7 +1312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynBusAttachmentStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynBusAttachmentStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1464,7 +1464,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynBu
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynBusObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynBusObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1488,7 +1488,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynBusObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynBusObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1583,7 +1583,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynBu
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynBusObjectStoppedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynBusObjectStoppedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1607,7 +1607,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynBusObjectStoppedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynBusObjectStoppedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1733,7 +1733,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynCr
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynCredentials {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynCredentials {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1757,7 +1757,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynCredentials {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynCredentials {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1874,7 +1874,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynCr
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynCredentialsRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynCredentialsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1898,7 +1898,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynCredentialsRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynCredentialsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2039,7 +2039,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynCr
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynCredentialsVerificationRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynCredentialsVerificationRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2063,7 +2063,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynCredentialsVerificationRequestedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynCredentialsVerificationRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2158,7 +2158,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynMe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynMessageInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynMessageInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2182,7 +2182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynMessageInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynMessageInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2277,7 +2277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynPr
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynProducerStoppedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynProducerStoppedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2301,7 +2301,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynProducerStoppedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynProducerStoppedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2428,7 +2428,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynSe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynServiceInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynServiceInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2452,7 +2452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynServiceInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynServiceInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2547,7 +2547,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynSe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynServiceInfoRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynServiceInfoRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2571,7 +2571,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynServiceInfoRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynServiceInfoRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2737,7 +2737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynSe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2761,7 +2761,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2856,7 +2856,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynSe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynSessionJoinedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynSessionJoinedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2880,7 +2880,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynSessionJoinedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynSessionJoinedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2975,7 +2975,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynSe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynSessionLostEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynSessionLostEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2999,7 +2999,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynSessionLostEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynSessionLostEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3140,7 +3140,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynSe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynSessionMemberAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynSessionMemberAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3164,7 +3164,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynSessionMemberAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynSessionMemberAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3259,7 +3259,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynSe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynSessionMemberRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynSessionMemberRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3283,7 +3283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynSessionMemberRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynSessionMemberRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3582,7 +3582,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AllJoynWa
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AllJoynWatcherStoppedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AllJoynWatcherStoppedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3606,7 +3606,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AllJo
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJoynWatcherStoppedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AllJoynWatcherStoppedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3848,7 +3848,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAllJoynA
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAllJoynAcceptSessionJoiner {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAllJoynAcceptSessionJoiner {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3872,7 +3872,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAllJ
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAllJoynAcceptSessionJoiner {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAllJoynAcceptSessionJoiner {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4487,7 +4487,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAllJoynP
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAllJoynProducer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAllJoynProducer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4511,7 +4511,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAllJ
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAllJoynProducer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAllJoynProducer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

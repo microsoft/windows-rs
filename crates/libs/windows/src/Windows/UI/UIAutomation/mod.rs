@@ -75,7 +75,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Automatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AutomationConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AutomationConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -95,7 +95,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Autom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AutomationConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AutomationConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -160,7 +160,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Automatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AutomationConnectionBoundObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AutomationConnectionBoundObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -180,7 +180,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Autom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AutomationConnectionBoundObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AutomationConnectionBoundObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -261,7 +261,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Automatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AutomationElement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AutomationElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -281,7 +281,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Autom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AutomationElement {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AutomationElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -337,7 +337,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Automatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AutomationTextRange {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AutomationTextRange {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -357,7 +357,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Autom
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AutomationTextRange {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AutomationTextRange {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

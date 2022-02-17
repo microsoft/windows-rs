@@ -4489,7 +4489,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteAs
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteAsyncResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteAsyncResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4582,7 +4582,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteBi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteBitmapRenderTarget {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteBitmapRenderTarget {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4695,7 +4695,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteBi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteBitmapRenderTarget1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteBitmapRenderTarget1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4715,7 +4715,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteBitmapRenderTarget> for IDWriteBi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteBitmapRenderTarget> for &IDWriteBitmapRenderTarget1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteBitmapRenderTarget> for &'a IDWriteBitmapRenderTarget1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteBitmapRenderTarget> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4779,7 +4779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteColorGlyphRunEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteColorGlyphRunEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4855,7 +4855,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteColorGlyphRunEnumerator1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteColorGlyphRunEnumerator1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4875,7 +4875,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteColorGlyphRunEnumerator> for IDWr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteColorGlyphRunEnumerator> for &IDWriteColorGlyphRunEnumerator1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteColorGlyphRunEnumerator> for &'a IDWriteColorGlyphRunEnumerator1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteColorGlyphRunEnumerator> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5037,7 +5037,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5250,7 +5250,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFactory1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFactory1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5270,7 +5270,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for IDWriteFactory1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &IDWriteFactory1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &'a IDWriteFactory1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5470,7 +5470,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5490,7 +5490,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for IDWriteFactory2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &IDWriteFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &'a IDWriteFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5510,7 +5510,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for IDWriteFactory2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &'a IDWriteFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5763,7 +5763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFactory3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFactory3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5783,7 +5783,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for IDWriteFactory3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &IDWriteFactory3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &'a IDWriteFactory3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5803,7 +5803,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for IDWriteFactory3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &'a IDWriteFactory3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5823,7 +5823,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for IDWriteFactory3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for &'a IDWriteFactory3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6101,7 +6101,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6121,7 +6121,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for IDWriteFactory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &IDWriteFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &'a IDWriteFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6141,7 +6141,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for IDWriteFactory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &'a IDWriteFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6161,7 +6161,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for IDWriteFactory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for &'a IDWriteFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6181,7 +6181,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for IDWriteFactory4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for &'a IDWriteFactory4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6478,7 +6478,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6498,7 +6498,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for IDWriteFactory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &IDWriteFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &'a IDWriteFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6518,7 +6518,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for IDWriteFactory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &'a IDWriteFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6538,7 +6538,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for IDWriteFactory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for &'a IDWriteFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6558,7 +6558,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for IDWriteFactory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for &'a IDWriteFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6578,7 +6578,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory4> for IDWriteFactory5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory4> for &IDWriteFactory5 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory4> for &'a IDWriteFactory5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6909,7 +6909,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6929,7 +6929,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for IDWriteFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &IDWriteFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &'a IDWriteFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6949,7 +6949,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for IDWriteFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &'a IDWriteFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6969,7 +6969,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for IDWriteFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for &'a IDWriteFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6989,7 +6989,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for IDWriteFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for &'a IDWriteFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7009,7 +7009,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory4> for IDWriteFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory4> for &IDWriteFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory4> for &'a IDWriteFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7029,7 +7029,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory5> for IDWriteFactory6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory5> for &IDWriteFactory6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory5> for &'a IDWriteFactory6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7380,7 +7380,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7400,7 +7400,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for IDWriteFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &IDWriteFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory> for &'a IDWriteFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7420,7 +7420,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for IDWriteFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory1> for &'a IDWriteFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7440,7 +7440,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for IDWriteFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory2> for &'a IDWriteFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7460,7 +7460,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for IDWriteFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory3> for &'a IDWriteFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7480,7 +7480,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory4> for IDWriteFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory4> for &IDWriteFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory4> for &'a IDWriteFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7500,7 +7500,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory5> for IDWriteFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory5> for &IDWriteFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory5> for &'a IDWriteFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7520,7 +7520,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory6> for IDWriteFactory7 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory6> for &IDWriteFactory7 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFactory6> for &'a IDWriteFactory7 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFactory6> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7629,7 +7629,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFont {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFont {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7768,7 +7768,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFont1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFont1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7788,7 +7788,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFont> for IDWriteFont1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFont> for &IDWriteFont1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFont> for &'a IDWriteFont1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFont> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7922,7 +7922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFont2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFont2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7942,7 +7942,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFont> for IDWriteFont2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFont> for &IDWriteFont2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFont> for &'a IDWriteFont2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFont> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -7962,7 +7962,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFont1> for IDWriteFont2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFont1> for &IDWriteFont2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFont1> for &'a IDWriteFont2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFont1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8114,7 +8114,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFont3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFont3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8134,7 +8134,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFont> for IDWriteFont3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFont> for &IDWriteFont3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFont> for &'a IDWriteFont3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFont> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8154,7 +8154,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFont1> for IDWriteFont3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFont1> for &IDWriteFont3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFont1> for &'a IDWriteFont3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFont1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8174,7 +8174,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFont2> for IDWriteFont3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFont2> for &IDWriteFont3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFont2> for &'a IDWriteFont3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFont2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8254,7 +8254,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8340,7 +8340,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontCollection1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontCollection1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8360,7 +8360,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection> for IDWriteFontCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection> for &IDWriteFontCollection1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection> for &'a IDWriteFontCollection1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontCollection> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8461,7 +8461,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontCollection2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontCollection2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8481,7 +8481,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection> for IDWriteFontCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection> for &IDWriteFontCollection2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection> for &'a IDWriteFontCollection2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontCollection> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8501,7 +8501,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection1> for IDWriteFontC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection1> for &IDWriteFontCollection2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection1> for &'a IDWriteFontCollection2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontCollection1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8612,7 +8612,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontCollection3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8632,7 +8632,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection> for IDWriteFontCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection> for &IDWriteFontCollection3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection> for &'a IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontCollection> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8652,7 +8652,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection1> for IDWriteFontC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection1> for &IDWriteFontCollection3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection1> for &'a IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontCollection1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8672,7 +8672,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection2> for IDWriteFontC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection2> for &IDWriteFontCollection3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontCollection2> for &'a IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontCollection2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8731,7 +8731,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontCollectionLoader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontCollectionLoader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8786,7 +8786,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontDownloadListener {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontDownloadListener {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8863,7 +8863,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontDownloadQueue {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontDownloadQueue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8989,7 +8989,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFace {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFace {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9194,7 +9194,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFace1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFace1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9214,7 +9214,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &'a IDWriteFontFace1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9447,7 +9447,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFace2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFace2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9467,7 +9467,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &'a IDWriteFontFace2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9487,7 +9487,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for &'a IDWriteFontFace2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9763,7 +9763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFace3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFace3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9783,7 +9783,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &'a IDWriteFontFace3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9803,7 +9803,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for &'a IDWriteFontFace3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9823,7 +9823,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for &'a IDWriteFontFace3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10141,7 +10141,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFace4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFace4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10161,7 +10161,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &'a IDWriteFontFace4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10181,7 +10181,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for &'a IDWriteFontFace4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10201,7 +10201,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for &'a IDWriteFontFace4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10221,7 +10221,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace3> for IDWriteFontFace4 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace3> for &IDWriteFontFace4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace3> for &'a IDWriteFontFace4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10534,7 +10534,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFace5 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFace5 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10554,7 +10554,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace5 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &'a IDWriteFontFace5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10574,7 +10574,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace5 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for &'a IDWriteFontFace5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10594,7 +10594,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace5 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for &'a IDWriteFontFace5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10614,7 +10614,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace3> for IDWriteFontFace5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace3> for &IDWriteFontFace5 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace3> for &'a IDWriteFontFace5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10634,7 +10634,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace4> for IDWriteFontFace5 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace4> for &IDWriteFontFace5 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace4> for &'a IDWriteFontFace5 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10961,7 +10961,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFace6 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFace6 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10981,7 +10981,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace> for &'a IDWriteFontFace6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11001,7 +11001,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace1> for &'a IDWriteFontFace6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11021,7 +11021,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace2> for &'a IDWriteFontFace6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11041,7 +11041,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace3> for IDWriteFontFace6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace3> for &IDWriteFontFace6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace3> for &'a IDWriteFontFace6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11061,7 +11061,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace4> for IDWriteFontFace6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace4> for &IDWriteFontFace6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace4> for &'a IDWriteFontFace6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11081,7 +11081,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace5> for IDWriteFontFace6 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace5> for &IDWriteFontFace6 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFace5> for &'a IDWriteFontFace6 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFace5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11196,7 +11196,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFaceReference {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFaceReference {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11345,7 +11345,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFaceReference1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFaceReference1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11365,7 +11365,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFaceReference> for IDWriteFon
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFaceReference> for &IDWriteFontFaceReference1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFaceReference> for &'a IDWriteFontFaceReference1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFaceReference> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11423,7 +11423,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11487,7 +11487,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFallback1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFallback1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11507,7 +11507,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFallback> for IDWriteFontFall
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFallback> for &IDWriteFontFallback1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFallback> for &'a IDWriteFontFallback1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFallback> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11575,7 +11575,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFallbackBuilder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFallbackBuilder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11660,7 +11660,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFamily {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFamily {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11680,7 +11680,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for IDWriteFontFamily {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for &IDWriteFontFamily {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for &'a IDWriteFontFamily {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11776,7 +11776,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFamily1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFamily1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11796,7 +11796,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for IDWriteFontFamily1 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for &IDWriteFontFamily1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for &'a IDWriteFontFamily1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11816,7 +11816,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFamily> for IDWriteFontFamily
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFamily> for &IDWriteFontFamily1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFamily> for &'a IDWriteFontFamily1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFamily> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11922,7 +11922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFamily2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11942,7 +11942,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for IDWriteFontFamily2 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for &IDWriteFontFamily2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for &'a IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11962,7 +11962,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFamily> for IDWriteFontFamily
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFamily> for &IDWriteFontFamily2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFamily> for &'a IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFamily> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11982,7 +11982,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFamily1> for IDWriteFontFamil
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFamily1> for &IDWriteFontFamily2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFamily1> for &'a IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFamily1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12048,7 +12048,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFile {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFile {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12115,7 +12115,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFileEnumerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFileEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12175,7 +12175,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFileLoader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFileLoader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12244,7 +12244,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontFileStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontFileStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12312,7 +12312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12393,7 +12393,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontList1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontList1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12413,7 +12413,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for IDWriteFontList1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for &IDWriteFontList1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for &'a IDWriteFontList1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12499,7 +12499,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontList2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontList2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12519,7 +12519,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for IDWriteFontList2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for &IDWriteFontList2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList> for &'a IDWriteFontList2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontList> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12539,7 +12539,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList1> for IDWriteFontList2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList1> for &IDWriteFontList2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontList1> for &'a IDWriteFontList2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontList1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12643,7 +12643,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontResource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontResource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12761,7 +12761,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontSet {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontSet {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12960,7 +12960,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontSet1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontSet1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12980,7 +12980,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet> for IDWriteFontSet1 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet> for &IDWriteFontSet1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet> for &'a IDWriteFontSet1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontSet> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13181,7 +13181,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontSet2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontSet2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13201,7 +13201,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet> for IDWriteFontSet2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet> for &IDWriteFontSet2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet> for &'a IDWriteFontSet2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontSet> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13221,7 +13221,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet1> for IDWriteFontSet2 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet1> for &IDWriteFontSet2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet1> for &'a IDWriteFontSet2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontSet1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13411,7 +13411,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontSet3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontSet3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13431,7 +13431,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet> for IDWriteFontSet3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet> for &IDWriteFontSet3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet> for &'a IDWriteFontSet3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontSet> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13451,7 +13451,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet1> for IDWriteFontSet3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet1> for &IDWriteFontSet3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet1> for &'a IDWriteFontSet3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontSet1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13471,7 +13471,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet2> for IDWriteFontSet3 {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet2> for &IDWriteFontSet3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSet2> for &'a IDWriteFontSet3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontSet2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13545,7 +13545,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontSetBuilder {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontSetBuilder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13624,7 +13624,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontSetBuilder1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontSetBuilder1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13644,7 +13644,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSetBuilder> for IDWriteFontSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSetBuilder> for &IDWriteFontSetBuilder1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSetBuilder> for &'a IDWriteFontSetBuilder1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontSetBuilder> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13727,7 +13727,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteFo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteFontSetBuilder2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteFontSetBuilder2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13747,7 +13747,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSetBuilder> for IDWriteFontSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSetBuilder> for &IDWriteFontSetBuilder2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSetBuilder> for &'a IDWriteFontSetBuilder2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontSetBuilder> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13767,7 +13767,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSetBuilder1> for IDWriteFontS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSetBuilder1> for &IDWriteFontSetBuilder2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontSetBuilder1> for &'a IDWriteFontSetBuilder2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontSetBuilder1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13854,7 +13854,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteGd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteGdiInterop {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteGdiInterop {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13977,7 +13977,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteGd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteGdiInterop1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteGdiInterop1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13997,7 +13997,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteGdiInterop> for IDWriteGdiInterop
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteGdiInterop> for &IDWriteGdiInterop1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteGdiInterop> for &'a IDWriteGdiInterop1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteGdiInterop> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14078,7 +14078,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteGl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteGlyphRunAnalysis {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteGlyphRunAnalysis {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14151,7 +14151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteInMemoryFontFileLoader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteInMemoryFontFileLoader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14171,7 +14171,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileLoader> for IDWriteInMemo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileLoader> for &IDWriteInMemoryFontFileLoader {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileLoader> for &'a IDWriteInMemoryFontFileLoader {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFileLoader> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14243,7 +14243,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteIn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteInlineObject {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteInlineObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14324,7 +14324,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteLo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteLocalFontFileLoader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteLocalFontFileLoader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14344,7 +14344,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileLoader> for IDWriteLocalF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileLoader> for &IDWriteLocalFontFileLoader {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileLoader> for &'a IDWriteLocalFontFileLoader {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFileLoader> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14432,7 +14432,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteLo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteLocalizedStrings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteLocalizedStrings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14496,7 +14496,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteNu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteNumberSubstitution {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteNumberSubstitution {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14562,7 +14562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWritePi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWritePixelSnapping {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWritePixelSnapping {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14639,7 +14639,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteRemoteFontFileLoader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteRemoteFontFileLoader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14659,7 +14659,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileLoader> for IDWriteRemote
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileLoader> for &IDWriteRemoteFontFileLoader {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileLoader> for &'a IDWriteRemoteFontFileLoader {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFileLoader> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14752,7 +14752,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteRemoteFontFileStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteRemoteFontFileStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14772,7 +14772,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileStream> for IDWriteRemote
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileStream> for &IDWriteRemoteFontFileStream {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteFontFileStream> for &'a IDWriteRemoteFontFileStream {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteFontFileStream> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14849,7 +14849,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteRenderingParams {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteRenderingParams {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14928,7 +14928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteRenderingParams1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteRenderingParams1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14948,7 +14948,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams> for IDWriteRende
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams> for &IDWriteRenderingParams1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams> for &'a IDWriteRenderingParams1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteRenderingParams> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15027,7 +15027,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteRenderingParams2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteRenderingParams2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15047,7 +15047,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams> for IDWriteRende
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams> for &IDWriteRenderingParams2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams> for &'a IDWriteRenderingParams2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteRenderingParams> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15067,7 +15067,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams1> for IDWriteRend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams1> for &IDWriteRenderingParams2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams1> for &'a IDWriteRenderingParams2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteRenderingParams1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15150,7 +15150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteRe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteRenderingParams3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15170,7 +15170,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams> for IDWriteRende
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams> for &IDWriteRenderingParams3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams> for &'a IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteRenderingParams> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15190,7 +15190,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams1> for IDWriteRend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams1> for &IDWriteRenderingParams3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams1> for &'a IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteRenderingParams1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15210,7 +15210,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams2> for IDWriteRend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams2> for &IDWriteRenderingParams3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteRenderingParams2> for &'a IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteRenderingParams2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15285,7 +15285,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteSt
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteStringList {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteStringList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15362,7 +15362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextAnalysisSink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextAnalysisSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15437,7 +15437,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextAnalysisSink1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextAnalysisSink1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15457,7 +15457,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalysisSink> for IDWriteText
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalysisSink> for &IDWriteTextAnalysisSink1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalysisSink> for &'a IDWriteTextAnalysisSink1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextAnalysisSink> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15531,7 +15531,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextAnalysisSource {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextAnalysisSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15610,7 +15610,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextAnalysisSource1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextAnalysisSource1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15630,7 +15630,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalysisSource> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalysisSource> for &IDWriteTextAnalysisSource1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalysisSource> for &'a IDWriteTextAnalysisSource1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextAnalysisSource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15839,7 +15839,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextAnalyzer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextAnalyzer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16148,7 +16148,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextAnalyzer1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextAnalyzer1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16168,7 +16168,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalyzer> for IDWriteTextAnal
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalyzer> for &IDWriteTextAnalyzer1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalyzer> for &'a IDWriteTextAnalyzer1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextAnalyzer> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16475,7 +16475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextAnalyzer2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextAnalyzer2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16495,7 +16495,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalyzer> for IDWriteTextAnal
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalyzer> for &IDWriteTextAnalyzer2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalyzer> for &'a IDWriteTextAnalyzer2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextAnalyzer> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16515,7 +16515,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalyzer1> for IDWriteTextAna
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalyzer1> for &IDWriteTextAnalyzer2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextAnalyzer1> for &'a IDWriteTextAnalyzer2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextAnalyzer1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16680,7 +16680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextFormat {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextFormat {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16899,7 +16899,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextFormat1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextFormat1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16919,7 +16919,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for IDWriteTextFormat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextFormat1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &'a IDWriteTextFormat1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextFormat> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17130,7 +17130,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextFormat2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextFormat2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17150,7 +17150,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for IDWriteTextFormat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextFormat2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &'a IDWriteTextFormat2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextFormat> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17170,7 +17170,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat1> for IDWriteTextForma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat1> for &IDWriteTextFormat2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat1> for &'a IDWriteTextFormat2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextFormat1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17389,7 +17389,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextFormat3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17409,7 +17409,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for IDWriteTextFormat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextFormat3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &'a IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextFormat> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17429,7 +17429,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat1> for IDWriteTextForma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat1> for &IDWriteTextFormat3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat1> for &'a IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextFormat1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17449,7 +17449,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat2> for IDWriteTextForma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat2> for &IDWriteTextFormat3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat2> for &'a IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextFormat2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17778,7 +17778,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextLayout {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextLayout {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17798,7 +17798,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &'a IDWriteTextLayout {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextFormat> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18215,7 +18215,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextLayout1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextLayout1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18235,7 +18235,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &'a IDWriteTextLayout1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextFormat> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18255,7 +18255,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for &'a IDWriteTextLayout1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextLayout> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18647,7 +18647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextLayout2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18667,7 +18667,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &'a IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextFormat> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18687,7 +18687,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for &'a IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextLayout> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18707,7 +18707,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout1> for IDWriteTextLayou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout1> for &IDWriteTextLayout2 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout1> for &'a IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextLayout1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19122,7 +19122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextLayout3 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19142,7 +19142,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &'a IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextFormat> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19162,7 +19162,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for &'a IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextLayout> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19182,7 +19182,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout1> for IDWriteTextLayou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout1> for &IDWriteTextLayout3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout1> for &'a IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextLayout1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19202,7 +19202,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout2> for IDWriteTextLayou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout2> for &IDWriteTextLayout3 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout2> for &'a IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextLayout2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19629,7 +19629,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextLayout4 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19649,7 +19649,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextFormat> for &'a IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextFormat> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19669,7 +19669,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout> for &'a IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextLayout> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19689,7 +19689,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout1> for IDWriteTextLayou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout1> for &IDWriteTextLayout4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout1> for &'a IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextLayout1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19709,7 +19709,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout2> for IDWriteTextLayou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout2> for &IDWriteTextLayout4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout2> for &'a IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextLayout2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19729,7 +19729,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout3> for IDWriteTextLayou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout3> for &IDWriteTextLayout4 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextLayout3> for &'a IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextLayout3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19820,7 +19820,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextRenderer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextRenderer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19840,7 +19840,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWritePixelSnapping> for IDWriteTextRen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWritePixelSnapping> for &IDWriteTextRenderer {
+impl<'a> ::windows::core::IntoParam<'a, IDWritePixelSnapping> for &'a IDWriteTextRenderer {
     fn into_param(self) -> ::windows::core::Param<'a, IDWritePixelSnapping> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19962,7 +19962,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTextRenderer1 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTextRenderer1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -19982,7 +19982,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWritePixelSnapping> for IDWriteTextRen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWritePixelSnapping> for &IDWriteTextRenderer1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWritePixelSnapping> for &'a IDWriteTextRenderer1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWritePixelSnapping> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20002,7 +20002,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDWriteTextRenderer> for IDWriteTextRend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDWriteTextRenderer> for &IDWriteTextRenderer1 {
+impl<'a> ::windows::core::IntoParam<'a, IDWriteTextRenderer> for &'a IDWriteTextRenderer1 {
     fn into_param(self) -> ::windows::core::Param<'a, IDWriteTextRenderer> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -20081,7 +20081,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDWriteTy
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDWriteTypography {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWriteTypography {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

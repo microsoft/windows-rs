@@ -109,7 +109,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBindable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBindableIterable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBindableIterable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -129,7 +129,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBind
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBindableIterable {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBindableIterable {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -211,7 +211,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBindable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBindableIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBindableIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -231,7 +231,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBind
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBindableIterator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBindableIterator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -376,7 +376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBindable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBindableObservableVector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBindableObservableVector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -396,7 +396,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBind
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBindableObservableVector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBindableObservableVector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -575,7 +575,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBindable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBindableVector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBindableVector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -595,7 +595,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBind
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBindableVector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBindableVector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -716,7 +716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBindable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBindableVectorView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBindableVectorView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -736,7 +736,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBind
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBindableVectorView {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBindableVectorView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -833,7 +833,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INotifyCo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INotifyCollectionChanged {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INotifyCollectionChanged {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -853,7 +853,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INoti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INotifyCollectionChanged {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a INotifyCollectionChanged {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1075,7 +1075,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NotifyCol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NotifyCollectionChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NotifyCollectionChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1095,7 +1095,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Notif
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NotifyCollectionChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NotifyCollectionChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

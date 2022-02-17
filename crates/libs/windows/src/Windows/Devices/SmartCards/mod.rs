@@ -57,7 +57,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CardAdded
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CardAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CardAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -77,7 +77,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CardA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CardAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CardAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -142,7 +142,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CardRemov
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CardRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CardRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -162,7 +162,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CardR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CardRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CardRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1429,7 +1429,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCard {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCard {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1449,7 +1449,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCard {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCard {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1683,7 +1683,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardAppletIdGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardAppletIdGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1703,7 +1703,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardAppletIdGroup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardAppletIdGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1854,7 +1854,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardAppletIdGroupRegistration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardAppletIdGroupRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1874,7 +1874,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardAppletIdGroupRegistration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardAppletIdGroupRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2060,7 +2060,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardAutomaticResponseApdu {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardAutomaticResponseApdu {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2080,7 +2080,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardAutomaticResponseApdu {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardAutomaticResponseApdu {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2223,7 +2223,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardChallengeContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardChallengeContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2243,7 +2243,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardChallengeContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardChallengeContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2341,7 +2341,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2361,7 +2361,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2663,7 +2663,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardCryptogramGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2683,7 +2683,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardCryptogramGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2810,7 +2810,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2830,7 +2830,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2911,7 +2911,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2931,7 +2931,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3012,7 +3012,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3032,7 +3032,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3163,7 +3163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardCryptogramMaterialCharacteristics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramMaterialCharacteristics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3183,7 +3183,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardCryptogramMaterialCharacteristics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramMaterialCharacteristics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3280,7 +3280,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardCryptogramMaterialPackageCharacteristics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramMaterialPackageCharacteristics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3300,7 +3300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardCryptogramMaterialPackageCharacteristics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramMaterialPackageCharacteristics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3442,7 +3442,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardCryptogramMaterialPossessionProof {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramMaterialPossessionProof {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3462,7 +3462,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardCryptogramMaterialPossessionProof {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramMaterialPossessionProof {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3779,7 +3779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardCryptogramPlacementStep {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramPlacementStep {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3799,7 +3799,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardCryptogramPlacementStep {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramPlacementStep {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3993,7 +3993,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardCryptogramStorageKeyCharacteristics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramStorageKeyCharacteristics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4013,7 +4013,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardCryptogramStorageKeyCharacteristics {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramStorageKeyCharacteristics {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4138,7 +4138,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardCryptogramStorageKeyInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramStorageKeyInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4158,7 +4158,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardCryptogramStorageKeyInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramStorageKeyInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4436,7 +4436,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardEmulator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardEmulator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4456,7 +4456,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardEmulator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardEmulator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4582,7 +4582,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardEmulatorApduReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardEmulatorApduReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4602,7 +4602,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardEmulatorApduReceivedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardEmulatorApduReceivedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4675,7 +4675,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardEmulatorConnectionDeactivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardEmulatorConnectionDeactivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4695,7 +4695,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardEmulatorConnectionDeactivatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardEmulatorConnectionDeactivatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4802,7 +4802,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardEmulatorConnectionProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardEmulatorConnectionProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4822,7 +4822,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardEmulatorConnectionProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardEmulatorConnectionProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5103,7 +5103,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardPinPolicy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardPinPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5123,7 +5123,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardPinPolicy {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardPinPolicy {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5185,7 +5185,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardPinResetDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardPinResetDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5205,7 +5205,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardPinResetDeferral {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardPinResetDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5376,7 +5376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardPinResetRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardPinResetRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5396,7 +5396,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardPinResetRequest {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardPinResetRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5573,7 +5573,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardProvisioning {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardProvisioning {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5593,7 +5593,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardProvisioning {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardProvisioning {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5749,7 +5749,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5769,7 +5769,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardReader {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardReader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5996,7 +5996,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SmartCardTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -6016,7 +6016,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Smart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmartCardTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

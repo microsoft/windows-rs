@@ -168,7 +168,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CivicAddr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CivicAddress {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CivicAddress {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -188,7 +188,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Civic
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CivicAddress {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CivicAddress {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -364,7 +364,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Geoboundi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GeoboundingBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeoboundingBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -384,7 +384,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geobo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GeoboundingBox {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeoboundingBox {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -529,7 +529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Geocircle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Geocircle {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Geocircle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -549,7 +549,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geoci
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geocircle {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Geocircle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -740,7 +740,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Geocoordi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Geocoordinate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Geocoordinate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -760,7 +760,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geoco
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geocoordinate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Geocoordinate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -862,7 +862,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Geocoordi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GeocoordinateSatelliteData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeocoordinateSatelliteData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -882,7 +882,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geoco
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GeocoordinateSatelliteData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeocoordinateSatelliteData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1150,7 +1150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Geolocato
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Geolocator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Geolocator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1170,7 +1170,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geolo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geolocator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Geolocator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1289,7 +1289,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Geopath {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Geopath {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Geopath {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1309,7 +1309,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geopa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geopath {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Geopath {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1446,7 +1446,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Geopoint 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Geopoint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Geopoint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1466,7 +1466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geopo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geopoint {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Geopoint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1569,7 +1569,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Geopositi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Geoposition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Geoposition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1589,7 +1589,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geopo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geoposition {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Geoposition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1707,7 +1707,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Geovisit 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Geovisit {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Geovisit {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1727,7 +1727,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geovi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geovisit {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Geovisit {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1837,7 +1837,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GeovisitM
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GeovisitMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeovisitMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1857,7 +1857,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geovi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GeovisitMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeovisitMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1922,7 +1922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GeovisitS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GeovisitStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeovisitStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1942,7 +1942,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geovi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GeovisitStateChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeovisitStateChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2008,7 +2008,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GeovisitT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GeovisitTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeovisitTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2028,7 +2028,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geovi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GeovisitTriggerDetails {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeovisitTriggerDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2541,7 +2541,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGeoshape
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGeoshape {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGeoshape {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2561,7 +2561,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGeos
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGeoshape {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IGeoshape {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2819,7 +2819,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PositionC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PositionChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PositionChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2839,7 +2839,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Posit
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PositionChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PositionChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2981,7 +2981,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StatusCha
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StatusChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StatusChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3001,7 +3001,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Statu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StatusChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StatusChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3074,7 +3074,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VenueData
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &VenueData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VenueData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3094,7 +3094,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Venue
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VenueData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VenueData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

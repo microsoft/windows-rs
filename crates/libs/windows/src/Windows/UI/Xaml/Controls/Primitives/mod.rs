@@ -93,7 +93,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppBarBut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppBarButtonTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppBarButtonTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -113,7 +113,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppBa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppBarButtonTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppBarButtonTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -271,7 +271,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppBarTem
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppBarTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppBarTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -291,7 +291,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppBa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppBarTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppBarTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -376,7 +376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppBarTog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppBarToggleButtonTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppBarToggleButtonTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -396,7 +396,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppBa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppBarToggleButtonTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppBarToggleButtonTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -585,7 +585,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ButtonBas
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ButtonBase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ButtonBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -605,7 +605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Butto
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ButtonBase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ButtonBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -821,7 +821,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CalendarP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CalendarPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CalendarPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -841,7 +841,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Calen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CalendarPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CalendarPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1151,7 +1151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CalendarV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CalendarViewTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CalendarViewTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1171,7 +1171,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Calen
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CalendarViewTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CalendarViewTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1497,7 +1497,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CarouselP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CarouselPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CarouselPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1517,7 +1517,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Carou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CarouselPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CarouselPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1793,7 +1793,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ColorPick
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ColorPickerSlider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ColorPickerSlider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1813,7 +1813,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Color
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ColorPickerSlider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ColorPickerSlider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2284,7 +2284,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ColorSpec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ColorSpectrum {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ColorSpectrum {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2304,7 +2304,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Color
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ColorSpectrum {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ColorSpectrum {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2533,7 +2533,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ComboBoxT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ComboBoxTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ComboBoxTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2553,7 +2553,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Combo
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ComboBoxTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ComboBoxTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2658,7 +2658,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CommandBa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CommandBarFlyoutCommandBar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CommandBarFlyoutCommandBar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2678,7 +2678,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Comma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CommandBarFlyoutCommandBar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CommandBarFlyoutCommandBar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3089,7 +3089,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CommandBa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CommandBarFlyoutCommandBarTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CommandBarFlyoutCommandBarTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3109,7 +3109,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Comma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CommandBarFlyoutCommandBarTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CommandBarFlyoutCommandBarTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3283,7 +3283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CommandBa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &CommandBarTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CommandBarTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3303,7 +3303,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Comma
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CommandBarTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CommandBarTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3458,7 +3458,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DragCompl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DragCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DragCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3478,7 +3478,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DragC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DragCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DragCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3673,7 +3673,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DragDelta
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DragDeltaEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DragDeltaEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3693,7 +3693,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DragD
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DragDeltaEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DragDeltaEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3888,7 +3888,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DragStart
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DragStartedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DragStartedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3908,7 +3908,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DragS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DragStartedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DragStartedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4477,7 +4477,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FlyoutBas
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FlyoutBase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FlyoutBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4497,7 +4497,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Flyou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FlyoutBase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FlyoutBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4587,7 +4587,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FlyoutBas
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FlyoutBaseClosingEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FlyoutBaseClosingEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4607,7 +4607,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Flyou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FlyoutBaseClosingEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FlyoutBaseClosingEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4822,7 +4822,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FlyoutSho
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FlyoutShowOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FlyoutShowOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4842,7 +4842,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Flyou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FlyoutShowOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FlyoutShowOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4983,7 +4983,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Generator
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GeneratorPositionHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeneratorPositionHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5003,7 +5003,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Gener
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GeneratorPositionHelper {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeneratorPositionHelper {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5558,7 +5558,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GridViewI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GridViewItemPresenter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GridViewItemPresenter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5578,7 +5578,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GridV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GridViewItemPresenter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GridViewItemPresenter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5775,7 +5775,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GridViewI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GridViewItemTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GridViewItemTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5795,7 +5795,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GridV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GridViewItemTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GridViewItemTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8470,7 +8470,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IScrollSn
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IScrollSnapPointsInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IScrollSnapPointsInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -8490,7 +8490,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IScro
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IScrollSnapPointsInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IScrollSnapPointsInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9001,7 +9001,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ItemsChan
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ItemsChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ItemsChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9021,7 +9021,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Items
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ItemsChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ItemsChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9234,7 +9234,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JumpListI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &JumpListItemBackgroundConverter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JumpListItemBackgroundConverter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9254,7 +9254,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JumpL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &JumpListItemBackgroundConverter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JumpListItemBackgroundConverter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9431,7 +9431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JumpListI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &JumpListItemForegroundConverter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JumpListItemForegroundConverter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9451,7 +9451,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JumpL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &JumpListItemForegroundConverter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JumpListItemForegroundConverter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9587,7 +9587,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LayoutInf
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LayoutInformation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LayoutInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -9607,7 +9607,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Layou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LayoutInformation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LayoutInformation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10977,7 +10977,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListViewI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListViewItemPresenter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListViewItemPresenter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -10997,7 +10997,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListViewItemPresenter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListViewItemPresenter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11262,7 +11262,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ListViewI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ListViewItemTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ListViewItemTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11282,7 +11282,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ListV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ListViewItemTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ListViewItemTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11521,7 +11521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoopingSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LoopingSelector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoopingSelector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11541,7 +11541,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Loopi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LoopingSelector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoopingSelector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11729,7 +11729,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoopingSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LoopingSelectorItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoopingSelectorItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -11749,7 +11749,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Loopi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LoopingSelectorItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoopingSelectorItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12021,7 +12021,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LoopingSe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LoopingSelectorPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LoopingSelectorPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12041,7 +12041,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Loopi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LoopingSelectorPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LoopingSelectorPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12280,7 +12280,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MenuFlyou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MenuFlyoutItemTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MenuFlyoutItemTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12300,7 +12300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MenuF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MenuFlyoutItemTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MenuFlyoutItemTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12385,7 +12385,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MenuFlyou
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MenuFlyoutPresenterTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MenuFlyoutPresenterTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12405,7 +12405,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MenuF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MenuFlyoutPresenterTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MenuFlyoutPresenterTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12527,7 +12527,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Navigatio
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &NavigationViewItemPresenter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NavigationViewItemPresenter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12547,7 +12547,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Navig
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NavigationViewItemPresenter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NavigationViewItemPresenter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -12991,7 +12991,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OrientedV
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &OrientedVirtualizingPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OrientedVirtualizingPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13011,7 +13011,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Orien
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OrientedVirtualizingPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OrientedVirtualizingPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13287,7 +13287,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PickerFly
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PickerFlyoutBase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PickerFlyoutBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13307,7 +13307,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Picke
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PickerFlyoutBase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PickerFlyoutBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13424,7 +13424,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PivotHead
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PivotHeaderItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PivotHeaderItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13444,7 +13444,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Pivot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PivotHeaderItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PivotHeaderItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13660,7 +13660,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PivotHead
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PivotHeaderPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PivotHeaderPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13680,7 +13680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Pivot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PivotHeaderPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PivotHeaderPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13959,7 +13959,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PivotPane
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PivotPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PivotPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -13979,7 +13979,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Pivot
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PivotPanel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PivotPanel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14517,7 +14517,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Popup {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Popup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Popup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14537,7 +14537,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Popup
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Popup {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Popup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14807,7 +14807,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProgressB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ProgressBarTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProgressBarTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14827,7 +14827,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Progr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ProgressBarTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProgressBarTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14928,7 +14928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProgressR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ProgressRingTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProgressRingTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -14948,7 +14948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Progr
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ProgressRingTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProgressRingTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15145,7 +15145,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RangeBase
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RangeBase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RangeBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15165,7 +15165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Range
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RangeBase {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RangeBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15370,7 +15370,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RangeBase
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RangeBaseValueChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RangeBaseValueChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15390,7 +15390,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Range
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RangeBaseValueChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RangeBaseValueChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15601,7 +15601,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RepeatBut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &RepeatButton {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RepeatButton {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15621,7 +15621,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Repea
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RepeatButton {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RepeatButton {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15937,7 +15937,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ScrollBar
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ScrollBar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ScrollBar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -15957,7 +15957,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Scrol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ScrollBar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ScrollBar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16189,7 +16189,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ScrollEve
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ScrollEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ScrollEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16209,7 +16209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Scrol
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ScrollEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ScrollEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16573,7 +16573,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Selector 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Selector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Selector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16593,7 +16593,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Selec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Selector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Selector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16849,7 +16849,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SelectorI
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SelectorItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SelectorItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -16869,7 +16869,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Selec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SelectorItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SelectorItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17131,7 +17131,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SettingsF
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SettingsFlyoutTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SettingsFlyoutTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17151,7 +17151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Setti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SettingsFlyoutTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SettingsFlyoutTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17345,7 +17345,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SplitView
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SplitViewTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SplitViewTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17365,7 +17365,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Split
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SplitViewTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SplitViewTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17519,7 +17519,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Thumb {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Thumb {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Thumb {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17539,7 +17539,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Thumb
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Thumb {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Thumb {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17762,7 +17762,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TickBar {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &TickBar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TickBar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -17782,7 +17782,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TickB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TickBar {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TickBar {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18100,7 +18100,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToggleBut
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ToggleButton {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToggleButton {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18120,7 +18120,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Toggl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ToggleButton {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToggleButton {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18413,7 +18413,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToggleSwi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ToggleSwitchTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToggleSwitchTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18433,7 +18433,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Toggl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ToggleSwitchTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToggleSwitchTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18526,7 +18526,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToolTipTe
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ToolTipTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToolTipTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -18546,7 +18546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ToolT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ToolTipTemplateSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToolTipTemplateSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

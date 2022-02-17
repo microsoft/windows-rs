@@ -108,7 +108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PalmRejec
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &PalmRejectionDelayZonePreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PalmRejectionDelayZonePreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -128,7 +128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PalmR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PalmRejectionDelayZonePreview {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PalmRejectionDelayZonePreview {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

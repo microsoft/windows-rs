@@ -165,7 +165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyndicat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISyndicationClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyndicationClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -185,7 +185,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISynd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISyndicationClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISyndicationClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -718,7 +718,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyndicat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISyndicationNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyndicationNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -738,7 +738,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISynd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISyndicationNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISyndicationNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1012,7 +1012,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyndicat
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISyndicationText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISyndicationText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1032,7 +1032,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISynd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISyndicationText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISyndicationText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1263,7 +1263,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Syndicati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SyndicationAttribute {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SyndicationAttribute {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1283,7 +1283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syndi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SyndicationAttribute {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SyndicationAttribute {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1499,7 +1499,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Syndicati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SyndicationCategory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SyndicationCategory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1519,7 +1519,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syndi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SyndicationCategory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SyndicationCategory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1701,7 +1701,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Syndicati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SyndicationClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SyndicationClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1721,7 +1721,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syndi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SyndicationClient {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SyndicationClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1977,7 +1977,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Syndicati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SyndicationContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SyndicationContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1997,7 +1997,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syndi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SyndicationContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SyndicationContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2479,7 +2479,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Syndicati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SyndicationFeed {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SyndicationFeed {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2499,7 +2499,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syndi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SyndicationFeed {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SyndicationFeed {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2770,7 +2770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Syndicati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SyndicationGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SyndicationGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2790,7 +2790,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syndi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SyndicationGenerator {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SyndicationGenerator {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3188,7 +3188,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Syndicati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SyndicationItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SyndicationItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3208,7 +3208,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syndi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SyndicationItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SyndicationItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3489,7 +3489,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Syndicati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SyndicationLink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SyndicationLink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3509,7 +3509,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syndi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SyndicationLink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SyndicationLink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3701,7 +3701,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Syndicati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SyndicationNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SyndicationNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3721,7 +3721,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syndi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SyndicationNode {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SyndicationNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3962,7 +3962,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Syndicati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SyndicationPerson {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SyndicationPerson {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3982,7 +3982,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syndi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SyndicationPerson {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SyndicationPerson {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4222,7 +4222,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Syndicati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SyndicationText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SyndicationText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4242,7 +4242,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Syndi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SyndicationText {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SyndicationText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

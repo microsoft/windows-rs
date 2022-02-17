@@ -350,7 +350,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LocalLoca
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LocalLocation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LocalLocation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -370,7 +370,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Local
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LocalLocation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LocalLocation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -464,7 +464,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LocalLoca
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LocalLocationFinderResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LocalLocationFinderResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -484,7 +484,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Local
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LocalLocationFinderResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LocalLocationFinderResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -608,7 +608,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LocalLoca
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LocalLocationHoursOfOperationItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LocalLocationHoursOfOperationItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -628,7 +628,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Local
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LocalLocationHoursOfOperationItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LocalLocationHoursOfOperationItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -711,7 +711,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LocalLoca
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &LocalLocationRatingInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LocalLocationRatingInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -731,7 +731,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Local
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LocalLocationRatingInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LocalLocationRatingInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

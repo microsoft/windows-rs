@@ -66,7 +66,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameSaveBlobGetResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveBlobGetResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -86,7 +86,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameSaveBlobGetResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveBlobGetResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -159,7 +159,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameSaveBlobInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveBlobInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -179,7 +179,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameSaveBlobInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveBlobInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -253,7 +253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameSaveBlobInfoGetResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveBlobInfoGetResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -273,7 +273,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameSaveBlobInfoGetResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveBlobInfoGetResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -357,7 +357,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveB
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameSaveBlobInfoQuery {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveBlobInfoQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -377,7 +377,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameSaveBlobInfoQuery {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveBlobInfoQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -494,7 +494,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameSaveContainer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveContainer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -514,7 +514,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameSaveContainer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveContainer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -612,7 +612,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameSaveContainerInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveContainerInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -632,7 +632,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameSaveContainerInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveContainerInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -706,7 +706,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameSaveContainerInfoGetResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveContainerInfoGetResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -726,7 +726,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameSaveContainerInfoGetResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveContainerInfoGetResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -810,7 +810,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveC
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameSaveContainerInfoQuery {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveContainerInfoQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -830,7 +830,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameSaveContainerInfoQuery {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveContainerInfoQuery {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -942,7 +942,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveO
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameSaveOperationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveOperationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -962,7 +962,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameSaveOperationResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveOperationResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1100,7 +1100,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameSaveProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1120,7 +1120,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameSaveProvider {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1193,7 +1193,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveP
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &GameSaveProviderGetResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveProviderGetResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1213,7 +1213,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameS
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GameSaveProviderGetResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveProviderGetResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

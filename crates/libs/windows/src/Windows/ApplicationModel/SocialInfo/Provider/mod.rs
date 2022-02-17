@@ -255,7 +255,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocialDas
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SocialDashboardItemUpdater {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocialDashboardItemUpdater {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -279,7 +279,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Socia
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SocialDashboardItemUpdater {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocialDashboardItemUpdater {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -387,7 +387,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SocialFee
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SocialFeedUpdater {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SocialFeedUpdater {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -411,7 +411,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Socia
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SocialFeedUpdater {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SocialFeedUpdater {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

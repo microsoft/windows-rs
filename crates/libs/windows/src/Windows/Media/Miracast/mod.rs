@@ -598,7 +598,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -618,7 +618,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -691,7 +691,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverApplySettingsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverApplySettingsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -711,7 +711,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverApplySettingsResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverApplySettingsResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -920,7 +920,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -940,7 +940,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverConnection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverConnection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1048,7 +1048,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverConnectionCreatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverConnectionCreatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1068,7 +1068,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverConnectionCreatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverConnectionCreatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1190,7 +1190,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverCursorImageChannel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverCursorImageChannel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1210,7 +1210,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverCursorImageChannel {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverCursorImageChannel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1295,7 +1295,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverCursorImageChannelSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverCursorImageChannelSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1315,7 +1315,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverCursorImageChannelSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverCursorImageChannelSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1420,7 +1420,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverDisconnectedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverDisconnectedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1440,7 +1440,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverDisconnectedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverDisconnectedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1554,7 +1554,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverGameControllerDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverGameControllerDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1574,7 +1574,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverGameControllerDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverGameControllerDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1681,7 +1681,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverInputDevices {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverInputDevices {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1701,7 +1701,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverInputDevices {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverInputDevices {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1802,7 +1802,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverKeyboardDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverKeyboardDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1822,7 +1822,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverKeyboardDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverKeyboardDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1951,7 +1951,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverMediaSourceCreatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverMediaSourceCreatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1971,7 +1971,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverMediaSourceCreatedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverMediaSourceCreatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2122,7 +2122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2142,7 +2142,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverSession {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverSession {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2241,7 +2241,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverSessionStartResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverSessionStartResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2261,7 +2261,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverSessionStartResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverSessionStartResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2419,7 +2419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2439,7 +2439,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2537,7 +2537,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverStatus {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverStatus {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2557,7 +2557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverStatus {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverStatus {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2658,7 +2658,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverStreamControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverStreamControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2678,7 +2678,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverStreamControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverStreamControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2763,7 +2763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastR
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastReceiverVideoStreamSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastReceiverVideoStreamSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2783,7 +2783,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastReceiverVideoStreamSettings {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastReceiverVideoStreamSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2928,7 +2928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MiracastT
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &MiracastTransmitter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MiracastTransmitter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2948,7 +2948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Mirac
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MiracastTransmitter {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MiracastTransmitter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

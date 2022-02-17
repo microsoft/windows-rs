@@ -285,7 +285,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialSurfaceInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialSurfaceInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -305,7 +305,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialSurfaceInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialSurfaceInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -411,7 +411,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialSurfaceMesh {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialSurfaceMesh {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -431,7 +431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialSurfaceMesh {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialSurfaceMesh {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -522,7 +522,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialSurfaceMeshBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialSurfaceMeshBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -542,7 +542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialSurfaceMeshBuffer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialSurfaceMeshBuffer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -693,7 +693,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialSurfaceMeshOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialSurfaceMeshOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -713,7 +713,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialSurfaceMeshOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialSurfaceMeshOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -837,7 +837,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialSu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SpatialSurfaceObserver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialSurfaceObserver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -857,7 +857,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Spati
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpatialSurfaceObserver {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialSurfaceObserver {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

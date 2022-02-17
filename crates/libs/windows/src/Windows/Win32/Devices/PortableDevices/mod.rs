@@ -243,7 +243,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IConnecti
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IConnectionRequestCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IConnectionRequestCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -311,7 +311,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumPort
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumPortableDeviceConnectors {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumPortableDeviceConnectors {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -387,7 +387,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumPort
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnumPortableDeviceObjectIDs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumPortableDeviceObjectIDs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -454,7 +454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaRad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMediaRadioManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaRadioManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -520,7 +520,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaRad
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMediaRadioManagerNotifySink {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaRadioManagerNotifySink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -628,7 +628,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDevice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -755,7 +755,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -850,7 +850,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceConnector {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceConnector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -964,7 +964,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceContent {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1093,7 +1093,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceContent2 {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceContent2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1113,7 +1113,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPortableDeviceContent> for IPortableDev
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPortableDeviceContent> for &IPortableDeviceContent2 {
+impl<'a> ::windows::core::IntoParam<'a, IPortableDeviceContent> for &'a IPortableDeviceContent2 {
     fn into_param(self) -> ::windows::core::Param<'a, IPortableDeviceContent> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1241,7 +1241,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceDataStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceDataStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1265,7 +1265,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialSt
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream> for &IPortableDeviceDataStream {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream> for &'a IPortableDeviceDataStream {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::ISequentialStream> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1289,7 +1289,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IStream> for 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IStream> for &IPortableDeviceDataStream {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IStream> for &'a IPortableDeviceDataStream {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IStream> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1356,7 +1356,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceDispatchFactory {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceDispatchFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1414,7 +1414,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceEventCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceEventCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1487,7 +1487,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceKeyCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceKeyCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1582,7 +1582,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1688,7 +1688,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDevicePropVariantCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDevicePropVariantCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1784,7 +1784,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1879,7 +1879,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDevicePropertiesBulk {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDevicePropertiesBulk {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1949,7 +1949,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDevicePropertiesBulkCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDevicePropertiesBulkCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2033,7 +2033,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceResources {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceResources {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2160,7 +2160,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceService {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceService {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2245,7 +2245,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceServiceActivation {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceServiceActivation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2383,7 +2383,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceServiceCapabilities {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceServiceCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2472,7 +2472,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceServiceManager {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceServiceManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2534,7 +2534,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceServiceMethodCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceServiceMethodCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2597,7 +2597,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceServiceMethods {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceServiceMethods {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2654,7 +2654,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceServiceOpenCallback {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceServiceOpenCallback {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2714,7 +2714,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceUnitsStream {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceUnitsStream {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2980,7 +2980,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceValues {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceValues {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3205,7 +3205,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceValuesCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceValuesCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3299,7 +3299,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPortable
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPortableDeviceWebControl {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPortableDeviceWebControl {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3323,7 +3323,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IPortableDeviceWebControl {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IPortableDeviceWebControl {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3423,7 +3423,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRadioIns
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRadioInstance {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRadioInstance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3502,7 +3502,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRadioIns
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRadioInstanceCollection {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRadioInstanceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3572,7 +3572,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWpdSeria
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWpdSerializer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWpdSerializer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

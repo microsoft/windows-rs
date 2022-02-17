@@ -134,7 +134,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppCapabi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppCapability {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppCapability {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -154,7 +154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppCa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppCapability {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppCapability {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -210,7 +210,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppCapabi
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &AppCapabilityAccessChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppCapabilityAccessChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -230,7 +230,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppCa
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppCapabilityAccessChangedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppCapabilityAccessChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

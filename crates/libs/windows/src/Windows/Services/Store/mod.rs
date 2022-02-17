@@ -994,7 +994,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreAcqu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreAcquireLicenseResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreAcquireLicenseResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1014,7 +1014,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreAcquireLicenseResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreAcquireLicenseResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1154,7 +1154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreAppL
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreAppLicense {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreAppLicense {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1174,7 +1174,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreAppLicense {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreAppLicense {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1282,7 +1282,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreAvai
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreAvailability {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreAvailability {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1302,7 +1302,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreAvailability {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreAvailability {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1383,7 +1383,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreCanA
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreCanAcquireLicenseResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreCanAcquireLicenseResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1403,7 +1403,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreCanAcquireLicenseResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreCanAcquireLicenseResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1565,7 +1565,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreColl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreCollectionData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreCollectionData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1585,7 +1585,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreCollectionData {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreCollectionData {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1674,7 +1674,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreCons
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreConsumableResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreConsumableResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1694,7 +1694,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreConsumableResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreConsumableResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2145,7 +2145,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreCont
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2165,7 +2165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreContext {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreContext {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2301,7 +2301,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreImag
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreImage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreImage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2321,7 +2321,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreImage {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreImage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2419,7 +2419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreLice
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreLicense {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreLicense {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2439,7 +2439,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreLicense {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreLicense {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2516,7 +2516,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorePack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorePackageInstallOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorePackageInstallOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2536,7 +2536,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorePackageInstallOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorePackageInstallOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2636,7 +2636,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorePack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorePackageLicense {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorePackageLicense {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2656,7 +2656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorePackageLicense {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorePackageLicense {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2756,7 +2756,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorePack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorePackageUpdate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorePackageUpdate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2776,7 +2776,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorePackageUpdate {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorePackageUpdate {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2859,7 +2859,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorePack
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorePackageUpdateResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorePackageUpdateResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2879,7 +2879,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorePackageUpdateResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorePackageUpdateResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3074,7 +3074,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorePric
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorePrice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorePrice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3094,7 +3094,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorePrice {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorePrice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3303,7 +3303,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreProd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreProduct {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreProduct {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3323,7 +3323,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreProduct {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreProduct {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3396,7 +3396,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreProd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreProductOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreProductOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3416,7 +3416,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreProductOptions {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreProductOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3507,7 +3507,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreProd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreProductPagedQueryResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreProductPagedQueryResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3527,7 +3527,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreProductPagedQueryResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreProductPagedQueryResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3601,7 +3601,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreProd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreProductQueryResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreProductQueryResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3621,7 +3621,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreProductQueryResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreProductQueryResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3694,7 +3694,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreProd
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreProductResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreProductResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3714,7 +3714,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreProductResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreProductResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3816,7 +3816,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorePurc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorePurchaseProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorePurchaseProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3836,7 +3836,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorePurchaseProperties {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorePurchaseProperties {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3909,7 +3909,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorePurc
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StorePurchaseResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorePurchaseResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -3929,7 +3929,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StorePurchaseResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorePurchaseResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4112,7 +4112,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreQueu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreQueueItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreQueueItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4132,7 +4132,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreQueueItem {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreQueueItem {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4197,7 +4197,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreQueu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreQueueItemCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreQueueItemCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4217,7 +4217,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreQueueItemCompletedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreQueueItemCompletedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4425,7 +4425,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreQueu
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreQueueItemStatus {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreQueueItemStatus {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4445,7 +4445,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreQueueItemStatus {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreQueueItemStatus {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4534,7 +4534,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreRate
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreRateAndReviewResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreRateAndReviewResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4554,7 +4554,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreRateAndReviewResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreRateAndReviewResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4692,7 +4692,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreSend
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreSendRequestResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreSendRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4712,7 +4712,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreSendRequestResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreSendRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4928,7 +4928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreSku 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreSku {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreSku {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -4948,7 +4948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreSku {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreSku {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5045,7 +5045,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreSubs
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreSubscriptionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreSubscriptionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5065,7 +5065,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreSubscriptionInfo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreSubscriptionInfo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5138,7 +5138,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreUnin
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreUninstallStorePackageResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreUninstallStorePackageResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5158,7 +5158,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreUninstallStorePackageResult {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreUninstallStorePackageResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5301,7 +5301,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StoreVide
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &StoreVideo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StoreVideo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -5321,7 +5321,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Store
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &StoreVideo {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StoreVideo {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

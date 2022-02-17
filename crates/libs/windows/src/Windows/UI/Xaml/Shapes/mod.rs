@@ -56,7 +56,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Ellipse {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Ellipse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -76,7 +76,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Ellip
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ellipse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -703,7 +703,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Line {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Line {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Line {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -723,7 +723,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Line 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Line {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -959,7 +959,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Path {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Path {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Path {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -979,7 +979,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Path 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Path {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Path {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1224,7 +1224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Polygon {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Polygon {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1244,7 +1244,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Polyg
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Polygon {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1489,7 +1489,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Polyline 
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Polyline {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1509,7 +1509,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Polyl
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Polyline {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1750,7 +1750,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Rectangle
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Rectangle {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1770,7 +1770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Recta
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rectangle {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2218,7 +2218,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Shape {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Shape {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Shape {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2238,7 +2238,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Shape
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shape {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Shape {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }

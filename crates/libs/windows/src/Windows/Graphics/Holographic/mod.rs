@@ -226,7 +226,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicCamera {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicCamera {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -246,7 +246,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicCamera {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicCamera {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -390,7 +390,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicCameraPose {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicCameraPose {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -410,7 +410,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicCameraPose {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicCameraPose {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -548,7 +548,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicCameraRenderingParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicCameraRenderingParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -568,7 +568,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicCameraRenderingParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicCameraRenderingParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -643,7 +643,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicCameraViewportParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicCameraViewportParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -663,7 +663,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicCameraViewportParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicCameraViewportParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -832,7 +832,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicDisplay {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicDisplay {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -852,7 +852,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicDisplay {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicDisplay {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -994,7 +994,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1014,7 +1014,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicFrame {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1126,7 +1126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicFramePrediction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicFramePrediction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1146,7 +1146,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicFramePrediction {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicFramePrediction {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1299,7 +1299,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicFramePresentationMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicFramePresentationMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1323,7 +1323,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicFramePresentationMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicFramePresentationMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1466,7 +1466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicFramePresentationReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicFramePresentationReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1490,7 +1490,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicFramePresentationReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicFramePresentationReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1592,7 +1592,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicFrameRenderingReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicFrameRenderingReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1612,7 +1612,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicFrameRenderingReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicFrameRenderingReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1684,7 +1684,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicFrameScanoutMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicFrameScanoutMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1704,7 +1704,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicFrameScanoutMonitor {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicFrameScanoutMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1830,7 +1830,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicFrameScanoutReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicFrameScanoutReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1850,7 +1850,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicFrameScanoutReport {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicFrameScanoutReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1952,7 +1952,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicQuadLayer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicQuadLayer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -1972,7 +1972,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicQuadLayer {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicQuadLayer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2110,7 +2110,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicQuadLayerUpdateParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicQuadLayerUpdateParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2130,7 +2130,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicQuadLayerUpdateParameters {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicQuadLayerUpdateParameters {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2382,7 +2382,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicSpace {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicSpace {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2402,7 +2402,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicSpace {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicSpace {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2476,7 +2476,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicSpaceCameraAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicSpaceCameraAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2496,7 +2496,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicSpaceCameraAddedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicSpaceCameraAddedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2561,7 +2561,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicSpaceCameraRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicSpaceCameraRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2581,7 +2581,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicSpaceCameraRemovedEventArgs {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicSpaceCameraRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2825,7 +2825,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Holograph
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicViewConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicViewConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
@@ -2845,7 +2845,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Holog
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicViewConfiguration {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicViewConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
