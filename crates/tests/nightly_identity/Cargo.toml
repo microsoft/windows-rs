@@ -1,5 +1,5 @@
 [package]
-name = "test_implement_vector"
+name = "test_nightly_identity"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
@@ -7,8 +7,6 @@ edition = "2018"
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
-    "alloc",
     "implement",
-    "Foundation_Collections",
-    "Win32_Foundation",
+    "Foundation",
 ]

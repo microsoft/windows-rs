@@ -1,5 +1,5 @@
 [package]
-name = "test_implement"
+name = "test_nightly_implement"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"

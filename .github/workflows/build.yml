@@ -115,22 +115,22 @@ jobs:
         cargo clippy -p test_enums &&
         cargo clippy -p test_handles &&
         cargo clippy -p test_helpers &&
-        cargo clippy -p test_implement &&
-        cargo clippy -p test_implement_class_factory &&
-        cargo clippy -p test_implement_data_object &&
-        cargo clippy -p test_implement_drop_target &&
-        cargo clippy -p test_implement_identity &&
-        cargo clippy -p test_implement_interface &&
-        cargo clippy -p test_implement_map &&
-        cargo clippy -p test_implement_no_use &&
-        cargo clippy -p test_implement_null_result &&
-        cargo clippy -p test_implement_properties &&
-        cargo clippy -p test_implement_vector &&
-        cargo clippy -p test_implement_winrt &&
         cargo clippy -p test_interop &&
         cargo clippy -p test_lib &&
         cargo clippy -p test_matrix3x2 &&
         cargo clippy -p test_mshtml &&
+        cargo clippy -p test_nightly_class_factory &&
+        cargo clippy -p test_nightly_data_object &&
+        cargo clippy -p test_nightly_drop_target &&
+        cargo clippy -p test_nightly_identity &&
+        cargo clippy -p test_nightly_implement &&
+        cargo clippy -p test_nightly_interface &&
+        cargo clippy -p test_nightly_map &&
+        cargo clippy -p test_nightly_no_use &&
+        cargo clippy -p test_nightly_null_result &&
+        cargo clippy -p test_nightly_properties &&
+        cargo clippy -p test_nightly_vector &&
+        cargo clippy -p test_nightly_winrt &&
         cargo clippy -p test_not_dll &&
         cargo clippy -p test_ntstatus &&
         cargo clippy -p test_pwstr &&

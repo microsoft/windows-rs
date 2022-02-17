@@ -128,18 +128,18 @@ jobs:
         cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
         cargo test --target ${{ matrix.target }} -p sample_xaml_app &&
         cargo test --target ${{ matrix.target }} -p sample_xml &&
-        cargo test --target ${{ matrix.target }} -p test_implement &&
-        cargo test --target ${{ matrix.target }} -p test_implement_class_factory &&
-        cargo test --target ${{ matrix.target }} -p test_implement_data_object &&
-        cargo test --target ${{ matrix.target }} -p test_implement_drop_target &&
-        cargo test --target ${{ matrix.target }} -p test_implement_identity &&
-        cargo test --target ${{ matrix.target }} -p test_implement_interface &&
-        cargo test --target ${{ matrix.target }} -p test_implement_map &&
-        cargo test --target ${{ matrix.target }} -p test_implement_no_use &&
-        cargo test --target ${{ matrix.target }} -p test_implement_null_result &&
-        cargo test --target ${{ matrix.target }} -p test_implement_properties &&
-        cargo test --target ${{ matrix.target }} -p test_implement_vector &&
-        cargo test --target ${{ matrix.target }} -p test_implement_winrt 
+        cargo test --target ${{ matrix.target }} -p test_nightly_class_factory &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_data_object &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_drop_target &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_identity &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_implement &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_interface &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_map &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_no_use &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_null_result &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_properties &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_vector &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_winrt 
       if: matrix.version == 'nightly'
 
     - name: Check import libs

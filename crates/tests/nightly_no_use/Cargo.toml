@@ -1,5 +1,5 @@
 [package]
-name = "test_implement_identity"
+name = "test_nightly_no_use"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
