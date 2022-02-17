@@ -633,6 +633,14 @@ impl TypeDef {
                 }
                 TypeKind::Struct => {
                     self.fields().for_each(|field| field.combine_cfg(Some(self), cfg));
+
+                    if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
+                        for def in entry {
+                            if let Type::TypeDef(def) = def {
+                                def.combine_cfg(cfg);
+                            }
+                        }
+                    }
                 }
                 TypeKind::Delegate => self.invoke_method().combine_cfg(cfg),
                 _ => {}

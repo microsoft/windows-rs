@@ -134,6 +134,12 @@ mod tests {
         assert_eq!(namespaces.len(), 2);
         assert_eq!(namespaces[0], "Windows.Win32.Graphics.Direct3D");
         assert_eq!(namespaces[1], "Windows.Win32.Graphics.Direct3D11");
+
+        let def = TypeReader::get().expect_type_def(("Windows.Win32.System.Diagnostics.Debug", "CONTEXT"));
+        let namespaces = def.cfg().features("Windows");
+        assert_eq!(namespaces.len(), 2);
+        assert_eq!(namespaces[0], "Windows.Win32.System.Diagnostics.Debug");
+        assert_eq!(namespaces[1], "Windows.Win32.System.Kernel");
     }
 
     #[test]
@@ -165,5 +171,10 @@ mod tests {
         assert_eq!(namespaces.len(), 2);
         assert_eq!(namespaces[0], "Windows.Win32.Graphics.Direct3D");
         assert_eq!(namespaces[1], "Windows.Win32.Graphics.Direct3D11");
+
+        let def = TypeReader::get().expect_type_def(("Windows.Win32.System.Diagnostics.Debug", "CONTEXT"));
+        let namespaces = def.cfg().features("Windows.Win32.System.Diagnostics.Debug");
+        assert_eq!(namespaces.len(), 1);
+        assert_eq!(namespaces[0], "Windows.Win32.System.Kernel");
     }
 }
