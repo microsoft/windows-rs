@@ -157,13 +157,13 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironment2 {
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub PostMessageToReceiverAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     PostMessageToReceiverAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub PostMessageToReceiverWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: ::windows::core::RawPtr, telemetryparameters: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     PostMessageToReceiverWithTelemetryAsync: usize,
 }
 #[doc(hidden)]
@@ -654,8 +654,8 @@ impl IsolatedWindowsEnvironment {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UnregisterMessageReceiver)(::core::mem::transmute_copy(this), receiverid.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Security_Isolation', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Security_Isolation', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiverAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>>(&self, receiverid: Param0, message: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
@@ -663,8 +663,8 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).PostMessageToReceiverAsync)(::core::mem::transmute_copy(this), receiverid.into_param().abi(), message.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Isolation', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Security_Isolation', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiverWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Param2: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>(&self, receiverid: Param0, message: Param1, telemetryparameters: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {

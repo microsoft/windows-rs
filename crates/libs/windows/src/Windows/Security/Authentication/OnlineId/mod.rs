@@ -49,9 +49,9 @@ pub struct IOnlineIdAuthenticator_Vtbl {
     pub AuthenticateUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     AuthenticateUserAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub AuthenticateUserAsyncAdvanced: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requests: ::windows::core::RawPtr, credentialprompttype: CredentialPromptType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     AuthenticateUserAsyncAdvanced: usize,
     #[cfg(feature = "Foundation")]
     pub SignOutUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -216,8 +216,8 @@ impl OnlineIdAuthenticator {
             (::windows::core::Interface::vtable(this).AuthenticateUserAsync)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<UserAuthenticationOperation>(result__)
         }
     }
-    #[doc = "*Required features: 'Security_Authentication_OnlineId', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Security_Authentication_OnlineId', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn AuthenticateUserAsyncAdvanced<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>>(&self, requests: Param0, credentialprompttype: CredentialPromptType) -> ::windows::core::Result<UserAuthenticationOperation> {
         let this = self;
         unsafe {

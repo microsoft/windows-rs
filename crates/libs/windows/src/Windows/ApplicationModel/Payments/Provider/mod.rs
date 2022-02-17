@@ -24,9 +24,9 @@ unsafe impl ::windows::core::Interface for IPaymentAppManager {
 #[doc(hidden)]
 pub struct IPaymentAppManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub RegisterAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, supportedpaymentmethodids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     RegisterAsync: usize,
     #[cfg(feature = "Foundation")]
     pub UnregisterAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -201,8 +201,8 @@ unsafe impl ::core::marker::Sync for PaymentAppCanMakePaymentTriggerDetails {}
 #[repr(transparent)]
 pub struct PaymentAppManager(::windows::core::IUnknown);
 impl PaymentAppManager {
-    #[doc = "*Required features: 'ApplicationModel_Payments_Provider', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'ApplicationModel_Payments_Provider', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, supportedpaymentmethodids: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {

@@ -466,29 +466,29 @@ pub struct IMapRouteFinderStatics_Vtbl {
     pub GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: ::windows::core::RawPtr, endpoint: ::windows::core::RawPtr, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))]
     GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync: usize,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
     pub GetDrivingRouteFromWaypointsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation_Collections")))]
     GetDrivingRouteFromWaypointsAsync: usize,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
     pub GetDrivingRouteFromWaypointsAndOptimizationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: ::windows::core::RawPtr, optimization: MapRouteOptimization, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation_Collections")))]
     GetDrivingRouteFromWaypointsAndOptimizationAsync: usize,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
     pub GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: ::windows::core::RawPtr, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation_Collections")))]
     GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync: usize,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
     pub GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: ::windows::core::RawPtr, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation_Collections")))]
     GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync: usize,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub GetWalkingRouteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: ::windows::core::RawPtr, endpoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))]
     GetWalkingRouteAsync: usize,
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
     pub GetWalkingRouteFromWaypointsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation_Collections")))]
     GetWalkingRouteFromWaypointsAsync: usize,
 }
 #[doc(hidden)]
@@ -518,13 +518,13 @@ unsafe impl ::windows::core::Interface for IMapRouteFinderStatics3 {
 #[doc(hidden)]
 pub struct IMapRouteFinderStatics3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetDrivingRouteFromEnhancedWaypointsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetDrivingRouteFromEnhancedWaypointsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync: usize,
 }
 #[doc(hidden)]
@@ -1933,32 +1933,32 @@ impl MapRouteFinder {
             (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync)(::core::mem::transmute_copy(this), startpoint.into_param().abi(), endpoint.into_param().abi(), optimization, restrictions, headingindegrees, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps', 'Devices_Geolocation', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Maps', 'Devices_Geolocation', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
     pub fn GetDrivingRouteFromWaypointsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsAsync)(::core::mem::transmute_copy(this), waypoints.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps', 'Devices_Geolocation', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Maps', 'Devices_Geolocation', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
     pub fn GetDrivingRouteFromWaypointsAndOptimizationAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0, optimization: MapRouteOptimization) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsAndOptimizationAsync)(::core::mem::transmute_copy(this), waypoints.into_param().abi(), optimization, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps', 'Devices_Geolocation', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Maps', 'Devices_Geolocation', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
     pub fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync)(::core::mem::transmute_copy(this), waypoints.into_param().abi(), optimization, restrictions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps', 'Devices_Geolocation', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Maps', 'Devices_Geolocation', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
     pub fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1973,8 +1973,8 @@ impl MapRouteFinder {
             (::windows::core::Interface::vtable(this).GetWalkingRouteAsync)(::core::mem::transmute_copy(this), startpoint.into_param().abi(), endpoint.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps', 'Devices_Geolocation', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Maps', 'Devices_Geolocation', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
     pub fn GetWalkingRouteFromWaypointsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1989,16 +1989,16 @@ impl MapRouteFinder {
             (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptionsAsync)(::core::mem::transmute_copy(this), startpoint.into_param().abi(), endpoint.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Maps', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetDrivingRouteFromEnhancedWaypointsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<EnhancedWaypoint>>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsAsync)(::core::mem::transmute_copy(this), waypoints.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Services_Maps', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Maps', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<EnhancedWaypoint>>, Param1: ::windows::core::IntoParam<'a, MapRouteDrivingOptions>>(waypoints: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

@@ -155,8 +155,8 @@ impl AppDiagnosticInfo {
             (::windows::core::Interface::vtable(this).LaunchAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<AppActivationResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoAsync() -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -178,24 +178,24 @@ impl AppDiagnosticInfo {
             (::windows::core::Interface::vtable(this).RequestAccessAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<DiagnosticAccessStatus>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoForPackageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(packagefamilyname: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).RequestInfoForPackageAsync)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoForAppAsync() -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).RequestInfoForAppAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestInfoForAppUserModelId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appusermodelid: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>> {
         Self::IAppDiagnosticInfoStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1969,8 +1969,8 @@ impl AppUriHandlerRegistration {
             (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<User>(result__)
         }
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetAppAddedHostsAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppUriHandlerHost>>> {
         let this = self;
         unsafe {
@@ -1978,8 +1978,8 @@ impl AppUriHandlerRegistration {
             (::windows::core::Interface::vtable(this).GetAppAddedHostsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppUriHandlerHost>>>(result__)
         }
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn SetAppAddedHostsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<AppUriHandlerHost>>>(&self, hosts: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3112,9 +3112,9 @@ unsafe impl ::windows::core::Interface for IAppDiagnosticInfoStatics {
 #[doc(hidden)]
 pub struct IAppDiagnosticInfoStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub RequestInfoAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     RequestInfoAsync: usize,
 }
 #[doc(hidden)]
@@ -3133,17 +3133,17 @@ pub struct IAppDiagnosticInfoStatics2_Vtbl {
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RequestAccessAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub RequestInfoForPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     RequestInfoForPackageAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub RequestInfoForAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     RequestInfoForAppAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub RequestInfoForAppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     RequestInfoForAppUserModelId: usize,
 }
 #[doc(hidden)]
@@ -3499,13 +3499,13 @@ pub struct IAppUriHandlerRegistration_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetAppAddedHostsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetAppAddedHostsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub SetAppAddedHostsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hosts: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     SetAppAddedHostsAsync: usize,
 }
 #[doc(hidden)]
@@ -3927,13 +3927,13 @@ pub struct ILauncherStatics2_Vtbl {
     pub LaunchUriForResultsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     LaunchUriForResultsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub LaunchUriForResultsWithDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, options: ::windows::core::RawPtr, inputdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     LaunchUriForResultsWithDataAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub LaunchUriWithDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, options: ::windows::core::RawPtr, inputdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     LaunchUriWithDataAsync: usize,
     #[cfg(feature = "Foundation")]
     pub QueryUriSupportAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, launchquerysupporttype: LaunchQuerySupportType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3951,17 +3951,17 @@ pub struct ILauncherStatics2_Vtbl {
     pub QueryFileSupportWithPackageFamilyNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
     QueryFileSupportWithPackageFamilyNameAsync: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub FindUriSchemeHandlersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
     FindUriSchemeHandlersAsync: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub FindUriSchemeHandlersWithLaunchUriTypeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, launchquerysupporttype: LaunchQuerySupportType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
     FindUriSchemeHandlersWithLaunchUriTypeAsync: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub FindFileHandlersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extension: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
     FindFileHandlersAsync: usize,
 }
 #[doc(hidden)]
@@ -4003,9 +4003,9 @@ pub struct ILauncherStatics4_Vtbl {
     pub QueryAppUriSupportWithPackageFamilyNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     QueryAppUriSupportWithPackageFamilyNameAsync: usize,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub FindAppUriHandlersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
     FindAppUriHandlersAsync: usize,
     #[cfg(feature = "Foundation")]
     pub LaunchUriForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4015,17 +4015,17 @@ pub struct ILauncherStatics4_Vtbl {
     pub LaunchUriWithOptionsForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     LaunchUriWithOptionsForUserAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub LaunchUriWithDataForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, options: ::windows::core::RawPtr, inputdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     LaunchUriWithDataForUserAsync: usize,
     #[cfg(feature = "Foundation")]
     pub LaunchUriForResultsForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     LaunchUriForResultsForUserAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub LaunchUriForResultsWithDataForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, options: ::windows::core::RawPtr, inputdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     LaunchUriForResultsWithDataForUserAsync: usize,
 }
 #[doc(hidden)]
@@ -4415,9 +4415,9 @@ pub struct IRemoteLauncherStatics_Vtbl {
     pub LaunchUriWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotesystemconnectionrequest: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "System_RemoteSystems")))]
     LaunchUriWithOptionsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
     pub LaunchUriWithDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotesystemconnectionrequest: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, options: ::windows::core::RawPtr, inputdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "System_RemoteSystems")))]
     LaunchUriWithDataAsync: usize,
 }
 #[doc(hidden)]
@@ -4508,9 +4508,9 @@ pub struct IUser_Vtbl {
     pub GetPropertyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetPropertyAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, values: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetPropertiesAsync: usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub GetPictureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desiredsize: UserPictureSize, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4672,17 +4672,17 @@ unsafe impl ::windows::core::Interface for IUserStatics {
 pub struct IUserStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CreateWatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     FindAllAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub FindAllAsyncByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: UserType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     FindAllAsyncByType: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub FindAllAsyncByTypeAndStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: UserType, status: UserAuthenticationStatus, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     FindAllAsyncByTypeAndStatus: usize,
     pub GetFromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nonroamableid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -5138,16 +5138,16 @@ impl Launcher {
             (::windows::core::Interface::vtable(this).LaunchUriForResultsAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriForResultsWithDataAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, LauncherOptions>, Param2: ::windows::core::IntoParam<'a, super::Foundation::Collections::ValueSet>>(uri: Param0, options: Param1, inputdata: Param2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).LaunchUriForResultsWithDataAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), options.into_param().abi(), inputdata.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriWithDataAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, LauncherOptions>, Param2: ::windows::core::IntoParam<'a, super::Foundation::Collections::ValueSet>>(uri: Param0, options: Param1, inputdata: Param2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5186,24 +5186,24 @@ impl Launcher {
             (::windows::core::Interface::vtable(this).QueryFileSupportWithPackageFamilyNameAsync)(::core::mem::transmute_copy(this), file.into_param().abi(), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'ApplicationModel', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'ApplicationModel', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindUriSchemeHandlersAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(scheme: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).FindUriSchemeHandlersAsync)(::core::mem::transmute_copy(this), scheme.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'ApplicationModel', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'ApplicationModel', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindUriSchemeHandlersWithLaunchUriTypeAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(scheme: Param0, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).FindUriSchemeHandlersWithLaunchUriTypeAsync)(::core::mem::transmute_copy(this), scheme.into_param().abi(), launchquerysupporttype, &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'ApplicationModel', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'ApplicationModel', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindFileHandlersAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(extension: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5242,8 +5242,8 @@ impl Launcher {
             (::windows::core::Interface::vtable(this).QueryAppUriSupportWithPackageFamilyNameAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'ApplicationModel', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'ApplicationModel', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindAppUriHandlersAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Uri>>(uri: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5266,8 +5266,8 @@ impl Launcher {
             (::windows::core::Interface::vtable(this).LaunchUriWithOptionsForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriWithDataForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, User>, Param1: ::windows::core::IntoParam<'a, super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, LauncherOptions>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::ValueSet>>(user: Param0, uri: Param1, options: Param2, inputdata: Param3) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5282,8 +5282,8 @@ impl Launcher {
             (::windows::core::Interface::vtable(this).LaunchUriForResultsForUserAsync)(::core::mem::transmute_copy(this), user.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn LaunchUriForResultsWithDataForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, User>, Param1: ::windows::core::IntoParam<'a, super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, LauncherOptions>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::ValueSet>>(user: Param0, uri: Param1, options: Param2, inputdata: Param3) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6414,8 +6414,8 @@ impl RemoteLauncher {
             (::windows::core::Interface::vtable(this).LaunchUriWithOptionsAsync)(::core::mem::transmute_copy(this), remotesystemconnectionrequest.into_param().abi(), uri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections', 'System_RemoteSystems'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections', 'System_RemoteSystems'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
     pub fn LaunchUriWithDataAsync<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystems::RemoteSystemConnectionRequest>, Param1: ::windows::core::IntoParam<'a, super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, RemoteLauncherOptions>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::ValueSet>>(remotesystemconnectionrequest: Param0, uri: Param1, options: Param2, inputdata: Param3) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>> {
         Self::IRemoteLauncherStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6703,8 +6703,8 @@ impl User {
             (::windows::core::Interface::vtable(this).GetPropertyAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetPropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(&self, values: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IPropertySet>> {
         let this = self;
         unsafe {
@@ -6737,24 +6737,24 @@ impl User {
             (::windows::core::Interface::vtable(this).CreateWatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserWatcher>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync() -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).FindAllAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsyncByType(r#type: UserType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).FindAllAsyncByType)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
         })
     }
-    #[doc = "*Required features: 'System', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[doc = "*Required features: 'System', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsyncByTypeAndStatus(r#type: UserType, status: UserAuthenticationStatus) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

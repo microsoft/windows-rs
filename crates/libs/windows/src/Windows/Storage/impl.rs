@@ -259,7 +259,7 @@ impl IStorageFilePropertiesWithAvailability_Vtbl {
         iid == &<IStorageFilePropertiesWithAvailability as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
 pub trait IStorageFolder_Impl: Sized + IStorageItem_Impl {
     fn CreateFileAsyncOverloadDefaultOptions(&self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
     fn CreateFileAsync(&self, desiredname: &::windows::core::HSTRING, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
@@ -272,11 +272,11 @@ pub trait IStorageFolder_Impl: Sized + IStorageItem_Impl {
     fn GetFoldersAsyncOverloadDefaultOptionsStartAndCount(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>;
     fn GetItemsAsyncOverloadDefaultStartAndCount(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
 impl ::windows::core::RuntimeName for IStorageFolder {
     const NAME: &'static str = "Windows.Storage.IStorageFolder";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
 impl IStorageFolder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolder_Impl, const OFFSET: isize>() -> IStorageFolder_Vtbl {
         unsafe extern "system" fn CreateFileAsyncOverloadDefaultOptions<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

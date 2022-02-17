@@ -1,4 +1,4 @@
-#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
+#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
 pub trait IWebViewControl_Impl: Sized {
     fn Source(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
     fn SetSource(&self, source: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
@@ -58,11 +58,11 @@ pub trait IWebViewControl_Impl: Sized {
     fn WebResourceRequested(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlWebResourceRequestedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveWebResourceRequested(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
+#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
 impl ::windows::core::RuntimeName for IWebViewControl {
     const NAME: &'static str = "Windows.Web.UI.IWebViewControl";
 }
-#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
+#[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation_Collections", feature = "Storage_Streams", feature = "UI", feature = "Web_Http"))]
 impl IWebViewControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControl_Impl, const OFFSET: isize>() -> IWebViewControl_Vtbl {
         unsafe extern "system" fn Source<Identity: ::windows::core::IUnknownImpl, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

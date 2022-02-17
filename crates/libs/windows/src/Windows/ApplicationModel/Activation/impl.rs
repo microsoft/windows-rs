@@ -1133,15 +1133,15 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
         iid == &<IFileActivatedEventArgsWithCallerPackageFamilyName as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Search"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
 pub trait IFileActivatedEventArgsWithNeighboringFiles_Impl: Sized + IActivatedEventArgs_Impl + IFileActivatedEventArgs_Impl {
     fn NeighboringFilesQuery(&self) -> ::windows::core::Result<super::super::Storage::Search::StorageFileQueryResult>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Search"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
 impl ::windows::core::RuntimeName for IFileActivatedEventArgsWithNeighboringFiles {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithNeighboringFiles";
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "Storage_Search"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
 impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileActivatedEventArgsWithNeighboringFiles_Impl, const OFFSET: isize>() -> IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
         unsafe extern "system" fn NeighboringFilesQuery<Identity: ::windows::core::IUnknownImpl, Impl: IFileActivatedEventArgsWithNeighboringFiles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

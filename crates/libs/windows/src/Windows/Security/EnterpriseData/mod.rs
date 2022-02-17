@@ -504,8 +504,8 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).LoadFileFromContainerWithTargetAndNameCollisionOptionAsync)(::core::mem::transmute_copy(this), containerfile.into_param().abi(), target.into_param().abi(), collisionoption, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Foundation_Collections', 'Storage'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation_Collections', 'Storage'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn SaveFileAsContainerWithSharingAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(protectedfile: Param0, sharedwithidentities: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>> {
         Self::IFileProtectionManagerStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -892,9 +892,9 @@ pub struct IFileProtectionManagerStatics2_Vtbl {
     pub LoadFileFromContainerWithTargetAndNameCollisionOptionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containerfile: ::windows::core::RawPtr, target: ::windows::core::RawPtr, collisionoption: super::super::Storage::NameCollisionOption, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
     LoadFileFromContainerWithTargetAndNameCollisionOptionAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub SaveFileAsContainerWithSharingAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectedfile: ::windows::core::RawPtr, sharedwithidentities: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     SaveFileAsContainerWithSharingAsync: usize,
 }
 #[doc(hidden)]
@@ -1281,21 +1281,21 @@ pub struct IProtectionPolicyManagerStatics4_Vtbl {
     pub RequestAccessForAppWithBehaviorAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, apppackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, auditinfo: ::windows::core::RawPtr, messagefromapp: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, behavior: ProtectionPolicyRequestAccessBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RequestAccessForAppWithBehaviorAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub RequestAccessToFilesForAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceitemlist: ::windows::core::RawPtr, apppackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, auditinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     RequestAccessToFilesForAppAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub RequestAccessToFilesForAppWithMessageAndBehaviorAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceitemlist: ::windows::core::RawPtr, apppackagefamilyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, auditinfo: ::windows::core::RawPtr, messagefromapp: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, behavior: ProtectionPolicyRequestAccessBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     RequestAccessToFilesForAppWithMessageAndBehaviorAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub RequestAccessToFilesForProcessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceitemlist: ::windows::core::RawPtr, processid: u32, auditinfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     RequestAccessToFilesForProcessAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub RequestAccessToFilesForProcessWithMessageAndBehaviorAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceitemlist: ::windows::core::RawPtr, processid: u32, auditinfo: ::windows::core::RawPtr, messagefromapp: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, behavior: ProtectionPolicyRequestAccessBehavior, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     RequestAccessToFilesForProcessWithMessageAndBehaviorAsync: usize,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub IsFileProtectionRequiredAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, identity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2397,32 +2397,32 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).RequestAccessForAppWithBehaviorAsync)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfo.into_param().abi(), messagefromapp.into_param().abi(), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Foundation_Collections', 'Storage'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation_Collections', 'Storage'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn RequestAccessToFilesForAppAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>>(sourceitemlist: Param0, apppackagefamilyname: Param1, auditinfo: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).RequestAccessToFilesForAppAsync)(::core::mem::transmute_copy(this), sourceitemlist.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfo.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Foundation_Collections', 'Storage'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation_Collections', 'Storage'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn RequestAccessToFilesForAppWithMessageAndBehaviorAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceitemlist: Param0, apppackagefamilyname: Param1, auditinfo: Param2, messagefromapp: Param3, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).RequestAccessToFilesForAppWithMessageAndBehaviorAsync)(::core::mem::transmute_copy(this), sourceitemlist.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfo.into_param().abi(), messagefromapp.into_param().abi(), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Foundation_Collections', 'Storage'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation_Collections', 'Storage'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn RequestAccessToFilesForProcessAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>>(sourceitemlist: Param0, processid: u32, auditinfo: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).RequestAccessToFilesForProcessAsync)(::core::mem::transmute_copy(this), sourceitemlist.into_param().abi(), processid, auditinfo.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
-    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Foundation_Collections', 'Storage'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation_Collections', 'Storage'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn RequestAccessToFilesForProcessWithMessageAndBehaviorAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceitemlist: Param0, processid: u32, auditinfo: Param2, messagefromapp: Param3, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

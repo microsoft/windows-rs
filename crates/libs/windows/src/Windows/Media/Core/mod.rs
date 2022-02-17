@@ -1038,8 +1038,8 @@ impl CodecQuery {
         static mut SHARED: ::windows::core::FactoryCache<CodecQuery, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    #[doc = "*Required features: 'Media_Core', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Media_Core', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, kind: CodecKind, category: CodecCategory, subtype: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>> {
         let this = self;
         unsafe {
@@ -2687,9 +2687,9 @@ unsafe impl ::windows::core::Interface for ICodecQuery {
 #[doc(hidden)]
 pub struct ICodecQuery_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: CodecKind, category: CodecCategory, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     FindAllAsync: usize,
 }
 #[doc(hidden)]
@@ -2974,9 +2974,9 @@ pub struct ILowLightFusionStatics_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
     SupportedBitmapPixelFormats: usize,
     pub MaxSupportedFrameCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     pub FuseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameset: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
     FuseAsync: usize,
 }
 #[doc(hidden)]
@@ -4462,9 +4462,9 @@ pub struct IMseSourceBuffer_Vtbl {
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MseAppendMode) -> ::windows::core::HRESULT,
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MseAppendMode) -> ::windows::core::HRESULT,
     pub IsUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub Buffered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     Buffered: usize,
     #[cfg(feature = "Foundation")]
     pub TimestampOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -5847,8 +5847,8 @@ impl LowLightFusion {
             (::windows::core::Interface::vtable(this).MaxSupportedFrameCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         })
     }
-    #[doc = "*Required features: 'Media_Core', 'Foundation', 'Foundation_Collections', 'Graphics_Imaging'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
+    #[doc = "*Required features: 'Media_Core', 'Foundation_Collections', 'Graphics_Imaging'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     pub fn FuseAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>>>(frameset: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>> {
         Self::ILowLightFusionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -9487,8 +9487,8 @@ impl MseSourceBuffer {
             (::windows::core::Interface::vtable(this).IsUpdating)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Core', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Media_Core', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn Buffered(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MseTimeRange>> {
         let this = self;
         unsafe {

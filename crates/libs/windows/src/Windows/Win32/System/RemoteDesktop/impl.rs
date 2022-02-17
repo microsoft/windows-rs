@@ -1079,7 +1079,7 @@ impl ITsSbBaseNotifySink_Vtbl {
         iid == &<ITsSbBaseNotifySink as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbClientConnection_Impl: Sized {
     fn UserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Domain(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -1097,7 +1097,7 @@ pub trait ITsSbClientConnection_Impl: Sized {
     fn UserSidString(&self) -> ::windows::core::Result<*mut i8>;
     fn GetDisconnectedSession(&self) -> ::windows::core::Result<ITsSbSession>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbClientConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbClientConnection_Impl, const OFFSET: isize>() -> ITsSbClientConnection_Vtbl {
         unsafe extern "system" fn UserName<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbClientConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -1282,9 +1282,9 @@ impl ITsSbClientConnection_Vtbl {
         iid == &<ITsSbClientConnection as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbClientConnectionPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl + ITsSbPropertySet_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbClientConnectionPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbClientConnectionPropertySet_Impl, const OFFSET: isize>() -> ITsSbClientConnectionPropertySet_Vtbl {
         Self { base: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -1353,9 +1353,9 @@ impl ITsSbEnvironment_Vtbl {
         iid == &<ITsSbEnvironment as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbEnvironmentPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl + ITsSbPropertySet_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbEnvironmentPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbEnvironmentPropertySet_Impl, const OFFSET: isize>() -> ITsSbEnvironmentPropertySet_Vtbl {
         Self { base: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -1699,9 +1699,9 @@ impl ITsSbPluginNotifySink_Vtbl {
         iid == &<ITsSbPluginNotifySink as ::windows::core::Interface>::IID || iid == &<ITsSbBaseNotifySink as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbPluginPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl + ITsSbPropertySet_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbPluginPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPluginPropertySet_Impl, const OFFSET: isize>() -> ITsSbPluginPropertySet_Vtbl {
         Self { base: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -1710,9 +1710,9 @@ impl ITsSbPluginPropertySet_Vtbl {
         iid == &<ITsSbPluginPropertySet as ::windows::core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows::core::Interface>::IID || iid == &<ITsSbPropertySet as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPropertySet_Impl, const OFFSET: isize>() -> ITsSbPropertySet_Vtbl {
         Self { base: super::Com::StructuredStorage::IPropertyBag_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2734,9 +2734,9 @@ impl ITsSbTarget_Vtbl {
         iid == &<ITsSbTarget as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbTargetPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl + ITsSbPropertySet_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbTargetPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTargetPropertySet_Impl, const OFFSET: isize>() -> ITsSbTargetPropertySet_Vtbl {
         Self { base: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }

@@ -55,8 +55,8 @@ impl CameraIntrinsics {
             (::windows::core::Interface::vtable(this).ImageHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn ProjectOntoFrame<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, coordinate: Param0) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
@@ -64,8 +64,8 @@ impl CameraIntrinsics {
             (::windows::core::Interface::vtable(this).ProjectOntoFrame)(::core::mem::transmute_copy(this), coordinate.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn UnprojectAtUnitDepth<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(&self, pixelcoordinate: Param0) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
         unsafe {
@@ -73,14 +73,14 @@ impl CameraIntrinsics {
             (::windows::core::Interface::vtable(this).UnprojectAtUnitDepth)(::core::mem::transmute_copy(this), pixelcoordinate.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn ProjectManyOntoFrame(&self, coordinates: &[super::super::super::Foundation::Numerics::Vector3], results: &mut [super::super::super::Foundation::Point]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ProjectManyOntoFrame)(::core::mem::transmute_copy(this), coordinates.len() as u32, ::core::mem::transmute(coordinates.as_ptr()), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
     }
-    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn UnprojectPixelsAtUnitDepth(&self, pixelcoordinates: &[super::super::super::Foundation::Point], results: &mut [super::super::super::Foundation::Numerics::Vector2]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UnprojectPixelsAtUnitDepth)(::core::mem::transmute_copy(this), pixelcoordinates.len() as u32, ::core::mem::transmute(pixelcoordinates.as_ptr()), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
@@ -220,8 +220,8 @@ impl DepthCorrelatedCoordinateMapper {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation', 'Foundation_Numerics', 'Perception_Spatial'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation_Numerics', 'Perception_Spatial'*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn UnprojectPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>, Param1: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, sourcepoint: Param0, targetcoordinatesystem: Param1) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -229,8 +229,8 @@ impl DepthCorrelatedCoordinateMapper {
             (::windows::core::Interface::vtable(this).UnprojectPoint)(::core::mem::transmute_copy(this), sourcepoint.into_param().abi(), targetcoordinatesystem.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation', 'Foundation_Numerics', 'Perception_Spatial'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: 'Media_Devices_Core', 'Foundation_Numerics', 'Perception_Spatial'*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn UnprojectPoints<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: Param1, results: &mut [super::super::super::Foundation::Numerics::Vector3]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UnprojectPoints)(::core::mem::transmute_copy(this), sourcepoints.len() as u32, ::core::mem::transmute(sourcepoints.as_ptr()), targetcoordinatesystem.into_param().abi(), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
@@ -1718,21 +1718,21 @@ pub struct ICameraIntrinsics_Vtbl {
     TangentialDistortion: usize,
     pub ImageWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub ImageHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub ProjectOntoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinate: super::super::super::Foundation::Numerics::Vector3, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     ProjectOntoFrame: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub UnprojectAtUnitDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelcoordinate: super::super::super::Foundation::Point, result__: *mut super::super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     UnprojectAtUnitDepth: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub ProjectManyOntoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinates_array_size: u32, coordinates: *const super::super::super::Foundation::Numerics::Vector3, results_array_size: u32, results: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     ProjectManyOntoFrame: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub UnprojectPixelsAtUnitDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelCoordinates_array_size: u32, pixelcoordinates: *const super::super::super::Foundation::Point, results_array_size: u32, results: *mut super::super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     UnprojectPixelsAtUnitDepth: usize,
 }
 #[doc(hidden)]
@@ -1794,13 +1794,13 @@ unsafe impl ::windows::core::Interface for IDepthCorrelatedCoordinateMapper {
 #[doc(hidden)]
 pub struct IDepthCorrelatedCoordinateMapper_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub UnprojectPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     UnprojectPoint: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub UnprojectPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcePoints_array_size: u32, sourcepoints: *const super::super::super::Foundation::Point, targetcoordinatesystem: ::windows::core::RawPtr, results_array_size: u32, results: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     UnprojectPoints: usize,
     #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
     pub MapPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: ::windows::core::RawPtr, targetcameraintrinsics: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,

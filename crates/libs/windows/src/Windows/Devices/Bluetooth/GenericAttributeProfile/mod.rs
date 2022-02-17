@@ -2168,8 +2168,8 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveWriteRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile', 'Foundation', 'Foundation_Collections', 'Storage_Streams'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile', 'Foundation_Collections', 'Storage_Streams'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn NotifyValueAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>> {
         let this = self;
         unsafe {
@@ -6397,9 +6397,9 @@ pub struct IGattLocalCharacteristic_Vtbl {
     pub RemoveWriteRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveWriteRequested: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub NotifyValueAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     NotifyValueAsync: usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub NotifyValueForSubscribedClientAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, subscribedclient: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

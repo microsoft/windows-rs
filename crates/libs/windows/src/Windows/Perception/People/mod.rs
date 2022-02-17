@@ -11,8 +11,8 @@ impl EyesPose {
             (::windows::core::Interface::vtable(this).IsCalibrationValid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_People', 'Foundation', 'Foundation_Numerics', 'Perception_Spatial'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: 'Perception_People', 'Foundation_Numerics', 'Perception_Spatial'*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn Gaze(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Spatial::SpatialRay>> {
         let this = self;
         unsafe {
@@ -691,9 +691,9 @@ unsafe impl ::windows::core::Interface for IEyesPose {
 pub struct IEyesPose_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub IsCalibrationValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub Gaze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     Gaze: usize,
     pub UpdateTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }

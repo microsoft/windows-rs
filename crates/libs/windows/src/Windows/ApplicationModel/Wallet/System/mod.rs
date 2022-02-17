@@ -10,9 +10,9 @@ unsafe impl ::windows::core::Interface for IWalletItemSystemStore {
 #[doc(hidden)]
 pub struct IWalletItemSystemStore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetItemsAsync: usize,
     #[cfg(feature = "Foundation")]
     pub DeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -103,8 +103,8 @@ unsafe impl ::windows::core::RuntimeType for WalletItemAppAssociation {
 #[repr(transparent)]
 pub struct WalletItemSystemStore(::windows::core::IUnknown);
 impl WalletItemSystemStore {
-    #[doc = "*Required features: 'ApplicationModel_Wallet_System', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'ApplicationModel_Wallet_System', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetItemsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>> {
         let this = self;
         unsafe {

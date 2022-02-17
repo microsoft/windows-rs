@@ -274,8 +274,8 @@ impl HolographicCameraPose {
             (::windows::core::Interface::vtable(this).Viewport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Holographic', 'Foundation', 'Foundation_Numerics', 'Perception_Spatial'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: 'Graphics_Holographic', 'Foundation_Numerics', 'Perception_Spatial'*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn TryGetViewTransform<'a, Param0: ::windows::core::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<HolographicStereoTransform>> {
         let this = self;
         unsafe {
@@ -292,8 +292,8 @@ impl HolographicCameraPose {
             (::windows::core::Interface::vtable(this).ProjectionTransform)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HolographicStereoTransform>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Holographic', 'Foundation', 'Foundation_Numerics', 'Perception_Spatial'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: 'Graphics_Holographic', 'Foundation_Numerics', 'Perception_Spatial'*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn TryGetCullingFrustum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>> {
         let this = self;
         unsafe {
@@ -301,8 +301,8 @@ impl HolographicCameraPose {
             (::windows::core::Interface::vtable(this).TryGetCullingFrustum)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>(result__)
         }
     }
-    #[doc = "*Required features: 'Graphics_Holographic', 'Foundation', 'Foundation_Numerics', 'Perception_Spatial'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[doc = "*Required features: 'Graphics_Holographic', 'Foundation_Numerics', 'Perception_Spatial'*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn TryGetVisibleFrustum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>> {
         let this = self;
         unsafe {
@@ -2999,21 +2999,21 @@ pub struct IHolographicCameraPose_Vtbl {
     pub Viewport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Viewport: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub TryGetViewTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     TryGetViewTransform: usize,
     #[cfg(feature = "Foundation_Numerics")]
     pub ProjectionTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HolographicStereoTransform) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     ProjectionTransform: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub TryGetCullingFrustum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     TryGetCullingFrustum: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub TryGetVisibleFrustum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     TryGetVisibleFrustum: usize,
     pub NearPlaneDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub FarPlaneDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,

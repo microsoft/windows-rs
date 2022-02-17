@@ -15,9 +15,9 @@ pub struct ISpatialSurfaceInfo_Vtbl {
     pub UpdateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     UpdateTime: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub TryGetBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     TryGetBounds: usize,
     #[cfg(feature = "Foundation")]
     pub TryComputeLatestMeshAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxtrianglespercubicmeter: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -212,8 +212,8 @@ impl SpatialSurfaceInfo {
             (::windows::core::Interface::vtable(this).UpdateTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: 'Perception_Spatial_Surfaces', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'Perception_Spatial_Surfaces', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetBounds<'a, Param0: ::windows::core::IntoParam<'a, super::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>> {
         let this = self;
         unsafe {

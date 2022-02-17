@@ -252,8 +252,8 @@ pub struct II2cDeviceProvider_Vtbl {
 #[repr(transparent)]
 pub struct II2cProvider(::windows::core::IUnknown);
 impl II2cProvider {
-    #[doc = "*Required features: 'Devices_I2c_Provider', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Devices_I2c_Provider', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>> {
         let this = self;
         unsafe {
@@ -333,9 +333,9 @@ unsafe impl ::windows::core::Interface for II2cProvider {
 #[doc(hidden)]
 pub struct II2cProvider_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetControllersAsync: usize,
 }
 #[doc(hidden)]

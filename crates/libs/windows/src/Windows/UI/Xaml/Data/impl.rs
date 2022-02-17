@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 pub trait ICollectionView_Impl: Sized + super::super::super::Foundation::Collections::IIterable_Impl<::windows::core::IInspectable> + super::super::super::Foundation::Collections::IObservableVector_Impl<::windows::core::IInspectable> + super::super::super::Foundation::Collections::IVector_Impl<::windows::core::IInspectable> {
     fn CurrentItem(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn CurrentPosition(&self) -> ::windows::core::Result<i32>;
@@ -18,11 +18,11 @@ pub trait ICollectionView_Impl: Sized + super::super::super::Foundation::Collect
     fn MoveCurrentToPrevious(&self) -> ::windows::core::Result<bool>;
     fn LoadMoreItemsAsync(&self, count: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ICollectionView {
     const NAME: &'static str = "Windows.UI.Xaml.Data.ICollectionView";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ICollectionView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICollectionView_Impl, const OFFSET: isize>() -> ICollectionView_Vtbl {
         unsafe extern "system" fn CurrentItem<Identity: ::windows::core::IUnknownImpl, Impl: ICollectionView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -502,15 +502,15 @@ impl ICustomPropertyProvider_Vtbl {
         iid == &<ICustomPropertyProvider as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 pub trait IItemsRangeInfo_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn RangesChanged(&self, visiblerange: &::core::option::Option<ItemIndexRange>, trackeditems: &::core::option::Option<super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IItemsRangeInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Data.IItemsRangeInfo";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl IItemsRangeInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemsRangeInfo_Impl, const OFFSET: isize>() -> IItemsRangeInfo_Vtbl {
         unsafe extern "system" fn RangesChanged<Identity: ::windows::core::IUnknownImpl, Impl: IItemsRangeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visiblerange: ::windows::core::RawPtr, trackeditems: ::windows::core::RawPtr) -> ::windows::core::HRESULT {

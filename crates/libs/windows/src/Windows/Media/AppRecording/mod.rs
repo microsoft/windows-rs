@@ -38,8 +38,8 @@ impl AppRecordingManager {
             (::windows::core::Interface::vtable(this).SupportedScreenshotMediaEncodingSubtypes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: 'Media_AppRecording', 'Foundation', 'Foundation_Collections', 'Storage'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[doc = "*Required features: 'Media_AppRecording', 'Foundation_Collections', 'Storage'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn SaveScreenshotToFilesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, folder: Param0, filenameprefix: Param1, option: AppRecordingSaveScreenshotOption, requestedformats: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>> {
         let this = self;
         unsafe {
@@ -755,9 +755,9 @@ pub struct IAppRecordingManager_Vtbl {
     pub SupportedScreenshotMediaEncodingSubtypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     SupportedScreenshotMediaEncodingSubtypes: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub SaveScreenshotToFilesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, folder: ::windows::core::RawPtr, filenameprefix: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: AppRecordingSaveScreenshotOption, requestedformats: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     SaveScreenshotToFilesAsync: usize,
 }
 #[doc(hidden)]

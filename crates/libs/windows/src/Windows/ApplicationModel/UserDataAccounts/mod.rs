@@ -33,21 +33,21 @@ pub struct IUserDataAccount_Vtbl {
     pub DeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     DeleteAsync: usize,
-    #[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation_Collections"))]
     pub FindAppointmentCalendarsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "ApplicationModel_Appointments", feature = "Foundation_Collections")))]
     FindAppointmentCalendarsAsync: usize,
-    #[cfg(all(feature = "ApplicationModel_Email", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "ApplicationModel_Email", feature = "Foundation_Collections"))]
     pub FindEmailMailboxesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Email", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "ApplicationModel_Email", feature = "Foundation_Collections")))]
     FindEmailMailboxesAsync: usize,
-    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub FindContactListsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections")))]
     FindContactListsAsync: usize,
-    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub FindContactAnnotationListsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections")))]
     FindContactAnnotationListsAsync: usize,
 }
 #[doc(hidden)]
@@ -99,13 +99,13 @@ pub struct IUserDataAccount4_Vtbl {
     pub ProviderProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ProviderProperties: usize,
-    #[cfg(all(feature = "ApplicationModel_UserDataTasks", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "ApplicationModel_UserDataTasks", feature = "Foundation_Collections"))]
     pub FindUserDataTaskListsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_UserDataTasks", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "ApplicationModel_UserDataTasks", feature = "Foundation_Collections")))]
     FindUserDataTaskListsAsync: usize,
-    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub FindContactGroupsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections")))]
     FindContactGroupsAsync: usize,
     #[cfg(feature = "Foundation")]
     pub TryShowCreateContactGroupAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -192,9 +192,9 @@ unsafe impl ::windows::core::Interface for IUserDataAccountStore {
 #[doc(hidden)]
 pub struct IUserDataAccountStore_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub FindAccountsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     FindAccountsAsync: usize,
     #[cfg(feature = "Foundation")]
     pub GetAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -342,8 +342,8 @@ impl UserDataAccount {
             (::windows::core::Interface::vtable(this).DeleteAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_Appointments', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_Appointments', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation_Collections"))]
     pub fn FindAppointmentCalendarsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Appointments::AppointmentCalendar>>> {
         let this = self;
         unsafe {
@@ -351,8 +351,8 @@ impl UserDataAccount {
             (::windows::core::Interface::vtable(this).FindAppointmentCalendarsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Appointments::AppointmentCalendar>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_Email', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "ApplicationModel_Email", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_Email', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "ApplicationModel_Email", feature = "Foundation_Collections"))]
     pub fn FindEmailMailboxesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Email::EmailMailbox>>> {
         let this = self;
         unsafe {
@@ -360,8 +360,8 @@ impl UserDataAccount {
             (::windows::core::Interface::vtable(this).FindEmailMailboxesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Email::EmailMailbox>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_Contacts', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_Contacts', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub fn FindContactListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactList>>> {
         let this = self;
         unsafe {
@@ -369,8 +369,8 @@ impl UserDataAccount {
             (::windows::core::Interface::vtable(this).FindContactListsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactList>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_Contacts', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_Contacts', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub fn FindContactAnnotationListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactAnnotationList>>> {
         let this = self;
         unsafe {
@@ -438,8 +438,8 @@ impl UserDataAccount {
             (::windows::core::Interface::vtable(this).ProviderProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_UserDataTasks', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "ApplicationModel_UserDataTasks", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_UserDataTasks', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "ApplicationModel_UserDataTasks", feature = "Foundation_Collections"))]
     pub fn FindUserDataTaskListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::UserDataTasks::UserDataTaskList>>> {
         let this = &::windows::core::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
@@ -447,8 +447,8 @@ impl UserDataAccount {
             (::windows::core::Interface::vtable(this).FindUserDataTaskListsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::UserDataTasks::UserDataTaskList>>>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_Contacts', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'ApplicationModel_Contacts', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub fn FindContactGroupsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactGroup>>> {
         let this = &::windows::core::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
@@ -803,8 +803,8 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountOtherAppReadAccess {
 #[repr(transparent)]
 pub struct UserDataAccountStore(::windows::core::IUnknown);
 impl UserDataAccountStore {
-    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn FindAccountsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataAccount>>> {
         let this = self;
         unsafe {

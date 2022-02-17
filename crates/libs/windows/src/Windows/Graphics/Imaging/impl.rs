@@ -244,15 +244,15 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
         iid == &<IBitmapFrameWithSoftwareBitmap as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 pub trait IBitmapPropertiesView_Impl: Sized {
     fn GetPropertiesAsync(&self, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IBitmapPropertiesView {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapPropertiesView";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl IBitmapPropertiesView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapPropertiesView_Impl, const OFFSET: isize>() -> IBitmapPropertiesView_Vtbl {
         unsafe extern "system" fn GetPropertiesAsync<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapPropertiesView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertiestoretrieve: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

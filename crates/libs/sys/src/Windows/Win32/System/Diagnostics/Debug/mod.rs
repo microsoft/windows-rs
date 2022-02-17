@@ -5941,8 +5941,8 @@ pub const ErrorClassWarning: ErrorClass = 0i32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ErrorClassError: ErrorClass = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_System_Ole'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage', 'Win32_System_Ole'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
     pub pszName: super::super::super::Foundation::PWSTR,
@@ -5957,9 +5957,9 @@ pub struct ExtendedDebugPropertyInfo {
     pub plbValue: super::super::Com::StructuredStorage::ILockBytes,
     pub pDebugExtProp: IDebugExtendedProperty,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for ExtendedDebugPropertyInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for ExtendedDebugPropertyInfo {
     fn clone(&self) -> Self {
         *self

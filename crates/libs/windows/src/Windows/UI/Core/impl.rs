@@ -452,7 +452,7 @@ impl ICorePointerRedirector_Vtbl {
         iid == &<ICorePointerRedirector as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "System"))]
 pub trait ICoreWindow_Impl: Sized {
     fn AutomationHostProvider(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn Bounds(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
@@ -507,11 +507,11 @@ pub trait ICoreWindow_Impl: Sized {
     fn VisibilityChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveVisibilityChanged(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "System"))]
 impl ::windows::core::RuntimeName for ICoreWindow {
     const NAME: &'static str = "Windows.UI.Core.ICoreWindow";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "System"))]
 impl ICoreWindow_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindow_Impl, const OFFSET: isize>() -> ICoreWindow_Vtbl {
         unsafe extern "system" fn AutomationHostProvider<Identity: ::windows::core::IUnknownImpl, Impl: ICoreWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

@@ -392,7 +392,7 @@ impl IWICBitmapDecoderInfo_Vtbl {
         iid == &<IWICBitmapDecoderInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICBitmapCodecInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IWICBitmapEncoder_Impl: Sized {
     fn Initialize(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>, cacheoption: WICBitmapEncoderCacheOption) -> ::windows::core::Result<()>;
     fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -405,7 +405,7 @@ pub trait IWICBitmapEncoder_Impl: Sized {
     fn Commit(&self) -> ::windows::core::Result<()>;
     fn GetMetadataQueryWriter(&self) -> ::windows::core::Result<IWICMetadataQueryWriter>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IWICBitmapEncoder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapEncoder_Impl, const OFFSET: isize>() -> IWICBitmapEncoder_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapEncoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistream: ::windows::core::RawPtr, cacheoption: WICBitmapEncoderCacheOption) -> ::windows::core::HRESULT {
@@ -929,7 +929,7 @@ impl IWICColorTransform_Vtbl {
         iid == &<IWICColorTransform as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICComponentFactory_Impl: Sized + IWICImagingFactory_Impl {
     fn CreateMetadataReader(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<IWICMetadataReader>;
     fn CreateMetadataReaderFromContainer(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<IWICMetadataReader>;
@@ -939,7 +939,7 @@ pub trait IWICComponentFactory_Impl: Sized + IWICImagingFactory_Impl {
     fn CreateQueryWriterFromBlockWriter(&self, piblockwriter: &::core::option::Option<IWICMetadataBlockWriter>) -> ::windows::core::Result<IWICMetadataQueryWriter>;
     fn CreateEncoderPropertyBag(&self, ppropoptions: *const super::super::System::Com::StructuredStorage::PROPBAG2, ccount: u32) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyBag2>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWICComponentFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentFactory_Impl, const OFFSET: isize>() -> IWICComponentFactory_Vtbl {
         unsafe extern "system" fn CreateMetadataReader<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: ::windows::core::RawPtr, ppireader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1576,14 +1576,14 @@ impl IWICDevelopRawNotificationCallback_Vtbl {
         iid == &<IWICDevelopRawNotificationCallback as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICEnumMetadataItem_Impl: Sized {
     fn Next(&self, celt: u32, rgeltschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IWICEnumMetadataItem>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IWICEnumMetadataItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICEnumMetadataItem_Impl, const OFFSET: isize>() -> IWICEnumMetadataItem_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IWICEnumMetadataItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgeltschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -2451,14 +2451,14 @@ impl IWICMetadataHandlerInfo_Vtbl {
         iid == &<IWICMetadataHandlerInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICMetadataQueryReader_Impl: Sized {
     fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetLocation(&self, cchmaxlength: u32, wznamespace: super::super::Foundation::PWSTR, pcchactuallength: *mut u32) -> ::windows::core::Result<()>;
     fn GetMetadataByName(&self, wzname: super::super::Foundation::PWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetEnumerator(&self) -> ::windows::core::Result<super::super::System::Com::IEnumString>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IWICMetadataQueryReader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryReader_Impl, const OFFSET: isize>() -> IWICMetadataQueryReader_Vtbl {
         unsafe extern "system" fn GetContainerFormat<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidcontainerformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -2505,12 +2505,12 @@ impl IWICMetadataQueryReader_Vtbl {
         iid == &<IWICMetadataQueryReader as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICMetadataQueryWriter_Impl: Sized + IWICMetadataQueryReader_Impl {
     fn SetMetadataByName(&self, wzname: super::super::Foundation::PWSTR, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn RemoveMetadataByName(&self, wzname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IWICMetadataQueryWriter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryWriter_Impl, const OFFSET: isize>() -> IWICMetadataQueryWriter_Vtbl {
         unsafe extern "system" fn SetMetadataByName<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzname: super::super::Foundation::PWSTR, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
@@ -2533,7 +2533,7 @@ impl IWICMetadataQueryWriter_Vtbl {
         iid == &<IWICMetadataQueryWriter as ::windows::core::Interface>::IID || iid == &<IWICMetadataQueryReader as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICMetadataReader_Impl: Sized {
     fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetMetadataHandlerInfo(&self) -> ::windows::core::Result<IWICMetadataHandlerInfo>;
@@ -2542,7 +2542,7 @@ pub trait IWICMetadataReader_Impl: Sized {
     fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetEnumerator(&self) -> ::windows::core::Result<IWICEnumMetadataItem>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IWICMetadataReader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataReader_Impl, const OFFSET: isize>() -> IWICMetadataReader_Vtbl {
         unsafe extern "system" fn GetMetadataFormat<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidmetadataformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -2660,14 +2660,14 @@ impl IWICMetadataReaderInfo_Vtbl {
         iid == &<IWICMetadataReaderInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID || iid == &<IWICMetadataHandlerInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICMetadataWriter_Impl: Sized + IWICMetadataReader_Impl {
     fn SetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn SetValueByIndex(&self, nindex: u32, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn RemoveValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn RemoveValueByIndex(&self, nindex: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IWICMetadataWriter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataWriter_Impl, const OFFSET: isize>() -> IWICMetadataWriter_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
@@ -3140,14 +3140,14 @@ impl IWICProgressiveLevelControl_Vtbl {
         iid == &<IWICProgressiveLevelControl as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICStream_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
     fn InitializeFromIStream(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn InitializeFromFilename(&self, wzfilename: super::super::Foundation::PWSTR, dwdesiredaccess: u32) -> ::windows::core::Result<()>;
     fn InitializeFromMemory(&self, pbbuffer: *const u8, cbbuffersize: u32) -> ::windows::core::Result<()>;
     fn InitializeFromIStreamRegion(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>, uloffset: u64, ulmaxsize: u64) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IWICStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICStream_Impl, const OFFSET: isize>() -> IWICStream_Vtbl {
         unsafe extern "system" fn InitializeFromIStream<Identity: ::windows::core::IUnknownImpl, Impl: IWICStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {

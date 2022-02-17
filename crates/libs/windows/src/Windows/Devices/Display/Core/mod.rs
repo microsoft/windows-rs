@@ -1644,8 +1644,8 @@ impl DisplayPath {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTargetResolution)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn PresentationRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>> {
         let this = self;
         unsafe {
@@ -1653,8 +1653,8 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).PresentationRate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<DisplayPresentationRate>>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPresentationRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPresentationRate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1736,8 +1736,8 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn PhysicalPresentationRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>> {
         let this = &::windows::core::Interface::cast::<IDisplayPath2>(self)?;
         unsafe {
@@ -1745,8 +1745,8 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).PhysicalPresentationRate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<DisplayPresentationRate>>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPhysicalPresentationRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDisplayPath2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPhysicalPresentationRate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2049,16 +2049,16 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics_DirectX', 'Graphics_DirectX_Direct3D11'*"]
-    #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics_DirectX_Direct3D11'*"]
+    #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateInstance<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>>(width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: Param5) -> ::windows::core::Result<DisplayPrimaryDescription> {
         Self::IDisplayPrimaryDescriptionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), width, height, pixelformat, colorspace, isstereo, multisampledescription.into_param().abi(), &mut result__).from_abi::<DisplayPrimaryDescription>(result__)
         })
     }
-    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections', 'Graphics_DirectX', 'Graphics_DirectX_Direct3D11'*"]
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections', 'Graphics_DirectX_Direct3D11'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
     pub fn CreateWithProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, Param6: ::windows::core::IntoParam<'a, super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>>(extraproperties: Param0, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: Param6) -> ::windows::core::Result<DisplayPrimaryDescription> {
         Self::IDisplayPrimaryDescriptionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4324,13 +4324,13 @@ pub struct IDisplayPath_Vtbl {
     pub SetTargetResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics")))]
     SetTargetResolution: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub PresentationRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     PresentationRate: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub SetPresentationRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     SetPresentationRate: usize,
     #[cfg(feature = "Foundation")]
     pub IsInterlaced: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4367,13 +4367,13 @@ unsafe impl ::windows::core::Interface for IDisplayPath2 {
 #[doc(hidden)]
 pub struct IDisplayPath2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub PhysicalPresentationRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     PhysicalPresentationRate: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub SetPhysicalPresentationRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     SetPhysicalPresentationRate: usize,
 }
 #[doc(hidden)]
@@ -4418,9 +4418,9 @@ unsafe impl ::windows::core::Interface for IDisplayPrimaryDescriptionFactory {
 #[doc(hidden)]
 pub struct IDisplayPrimaryDescriptionFactory_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
+    #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11")))]
+    #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     CreateInstance: usize,
 }
 #[doc(hidden)]
@@ -4434,9 +4434,9 @@ unsafe impl ::windows::core::Interface for IDisplayPrimaryDescriptionStatics {
 #[doc(hidden)]
 pub struct IDisplayPrimaryDescriptionStatics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
     pub CreateWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extraproperties: ::windows::core::RawPtr, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11")))]
     CreateWithProperties: usize,
 }
 #[doc(hidden)]

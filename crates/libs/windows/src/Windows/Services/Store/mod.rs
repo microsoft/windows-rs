@@ -185,25 +185,25 @@ pub struct IStoreContext_Vtbl {
     pub GetStoreProductForCurrentAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetStoreProductForCurrentAppAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetStoreProductsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productkinds: ::windows::core::RawPtr, storeids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetStoreProductsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetAssociatedStoreProductsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productkinds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetAssociatedStoreProductsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetAssociatedStoreProductsWithPagingAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productkinds: ::windows::core::RawPtr, maxitemstoretrieveperpage: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetAssociatedStoreProductsWithPagingAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetUserCollectionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productkinds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetUserCollectionAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetUserCollectionWithPagingAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productkinds: ::windows::core::RawPtr, maxitemstoretrieveperpage: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetUserCollectionWithPagingAsync: usize,
     #[cfg(feature = "Foundation")]
     pub ReportConsumableFulfillmentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productstoreid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, quantity: u32, trackingid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -225,21 +225,21 @@ pub struct IStoreContext_Vtbl {
     pub RequestPurchaseWithPurchasePropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storeid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, storepurchaseproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RequestPurchaseWithPurchasePropertiesAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetAppAndOptionalStorePackageUpdatesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetAppAndOptionalStorePackageUpdatesAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub RequestDownloadStorePackageUpdatesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storepackageupdates: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     RequestDownloadStorePackageUpdatesAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub RequestDownloadAndInstallStorePackageUpdatesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storepackageupdates: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     RequestDownloadAndInstallStorePackageUpdatesAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub RequestDownloadAndInstallStorePackagesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storeids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     RequestDownloadAndInstallStorePackagesAsync: usize,
 }
 #[doc(hidden)]
@@ -253,9 +253,9 @@ unsafe impl ::windows::core::Interface for IStoreContext2 {
 #[doc(hidden)]
 pub struct IStoreContext2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub FindStoreProductForPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productkinds: ::windows::core::RawPtr, package: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
     FindStoreProductForPackageAsync: usize,
 }
 #[doc(hidden)]
@@ -270,13 +270,13 @@ unsafe impl ::windows::core::Interface for IStoreContext3 {
 pub struct IStoreContext3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
     pub CanSilentlyDownloadStorePackageUpdates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub TrySilentDownloadStorePackageUpdatesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storepackageupdates: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     TrySilentDownloadStorePackageUpdatesAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub TrySilentDownloadAndInstallStorePackageUpdatesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storepackageupdates: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     TrySilentDownloadAndInstallStorePackageUpdatesAsync: usize,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub CanAcquireStoreLicenseForOptionalPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionalpackage: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -286,25 +286,25 @@ pub struct IStoreContext3_Vtbl {
     pub CanAcquireStoreLicenseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productstoreid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CanAcquireStoreLicenseAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetStoreProductsWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productkinds: ::windows::core::RawPtr, storeids: ::windows::core::RawPtr, storeproductoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetStoreProductsWithOptionsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetAssociatedStoreQueueItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetAssociatedStoreQueueItemsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetStoreQueueItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storeids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetStoreQueueItemsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storeids: ::windows::core::RawPtr, storepackageinstalloptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub DownloadAndInstallStorePackagesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storeids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     DownloadAndInstallStorePackagesAsync: usize,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub RequestUninstallStorePackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, package: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -338,9 +338,9 @@ pub struct IStoreContext4_Vtbl {
     pub RequestRateAndReviewAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RequestRateAndReviewAppAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub SetInstallOrderForAssociatedStoreQueueItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, items: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     SetInstallOrderForAssociatedStoreQueueItemsAsync: usize,
 }
 #[doc(hidden)]
@@ -1801,8 +1801,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetStoreProductForCurrentAppAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreProductsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, productkinds: Param0, storeids: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>> {
         let this = self;
         unsafe {
@@ -1810,8 +1810,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetStoreProductsAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreProductsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, productkinds: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>> {
         let this = self;
         unsafe {
@@ -1819,8 +1819,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetAssociatedStoreProductsAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreProductsWithPagingAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, productkinds: Param0, maxitemstoretrieveperpage: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>> {
         let this = self;
         unsafe {
@@ -1828,8 +1828,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetAssociatedStoreProductsWithPagingAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), maxitemstoretrieveperpage, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetUserCollectionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, productkinds: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>> {
         let this = self;
         unsafe {
@@ -1837,8 +1837,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetUserCollectionAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetUserCollectionWithPagingAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, productkinds: Param0, maxitemstoretrieveperpage: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>> {
         let this = self;
         unsafe {
@@ -1891,8 +1891,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::core::mem::transmute_copy(this), storeid.into_param().abi(), storepurchaseproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetAppAndOptionalStorePackageUpdatesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>> {
         let this = self;
         unsafe {
@@ -1900,8 +1900,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetAppAndOptionalStorePackageUpdatesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadStorePackageUpdatesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorePackageUpdate>>>(&self, storepackageupdates: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = self;
         unsafe {
@@ -1909,8 +1909,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestDownloadStorePackageUpdatesAsync)(::core::mem::transmute_copy(this), storepackageupdates.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackageUpdatesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorePackageUpdate>>>(&self, storepackageupdates: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = self;
         unsafe {
@@ -1918,8 +1918,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackageUpdatesAsync)(::core::mem::transmute_copy(this), storepackageupdates.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, storeids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = self;
         unsafe {
@@ -1927,8 +1927,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesAsync)(::core::mem::transmute_copy(this), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'ApplicationModel', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'ApplicationModel', 'Foundation_Collections'*"]
+    #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindStoreProductForPackageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Package>>(&self, productkinds: Param0, package: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>> {
         let this = &::windows::core::Interface::cast::<IStoreContext2>(self)?;
         unsafe {
@@ -1944,8 +1944,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).CanSilentlyDownloadStorePackageUpdates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn TrySilentDownloadStorePackageUpdatesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorePackageUpdate>>>(&self, storepackageupdates: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1953,8 +1953,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).TrySilentDownloadStorePackageUpdatesAsync)(::core::mem::transmute_copy(this), storepackageupdates.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn TrySilentDownloadAndInstallStorePackageUpdatesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorePackageUpdate>>>(&self, storepackageupdates: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1980,8 +1980,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).CanAcquireStoreLicenseAsync)(::core::mem::transmute_copy(this), productstoreid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreProductsWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, StoreProductOptions>>(&self, productkinds: Param0, storeids: Param1, storeproductoptions: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1989,8 +1989,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetStoreProductsWithOptionsAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), storeids.into_param().abi(), storeproductoptions.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreQueueItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1998,8 +1998,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetAssociatedStoreQueueItemsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreQueueItemsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, storeids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -2007,8 +2007,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetStoreQueueItemsAsync)(::core::mem::transmute_copy(this), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, StorePackageInstallOptions>>(&self, storeids: Param0, storepackageinstalloptions: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -2016,8 +2016,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync)(::core::mem::transmute_copy(this), storeids.into_param().abi(), storepackageinstalloptions.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn DownloadAndInstallStorePackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, storeids: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -2070,8 +2070,8 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestRateAndReviewAppAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Store', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Services_Store', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn SetInstallOrderForAssociatedStoreQueueItemsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<StoreQueueItem>>>(&self, items: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>> {
         let this = &::windows::core::Interface::cast::<IStoreContext4>(self)?;
         unsafe {

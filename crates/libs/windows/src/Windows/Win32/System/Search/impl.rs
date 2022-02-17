@@ -709,7 +709,7 @@ impl ICommandWithParameters_Vtbl {
         iid == &<ICommandWithParameters as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait ICondition_Impl: Sized + super::Com::IPersist_Impl + super::Com::IPersistStream_Impl {
     fn GetConditionType(&self) -> ::windows::core::Result<Common::CONDITION_TYPE>;
     fn GetSubConditions(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -719,7 +719,7 @@ pub trait ICondition_Impl: Sized + super::Com::IPersist_Impl + super::Com::IPers
     fn GetInputTerms(&self, pppropertyterm: *mut ::core::option::Option<IRichChunk>, ppoperationterm: *mut ::core::option::Option<IRichChunk>, ppvalueterm: *mut ::core::option::Option<IRichChunk>) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<ICondition>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl ICondition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICondition_Impl, const OFFSET: isize>() -> ICondition_Vtbl {
         unsafe extern "system" fn GetConditionType<Identity: ::windows::core::IUnknownImpl, Impl: ICondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnodetype: *mut Common::CONDITION_TYPE) -> ::windows::core::HRESULT {
@@ -796,12 +796,12 @@ impl ICondition_Vtbl {
         iid == &<ICondition as ::windows::core::Interface>::IID || iid == &<super::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::Com::IPersistStream as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ICondition2_Impl: Sized + super::Com::IPersist_Impl + super::Com::IPersistStream_Impl + ICondition_Impl {
     fn GetLocale(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
     fn GetLeafConditionInfo(&self, ppropkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ICondition2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICondition2_Impl, const OFFSET: isize>() -> ICondition2_Vtbl {
         unsafe extern "system" fn GetLocale<Identity: ::windows::core::IUnknownImpl, Impl: ICondition2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszlocalename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
@@ -830,14 +830,14 @@ impl ICondition2_Vtbl {
         iid == &<ICondition2 as ::windows::core::Interface>::IID || iid == &<super::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::Com::IPersistStream as ::windows::core::Interface>::IID || iid == &<ICondition as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IConditionFactory_Impl: Sized {
     fn MakeNot(&self, pcsub: &::core::option::Option<ICondition>, fsimplify: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
     fn MakeAndOr(&self, ct: Common::CONDITION_TYPE, peusubs: &::core::option::Option<super::Com::IEnumUnknown>, fsimplify: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
     fn MakeLeaf(&self, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, fexpand: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
     fn Resolve(&self, pc: &::core::option::Option<ICondition>, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<ICondition>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl IConditionFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory_Impl, const OFFSET: isize>() -> IConditionFactory_Vtbl {
         unsafe extern "system" fn MakeNot<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcsub: ::windows::core::RawPtr, fsimplify: super::super::Foundation::BOOL, ppcresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -896,7 +896,7 @@ impl IConditionFactory_Vtbl {
         iid == &<IConditionFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IConditionFactory2_Impl: Sized + IConditionFactory_Impl {
     fn CreateTrueFalse(&self, fval: super::super::Foundation::BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateNegation(&self, pcsub: &::core::option::Option<ICondition>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -908,7 +908,7 @@ pub trait IConditionFactory2_Impl: Sized + IConditionFactory_Impl {
     fn CreateLeaf(&self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, propvar: *const super::Com::StructuredStorage::PROPVARIANT, pszsemantictype: super::super::Foundation::PWSTR, pszlocalename: super::super::Foundation::PWSTR, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn ResolveCondition(&self, pc: &::core::option::Option<ICondition>, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IConditionFactory2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory2_Impl, const OFFSET: isize>() -> IConditionFactory2_Vtbl {
         unsafe extern "system" fn CreateTrueFalse<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fval: super::super::Foundation::BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -973,14 +973,14 @@ impl IConditionFactory2_Vtbl {
         iid == &<IConditionFactory2 as ::windows::core::Interface>::IID || iid == &<IConditionFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IConditionGenerator_Impl: Sized {
     fn Initialize(&self, pschemaprovider: &::core::option::Option<ISchemaProvider>) -> ::windows::core::Result<()>;
     fn RecognizeNamedEntities(&self, pszinputstring: super::super::Foundation::PWSTR, lciduserlocale: u32, ptokencollection: &::core::option::Option<ITokenCollection>, pnamedentities: &::core::option::Option<INamedEntityCollector>) -> ::windows::core::Result<()>;
     fn GenerateForLeaf(&self, pconditionfactory: &::core::option::Option<IConditionFactory>, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, pszvalue2: super::super::Foundation::PWSTR, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut ::core::option::Option<ICondition>) -> ::windows::core::Result<()>;
     fn DefaultPhrase(&self, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl IConditionGenerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionGenerator_Impl, const OFFSET: isize>() -> IConditionGenerator_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pschemaprovider: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2197,11 +2197,11 @@ impl IIndexDefinition_Vtbl {
         iid == &<IIndexDefinition as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IInterval_Impl: Sized {
     fn GetLimits(&self, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::Com::StructuredStorage::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IInterval_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInterval_Impl, const OFFSET: isize>() -> IInterval_Vtbl {
         unsafe extern "system" fn GetLimits<Identity: ::windows::core::IUnknownImpl, Impl: IInterval_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::Com::StructuredStorage::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
@@ -2215,13 +2215,13 @@ impl IInterval_Vtbl {
         iid == &<IInterval as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ILoadFilter_Impl: Sized {
     fn LoadIFilter(&self, pwcspath: super::super::Foundation::PWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: &::core::option::Option<::windows::core::IUnknown>, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
     fn LoadIFilterFromStorage(&self, pstg: &::core::option::Option<super::Com::StructuredStorage::IStorage>, punkouter: &::core::option::Option<::windows::core::IUnknown>, pwcsoverride: super::super::Foundation::PWSTR, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
     fn LoadIFilterFromStream(&self, pstm: &::core::option::Option<super::Com::IStream>, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: &::core::option::Option<::windows::core::IUnknown>, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ILoadFilter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilter_Impl, const OFFSET: isize>() -> ILoadFilter_Vtbl {
         unsafe extern "system" fn LoadIFilter<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcspath: super::super::Foundation::PWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut ::core::ffi::c_void, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2250,11 +2250,11 @@ impl ILoadFilter_Vtbl {
         iid == &<ILoadFilter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ILoadFilterWithPrivateComActivation_Impl: Sized + ILoadFilter_Impl {
     fn LoadIFilterWithPrivateComActivation(&self, filteredsources: *const FILTERED_DATA_SOURCES, usedefault: super::super::Foundation::BOOL, filterclsid: *mut ::windows::core::GUID, isfilterprivatecomactivated: *mut super::super::Foundation::BOOL, filterobj: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ILoadFilterWithPrivateComActivation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilterWithPrivateComActivation_Impl, const OFFSET: isize>() -> ILoadFilterWithPrivateComActivation_Vtbl {
         unsafe extern "system" fn LoadIFilterWithPrivateComActivation<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilterWithPrivateComActivation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filteredsources: *const FILTERED_DATA_SOURCES, usedefault: super::super::Foundation::BOOL, filterclsid: *mut ::windows::core::GUID, isfilterprivatecomactivated: *mut super::super::Foundation::BOOL, filterobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2464,7 +2464,7 @@ impl INamedEntityCollector_Vtbl {
         iid == &<INamedEntityCollector as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
 pub trait IObjectAccessControl_Impl: Sized {
     fn GetObjectAccessRights(&self, pobject: *mut SEC_OBJECT, pcaccessentries: *mut u32, prgaccessentries: *mut *mut super::super::Security::Authorization::EXPLICIT_ACCESS_W) -> ::windows::core::Result<()>;
     fn GetObjectOwner(&self, pobject: *mut SEC_OBJECT, ppowner: *mut *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::Result<()>;
@@ -2472,7 +2472,7 @@ pub trait IObjectAccessControl_Impl: Sized {
     fn SetObjectAccessRights(&self, pobject: *mut SEC_OBJECT, caccessentries: u32, prgaccessentries: *mut super::super::Security::Authorization::EXPLICIT_ACCESS_W) -> ::windows::core::Result<()>;
     fn SetObjectOwner(&self, pobject: *mut SEC_OBJECT, powner: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
 impl IObjectAccessControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectAccessControl_Impl, const OFFSET: isize>() -> IObjectAccessControl_Vtbl {
         unsafe extern "system" fn GetObjectAccessRights<Identity: ::windows::core::IUnknownImpl, Impl: IObjectAccessControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut SEC_OBJECT, pcaccessentries: *mut u32, prgaccessentries: *mut *mut super::super::Security::Authorization::EXPLICIT_ACCESS_W) -> ::windows::core::HRESULT {
@@ -2648,7 +2648,7 @@ impl IProvideMoniker_Vtbl {
         iid == &<IProvideMoniker as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IQueryParser_Impl: Sized {
     fn Parse(&self, pszinputstring: super::super::Foundation::PWSTR, pcustomproperties: &::core::option::Option<super::Com::IEnumUnknown>) -> ::windows::core::Result<IQuerySolution>;
     fn SetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -2659,7 +2659,7 @@ pub trait IQueryParser_Impl: Sized {
     fn ParsePropertyValue(&self, pszpropertyname: super::super::Foundation::PWSTR, pszinputstring: super::super::Foundation::PWSTR) -> ::windows::core::Result<IQuerySolution>;
     fn RestatePropertyValueToString(&self, pcondition: &::core::option::Option<ICondition>, fuseenglish: super::super::Foundation::BOOL, ppszpropertyname: *mut super::super::Foundation::PWSTR, ppszquerystring: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IQueryParser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>() -> IQueryParser_Vtbl {
         unsafe extern "system" fn Parse<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszinputstring: super::super::Foundation::PWSTR, pcustomproperties: ::windows::core::RawPtr, ppsolution: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2748,13 +2748,13 @@ impl IQueryParser_Vtbl {
         iid == &<IQueryParser as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IQueryParserManager_Impl: Sized {
     fn CreateLoadedParser(&self, pszcatalog: super::super::Foundation::PWSTR, langidforkeywords: u16, riid: *const ::windows::core::GUID, ppqueryparser: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn InitializeOptions(&self, funderstandnqs: super::super::Foundation::BOOL, fautowildcard: super::super::Foundation::BOOL, pqueryparser: &::core::option::Option<IQueryParser>) -> ::windows::core::Result<()>;
     fn SetOption(&self, option: QUERY_PARSER_MANAGER_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IQueryParserManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParserManager_Impl, const OFFSET: isize>() -> IQueryParserManager_Vtbl {
         unsafe extern "system" fn CreateLoadedParser<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParserManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: super::super::Foundation::PWSTR, langidforkeywords: u16, riid: *const ::windows::core::GUID, ppqueryparser: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2783,13 +2783,13 @@ impl IQueryParserManager_Vtbl {
         iid == &<IQueryParserManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IQuerySolution_Impl: Sized + IConditionFactory_Impl {
     fn GetQuery(&self, ppquerynode: *mut ::core::option::Option<ICondition>, ppmaintype: *mut ::core::option::Option<IEntity>) -> ::windows::core::Result<()>;
     fn GetErrors(&self, riid: *const ::windows::core::GUID, ppparseerrors: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetLexicalData(&self, ppszinputstring: *mut super::super::Foundation::PWSTR, pptokens: *mut ::core::option::Option<ITokenCollection>, plcid: *mut u32, ppwordbreaker: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl IQuerySolution_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuerySolution_Impl, const OFFSET: isize>() -> IQuerySolution_Vtbl {
         unsafe extern "system" fn GetQuery<Identity: ::windows::core::IUnknownImpl, Impl: IQuerySolution_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppquerynode: *mut ::windows::core::RawPtr, ppmaintype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2958,11 +2958,11 @@ impl IRelationship_Vtbl {
         iid == &<IRelationship as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IRichChunk_Impl: Sized {
     fn GetData(&self, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut super::super::Foundation::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IRichChunk_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRichChunk_Impl, const OFFSET: isize>() -> IRichChunk_Vtbl {
         unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl, Impl: IRichChunk_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut super::super::Foundation::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
@@ -3368,14 +3368,14 @@ impl IRowsetCurrentIndex_Vtbl {
         iid == &<IRowsetCurrentIndex as ::windows::core::Interface>::IID || iid == &<IRowsetIndex as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IRowsetEvents_Impl: Sized {
     fn OnNewItem(&self, itemid: *const super::Com::StructuredStorage::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> ::windows::core::Result<()>;
     fn OnChangedItem(&self, itemid: *const super::Com::StructuredStorage::PROPVARIANT, rowsetitemstate: ROWSETEVENT_ITEMSTATE, changeditemstate: ROWSETEVENT_ITEMSTATE) -> ::windows::core::Result<()>;
     fn OnDeletedItem(&self, itemid: *const super::Com::StructuredStorage::PROPVARIANT, deleteditemstate: ROWSETEVENT_ITEMSTATE) -> ::windows::core::Result<()>;
     fn OnRowsetEvent(&self, eventtype: ROWSETEVENT_TYPE, eventdata: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IRowsetEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetEvents_Impl, const OFFSET: isize>() -> IRowsetEvents_Vtbl {
         unsafe extern "system" fn OnNewItem<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: *const super::Com::StructuredStorage::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> ::windows::core::HRESULT {
@@ -4269,7 +4269,7 @@ impl IScopedOperations_Vtbl {
         iid == &<IScopedOperations as ::windows::core::Interface>::IID || iid == &<IBindResource as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISearchCatalogManager_Impl: Sized {
     fn Name(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
     fn GetParameter(&self, pszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>;
@@ -4298,7 +4298,7 @@ pub trait ISearchCatalogManager_Impl: Sized {
     fn DiacriticSensitivity(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetCrawlScopeManager(&self) -> ::windows::core::Result<ISearchCrawlScopeManager>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ISearchCatalogManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>() -> ISearchCatalogManager_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
@@ -4543,11 +4543,11 @@ impl ISearchCatalogManager_Vtbl {
         iid == &<ISearchCatalogManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISearchCatalogManager2_Impl: Sized + ISearchCatalogManager_Impl {
     fn PrioritizeMatchingURLs(&self, pszpattern: super::super::Foundation::PWSTR, dwprioritizeflags: PRIORITIZE_FLAGS) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ISearchCatalogManager2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager2_Impl, const OFFSET: isize>() -> ISearchCatalogManager2_Vtbl {
         unsafe extern "system" fn PrioritizeMatchingURLs<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpattern: super::super::Foundation::PWSTR, dwprioritizeflags: PRIORITIZE_FLAGS) -> ::windows::core::HRESULT {
@@ -4837,7 +4837,7 @@ impl ISearchLanguageSupport_Vtbl {
         iid == &<ISearchLanguageSupport as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISearchManager_Impl: Sized {
     fn GetIndexerVersionStr(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
     fn GetIndexerVersion(&self, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows::core::Result<()>;
@@ -4853,7 +4853,7 @@ pub trait ISearchManager_Impl: Sized {
     fn LocalBypass(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn PortNumber(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ISearchManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>() -> ISearchManager_Vtbl {
         unsafe extern "system" fn GetIndexerVersionStr<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszversionstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
@@ -4996,12 +4996,12 @@ impl ISearchManager_Vtbl {
         iid == &<ISearchManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISearchManager2_Impl: Sized + ISearchManager_Impl {
     fn CreateCatalog(&self, pszcatalog: super::super::Foundation::PWSTR) -> ::windows::core::Result<ISearchCatalogManager>;
     fn DeleteCatalog(&self, pszcatalog: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ISearchManager2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager2_Impl, const OFFSET: isize>() -> ISearchManager2_Vtbl {
         unsafe extern "system" fn CreateCatalog<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: super::super::Foundation::PWSTR, ppcatalogmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -5184,7 +5184,7 @@ impl ISearchProtocolThreadContext_Vtbl {
         iid == &<ISearchProtocolThreadContext as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISearchQueryHelper_Impl: Sized {
     fn ConnectionString(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
     fn SetQueryContentLocale(&self, lcid: u32) -> ::windows::core::Result<()>;
@@ -5208,7 +5208,7 @@ pub trait ISearchQueryHelper_Impl: Sized {
     fn SetQueryMaxResults(&self, cmaxresults: i32) -> ::windows::core::Result<()>;
     fn QueryMaxResults(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISearchQueryHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>() -> ISearchQueryHelper_Vtbl {
         unsafe extern "system" fn ConnectionString<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszconnectionstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
@@ -6600,7 +6600,7 @@ impl IUMSInitialize_Vtbl {
         iid == &<IUMSInitialize as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IUrlAccessor_Impl: Sized {
     fn AddRequestParameter(&self, pspec: *const super::Com::StructuredStorage::PROPSPEC, pvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetDocFormat(&self, wszdocformat: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
@@ -6616,7 +6616,7 @@ pub trait IUrlAccessor_Impl: Sized {
     fn BindToStream(&self) -> ::windows::core::Result<super::Com::IStream>;
     fn BindToFilter(&self) -> ::windows::core::Result<super::super::Storage::IndexServer::IFilter>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl IUrlAccessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor_Impl, const OFFSET: isize>() -> IUrlAccessor_Vtbl {
         unsafe extern "system" fn AddRequestParameter<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pspec: *const super::Com::StructuredStorage::PROPSPEC, pvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
@@ -6741,13 +6741,13 @@ impl IUrlAccessor_Vtbl {
         iid == &<IUrlAccessor as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IUrlAccessor2_Impl: Sized + IUrlAccessor_Impl {
     fn GetDisplayUrl(&self, wszdocurl: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
     fn IsDocument(&self) -> ::windows::core::Result<()>;
     fn GetCodePage(&self, wszcodepage: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl IUrlAccessor2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor2_Impl, const OFFSET: isize>() -> IUrlAccessor2_Vtbl {
         unsafe extern "system" fn GetDisplayUrl<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszdocurl: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
@@ -6776,11 +6776,11 @@ impl IUrlAccessor2_Vtbl {
         iid == &<IUrlAccessor2 as ::windows::core::Interface>::IID || iid == &<IUrlAccessor as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IUrlAccessor3_Impl: Sized + IUrlAccessor_Impl + IUrlAccessor2_Impl {
     fn GetImpersonationSidBlobs(&self, pcwszurl: super::super::Foundation::PWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl IUrlAccessor3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor3_Impl, const OFFSET: isize>() -> IUrlAccessor3_Vtbl {
         unsafe extern "system" fn GetImpersonationSidBlobs<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows::core::HRESULT {
@@ -6794,12 +6794,12 @@ impl IUrlAccessor3_Vtbl {
         iid == &<IUrlAccessor3 as ::windows::core::Interface>::IID || iid == &<IUrlAccessor as ::windows::core::Interface>::IID || iid == &<IUrlAccessor2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IUrlAccessor4_Impl: Sized + IUrlAccessor_Impl + IUrlAccessor2_Impl + IUrlAccessor3_Impl {
     fn ShouldIndexItemContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn ShouldIndexProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IUrlAccessor4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor4_Impl, const OFFSET: isize>() -> IUrlAccessor4_Vtbl {
         unsafe extern "system" fn ShouldIndexItemContent<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfindexcontent: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {

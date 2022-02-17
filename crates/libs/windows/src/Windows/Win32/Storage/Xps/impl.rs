@@ -6231,7 +6231,7 @@ impl IXpsSignatureCollection_Vtbl {
         iid == &<IXpsSignatureCollection as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSignatureManager_Impl: Sized {
     fn LoadPackageFile(&self, filename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
     fn LoadPackageStream(&self, stream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
@@ -6245,7 +6245,7 @@ pub trait IXpsSignatureManager_Impl: Sized {
     fn SavePackageToFile(&self, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32) -> ::windows::core::Result<()>;
     fn SavePackageToStream(&self, stream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSignatureManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>() -> IXpsSignatureManager_Vtbl {
         unsafe extern "system" fn LoadPackageFile<Identity: ::windows::core::IUnknownImpl, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {

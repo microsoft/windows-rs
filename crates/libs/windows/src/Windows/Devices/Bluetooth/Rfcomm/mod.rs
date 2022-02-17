@@ -24,13 +24,13 @@ pub struct IRfcommDeviceService_Vtbl {
     pub MaxProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Networking::Sockets::SocketProtectionLevel) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))]
     MaxProtectionLevel: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub GetSdpRawAttributesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     GetSdpRawAttributesAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub GetSdpRawAttributesWithCacheModeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     GetSdpRawAttributesWithCacheModeAsync: usize,
 }
 #[doc(hidden)]
@@ -258,8 +258,8 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).MaxProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Networking::Sockets::SocketProtectionLevel>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Foundation', 'Foundation_Collections', 'Storage_Streams'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Foundation_Collections', 'Storage_Streams'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetSdpRawAttributesAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
         let this = self;
         unsafe {
@@ -267,8 +267,8 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).GetSdpRawAttributesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Foundation', 'Foundation_Collections', 'Storage_Streams'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Foundation_Collections', 'Storage_Streams'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetSdpRawAttributesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
         let this = self;
         unsafe {

@@ -23023,8 +23023,8 @@ pub struct IADsWinNTSystemInfo_Vtbl {
 #[repr(transparent)]
 pub struct ICommonQuery(::windows::core::IUnknown);
 impl ICommonQuery {
-    #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OpenQueryWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OpenQueryWindow)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(pquerywnd), ::core::mem::transmute(ppdataobject)).ok()
     }
@@ -23073,9 +23073,9 @@ unsafe impl ::windows::core::Interface for ICommonQuery {
 #[doc(hidden)]
 pub struct ICommonQuery_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub OpenQueryWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     OpenQueryWindow: usize,
 }
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
@@ -24690,8 +24690,8 @@ pub const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1u32;
 pub const NameTranslate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
 pub const NetAddress: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com_StructuredStorage'*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct OPENQUERYWINDOW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -24701,7 +24701,7 @@ pub struct OPENQUERYWINDOW {
     pub pPersistQuery: ::core::option::Option<IPersistQuery>,
     pub Anonymous: OPENQUERYWINDOW_0,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for OPENQUERYWINDOW {
     fn clone(&self) -> Self {
         Self {
@@ -24715,50 +24715,50 @@ impl ::core::clone::Clone for OPENQUERYWINDOW {
         }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows::core::Abi for OPENQUERYWINDOW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for OPENQUERYWINDOW {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.dwFlags == other.dwFlags && self.clsidHandler == other.clsidHandler && self.pHandlerParameters == other.pHandlerParameters && self.clsidDefaultForm == other.clsidDefaultForm && self.pPersistQuery == other.pPersistQuery && self.Anonymous == other.Anonymous
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::Eq for OPENQUERYWINDOW {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::default::Default for OPENQUERYWINDOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com_StructuredStorage'*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub union OPENQUERYWINDOW_0 {
     pub pFormParameters: *mut ::core::ffi::c_void,
     pub ppbFormParameters: ::core::mem::ManuallyDrop<::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyBag>>,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for OPENQUERYWINDOW_0 {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows::core::Abi for OPENQUERYWINDOW_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::PartialEq for OPENQUERYWINDOW_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENQUERYWINDOW_0>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::cmp::Eq for OPENQUERYWINDOW_0 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::default::Default for OPENQUERYWINDOW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

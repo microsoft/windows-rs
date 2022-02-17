@@ -122,15 +122,15 @@ impl II2cDeviceProvider_Vtbl {
         iid == &<II2cDeviceProvider as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 pub trait II2cProvider_Impl: Sized {
     fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for II2cProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cProvider";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl II2cProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: II2cProvider_Impl, const OFFSET: isize>() -> II2cProvider_Vtbl {
         unsafe extern "system" fn GetControllersAsync<Identity: ::windows::core::IUnknownImpl, Impl: II2cProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

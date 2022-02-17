@@ -781,13 +781,13 @@ pub struct IInteractionTracker_Vtbl {
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     Position: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub PositionInertiaDecayRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     PositionInertiaDecayRate: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub SetPositionInertiaDecayRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     SetPositionInertiaDecayRate: usize,
     #[cfg(feature = "Foundation_Numerics")]
     pub PositionVelocityInPixelsPerSecond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -1090,9 +1090,9 @@ unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaStateEntere
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub ModifiedRestingPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     ModifiedRestingPosition: usize,
     #[cfg(feature = "Foundation")]
     pub ModifiedRestingScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2180,8 +2180,8 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition_Interactions', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition_Interactions', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn PositionInertiaDecayRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
@@ -2189,8 +2189,8 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).PositionInertiaDecayRate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition_Interactions', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition_Interactions', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPositionInertiaDecayRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPositionInertiaDecayRate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3928,8 +3928,8 @@ unsafe impl ::core::marker::Sync for InteractionTrackerInertiaRestingValue {}
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerInertiaStateEnteredArgs {
-    #[doc = "*Required features: 'UI_Composition_Interactions', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition_Interactions', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn ModifiedRestingPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {

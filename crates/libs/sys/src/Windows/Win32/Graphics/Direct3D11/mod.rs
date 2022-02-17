@@ -4,8 +4,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
     pub fn D3D11CreateDevice(padapter: super::Dxgi::IDXGIAdapter, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, ppdevice: *mut ID3D11Device, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
     pub fn D3D11CreateDeviceAndSwapChain(padapter: super::Dxgi::IDXGIAdapter, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut super::Dxgi::IDXGISwapChain, ppdevice: *mut ID3D11Device, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -8499,8 +8499,8 @@ pub type ID3DX11SegmentedScan = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
 pub type PFN_D3D11_CREATE_DEVICE = ::core::option::Option<unsafe extern "system" fn(param0: super::Dxgi::IDXGIAdapter, param1: super::Direct3D::D3D_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *mut ID3D11Device, param8: *mut super::Direct3D::D3D_FEATURE_LEVEL, param9: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub type PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN = ::core::option::Option<unsafe extern "system" fn(param0: super::Dxgi::IDXGIAdapter, param1: super::Direct3D::D3D_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, param8: *mut super::Dxgi::IDXGISwapChain, param9: *mut ID3D11Device, param10: *mut super::Direct3D::D3D_FEATURE_LEVEL, param11: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const _FACD3D11: u32 = 2172u32;

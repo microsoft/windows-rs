@@ -124,8 +124,8 @@ unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[repr(transparent)]
 pub struct EnterpriseKeyCredentialRegistrationManager(::windows::core::IUnknown);
 impl EnterpriseKeyCredentialRegistrationManager {
-    #[doc = "*Required features: 'Security_Authentication_Identity', 'Foundation', 'Foundation_Collections'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Security_Authentication_Identity', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetRegistrationsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
         let this = self;
         unsafe {
@@ -246,9 +246,9 @@ unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationM
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetRegistrationsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetRegistrationsAsync: usize,
 }
 #[doc(hidden)]

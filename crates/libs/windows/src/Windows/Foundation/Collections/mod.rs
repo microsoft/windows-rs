@@ -525,7 +525,6 @@ unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::Runti
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for IMap<K, V> {
     type Item = IKeyValuePair<K, V>;
     type IntoIter = IIterator<Self::Item>;
@@ -533,7 +532,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for &IMap<K, V> {
     type Item = IKeyValuePair<K, V>;
     type IntoIter = IIterator<Self::Item>;
@@ -794,7 +792,6 @@ unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::Runti
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for IMapView<K, V> {
     type Item = IKeyValuePair<K, V>;
     type IntoIter = IIterator<Self::Item>;
@@ -802,7 +799,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for &IMapView<K, V> {
     type Item = IKeyValuePair<K, V>;
     type IntoIter = IIterator<Self::Item>;
@@ -1015,7 +1011,6 @@ unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::Runti
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for IObservableMap<K, V> {
     type Item = IKeyValuePair<K, V>;
     type IntoIter = IIterator<Self::Item>;
@@ -1023,7 +1018,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for &IObservableMap<K, V> {
     type Item = IKeyValuePair<K, V>;
     type IntoIter = IIterator<Self::Item>;
@@ -1258,7 +1252,6 @@ unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeT
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl<T: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for IObservableVector<T> {
     type Item = T;
     type IntoIter = VectorIterator<Self::Item>;
@@ -1266,7 +1259,6 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for I
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl<T: ::windows::core::RuntimeType + 'static> ::core::iter::IntoIterator for &IObservableVector<T> {
     type Item = T;
     type IntoIter = VectorIterator<Self::Item>;
@@ -1494,7 +1486,6 @@ unsafe impl ::windows::core::RuntimeType for IPropertySet {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for IPropertySet {
     type Item = IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
     type IntoIter = IIterator<Self::Item>;
@@ -1502,7 +1493,6 @@ impl ::core::iter::IntoIterator for IPropertySet {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &IPropertySet {
     type Item = IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
     type IntoIter = IIterator<Self::Item>;
@@ -2240,7 +2230,6 @@ unsafe impl ::windows::core::Interface for PropertySet {
 impl ::windows::core::RuntimeName for PropertySet {
     const NAME: &'static str = "Windows.Foundation.Collections.PropertySet";
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for PropertySet {
     type Item = IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
     type IntoIter = IIterator<Self::Item>;
@@ -2248,7 +2237,6 @@ impl ::core::iter::IntoIterator for PropertySet {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &PropertySet {
     type Item = IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
     type IntoIter = IIterator<Self::Item>;
@@ -2499,7 +2487,6 @@ unsafe impl ::windows::core::Interface for StringMap {
 impl ::windows::core::RuntimeName for StringMap {
     const NAME: &'static str = "Windows.Foundation.Collections.StringMap";
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for StringMap {
     type Item = IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>;
     type IntoIter = IIterator<Self::Item>;
@@ -2507,7 +2494,6 @@ impl ::core::iter::IntoIterator for StringMap {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &StringMap {
     type Item = IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>;
     type IntoIter = IIterator<Self::Item>;
@@ -2736,7 +2722,6 @@ unsafe impl ::windows::core::Interface for ValueSet {
 impl ::windows::core::RuntimeName for ValueSet {
     const NAME: &'static str = "Windows.Foundation.Collections.ValueSet";
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for ValueSet {
     type Item = IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
     type IntoIter = IIterator<Self::Item>;
@@ -2744,7 +2729,6 @@ impl ::core::iter::IntoIterator for ValueSet {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &ValueSet {
     type Item = IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>;
     type IntoIter = IIterator<Self::Item>;

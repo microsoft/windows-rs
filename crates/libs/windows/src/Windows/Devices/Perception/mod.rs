@@ -536,9 +536,9 @@ pub struct IPerceptionColorFrameSourceStatics_Vtbl {
     pub CreateWatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     CreateWatcher: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     FindAllAsync: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -649,21 +649,21 @@ unsafe impl ::windows::core::Interface for IPerceptionDepthCorrelatedCameraIntri
 #[doc(hidden)]
 pub struct IPerceptionDepthCorrelatedCameraIntrinsics_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub UnprojectPixelAtCorrelatedDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelcoordinate: super::super::Foundation::Point, depthframe: ::windows::core::RawPtr, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))]
     UnprojectPixelAtCorrelatedDepth: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub UnprojectPixelsAtCorrelatedDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceCoordinates_array_size: u32, sourcecoordinates: *const super::super::Foundation::Point, depthframe: ::windows::core::RawPtr, results_array_size: u32, results: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))]
     UnprojectPixelsAtCorrelatedDepth: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub UnprojectRegionPixelsAtCorrelatedDepthAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, region: super::super::Foundation::Rect, depthframe: ::windows::core::RawPtr, results_array_size: u32, results: *mut super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))]
     UnprojectRegionPixelsAtCorrelatedDepthAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub UnprojectAllPixelsAtCorrelatedDepthAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, depthframe: ::windows::core::RawPtr, results_array_size: u32, results: *mut super::super::Foundation::Numerics::Vector3, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))]
     UnprojectAllPixelsAtCorrelatedDepthAsync: usize,
 }
 #[doc(hidden)]
@@ -984,9 +984,9 @@ pub struct IPerceptionDepthFrameSourceStatics_Vtbl {
     pub CreateWatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     CreateWatcher: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     FindAllAsync: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1389,9 +1389,9 @@ pub struct IPerceptionInfraredFrameSourceStatics_Vtbl {
     pub CreateWatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     CreateWatcher: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     FindAllAsync: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2570,8 +2570,8 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).CreateWatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PerceptionColorFrameSourceWatcher>(result__)
         })
     }
-    #[doc = "*Required features: 'Devices_Perception', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[doc = "*Required features: 'Devices_Perception', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionColorFrameSource>>> {
         Self::IPerceptionColorFrameSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3235,8 +3235,8 @@ unsafe impl ::core::marker::Sync for PerceptionControlSession {}
 pub struct PerceptionDepthCorrelatedCameraIntrinsics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionDepthCorrelatedCameraIntrinsics {
-    #[doc = "*Required features: 'Devices_Perception', 'Foundation', 'Foundation_Numerics', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[doc = "*Required features: 'Devices_Perception', 'Foundation_Numerics', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn UnprojectPixelAtCorrelatedDepth<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>, Param1: ::windows::core::IntoParam<'a, PerceptionDepthFrame>>(&self, pixelcoordinate: Param0, depthframe: Param1) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
@@ -3244,14 +3244,14 @@ impl PerceptionDepthCorrelatedCameraIntrinsics {
             (::windows::core::Interface::vtable(this).UnprojectPixelAtCorrelatedDepth)(::core::mem::transmute_copy(this), pixelcoordinate.into_param().abi(), depthframe.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Perception', 'Foundation', 'Foundation_Numerics', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[doc = "*Required features: 'Devices_Perception', 'Foundation_Numerics', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn UnprojectPixelsAtCorrelatedDepth<'a, Param1: ::windows::core::IntoParam<'a, PerceptionDepthFrame>>(&self, sourcecoordinates: &[super::super::Foundation::Point], depthframe: Param1, results: &mut [super::super::Foundation::Numerics::Vector3]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UnprojectPixelsAtCorrelatedDepth)(::core::mem::transmute_copy(this), sourcecoordinates.len() as u32, ::core::mem::transmute(sourcecoordinates.as_ptr()), depthframe.into_param().abi(), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
     }
-    #[doc = "*Required features: 'Devices_Perception', 'Foundation', 'Foundation_Numerics', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[doc = "*Required features: 'Devices_Perception', 'Foundation_Numerics', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn UnprojectRegionPixelsAtCorrelatedDepthAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>, Param1: ::windows::core::IntoParam<'a, PerceptionDepthFrame>>(&self, region: Param0, depthframe: Param1, results: &mut [super::super::Foundation::Numerics::Vector3]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -3259,8 +3259,8 @@ impl PerceptionDepthCorrelatedCameraIntrinsics {
             (::windows::core::Interface::vtable(this).UnprojectRegionPixelsAtCorrelatedDepthAsync)(::core::mem::transmute_copy(this), region.into_param().abi(), depthframe.into_param().abi(), results.len() as u32, ::core::mem::transmute_copy(&results), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: 'Devices_Perception', 'Foundation', 'Foundation_Numerics', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "deprecated"))]
+    #[doc = "*Required features: 'Devices_Perception', 'Foundation_Numerics', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn UnprojectAllPixelsAtCorrelatedDepthAsync<'a, Param0: ::windows::core::IntoParam<'a, PerceptionDepthFrame>>(&self, depthframe: Param0, results: &mut [super::super::Foundation::Numerics::Vector3]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
@@ -4183,8 +4183,8 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).CreateWatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PerceptionDepthFrameSourceWatcher>(result__)
         })
     }
-    #[doc = "*Required features: 'Devices_Perception', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[doc = "*Required features: 'Devices_Perception', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionDepthFrameSource>>> {
         Self::IPerceptionDepthFrameSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5704,8 +5704,8 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).CreateWatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PerceptionInfraredFrameSourceWatcher>(result__)
         })
     }
-    #[doc = "*Required features: 'Devices_Perception', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[doc = "*Required features: 'Devices_Perception', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionInfraredFrameSource>>> {
         Self::IPerceptionInfraredFrameSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

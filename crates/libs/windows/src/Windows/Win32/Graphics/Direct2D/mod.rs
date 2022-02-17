@@ -13726,8 +13726,8 @@ impl ID2D1DeviceContext {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateColorContextFromWicColorContext)(::core::mem::transmute_copy(self), wiccolorcontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ColorContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmapFromDxgiSurface<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, surface: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateBitmapFromDxgiSurface)(::core::mem::transmute_copy(self), surface.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
@@ -13978,9 +13978,9 @@ pub struct ID2D1DeviceContext_Vtbl {
     pub CreateColorContextFromWicColorContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wiccolorcontext: ::windows::core::RawPtr, colorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Imaging"))]
     CreateColorContextFromWicColorContext: usize,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub CreateBitmapFromDxgiSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common")))]
+    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateBitmapFromDxgiSurface: usize,
     pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectid: *const ::windows::core::GUID, effect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -14367,8 +14367,8 @@ impl ID2D1DeviceContext1 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateColorContextFromWicColorContext)(::core::mem::transmute_copy(self), wiccolorcontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ColorContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmapFromDxgiSurface<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, surface: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateBitmapFromDxgiSurface)(::core::mem::transmute_copy(self), surface.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
@@ -14938,8 +14938,8 @@ impl ID2D1DeviceContext2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.CreateColorContextFromWicColorContext)(::core::mem::transmute_copy(self), wiccolorcontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ColorContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmapFromDxgiSurface<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, surface: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.CreateBitmapFromDxgiSurface)(::core::mem::transmute_copy(self), surface.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
@@ -15130,8 +15130,8 @@ impl ID2D1DeviceContext2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateImageSourceFromDxgi(&self, surfaces: *const ::core::option::Option<super::Dxgi::IDXGISurface>, surfacecount: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS) -> ::windows::core::Result<ID2D1ImageSource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateImageSourceFromDxgi)(::core::mem::transmute_copy(self), ::core::mem::transmute(surfaces), ::core::mem::transmute(surfacecount), ::core::mem::transmute(colorspace), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ImageSource>(result__)
@@ -15299,9 +15299,9 @@ pub struct ID2D1DeviceContext2_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging")))]
     CreateImageSourceFromWic: usize,
     pub CreateLookupTable3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32, lookuptable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub CreateImageSourceFromDxgi: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surfaces: *const ::windows::core::RawPtr, surfacecount: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS, imagesource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common")))]
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateImageSourceFromDxgi: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub GetGradientMeshWorldBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gradientmesh: ::windows::core::RawPtr, pbounds: *mut Common::D2D_RECT_F) -> ::windows::core::HRESULT,
@@ -15613,8 +15613,8 @@ impl ID2D1DeviceContext3 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.CreateColorContextFromWicColorContext)(::core::mem::transmute_copy(self), wiccolorcontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ColorContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmapFromDxgiSurface<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, surface: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.CreateBitmapFromDxgiSurface)(::core::mem::transmute_copy(self), surface.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
@@ -15805,8 +15805,8 @@ impl ID2D1DeviceContext3 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateImageSourceFromDxgi(&self, surfaces: *const ::core::option::Option<super::Dxgi::IDXGISurface>, surfacecount: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS) -> ::windows::core::Result<ID2D1ImageSource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateImageSourceFromDxgi)(::core::mem::transmute_copy(self), ::core::mem::transmute(surfaces), ::core::mem::transmute(surfacecount), ::core::mem::transmute(colorspace), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ImageSource>(result__)
@@ -16290,8 +16290,8 @@ impl ID2D1DeviceContext4 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.CreateColorContextFromWicColorContext)(::core::mem::transmute_copy(self), wiccolorcontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ColorContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmapFromDxgiSurface<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, surface: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.CreateBitmapFromDxgiSurface)(::core::mem::transmute_copy(self), surface.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
@@ -16482,8 +16482,8 @@ impl ID2D1DeviceContext4 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateImageSourceFromDxgi(&self, surfaces: *const ::core::option::Option<super::Dxgi::IDXGISurface>, surfacecount: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS) -> ::windows::core::Result<ID2D1ImageSource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.CreateImageSourceFromDxgi)(::core::mem::transmute_copy(self), ::core::mem::transmute(surfaces), ::core::mem::transmute(surfacecount), ::core::mem::transmute(colorspace), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ImageSource>(result__)
@@ -17045,8 +17045,8 @@ impl ID2D1DeviceContext5 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateColorContextFromWicColorContext)(::core::mem::transmute_copy(self), wiccolorcontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ColorContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmapFromDxgiSurface<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, surface: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateBitmapFromDxgiSurface)(::core::mem::transmute_copy(self), surface.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
@@ -17237,8 +17237,8 @@ impl ID2D1DeviceContext5 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateImageSourceFromDxgi(&self, surfaces: *const ::core::option::Option<super::Dxgi::IDXGISurface>, surfacecount: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS) -> ::windows::core::Result<ID2D1ImageSource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.CreateImageSourceFromDxgi)(::core::mem::transmute_copy(self), ::core::mem::transmute(surfaces), ::core::mem::transmute(surfacecount), ::core::mem::transmute(colorspace), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ImageSource>(result__)
@@ -17830,8 +17830,8 @@ impl ID2D1DeviceContext6 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateColorContextFromWicColorContext)(::core::mem::transmute_copy(self), wiccolorcontext.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ColorContext>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmapFromDxgiSurface<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, surface: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateBitmapFromDxgiSurface)(::core::mem::transmute_copy(self), surface.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
@@ -18022,8 +18022,8 @@ impl ID2D1DeviceContext6 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateImageSourceFromDxgi(&self, surfaces: *const ::core::option::Option<super::Dxgi::IDXGISurface>, surfacecount: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS) -> ::windows::core::Result<ID2D1ImageSource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.CreateImageSourceFromDxgi)(::core::mem::transmute_copy(self), ::core::mem::transmute(surfaces), ::core::mem::transmute(surfacecount), ::core::mem::transmute(colorspace), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ImageSource>(result__)
@@ -19864,8 +19864,8 @@ impl ID2D1Factory {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateHwndRenderTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(hwndrendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1HwndRenderTarget>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDxgiSurfaceRenderTarget<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, dxgisurface: Param0, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> ::windows::core::Result<ID2D1RenderTarget> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateDxgiSurfaceRenderTarget)(::core::mem::transmute_copy(self), dxgisurface.into_param().abi(), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1RenderTarget>(result__)
@@ -19957,9 +19957,9 @@ pub struct ID2D1Factory_Vtbl {
     pub CreateHwndRenderTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndrendertargetproperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, hwndrendertarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateHwndRenderTarget: usize,
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub CreateDxgiSurfaceRenderTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgisurface: ::windows::core::RawPtr, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, rendertarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common")))]
+    #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateDxgiSurfaceRenderTarget: usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub CreateDCRenderTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, dcrendertarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -20036,8 +20036,8 @@ impl ID2D1Factory1 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateHwndRenderTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(hwndrendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1HwndRenderTarget>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDxgiSurfaceRenderTarget<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, dxgisurface: Param0, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> ::windows::core::Result<ID2D1RenderTarget> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateDxgiSurfaceRenderTarget)(::core::mem::transmute_copy(self), dxgisurface.into_param().abi(), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1RenderTarget>(result__)
@@ -20260,8 +20260,8 @@ impl ID2D1Factory2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.CreateHwndRenderTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(hwndrendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1HwndRenderTarget>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDxgiSurfaceRenderTarget<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, dxgisurface: Param0, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> ::windows::core::Result<ID2D1RenderTarget> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.CreateDxgiSurfaceRenderTarget)(::core::mem::transmute_copy(self), dxgisurface.into_param().abi(), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1RenderTarget>(result__)
@@ -20489,8 +20489,8 @@ impl ID2D1Factory3 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.CreateHwndRenderTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(hwndrendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1HwndRenderTarget>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDxgiSurfaceRenderTarget<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, dxgisurface: Param0, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> ::windows::core::Result<ID2D1RenderTarget> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.CreateDxgiSurfaceRenderTarget)(::core::mem::transmute_copy(self), dxgisurface.into_param().abi(), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1RenderTarget>(result__)
@@ -20744,8 +20744,8 @@ impl ID2D1Factory4 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.CreateHwndRenderTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(hwndrendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1HwndRenderTarget>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDxgiSurfaceRenderTarget<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, dxgisurface: Param0, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> ::windows::core::Result<ID2D1RenderTarget> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.CreateDxgiSurfaceRenderTarget)(::core::mem::transmute_copy(self), dxgisurface.into_param().abi(), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1RenderTarget>(result__)
@@ -21025,8 +21025,8 @@ impl ID2D1Factory5 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateHwndRenderTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(hwndrendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1HwndRenderTarget>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDxgiSurfaceRenderTarget<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, dxgisurface: Param0, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> ::windows::core::Result<ID2D1RenderTarget> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateDxgiSurfaceRenderTarget)(::core::mem::transmute_copy(self), dxgisurface.into_param().abi(), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1RenderTarget>(result__)
@@ -21332,8 +21332,8 @@ impl ID2D1Factory6 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateHwndRenderTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(hwndrendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1HwndRenderTarget>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDxgiSurfaceRenderTarget<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, dxgisurface: Param0, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> ::windows::core::Result<ID2D1RenderTarget> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateDxgiSurfaceRenderTarget)(::core::mem::transmute_copy(self), dxgisurface.into_param().abi(), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1RenderTarget>(result__)
@@ -21665,8 +21665,8 @@ impl ID2D1Factory7 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CreateHwndRenderTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(hwndrendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1HwndRenderTarget>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDxgiSurfaceRenderTarget<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(&self, dxgisurface: Param0, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> ::windows::core::Result<ID2D1RenderTarget> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CreateDxgiSurfaceRenderTarget)(::core::mem::transmute_copy(self), dxgisurface.into_param().abi(), ::core::mem::transmute(rendertargetproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1RenderTarget>(result__)

@@ -431,8 +431,8 @@ impl CortanaPermissionsManager {
             (::windows::core::Interface::vtable(this).IsSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Cortana', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[doc = "*Required features: 'Services_Cortana', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn ArePermissionsGrantedAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<CortanaPermission>>>(&self, permissions: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
@@ -440,8 +440,8 @@ impl CortanaPermissionsManager {
             (::windows::core::Interface::vtable(this).ArePermissionsGrantedAsync)(::core::mem::transmute_copy(this), permissions.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Cortana', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[doc = "*Required features: 'Services_Cortana', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GrantPermissionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<CortanaPermission>>>(&self, permissions: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>> {
         let this = self;
         unsafe {
@@ -449,8 +449,8 @@ impl CortanaPermissionsManager {
             (::windows::core::Interface::vtable(this).GrantPermissionsAsync)(::core::mem::transmute_copy(this), permissions.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>(result__)
         }
     }
-    #[doc = "*Required features: 'Services_Cortana', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[doc = "*Required features: 'Services_Cortana', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn RevokePermissionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<CortanaPermission>>>(&self, permissions: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>> {
         let this = self;
         unsafe {
@@ -823,17 +823,17 @@ pub struct ICortanaPermissionsManager_Vtbl {
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     IsSupported: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub ArePermissionsGrantedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, permissions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     ArePermissionsGrantedAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub GrantPermissionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, permissions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     GrantPermissionsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub RevokePermissionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, permissions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     RevokePermissionsAsync: usize,
 }
 #[doc(hidden)]
