@@ -58,9 +58,9 @@ pub struct IResourceIndexer_Vtbl {
     pub IndexFilePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     IndexFilePath: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub IndexFileContentsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     IndexFileContentsAsync: usize,
 }
 #[doc(hidden)]
@@ -372,8 +372,8 @@ impl ResourceIndexer {
             (::windows::core::Interface::vtable(this).IndexFilePath)(::core::mem::transmute_copy(this), filepath.into_param().abi(), &mut result__).from_abi::<IndexedResourceCandidate>(result__)
         }
     }
-    #[doc = "*Required features: 'ApplicationModel_Resources_Management', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+    #[doc = "*Required features: 'ApplicationModel_Resources_Management', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn IndexFileContentsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>> {
         let this = self;
         unsafe {

@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ICivicAddressReport_Impl: Sized + ILocationReport_Impl {
     fn GetAddressLine1(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetAddressLine2(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -8,7 +8,7 @@ pub trait ICivicAddressReport_Impl: Sized + ILocationReport_Impl {
     fn GetCountryRegion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetDetailLevel(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ICivicAddressReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICivicAddressReport_Impl, const OFFSET: isize>() -> ICivicAddressReport_Vtbl {
         unsafe extern "system" fn GetAddressLine1<Identity: ::windows::core::IUnknownImpl, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstraddress1: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -369,7 +369,7 @@ impl IDispLatLongReport_Vtbl {
         iid == &<IDispLatLongReport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ILatLongReport_Impl: Sized + ILocationReport_Impl {
     fn GetLatitude(&self) -> ::windows::core::Result<f64>;
     fn GetLongitude(&self) -> ::windows::core::Result<f64>;
@@ -377,7 +377,7 @@ pub trait ILatLongReport_Impl: Sized + ILocationReport_Impl {
     fn GetAltitude(&self) -> ::windows::core::Result<f64>;
     fn GetAltitudeError(&self) -> ::windows::core::Result<f64>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ILatLongReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILatLongReport_Impl, const OFFSET: isize>() -> ILatLongReport_Vtbl {
         unsafe extern "system" fn GetLatitude<Identity: ::windows::core::IUnknownImpl, Impl: ILatLongReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, platitude: *mut f64) -> ::windows::core::HRESULT {
@@ -625,13 +625,13 @@ impl ILocationPower_Vtbl {
         iid == &<ILocationPower as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ILocationReport_Impl: Sized {
     fn GetSensorID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
     fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ILocationReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationReport_Impl, const OFFSET: isize>() -> ILocationReport_Vtbl {
         unsafe extern "system" fn GetSensorID<Identity: ::windows::core::IUnknownImpl, Impl: ILocationReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psensorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {

@@ -38,7 +38,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
     }
 
     let is_union = def.is_union();
-    let cfg = cfg.union(gen.type_cfg(def));
+    let cfg = cfg.union(&def.cfg());
 
     let repr = if let Some(layout) = def.class_layout() {
         let packing = Literal::u32_unsuffixed(layout.packing_size());
@@ -67,8 +67,8 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
         quote! { struct }
     };
 
-    let features = cfg.gen(gen);
-    let doc = cfg.gen_doc(gen);
+    let doc = gen.doc(&cfg);
+    let features = gen.cfg(&cfg);
 
     let mut tokens = quote! {
         #repr
@@ -116,10 +116,10 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
             quote! { ::core::mem::ManuallyDrop<Self> }
         };
 
-        let cfg = cfg.gen(gen);
+        let features = gen.cfg(cfg);
 
         let mut tokens = quote! {
-            #cfg
+            #features
             unsafe impl ::windows::core::Abi for #name {
                 type Abi = #abi;
             }
@@ -135,7 +135,7 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
             };
 
             tokens.combine(&quote! {
-                #cfg
+                #features
                 unsafe impl ::windows::core::RuntimeType for #name {
                     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
                     type DefaultType = Self;
@@ -151,13 +151,13 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
 }
 
 fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let cfg = cfg.gen(gen);
+    let features = gen.cfg(cfg);
 
     if gen.sys {
         quote! {}
     } else if def.is_blittable() || def.is_union() || def.class_layout().is_some() {
         quote! {
-            #cfg
+            #features
             impl ::core::cmp::PartialEq for #name {
                 fn eq(&self, other: &Self) -> bool {
                     unsafe {
@@ -165,7 +165,7 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
                     }
                 }
             }
-            #cfg
+            #features
             impl ::core::cmp::Eq for #name {}
         }
     } else {
@@ -186,13 +186,13 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
         });
 
         quote! {
-            #cfg
+            #features
             impl ::core::cmp::PartialEq for #name {
                 fn eq(&self, other: &Self) -> bool {
                     #(#fields)&&*
                 }
             }
-            #cfg
+            #features
             impl ::core::cmp::Eq for #name {}
         }
     }
@@ -203,7 +203,7 @@ fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenS
         quote! {}
     } else {
         let name = ident.as_str();
-        let cfg = cfg.gen(gen);
+        let features = gen.cfg(cfg);
 
         let fields = def.fields().map(|f| {
             if f.is_literal() {
@@ -223,7 +223,7 @@ fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenS
         });
 
         quote! {
-            #cfg
+            #features
             impl ::core::fmt::Debug for #ident {
                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct(#name) #(#fields)* .finish()
@@ -234,13 +234,13 @@ fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenS
 }
 
 fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let cfg = cfg.gen(gen);
+    let features = gen.cfg(cfg);
 
     if gen.sys || def.is_blittable() {
         quote! {
-            #cfg
+            #features
             impl ::core::marker::Copy for #name {}
-            #cfg
+            #features
             impl ::core::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     *self
@@ -249,7 +249,7 @@ fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> To
         }
     } else if def.is_union() {
         quote! {
-            #cfg
+            #features
             impl ::core::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     unsafe { ::core::mem::transmute_copy(self) }
@@ -272,7 +272,7 @@ fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> To
         });
 
         quote! {
-            #cfg
+            #features
             impl ::core::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     Self { #(#fields),* }
@@ -283,7 +283,7 @@ fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> To
 }
 
 fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let cfg = cfg.gen(gen);
+    let features = gen.cfg(cfg);
 
     let constants = def.fields().filter_map(|f| {
         if f.is_literal() {
@@ -304,7 +304,7 @@ fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &Cfg, gen
 
     if !tokens.is_empty() {
         tokens = quote! {
-            #cfg
+            #features
             impl #struct_name {
                 #tokens
             }

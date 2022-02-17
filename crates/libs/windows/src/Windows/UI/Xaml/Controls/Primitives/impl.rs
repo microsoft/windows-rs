@@ -134,7 +134,7 @@ impl IRangeBaseOverrides_Vtbl {
         iid == &<IRangeBaseOverrides as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 pub trait IScrollSnapPointsInfo_Impl: Sized {
     fn AreHorizontalSnapPointsRegular(&self) -> ::windows::core::Result<bool>;
     fn AreVerticalSnapPointsRegular(&self) -> ::windows::core::Result<bool>;
@@ -145,11 +145,11 @@ pub trait IScrollSnapPointsInfo_Impl: Sized {
     fn GetIrregularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<f32>>;
     fn GetRegularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment, offset: &mut f32) -> ::windows::core::Result<f32>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IScrollSnapPointsInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.IScrollSnapPointsInfo";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl IScrollSnapPointsInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollSnapPointsInfo_Impl, const OFFSET: isize>() -> IScrollSnapPointsInfo_Vtbl {
         unsafe extern "system" fn AreHorizontalSnapPointsRegular<Identity: ::windows::core::IUnknownImpl, Impl: IScrollSnapPointsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {

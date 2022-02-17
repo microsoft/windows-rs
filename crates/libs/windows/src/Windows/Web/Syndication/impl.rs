@@ -142,7 +142,7 @@ impl ISyndicationClient_Vtbl {
         iid == &<ISyndicationClient as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 pub trait ISyndicationNode_Impl: Sized {
     fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetNodeName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -158,11 +158,11 @@ pub trait ISyndicationNode_Impl: Sized {
     fn ElementExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>>;
     fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ISyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationNode";
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl ISyndicationNode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>() -> ISyndicationNode_Vtbl {
         unsafe extern "system" fn NodeName<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
@@ -307,7 +307,7 @@ impl ISyndicationNode_Vtbl {
         iid == &<ISyndicationNode as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 pub trait ISyndicationText_Impl: Sized + ISyndicationNode_Impl {
     fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -316,11 +316,11 @@ pub trait ISyndicationText_Impl: Sized + ISyndicationNode_Impl {
     fn Xml(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
     fn SetXml(&self, value: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ISyndicationText {
     const NAME: &'static str = "Windows.Web.Syndication.ISyndicationText";
 }
-#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl ISyndicationText_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationText_Impl, const OFFSET: isize>() -> ISyndicationText_Vtbl {
         unsafe extern "system" fn Text<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {

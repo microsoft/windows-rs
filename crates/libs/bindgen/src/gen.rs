@@ -1,5 +1,4 @@
 use super::*;
-use std::collections::*;
 
 #[derive(Default)]
 pub struct Gen<'a> {
@@ -44,176 +43,85 @@ impl Gen<'_> {
         }
     }
 
-    pub(crate) fn element_cfg(&self, def: &Type) -> Cfg {
-        if let Type::TypeDef(def) = def {
-            self.type_cfg(def)
+    pub(crate) fn doc(&self, cfg: &Cfg) -> TokenStream {
+        if !self.doc {
+            quote! {}
         } else {
-            Default::default()
-        }
-    }
+            let mut tokens = format!("'{}'", to_feature(self.namespace));
 
-    pub(crate) fn type_cfg(&self, def: &TypeDef) -> Cfg {
-        let mut features = BTreeSet::new();
-        let mut keys = HashSet::new();
-        self.type_requirements(def, &mut features, &mut keys);
-
-        if def.is_deprecated() {
-            features.insert("deprecated");
-        }
-
-        Cfg { arch: arch(def.attributes()), features }
-    }
-
-    pub(crate) fn type_impl_cfg(&self, def: &TypeDef) -> Cfg {
-        let mut features = BTreeSet::new();
-        let mut keys = HashSet::new();
-        self.type_and_method_requirements(def, &mut features, &mut keys);
-
-        for def in def.vtable_types() {
-            if let Type::TypeDef(def) = def {
-                self.type_and_method_requirements(&def, &mut features, &mut keys);
+            for features in &cfg.features(self.namespace) {
+                tokens.push_str(&format!(", '{}'", to_feature(features)));
             }
-        }
 
-        if def.is_winrt() {
-            for def in def.required_interfaces() {
-                self.type_and_method_requirements(&def, &mut features, &mut keys);
-            }
-        }
-
-        if def.is_deprecated() {
-            features.insert("deprecated");
-        }
-
-        Cfg { arch: arch(def.attributes()), features }
-    }
-
-    pub(crate) fn field_cfg(&self, def: &Field) -> Cfg {
-        let mut features = BTreeSet::new();
-        let mut keys = HashSet::new();
-        self.field_requirements(def, None, &mut features, &mut keys);
-        Cfg { arch: Default::default(), features }
-    }
-
-    pub(crate) fn function_cfg(&self, method: &MethodDef) -> Cfg {
-        let mut features = BTreeSet::new();
-        let mut keys = HashSet::new();
-        self.method_requirements(&method.signature(&[]), &mut features, &mut keys);
-        Cfg { arch: arch(method.attributes()), features }
-    }
-
-    pub(crate) fn method_cfg(&self, def: &TypeDef, method: &MethodDef) -> Cfg {
-        let mut features = BTreeSet::new();
-        let mut keys = HashSet::new();
-        self.add_namespace(def.namespace(), &mut features);
-        self.method_requirements(&method.signature(&[]), &mut features, &mut keys);
-
-        if method.is_deprecated() {
-            features.insert("deprecated");
-        }
-
-        Cfg { arch: Default::default(), features }
-    }
-
-    fn add_namespace(&self, namespace: &'static str, namespaces: &mut BTreeSet<&'static str>) {
-        if !namespace.is_empty() && namespace != self.namespace && !self.namespace.starts_with(format!("{}.", namespace).as_str()) {
-            namespaces.insert(namespace);
+            format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()
         }
     }
 
-    // TODO: move to windows-metadata
-    fn element_requirements(&self, def: &Type, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
-        // TODO: this should just be def.requirements()
-        match def {
-            Type::TypeDef(def) => self.type_requirements(def, namespaces, keys),
-            Type::Win32Array((kind, _)) => self.element_requirements(kind, namespaces, keys),
-            Type::ConstPtr((kind, _)) => self.element_requirements(kind, namespaces, keys),
-            Type::MutPtr((kind, _)) => self.element_requirements(kind, namespaces, keys),
-            Type::WinrtArray(kind) => self.element_requirements(kind, namespaces, keys),
-            Type::WinrtArrayRef(kind) => self.element_requirements(kind, namespaces, keys),
-            _ => {}
-        }
-    }
-
-    fn type_requirements(&self, def: &TypeDef, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
-        self.add_namespace(def.namespace(), namespaces);
-
-        for generic in &def.generics {
-            self.element_requirements(generic, namespaces, keys);
-        }
-
-        if !keys.insert(def.row.clone()) {
-            return;
-        }
-
-        match def.kind() {
-            TypeKind::Class => {
-                if let Some(def) = def.default_interface() {
-                    self.add_namespace(def.namespace(), namespaces);
+    pub(crate) fn cfg(&self, cfg: &Cfg) -> TokenStream {
+        if !self.cfg {
+            quote! {}
+        } else {
+            let arches = cfg.arches();
+            let arch = match arches.len() {
+                0 => quote! {},
+                1 => {
+                    quote! { #[cfg(#(target_arch = #arches),*)] }
                 }
-            }
-            TypeKind::Interface => {
-                if !def.is_winrt() {
-                    for def in def.vtable_types() {
-                        if let Type::TypeDef(def) = def {
-                            self.add_namespace(def.namespace(), namespaces);
-                        }
-                    }
+                _ => {
+                    quote! { #[cfg(any(#(target_arch = #arches),*))] }
                 }
-            }
-            TypeKind::Struct => {
-                def.fields().for_each(|field| self.field_requirements(&field, Some(def), namespaces, keys));
-            }
-            TypeKind::Delegate => self.method_requirements(&def.invoke_method().signature(&[]), namespaces, keys),
-            _ => {}
-        }
+            };
 
-        if let Some(entry) = TypeReader::get().get_type_entry(def.type_name()) {
-            for def in entry {
-                if let Type::TypeDef(def) = def {
-                    self.type_requirements(def, namespaces, keys);
+            let features = &cfg.features(self.namespace);
+            let features = match features.len() {
+                0 => quote! {},
+                1 => {
+                    let features = features.iter().cloned().map(to_feature);
+                    quote! { #[cfg(#(feature = #features)*)] }
+                }
+                _ => {
+                    let features = features.iter().cloned().map(to_feature);
+                    quote! { #[cfg(all( #(feature = #features),* ))] }
+                }
+            };
+
+            quote! { #arch #features }
+        }
+    }
+
+    pub(crate) fn not_cfg(&self, cfg: &Cfg) -> TokenStream {
+        let features = &cfg.features(self.namespace);
+        if !self.cfg || features.is_empty() {
+            quote! {}
+        } else {
+            match features.len() {
+                0 => quote! {},
+                1 => {
+                    let features = features.iter().cloned().map(to_feature);
+                    quote! { #[cfg(not(#(feature = #features)*))] }
+                }
+                _ => {
+                    let features = features.iter().cloned().map(to_feature);
+                    quote! { #[cfg(not(all( #(feature = #features),* )))] }
                 }
             }
         }
-    }
-
-    fn method_requirements(&self, def: &Signature, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
-        def.return_type.iter().for_each(|def| self.element_requirements(def, namespaces, keys));
-        def.params.iter().for_each(|def| self.element_requirements(&def.ty, namespaces, keys));
-    }
-
-    fn type_and_method_requirements(&self, def: &TypeDef, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
-        self.type_requirements(def, namespaces, keys);
-
-        for method in def.methods() {
-            self.method_requirements(&method.signature(&[]), namespaces, keys);
-        }
-    }
-
-    fn field_requirements(&self, def: &Field, enclosing: Option<&TypeDef>, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
-        self.element_requirements(&def.get_type(enclosing), namespaces, keys);
     }
 }
 
-fn arch(attributes: impl Iterator<Item = Attribute>) -> BTreeSet<&'static str> {
-    let mut set = BTreeSet::new();
+fn to_feature(name: &str) -> String {
+    let mut feature = String::new();
 
-    for attribute in attributes {
-        if attribute.name() == "SupportedArchitectureAttribute" {
-            if let Some((_, ConstantValue::I32(value))) = attribute.args().get(0) {
-                if value & 1 == 1 {
-                    set.insert("x86");
-                }
-                if value & 2 == 2 {
-                    set.insert("x86_64");
-                }
-                if value & 4 == 4 {
-                    set.insert("aarch64");
-                }
-            }
-            break;
-        }
+    for name in name.split('.').skip(1) {
+        feature.push_str(name);
+        feature.push('_');
     }
 
-    set
+    if feature.is_empty() {
+        feature = name.to_string();
+    } else {
+        feature.truncate(feature.len() - 1);
+    }
+
+    feature
 }

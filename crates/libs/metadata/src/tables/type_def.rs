@@ -573,6 +573,80 @@ impl TypeDef {
             _ => AsyncKind::None,
         }
     }
+
+    pub fn cfg(&self) -> Cfg {
+        let mut cfg = Cfg::new();
+        self.combine_cfg(&mut cfg);
+        cfg.add_attributes(self.attributes());
+        cfg
+    }
+
+    pub fn impl_cfg(&self) -> Cfg {
+        let mut cfg = Cfg::new();
+
+        fn combine(def: &TypeDef, cfg: &mut Cfg) {
+            def.combine_cfg(cfg);
+
+            for method in def.methods() {
+                method.combine_cfg(cfg);
+            }
+        }
+
+        combine(self, &mut cfg);
+
+        for def in self.vtable_types() {
+            if let Type::TypeDef(def) = def {
+                combine(&def, &mut cfg);
+            }
+        }
+
+        if self.is_winrt() {
+            for def in self.required_interfaces() {
+                combine(&def, &mut cfg);
+            }
+        }
+
+        cfg.add_attributes(self.attributes());
+        cfg
+    }
+
+    pub(crate) fn combine_cfg(&self, cfg: &mut Cfg) {
+        for generic in &self.generics {
+            generic.combine_cfg(cfg);
+        }
+
+        if cfg.add_type(self) {
+            match self.kind() {
+                TypeKind::Class => {
+                    if let Some(def) = self.default_interface() {
+                        cfg.add_feature(def.namespace());
+                    }
+                }
+                TypeKind::Interface => {
+                    if !self.is_winrt() {
+                        for def in self.vtable_types() {
+                            if let Type::TypeDef(def) = def {
+                                cfg.add_feature(def.namespace());
+                            }
+                        }
+                    }
+                }
+                TypeKind::Struct => {
+                    self.fields().for_each(|field| field.combine_cfg(Some(self), cfg));
+
+                    if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
+                        for def in entry {
+                            if let Type::TypeDef(def) = def {
+                                def.combine_cfg(cfg);
+                            }
+                        }
+                    }
+                }
+                TypeKind::Delegate => self.invoke_method().combine_cfg(cfg),
+                _ => {}
+            }
+        }
+    }
 }
 
 struct Bases(TypeDef);

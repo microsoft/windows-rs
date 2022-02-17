@@ -601,9 +601,9 @@ pub const VDMEVENT_VERBOSE: u32 = 16384u32;
 #[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMGETADDREXPRESSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut u16, param3: *mut u32, param4: *mut u16) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
+#[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type VDMGETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86")]
@@ -627,9 +627,9 @@ pub type VDMGETSELECTORMODULEPROC = ::core::option::Option<unsafe extern "system
 #[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMGETSYMBOLPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: u16, param2: u32, param3: super::super::Foundation::BOOL, param4: super::super::Foundation::BOOL, param5: super::super::Foundation::PSTR, param6: *mut u32) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type VDMGETTHREADSELECTORENTRYPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut VDMLDT_ENTRY) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
@@ -802,9 +802,9 @@ pub type VDMMODULENEXTPROC = ::core::option::Option<unsafe extern "system" fn(pa
 #[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Threading'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMPROCESSEXCEPTIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
+#[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type VDMSETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_System_VirtualDosMachines', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86")]

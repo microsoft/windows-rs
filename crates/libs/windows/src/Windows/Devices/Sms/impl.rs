@@ -331,7 +331,7 @@ impl ISmsMessageBase_Vtbl {
         iid == &<ISmsMessageBase as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 pub trait ISmsTextMessage_Impl: Sized + ISmsMessage_Impl {
     fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
     fn PartReferenceId(&self) -> ::windows::core::Result<u32>;
@@ -347,11 +347,11 @@ pub trait ISmsTextMessage_Impl: Sized + ISmsMessage_Impl {
     fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()>;
     fn ToBinaryMessages(&self, format: SmsDataFormat) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for ISmsTextMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsTextMessage";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ISmsTextMessage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>() -> ISmsTextMessage_Vtbl {
         unsafe extern "system" fn Timestamp<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {

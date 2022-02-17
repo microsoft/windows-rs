@@ -1,10 +1,10 @@
-#[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IWICImageEncoder_Impl: Sized {
     fn WriteFrame(&self, pimage: &::core::option::Option<super::super::Direct2D::ID2D1Image>, pframeencode: &::core::option::Option<super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> ::windows::core::Result<()>;
     fn WriteFrameThumbnail(&self, pimage: &::core::option::Option<super::super::Direct2D::ID2D1Image>, pframeencode: &::core::option::Option<super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> ::windows::core::Result<()>;
     fn WriteThumbnail(&self, pimage: &::core::option::Option<super::super::Direct2D::ID2D1Image>, pencoder: &::core::option::Option<super::IWICBitmapEncoder>, pimageparameters: *const super::WICImageParameters) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IWICImageEncoder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICImageEncoder_Impl, const OFFSET: isize>() -> IWICImageEncoder_Vtbl {
         unsafe extern "system" fn WriteFrame<Identity: ::windows::core::IUnknownImpl, Impl: IWICImageEncoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimage: ::windows::core::RawPtr, pframeencode: ::windows::core::RawPtr, pimageparameters: *const super::WICImageParameters) -> ::windows::core::HRESULT {

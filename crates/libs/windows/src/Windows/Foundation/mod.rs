@@ -1157,7 +1157,6 @@ unsafe impl ::windows::core::RuntimeType for IAsyncAction {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-#[cfg(feature = "Foundation")]
 impl IAsyncAction {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == AsyncStatus::Started {
@@ -1172,7 +1171,6 @@ impl IAsyncAction {
         self.GetResults()
     }
 }
-#[cfg(feature = "Foundation")]
 impl ::std::future::Future for IAsyncAction {
     type Output = ::windows::core::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1359,7 +1357,6 @@ unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-#[cfg(feature = "Foundation")]
 impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress<TProgress> {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == AsyncStatus::Started {
@@ -1374,7 +1371,6 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
         self.GetResults()
     }
 }
-#[cfg(feature = "Foundation")]
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::std::future::Future for IAsyncActionWithProgress<TProgress> {
     type Output = ::windows::core::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1673,7 +1669,6 @@ unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Ru
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-#[cfg(feature = "Foundation")]
 impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
     pub fn get(&self) -> ::windows::core::Result<TResult> {
         if self.Status()? == AsyncStatus::Started {
@@ -1688,7 +1683,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
         self.GetResults()
     }
 }
-#[cfg(feature = "Foundation")]
 impl<TResult: ::windows::core::RuntimeType + 'static> ::std::future::Future for IAsyncOperation<TResult> {
     type Output = ::windows::core::Result<TResult>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1883,7 +1877,6 @@ unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::window
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-#[cfg(feature = "Foundation")]
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> IAsyncOperationWithProgress<TResult, TProgress> {
     pub fn get(&self) -> ::windows::core::Result<TResult> {
         if self.Status()? == AsyncStatus::Started {
@@ -1898,7 +1891,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         self.GetResults()
     }
 }
-#[cfg(feature = "Foundation")]
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::std::future::Future for IAsyncOperationWithProgress<TResult, TProgress> {
     type Output = ::windows::core::Result<TResult>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {

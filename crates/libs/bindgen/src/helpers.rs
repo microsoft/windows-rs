@@ -5,7 +5,7 @@ pub fn gen_std_traits(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = ident.as_str();
     let constraints = gen_type_constraints(def, gen);
     let phantoms = gen_phantoms(def, gen);
-    let cfg = cfg.gen(gen);
+    let cfg = gen.cfg(cfg);
 
     quote! {
         #cfg
@@ -32,7 +32,7 @@ pub fn gen_std_traits(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_interface_trait(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let cfg = cfg.gen(gen);
+    let cfg = gen.cfg(cfg);
     if let Some(default) = def.default_interface() {
         let name = gen_type_ident(def, gen);
         let default_name = gen_type_ident(&default, gen);
@@ -63,7 +63,7 @@ pub fn gen_interface_trait(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_runtime_trait(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let cfg = cfg.gen(gen);
+    let cfg = gen.cfg(cfg);
     if def.is_winrt() {
         let name = gen_type_ident(def, gen);
         let constraints = gen_type_constraints(def, gen);
@@ -149,7 +149,7 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
 }
 
 pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let cfg = cfg.gen(gen);
+    let cfg = gen.cfg(cfg);
     let vtbl = gen_vtbl_ident(def, gen);
     let phantoms = gen_named_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
@@ -175,9 +175,10 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 
         let name = method_names.add(&method);
         let signature = gen_vtbl_signature(def, &method, gen);
-        let cfg = gen.method_cfg(def, &method);
-        let cfg_all = cfg.gen(gen);
-        let cfg_not = cfg.gen_not(gen);
+        let mut cfg = method.cfg();
+        cfg.add_feature(def.namespace());
+        let cfg_all = gen.cfg(&cfg);
+        let cfg_not = gen.not_cfg(&cfg);
 
         let signature = quote! { pub #name: unsafe extern "system" fn #signature, };
 
@@ -297,7 +298,7 @@ pub fn gen_constant_value(value: &ConstantValue) -> TokenStream {
 
 pub fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
-    let cfg = cfg.gen(gen);
+    let cfg = gen.cfg(cfg);
 
     if def.is_winrt() {
         let constraints = gen_type_constraints(def, gen);

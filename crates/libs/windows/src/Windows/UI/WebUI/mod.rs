@@ -14426,8 +14426,8 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).NavigateToString)(::core::mem::transmute_copy(this), text.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web', 'Web_UI'*"]
-    #[cfg(all(feature = "Foundation", feature = "Web", feature = "Web_UI"))]
+    #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Web_UI'*"]
+    #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn NavigateToLocalStreamUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Web::IUriToStreamResolver>>(&self, source: Param0, streamresolver: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).NavigateToLocalStreamUri)(::core::mem::transmute_copy(this), source.into_param().abi(), streamresolver.into_param().abi()).ok() }
@@ -14438,8 +14438,8 @@ impl WebUIView {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).NavigateWithHttpRequestMessage)(::core::mem::transmute_copy(this), requestmessage.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_WebUI', 'Foundation', 'Foundation_Collections', 'Web_UI'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Web_UI"))]
+    #[doc = "*Required features: 'UI_WebUI', 'Foundation_Collections', 'Web_UI'*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Web_UI"))]
     pub fn InvokeScriptAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, scriptname: Param0, arguments: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {

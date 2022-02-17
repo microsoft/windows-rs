@@ -5,13 +5,16 @@ use super::*;
 pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
     let name = gen_ident(def.name());
     let ty = def.get_type(None);
-    let cfg = gen.field_cfg(def).gen_with_doc(gen);
+    let cfg = def.cfg();
+    let doc = gen.doc(&cfg);
+    let features = gen.cfg(&cfg);
 
     if let Some(constant) = def.constant() {
         if ty == constant.value_type() {
             let value = gen_constant_type_value(&constant.value());
             quote! {
-                #cfg
+                #doc
+                #features
                 pub const #name: #value;
             }
         } else {
@@ -26,12 +29,14 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
 
             if !gen.sys && ty.has_replacement() {
                 quote! {
-                    #cfg
+                    #doc
+                    #features
                     pub const #name: #kind = #kind(#value);
                 }
             } else {
                 quote! {
-                    #cfg
+                    #doc
+                    #features
                     pub const #name: #kind = #value;
                 }
             }
@@ -44,7 +49,8 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
         let kind = gen_default_type(&ty, gen);
         let guid = gen_guid(&guid, gen);
         quote! {
-            #cfg
+            #doc
+            #features
             pub const #name: #kind = #kind {
                 fmtid: #guid,
                 pid: #id,

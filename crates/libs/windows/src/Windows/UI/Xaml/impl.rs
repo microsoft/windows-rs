@@ -297,7 +297,7 @@ impl IFrameworkElementOverrides2_Vtbl {
         iid == &<IFrameworkElementOverrides2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers"))]
 pub trait IUIElementOverrides_Impl: Sized {
     fn OnCreateAutomationPeer(&self) -> ::windows::core::Result<Automation::Peers::AutomationPeer>;
     fn OnDisconnectVisualChildren(&self) -> ::windows::core::Result<()> {
@@ -305,11 +305,11 @@ pub trait IUIElementOverrides_Impl: Sized {
     }
     fn FindSubElementsForTouchTargeting(&self, point: &super::super::Foundation::Point, boundingrect: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Point>>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers"))]
 impl ::windows::core::RuntimeName for IUIElementOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementOverrides";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers"))]
 impl IUIElementOverrides_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIElementOverrides_Impl, const OFFSET: isize>() -> IUIElementOverrides_Vtbl {
         unsafe extern "system" fn OnCreateAutomationPeer<Identity: ::windows::core::IUnknownImpl, Impl: IUIElementOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

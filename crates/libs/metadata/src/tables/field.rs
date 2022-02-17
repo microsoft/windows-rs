@@ -50,6 +50,17 @@ impl Field {
     fn has_attribute(&self, name: &str) -> bool {
         self.attributes().any(|attribute| attribute.name() == name)
     }
+
+    pub fn cfg(&self) -> Cfg {
+        let mut cfg = Cfg::new();
+        self.combine_cfg(None, &mut cfg);
+        cfg.add_attributes(self.attributes());
+        cfg
+    }
+
+    pub(crate) fn combine_cfg(&self, enclosing: Option<&TypeDef>, cfg: &mut Cfg) {
+        self.get_type(enclosing).combine_cfg(cfg);
+    }
 }
 
 #[cfg(test)]

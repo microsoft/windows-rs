@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 pub trait IPerceptionFrameProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn FrameProviderInfo(&self) -> ::windows::core::Result<PerceptionFrameProviderInfo>;
     fn Available(&self) -> ::windows::core::Result<bool>;
@@ -7,11 +7,11 @@ pub trait IPerceptionFrameProvider_Impl: Sized + super::super::super::Foundation
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn SetProperty(&self, value: &::core::option::Option<PerceptionPropertyChangeRequest>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for IPerceptionFrameProvider {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.IPerceptionFrameProvider";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl IPerceptionFrameProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProvider_Impl, const OFFSET: isize>() -> IPerceptionFrameProvider_Vtbl {
         unsafe extern "system" fn FrameProviderInfo<Identity: ::windows::core::IUnknownImpl, Impl: IPerceptionFrameProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

@@ -3001,8 +3001,8 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
@@ -3010,14 +3010,14 @@ impl BounceVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
@@ -3025,8 +3025,8 @@ impl BounceVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3532,8 +3532,8 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
@@ -3541,14 +3541,14 @@ impl BounceVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
@@ -3556,8 +3556,8 @@ impl BounceVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -11155,8 +11155,8 @@ impl CompositionGraphicsDevice {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveRenderingDeviceReplaced)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Graphics', 'Graphics_DirectX'*"]
-    #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX"))]
+    #[doc = "*Required features: 'UI_Composition', 'Graphics_DirectX'*"]
+    #[cfg(feature = "Graphics_DirectX")]
     pub fn CreateDrawingSurface2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::SizeInt32>>(&self, sizepixels: Param0, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice2>(self)?;
         unsafe {
@@ -11164,8 +11164,8 @@ impl CompositionGraphicsDevice {
             (::windows::core::Interface::vtable(this).CreateDrawingSurface2)(::core::mem::transmute_copy(this), sizepixels.into_param().abi(), pixelformat, alphamode, &mut result__).from_abi::<CompositionDrawingSurface>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Graphics', 'Graphics_DirectX'*"]
-    #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX"))]
+    #[doc = "*Required features: 'UI_Composition', 'Graphics_DirectX'*"]
+    #[cfg(feature = "Graphics_DirectX")]
     pub fn CreateVirtualDrawingSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::SizeInt32>>(&self, sizepixels: Param0, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionVirtualDrawingSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice2>(self)?;
         unsafe {
@@ -11173,8 +11173,8 @@ impl CompositionGraphicsDevice {
             (::windows::core::Interface::vtable(this).CreateVirtualDrawingSurface)(::core::mem::transmute_copy(this), sizepixels.into_param().abi(), pixelformat, alphamode, &mut result__).from_abi::<CompositionVirtualDrawingSurface>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Graphics', 'Graphics_DirectX'*"]
-    #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX"))]
+    #[doc = "*Required features: 'UI_Composition', 'Graphics_DirectX'*"]
+    #[cfg(feature = "Graphics_DirectX")]
     pub fn CreateMipmapSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::SizeInt32>>(&self, sizepixels: Param0, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionMipmapSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice3>(self)?;
         unsafe {
@@ -11187,8 +11187,8 @@ impl CompositionGraphicsDevice {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Trim)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Graphics', 'Graphics_DirectX'*"]
-    #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Graphics_DirectX'*"]
+    #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
     pub fn CaptureAsync<'a, Param0: ::windows::core::IntoParam<'a, Visual>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::SizeInt32>>(&self, capturevisual: Param0, size: Param1, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ICompositionSurface>> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice4>(self)?;
         unsafe {
@@ -18435,27 +18435,27 @@ impl<'a> ::windows::core::IntoParam<'a, IAnimationObject> for &CompositionShapeC
         ::core::convert::TryInto::<IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionShapeCollection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionShapeCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&CompositionShapeCollection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionShapeCollection) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for CompositionShapeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionShapeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
@@ -19444,27 +19444,27 @@ impl<'a> ::windows::core::IntoParam<'a, IAnimationObject> for &CompositionStroke
         ::core::convert::TryInto::<IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionStrokeDashArray> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionStrokeDashArray) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&CompositionStrokeDashArray> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionStrokeDashArray) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for CompositionStrokeDashArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionStrokeDashArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
@@ -26500,13 +26500,13 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice2 {
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice2_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX"))]
+    #[cfg(feature = "Graphics_DirectX")]
     pub CreateDrawingSurface2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Graphics", feature = "Graphics_DirectX")))]
+    #[cfg(not(feature = "Graphics_DirectX"))]
     CreateDrawingSurface2: usize,
-    #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX"))]
+    #[cfg(feature = "Graphics_DirectX")]
     pub CreateVirtualDrawingSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Graphics", feature = "Graphics_DirectX")))]
+    #[cfg(not(feature = "Graphics_DirectX"))]
     CreateVirtualDrawingSurface: usize,
 }
 #[doc(hidden)]
@@ -26520,9 +26520,9 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice3 {
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice3_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX"))]
+    #[cfg(feature = "Graphics_DirectX")]
     pub CreateMipmapSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Graphics", feature = "Graphics_DirectX")))]
+    #[cfg(not(feature = "Graphics_DirectX"))]
     CreateMipmapSurface: usize,
     pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -26537,9 +26537,9 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice4 {
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice4_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX"))]
+    #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
     pub CaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capturevisual: ::windows::core::RawPtr, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX")))]
+    #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX")))]
     CaptureAsync: usize,
 }
 #[doc(hidden)]
@@ -28910,21 +28910,21 @@ unsafe impl ::windows::core::Interface for IVector2NaturalMotionAnimation {
 #[doc(hidden)]
 pub struct IVector2NaturalMotionAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub FinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     FinalValue: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub SetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     SetFinalValue: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub InitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     InitialValue: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub SetInitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     SetInitialValue: usize,
     #[cfg(feature = "Foundation_Numerics")]
     pub InitialVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
@@ -28978,21 +28978,21 @@ unsafe impl ::windows::core::Interface for IVector3NaturalMotionAnimation {
 #[doc(hidden)]
 pub struct IVector3NaturalMotionAnimation_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub FinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     FinalValue: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub SetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     SetFinalValue: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub InitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     InitialValue: usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[cfg(feature = "Foundation_Numerics")]
     pub SetInitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))]
+    #[cfg(not(feature = "Foundation_Numerics"))]
     SetInitialValue: usize,
     #[cfg(feature = "Foundation_Numerics")]
     pub InitialVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -30072,27 +30072,27 @@ impl<'a> ::windows::core::IntoParam<'a, IAnimationObject> for &InitialValueExpre
         ::core::convert::TryInto::<IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<InitialValueExpressionCollection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: InitialValueExpressionCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&InitialValueExpressionCollection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &InitialValueExpressionCollection) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for InitialValueExpressionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &InitialValueExpressionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
@@ -38703,8 +38703,8 @@ impl SpringVector2NaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPeriod)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
@@ -38712,14 +38712,14 @@ impl SpringVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
@@ -38727,8 +38727,8 @@ impl SpringVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -39236,8 +39236,8 @@ impl SpringVector3NaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPeriod)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
@@ -39245,14 +39245,14 @@ impl SpringVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
@@ -39260,8 +39260,8 @@ impl SpringVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -41213,8 +41213,8 @@ impl Vector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = self;
         unsafe {
@@ -41222,14 +41222,14 @@ impl Vector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = self;
         unsafe {
@@ -41237,8 +41237,8 @@ impl Vector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -42222,8 +42222,8 @@ impl Vector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::core::mem::transmute_copy(this), value).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
@@ -42231,14 +42231,14 @@ impl Vector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
@@ -42246,8 +42246,8 @@ impl Vector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: 'UI_Composition', 'Foundation', 'Foundation_Numerics'*"]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
+    #[doc = "*Required features: 'UI_Composition', 'Foundation_Numerics'*"]
+    #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }

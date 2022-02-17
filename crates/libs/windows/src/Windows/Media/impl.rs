@@ -20,7 +20,7 @@ impl IMediaExtension_Vtbl {
         iid == &<IMediaExtension as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 pub trait IMediaFrame_Impl: Sized + super::Foundation::IClosable_Impl {
     fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn IsReadOnly(&self) -> ::windows::core::Result<bool>;
@@ -34,11 +34,11 @@ pub trait IMediaFrame_Impl: Sized + super::Foundation::IClosable_Impl {
     fn IsDiscontinuous(&self) -> ::windows::core::Result<bool>;
     fn ExtendedProperties(&self) -> ::windows::core::Result<super::Foundation::Collections::IPropertySet>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IMediaFrame {
     const NAME: &'static str = "Windows.Media.IMediaFrame";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl IMediaFrame_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaFrame_Impl, const OFFSET: isize>() -> IMediaFrame_Vtbl {
         unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {

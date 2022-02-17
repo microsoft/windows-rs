@@ -28,9 +28,9 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let is_exclusive = def.is_exclusive();
     let phantoms = gen_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
-    let cfg = gen.type_cfg(def);
-    let doc = cfg.gen_doc(gen);
-    let features = cfg.gen(gen);
+    let cfg = def.cfg();
+    let doc = gen.doc(&cfg);
+    let features = gen.cfg(&cfg);
 
     let mut tokens = if is_exclusive {
         quote! { #[doc(hidden)] }
@@ -66,7 +66,7 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let is_winrt = def.is_winrt();
     let mut method_names = MethodNames::new();
     let mut virtual_names = MethodNames::new();
-    let cfg = cfg.gen(gen);
+    let cfg = gen.cfg(cfg);
     let vtable_types = def.vtable_types();
     let mut bases = vtable_types.len();
 
@@ -121,7 +121,7 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 
     for def in def.vtable_types() {
         let into = gen_element_name(&def, gen);
-        let cfg = cfg.union(gen.element_cfg(&def)).gen(gen);
+        let cfg = gen.cfg(&cfg.union(&def.cfg()));
         tokens.combine(&quote! {
             #cfg
             impl<#(#constraints)*> ::core::convert::From<#name> for #into {
@@ -153,7 +153,7 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     if def.is_winrt() {
         for def in def.required_interfaces() {
             let into = gen_type_name(&def, gen);
-            let cfg = cfg.union(gen.type_cfg(&def)).gen(gen);
+            let cfg = gen.cfg(&cfg.union(&def.cfg()));
             tokens.combine(&quote! {
                 #cfg
                 impl<#(#constraints)*> ::core::convert::TryFrom<#name> for #into {

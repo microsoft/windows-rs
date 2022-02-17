@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 pub trait IAutomationPeerOverrides_Impl: Sized {
     fn GetPatternCore(&self, patterninterface: PatternInterface) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn GetAcceleratorKeyCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -30,11 +30,11 @@ pub trait IAutomationPeerOverrides_Impl: Sized {
     fn GetPeerFromPointCore(&self, point: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<AutomationPeer>;
     fn GetLiveSettingCore(&self) -> ::windows::core::Result<AutomationLiveSetting>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl IAutomationPeerOverrides_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPeerOverrides_Impl, const OFFSET: isize>() -> IAutomationPeerOverrides_Vtbl {
         unsafe extern "system" fn GetPatternCore<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPeerOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patterninterface: PatternInterface, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -430,7 +430,7 @@ impl IAutomationPeerOverrides2_Vtbl {
         iid == &<IAutomationPeerOverrides2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 pub trait IAutomationPeerOverrides3_Impl: Sized {
     fn NavigateCore(&self, direction: AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn GetElementFromPointCore(&self, pointinwindowcoordinates: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<::windows::core::IInspectable>;
@@ -440,11 +440,11 @@ pub trait IAutomationPeerOverrides3_Impl: Sized {
     fn GetSizeOfSetCore(&self) -> ::windows::core::Result<i32>;
     fn GetLevelCore(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides3 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides3";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl IAutomationPeerOverrides3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPeerOverrides3_Impl, const OFFSET: isize>() -> IAutomationPeerOverrides3_Vtbl {
         unsafe extern "system" fn NavigateCore<Identity: ::windows::core::IUnknownImpl, Impl: IAutomationPeerOverrides3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: AutomationNavigationDirection, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

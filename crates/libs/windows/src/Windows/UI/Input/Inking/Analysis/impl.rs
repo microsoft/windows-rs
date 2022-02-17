@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 pub trait IInkAnalysisNode_Impl: Sized {
     fn Id(&self) -> ::windows::core::Result<u32>;
     fn Kind(&self) -> ::windows::core::Result<InkAnalysisNodeKind>;
@@ -8,11 +8,11 @@ pub trait IInkAnalysisNode_Impl: Sized {
     fn Parent(&self) -> ::windows::core::Result<IInkAnalysisNode>;
     fn GetStrokeIds(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>>;
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IInkAnalysisNode {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalysisNode";
 }
-#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+#[cfg(feature = "Foundation_Collections")]
 impl IInkAnalysisNode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>() -> IInkAnalysisNode_Vtbl {
         unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {

@@ -6,9 +6,9 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let underlying_type = def.underlying_type();
     let underlying_type = gen_element_name(&underlying_type, gen);
     let is_scoped = def.is_scoped();
-    let cfg = gen.type_cfg(def);
-    let features = cfg.gen(gen);
-    let doc = cfg.gen_doc(gen);
+    let cfg = def.cfg();
+    let doc = gen.doc(&cfg);
+    let features = gen.cfg(&cfg);
 
     let mut fields: Vec<(TokenStream, TokenStream)> = def
         .fields()
