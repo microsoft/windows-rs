@@ -17,7 +17,7 @@ impl Cfg {
         for feature in self.types.keys() {
             if !feature.is_empty() && !starts_with(namespace, feature) {
                 for pos in 0..compact.len() {
-                    if feature.starts_with(unsafe { compact.get_unchecked(pos) }) {
+                    if starts_with(feature, unsafe { compact.get_unchecked(pos) }) {
                         compact.remove(pos);
                         break;
                     }
@@ -75,8 +75,8 @@ impl Cfg {
 }
 
 fn starts_with(namespace: &str, feature:&str) -> bool {
-    if namespace.len() == feature.len() {
-        return namespace == feature;
+    if namespace == feature {
+        return true;
     }
     
     if namespace.len() > feature.len() {
@@ -91,6 +91,14 @@ fn starts_with(namespace: &str, feature:&str) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn test_starts_with() {
+        assert!(starts_with("Windows.Win32.Graphics.Direct3D11on12", "Windows.Win32.Graphics.Direct3D11on12"));
+        assert!(starts_with("Windows.Win32.Graphics.Direct3D11on12", "Windows.Win32.Graphics"));
+        assert!(!starts_with("Windows.Win32.Graphics.Direct3D11on12", "Windows.Win32.Graphics.Direct3D11"));
+        assert!(!starts_with("Windows.Win32.Graphics.Direct3D", "Windows.Win32.Graphics.Direct3D11"));
+    }
 
     #[test]
     fn relative() {
@@ -120,6 +128,12 @@ mod tests {
         let namespaces = def.cfg().features("Windows");
         assert_eq!(namespaces.len(), 1);
         assert_eq!(namespaces[0], "Windows.Win32.AI.MachineLearning.WinML");
+
+        let def = TypeReader::get().get_type(("Windows.Win32.Graphics.Direct3D11on12", "D3D11On12CreateDevice")).unwrap();
+        let namespaces = def.cfg().features("Windows");
+        assert_eq!(namespaces.len(), 2);
+        assert_eq!(namespaces[0], "Windows.Win32.Graphics.Direct3D");
+        assert_eq!(namespaces[1], "Windows.Win32.Graphics.Direct3D11");
     }
 
     #[test]
@@ -145,5 +159,11 @@ mod tests {
         let def = TypeReader::get().expect_type_def(("Windows.Win32.AI.MachineLearning.WinML", "MLOperatorEdgeDescription"));
         let namespaces = def.cfg().features("Windows.Win32.AI.MachineLearning.WinML");
         assert_eq!(namespaces.len(), 0);
+
+        let def = TypeReader::get().get_type(("Windows.Win32.Graphics.Direct3D11on12", "D3D11On12CreateDevice")).unwrap();
+        let namespaces = def.cfg().features("Windows.Win32.Graphics.Direct3D11on12");
+        assert_eq!(namespaces.len(), 2);
+        assert_eq!(namespaces[0], "Windows.Win32.Graphics.Direct3D");
+        assert_eq!(namespaces[1], "Windows.Win32.Graphics.Direct3D11");
     }
 }
