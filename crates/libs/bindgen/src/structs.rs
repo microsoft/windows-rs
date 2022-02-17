@@ -116,7 +116,7 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
             quote! { ::core::mem::ManuallyDrop<Self> }
         };
 
-        let features = gen.cfg(&cfg);
+        let features = gen.cfg(cfg);
 
         let mut tokens = quote! {
             #features
@@ -151,7 +151,7 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
 }
 
 fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let features = gen.cfg(&cfg);
+    let features = gen.cfg(cfg);
 
     if gen.sys {
         quote! {}
@@ -203,7 +203,7 @@ fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenS
         quote! {}
     } else {
         let name = ident.as_str();
-        let features = gen.cfg(&cfg);
+        let features = gen.cfg(cfg);
 
         let fields = def.fields().map(|f| {
             if f.is_literal() {
@@ -234,7 +234,7 @@ fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenS
 }
 
 fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let features = gen.cfg(&cfg);
+    let features = gen.cfg(cfg);
 
     if gen.sys || def.is_blittable() {
         quote! {
@@ -283,7 +283,7 @@ fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> To
 }
 
 fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let features = gen.cfg(&cfg);
+    let features = gen.cfg(cfg);
 
     let constants = def.fields().filter_map(|f| {
         if f.is_literal() {
