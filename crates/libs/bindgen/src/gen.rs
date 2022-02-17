@@ -43,22 +43,6 @@ impl Gen<'_> {
         }
     }
 
-    // TODO: remove
-    pub(crate) fn element_cfg(&self, def: &Type) -> Cfg {
-        if let Type::TypeDef(def) = def {
-            def.cfg()
-        } else {
-            Cfg::new()
-        }
-    }
-
-    // TODO: remove
-    pub(crate) fn method_cfg(&self, def: &TypeDef, method: &MethodDef) -> Cfg {
-        let mut cfg = method.cfg();
-        cfg.add_feature(def.namespace());
-        cfg
-    }
-
     pub(crate) fn doc(&self, cfg: &Cfg) -> TokenStream {
         if !self.doc {
             quote! {}

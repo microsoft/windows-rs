@@ -121,7 +121,7 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 
     for def in def.vtable_types() {
         let into = gen_element_name(&def, gen);
-        let cfg = gen.cfg(&cfg.union(&gen.element_cfg(&def)));
+        let cfg = gen.cfg(&cfg.union(&def.cfg()));
         tokens.combine(&quote! {
             #cfg
             impl<#(#constraints)*> ::core::convert::From<#name> for #into {
