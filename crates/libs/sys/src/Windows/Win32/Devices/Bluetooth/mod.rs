@@ -3,7 +3,7 @@
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothAuthenticateDevice(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, pbtbi: *mut BLUETOOTH_DEVICE_INFO, pszpasskey: super::super::Foundation::PWSTR, ulpasskeylength: u32) -> u32;
+    pub fn BluetoothAuthenticateDevice(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, pbtbi: *mut BLUETOOTH_DEVICE_INFO, pszpasskey: ::windows_sys::core::PCWSTR, ulpasskeylength: u32) -> u32;
     #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothAuthenticateDeviceEx(hwndparentin: super::super::Foundation::HWND, hradioin: super::super::Foundation::HANDLE, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO, pbtoobdata: *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement: AUTHENTICATION_REQUIREMENTS) -> u32;
@@ -75,9 +75,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothSdpGetElementData(psdpstream: *const u8, cbsdpstreamlength: u32, pdata: *mut SDP_ELEMENT_DATA) -> u32;
-    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothSdpGetString(precordstream: *const u8, cbrecordlength: u32, pstringdata: *const SDP_STRING_TYPE_DATA, usstringoffset: u16, pszstring: super::super::Foundation::PWSTR, pcchstringlength: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
+    pub fn BluetoothSdpGetString(precordstream: *const u8, cbrecordlength: u32, pstringdata: *const SDP_STRING_TYPE_DATA, usstringoffset: u16, pszstring: ::windows_sys::core::PWSTR, pcchstringlength: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothSelectDevices(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL;
@@ -86,7 +85,7 @@ extern "system" {
     pub fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothSendAuthenticationResponse(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pszpasskey: super::super::Foundation::PWSTR) -> u32;
+    pub fn BluetoothSendAuthenticationResponse(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pszpasskey: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothSendAuthenticationResponseEx(hradioin: super::super::Foundation::HANDLE, pauthresponse: *const BLUETOOTH_AUTHENTICATE_RESPONSE) -> u32;
@@ -364,15 +363,12 @@ pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICAT
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub const BLUETOOTH_MITM_ProtectionNotDefined: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 255i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub struct BLUETOOTH_COD_PAIRS {
     pub ulCODMask: u32,
-    pub pcszDescription: super::super::Foundation::PWSTR,
+    pub pcszDescription: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BLUETOOTH_COD_PAIRS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BLUETOOTH_COD_PAIRS {
     fn clone(&self) -> Self {
         *self
@@ -556,7 +552,7 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub dwSize: u32,
     pub cNumOfClasses: u32,
     pub prgClassOfDevices: *mut BLUETOOTH_COD_PAIRS,
-    pub pszInfo: super::super::Foundation::PWSTR,
+    pub pszInfo: ::windows_sys::core::PWSTR,
     pub hwndParent: super::super::Foundation::HWND,
     pub fForceAuthentication: super::super::Foundation::BOOL,
     pub fShowAuthenticated: super::super::Foundation::BOOL,

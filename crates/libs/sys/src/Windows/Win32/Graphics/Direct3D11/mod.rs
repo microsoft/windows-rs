@@ -2195,7 +2195,7 @@ pub const D3D11_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0f32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub struct D3D11_FUNCTION_DESC {
     pub Version: u32,
-    pub Creator: super::super::Foundation::PSTR,
+    pub Creator: ::windows_sys::core::PCSTR,
     pub Flags: u32,
     pub ConstantBuffers: u32,
     pub BoundResources: u32,
@@ -2222,7 +2222,7 @@ pub struct D3D11_FUNCTION_DESC {
     pub BitwiseInstructionCount: u32,
     pub MinFeatureLevel: super::Direct3D::D3D_FEATURE_LEVEL,
     pub RequiredFeatureFlags: u64,
-    pub Name: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
     pub FunctionParameterCount: i32,
     pub HasReturn: super::super::Foundation::BOOL,
     pub Has10Level9VertexShader: super::super::Foundation::BOOL,
@@ -2439,10 +2439,10 @@ pub const D3D11_INPUT_PER_VERTEX_DATA: D3D11_INPUT_CLASSIFICATION = 0i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_INPUT_PER_INSTANCE_DATA: D3D11_INPUT_CLASSIFICATION = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D11_INPUT_ELEMENT_DESC {
-    pub SemanticName: super::super::Foundation::PSTR,
+    pub SemanticName: ::windows_sys::core::PCSTR,
     pub SemanticIndex: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub InputSlot: u32,
@@ -2450,9 +2450,9 @@ pub struct D3D11_INPUT_ELEMENT_DESC {
     pub InputSlotClass: D3D11_INPUT_CLASSIFICATION,
     pub InstanceDataStepRate: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_INPUT_ELEMENT_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D11_INPUT_ELEMENT_DESC {
     fn clone(&self) -> Self {
         *self
@@ -2512,16 +2512,13 @@ impl ::core::clone::Clone for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
 }
 pub const D3D11_KEY_EXCHANGE_RSAES_OAEP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3247741077, data2: 55082, data3: 18973, data4: [142, 93, 237, 133, 125, 23, 21, 32] };
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub struct D3D11_LIBRARY_DESC {
-    pub Creator: super::super::Foundation::PSTR,
+    pub Creator: ::windows_sys::core::PCSTR,
     pub Flags: u32,
     pub FunctionCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D11_LIBRARY_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D11_LIBRARY_DESC {
     fn clone(&self) -> Self {
         *self
@@ -5395,11 +5392,11 @@ impl ::core::clone::Clone for D3D11_PACKED_MIP_DESC {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_PACKED_TILE: u32 = 4294967295u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D11_PARAMETER_DESC {
-    pub Name: super::super::Foundation::PSTR,
-    pub SemanticName: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
+    pub SemanticName: ::windows_sys::core::PCSTR,
     pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
     pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
     pub Rows: u32,
@@ -5411,9 +5408,9 @@ pub struct D3D11_PARAMETER_DESC {
     pub FirstOutRegister: u32,
     pub FirstOutComponent: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D11_PARAMETER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D11_PARAMETER_DESC {
     fn clone(&self) -> Self {
         *self
@@ -5949,18 +5946,18 @@ pub const D3D11_SDK_LAYERS_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_SDK_VERSION: u32 = 7u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D11_SHADER_BUFFER_DESC {
-    pub Name: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
     pub Type: super::Direct3D::D3D_CBUFFER_TYPE,
     pub Variables: u32,
     pub Size: u32,
     pub uFlags: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D11_SHADER_BUFFER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D11_SHADER_BUFFER_DESC {
     fn clone(&self) -> Self {
         *self
@@ -5975,11 +5972,11 @@ pub const D3D11_SHADER_CACHE_SUPPORT_AUTOMATIC_INPROC_CACHE: D3D11_SHADER_CACHE_
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_SHADER_CACHE_SUPPORT_AUTOMATIC_DISK_CACHE: D3D11_SHADER_CACHE_SUPPORT_FLAGS = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D11_SHADER_DESC {
     pub Version: u32,
-    pub Creator: super::super::Foundation::PSTR,
+    pub Creator: ::windows_sys::core::PCSTR,
     pub Flags: u32,
     pub ConstantBuffers: u32,
     pub BoundResources: u32,
@@ -6017,19 +6014,19 @@ pub struct D3D11_SHADER_DESC {
     pub cInterlockedInstructions: u32,
     pub cTextureStoreInstructions: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D11_SHADER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D11_SHADER_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D11_SHADER_INPUT_BIND_DESC {
-    pub Name: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
     pub Type: super::Direct3D::D3D_SHADER_INPUT_TYPE,
     pub BindPoint: u32,
     pub BindCount: u32,
@@ -6038,9 +6035,9 @@ pub struct D3D11_SHADER_INPUT_BIND_DESC {
     pub Dimension: super::Direct3D::D3D_SRV_DIMENSION,
     pub NumSamples: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D11_SHADER_INPUT_BIND_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D11_SHADER_INPUT_BIND_DESC {
     fn clone(&self) -> Self {
         *self
@@ -6242,8 +6239,8 @@ pub const D3D11_PIXEL_SHADER: D3D11_SHADER_TYPE = 5i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_COMPUTE_SHADER: D3D11_SHADER_TYPE = 6i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D11_SHADER_TYPE_DESC {
     pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
     pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
@@ -6252,21 +6249,20 @@ pub struct D3D11_SHADER_TYPE_DESC {
     pub Elements: u32,
     pub Members: u32,
     pub Offset: u32,
-    pub Name: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D11_SHADER_TYPE_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D11_SHADER_TYPE_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub struct D3D11_SHADER_VARIABLE_DESC {
-    pub Name: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
     pub StartOffset: u32,
     pub Size: u32,
     pub uFlags: u32,
@@ -6276,9 +6272,7 @@ pub struct D3D11_SHADER_VARIABLE_DESC {
     pub StartSampler: u32,
     pub SamplerSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D11_SHADER_VARIABLE_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D11_SHADER_VARIABLE_DESC {
     fn clone(&self) -> Self {
         *self
@@ -6315,10 +6309,10 @@ pub const D3D11_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D11_SIGNATURE_PARAMETER_DESC {
-    pub SemanticName: super::super::Foundation::PSTR,
+    pub SemanticName: ::windows_sys::core::PCSTR,
     pub SemanticIndex: u32,
     pub Register: u32,
     pub SystemValueType: super::Direct3D::D3D_NAME,
@@ -6328,9 +6322,9 @@ pub struct D3D11_SIGNATURE_PARAMETER_DESC {
     pub Stream: u32,
     pub MinPrecision: super::Direct3D::D3D_MIN_PRECISION,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D11_SIGNATURE_PARAMETER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D11_SIGNATURE_PARAMETER_DESC {
     fn clone(&self) -> Self {
         *self
@@ -6347,19 +6341,16 @@ pub const D3D11_SO_BUFFER_SLOT_COUNT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub const D3D11_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
 pub struct D3D11_SO_DECLARATION_ENTRY {
     pub Stream: u32,
-    pub SemanticName: super::super::Foundation::PSTR,
+    pub SemanticName: ::windows_sys::core::PCSTR,
     pub SemanticIndex: u32,
     pub StartComponent: u8,
     pub ComponentCount: u8,
     pub OutputSlot: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D11_SO_DECLARATION_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D11_SO_DECLARATION_ENTRY {
     fn clone(&self) -> Self {
         *self

@@ -1,30 +1,24 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type AsyncIBackgroundCopyCallback = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
 pub struct BG_AUTH_CREDENTIALS {
     pub Target: BG_AUTH_TARGET,
     pub Scheme: BG_AUTH_SCHEME,
     pub Credentials: BG_AUTH_CREDENTIALS_UNION,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BG_AUTH_CREDENTIALS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BG_AUTH_CREDENTIALS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
 pub union BG_AUTH_CREDENTIALS_UNION {
     pub Basic: BG_BASIC_CREDENTIALS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BG_AUTH_CREDENTIALS_UNION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BG_AUTH_CREDENTIALS_UNION {
     fn clone(&self) -> Self {
         *self
@@ -49,15 +43,12 @@ pub const BG_AUTH_TARGET_SERVER: BG_AUTH_TARGET = 1i32;
 #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
 pub const BG_AUTH_TARGET_PROXY: BG_AUTH_TARGET = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
 pub struct BG_BASIC_CREDENTIALS {
-    pub UserName: super::super::Foundation::PWSTR,
-    pub Password: super::super::Foundation::PWSTR,
+    pub UserName: ::windows_sys::core::PWSTR,
+    pub Password: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BG_BASIC_CREDENTIALS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BG_BASIC_CREDENTIALS {
     fn clone(&self) -> Self {
         *self
@@ -372,15 +363,12 @@ pub const BG_E_VOLUME_CHANGED: i32 = -2145386482i32;
 #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
 pub const BG_E_WATCHDOG_TIMEOUT: i32 = -2145386391i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
 pub struct BG_FILE_INFO {
-    pub RemoteName: super::super::Foundation::PWSTR,
-    pub LocalName: super::super::Foundation::PWSTR,
+    pub RemoteName: ::windows_sys::core::PWSTR,
+    pub LocalName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BG_FILE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BG_FILE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -586,14 +574,11 @@ pub type BITS_FILE_PROPERTY_ID = i32;
 #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
 pub const BITS_FILE_PROPERTY_ID_HTTP_RESPONSE_HEADERS: BITS_FILE_PROPERTY_ID = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
 pub union BITS_FILE_PROPERTY_VALUE {
-    pub String: super::super::Foundation::PWSTR,
+    pub String: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for BITS_FILE_PROPERTY_VALUE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for BITS_FILE_PROPERTY_VALUE {
     fn clone(&self) -> Self {
         *self

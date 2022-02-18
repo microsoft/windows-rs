@@ -47,7 +47,7 @@ impl ::core::clone::Clone for CProperty {
 #[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CProperty_0 {
-    pub lpszwData: super::super::Foundation::PWSTR,
+    pub lpszwData: ::windows_sys::core::PWSTR,
     pub lpvData: *mut ::core::ffi::c_void,
     pub dwValue: u32,
 }
@@ -236,7 +236,7 @@ pub const HHACT_ZOOM: i32 = 19i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct HHNTRACK {
     pub hdr: super::super::UI::Controls::NMHDR,
-    pub pszCurUrl: super::super::Foundation::PSTR,
+    pub pszCurUrl: ::windows_sys::core::PCSTR,
     pub idAction: i32,
     pub phhWinType: *mut HH_WINTYPE,
 }
@@ -253,7 +253,7 @@ impl ::core::clone::Clone for HHNTRACK {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
-    pub pszUrl: super::super::Foundation::PSTR,
+    pub pszUrl: ::windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::marker::Copy for HHN_NOTIFY {}
@@ -447,16 +447,13 @@ pub const HH_DISPLAY_TOC: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_DISPLAY_TOPIC: u32 = 0u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub struct HH_ENUM_CAT {
     pub cbStruct: i32,
-    pub pszCatName: super::super::Foundation::PSTR,
-    pub pszCatDescription: super::super::Foundation::PSTR,
+    pub pszCatName: ::windows_sys::core::PCSTR,
+    pub pszCatDescription: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HH_ENUM_CAT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HH_ENUM_CAT {
     fn clone(&self) -> Self {
         *self
@@ -469,18 +466,15 @@ pub const HH_ENUM_CATEGORY_IT: u32 = 22u32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_ENUM_INFO_TYPE: u32 = 7u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub struct HH_ENUM_IT {
     pub cbStruct: i32,
     pub iType: i32,
-    pub pszCatName: super::super::Foundation::PSTR,
-    pub pszITName: super::super::Foundation::PSTR,
-    pub pszITDescription: super::super::Foundation::PSTR,
+    pub pszCatName: ::windows_sys::core::PCSTR,
+    pub pszITName: ::windows_sys::core::PCSTR,
+    pub pszITDescription: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HH_ENUM_IT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HH_ENUM_IT {
     fn clone(&self) -> Self {
         *self
@@ -593,16 +587,13 @@ pub const HH_SET_GLOBAL_PROPERTY: u32 = 252u32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_SET_INCLUSIVE_FILTER: u32 = 24u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub struct HH_SET_INFOTYPE {
     pub cbStruct: i32,
-    pub pszCatName: super::super::Foundation::PSTR,
-    pub pszInfoTypeName: super::super::Foundation::PSTR,
+    pub pszCatName: ::windows_sys::core::PCSTR,
+    pub pszInfoTypeName: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HH_SET_INFOTYPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HH_SET_INFOTYPE {
     fn clone(&self) -> Self {
         *self

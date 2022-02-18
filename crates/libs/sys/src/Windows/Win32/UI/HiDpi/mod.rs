@@ -57,7 +57,7 @@ extern "system" {
     pub fn LogicalToPhysicalPointForPerMonitorDPI(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenThemeDataForDpi(hwnd: super::super::Foundation::HWND, pszclasslist: super::super::Foundation::PWSTR, dpi: u32) -> isize;
+    pub fn OpenThemeDataForDpi(hwnd: super::super::Foundation::HWND, pszclasslist: ::windows_sys::core::PCWSTR, dpi: u32) -> isize;
     #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PhysicalToLogicalPointForPerMonitorDPI(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;

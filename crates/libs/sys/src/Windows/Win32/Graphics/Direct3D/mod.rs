@@ -898,15 +898,12 @@ pub const D3D11_SIT_UAV_CONSUME_STRUCTURED: D3D_SHADER_INPUT_TYPE = 10i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
 pub const D3D11_SIT_UAV_RWSTRUCTURED_WITH_COUNTER: D3D_SHADER_INPUT_TYPE = 11i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
 pub struct D3D_SHADER_MACRO {
-    pub Name: super::super::Foundation::PSTR,
-    pub Definition: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
+    pub Definition: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D_SHADER_MACRO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D_SHADER_MACRO {
     fn clone(&self) -> Self {
         *self

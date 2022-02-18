@@ -687,31 +687,25 @@ impl ::core::clone::Clone for WIAS_DOWN_SAMPLE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIAS_ENDORSER_INFO {
     pub ulPageCount: u32,
     pub ulNumEndorserValues: u32,
     pub pEndorserValues: *mut WIAS_ENDORSER_VALUE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WIAS_ENDORSER_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WIAS_ENDORSER_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIAS_ENDORSER_VALUE {
-    pub wszTokenName: super::super::Foundation::PWSTR,
-    pub wszValue: super::super::Foundation::PWSTR,
+    pub wszTokenName: ::windows_sys::core::PWSTR,
+    pub wszValue: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WIAS_ENDORSER_VALUE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WIAS_ENDORSER_VALUE {
     fn clone(&self) -> Self {
         *self
@@ -1077,18 +1071,15 @@ impl ::core::clone::Clone for WIA_DEV_CAP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_DEV_CAP_DRV {
     pub guid: *mut ::windows_sys::core::GUID,
     pub ulFlags: u32,
-    pub wszName: super::super::Foundation::PWSTR,
-    pub wszDescription: super::super::Foundation::PWSTR,
-    pub wszIcon: super::super::Foundation::PWSTR,
+    pub wszName: ::windows_sys::core::PWSTR,
+    pub wszDescription: ::windows_sys::core::PWSTR,
+    pub wszIcon: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WIA_DEV_CAP_DRV {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WIA_DEV_CAP_DRV {
     fn clone(&self) -> Self {
         *self
@@ -2889,15 +2880,12 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: u32,
-    pub pszName: super::super::Foundation::PWSTR,
+    pub pszName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WIA_PROPID_TO_NAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WIA_PROPID_TO_NAME {
     fn clone(&self) -> Self {
         *self

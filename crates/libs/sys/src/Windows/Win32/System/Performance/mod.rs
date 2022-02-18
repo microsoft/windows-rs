@@ -3,39 +3,30 @@
 pub mod HardwareCounterProfiling;
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn BackupPerfRegistryToFileW(szfilename: ::windows_sys::core::PCWSTR, szcommentstring: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn InstallPerfDllA(szcomputername: ::windows_sys::core::PCSTR, lpinifile: ::windows_sys::core::PCSTR, dwflags: usize) -> u32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn InstallPerfDllW(szcomputername: ::windows_sys::core::PCWSTR, lpinifile: ::windows_sys::core::PCWSTR, dwflags: usize) -> u32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BackupPerfRegistryToFileW(szfilename: super::super::Foundation::PWSTR, szcommentstring: super::super::Foundation::PWSTR) -> u32;
+    pub fn LoadPerfCounterTextStringsA(lpcommandline: ::windows_sys::core::PCSTR, bquietmodearg: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InstallPerfDllA(szcomputername: super::super::Foundation::PSTR, lpinifile: super::super::Foundation::PSTR, dwflags: usize) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InstallPerfDllW(szcomputername: super::super::Foundation::PWSTR, lpinifile: super::super::Foundation::PWSTR, dwflags: usize) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadPerfCounterTextStringsA(lpcommandline: super::super::Foundation::PSTR, bquietmodearg: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadPerfCounterTextStringsW(lpcommandline: super::super::Foundation::PWSTR, bquietmodearg: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhAddCounterA(hquery: isize, szfullcounterpath: super::super::Foundation::PSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhAddCounterW(hquery: isize, szfullcounterpath: super::super::Foundation::PWSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhAddEnglishCounterA(hquery: isize, szfullcounterpath: super::super::Foundation::PSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhAddEnglishCounterW(hquery: isize, szfullcounterpath: super::super::Foundation::PWSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhBindInputDataSourceA(phdatasource: *mut isize, logfilenamelist: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhBindInputDataSourceW(phdatasource: *mut isize, logfilenamelist: super::super::Foundation::PWSTR) -> i32;
+    pub fn LoadPerfCounterTextStringsW(lpcommandline: ::windows_sys::core::PCWSTR, bquietmodearg: super::super::Foundation::BOOL) -> u32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhAddCounterA(hquery: isize, szfullcounterpath: ::windows_sys::core::PCSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhAddCounterW(hquery: isize, szfullcounterpath: ::windows_sys::core::PCWSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhAddEnglishCounterA(hquery: isize, szfullcounterpath: ::windows_sys::core::PCSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhAddEnglishCounterW(hquery: isize, szfullcounterpath: ::windows_sys::core::PCWSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhBindInputDataSourceA(phdatasource: *mut isize, logfilenamelist: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhBindInputDataSourceW(phdatasource: *mut isize, logfilenamelist: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> i32;
@@ -65,78 +56,58 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhConnectMachineA(szmachinename: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhConnectMachineW(szmachinename: ::windows_sys::core::PCWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhCreateSQLTablesA(szdatasource: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhCreateSQLTablesW(szdatasource: ::windows_sys::core::PCWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhEnumLogSetNamesA(szdatasource: ::windows_sys::core::PCSTR, mszdatasetnamelist: ::windows_sys::core::PSTR, pcchbufferlength: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhEnumLogSetNamesW(szdatasource: ::windows_sys::core::PCWSTR, mszdatasetnamelist: ::windows_sys::core::PWSTR, pcchbufferlength: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhEnumMachinesA(szdatasource: ::windows_sys::core::PCSTR, mszmachinelist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhEnumMachinesW(szdatasource: ::windows_sys::core::PCWSTR, mszmachinelist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhEnumObjectItemsA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, mszcounterlist: ::windows_sys::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhEnumObjectItemsHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, mszcounterlist: ::windows_sys::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhEnumObjectItemsHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, mszcounterlist: ::windows_sys::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhEnumObjectItemsW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, mszcounterlist: ::windows_sys::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhConnectMachineA(szmachinename: super::super::Foundation::PSTR) -> i32;
+    pub fn PdhEnumObjectsA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, mszobjectlist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhConnectMachineW(szmachinename: super::super::Foundation::PWSTR) -> i32;
+    pub fn PdhEnumObjectsHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, mszobjectlist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhCreateSQLTablesA(szdatasource: super::super::Foundation::PSTR) -> i32;
+    pub fn PdhEnumObjectsHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, mszobjectlist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhCreateSQLTablesW(szdatasource: super::super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumLogSetNamesA(szdatasource: super::super::Foundation::PSTR, mszdatasetnamelist: super::super::Foundation::PSTR, pcchbufferlength: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumLogSetNamesW(szdatasource: super::super::Foundation::PWSTR, mszdatasetnamelist: super::super::Foundation::PWSTR, pcchbufferlength: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumMachinesA(szdatasource: super::super::Foundation::PSTR, mszmachinelist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumMachinesW(szdatasource: super::super::Foundation::PWSTR, mszmachinelist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectItemsA(szdatasource: super::super::Foundation::PSTR, szmachinename: super::super::Foundation::PSTR, szobjectname: super::super::Foundation::PSTR, mszcounterlist: super::super::Foundation::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectItemsHA(hdatasource: isize, szmachinename: super::super::Foundation::PSTR, szobjectname: super::super::Foundation::PSTR, mszcounterlist: super::super::Foundation::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectItemsHW(hdatasource: isize, szmachinename: super::super::Foundation::PWSTR, szobjectname: super::super::Foundation::PWSTR, mszcounterlist: super::super::Foundation::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectItemsW(szdatasource: super::super::Foundation::PWSTR, szmachinename: super::super::Foundation::PWSTR, szobjectname: super::super::Foundation::PWSTR, mszcounterlist: super::super::Foundation::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectsA(szdatasource: super::super::Foundation::PSTR, szmachinename: super::super::Foundation::PSTR, mszobjectlist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectsHA(hdatasource: isize, szmachinename: super::super::Foundation::PSTR, mszobjectlist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectsHW(hdatasource: isize, szmachinename: super::super::Foundation::PWSTR, mszobjectlist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectsW(szdatasource: super::super::Foundation::PWSTR, szmachinename: super::super::Foundation::PWSTR, mszobjectlist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhExpandCounterPathA(szwildcardpath: super::super::Foundation::PSTR, mszexpandedpathlist: super::super::Foundation::PSTR, pcchpathlistlength: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhExpandCounterPathW(szwildcardpath: super::super::Foundation::PWSTR, mszexpandedpathlist: super::super::Foundation::PWSTR, pcchpathlistlength: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhExpandWildCardPathA(szdatasource: super::super::Foundation::PSTR, szwildcardpath: super::super::Foundation::PSTR, mszexpandedpathlist: super::super::Foundation::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhExpandWildCardPathHA(hdatasource: isize, szwildcardpath: super::super::Foundation::PSTR, mszexpandedpathlist: super::super::Foundation::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhExpandWildCardPathHW(hdatasource: isize, szwildcardpath: super::super::Foundation::PWSTR, mszexpandedpathlist: super::super::Foundation::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhExpandWildCardPathW(szdatasource: super::super::Foundation::PWSTR, szwildcardpath: super::super::Foundation::PWSTR, mszexpandedpathlist: super::super::Foundation::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
+    pub fn PdhEnumObjectsW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, mszobjectlist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhExpandCounterPathA(szwildcardpath: ::windows_sys::core::PCSTR, mszexpandedpathlist: ::windows_sys::core::PSTR, pcchpathlistlength: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhExpandCounterPathW(szwildcardpath: ::windows_sys::core::PCWSTR, mszexpandedpathlist: ::windows_sys::core::PWSTR, pcchpathlistlength: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhExpandWildCardPathA(szdatasource: ::windows_sys::core::PCSTR, szwildcardpath: ::windows_sys::core::PCSTR, mszexpandedpathlist: ::windows_sys::core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhExpandWildCardPathHA(hdatasource: isize, szwildcardpath: ::windows_sys::core::PCSTR, mszexpandedpathlist: ::windows_sys::core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhExpandWildCardPathHW(hdatasource: isize, szwildcardpath: ::windows_sys::core::PCWSTR, mszexpandedpathlist: ::windows_sys::core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhExpandWildCardPathW(szdatasource: ::windows_sys::core::PCWSTR, szwildcardpath: ::windows_sys::core::PCWSTR, mszexpandedpathlist: ::windows_sys::core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: *const i64, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
@@ -148,48 +119,35 @@ extern "system" {
     pub fn PdhGetCounterInfoW(hcounter: isize, bretrieveexplaintext: super::super::Foundation::BOOLEAN, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_W) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetDataSourceTimeRangeA(szdatasource: super::super::Foundation::PSTR, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhGetDataSourceTimeRangeA(szdatasource: ::windows_sys::core::PCSTR, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetDataSourceTimeRangeW(szdatasource: super::super::Foundation::PWSTR, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetDefaultPerfCounterA(szdatasource: super::super::Foundation::PSTR, szmachinename: super::super::Foundation::PSTR, szobjectname: super::super::Foundation::PSTR, szdefaultcountername: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetDefaultPerfCounterHA(hdatasource: isize, szmachinename: super::super::Foundation::PSTR, szobjectname: super::super::Foundation::PSTR, szdefaultcountername: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetDefaultPerfCounterHW(hdatasource: isize, szmachinename: super::super::Foundation::PWSTR, szobjectname: super::super::Foundation::PWSTR, szdefaultcountername: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetDefaultPerfCounterW(szdatasource: super::super::Foundation::PWSTR, szmachinename: super::super::Foundation::PWSTR, szobjectname: super::super::Foundation::PWSTR, szdefaultcountername: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetDefaultPerfObjectA(szdatasource: super::super::Foundation::PSTR, szmachinename: super::super::Foundation::PSTR, szdefaultobjectname: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetDefaultPerfObjectHA(hdatasource: isize, szmachinename: super::super::Foundation::PSTR, szdefaultobjectname: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetDefaultPerfObjectHW(hdatasource: isize, szmachinename: super::super::Foundation::PWSTR, szdefaultobjectname: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetDefaultPerfObjectW(szdatasource: super::super::Foundation::PWSTR, szmachinename: super::super::Foundation::PWSTR, szdefaultobjectname: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhGetDataSourceTimeRangeW(szdatasource: ::windows_sys::core::PCWSTR, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhGetDefaultPerfCounterA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, szdefaultcountername: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhGetDefaultPerfCounterHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, szdefaultcountername: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhGetDefaultPerfCounterHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, szdefaultcountername: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhGetDefaultPerfCounterW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, szdefaultcountername: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhGetDefaultPerfObjectA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, szdefaultobjectname: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhGetDefaultPerfObjectHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, szdefaultobjectname: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhGetDefaultPerfObjectHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, szdefaultobjectname: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhGetDefaultPerfObjectW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, szdefaultobjectname: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lpdwtype: *mut u32, pvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32;
@@ -207,50 +165,36 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhLookupPerfIndexByNameA(szmachinename: super::super::Foundation::PSTR, sznamebuffer: super::super::Foundation::PSTR, pdwindex: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhLookupPerfIndexByNameW(szmachinename: super::super::Foundation::PWSTR, sznamebuffer: super::super::Foundation::PWSTR, pdwindex: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhLookupPerfNameByIndexA(szmachinename: super::super::Foundation::PSTR, dwnameindex: u32, sznamebuffer: super::super::Foundation::PSTR, pcchnamebuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhLookupPerfNameByIndexW(szmachinename: super::super::Foundation::PWSTR, dwnameindex: u32, sznamebuffer: super::super::Foundation::PWSTR, pcchnamebuffersize: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: super::super::Foundation::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhOpenLogA(szlogfilename: super::super::Foundation::PSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: super::super::Foundation::PSTR, phlog: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhOpenLogW(szlogfilename: super::super::Foundation::PWSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: super::super::Foundation::PWSTR, phlog: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhOpenQueryA(szdatasource: super::super::Foundation::PSTR, dwuserdata: usize, phquery: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhLookupPerfIndexByNameA(szmachinename: ::windows_sys::core::PCSTR, sznamebuffer: ::windows_sys::core::PCSTR, pdwindex: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhLookupPerfIndexByNameW(szmachinename: ::windows_sys::core::PCWSTR, sznamebuffer: ::windows_sys::core::PCWSTR, pdwindex: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhLookupPerfNameByIndexA(szmachinename: ::windows_sys::core::PCSTR, dwnameindex: u32, sznamebuffer: ::windows_sys::core::PSTR, pcchnamebuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhLookupPerfNameByIndexW(szmachinename: ::windows_sys::core::PCWSTR, dwnameindex: u32, sznamebuffer: ::windows_sys::core::PWSTR, pcchnamebuffersize: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhOpenLogA(szlogfilename: ::windows_sys::core::PCSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: ::windows_sys::core::PCSTR, phlog: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhOpenLogW(szlogfilename: ::windows_sys::core::PCWSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: ::windows_sys::core::PCWSTR, phlog: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhOpenQueryA(szdatasource: ::windows_sys::core::PCSTR, dwuserdata: usize, phquery: *mut isize) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhOpenQueryW(szdatasource: super::super::Foundation::PWSTR, dwuserdata: usize, phquery: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhParseCounterPathA(szfullpathbuffer: super::super::Foundation::PSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_A, pdwbuffersize: *mut u32, dwflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhParseCounterPathW(szfullpathbuffer: super::super::Foundation::PWSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_W, pdwbuffersize: *mut u32, dwflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhParseInstanceNameA(szinstancestring: super::super::Foundation::PSTR, szinstancename: super::super::Foundation::PSTR, pcchinstancenamelength: *mut u32, szparentname: super::super::Foundation::PSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhParseInstanceNameW(szinstancestring: super::super::Foundation::PWSTR, szinstancename: super::super::Foundation::PWSTR, pcchinstancenamelength: *mut u32, szparentname: super::super::Foundation::PWSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhOpenQueryW(szdatasource: ::windows_sys::core::PCWSTR, dwuserdata: usize, phquery: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhParseCounterPathA(szfullpathbuffer: ::windows_sys::core::PCSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_A, pdwbuffersize: *mut u32, dwflags: u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhParseCounterPathW(szfullpathbuffer: ::windows_sys::core::PCWSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_W, pdwbuffersize: *mut u32, dwflags: u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhParseInstanceNameA(szinstancestring: ::windows_sys::core::PCSTR, szinstancename: ::windows_sys::core::PSTR, pcchinstancenamelength: *mut u32, szparentname: ::windows_sys::core::PSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhParseInstanceNameW(szinstancestring: ::windows_sys::core::PCWSTR, szinstancename: ::windows_sys::core::PWSTR, pcchinstancenamelength: *mut u32, szparentname: ::windows_sys::core::PWSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PdhReadRawLogRecord(hlog: isize, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: *mut PDH_RAW_LOG_RECORD, pdwbufferlength: *mut u32) -> i32;
@@ -258,10 +202,10 @@ extern "system" {
     pub fn PdhRemoveCounter(hcounter: isize) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhSelectDataSourceA(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: super::super::Foundation::PSTR, pcchbufferlength: *mut u32) -> i32;
+    pub fn PdhSelectDataSourceA(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows_sys::core::PSTR, pcchbufferlength: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhSelectDataSourceW(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: super::super::Foundation::PWSTR, pcchbufferlength: *mut u32) -> i32;
+    pub fn PdhSelectDataSourceW(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows_sys::core::PWSTR, pcchbufferlength: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -270,40 +214,31 @@ extern "system" {
     pub fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhUpdateLogA(hlog: isize, szuserstring: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhUpdateLogA(hlog: isize, szuserstring: ::windows_sys::core::PCSTR) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PdhUpdateLogFileCatalog(hlog: isize) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhUpdateLogW(hlog: isize, szuserstring: super::super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhValidatePathA(szfullpathbuffer: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhValidatePathExA(hdatasource: isize, szfullpathbuffer: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhValidatePathExW(hdatasource: isize, szfullpathbuffer: super::super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhValidatePathW(szfullpathbuffer: super::super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhVerifySQLDBA(szdatasource: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhVerifySQLDBW(szdatasource: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhUpdateLogW(hlog: isize, szuserstring: ::windows_sys::core::PCWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhValidatePathA(szfullpathbuffer: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhValidatePathExA(hdatasource: isize, szfullpathbuffer: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhValidatePathExW(hdatasource: isize, szfullpathbuffer: ::windows_sys::core::PCWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhValidatePathW(szfullpathbuffer: ::windows_sys::core::PCWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhVerifySQLDBA(szdatasource: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PdhVerifySQLDBW(szdatasource: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PerfAddCounters(hquery: PerfQueryHandle, pcounters: *const PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PerfCloseQueryHandle(hquery: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PerfCreateInstance(providerhandle: PerfProviderHandle, countersetguid: *const ::windows_sys::core::GUID, name: super::super::Foundation::PWSTR, id: u32) -> *mut PERF_COUNTERSET_INSTANCE;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PerfCreateInstance(providerhandle: PerfProviderHandle, countersetguid: *const ::windows_sys::core::GUID, name: ::windows_sys::core::PCWSTR, id: u32) -> *mut PERF_COUNTERSET_INSTANCE;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PerfDecrementULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32;
@@ -314,32 +249,28 @@ extern "system" {
     pub fn PerfDeleteCounters(hquery: PerfQueryHandle, pcounters: *const PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PerfDeleteInstance(provider: PerfProviderHandle, instanceblock: *const PERF_COUNTERSET_INSTANCE) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PerfEnumerateCounterSet(szmachine: super::super::Foundation::PWSTR, pcountersetids: *mut ::windows_sys::core::GUID, ccountersetids: u32, pccountersetidsactual: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PerfEnumerateCounterSetInstances(szmachine: super::super::Foundation::PWSTR, pcountersetid: *const ::windows_sys::core::GUID, pinstances: *mut PERF_INSTANCE_HEADER, cbinstances: u32, pcbinstancesactual: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PerfEnumerateCounterSet(szmachine: ::windows_sys::core::PCWSTR, pcountersetids: *mut ::windows_sys::core::GUID, ccountersetids: u32, pccountersetidsactual: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PerfEnumerateCounterSetInstances(szmachine: ::windows_sys::core::PCWSTR, pcountersetid: *const ::windows_sys::core::GUID, pinstances: *mut PERF_INSTANCE_HEADER, cbinstances: u32, pcbinstancesactual: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PerfIncrementULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PerfIncrementULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PerfOpenQueryHandle(szmachine: super::super::Foundation::PWSTR, phquery: *mut PerfQueryHandle) -> u32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PerfOpenQueryHandle(szmachine: ::windows_sys::core::PCWSTR, phquery: *mut PerfQueryHandle) -> u32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PerfQueryCounterData(hquery: PerfQueryHandle, pcounterblock: *mut PERF_DATA_HEADER, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Performance'*"]
     pub fn PerfQueryCounterInfo(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32, pcbcountersactual: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn PerfQueryCounterSetRegistrationInfo(szmachine: ::windows_sys::core::PCWSTR, pcountersetid: *const ::windows_sys::core::GUID, requestcode: PerfRegInfoType, requestlangid: u32, pbreginfo: *mut u8, cbreginfo: u32, pcbreginfoactual: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PerfQueryCounterSetRegistrationInfo(szmachine: super::super::Foundation::PWSTR, pcountersetid: *const ::windows_sys::core::GUID, requestcode: PerfRegInfoType, requestlangid: u32, pbreginfo: *mut u8, cbreginfo: u32, pcbreginfoactual: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PerfQueryInstance(providerhandle: super::super::Foundation::HANDLE, countersetguid: *const ::windows_sys::core::GUID, name: super::super::Foundation::PWSTR, id: u32) -> *mut PERF_COUNTERSET_INSTANCE;
+    pub fn PerfQueryInstance(providerhandle: super::super::Foundation::HANDLE, countersetguid: *const ::windows_sys::core::GUID, name: ::windows_sys::core::PCWSTR, id: u32) -> *mut PERF_COUNTERSET_INSTANCE;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PerfSetCounterRefValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, address: *const ::core::ffi::c_void) -> u32;
@@ -364,27 +295,22 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn RestorePerfRegistryFromFileW(szfilename: ::windows_sys::core::PCWSTR, szlangid: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn SetServiceAsTrustedA(szreserved: ::windows_sys::core::PCSTR, szservicename: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn SetServiceAsTrustedW(szreserved: ::windows_sys::core::PCWSTR, szservicename: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RestorePerfRegistryFromFileW(szfilename: super::super::Foundation::PWSTR, szlangid: super::super::Foundation::PWSTR) -> u32;
+    pub fn UnloadPerfCounterTextStringsA(lpcommandline: ::windows_sys::core::PCSTR, bquietmodearg: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetServiceAsTrustedA(szreserved: super::super::Foundation::PSTR, szservicename: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetServiceAsTrustedW(szreserved: super::super::Foundation::PWSTR, szservicename: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UnloadPerfCounterTextStringsA(lpcommandline: super::super::Foundation::PSTR, bquietmodearg: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UnloadPerfCounterTextStringsW(lpcommandline: super::super::Foundation::PWSTR, bquietmodearg: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdatePerfNameFilesA(sznewctrfilepath: super::super::Foundation::PSTR, sznewhlpfilepath: super::super::Foundation::PSTR, szlanguageid: super::super::Foundation::PSTR, dwflags: usize) -> u32;
-    #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdatePerfNameFilesW(sznewctrfilepath: super::super::Foundation::PWSTR, sznewhlpfilepath: super::super::Foundation::PWSTR, szlanguageid: super::super::Foundation::PWSTR, dwflags: usize) -> u32;
+    pub fn UnloadPerfCounterTextStringsW(lpcommandline: ::windows_sys::core::PCWSTR, bquietmodearg: super::super::Foundation::BOOL) -> u32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn UpdatePerfNameFilesA(sznewctrfilepath: ::windows_sys::core::PCSTR, sznewhlpfilepath: ::windows_sys::core::PCSTR, szlanguageid: ::windows_sys::core::PCSTR, dwflags: usize) -> u32;
+    #[doc = "*Required features: 'Win32_System_Performance'*"]
+    pub fn UpdatePerfNameFilesW(sznewctrfilepath: ::windows_sys::core::PCWSTR, sznewhlpfilepath: ::windows_sys::core::PCWSTR, szlanguageid: ::windows_sys::core::PCWSTR, dwflags: usize) -> u32;
 }
 pub const AppearPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3835118057, data2: 37800, data3: 19121, data4: [142, 150, 191, 68, 130, 40, 46, 156] };
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -586,14 +512,14 @@ pub const PDH_BINARY_LOG_CORRUPT: i32 = -1073738761i32;
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
-    pub szDataSource: super::super::Foundation::PSTR,
-    pub szReturnPathBuffer: super::super::Foundation::PSTR,
+    pub szDataSource: ::windows_sys::core::PSTR,
+    pub szReturnPathBuffer: ::windows_sys::core::PSTR,
     pub cchReturnPathLength: u32,
     pub pCallBack: CounterPathCallBack,
     pub dwCallBackArg: usize,
     pub CallBackStatus: i32,
     pub dwDefaultDetailLevel: PERF_DETAIL,
-    pub szDialogBoxCaption: super::super::Foundation::PSTR,
+    pub szDialogBoxCaption: ::windows_sys::core::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_BROWSE_DLG_CONFIG_A {}
@@ -610,13 +536,13 @@ pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub hDataSource: isize,
-    pub szReturnPathBuffer: super::super::Foundation::PSTR,
+    pub szReturnPathBuffer: ::windows_sys::core::PSTR,
     pub cchReturnPathLength: u32,
     pub pCallBack: CounterPathCallBack,
     pub dwCallBackArg: usize,
     pub CallBackStatus: i32,
     pub dwDefaultDetailLevel: PERF_DETAIL,
-    pub szDialogBoxCaption: super::super::Foundation::PSTR,
+    pub szDialogBoxCaption: ::windows_sys::core::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_BROWSE_DLG_CONFIG_HA {}
@@ -633,13 +559,13 @@ pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub hDataSource: isize,
-    pub szReturnPathBuffer: super::super::Foundation::PWSTR,
+    pub szReturnPathBuffer: ::windows_sys::core::PWSTR,
     pub cchReturnPathLength: u32,
     pub pCallBack: CounterPathCallBack,
     pub dwCallBackArg: usize,
     pub CallBackStatus: i32,
     pub dwDefaultDetailLevel: PERF_DETAIL,
-    pub szDialogBoxCaption: super::super::Foundation::PWSTR,
+    pub szDialogBoxCaption: ::windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_BROWSE_DLG_CONFIG_HW {}
@@ -655,14 +581,14 @@ impl ::core::clone::Clone for PDH_BROWSE_DLG_CONFIG_HW {
 pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub _bitfield: u32,
     pub hWndOwner: super::super::Foundation::HWND,
-    pub szDataSource: super::super::Foundation::PWSTR,
-    pub szReturnPathBuffer: super::super::Foundation::PWSTR,
+    pub szDataSource: ::windows_sys::core::PWSTR,
+    pub szReturnPathBuffer: ::windows_sys::core::PWSTR,
     pub cchReturnPathLength: u32,
     pub pCallBack: CounterPathCallBack,
     pub dwCallBackArg: usize,
     pub CallBackStatus: i32,
     pub dwDefaultDetailLevel: PERF_DETAIL,
-    pub szDialogBoxCaption: super::super::Foundation::PWSTR,
+    pub szDialogBoxCaption: ::windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_BROWSE_DLG_CONFIG_W {}
@@ -689,8 +615,7 @@ pub const PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE: i32 = -2147481636i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_COUNTER_ALREADY_IN_QUERY: i32 = -1073738762i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_COUNTER_INFO_A {
     pub dwLength: u32,
     pub dwType: u32,
@@ -700,57 +625,48 @@ pub struct PDH_COUNTER_INFO_A {
     pub lDefaultScale: i32,
     pub dwUserData: usize,
     pub dwQueryUserData: usize,
-    pub szFullPath: super::super::Foundation::PSTR,
+    pub szFullPath: ::windows_sys::core::PSTR,
     pub Anonymous: PDH_COUNTER_INFO_A_0,
-    pub szExplainText: super::super::Foundation::PSTR,
+    pub szExplainText: ::windows_sys::core::PSTR,
     pub DataBuffer: [u32; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_COUNTER_INFO_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_COUNTER_INFO_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub union PDH_COUNTER_INFO_A_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_A,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_A,
     pub Anonymous: PDH_COUNTER_INFO_A_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_COUNTER_INFO_A_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_COUNTER_INFO_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_COUNTER_INFO_A_0_0 {
-    pub szMachineName: super::super::Foundation::PSTR,
-    pub szObjectName: super::super::Foundation::PSTR,
-    pub szInstanceName: super::super::Foundation::PSTR,
-    pub szParentInstance: super::super::Foundation::PSTR,
+    pub szMachineName: ::windows_sys::core::PSTR,
+    pub szObjectName: ::windows_sys::core::PSTR,
+    pub szInstanceName: ::windows_sys::core::PSTR,
+    pub szParentInstance: ::windows_sys::core::PSTR,
     pub dwInstanceIndex: u32,
-    pub szCounterName: super::super::Foundation::PSTR,
+    pub szCounterName: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_COUNTER_INFO_A_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_COUNTER_INFO_A_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_COUNTER_INFO_W {
     pub dwLength: u32,
     pub dwType: u32,
@@ -760,87 +676,73 @@ pub struct PDH_COUNTER_INFO_W {
     pub lDefaultScale: i32,
     pub dwUserData: usize,
     pub dwQueryUserData: usize,
-    pub szFullPath: super::super::Foundation::PWSTR,
+    pub szFullPath: ::windows_sys::core::PWSTR,
     pub Anonymous: PDH_COUNTER_INFO_W_0,
-    pub szExplainText: super::super::Foundation::PWSTR,
+    pub szExplainText: ::windows_sys::core::PWSTR,
     pub DataBuffer: [u32; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_COUNTER_INFO_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_COUNTER_INFO_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub union PDH_COUNTER_INFO_W_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_W,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_W,
     pub Anonymous: PDH_COUNTER_INFO_W_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_COUNTER_INFO_W_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_COUNTER_INFO_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_COUNTER_INFO_W_0_0 {
-    pub szMachineName: super::super::Foundation::PWSTR,
-    pub szObjectName: super::super::Foundation::PWSTR,
-    pub szInstanceName: super::super::Foundation::PWSTR,
-    pub szParentInstance: super::super::Foundation::PWSTR,
+    pub szMachineName: ::windows_sys::core::PWSTR,
+    pub szObjectName: ::windows_sys::core::PWSTR,
+    pub szInstanceName: ::windows_sys::core::PWSTR,
+    pub szParentInstance: ::windows_sys::core::PWSTR,
     pub dwInstanceIndex: u32,
-    pub szCounterName: super::super::Foundation::PWSTR,
+    pub szCounterName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_COUNTER_INFO_W_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_COUNTER_INFO_W_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A {
-    pub szMachineName: super::super::Foundation::PSTR,
-    pub szObjectName: super::super::Foundation::PSTR,
-    pub szInstanceName: super::super::Foundation::PSTR,
-    pub szParentInstance: super::super::Foundation::PSTR,
+    pub szMachineName: ::windows_sys::core::PSTR,
+    pub szObjectName: ::windows_sys::core::PSTR,
+    pub szInstanceName: ::windows_sys::core::PSTR,
+    pub szParentInstance: ::windows_sys::core::PSTR,
     pub dwInstanceIndex: u32,
-    pub szCounterName: super::super::Foundation::PSTR,
+    pub szCounterName: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_COUNTER_PATH_ELEMENTS_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_COUNTER_PATH_ELEMENTS_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W {
-    pub szMachineName: super::super::Foundation::PWSTR,
-    pub szObjectName: super::super::Foundation::PWSTR,
-    pub szInstanceName: super::super::Foundation::PWSTR,
-    pub szParentInstance: super::super::Foundation::PWSTR,
+    pub szMachineName: ::windows_sys::core::PWSTR,
+    pub szObjectName: ::windows_sys::core::PWSTR,
+    pub szInstanceName: ::windows_sys::core::PWSTR,
+    pub szParentInstance: ::windows_sys::core::PWSTR,
     pub dwInstanceIndex: u32,
-    pub szCounterName: super::super::Foundation::PWSTR,
+    pub szCounterName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_COUNTER_PATH_ELEMENTS_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_COUNTER_PATH_ELEMENTS_W {
     fn clone(&self) -> Self {
         *self
@@ -867,34 +769,28 @@ pub const PDH_CSTATUS_NO_OBJECT: i32 = -1073738824i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_CSTATUS_VALID_DATA: i32 = 0i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
-    pub szMachineName: super::super::Foundation::PSTR,
+    pub szMachineName: ::windows_sys::core::PSTR,
     pub ObjectGUID: ::windows_sys::core::GUID,
     pub dwItemId: u32,
-    pub szInstanceName: super::super::Foundation::PSTR,
+    pub szInstanceName: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_DATA_ITEM_PATH_ELEMENTS_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_DATA_ITEM_PATH_ELEMENTS_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
-    pub szMachineName: super::super::Foundation::PWSTR,
+    pub szMachineName: ::windows_sys::core::PWSTR,
     pub ObjectGUID: ::windows_sys::core::GUID,
     pub dwItemId: u32,
-    pub szInstanceName: super::super::Foundation::PWSTR,
+    pub szInstanceName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_DATA_ITEM_PATH_ELEMENTS_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_DATA_ITEM_PATH_ELEMENTS_W {
     fn clone(&self) -> Self {
         *self
@@ -929,63 +825,51 @@ pub const PDH_FMT_LARGE: PDH_FMT = 1024u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_FMT_LONG: PDH_FMT = 256u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_FMT_COUNTERVALUE {
     pub CStatus: u32,
     pub Anonymous: PDH_FMT_COUNTERVALUE_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_FMT_COUNTERVALUE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_FMT_COUNTERVALUE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub union PDH_FMT_COUNTERVALUE_0 {
     pub longValue: i32,
     pub doubleValue: f64,
     pub largeValue: i64,
-    pub AnsiStringValue: super::super::Foundation::PSTR,
-    pub WideStringValue: super::super::Foundation::PWSTR,
+    pub AnsiStringValue: ::windows_sys::core::PCSTR,
+    pub WideStringValue: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_FMT_COUNTERVALUE_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_FMT_COUNTERVALUE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_A {
-    pub szName: super::super::Foundation::PSTR,
+    pub szName: ::windows_sys::core::PSTR,
     pub FmtValue: PDH_FMT_COUNTERVALUE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_FMT_COUNTERVALUE_ITEM_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_FMT_COUNTERVALUE_ITEM_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_W {
-    pub szName: super::super::Foundation::PWSTR,
+    pub szName: ::windows_sys::core::PWSTR,
     pub FmtValue: PDH_FMT_COUNTERVALUE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_FMT_COUNTERVALUE_ITEM_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_FMT_COUNTERVALUE_ITEM_W {
     fn clone(&self) -> Self {
         *self
@@ -1042,9 +926,9 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwLogQuota: u32,
-    pub szLogFileCaption: super::super::Foundation::PSTR,
-    pub szDefaultDir: super::super::Foundation::PSTR,
-    pub szBaseFileName: super::super::Foundation::PSTR,
+    pub szLogFileCaption: ::windows_sys::core::PSTR,
+    pub szDefaultDir: ::windows_sys::core::PSTR,
+    pub szBaseFileName: ::windows_sys::core::PSTR,
     pub dwFileType: u32,
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_A_0,
@@ -1078,8 +962,8 @@ impl ::core::clone::Clone for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
-    pub PdlCommandFilename: super::super::Foundation::PSTR,
-    pub PdlCounterList: super::super::Foundation::PSTR,
+    pub PdlCommandFilename: ::windows_sys::core::PSTR,
+    pub PdlCounterList: ::windows_sys::core::PSTR,
     pub PdlAutoNameFormat: u32,
     pub PdlSampleInterval: u32,
     pub PdlLogStartTime: super::super::Foundation::FILETIME,
@@ -1106,7 +990,7 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlLoggerThreadId: u32,
     pub TlBuffersWritten: u32,
     pub TlLogHandle: u32,
-    pub TlLogFileName: super::super::Foundation::PSTR,
+    pub TlLogFileName: ::windows_sys::core::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {}
@@ -1123,9 +1007,9 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwLogQuota: u32,
-    pub szLogFileCaption: super::super::Foundation::PWSTR,
-    pub szDefaultDir: super::super::Foundation::PWSTR,
-    pub szBaseFileName: super::super::Foundation::PWSTR,
+    pub szLogFileCaption: ::windows_sys::core::PWSTR,
+    pub szDefaultDir: ::windows_sys::core::PWSTR,
+    pub szBaseFileName: ::windows_sys::core::PWSTR,
     pub dwFileType: u32,
     pub dwReserved: u32,
     pub Anonymous: PDH_LOG_SERVICE_QUERY_INFO_W_0,
@@ -1159,8 +1043,8 @@ impl ::core::clone::Clone for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
-    pub PdlCommandFilename: super::super::Foundation::PWSTR,
-    pub PdlCounterList: super::super::Foundation::PWSTR,
+    pub PdlCommandFilename: ::windows_sys::core::PWSTR,
+    pub PdlCounterList: ::windows_sys::core::PWSTR,
     pub PdlAutoNameFormat: u32,
     pub PdlSampleInterval: u32,
     pub PdlLogStartTime: super::super::Foundation::FILETIME,
@@ -1187,7 +1071,7 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlLoggerThreadId: u32,
     pub TlBuffersWritten: u32,
     pub TlLogHandle: u32,
-    pub TlLogFileName: super::super::Foundation::PWSTR,
+    pub TlLogFileName: ::windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {}
@@ -1309,7 +1193,7 @@ impl ::core::clone::Clone for PDH_RAW_COUNTER {
 #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_RAW_COUNTER_ITEM_A {
-    pub szName: super::super::Foundation::PSTR,
+    pub szName: ::windows_sys::core::PSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1324,7 +1208,7 @@ impl ::core::clone::Clone for PDH_RAW_COUNTER_ITEM_A {
 #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_RAW_COUNTER_ITEM_W {
-    pub szName: super::super::Foundation::PWSTR,
+    pub szName: ::windows_sys::core::PWSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1378,8 +1262,7 @@ pub const PDH_SQL_MORE_RESULTS_FAILED: i32 = -1073738779i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_SQL_ROWCOUNT_FAILED: i32 = -1073738780i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_STATISTICS {
     pub dwFormat: u32,
     pub count: u32,
@@ -1387,9 +1270,7 @@ pub struct PDH_STATISTICS {
     pub max: PDH_FMT_COUNTERVALUE,
     pub mean: PDH_FMT_COUNTERVALUE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PDH_STATISTICS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PDH_STATISTICS {
     fn clone(&self) -> Self {
         *self
@@ -1538,9 +1419,8 @@ impl ::core::clone::Clone for PERF_COUNTER_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -1554,25 +1434,22 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterOffset: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PERF_COUNTER_DEFINITION {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PERF_COUNTER_DEFINITION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
-    pub CounterNameTitle: super::super::Foundation::PWSTR,
+    pub CounterNameTitle: ::windows_sys::core::PWSTR,
     pub CounterHelpTitleIndex: u32,
-    pub CounterHelpTitle: super::super::Foundation::PWSTR,
+    pub CounterHelpTitle: ::windows_sys::core::PWSTR,
     pub DefaultScale: i32,
     pub DetailLevel: u32,
     pub CounterType: u32,
@@ -1580,10 +1457,8 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterOffset: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PERF_COUNTER_DEFINITION {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PERF_COUNTER_DEFINITION {
     fn clone(&self) -> Self {
         *self
@@ -1848,9 +1723,8 @@ pub const PERF_NUMBER_HEX: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -1868,27 +1742,24 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfFreq: i64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PERF_OBJECT_TYPE {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PERF_OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
     pub HeaderLength: u32,
     pub ObjectNameTitleIndex: u32,
-    pub ObjectNameTitle: super::super::Foundation::PWSTR,
+    pub ObjectNameTitle: ::windows_sys::core::PWSTR,
     pub ObjectHelpTitleIndex: u32,
-    pub ObjectHelpTitle: super::super::Foundation::PWSTR,
+    pub ObjectHelpTitle: ::windows_sys::core::PWSTR,
     pub DetailLevel: u32,
     pub NumCounters: u32,
     pub DefaultCounter: i32,
@@ -1898,10 +1769,8 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfFreq: i64,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PERF_OBJECT_TYPE {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PERF_OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
@@ -1983,9 +1852,8 @@ pub const PERF_TYPE_ZERO: u32 = 3072u32;
 pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_WILDCARD_INSTANCE: &'static str = "*";
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PLA_CABEXTRACT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filename: super::super::Foundation::PWSTR, context: *mut ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
+pub type PLA_CABEXTRACT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filename: ::windows_sys::core::PCWSTR, context: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -2002,12 +1870,10 @@ pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
 pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PM_CLOSE_PROC = ::core::option::Option<unsafe extern "system" fn() -> u32>;
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PM_COLLECT_PROC = ::core::option::Option<unsafe extern "system" fn(pvaluename: super::super::Foundation::PWSTR, ppdata: *mut *mut ::core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32>;
-#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PM_OPEN_PROC = ::core::option::Option<unsafe extern "system" fn(pcontext: super::super::Foundation::PWSTR) -> u32>;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
+pub type PM_COLLECT_PROC = ::core::option::Option<unsafe extern "system" fn(pvaluename: ::windows_sys::core::PCWSTR, ppdata: *mut *mut ::core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
+pub type PM_OPEN_PROC = ::core::option::Option<unsafe extern "system" fn(pcontext: ::windows_sys::core::PCWSTR) -> u32>;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PerfCounterDataType = i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]

@@ -19,15 +19,12 @@ impl ::core::clone::Clone for CorrelationId {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub struct CountedString {
     pub length: u16,
-    pub string: super::super::Foundation::PWSTR,
+    pub string: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CountedString {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CountedString {
     fn clone(&self) -> Self {
         *self

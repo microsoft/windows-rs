@@ -1,14 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell_Common', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
 pub struct COMDLG_FILTERSPEC {
-    pub pszName: super::super::super::Foundation::PWSTR,
-    pub pszSpec: super::super::super::Foundation::PWSTR,
+    pub pszName: ::windows_sys::core::PCWSTR,
+    pub pszSpec: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COMDLG_FILTERSPEC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COMDLG_FILTERSPEC {
     fn clone(&self) -> Self {
         *self
@@ -154,16 +151,13 @@ pub const SHCOLSTATE_FIXED_RATIO: SHCOLSTATE = 16384i32;
 #[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
 pub const SHCOLSTATE_DISPLAYMASK: SHCOLSTATE = 61440i32;
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Shell_Common', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
 pub struct SHELLDETAILS {
     pub fmt: i32,
     pub cxChar: i32,
     pub str: STRRET,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SHELLDETAILS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SHELLDETAILS {
     fn clone(&self) -> Self {
         *self
@@ -182,31 +176,25 @@ impl ::core::clone::Clone for SHITEMID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell_Common', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
 pub struct STRRET {
     pub uType: u32,
     pub Anonymous: STRRET_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STRRET {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STRRET {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell_Common', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
 pub union STRRET_0 {
-    pub pOleStr: super::super::super::Foundation::PWSTR,
+    pub pOleStr: ::windows_sys::core::PWSTR,
     pub uOffset: u32,
     pub cStr: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STRRET_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STRRET_0 {
     fn clone(&self) -> Self {
         *self

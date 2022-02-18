@@ -1520,10 +1520,10 @@ pub const XHR_CERT_IGNORE_ALL_SERVER_ERRORS: XHR_CERT_IGNORE_FLAG = 12672u32;
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct XHR_COOKIE {
-    pub pwszUrl: super::super::super::Foundation::PWSTR,
-    pub pwszName: super::super::super::Foundation::PWSTR,
-    pub pwszValue: super::super::super::Foundation::PWSTR,
-    pub pwszP3PPolicy: super::super::super::Foundation::PWSTR,
+    pub pwszUrl: ::windows_sys::core::PWSTR,
+    pub pwszName: ::windows_sys::core::PWSTR,
+    pub pwszValue: ::windows_sys::core::PWSTR,
+    pub pwszP3PPolicy: ::windows_sys::core::PWSTR,
     pub ftExpires: super::super::super::Foundation::FILETIME,
     pub dwFlags: u32,
 }

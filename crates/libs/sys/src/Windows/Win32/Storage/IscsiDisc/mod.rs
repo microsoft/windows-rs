@@ -1,42 +1,34 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn AddISNSServerA(address: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn AddISNSServerW(address: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddISNSServerA(address: super::super::Foundation::PSTR) -> u32;
+    pub fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows_sys::core::PCSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows_sys::core::PCSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddISNSServerW(address: super::super::Foundation::PWSTR) -> u32;
+    pub fn AddIScsiSendTargetPortalA(initiatorinstance: ::windows_sys::core::PCSTR, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn AddIScsiSendTargetPortalW(initiatorinstance: ::windows_sys::core::PCWSTR, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
+    pub fn AddIScsiStaticTargetA(targetname: ::windows_sys::core::PCSTR, targetalias: ::windows_sys::core::PCSTR, targetflags: u32, persist: super::super::Foundation::BOOLEAN, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddIScsiSendTargetPortalA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddIScsiSendTargetPortalW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddIScsiStaticTargetA(targetname: super::super::Foundation::PSTR, targetalias: super::super::Foundation::PSTR, targetflags: u32, persist: super::super::Foundation::BOOLEAN, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddIScsiStaticTargetW(targetname: super::super::Foundation::PWSTR, targetalias: super::super::Foundation::PWSTR, targetflags: u32, persist: super::super::Foundation::BOOLEAN, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPersistentIScsiDeviceA(devicepath: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddPersistentIScsiDeviceW(devicepath: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddRadiusServerA(address: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddRadiusServerW(address: super::super::Foundation::PWSTR) -> u32;
+    pub fn AddIScsiStaticTargetW(targetname: ::windows_sys::core::PCWSTR, targetalias: ::windows_sys::core::PCWSTR, targetflags: u32, persist: super::super::Foundation::BOOLEAN, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn AddPersistentIScsiDeviceA(devicepath: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn AddPersistentIScsiDeviceW(devicepath: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn AddRadiusServerA(address: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn AddRadiusServerW(address: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
     pub fn ClearPersistentIScsiDevices() -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation', 'Win32_System_Ioctl'*"]
@@ -45,110 +37,85 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_System_Ioctl'*"]
     #[cfg(feature = "Win32_System_Ioctl")]
     pub fn GetDevicesForIScsiSessionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONW) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetIScsiIKEInfoA(initiatorname: super::super::Foundation::PSTR, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetIScsiIKEInfoW(initiatorname: super::super::Foundation::PWSTR, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetIScsiInitiatorNodeNameA(initiatornodename: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetIScsiInitiatorNodeNameW(initiatornodename: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn GetIScsiIKEInfoA(initiatorname: ::windows_sys::core::PCSTR, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn GetIScsiIKEInfoW(initiatorname: ::windows_sys::core::PCWSTR, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn GetIScsiInitiatorNodeNameA(initiatornodename: ::windows_sys::core::PSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn GetIScsiInitiatorNodeNameW(initiatornodename: ::windows_sys::core::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
     pub fn GetIScsiSessionListA(buffersize: *mut u32, sessioncount: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFOA) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetIScsiSessionListEx(buffersize: *mut u32, sessioncountptr: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFO_EX) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
     pub fn GetIScsiSessionListW(buffersize: *mut u32, sessioncount: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFOW) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetIScsiTargetInformationA(targetname: super::super::Foundation::PSTR, discoverymechanism: super::super::Foundation::PSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetIScsiTargetInformationW(targetname: super::super::Foundation::PWSTR, discoverymechanism: super::super::Foundation::PWSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn GetIScsiTargetInformationA(targetname: ::windows_sys::core::PCSTR, discoverymechanism: ::windows_sys::core::PCSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn GetIScsiTargetInformationW(targetname: ::windows_sys::core::PCWSTR, discoverymechanism: ::windows_sys::core::PCWSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
     pub fn GetIScsiVersionInformation(versioninfo: *mut ISCSI_VERSION_INFO) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoginIScsiTargetA(targetname: super::super::Foundation::PSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
+    pub fn LoginIScsiTargetA(targetname: ::windows_sys::core::PCSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: ::windows_sys::core::PCSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows_sys::core::PCSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoginIScsiTargetW(targetname: super::super::Foundation::PWSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
+    pub fn LoginIScsiTargetW(targetname: ::windows_sys::core::PCWSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: ::windows_sys::core::PCWSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows_sys::core::PCSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
     pub fn LogoutIScsiTarget(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RefreshISNSServerA(address: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RefreshISNSServerW(address: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RefreshISNSServerA(address: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RefreshISNSServerW(address: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RefreshIScsiSendTargetPortalA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RefreshIScsiSendTargetPortalW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveISNSServerA(address: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveISNSServerW(address: super::super::Foundation::PWSTR) -> u32;
+    pub fn RefreshIScsiSendTargetPortalA(initiatorinstance: ::windows_sys::core::PCSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RefreshIScsiSendTargetPortalW(initiatorinstance: ::windows_sys::core::PCWSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RemoveISNSServerA(address: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RemoveISNSServerW(address: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
     pub fn RemoveIScsiConnection(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveIScsiPersistentTargetA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, targetname: super::super::Foundation::PSTR, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
+    pub fn RemoveIScsiPersistentTargetA(initiatorinstance: ::windows_sys::core::PCSTR, initiatorportnumber: u32, targetname: ::windows_sys::core::PCSTR, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RemoveIScsiPersistentTargetW(initiatorinstance: ::windows_sys::core::PCWSTR, initiatorportnumber: u32, targetname: ::windows_sys::core::PCWSTR, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveIScsiPersistentTargetW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, targetname: super::super::Foundation::PWSTR, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveIScsiSendTargetPortalA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveIScsiSendTargetPortalW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveIScsiStaticTargetA(targetname: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveIScsiStaticTargetW(targetname: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RemovePersistentIScsiDeviceA(devicepath: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RemovePersistentIScsiDeviceW(devicepath: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveRadiusServerA(address: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveRadiusServerW(address: super::super::Foundation::PWSTR) -> u32;
+    pub fn RemoveIScsiSendTargetPortalA(initiatorinstance: ::windows_sys::core::PCSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RemoveIScsiSendTargetPortalW(initiatorinstance: ::windows_sys::core::PCWSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RemoveIScsiStaticTargetA(targetname: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RemoveIScsiStaticTargetW(targetname: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RemovePersistentIScsiDeviceA(devicepath: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RemovePersistentIScsiDeviceW(devicepath: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RemoveRadiusServerA(address: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn RemoveRadiusServerW(address: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ReportActiveIScsiTargetMappingsA(buffersize: *mut u32, mappingcount: *mut u32, mappings: *mut ISCSI_TARGET_MAPPINGA) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
     pub fn ReportActiveIScsiTargetMappingsW(buffersize: *mut u32, mappingcount: *mut u32, mappings: *mut ISCSI_TARGET_MAPPINGW) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportISNSServerListA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportISNSServerListW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportIScsiInitiatorListA(buffersize: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportIScsiInitiatorListW(buffersize: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn ReportISNSServerListA(buffersizeinchar: *mut u32, buffer: ::windows_sys::core::PSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn ReportISNSServerListW(buffersizeinchar: *mut u32, buffer: ::windows_sys::core::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn ReportIScsiInitiatorListA(buffersize: *mut u32, buffer: ::windows_sys::core::PSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn ReportIScsiInitiatorListW(buffersize: *mut u32, buffer: ::windows_sys::core::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ReportIScsiPersistentLoginsA(count: *mut u32, persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOA, buffersizeinbytes: *mut u32) -> u32;
@@ -167,28 +134,23 @@ extern "system" {
     pub fn ReportIScsiSendTargetPortalsW(portalcount: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFOW) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportIScsiTargetPortalsA(initiatorname: super::super::Foundation::PSTR, targetname: super::super::Foundation::PSTR, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALA) -> u32;
+    pub fn ReportIScsiTargetPortalsA(initiatorname: ::windows_sys::core::PCSTR, targetname: ::windows_sys::core::PCSTR, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALA) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn ReportIScsiTargetPortalsW(initiatorname: ::windows_sys::core::PCWSTR, targetname: ::windows_sys::core::PCWSTR, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALW) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportIScsiTargetPortalsW(initiatorname: super::super::Foundation::PWSTR, targetname: super::super::Foundation::PWSTR, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALW) -> u32;
+    pub fn ReportIScsiTargetsA(forceupdate: super::super::Foundation::BOOLEAN, buffersize: *mut u32, buffer: ::windows_sys::core::PSTR) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportIScsiTargetsA(forceupdate: super::super::Foundation::BOOLEAN, buffersize: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportIScsiTargetsW(forceupdate: super::super::Foundation::BOOLEAN, buffersize: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportPersistentIScsiDevicesA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportPersistentIScsiDevicesW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportRadiusServerListA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportRadiusServerListW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
+    pub fn ReportIScsiTargetsW(forceupdate: super::super::Foundation::BOOLEAN, buffersize: *mut u32, buffer: ::windows_sys::core::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn ReportPersistentIScsiDevicesA(buffersizeinchar: *mut u32, buffer: ::windows_sys::core::PSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn ReportPersistentIScsiDevicesW(buffersizeinchar: *mut u32, buffer: ::windows_sys::core::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn ReportRadiusServerListA(buffersizeinchar: *mut u32, buffer: ::windows_sys::core::PSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn ReportRadiusServerListW(buffersizeinchar: *mut u32, buffer: ::windows_sys::core::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
     pub fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
@@ -200,26 +162,24 @@ extern "system" {
     pub fn SetIScsiGroupPresharedKey(keylength: u32, key: *mut u8, persist: super::super::Foundation::BOOLEAN) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetIScsiIKEInfoA(initiatorname: super::super::Foundation::PSTR, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: super::super::Foundation::BOOLEAN) -> u32;
+    pub fn SetIScsiIKEInfoA(initiatorname: ::windows_sys::core::PCSTR, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: super::super::Foundation::BOOLEAN) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetIScsiIKEInfoW(initiatorname: super::super::Foundation::PWSTR, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: super::super::Foundation::BOOLEAN) -> u32;
+    pub fn SetIScsiIKEInfoW(initiatorname: ::windows_sys::core::PCWSTR, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: super::super::Foundation::BOOLEAN) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
     pub fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetIScsiInitiatorNodeNameA(initiatornodename: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetIScsiInitiatorNodeNameW(initiatornodename: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn SetIScsiInitiatorNodeNameA(initiatornodename: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+    pub fn SetIScsiInitiatorNodeNameW(initiatornodename: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
     pub fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetIScsiTunnelModeOuterAddressA(initiatorname: super::super::Foundation::PSTR, initiatorportnumber: u32, destinationaddress: super::super::Foundation::PSTR, outermodeaddress: super::super::Foundation::PSTR, persist: super::super::Foundation::BOOLEAN) -> u32;
+    pub fn SetIScsiTunnelModeOuterAddressA(initiatorname: ::windows_sys::core::PCSTR, initiatorportnumber: u32, destinationaddress: ::windows_sys::core::PCSTR, outermodeaddress: ::windows_sys::core::PCSTR, persist: super::super::Foundation::BOOLEAN) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetIScsiTunnelModeOuterAddressW(initiatorname: super::super::Foundation::PWSTR, initiatorportnumber: u32, destinationaddress: super::super::Foundation::PWSTR, outermodeaddress: super::super::Foundation::PWSTR, persist: super::super::Foundation::BOOLEAN) -> u32;
+    pub fn SetIScsiTunnelModeOuterAddressW(initiatorname: ::windows_sys::core::PCWSTR, initiatorportnumber: u32, destinationaddress: ::windows_sys::core::PCWSTR, outermodeaddress: ::windows_sys::core::PCWSTR, persist: super::super::Foundation::BOOLEAN) -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
     pub fn SetupPersistentIScsiDevices() -> u32;
     #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
@@ -366,17 +326,14 @@ impl ::core::clone::Clone for DUMP_DRIVER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub struct DUMP_DRIVER_EX {
     pub DumpDriverList: *mut ::core::ffi::c_void,
     pub DriverName: [u16; 15],
     pub BaseName: [u16; 15],
     pub DriverFullPath: NTSCSI_UNICODE_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DUMP_DRIVER_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DUMP_DRIVER_EX {
     fn clone(&self) -> Self {
         *self
@@ -843,38 +800,32 @@ pub const ISCSI_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 1i32;
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub struct ISCSI_CONNECTION_INFOA {
     pub ConnectionId: ISCSI_UNIQUE_SESSION_ID,
-    pub InitiatorAddress: super::super::Foundation::PSTR,
-    pub TargetAddress: super::super::Foundation::PSTR,
+    pub InitiatorAddress: ::windows_sys::core::PSTR,
+    pub TargetAddress: ::windows_sys::core::PSTR,
     pub InitiatorSocket: u16,
     pub TargetSocket: u16,
     pub CID: [u8; 2],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ISCSI_CONNECTION_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ISCSI_CONNECTION_INFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub struct ISCSI_CONNECTION_INFOW {
     pub ConnectionId: ISCSI_UNIQUE_SESSION_ID,
-    pub InitiatorAddress: super::super::Foundation::PWSTR,
-    pub TargetAddress: super::super::Foundation::PWSTR,
+    pub InitiatorAddress: ::windows_sys::core::PWSTR,
+    pub TargetAddress: ::windows_sys::core::PWSTR,
     pub InitiatorSocket: u16,
     pub TargetSocket: u16,
     pub CID: [u8; 2],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ISCSI_CONNECTION_INFOW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ISCSI_CONNECTION_INFOW {
     fn clone(&self) -> Self {
         *self
@@ -1015,42 +966,36 @@ pub const ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED: &'static str = "0x00000040"
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub const ISCSI_SECURITY_FLAG_VALID: &'static str = "0x00000001";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub struct ISCSI_SESSION_INFOA {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
-    pub InitiatorName: super::super::Foundation::PSTR,
-    pub TargetNodeName: super::super::Foundation::PSTR,
-    pub TargetName: super::super::Foundation::PSTR,
+    pub InitiatorName: ::windows_sys::core::PSTR,
+    pub TargetNodeName: ::windows_sys::core::PSTR,
+    pub TargetName: ::windows_sys::core::PSTR,
     pub ISID: [u8; 6],
     pub TSID: [u8; 2],
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFOA,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ISCSI_SESSION_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ISCSI_SESSION_INFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub struct ISCSI_SESSION_INFOW {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
-    pub InitiatorName: super::super::Foundation::PWSTR,
-    pub TargetNodeName: super::super::Foundation::PWSTR,
-    pub TargetName: super::super::Foundation::PWSTR,
+    pub InitiatorName: ::windows_sys::core::PWSTR,
+    pub TargetNodeName: ::windows_sys::core::PWSTR,
+    pub TargetName: ::windows_sys::core::PWSTR,
     pub ISID: [u8; 6],
     pub TSID: [u8; 2],
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFOW,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ISCSI_SESSION_INFOW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ISCSI_SESSION_INFOW {
     fn clone(&self) -> Self {
         *self
@@ -1531,16 +1476,13 @@ pub const NRB_OUTPUT_DATA_UNDERRUN: u32 = 6u32;
 #[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub const NRB_SUCCESS: u32 = 0u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
 pub struct NTSCSI_UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: super::super::Foundation::PWSTR,
+    pub Buffer: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NTSCSI_UNICODE_STRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NTSCSI_UNICODE_STRING {
     fn clone(&self) -> Self {
         *self

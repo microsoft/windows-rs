@@ -1053,31 +1053,25 @@ pub const SPDKL_CurrentConfig: SPDATAKEYLOCATION = 5i32;
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDICTATION: &'static str = "*";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPDISPLAYPHRASE {
     pub ulNumTokens: u32,
     pub pTokens: *mut SPDISPLAYTOKEN,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPDISPLAYPHRASE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPDISPLAYPHRASE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPDISPLAYTOKEN {
-    pub pszLexical: super::super::Foundation::PWSTR,
-    pub pszDisplay: super::super::Foundation::PWSTR,
+    pub pszLexical: ::windows_sys::core::PCWSTR,
+    pub pszDisplay: ::windows_sys::core::PCWSTR,
     pub bDisplayAttributes: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPDISPLAYTOKEN {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPDISPLAYTOKEN {
     fn clone(&self) -> Self {
         *self
@@ -1513,7 +1507,7 @@ pub const SPPS_SuppressWord: SPPARTOFSPEECH = 61440i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASE {
     pub __AnonymousBase_sapi53_L5821_C34: SPPHRASE_50,
-    pub pSML: super::super::Foundation::PWSTR,
+    pub pSML: ::windows_sys::core::PWSTR,
     pub pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1525,8 +1519,7 @@ impl ::core::clone::Clone for SPPHRASE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPPHRASEELEMENT {
     pub ulAudioTimeOffset: u32,
     pub ulAudioSizeTime: u32,
@@ -1534,8 +1527,8 @@ pub struct SPPHRASEELEMENT {
     pub ulAudioSizeBytes: u32,
     pub ulRetainedStreamOffset: u32,
     pub ulRetainedSizeBytes: u32,
-    pub pszDisplayText: super::super::Foundation::PWSTR,
-    pub pszLexicalForm: super::super::Foundation::PWSTR,
+    pub pszDisplayText: ::windows_sys::core::PCWSTR,
+    pub pszLexicalForm: ::windows_sys::core::PCWSTR,
     pub pszPronunciation: *const u16,
     pub bDisplayAttributes: u8,
     pub RequiredConfidence: i8,
@@ -1543,9 +1536,7 @@ pub struct SPPHRASEELEMENT {
     pub Reserved: u8,
     pub SREngineConfidence: f32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPPHRASEELEMENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPPHRASEELEMENT {
     fn clone(&self) -> Self {
         *self
@@ -1555,9 +1546,9 @@ impl ::core::clone::Clone for SPPHRASEELEMENT {
 #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASEPROPERTY {
-    pub pszName: super::super::Foundation::PWSTR,
+    pub pszName: ::windows_sys::core::PCWSTR,
     pub Anonymous: SPPHRASEPROPERTY_0,
-    pub pszValue: super::super::Foundation::PWSTR,
+    pub pszValue: ::windows_sys::core::PCWSTR,
     pub vValue: super::super::System::Com::VARIANT,
     pub ulFirstElement: u32,
     pub ulCountOfElements: u32,
@@ -1612,17 +1603,14 @@ pub const SPPPUT_UNUSED: SPPHRASEPROPERTYUNIONTYPE = 0i32;
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPPUT_ARRAY_INDEX: SPPHRASEPROPERTYUNIONTYPE = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPPHRASEREPLACEMENT {
     pub bDisplayAttributes: u8,
-    pub pszReplacementText: super::super::Foundation::PWSTR,
+    pub pszReplacementText: ::windows_sys::core::PCWSTR,
     pub ulFirstElement: u32,
     pub ulCountOfElements: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPPHRASEREPLACEMENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPPHRASEREPLACEMENT {
     fn clone(&self) -> Self {
         *self
@@ -1633,10 +1621,9 @@ pub type SPPHRASERNG = i32;
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPR_ALL_ELEMENTS: SPPHRASERNG = -1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPPHRASERULE {
-    pub pszName: super::super::Foundation::PWSTR,
+    pub pszName: ::windows_sys::core::PCWSTR,
     pub ulId: u32,
     pub ulFirstElement: u32,
     pub ulCountOfElements: u32,
@@ -1645,9 +1632,7 @@ pub struct SPPHRASERULE {
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPPHRASERULE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPPHRASERULE {
     fn clone(&self) -> Self {
         *self
@@ -1691,9 +1676,9 @@ pub const ePRONFLAG_USED: SPPRONUNCIATIONFLAGS = 1i32;
 #[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPROPERTYINFO {
-    pub pszName: super::super::Foundation::PWSTR,
+    pub pszName: ::windows_sys::core::PCWSTR,
     pub ulId: u32,
-    pub pszValue: super::super::Foundation::PWSTR,
+    pub pszValue: ::windows_sys::core::PCWSTR,
     pub vValue: super::super::System::Com::VARIANT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1812,16 +1797,13 @@ pub const SPREG_USER_ROOT: &'static str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsof
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRP_NORMAL: u32 = 0u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPRULE {
-    pub pszRuleName: super::super::Foundation::PWSTR,
+    pub pszRuleName: ::windows_sys::core::PCWSTR,
     pub ulRuleId: u32,
     pub dwAttributes: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPRULE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPRULE {
     fn clone(&self) -> Self {
         *self
@@ -1844,18 +1826,15 @@ pub const SPRS_DONE: SPRUNSTATE = 1i32;
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRS_IS_SPEAKING: SPRUNSTATE = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPSEMANTICERRORINFO {
     pub ulLineNumber: u32,
-    pub pszScriptLine: super::super::Foundation::PWSTR,
-    pub pszSource: super::super::Foundation::PWSTR,
-    pub pszDescription: super::super::Foundation::PWSTR,
+    pub pszScriptLine: ::windows_sys::core::PWSTR,
+    pub pszSource: ::windows_sys::core::PWSTR,
+    pub pszDescription: ::windows_sys::core::PWSTR,
     pub hrResultCode: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPSEMANTICERRORINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPSEMANTICERRORINFO {
     fn clone(&self) -> Self {
         *self
@@ -1926,34 +1905,28 @@ impl ::core::clone::Clone for SPSERIALIZEDRESULT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPSHORTCUTPAIR {
     pub pNextSHORTCUTPAIR: *mut SPSHORTCUTPAIR,
     pub LangID: u16,
     pub shType: SPSHORTCUTTYPE,
-    pub pszDisplay: super::super::Foundation::PWSTR,
-    pub pszSpoken: super::super::Foundation::PWSTR,
+    pub pszDisplay: ::windows_sys::core::PWSTR,
+    pub pszSpoken: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPSHORTCUTPAIR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPSHORTCUTPAIR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPSHORTCUTPAIRLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
     pub pFirstShortcutPair: *mut SPSHORTCUTPAIR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPSHORTCUTPAIRLIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPSHORTCUTPAIRLIST {
     fn clone(&self) -> Self {
         *self
@@ -2201,16 +2174,13 @@ pub const SPDF_ALTERNATES: SPVALUETYPE = 128i32;
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDF_ALL: SPVALUETYPE = 255i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPVCONTEXT {
-    pub pCategory: super::super::Foundation::PWSTR,
-    pub pBefore: super::super::Foundation::PWSTR,
-    pub pAfter: super::super::Foundation::PWSTR,
+    pub pCategory: ::windows_sys::core::PCWSTR,
+    pub pBefore: ::windows_sys::core::PCWSTR,
+    pub pAfter: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPVCONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPVCONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -2324,8 +2294,7 @@ pub const SPVPRI_ALERT: SPVPRIORITY = 1i32;
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVPRI_OVER: SPVPRIORITY = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPVSTATE {
     pub eAction: SPVACTIONS,
     pub LangID: u16,
@@ -2339,9 +2308,7 @@ pub struct SPVSTATE {
     pub ePartOfSpeech: SPPARTOFSPEECH,
     pub Context: SPVCONTEXT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPVSTATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPVSTATE {
     fn clone(&self) -> Self {
         *self
@@ -2356,35 +2323,29 @@ pub const SPWF_SRENGINE: SPWAVEFORMATTYPE = 1i32;
 #[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPWILDCARD: &'static str = "...";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPWORD {
     pub pNextWord: *mut SPWORD,
     pub LangID: u16,
     pub wReserved: u16,
     pub eWordType: SPWORDTYPE,
-    pub pszWord: super::super::Foundation::PWSTR,
+    pub pszWord: ::windows_sys::core::PWSTR,
     pub pFirstWordPronunciation: *mut SPWORDPRONUNCIATION,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPWORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPWORD {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPWORDLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
     pub pFirstWord: *mut SPWORD,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPWORDLIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPWORDLIST {
     fn clone(&self) -> Self {
         *self

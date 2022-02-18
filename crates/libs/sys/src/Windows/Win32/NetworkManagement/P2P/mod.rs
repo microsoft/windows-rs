@@ -11,16 +11,15 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub fn DrtCreateDerivedKeySecurityProvider(prootcert: *const super::super::Security::Cryptography::CERT_CONTEXT, plocalcert: *const super::super::Security::Cryptography::CERT_CONTEXT, ppsecurityprovider: *mut *mut DRT_SECURITY_PROVIDER) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrtCreateDnsBootstrapResolver(port: u16, pwszaddress: super::super::Foundation::PWSTR, ppmodule: *mut *mut DRT_BOOTSTRAP_PROVIDER) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn DrtCreateDnsBootstrapResolver(port: u16, pwszaddress: ::windows_sys::core::PCWSTR, ppmodule: *mut *mut DRT_BOOTSTRAP_PROVIDER) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn DrtCreateIpv6UdpTransport(scope: DRT_SCOPE, dwscopeid: u32, dwlocalitythreshold: u32, pwport: *mut u16, phtransport: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn DrtCreateNullSecurityProvider(ppsecurityprovider: *mut *mut DRT_SECURITY_PROVIDER) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DrtCreatePnrpBootstrapResolver(fpublish: super::super::Foundation::BOOL, pwzpeername: super::super::Foundation::PWSTR, pwzcloudname: super::super::Foundation::PWSTR, pwzpublishingidentity: super::super::Foundation::PWSTR, ppresolver: *mut *mut DRT_BOOTSTRAP_PROVIDER) -> ::windows_sys::core::HRESULT;
+    pub fn DrtCreatePnrpBootstrapResolver(fpublish: super::super::Foundation::BOOL, pwzpeername: ::windows_sys::core::PCWSTR, pwzcloudname: ::windows_sys::core::PCWSTR, pwzpublishingidentity: ::windows_sys::core::PCWSTR, ppresolver: *mut *mut DRT_BOOTSTRAP_PROVIDER) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER);
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
@@ -38,9 +37,8 @@ extern "system" {
     pub fn DrtGetEventData(hdrt: *const ::core::ffi::c_void, uleventdatalen: u32, peventdata: *mut DRT_EVENT_DATA) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn DrtGetEventDataSize(hdrt: *const ::core::ffi::c_void, puleventdatalen: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrtGetInstanceName(hdrt: *const ::core::ffi::c_void, ulcbinstancenamesize: u32, pwzdrtinstancename: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn DrtGetInstanceName(hdrt: *const ::core::ffi::c_void, ulcbinstancenamesize: u32, pwzdrtinstancename: ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn DrtGetInstanceNameSize(hdrt: *const ::core::ffi::c_void, pulcbinstancenamesize: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
@@ -66,7 +64,7 @@ extern "system" {
     pub fn DrtUpdateKey(hkeyregistration: *const ::core::ffi::c_void, pappdata: *const DRT_DATA) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerCollabAddContact(pwzcontactdata: super::super::Foundation::PWSTR, ppcontact: *mut *mut PEER_CONTACT) -> ::windows_sys::core::HRESULT;
+    pub fn PeerCollabAddContact(pwzcontactdata: ::windows_sys::core::PCWSTR, ppcontact: *mut *mut PEER_CONTACT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn PeerCollabAsyncInviteContact(pccontact: *const PEER_CONTACT, pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: super::super::Foundation::HANDLE, phinvitation: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
@@ -79,83 +77,76 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerCollabCloseHandle(hinvitation: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerCollabDeleteContact(pwzpeername: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerCollabDeleteContact(pwzpeername: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub fn PeerCollabDeleteEndpointData(pcendpoint: *const PEER_ENDPOINT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabDeleteObject(pobjectid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabEnumApplicationRegistrationInfo(registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub fn PeerCollabEnumApplications(pcendpoint: *const PEER_ENDPOINT, papplicationid: *const ::windows_sys::core::GUID, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabEnumContacts(phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerCollabEnumEndpoints(pccontact: *const PEER_CONTACT, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub fn PeerCollabEnumObjects(pcendpoint: *const PEER_ENDPOINT, pobjectid: *const ::windows_sys::core::GUID, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabEnumPeopleNearMe(phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerCollabExportContact(pwzpeername: super::super::Foundation::PWSTR, ppwzcontactdata: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerCollabExportContact(pwzpeername: ::windows_sys::core::PCWSTR, ppwzcontactdata: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn PeerCollabGetAppLaunchInfo(pplaunchinfo: *mut *mut PEER_APP_LAUNCH_INFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabGetApplicationRegistrationInfo(papplicationid: *const ::windows_sys::core::GUID, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, ppapplication: *mut *mut PEER_APPLICATION_REGISTRATION_INFO) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerCollabGetContact(pwzpeername: super::super::Foundation::PWSTR, ppcontact: *mut *mut PEER_CONTACT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerCollabGetEndpointName(ppwzendpointname: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PeerCollabGetContact(pwzpeername: ::windows_sys::core::PCWSTR, ppcontact: *mut *mut PEER_CONTACT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerCollabGetEndpointName(ppwzendpointname: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn PeerCollabGetEventData(hpeerevent: *const ::core::ffi::c_void, ppeventdata: *mut *mut PEER_COLLAB_EVENT_DATA) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerCollabGetInvitationResponse(hinvitation: super::super::Foundation::HANDLE, ppinvitationresponse: *mut *mut PEER_INVITATION_RESPONSE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub fn PeerCollabGetPresenceInfo(pcendpoint: *const PEER_ENDPOINT, pppresenceinfo: *mut *mut PEER_PRESENCE_INFO) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabGetSigninOptions(pdwsigninoptions: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn PeerCollabInviteContact(pccontact: *const PEER_CONTACT, pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, ppresponse: *mut *mut PEER_INVITATION_RESPONSE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub fn PeerCollabInviteEndpoint(pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, ppresponse: *mut *mut PEER_INVITATION_RESPONSE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerCollabParseContact(pwzcontactdata: super::super::Foundation::PWSTR, ppcontact: *mut *mut PEER_CONTACT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn PeerCollabQueryContactData(pcendpoint: *const PEER_ENDPOINT, ppwzcontactdata: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    pub fn PeerCollabParseContact(pwzcontactdata: ::windows_sys::core::PCWSTR, ppcontact: *mut *mut PEER_CONTACT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
+    pub fn PeerCollabQueryContactData(pcendpoint: *const PEER_ENDPOINT, ppwzcontactdata: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub fn PeerCollabRefreshEndpointData(pcendpoint: *const PEER_ENDPOINT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabRegisterApplication(pcapplication: *const PEER_APPLICATION_REGISTRATION_INFO, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerCollabRegisterEvent(hevent: super::super::Foundation::HANDLE, ceventregistration: u32, peventregistrations: *const PEER_COLLAB_EVENT_REGISTRATION, phpeerevent: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerCollabSetEndpointName(pwzendpointname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerCollabSetEndpointName(pwzendpointname: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabSetObject(pcobject: *const PEER_OBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabSetPresenceInfo(pcpresenceinfo: *const PEER_PRESENCE_INFO) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabShutdown() -> ::windows_sys::core::HRESULT;
@@ -166,22 +157,21 @@ extern "system" {
     pub fn PeerCollabSignout(dwsigninoptions: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabStartup(wversionrequested: u16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub fn PeerCollabSubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabUnregisterApplication(papplicationid: *const ::windows_sys::core::GUID, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerCollabUnregisterEvent(hpeerevent: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub fn PeerCollabUnsubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerCollabUpdateContact(pcontact: *const PEER_CONTACT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerCreatePeerName(pwzidentity: super::super::Foundation::PWSTR, pwzclassifier: super::super::Foundation::PWSTR, ppwzpeername: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerCreatePeerName(pwzidentity: ::windows_sys::core::PCWSTR, pwzclassifier: ::windows_sys::core::PCWSTR, ppwzpeername: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn PeerDistClientAddContentInformation(hpeerdist: isize, hcontenthandle: isize, cbnumberofbytes: u32, pbuffer: *const u8, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
@@ -258,9 +248,8 @@ extern "system" {
     pub fn PeerDistUnregisterForStatusChangeNotification(hpeerdist: isize) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerEndEnumeration(hpeerenum: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerEnumGroups(pwzidentity: super::super::Foundation::PWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerEnumGroups(pwzidentity: ::windows_sys::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerEnumIdentities(phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
@@ -276,15 +265,14 @@ extern "system" {
     pub fn PeerGraphClose(hgraph: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphCloseDirectConnection(hgraph: *const ::core::ffi::c_void, ullconnectionid: u64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn PeerGraphConnect(hgraph: *const ::core::ffi::c_void, pwzpeerid: super::super::Foundation::PWSTR, paddress: *const PEER_ADDRESS, pullconnectionid: *mut u64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
+    pub fn PeerGraphConnect(hgraph: *const ::core::ffi::c_void, pwzpeerid: ::windows_sys::core::PCWSTR, paddress: *const PEER_ADDRESS, pullconnectionid: *mut u64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGraphCreate(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: super::super::Foundation::PWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGraphDelete(pwzgraphid: super::super::Foundation::PWSTR, pwzpeerid: super::super::Foundation::PWSTR, pwzdatabasename: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PeerGraphCreate(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: ::windows_sys::core::PCWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGraphDelete(pwzgraphid: ::windows_sys::core::PCWSTR, pwzpeerid: ::windows_sys::core::PCWSTR, pwzdatabasename: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerGraphDeleteRecord(hgraph: *const ::core::ffi::c_void, precordid: *const ::windows_sys::core::GUID, flocal: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
@@ -292,65 +280,56 @@ extern "system" {
     pub fn PeerGraphEndEnumeration(hpeerenum: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphEnumConnections(hgraph: *const ::core::ffi::c_void, dwflags: u32, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGraphEnumNodes(hgraph: *const ::core::ffi::c_void, pwzpeerid: super::super::Foundation::PWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGraphEnumRecords(hgraph: *const ::core::ffi::c_void, precordtype: *const ::windows_sys::core::GUID, pwzpeerid: super::super::Foundation::PWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGraphExportDatabase(hgraph: *const ::core::ffi::c_void, pwzfilepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGraphEnumNodes(hgraph: *const ::core::ffi::c_void, pwzpeerid: ::windows_sys::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGraphEnumRecords(hgraph: *const ::core::ffi::c_void, precordtype: *const ::windows_sys::core::GUID, pwzpeerid: ::windows_sys::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGraphExportDatabase(hgraph: *const ::core::ffi::c_void, pwzfilepath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphFreeData(pvdata: *const ::core::ffi::c_void);
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphGetEventData(hpeerevent: *const ::core::ffi::c_void, ppeventdata: *mut *mut PEER_GRAPH_EVENT_DATA) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphGetItemCount(hpeerenum: *const ::core::ffi::c_void, pcount: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphGetNextItem(hpeerenum: *const ::core::ffi::c_void, pcount: *mut u32, pppvitems: *mut *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
     pub fn PeerGraphGetNodeInfo(hgraph: *const ::core::ffi::c_void, ullnodeid: u64, ppnodeinfo: *mut *mut PEER_NODE_INFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphGetProperties(hgraph: *const ::core::ffi::c_void, ppgraphproperties: *mut *mut PEER_GRAPH_PROPERTIES) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerGraphGetRecord(hgraph: *const ::core::ffi::c_void, precordid: *const ::windows_sys::core::GUID, pprecord: *mut *mut PEER_RECORD) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphGetStatus(hgraph: *const ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGraphImportDatabase(hgraph: *const ::core::ffi::c_void, pwzfilepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGraphImportDatabase(hgraph: *const ::core::ffi::c_void, pwzfilepath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphListen(hgraph: *const ::core::ffi::c_void, dwscope: u32, dwscopeid: u32, wport: u16) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGraphOpen(pwzgraphid: super::super::Foundation::PWSTR, pwzpeerid: super::super::Foundation::PWSTR, pwzdatabasename: super::super::Foundation::PWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, crecordtypesyncprecedence: u32, precordtypesyncprecedence: *const ::windows_sys::core::GUID, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn PeerGraphOpenDirectConnection(hgraph: *const ::core::ffi::c_void, pwzpeerid: super::super::Foundation::PWSTR, paddress: *const PEER_ADDRESS, pullconnectionid: *mut u64) -> ::windows_sys::core::HRESULT;
+    pub fn PeerGraphOpen(pwzgraphid: ::windows_sys::core::PCWSTR, pwzpeerid: ::windows_sys::core::PCWSTR, pwzdatabasename: ::windows_sys::core::PCWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, crecordtypesyncprecedence: u32, precordtypesyncprecedence: *const ::windows_sys::core::GUID, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
+    pub fn PeerGraphOpenDirectConnection(hgraph: *const ::core::ffi::c_void, pwzpeerid: ::windows_sys::core::PCWSTR, paddress: *const PEER_ADDRESS, pullconnectionid: *mut u64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerGraphPeerTimeToUniversalTime(hgraph: *const ::core::ffi::c_void, pftpeertime: *const super::super::Foundation::FILETIME, pftuniversaltime: *mut super::super::Foundation::FILETIME) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerGraphRegisterEvent(hgraph: *const ::core::ffi::c_void, hevent: super::super::Foundation::HANDLE, ceventregistrations: u32, peventregistrations: *const PEER_GRAPH_EVENT_REGISTRATION, phpeerevent: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGraphSearchRecords(hgraph: *const ::core::ffi::c_void, pwzcriteria: super::super::Foundation::PWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGraphSearchRecords(hgraph: *const ::core::ffi::c_void, pwzcriteria: ::windows_sys::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphSendData(hgraph: *const ::core::ffi::c_void, ullconnectionid: u64, ptype: *const ::windows_sys::core::GUID, cbdata: u32, pvdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGraphSetNodeAttributes(hgraph: *const ::core::ffi::c_void, pwzattributes: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGraphSetNodeAttributes(hgraph: *const ::core::ffi::c_void, pwzattributes: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerGraphSetPresence(hgraph: *const ::core::ffi::c_void, fpresent: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphSetProperties(hgraph: *const ::core::ffi::c_void, pgraphproperties: *const PEER_GRAPH_PROPERTIES) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGraphShutdown() -> ::windows_sys::core::HRESULT;
@@ -378,38 +357,30 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub fn PeerGroupConnectByAddress(hgroup: *const ::core::ffi::c_void, caddresses: u32, paddresses: *const PEER_ADDRESS) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGroupCreate(pproperties: *const PEER_GROUP_PROPERTIES, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupCreateInvitation(hgroup: *const ::core::ffi::c_void, pwzidentityinfo: super::super::Foundation::PWSTR, pftexpiration: *const super::super::Foundation::FILETIME, croles: u32, proles: *const ::windows_sys::core::GUID, ppwzinvitation: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupCreatePasswordInvitation(hgroup: *const ::core::ffi::c_void, ppwzinvitation: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupDelete(pwzidentity: super::super::Foundation::PWSTR, pwzgrouppeername: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PeerGroupCreateInvitation(hgroup: *const ::core::ffi::c_void, pwzidentityinfo: ::windows_sys::core::PCWSTR, pftexpiration: *const super::super::Foundation::FILETIME, croles: u32, proles: *const ::windows_sys::core::GUID, ppwzinvitation: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGroupCreatePasswordInvitation(hgroup: *const ::core::ffi::c_void, ppwzinvitation: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGroupDelete(pwzidentity: ::windows_sys::core::PCWSTR, pwzgrouppeername: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGroupDeleteRecord(hgroup: *const ::core::ffi::c_void, precordid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGroupEnumConnections(hgroup: *const ::core::ffi::c_void, dwflags: u32, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupEnumMembers(hgroup: *const ::core::ffi::c_void, dwflags: u32, pwzidentity: super::super::Foundation::PWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGroupEnumMembers(hgroup: *const ::core::ffi::c_void, dwflags: u32, pwzidentity: ::windows_sys::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGroupEnumRecords(hgroup: *const ::core::ffi::c_void, precordtype: *const ::windows_sys::core::GUID, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupExportConfig(hgroup: *const ::core::ffi::c_void, pwzpassword: super::super::Foundation::PWSTR, ppwzxml: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupExportDatabase(hgroup: *const ::core::ffi::c_void, pwzfilepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGroupExportConfig(hgroup: *const ::core::ffi::c_void, pwzpassword: ::windows_sys::core::PCWSTR, ppwzxml: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGroupExportDatabase(hgroup: *const ::core::ffi::c_void, pwzfilepath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGroupGetEventData(hpeerevent: *const ::core::ffi::c_void, ppeventdata: *mut *mut PEER_GROUP_EVENT_DATA) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGroupGetProperties(hgroup: *const ::core::ffi::c_void, ppproperties: *mut *mut PEER_GROUP_PROPERTIES) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -418,28 +389,24 @@ extern "system" {
     pub fn PeerGroupGetStatus(hgroup: *const ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupImportConfig(pwzxml: super::super::Foundation::PWSTR, pwzpassword: super::super::Foundation::PWSTR, foverwrite: super::super::Foundation::BOOL, ppwzidentity: *mut super::super::Foundation::PWSTR, ppwzgroup: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupImportDatabase(hgroup: *const ::core::ffi::c_void, pwzfilepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PeerGroupImportConfig(pwzxml: ::windows_sys::core::PCWSTR, pwzpassword: ::windows_sys::core::PCWSTR, foverwrite: super::super::Foundation::BOOL, ppwzidentity: *mut ::windows_sys::core::PWSTR, ppwzgroup: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGroupImportDatabase(hgroup: *const ::core::ffi::c_void, pwzfilepath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub fn PeerGroupIssueCredentials(hgroup: *const ::core::ffi::c_void, pwzsubjectidentity: super::super::Foundation::PWSTR, pcredentialinfo: *const PEER_CREDENTIAL_INFO, dwflags: u32, ppwzinvitation: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupJoin(pwzidentity: super::super::Foundation::PWSTR, pwzinvitation: super::super::Foundation::PWSTR, pwzcloud: super::super::Foundation::PWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupOpen(pwzidentity: super::super::Foundation::PWSTR, pwzgrouppeername: super::super::Foundation::PWSTR, pwzcloud: super::super::Foundation::PWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn PeerGroupOpenDirectConnection(hgroup: *const ::core::ffi::c_void, pwzidentity: super::super::Foundation::PWSTR, paddress: *const PEER_ADDRESS, pullconnectionid: *mut u64) -> ::windows_sys::core::HRESULT;
+    pub fn PeerGroupIssueCredentials(hgroup: *const ::core::ffi::c_void, pwzsubjectidentity: ::windows_sys::core::PCWSTR, pcredentialinfo: *const PEER_CREDENTIAL_INFO, dwflags: u32, ppwzinvitation: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGroupJoin(pwzidentity: ::windows_sys::core::PCWSTR, pwzinvitation: ::windows_sys::core::PCWSTR, pwzcloud: ::windows_sys::core::PCWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGroupOpen(pwzidentity: ::windows_sys::core::PCWSTR, pwzgrouppeername: ::windows_sys::core::PCWSTR, pwzcloud: ::windows_sys::core::PCWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+    #[cfg(feature = "Win32_Networking_WinSock")]
+    pub fn PeerGroupOpenDirectConnection(hgroup: *const ::core::ffi::c_void, pwzidentity: ::windows_sys::core::PCWSTR, paddress: *const PEER_ADDRESS, pullconnectionid: *mut u64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub fn PeerGroupParseInvitation(pwzinvitation: super::super::Foundation::PWSTR, ppinvitationinfo: *mut *mut PEER_INVITATION_INFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupPasswordJoin(pwzidentity: super::super::Foundation::PWSTR, pwzinvitation: super::super::Foundation::PWSTR, pwzpassword: super::super::Foundation::PWSTR, pwzcloud: super::super::Foundation::PWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PeerGroupParseInvitation(pwzinvitation: ::windows_sys::core::PCWSTR, ppinvitationinfo: *mut *mut PEER_INVITATION_INFO) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGroupPasswordJoin(pwzidentity: ::windows_sys::core::PCWSTR, pwzinvitation: ::windows_sys::core::PCWSTR, pwzpassword: ::windows_sys::core::PCWSTR, pwzcloud: ::windows_sys::core::PCWSTR, phgroup: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerGroupPeerTimeToUniversalTime(hgroup: *const ::core::ffi::c_void, pftpeertime: *const super::super::Foundation::FILETIME, pftuniversaltime: *mut super::super::Foundation::FILETIME) -> ::windows_sys::core::HRESULT;
@@ -448,13 +415,11 @@ extern "system" {
     pub fn PeerGroupRegisterEvent(hgroup: *const ::core::ffi::c_void, hevent: super::super::Foundation::HANDLE, ceventregistration: u32, peventregistrations: *const PEER_GROUP_EVENT_REGISTRATION, phpeerevent: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGroupResumePasswordAuthentication(hgroup: *const ::core::ffi::c_void, hpeereventhandle: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerGroupSearchRecords(hgroup: *const ::core::ffi::c_void, pwzcriteria: super::super::Foundation::PWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerGroupSearchRecords(hgroup: *const ::core::ffi::c_void, pwzcriteria: ::windows_sys::core::PCWSTR, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGroupSendData(hgroup: *const ::core::ffi::c_void, ullconnectionid: u64, ptype: *const ::windows_sys::core::GUID, cbdata: u32, pvdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGroupSetProperties(hgroup: *const ::core::ffi::c_void, pproperties: *const PEER_GROUP_PROPERTIES) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerGroupShutdown() -> ::windows_sys::core::HRESULT;
@@ -468,58 +433,46 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PeerGroupUpdateRecord(hgroup: *const ::core::ffi::c_void, precord: *const PEER_RECORD) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerHostNameToPeerName(pwzhostname: super::super::Foundation::PWSTR, ppwzpeername: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerIdentityCreate(pwzclassifier: super::super::Foundation::PWSTR, pwzfriendlyname: super::super::Foundation::PWSTR, hcryptprov: usize, ppwzidentity: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerIdentityDelete(pwzidentity: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerIdentityExport(pwzidentity: super::super::Foundation::PWSTR, pwzpassword: super::super::Foundation::PWSTR, ppwzexportxml: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerIdentityGetCryptKey(pwzidentity: super::super::Foundation::PWSTR, phcryptprov: *mut usize) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerIdentityGetDefault(ppwzpeername: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerIdentityGetFriendlyName(pwzidentity: super::super::Foundation::PWSTR, ppwzfriendlyname: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerIdentityGetXML(pwzidentity: super::super::Foundation::PWSTR, ppwzidentityxml: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerIdentityImport(pwzimportxml: super::super::Foundation::PWSTR, pwzpassword: super::super::Foundation::PWSTR, ppwzidentity: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerIdentitySetFriendlyName(pwzidentity: super::super::Foundation::PWSTR, pwzfriendlyname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerNameToPeerHostName(pwzpeername: super::super::Foundation::PWSTR, ppwzhostname: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerHostNameToPeerName(pwzhostname: ::windows_sys::core::PCWSTR, ppwzpeername: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerIdentityCreate(pwzclassifier: ::windows_sys::core::PCWSTR, pwzfriendlyname: ::windows_sys::core::PCWSTR, hcryptprov: usize, ppwzidentity: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerIdentityDelete(pwzidentity: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerIdentityExport(pwzidentity: ::windows_sys::core::PCWSTR, pwzpassword: ::windows_sys::core::PCWSTR, ppwzexportxml: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerIdentityGetCryptKey(pwzidentity: ::windows_sys::core::PCWSTR, phcryptprov: *mut usize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerIdentityGetDefault(ppwzpeername: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerIdentityGetFriendlyName(pwzidentity: ::windows_sys::core::PCWSTR, ppwzfriendlyname: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerIdentityGetXML(pwzidentity: ::windows_sys::core::PCWSTR, ppwzidentityxml: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerIdentityImport(pwzimportxml: ::windows_sys::core::PCWSTR, pwzpassword: ::windows_sys::core::PCWSTR, ppwzidentity: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerIdentitySetFriendlyName(pwzidentity: ::windows_sys::core::PCWSTR, pwzfriendlyname: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
+    pub fn PeerNameToPeerHostName(pwzpeername: ::windows_sys::core::PCWSTR, ppwzhostname: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerPnrpEndResolve(hresolve: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerPnrpGetCloudInfo(pcnumclouds: *mut u32, ppcloudinfo: *mut *mut PEER_PNRP_CLOUD_INFO) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn PeerPnrpGetEndpoint(hresolve: *const ::core::ffi::c_void, ppendpoint: *mut *mut PEER_PNRP_ENDPOINT_INFO) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn PeerPnrpRegister(pcwzpeername: super::super::Foundation::PWSTR, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO, phregistration: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PeerPnrpRegister(pcwzpeername: ::windows_sys::core::PCWSTR, pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO, phregistration: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-    pub fn PeerPnrpResolve(pcwzpeername: super::super::Foundation::PWSTR, pcwzcloudname: super::super::Foundation::PWSTR, pcendpoints: *mut u32, ppendpoints: *mut *mut PEER_PNRP_ENDPOINT_INFO) -> ::windows_sys::core::HRESULT;
+    pub fn PeerPnrpResolve(pcwzpeername: ::windows_sys::core::PCWSTR, pcwzcloudname: ::windows_sys::core::PCWSTR, pcendpoints: *mut u32, ppendpoints: *mut *mut PEER_PNRP_ENDPOINT_INFO) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerPnrpShutdown() -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PeerPnrpStartResolve(pcwzpeername: super::super::Foundation::PWSTR, pcwzcloudname: super::super::Foundation::PWSTR, cmaxendpoints: u32, hevent: super::super::Foundation::HANDLE, phresolve: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PeerPnrpStartResolve(pcwzpeername: ::windows_sys::core::PCWSTR, pcwzcloudname: ::windows_sys::core::PCWSTR, cmaxendpoints: u32, hevent: super::super::Foundation::HANDLE, phresolve: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
     pub fn PeerPnrpStartup(wversionrequested: u16) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
@@ -912,23 +865,20 @@ impl ::core::clone::Clone for DRT_SECURITY_PROVIDER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct DRT_SETTINGS {
     pub dwSize: u32,
     pub cbKey: u32,
     pub bProtocolMajorVersion: u8,
     pub bProtocolMinorVersion: u8,
     pub ulMaxRoutingAddresses: u32,
-    pub pwzDrtInstancePrefix: super::super::Foundation::PWSTR,
+    pub pwzDrtInstancePrefix: ::windows_sys::core::PWSTR,
     pub hTransport: *mut ::core::ffi::c_void,
     pub pSecurityProvider: *mut DRT_SECURITY_PROVIDER,
     pub pBootstrapProvider: *mut DRT_BOOTSTRAP_PROVIDER,
     pub eSecurityMode: DRT_SECURITY_MODE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DRT_SETTINGS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DRT_SETTINGS {
     fn clone(&self) -> Self {
         *self
@@ -1067,33 +1017,27 @@ impl ::core::clone::Clone for PEER_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_APPLICATION {
     pub id: ::windows_sys::core::GUID,
     pub data: PEER_DATA,
-    pub pwzDescription: super::super::Foundation::PWSTR,
+    pub pwzDescription: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_APPLICATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_APPLICATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_APPLICATION_REGISTRATION_INFO {
     pub application: PEER_APPLICATION,
-    pub pwzApplicationToLaunch: super::super::Foundation::PWSTR,
-    pub pwzApplicationArguments: super::super::Foundation::PWSTR,
+    pub pwzApplicationToLaunch: ::windows_sys::core::PWSTR,
+    pub pwzApplicationArguments: ::windows_sys::core::PWSTR,
     pub dwPublicationScope: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_APPLICATION_REGISTRATION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_APPLICATION_REGISTRATION_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1208,19 +1152,19 @@ pub const PEER_CONNECTION_NEIGHBOR: PEER_CONNECTION_FLAGS = 1i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEER_CONNECTION_DIRECT: PEER_CONNECTION_FLAGS = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_CONNECTION_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub ullConnectionId: u64,
     pub ullNodeId: u64,
-    pub pwzPeerId: super::super::Foundation::PWSTR,
+    pub pwzPeerId: ::windows_sys::core::PWSTR,
     pub address: PEER_ADDRESS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_CONNECTION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_CONNECTION_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1238,10 +1182,10 @@ pub const PEER_CONNECTION_FAILED: PEER_CONNECTION_STATUS = 3i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_CONTACT {
-    pub pwzPeerName: super::super::Foundation::PWSTR,
-    pub pwzNickName: super::super::Foundation::PWSTR,
-    pub pwzDisplayName: super::super::Foundation::PWSTR,
-    pub pwzEmailAddress: super::super::Foundation::PWSTR,
+    pub pwzPeerName: ::windows_sys::core::PWSTR,
+    pub pwzNickName: ::windows_sys::core::PWSTR,
+    pub pwzDisplayName: ::windows_sys::core::PWSTR,
+    pub pwzEmailAddress: ::windows_sys::core::PWSTR,
     pub fWatch: super::super::Foundation::BOOL,
     pub WatcherPermissions: PEER_WATCH_PERMISSION,
     pub credentials: PEER_DATA,
@@ -1260,10 +1204,10 @@ impl ::core::clone::Clone for PEER_CONTACT {
 pub struct PEER_CREDENTIAL_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub pwzFriendlyName: super::super::Foundation::PWSTR,
+    pub pwzFriendlyName: ::windows_sys::core::PWSTR,
     pub pPublicKey: *mut super::super::Security::Cryptography::CERT_PUBLIC_KEY_INFO,
-    pub pwzIssuerPeerName: super::super::Foundation::PWSTR,
-    pub pwzIssuerFriendlyName: super::super::Foundation::PWSTR,
+    pub pwzIssuerPeerName: ::windows_sys::core::PWSTR,
+    pub pwzIssuerFriendlyName: ::windows_sys::core::PWSTR,
     pub ftValidityStart: super::super::Foundation::FILETIME,
     pub ftValidityEnd: super::super::Foundation::FILETIME,
     pub cRoles: u32,
@@ -1290,15 +1234,15 @@ impl ::core::clone::Clone for PEER_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_ENDPOINT {
     pub address: PEER_ADDRESS,
-    pub pwzEndpointName: super::super::Foundation::PWSTR,
+    pub pwzEndpointName: ::windows_sys::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_ENDPOINT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_ENDPOINT {
     fn clone(&self) -> Self {
         *self
@@ -1367,33 +1311,27 @@ impl ::core::clone::Clone for PEER_EVENT_INCOMING_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_EVENT_MEMBER_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_MEMBER_CHANGE_TYPE,
-    pub pwzIdentity: super::super::Foundation::PWSTR,
+    pub pwzIdentity: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_EVENT_MEMBER_CHANGE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_EVENT_MEMBER_CHANGE_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_EVENT_NODE_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_NODE_CHANGE_TYPE,
     pub ullNodeId: u64,
-    pub pwzPeerId: super::super::Foundation::PWSTR,
+    pub pwzPeerId: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_EVENT_NODE_CHANGE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_EVENT_NODE_CHANGE_DATA {
     fn clone(&self) -> Self {
         *self
@@ -1417,15 +1355,15 @@ impl ::core::clone::Clone for PEER_EVENT_OBJECT_CHANGED_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     pub changeType: PEER_CHANGE_TYPE,
     pub pPeopleNearMe: *mut PEER_PEOPLE_NEAR_ME,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     fn clone(&self) -> Self {
         *self
@@ -1463,15 +1401,15 @@ impl ::core::clone::Clone for PEER_EVENT_RECORD_CHANGE_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub hrChange: ::windows_sys::core::HRESULT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     fn clone(&self) -> Self {
         *self
@@ -1527,23 +1465,19 @@ pub const PEER_E_NOT_FOUND: ::windows_sys::core::HRESULT = -2147023728i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEER_E_TOO_MUCH_LOAD: ::windows_sys::core::HRESULT = -2147013392i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_GRAPH_EVENT_DATA {
     pub eventType: PEER_GRAPH_EVENT_TYPE,
     pub Anonymous: PEER_GRAPH_EVENT_DATA_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_GRAPH_EVENT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_GRAPH_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub union PEER_GRAPH_EVENT_DATA_0 {
     pub dwStatus: PEER_GRAPH_STATUS_FLAGS,
     pub incomingData: PEER_EVENT_INCOMING_DATA,
@@ -1552,9 +1486,7 @@ pub union PEER_GRAPH_EVENT_DATA_0 {
     pub nodeChangeData: PEER_EVENT_NODE_CHANGE_DATA,
     pub synchronizedData: PEER_EVENT_SYNCHRONIZED_DATA,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_GRAPH_EVENT_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_GRAPH_EVENT_DATA_0 {
     fn clone(&self) -> Self {
         *self
@@ -1593,23 +1525,20 @@ pub const PEER_GRAPH_EVENT_NODE_CHANGED: PEER_GRAPH_EVENT_TYPE = 8i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEER_GRAPH_EVENT_SYNCHRONIZED: PEER_GRAPH_EVENT_TYPE = 9i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_GRAPH_PROPERTIES {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwScope: u32,
     pub dwMaxRecordSize: u32,
-    pub pwzGraphId: super::super::Foundation::PWSTR,
-    pub pwzCreatorId: super::super::Foundation::PWSTR,
-    pub pwzFriendlyName: super::super::Foundation::PWSTR,
-    pub pwzComment: super::super::Foundation::PWSTR,
+    pub pwzGraphId: ::windows_sys::core::PWSTR,
+    pub pwzCreatorId: ::windows_sys::core::PWSTR,
+    pub pwzFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwzComment: ::windows_sys::core::PWSTR,
     pub ulPresenceLifetime: u32,
     pub cPresenceMax: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_GRAPH_PROPERTIES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_GRAPH_PROPERTIES {
     fn clone(&self) -> Self {
         *self
@@ -1648,23 +1577,19 @@ pub const PEER_GROUP_GMC_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = 1i32
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEER_GROUP_PASSWORD_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_GROUP_EVENT_DATA {
     pub eventType: PEER_GROUP_EVENT_TYPE,
     pub Anonymous: PEER_GROUP_EVENT_DATA_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_GROUP_EVENT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_GROUP_EVENT_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub union PEER_GROUP_EVENT_DATA_0 {
     pub dwStatus: PEER_GROUP_STATUS,
     pub incomingData: PEER_EVENT_INCOMING_DATA,
@@ -1673,9 +1598,7 @@ pub union PEER_GROUP_EVENT_DATA_0 {
     pub memberChangeData: PEER_EVENT_MEMBER_CHANGE_DATA,
     pub hrConnectionFailedReason: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_GROUP_EVENT_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_GROUP_EVENT_DATA_0 {
     fn clone(&self) -> Self {
         *self
@@ -1718,26 +1641,23 @@ pub type PEER_GROUP_ISSUE_CREDENTIAL_FLAGS = i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEER_GROUP_STORE_CREDENTIALS: PEER_GROUP_ISSUE_CREDENTIAL_FLAGS = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_GROUP_PROPERTIES {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub pwzCloud: super::super::Foundation::PWSTR,
-    pub pwzClassifier: super::super::Foundation::PWSTR,
-    pub pwzGroupPeerName: super::super::Foundation::PWSTR,
-    pub pwzCreatorPeerName: super::super::Foundation::PWSTR,
-    pub pwzFriendlyName: super::super::Foundation::PWSTR,
-    pub pwzComment: super::super::Foundation::PWSTR,
+    pub pwzCloud: ::windows_sys::core::PWSTR,
+    pub pwzClassifier: ::windows_sys::core::PWSTR,
+    pub pwzGroupPeerName: ::windows_sys::core::PWSTR,
+    pub pwzCreatorPeerName: ::windows_sys::core::PWSTR,
+    pub pwzFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwzComment: ::windows_sys::core::PWSTR,
     pub ulMemberDataLifetime: u32,
     pub ulPresenceLifetime: u32,
     pub dwAuthenticationSchemes: u32,
-    pub pwzGroupPassword: super::super::Foundation::PWSTR,
+    pub pwzGroupPassword: ::windows_sys::core::PWSTR,
     pub groupPasswordRole: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_GROUP_PROPERTIES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_GROUP_PROPERTIES {
     fn clone(&self) -> Self {
         *self
@@ -1761,16 +1681,13 @@ pub const PEER_GROUP_STATUS_LISTENING: PEER_GROUP_STATUS = 1i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEER_GROUP_STATUS_HAS_CONNECTIONS: PEER_GROUP_STATUS = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_INVITATION {
     pub applicationId: ::windows_sys::core::GUID,
     pub applicationData: PEER_DATA,
-    pub pwzMessage: super::super::Foundation::PWSTR,
+    pub pwzMessage: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_INVITATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_INVITATION {
     fn clone(&self) -> Self {
         *self
@@ -1782,21 +1699,21 @@ impl ::core::clone::Clone for PEER_INVITATION {
 pub struct PEER_INVITATION_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub pwzCloudName: super::super::Foundation::PWSTR,
+    pub pwzCloudName: ::windows_sys::core::PWSTR,
     pub dwScope: u32,
     pub dwCloudFlags: u32,
-    pub pwzGroupPeerName: super::super::Foundation::PWSTR,
-    pub pwzIssuerPeerName: super::super::Foundation::PWSTR,
-    pub pwzSubjectPeerName: super::super::Foundation::PWSTR,
-    pub pwzGroupFriendlyName: super::super::Foundation::PWSTR,
-    pub pwzIssuerFriendlyName: super::super::Foundation::PWSTR,
-    pub pwzSubjectFriendlyName: super::super::Foundation::PWSTR,
+    pub pwzGroupPeerName: ::windows_sys::core::PWSTR,
+    pub pwzIssuerPeerName: ::windows_sys::core::PWSTR,
+    pub pwzSubjectPeerName: ::windows_sys::core::PWSTR,
+    pub pwzGroupFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwzIssuerFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwzSubjectFriendlyName: ::windows_sys::core::PWSTR,
     pub ftValidityStart: super::super::Foundation::FILETIME,
     pub ftValidityEnd: super::super::Foundation::FILETIME,
     pub cRoles: u32,
     pub pRoles: *mut ::windows_sys::core::GUID,
     pub cClassifiers: u32,
-    pub ppwzClassifiers: *mut super::super::Foundation::PWSTR,
+    pub ppwzClassifiers: *mut ::windows_sys::core::PWSTR,
     pub pSubjectPublicKey: *mut super::super::Security::Cryptography::CERT_PUBLIC_KEY_INFO,
     pub authScheme: PEER_GROUP_AUTHENTICATION_SCHEME,
 }
@@ -1809,16 +1726,13 @@ impl ::core::clone::Clone for PEER_INVITATION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_INVITATION_RESPONSE {
     pub action: PEER_INVITATION_RESPONSE_TYPE,
-    pub pwzMessage: super::super::Foundation::PWSTR,
+    pub pwzMessage: ::windows_sys::core::PWSTR,
     pub hrExtendedInfo: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_INVITATION_RESPONSE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_INVITATION_RESPONSE {
     fn clone(&self) -> Self {
         *self
@@ -1840,8 +1754,8 @@ pub const PEER_INVITATION_RESPONSE_ERROR: PEER_INVITATION_RESPONSE_TYPE = 3i32;
 pub struct PEER_MEMBER {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub pwzIdentity: super::super::Foundation::PWSTR,
-    pub pwzAttributes: super::super::Foundation::PWSTR,
+    pub pwzIdentity: ::windows_sys::core::PWSTR,
+    pub pwzAttributes: ::windows_sys::core::PWSTR,
     pub ullNodeId: u64,
     pub cAddresses: u32,
     pub pAddresses: *mut PEER_ADDRESS,
@@ -1872,16 +1786,13 @@ pub type PEER_MEMBER_FLAGS = i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEER_MEMBER_PRESENT: PEER_MEMBER_FLAGS = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_NAME_PAIR {
     pub dwSize: u32,
-    pub pwzPeerName: super::super::Foundation::PWSTR,
-    pub pwzFriendlyName: super::super::Foundation::PWSTR,
+    pub pwzPeerName: ::windows_sys::core::PWSTR,
+    pub pwzFriendlyName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_NAME_PAIR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_NAME_PAIR {
     fn clone(&self) -> Self {
         *self
@@ -1896,19 +1807,19 @@ pub const PEER_NODE_CHANGE_DISCONNECTED: PEER_NODE_CHANGE_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEER_NODE_CHANGE_UPDATED: PEER_NODE_CHANGE_TYPE = 3i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_NODE_INFO {
     pub dwSize: u32,
     pub ullNodeId: u64,
-    pub pwzPeerId: super::super::Foundation::PWSTR,
+    pub pwzPeerId: ::windows_sys::core::PWSTR,
     pub cAddresses: u32,
     pub pAddresses: *mut PEER_ADDRESS,
-    pub pwzAttributes: super::super::Foundation::PWSTR,
+    pub pwzAttributes: ::windows_sys::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_NODE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_NODE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1928,16 +1839,16 @@ impl ::core::clone::Clone for PEER_OBJECT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Networking_WinSock'*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct PEER_PEOPLE_NEAR_ME {
-    pub pwzNickName: super::super::Foundation::PWSTR,
+    pub pwzNickName: ::windows_sys::core::PWSTR,
     pub endpoint: PEER_ENDPOINT,
     pub id: ::windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for PEER_PEOPLE_NEAR_ME {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for PEER_PEOPLE_NEAR_ME {
     fn clone(&self) -> Self {
         *self
@@ -1946,16 +1857,13 @@ impl ::core::clone::Clone for PEER_PEOPLE_NEAR_ME {
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEER_PNRP_ALL_LINK_CLOUDS: &'static str = "PEER_PNRP_ALL_LINKS";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_PNRP_CLOUD_INFO {
-    pub pwzCloudName: super::super::Foundation::PWSTR,
+    pub pwzCloudName: ::windows_sys::core::PWSTR,
     pub dwScope: PNRP_SCOPE,
     pub dwScopeId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_PNRP_CLOUD_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_PNRP_CLOUD_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1965,10 +1873,10 @@ impl ::core::clone::Clone for PEER_PNRP_CLOUD_INFO {
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_PNRP_ENDPOINT_INFO {
-    pub pwzPeerName: super::super::Foundation::PWSTR,
+    pub pwzPeerName: ::windows_sys::core::PWSTR,
     pub cAddresses: u32,
     pub ppAddresses: *mut *mut super::super::Networking::WinSock::SOCKADDR,
-    pub pwzComment: super::super::Foundation::PWSTR,
+    pub pwzComment: ::windows_sys::core::PWSTR,
     pub payload: PEER_DATA,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -1983,12 +1891,12 @@ impl ::core::clone::Clone for PEER_PNRP_ENDPOINT_INFO {
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_PNRP_REGISTRATION_INFO {
-    pub pwzCloudName: super::super::Foundation::PWSTR,
-    pub pwzPublishingIdentity: super::super::Foundation::PWSTR,
+    pub pwzCloudName: ::windows_sys::core::PWSTR,
+    pub pwzPublishingIdentity: ::windows_sys::core::PWSTR,
     pub cAddresses: u32,
     pub ppAddresses: *mut *mut super::super::Networking::WinSock::SOCKADDR,
     pub wPort: u16,
-    pub pwzComment: super::super::Foundation::PWSTR,
+    pub pwzComment: ::windows_sys::core::PWSTR,
     pub payload: PEER_DATA,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2000,15 +1908,12 @@ impl ::core::clone::Clone for PEER_PNRP_REGISTRATION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub struct PEER_PRESENCE_INFO {
     pub status: PEER_PRESENCE_STATUS,
-    pub pwzDescriptiveText: super::super::Foundation::PWSTR,
+    pub pwzDescriptiveText: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_PRESENCE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PEER_PRESENCE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2051,9 +1956,9 @@ pub struct PEER_RECORD {
     pub id: ::windows_sys::core::GUID,
     pub dwVersion: u32,
     pub dwFlags: u32,
-    pub pwzCreatorId: super::super::Foundation::PWSTR,
-    pub pwzModifiedById: super::super::Foundation::PWSTR,
-    pub pwzAttributes: super::super::Foundation::PWSTR,
+    pub pwzCreatorId: ::windows_sys::core::PWSTR,
+    pub pwzModifiedById: ::windows_sys::core::PWSTR,
+    pub pwzAttributes: ::windows_sys::core::PWSTR,
     pub ftCreation: super::super::Foundation::FILETIME,
     pub ftExpiration: super::super::Foundation::FILETIME,
     pub ftLastModified: super::super::Foundation::FILETIME,
@@ -2089,8 +1994,8 @@ pub const PEER_RECORD_FLAG_DELETED: PEER_RECORD_FLAGS = 2i32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEER_SECURITY_INTERFACE {
     pub dwSize: u32,
-    pub pwzSspFilename: super::super::Foundation::PWSTR,
-    pub pwzPackageName: super::super::Foundation::PWSTR,
+    pub pwzSspFilename: ::windows_sys::core::PWSTR,
+    pub pwzPackageName: ::windows_sys::core::PWSTR,
     pub cbSecurityInfo: u32,
     pub pbSecurityInfo: *mut u8,
     pub pvContext: *mut ::core::ffi::c_void,
@@ -2166,7 +2071,7 @@ pub const PNRPINFO_HINT: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PNRPINFO_V1 {
     pub dwSize: u32,
-    pub lpwszIdentity: super::super::Foundation::PWSTR,
+    pub lpwszIdentity: ::windows_sys::core::PWSTR,
     pub nMaxResolve: u32,
     pub dwTimeout: u32,
     pub dwLifetime: u32,
@@ -2188,7 +2093,7 @@ impl ::core::clone::Clone for PNRPINFO_V1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 pub struct PNRPINFO_V2 {
     pub dwSize: u32,
-    pub lpwszIdentity: super::super::Foundation::PWSTR,
+    pub lpwszIdentity: ::windows_sys::core::PWSTR,
     pub nMaxResolve: u32,
     pub dwTimeout: u32,
     pub dwLifetime: u32,
@@ -2212,7 +2117,7 @@ impl ::core::clone::Clone for PNRPINFO_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 pub union PNRPINFO_V2_0 {
     pub blobPayload: super::super::System::Com::BLOB,
-    pub pwszPayload: super::super::Foundation::PWSTR,
+    pub pwszPayload: ::windows_sys::core::PWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for PNRPINFO_V2_0 {}

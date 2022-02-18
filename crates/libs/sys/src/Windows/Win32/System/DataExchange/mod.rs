@@ -1,12 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn AddAtomA(lpstring: ::windows_sys::core::PCSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn AddAtomW(lpstring: ::windows_sys::core::PCWSTR) -> u16;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
@@ -37,12 +35,10 @@ extern "system" {
     pub fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: *const CONVCONTEXT) -> HCONVLIST;
     #[doc = "*Required features: 'Win32_System_DataExchange'*"]
     pub fn DdeCreateDataHandle(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: HSZ, wfmt: u32, afcmd: u32) -> HDDEDATA;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeCreateStringHandleA(idinst: u32, psz: super::super::Foundation::PSTR, icodepage: i32) -> HSZ;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeCreateStringHandleW(idinst: u32, psz: super::super::Foundation::PWSTR, icodepage: i32) -> HSZ;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn DdeCreateStringHandleA(idinst: u32, psz: ::windows_sys::core::PCSTR, icodepage: i32) -> HSZ;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn DdeCreateStringHandleW(idinst: u32, psz: ::windows_sys::core::PCWSTR, icodepage: i32) -> HSZ;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DdeDisconnect(hconv: HCONV) -> super::super::Foundation::BOOL;
@@ -82,12 +78,10 @@ extern "system" {
     pub fn DdeQueryConvInfo(hconv: HCONV, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32;
     #[doc = "*Required features: 'Win32_System_DataExchange'*"]
     pub fn DdeQueryNextServer(hconvlist: HCONVLIST, hconvprev: HCONV) -> HCONV;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeQueryStringA(idinst: u32, hsz: HSZ, psz: super::super::Foundation::PSTR, cchmax: u32, icodepage: i32) -> u32;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DdeQueryStringW(idinst: u32, hsz: HSZ, psz: super::super::Foundation::PWSTR, cchmax: u32, icodepage: i32) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn DdeQueryStringA(idinst: u32, hsz: HSZ, psz: ::windows_sys::core::PSTR, cchmax: u32, icodepage: i32) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn DdeQueryStringW(idinst: u32, hsz: HSZ, psz: ::windows_sys::core::PWSTR, cchmax: u32, icodepage: i32) -> u32;
     #[doc = "*Required features: 'Win32_System_DataExchange'*"]
     pub fn DdeReconnect(hconv: HCONV) -> HCONV;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation', 'Win32_Security'*"]
@@ -109,30 +103,24 @@ extern "system" {
     pub fn EmptyClipboard() -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_DataExchange'*"]
     pub fn EnumClipboardFormats(format: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FindAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FindAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn FindAtomA(lpstring: ::windows_sys::core::PCSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn FindAtomW(lpstring: ::windows_sys::core::PCWSTR) -> u16;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FreeDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GetAtomNameA(natom: u16, lpbuffer: ::windows_sys::core::PSTR, nsize: i32) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GetAtomNameW(natom: u16, lpbuffer: ::windows_sys::core::PWSTR, nsize: i32) -> u32;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClipboardFormatNameA(format: u32, lpszformatname: super::super::Foundation::PSTR, cchmaxcount: i32) -> i32;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClipboardFormatNameW(format: u32, lpszformatname: super::super::Foundation::PWSTR, cchmaxcount: i32) -> i32;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GetClipboardFormatNameA(format: u32, lpszformatname: ::windows_sys::core::PSTR, cchmaxcount: i32) -> i32;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GetClipboardFormatNameW(format: u32, lpszformatname: ::windows_sys::core::PWSTR, cchmaxcount: i32) -> i32;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetClipboardOwner() -> super::super::Foundation::HWND;
@@ -149,32 +137,24 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomExA(lpstring: super::super::Foundation::PSTR, flags: u32) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomExW(lpstring: super::super::Foundation::PWSTR, flags: u32) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GlobalAddAtomA(lpstring: ::windows_sys::core::PCSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GlobalAddAtomExA(lpstring: ::windows_sys::core::PCSTR, flags: u32) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GlobalAddAtomExW(lpstring: ::windows_sys::core::PCWSTR, flags: u32) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GlobalAddAtomW(lpstring: ::windows_sys::core::PCWSTR) -> u16;
     #[doc = "*Required features: 'Win32_System_DataExchange'*"]
     pub fn GlobalDeleteAtom(natom: u16) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalFindAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalFindAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalGetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalGetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GlobalFindAtomA(lpstring: ::windows_sys::core::PCSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GlobalFindAtomW(lpstring: ::windows_sys::core::PCWSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GlobalGetAtomNameA(natom: u16, lpbuffer: ::windows_sys::core::PSTR, nsize: i32) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GlobalGetAtomNameW(natom: u16, lpbuffer: ::windows_sys::core::PWSTR, nsize: i32) -> u32;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImpersonateDdeClientWindow(hwndclient: super::super::Foundation::HWND, hwndserver: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
@@ -190,12 +170,10 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterClipboardFormatA(lpszformat: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterClipboardFormatW(lpszformat: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn RegisterClipboardFormatA(lpszformat: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn RegisterClipboardFormatW(lpszformat: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RemoveClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;

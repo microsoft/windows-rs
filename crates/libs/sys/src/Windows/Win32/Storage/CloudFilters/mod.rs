@@ -6,13 +6,13 @@ extern "system" {
     pub fn CfCloseHandle(filehandle: super::super::Foundation::HANDLE);
     #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_System_CorrelationVector'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-    pub fn CfConnectSyncRoot(syncrootpath: super::super::Foundation::PWSTR, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows_sys::core::HRESULT;
+    pub fn CfConnectSyncRoot(syncrootpath: ::windows_sys::core::PCWSTR, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_Storage_FileSystem'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-    pub fn CfCreatePlaceholders(basedirectorypath: super::super::Foundation::PWSTR, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Storage_FileSystem'*"]
+    #[cfg(feature = "Win32_Storage_FileSystem")]
+    pub fn CfCreatePlaceholders(basedirectorypath: ::windows_sys::core::PCWSTR, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn CfDehydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_sys::core::HRESULT;
@@ -43,9 +43,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CfGetSyncRootInfoByPath(filepath: super::super::Foundation::PWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
+    pub fn CfGetSyncRootInfoByPath(filepath: ::windows_sys::core::PCWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64) -> ::windows_sys::core::HRESULT;
@@ -57,15 +56,14 @@ extern "system" {
     pub fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CfOpenFileWithOplock(filepath: super::super::Foundation::PWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+    pub fn CfOpenFileWithOplock(filepath: ::windows_sys::core::PCWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
     pub fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: *mut CF_SYNC_PROVIDER_STATUS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CfRegisterSyncRoot(syncrootpath: super::super::Foundation::PWSTR, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
+    pub fn CfRegisterSyncRoot(syncrootpath: ::windows_sys::core::PCWSTR, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CfReleaseProtectedHandle(protectedhandle: super::super::Foundation::HANDLE);
@@ -76,9 +74,8 @@ extern "system" {
     pub fn CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
     pub fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CfReportSyncStatus(syncrootpath: super::super::Foundation::PWSTR, syncstatus: *const CF_SYNC_STATUS) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
+    pub fn CfReportSyncStatus(syncrootpath: ::windows_sys::core::PCWSTR, syncstatus: *const CF_SYNC_STATUS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn CfRevertPlaceholder(filehandle: super::super::Foundation::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_sys::core::HRESULT;
@@ -91,9 +88,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CfUnregisterSyncRoot(syncrootpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
+    pub fn CfUnregisterSyncRoot(syncrootpath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_Storage_FileSystem', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
     pub fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_sys::core::HRESULT;
@@ -174,8 +170,8 @@ pub struct CF_CALLBACK_INFO {
     pub StructSize: u32,
     pub ConnectionKey: CF_CONNECTION_KEY,
     pub CallbackContext: *mut ::core::ffi::c_void,
-    pub VolumeGuidName: super::super::Foundation::PWSTR,
-    pub VolumeDosName: super::super::Foundation::PWSTR,
+    pub VolumeGuidName: ::windows_sys::core::PCWSTR,
+    pub VolumeDosName: ::windows_sys::core::PCWSTR,
     pub VolumeSerialNumber: u32,
     pub SyncRootFileId: i64,
     pub SyncRootIdentity: *const ::core::ffi::c_void,
@@ -184,7 +180,7 @@ pub struct CF_CALLBACK_INFO {
     pub FileSize: i64,
     pub FileIdentity: *const ::core::ffi::c_void,
     pub FileIdentityLength: u32,
-    pub NormalizedPath: super::super::Foundation::PWSTR,
+    pub NormalizedPath: ::windows_sys::core::PCWSTR,
     pub TransferKey: i64,
     pub PriorityHint: u8,
     pub CorrelationVector: *mut super::super::System::CorrelationVector::CORRELATION_VECTOR,
@@ -208,23 +204,19 @@ pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_PLACEHOLDER_UNKNOWN: CF_CALLBACK_OPEN
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_PLACEHOLDER_UNSUPPORTED: CF_CALLBACK_OPEN_COMPLETION_FLAGS = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS {
     pub ParamSize: u32,
     pub Anonymous: CF_CALLBACK_PARAMETERS_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub union CF_CALLBACK_PARAMETERS_0 {
     pub Cancel: CF_CALLBACK_PARAMETERS_0_0,
     pub FetchData: CF_CALLBACK_PARAMETERS_0_6,
@@ -239,133 +231,106 @@ pub union CF_CALLBACK_PARAMETERS_0 {
     pub Rename: CF_CALLBACK_PARAMETERS_0_10,
     pub RenameCompletion: CF_CALLBACK_PARAMETERS_0_9,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_0 {
     pub Flags: CF_CALLBACK_CANCEL_FLAGS,
     pub Anonymous: CF_CALLBACK_PARAMETERS_0_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub union CF_CALLBACK_PARAMETERS_0_0_0 {
     pub FetchData: CF_CALLBACK_PARAMETERS_0_0_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_0_0_0 {
     pub FileOffset: i64,
     pub Length: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_0_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_1 {
     pub Flags: CF_CALLBACK_CLOSE_COMPLETION_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_2 {
     pub Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_3 {
     pub Flags: CF_CALLBACK_DEHYDRATE_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_4 {
     pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_5 {
     pub Flags: CF_CALLBACK_DELETE_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_5 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_6 {
     pub Flags: CF_CALLBACK_FETCH_DATA_FLAGS,
     pub RequiredFileOffset: i64,
@@ -375,84 +340,67 @@ pub struct CF_CALLBACK_PARAMETERS_0_6 {
     pub LastDehydrationTime: i64,
     pub LastDehydrationReason: CF_CALLBACK_DEHYDRATION_REASON,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_6 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_6 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_7 {
     pub Flags: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS,
-    pub Pattern: super::super::Foundation::PWSTR,
+    pub Pattern: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_7 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_7 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_8 {
     pub Flags: CF_CALLBACK_OPEN_COMPLETION_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_8 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_8 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_9 {
     pub Flags: CF_CALLBACK_RENAME_COMPLETION_FLAGS,
-    pub SourcePath: super::super::Foundation::PWSTR,
+    pub SourcePath: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_9 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_9 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_10 {
     pub Flags: CF_CALLBACK_RENAME_FLAGS,
-    pub TargetPath: super::super::Foundation::PWSTR,
+    pub TargetPath: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_10 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_10 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_11 {
     pub Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS,
     pub RequiredFileOffset: i64,
     pub RequiredLength: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_11 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_11 {
     fn clone(&self) -> Self {
         *self
@@ -998,10 +946,10 @@ pub const CF_PLACEHOLDER_CREATE_FLAG_SUPERSEDE: CF_PLACEHOLDER_CREATE_FLAGS = 4u
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub const CF_PLACEHOLDER_CREATE_FLAG_ALWAYS_FULL: CF_PLACEHOLDER_CREATE_FLAGS = 8u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_Storage_FileSystem'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Storage_FileSystem'*"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_PLACEHOLDER_CREATE_INFO {
-    pub RelativeFileName: super::super::Foundation::PWSTR,
+    pub RelativeFileName: ::windows_sys::core::PCWSTR,
     pub FsMetadata: CF_FS_METADATA,
     pub FileIdentity: *const ::core::ffi::c_void,
     pub FileIdentityLength: u32,
@@ -1009,9 +957,9 @@ pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub Result: ::windows_sys::core::HRESULT,
     pub CreateUsn: i64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_PLACEHOLDER_CREATE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_PLACEHOLDER_CREATE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1141,20 +1089,17 @@ impl ::core::clone::Clone for CF_POPULATION_POLICY_PRIMARY_USHORT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_PROCESS_INFO {
     pub StructSize: u32,
     pub ProcessId: u32,
-    pub ImagePath: super::super::Foundation::PWSTR,
-    pub PackageName: super::super::Foundation::PWSTR,
-    pub ApplicationId: super::super::Foundation::PWSTR,
-    pub CommandLine: super::super::Foundation::PWSTR,
+    pub ImagePath: ::windows_sys::core::PCWSTR,
+    pub PackageName: ::windows_sys::core::PCWSTR,
+    pub ApplicationId: ::windows_sys::core::PCWSTR,
+    pub CommandLine: ::windows_sys::core::PCWSTR,
     pub SessionId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_PROCESS_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_PROCESS_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1231,21 +1176,18 @@ pub const CF_PROVIDER_STATUS_TERMINATED: CF_SYNC_PROVIDER_STATUS = 3221225473u32
 #[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub const CF_PROVIDER_STATUS_ERROR: CF_SYNC_PROVIDER_STATUS = 3221225474u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_SYNC_REGISTRATION {
     pub StructSize: u32,
-    pub ProviderName: super::super::Foundation::PWSTR,
-    pub ProviderVersion: super::super::Foundation::PWSTR,
+    pub ProviderName: ::windows_sys::core::PCWSTR,
+    pub ProviderVersion: ::windows_sys::core::PCWSTR,
     pub SyncRootIdentity: *const ::core::ffi::c_void,
     pub SyncRootIdentityLength: u32,
     pub FileIdentity: *const ::core::ffi::c_void,
     pub FileIdentityLength: u32,
     pub ProviderId: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_SYNC_REGISTRATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_SYNC_REGISTRATION {
     fn clone(&self) -> Self {
         *self

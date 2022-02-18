@@ -3,10 +3,10 @@
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddConsoleAliasA(source: super::super::Foundation::PSTR, target: super::super::Foundation::PSTR, exename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn AddConsoleAliasA(source: ::windows_sys::core::PCSTR, target: ::windows_sys::core::PCSTR, exename: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddConsoleAliasW(source: super::super::Foundation::PWSTR, target: super::super::Foundation::PWSTR, exename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn AddConsoleAliasW(source: ::windows_sys::core::PCWSTR, target: ::windows_sys::core::PCWSTR, exename: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AllocConsole() -> super::super::Foundation::BOOL;
@@ -21,12 +21,10 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreatePseudoConsole(size: COORD, hinput: super::super::Foundation::HANDLE, houtput: super::super::Foundation::HANDLE, dwflags: u32, phpc: *mut HPCON) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ExpungeConsoleCommandHistoryA(exename: super::super::Foundation::PSTR);
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ExpungeConsoleCommandHistoryW(exename: super::super::Foundation::PWSTR);
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn ExpungeConsoleCommandHistoryA(exename: ::windows_sys::core::PCSTR);
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn ExpungeConsoleCommandHistoryW(exename: ::windows_sys::core::PCWSTR);
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FillConsoleOutputAttribute(hconsoleoutput: super::super::Foundation::HANDLE, wattribute: u16, nlength: u32, dwwritecoord: COORD, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL;
@@ -45,48 +43,36 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GenerateConsoleCtrlEvent(dwctrlevent: u32, dwprocessgroupid: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleAliasA(source: super::super::Foundation::PSTR, targetbuffer: super::super::Foundation::PSTR, targetbufferlength: u32, exename: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleAliasExesA(exenamebuffer: super::super::Foundation::PSTR, exenamebufferlength: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleAliasA(source: ::windows_sys::core::PCSTR, targetbuffer: ::windows_sys::core::PSTR, targetbufferlength: u32, exename: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleAliasExesA(exenamebuffer: ::windows_sys::core::PSTR, exenamebufferlength: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Console'*"]
     pub fn GetConsoleAliasExesLengthA() -> u32;
     #[doc = "*Required features: 'Win32_System_Console'*"]
     pub fn GetConsoleAliasExesLengthW() -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleAliasExesW(exenamebuffer: super::super::Foundation::PWSTR, exenamebufferlength: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleAliasW(source: super::super::Foundation::PWSTR, targetbuffer: super::super::Foundation::PWSTR, targetbufferlength: u32, exename: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleAliasesA(aliasbuffer: super::super::Foundation::PSTR, aliasbufferlength: u32, exename: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleAliasesLengthA(exename: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleAliasesLengthW(exename: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleAliasesW(aliasbuffer: super::super::Foundation::PWSTR, aliasbufferlength: u32, exename: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleAliasExesW(exenamebuffer: ::windows_sys::core::PWSTR, exenamebufferlength: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleAliasW(source: ::windows_sys::core::PCWSTR, targetbuffer: ::windows_sys::core::PWSTR, targetbufferlength: u32, exename: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleAliasesA(aliasbuffer: ::windows_sys::core::PSTR, aliasbufferlength: u32, exename: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleAliasesLengthA(exename: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleAliasesLengthW(exename: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleAliasesW(aliasbuffer: ::windows_sys::core::PWSTR, aliasbufferlength: u32, exename: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_System_Console'*"]
     pub fn GetConsoleCP() -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleCommandHistoryA(commands: super::super::Foundation::PSTR, commandbufferlength: u32, exename: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleCommandHistoryLengthA(exename: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleCommandHistoryLengthW(exename: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleCommandHistoryW(commands: super::super::Foundation::PWSTR, commandbufferlength: u32, exename: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleCommandHistoryA(commands: ::windows_sys::core::PSTR, commandbufferlength: u32, exename: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleCommandHistoryLengthA(exename: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleCommandHistoryLengthW(exename: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleCommandHistoryW(commands: ::windows_sys::core::PWSTR, commandbufferlength: u32, exename: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetConsoleCursorInfo(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolecursorinfo: *mut CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL;
@@ -102,12 +88,10 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetConsoleMode(hconsolehandle: super::super::Foundation::HANDLE, lpmode: *mut CONSOLE_MODE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleOriginalTitleA(lpconsoletitle: super::super::Foundation::PSTR, nsize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleOriginalTitleW(lpconsoletitle: super::super::Foundation::PWSTR, nsize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleOriginalTitleA(lpconsoletitle: ::windows_sys::core::PSTR, nsize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleOriginalTitleW(lpconsoletitle: ::windows_sys::core::PWSTR, nsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Console'*"]
     pub fn GetConsoleOutputCP() -> u32;
     #[doc = "*Required features: 'Win32_System_Console'*"]
@@ -121,12 +105,10 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetConsoleSelectionInfo(lpconsoleselectioninfo: *mut CONSOLE_SELECTION_INFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleTitleA(lpconsoletitle: super::super::Foundation::PSTR, nsize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetConsoleTitleW(lpconsoletitle: super::super::Foundation::PWSTR, nsize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleTitleA(lpconsoletitle: ::windows_sys::core::PSTR, nsize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Console'*"]
+    pub fn GetConsoleTitleW(lpconsoletitle: ::windows_sys::core::PWSTR, nsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetConsoleWindow() -> super::super::Foundation::HWND;
@@ -171,10 +153,10 @@ extern "system" {
     pub fn ReadConsoleOutputAttribute(hconsoleoutput: super::super::Foundation::HANDLE, lpattribute: *mut u16, nlength: u32, dwreadcoord: COORD, lpnumberofattrsread: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReadConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: super::super::Foundation::PSTR, nlength: u32, dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn ReadConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows_sys::core::PSTR, nlength: u32, dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ReadConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: super::super::Foundation::PWSTR, nlength: u32, dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn ReadConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows_sys::core::PWSTR, nlength: u32, dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ReadConsoleOutputW(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *mut CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
@@ -215,10 +197,10 @@ extern "system" {
     pub fn SetConsoleMode(hconsolehandle: super::super::Foundation::HANDLE, dwmode: CONSOLE_MODE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetConsoleNumberOfCommandsA(number: u32, exename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn SetConsoleNumberOfCommandsA(number: u32, exename: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetConsoleNumberOfCommandsW(number: u32, exename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn SetConsoleNumberOfCommandsW(number: u32, exename: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetConsoleOutputCP(wcodepageid: u32) -> super::super::Foundation::BOOL;
@@ -233,10 +215,10 @@ extern "system" {
     pub fn SetConsoleTextAttribute(hconsoleoutput: super::super::Foundation::HANDLE, wattributes: u16) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetConsoleTitleA(lpconsoletitle: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn SetConsoleTitleA(lpconsoletitle: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetConsoleTitleW(lpconsoletitle: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn SetConsoleTitleW(lpconsoletitle: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetConsoleWindowInfo(hconsoleoutput: super::super::Foundation::HANDLE, babsolute: super::super::Foundation::BOOL, lpconsolewindow: *const SMALL_RECT) -> super::super::Foundation::BOOL;
@@ -266,10 +248,10 @@ extern "system" {
     pub fn WriteConsoleOutputAttribute(hconsoleoutput: super::super::Foundation::HANDLE, lpattribute: *const u16, nlength: u32, dwwritecoord: COORD, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WriteConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: super::super::Foundation::PSTR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn WriteConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows_sys::core::PCSTR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WriteConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: super::super::Foundation::PWSTR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn WriteConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows_sys::core::PCWSTR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WriteConsoleOutputW(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *const CHAR_INFO, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;

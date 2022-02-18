@@ -289,16 +289,13 @@ pub const WMDM_MSG_MEDIA_ARRIVAL: WMDMMessage = 2i32;
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_MSG_MEDIA_REMOVAL: WMDMMessage = 3i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct WMDMMetadataView {
-    pub pwszViewName: super::super::Foundation::PWSTR,
+    pub pwszViewName: ::windows_sys::core::PWSTR,
     pub nDepth: u32,
     pub ppwszTags: *mut *mut u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WMDMMetadataView {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WMDMMetadataView {
     fn clone(&self) -> Self {
         *self
@@ -732,7 +729,7 @@ impl ::core::clone::Clone for WMDM_PROP_CONFIG {
 #[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_DESC {
-    pub pwszPropName: super::super::Foundation::PWSTR,
+    pub pwszPropName: ::windows_sys::core::PWSTR,
     pub ValidValuesForm: WMDM_ENUM_PROP_VALID_VALUES_FORM,
     pub ValidValues: WMDM_PROP_DESC_0,
 }
@@ -966,15 +963,12 @@ pub const WMDM_TYPE_DATE: WMDM_TAG_DATATYPE = 7i32;
 #[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct WMFILECAPABILITIES {
-    pub pwszMimeType: super::super::Foundation::PWSTR,
+    pub pwszMimeType: ::windows_sys::core::PWSTR,
     pub dwReserved: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WMFILECAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WMFILECAPABILITIES {
     fn clone(&self) -> Self {
         *self

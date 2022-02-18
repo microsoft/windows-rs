@@ -406,7 +406,7 @@ pub const AUDIO_SYSTEMEFFECT_STATE_ON: AUDIO_SYSTEMEFFECT_STATE = 1i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
-    pub pwstrEndpointID: super::super::super::Foundation::PWSTR,
+    pub pwstrEndpointID: ::windows_sys::core::PWSTR,
     pub pFxProperties: super::super::super::UI::Shell::PropertiesSystem::IPropertyStore,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]

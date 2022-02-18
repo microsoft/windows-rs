@@ -131,14 +131,11 @@ pub const connection_phase_initial_connection: DOT11EXT_IHV_CONNECTION_PHASE = 1
 #[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
 pub const connection_phase_post_l3_connection: DOT11EXT_IHV_CONNECTION_PHASE = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_Ndis', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
 pub struct DOT11EXT_IHV_CONNECTIVITY_PROFILE {
-    pub pszXmlFragmentIhvConnectivity: super::super::Foundation::PWSTR,
+    pub pszXmlFragmentIhvConnectivity: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DOT11EXT_IHV_CONNECTIVITY_PROFILE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     fn clone(&self) -> Self {
         *self
@@ -255,7 +252,7 @@ impl ::core::clone::Clone for DOT11EXT_IHV_PROFILE_PARAMS {
 #[doc = "*Required features: 'Win32_NetworkManagement_Ndis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_IHV_SECURITY_PROFILE {
-    pub pszXmlFragmentIhvSecurity: super::super::Foundation::PWSTR,
+    pub pszXmlFragmentIhvSecurity: ::windows_sys::core::PWSTR,
     pub bUseMSOnex: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -404,16 +401,16 @@ impl ::core::clone::Clone for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_Ndis', 'Win32_Foundation', 'Win32_NetworkManagement_WiFi'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis', 'Win32_NetworkManagement_WiFi'*"]
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 pub struct DOT11_ADAPTER {
     pub gAdapterId: ::windows_sys::core::GUID,
-    pub pszDescription: super::super::Foundation::PWSTR,
+    pub pszDescription: ::windows_sys::core::PWSTR,
     pub Dot11CurrentOpMode: super::WiFi::DOT11_CURRENT_OPERATION_MODE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 impl ::core::marker::Copy for DOT11_ADAPTER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 impl ::core::clone::Clone for DOT11_ADAPTER {
     fn clone(&self) -> Self {
         *self

@@ -22,17 +22,17 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Foundation'*"]
     pub fn SysAddRefString(bstrstring: BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Foundation'*"]
-    pub fn SysAllocString(psz: PWSTR) -> BSTR;
+    pub fn SysAllocString(psz: ::windows_sys::core::PCWSTR) -> BSTR;
     #[doc = "*Required features: 'Win32_Foundation'*"]
-    pub fn SysAllocStringByteLen(psz: PSTR, len: u32) -> BSTR;
+    pub fn SysAllocStringByteLen(psz: ::windows_sys::core::PCSTR, len: u32) -> BSTR;
     #[doc = "*Required features: 'Win32_Foundation'*"]
-    pub fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
+    pub fn SysAllocStringLen(strin: ::windows_sys::core::PCWSTR, ui: u32) -> BSTR;
     #[doc = "*Required features: 'Win32_Foundation'*"]
     pub fn SysFreeString(bstrstring: BSTR);
     #[doc = "*Required features: 'Win32_Foundation'*"]
-    pub fn SysReAllocString(pbstr: *mut BSTR, psz: PWSTR) -> i32;
+    pub fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Foundation'*"]
-    pub fn SysReAllocStringLen(pbstr: *mut BSTR, psz: PWSTR, len: u32) -> i32;
+    pub fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows_sys::core::PCWSTR, len: u32) -> i32;
     #[doc = "*Required features: 'Win32_Foundation'*"]
     pub fn SysReleaseString(bstrstring: BSTR);
     #[doc = "*Required features: 'Win32_Foundation'*"]
@@ -4836,8 +4836,6 @@ pub const PSINK_E_LARGE_ATTACHMENT: ::windows_sys::core::HRESULT = -2147215470i3
 pub const PSINK_E_QUERY_ONLY: ::windows_sys::core::HRESULT = -2147215472i32;
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const PSINK_S_LARGE_WORD: ::windows_sys::core::HRESULT = 268179i32;
-pub type PSTR = *const u8;
-pub type PWSTR = *const u16;
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const QPARSE_E_EXPECTING_BRACE: ::windows_sys::core::HRESULT = -2147215770i32;
 #[doc = "*Required features: 'Win32_Foundation'*"]
@@ -12620,7 +12618,7 @@ pub const UI_E_WRONG_THREAD: ::windows_sys::core::HRESULT = -2144731124i32;
 pub struct UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: PWSTR,
+    pub Buffer: ::windows_sys::core::PWSTR,
 }
 impl ::core::marker::Copy for UNICODE_STRING {}
 impl ::core::clone::Clone for UNICODE_STRING {

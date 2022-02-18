@@ -23,16 +23,13 @@ pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = 0i32;
 #[doc = "*Required features: 'Win32_System_Kernel'*"]
 pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Kernel', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Kernel'*"]
 pub struct CSTRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: super::super::Foundation::PSTR,
+    pub Buffer: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CSTRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CSTRING {
     fn clone(&self) -> Self {
         *self
@@ -512,16 +509,13 @@ impl ::core::clone::Clone for SLIST_HEADER_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Kernel', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Kernel'*"]
 pub struct STRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: super::super::Foundation::PSTR,
+    pub Buffer: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STRING {
     fn clone(&self) -> Self {
         *self

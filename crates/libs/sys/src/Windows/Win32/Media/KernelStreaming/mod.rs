@@ -9031,12 +9031,10 @@ pub const PipeFactor_UnknownCompression: u32 = 128u32;
 pub const PipeFactor_UserModeDownstream: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub const PipeFactor_UserModeUpstream: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_RCDATA: super::super::Foundation::PWSTR = 10i32 as _;
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_STRING: super::super::Foundation::PWSTR = 6i32 as _;
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
+pub const RT_RCDATA: ::windows_sys::core::PWSTR = 10i32 as _;
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
+pub const RT_STRING: ::windows_sys::core::PWSTR = 6i32 as _;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub struct SECURE_BUFFER_INFO {

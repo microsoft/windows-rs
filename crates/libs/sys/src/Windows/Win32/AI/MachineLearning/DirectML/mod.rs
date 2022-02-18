@@ -1777,35 +1777,29 @@ impl ::core::clone::Clone for DML_GRU_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_INPUT_GRAPH_EDGE_DESC {
     pub GraphInputIndex: u32,
     pub ToNodeIndex: u32,
     pub ToNodeInputIndex: u32,
-    pub Name: super::super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DML_INPUT_GRAPH_EDGE_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DML_INPUT_GRAPH_EDGE_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     pub FromNodeIndex: u32,
     pub FromNodeOutputIndex: u32,
     pub ToNodeIndex: u32,
     pub ToNodeInputIndex: u32,
-    pub Name: super::super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DML_INTERMEDIATE_GRAPH_EDGE_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     fn clone(&self) -> Self {
         *self
@@ -2135,15 +2129,12 @@ impl ::core::clone::Clone for DML_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
     pub Operator: IDMLOperator,
-    pub Name: super::super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DML_OPERATOR_GRAPH_NODE_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DML_OPERATOR_GRAPH_NODE_DESC {
     fn clone(&self) -> Self {
         *self
@@ -2454,17 +2445,14 @@ pub const DML_OPERATOR_DYNAMIC_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = 148i32;
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub const DML_OPERATOR_ROI_ALIGN1: DML_OPERATOR_TYPE = 149i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub struct DML_OUTPUT_GRAPH_EDGE_DESC {
     pub FromNodeIndex: u32,
     pub FromNodeOutputIndex: u32,
     pub GraphOutputIndex: u32,
-    pub Name: super::super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DML_OUTPUT_GRAPH_EDGE_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DML_OUTPUT_GRAPH_EDGE_DESC {
     fn clone(&self) -> Self {
         *self

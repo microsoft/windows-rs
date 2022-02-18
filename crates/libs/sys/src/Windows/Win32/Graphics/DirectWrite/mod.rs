@@ -486,16 +486,13 @@ impl ::core::clone::Clone for DWRITE_FONT_METRICS1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectWrite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub struct DWRITE_FONT_PROPERTY {
     pub propertyId: DWRITE_FONT_PROPERTY_ID,
-    pub propertyValue: super::super::Foundation::PWSTR,
-    pub localeName: super::super::Foundation::PWSTR,
+    pub propertyValue: ::windows_sys::core::PCWSTR,
+    pub localeName: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DWRITE_FONT_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DWRITE_FONT_PROPERTY {
     fn clone(&self) -> Self {
         *self
@@ -732,18 +729,15 @@ impl ::core::clone::Clone for DWRITE_GLYPH_RUN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectWrite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
-    pub localeName: super::super::Foundation::PWSTR,
-    pub string: super::super::Foundation::PWSTR,
+    pub localeName: ::windows_sys::core::PCWSTR,
+    pub string: ::windows_sys::core::PCWSTR,
     pub stringLength: u32,
     pub clusterMap: *const u16,
     pub textPosition: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DWRITE_GLYPH_RUN_DESCRIPTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DWRITE_GLYPH_RUN_DESCRIPTION {
     fn clone(&self) -> Self {
         *self
@@ -1841,20 +1835,17 @@ impl ::core::clone::Clone for DWRITE_SHAPING_TEXT_PROPERTIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectWrite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub struct DWRITE_STRIKETHROUGH {
     pub width: f32,
     pub thickness: f32,
     pub offset: f32,
     pub readingDirection: DWRITE_READING_DIRECTION,
     pub flowDirection: DWRITE_FLOW_DIRECTION,
-    pub localeName: super::super::Foundation::PWSTR,
+    pub localeName: ::windows_sys::core::PCWSTR,
     pub measuringMode: DWRITE_MEASURING_MODE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DWRITE_STRIKETHROUGH {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DWRITE_STRIKETHROUGH {
     fn clone(&self) -> Self {
         *self
@@ -1959,8 +1950,7 @@ impl ::core::clone::Clone for DWRITE_TYPOGRAPHIC_FEATURES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectWrite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub struct DWRITE_UNDERLINE {
     pub width: f32,
     pub thickness: f32,
@@ -1968,12 +1958,10 @@ pub struct DWRITE_UNDERLINE {
     pub runHeight: f32,
     pub readingDirection: DWRITE_READING_DIRECTION,
     pub flowDirection: DWRITE_FLOW_DIRECTION,
-    pub localeName: super::super::Foundation::PWSTR,
+    pub localeName: ::windows_sys::core::PCWSTR,
     pub measuringMode: DWRITE_MEASURING_MODE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DWRITE_UNDERLINE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DWRITE_UNDERLINE {
     fn clone(&self) -> Self {
         *self

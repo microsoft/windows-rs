@@ -76,7 +76,7 @@ pub struct ApplicationProcessSummary {
     pub ApplicationInstanceId: ::windows_sys::core::GUID,
     pub ProcessId: u32,
     pub Type: COMPLUS_APPTYPE,
-    pub ProcessExeName: super::super::Foundation::PWSTR,
+    pub ProcessExeName: ::windows_sys::core::PWSTR,
     pub IsService: super::super::Foundation::BOOL,
     pub IsPaused: super::super::Foundation::BOOL,
     pub IsRecycled: super::super::Foundation::BOOL,
@@ -90,20 +90,17 @@ impl ::core::clone::Clone for ApplicationProcessSummary {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub struct ApplicationSummary {
     pub ApplicationInstanceId: ::windows_sys::core::GUID,
     pub PartitionId: ::windows_sys::core::GUID,
     pub ApplicationId: ::windows_sys::core::GUID,
     pub Type: COMPLUS_APPTYPE,
-    pub ApplicationName: super::super::Foundation::PWSTR,
+    pub ApplicationName: ::windows_sys::core::PWSTR,
     pub NumTrackedComponents: u32,
     pub NumComponentInstances: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ApplicationSummary {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ApplicationSummary {
     fn clone(&self) -> Self {
         *self
@@ -211,14 +208,13 @@ impl ::core::clone::Clone for CCLSIDData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub struct CCLSIDData2 {
     pub m_clsid: ::windows_sys::core::GUID,
     pub m_appid: ::windows_sys::core::GUID,
     pub m_partid: ::windows_sys::core::GUID,
-    pub m_pwszAppName: super::super::Foundation::PWSTR,
-    pub m_pwszCtxName: super::super::Foundation::PWSTR,
+    pub m_pwszAppName: ::windows_sys::core::PWSTR,
+    pub m_pwszCtxName: ::windows_sys::core::PWSTR,
     pub m_eAppType: COMPLUS_APPTYPE,
     pub m_cReferences: u32,
     pub m_cBound: u32,
@@ -228,9 +224,7 @@ pub struct CCLSIDData2 {
     pub m_cCallsCompleted: u32,
     pub m_cCallsFailed: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CCLSIDData2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CCLSIDData2 {
     fn clone(&self) -> Self {
         *self
@@ -727,8 +721,7 @@ pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = 0i32;
 #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const APPTYPE_SWC: COMPLUS_APPTYPE = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: u32,
     pub dwPid: u32,
@@ -736,11 +729,9 @@ pub struct COMSVCSEVENTINFO {
     pub lMicroTime: i32,
     pub perfCount: i64,
     pub guidApp: ::windows_sys::core::GUID,
-    pub sMachineName: super::super::Foundation::PWSTR,
+    pub sMachineName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COMSVCSEVENTINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COMSVCSEVENTINFO {
     fn clone(&self) -> Self {
         *self
@@ -909,19 +900,16 @@ impl ::core::clone::Clone for ComponentStatistics {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub struct ComponentSummary {
     pub ApplicationInstanceId: ::windows_sys::core::GUID,
     pub PartitionId: ::windows_sys::core::GUID,
     pub ApplicationId: ::windows_sys::core::GUID,
     pub Clsid: ::windows_sys::core::GUID,
-    pub ClassName: super::super::Foundation::PWSTR,
-    pub ApplicationName: super::super::Foundation::PWSTR,
+    pub ClassName: ::windows_sys::core::PWSTR,
+    pub ApplicationName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ComponentSummary {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ComponentSummary {
     fn clone(&self) -> Self {
         *self

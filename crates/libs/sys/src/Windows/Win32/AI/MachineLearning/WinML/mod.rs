@@ -23,50 +23,41 @@ pub type IWinMLModel = *mut ::core::ffi::c_void;
 pub type IWinMLRuntime = *mut ::core::ffi::c_void;
 pub type IWinMLRuntimeFactory = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct MLOperatorAttribute {
-    pub name: super::super::super::Foundation::PSTR,
+    pub name: ::windows_sys::core::PCSTR,
     pub r#type: MLOperatorAttributeType,
     pub required: bool,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorAttribute {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorAttribute {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct MLOperatorAttributeNameValue {
-    pub name: super::super::super::Foundation::PSTR,
+    pub name: ::windows_sys::core::PCSTR,
     pub r#type: MLOperatorAttributeType,
     pub valueCount: u32,
     pub Anonymous: MLOperatorAttributeNameValue_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorAttributeNameValue {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorAttributeNameValue {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub union MLOperatorAttributeNameValue_0 {
     pub reserved: *const ::core::ffi::c_void,
     pub ints: *const i64,
     pub strings: *const *const i8,
     pub floats: *const f32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorAttributeNameValue_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorAttributeNameValue_0 {
     fn clone(&self) -> Self {
         *self
@@ -128,16 +119,13 @@ impl ::core::clone::Clone for MLOperatorEdgeType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct MLOperatorEdgeTypeConstraint {
-    pub typeLabel: super::super::super::Foundation::PSTR,
+    pub typeLabel: ::windows_sys::core::PCSTR,
     pub allowedTypes: *const MLOperatorEdgeDescription,
     pub allowedTypeCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorEdgeTypeConstraint {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorEdgeTypeConstraint {
     fn clone(&self) -> Self {
         *self
@@ -158,11 +146,10 @@ impl ::core::clone::Clone for MLOperatorExecutionType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct MLOperatorKernelDescription {
-    pub domain: super::super::super::Foundation::PSTR,
-    pub name: super::super::super::Foundation::PSTR,
+    pub domain: ::windows_sys::core::PCSTR,
+    pub name: ::windows_sys::core::PCSTR,
     pub minimumOperatorSetVersion: i32,
     pub executionType: MLOperatorExecutionType,
     pub typeConstraints: *const MLOperatorEdgeTypeConstraint,
@@ -172,9 +159,7 @@ pub struct MLOperatorKernelDescription {
     pub options: MLOperatorKernelOptions,
     pub executionOptions: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorKernelDescription {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorKernelDescription {
     fn clone(&self) -> Self {
         *self
@@ -208,10 +193,9 @@ impl ::core::clone::Clone for MLOperatorParameterOptions {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct MLOperatorSchemaDescription {
-    pub name: super::super::super::Foundation::PSTR,
+    pub name: ::windows_sys::core::PCSTR,
     pub operatorSetVersionAtLastChange: i32,
     pub inputs: *const MLOperatorSchemaEdgeDescription,
     pub inputCount: u32,
@@ -224,41 +208,33 @@ pub struct MLOperatorSchemaDescription {
     pub defaultAttributes: *const MLOperatorAttributeNameValue,
     pub defaultAttributeCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorSchemaDescription {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorSchemaDescription {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct MLOperatorSchemaEdgeDescription {
     pub options: MLOperatorParameterOptions,
     pub typeFormat: MLOperatorSchemaEdgeTypeFormat,
     pub Anonymous: MLOperatorSchemaEdgeDescription_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorSchemaEdgeDescription {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub union MLOperatorSchemaEdgeDescription_0 {
     pub reserved: *const ::core::ffi::c_void,
-    pub typeLabel: super::super::super::Foundation::PSTR,
+    pub typeLabel: ::windows_sys::core::PCSTR,
     pub edgeDescription: MLOperatorEdgeDescription,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorSchemaEdgeDescription_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription_0 {
     fn clone(&self) -> Self {
         *self
@@ -278,15 +254,12 @@ impl ::core::clone::Clone for MLOperatorSchemaEdgeTypeFormat {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct MLOperatorSetId {
-    pub domain: super::super::super::Foundation::PSTR,
+    pub domain: ::windows_sys::core::PCSTR,
     pub version: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorSetId {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorSetId {
     fn clone(&self) -> Self {
         *self
@@ -320,24 +293,24 @@ impl ::core::clone::Clone for MLOperatorTensorDataType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct WINML_BINDING_DESC {
-    pub Name: super::super::super::Foundation::PWSTR,
+    pub Name: ::windows_sys::core::PCWSTR,
     pub BindType: WINML_BINDING_TYPE,
     pub Anonymous: WINML_BINDING_DESC_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::marker::Copy for WINML_BINDING_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for WINML_BINDING_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Graphics_Direct3D12'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub union WINML_BINDING_DESC_0 {
     pub Tensor: WINML_TENSOR_BINDING_DESC,
     pub Sequence: WINML_SEQUENCE_BINDING_DESC,
@@ -345,9 +318,9 @@ pub union WINML_BINDING_DESC_0 {
     pub Image: WINML_IMAGE_BINDING_DESC,
     pub Resource: WINML_RESOURCE_BINDING_DESC,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::marker::Copy for WINML_BINDING_DESC_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for WINML_BINDING_DESC_0 {
     fn clone(&self) -> Self {
         *self
@@ -408,8 +381,7 @@ impl ::core::clone::Clone for WINML_IMAGE_VARIABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct WINML_MAP_BINDING_DESC {
     pub ElementCount: u32,
     pub KeyType: WINML_TENSOR_DATA_TYPE,
@@ -417,41 +389,33 @@ pub struct WINML_MAP_BINDING_DESC {
     pub Fields: WINML_TENSOR_DATA_TYPE,
     pub Anonymous2: WINML_MAP_BINDING_DESC_1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINML_MAP_BINDING_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINML_MAP_BINDING_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub union WINML_MAP_BINDING_DESC_0 {
-    pub pStringKeys: *mut super::super::super::Foundation::PWSTR,
+    pub pStringKeys: *mut ::windows_sys::core::PWSTR,
     pub pIntKeys: *mut i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINML_MAP_BINDING_DESC_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINML_MAP_BINDING_DESC_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub union WINML_MAP_BINDING_DESC_1 {
-    pub pStringFields: *mut super::super::super::Foundation::PWSTR,
+    pub pStringFields: *mut ::windows_sys::core::PWSTR,
     pub pIntFields: *mut i64,
     pub pFloatFields: *mut f32,
     pub pDoubleFields: *mut f64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINML_MAP_BINDING_DESC_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINML_MAP_BINDING_DESC_1 {
     fn clone(&self) -> Self {
         *self
@@ -470,18 +434,15 @@ impl ::core::clone::Clone for WINML_MAP_VARIABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct WINML_MODEL_DESC {
-    pub Author: super::super::super::Foundation::PWSTR,
-    pub Name: super::super::super::Foundation::PWSTR,
-    pub Domain: super::super::super::Foundation::PWSTR,
-    pub Description: super::super::super::Foundation::PWSTR,
+    pub Author: ::windows_sys::core::PWSTR,
+    pub Name: ::windows_sys::core::PWSTR,
+    pub Domain: ::windows_sys::core::PWSTR,
+    pub Description: ::windows_sys::core::PWSTR,
     pub Version: usize,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINML_MODEL_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINML_MODEL_DESC {
     fn clone(&self) -> Self {
         *self
@@ -509,33 +470,27 @@ pub type WINML_RUNTIME_TYPE = i32;
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = 0i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct WINML_SEQUENCE_BINDING_DESC {
     pub ElementCount: u32,
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub Anonymous: WINML_SEQUENCE_BINDING_DESC_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINML_SEQUENCE_BINDING_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub union WINML_SEQUENCE_BINDING_DESC_0 {
-    pub pStrings: *mut super::super::super::Foundation::PWSTR,
+    pub pStrings: *mut ::windows_sys::core::PWSTR,
     pub pInts: *mut i64,
     pub pFloats: *mut f32,
     pub pDoubles: *mut f64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINML_SEQUENCE_BINDING_DESC_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC_0 {
     fn clone(&self) -> Self {
         *self
@@ -620,8 +575,8 @@ impl ::core::clone::Clone for WINML_TENSOR_VARIABLE_DESC {
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINML_VARIABLE_DESC {
-    pub Name: super::super::super::Foundation::PWSTR,
-    pub Description: super::super::super::Foundation::PWSTR,
+    pub Name: ::windows_sys::core::PWSTR,
+    pub Description: ::windows_sys::core::PWSTR,
     pub FeatureType: WINML_FEATURE_TYPE,
     pub Required: super::super::super::Foundation::BOOL,
     pub Anonymous: WINML_VARIABLE_DESC_0,

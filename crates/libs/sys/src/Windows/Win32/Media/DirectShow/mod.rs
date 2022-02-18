@@ -3,12 +3,10 @@
 pub mod Xml;
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AMGetErrorTextA(hr: ::windows_sys::core::HRESULT, pbuffer: super::super::Foundation::PSTR, maxlen: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AMGetErrorTextW(hr: ::windows_sys::core::HRESULT, pbuffer: super::super::Foundation::PWSTR, maxlen: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media_DirectShow'*"]
+    pub fn AMGetErrorTextA(hr: ::windows_sys::core::HRESULT, pbuffer: ::windows_sys::core::PSTR, maxlen: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media_DirectShow'*"]
+    pub fn AMGetErrorTextW(hr: ::windows_sys::core::HRESULT, pbuffer: ::windows_sys::core::PWSTR, maxlen: u32) -> u32;
 }
 #[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub type ADVISE_TYPE = u32;
@@ -144,10 +142,10 @@ pub const AM_EXSEEK_SENDS_VIDEOFRAMEREADY: AMExtendedSeekingCapabilities = 64i32
 pub const AMF_AUTOMATICGAIN: f64 = -1f64;
 #[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type AMGETERRORTEXTPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::HRESULT, param1: super::super::Foundation::PSTR, param2: u32) -> super::super::Foundation::BOOL>;
+pub type AMGETERRORTEXTPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::HRESULT, param1: ::windows_sys::core::PCSTR, param2: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type AMGETERRORTEXTPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::HRESULT, param1: super::super::Foundation::PWSTR, param2: u32) -> super::super::Foundation::BOOL>;
+pub type AMGETERRORTEXTPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::HRESULT, param1: ::windows_sys::core::PCWSTR, param2: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub const AMINTERLACE_1FieldPerSample: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Media_DirectShow'*"]
@@ -9683,15 +9681,12 @@ pub const RECORDING_TYPE_CONTENT: RECORDING_TYPE = 0i32;
 #[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub const RECORDING_TYPE_REFERENCE: RECORDING_TYPE = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub struct REGFILTER {
     pub Clsid: ::windows_sys::core::GUID,
-    pub Name: super::super::Foundation::PWSTR,
+    pub Name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REGFILTER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REGFILTER {
     fn clone(&self) -> Self {
         *self
@@ -9762,13 +9757,13 @@ impl ::core::clone::Clone for REGFILTER2_0_1 {
 #[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGFILTERPINS {
-    pub strName: super::super::Foundation::PWSTR,
+    pub strName: ::windows_sys::core::PWSTR,
     pub bRendered: super::super::Foundation::BOOL,
     pub bOutput: super::super::Foundation::BOOL,
     pub bZero: super::super::Foundation::BOOL,
     pub bMany: super::super::Foundation::BOOL,
     pub clsConnectsToFilter: *const ::windows_sys::core::GUID,
-    pub strConnectsToPin: super::super::Foundation::PWSTR,
+    pub strConnectsToPin: ::windows_sys::core::PCWSTR,
     pub nMediaTypes: u32,
     pub lpMediaType: *const REGPINTYPES,
 }
@@ -10047,17 +10042,14 @@ pub const SSUPDATE_CONTINUOUS: SSUPDATE_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub const STDINDEXSIZE: u32 = 16384u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub struct STREAMBUFFER_ATTRIBUTE {
-    pub pszName: super::super::Foundation::PWSTR,
+    pub pszName: ::windows_sys::core::PWSTR,
     pub StreamBufferAttributeType: STREAMBUFFER_ATTR_DATATYPE,
     pub pbAttribute: *mut u8,
     pub cbLength: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STREAMBUFFER_ATTRIBUTE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STREAMBUFFER_ATTRIBUTE {
     fn clone(&self) -> Self {
         *self

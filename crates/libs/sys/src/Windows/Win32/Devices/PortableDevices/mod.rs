@@ -3,7 +3,7 @@
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_PortableDevices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DMProcessConfigXMLFiltered(pszxmlin: super::super::Foundation::PWSTR, rgszallowedcspnodes: *const super::super::Foundation::PWSTR, dwnumallowedcspnodes: u32, pbstrxmlout: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    pub fn DMProcessConfigXMLFiltered(pszxmlin: ::windows_sys::core::PCWSTR, rgszallowedcspnodes: *const ::windows_sys::core::PWSTR, dwnumallowedcspnodes: u32, pbstrxmlout: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
 }
 pub const CLSID_WPD_NAMESPACE_EXTENSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 897084732, data2: 45173, data3: 18873, data4: [136, 221, 2, 152, 118, 225, 28, 1] };
 #[doc = "*Required features: 'Win32_Devices_PortableDevices'*"]

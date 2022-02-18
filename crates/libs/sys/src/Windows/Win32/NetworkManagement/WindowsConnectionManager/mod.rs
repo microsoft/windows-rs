@@ -6,10 +6,9 @@ extern "system" {
     pub fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE);
     #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetInterfaceContextTableForHostName(hostname: super::super::Foundation::PWSTR, proxyname: super::super::Foundation::PWSTR, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32, interfacecontexttable: *mut *mut NET_INTERFACE_CONTEXT_TABLE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn OnDemandGetRoutingHint(destinationhostname: super::super::Foundation::PWSTR, interfaceindex: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn GetInterfaceContextTableForHostName(hostname: ::windows_sys::core::PCWSTR, proxyname: ::windows_sys::core::PCWSTR, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32, interfacecontexttable: *mut *mut NET_INTERFACE_CONTEXT_TABLE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
+    pub fn OnDemandGetRoutingHint(destinationhostname: ::windows_sys::core::PCWSTR, interfaceindex: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void, registrationhandle: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
@@ -20,26 +19,21 @@ extern "system" {
     pub fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void);
     #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
     pub fn WcmGetProfileList(preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WcmQueryProperty(pinterface: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
+    pub fn WcmQueryProperty(pinterface: *const ::windows_sys::core::GUID, strprofilename: ::windows_sys::core::PCWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WcmSetProfileList(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WcmSetProperty(pinterface: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
+    pub fn WcmSetProperty(pinterface: *const ::windows_sys::core::GUID, strprofilename: ::windows_sys::core::PCWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub struct NET_INTERFACE_CONTEXT {
     pub InterfaceIndex: u32,
-    pub ConfigurationName: super::super::Foundation::PWSTR,
+    pub ConfigurationName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NET_INTERFACE_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NET_INTERFACE_CONTEXT {
     fn clone(&self) -> Self {
         *self
