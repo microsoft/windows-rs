@@ -10,6 +10,7 @@ pub struct Gen<'a> {
     pub min_enum: bool,
     pub min_inherit: bool,
     pub min_xaml: bool,
+    pub windows_extern: bool,
 }
 
 impl Gen<'_> {
@@ -17,7 +18,7 @@ impl Gen<'_> {
         if self.flatten || namespace == self.namespace {
             quote! {}
         } else {
-            let is_windows_extern = namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");
+            let is_external = namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");
             let mut relative = self.namespace.split('.').peekable();
             let mut namespace = namespace.split('.').peekable();
 
@@ -31,7 +32,7 @@ impl Gen<'_> {
 
             let mut tokens = TokenStream::new();
 
-            if is_windows_extern {
+            if is_external {
                 tokens.push_str("::windows::");
                 namespace.next();
             } else {
@@ -55,7 +56,11 @@ impl Gen<'_> {
         } else {
             let mut tokens = format!("'{}'", to_feature(self.namespace));
 
-            for features in &cfg.features(self.namespace) {
+            let mut features = cfg.features(self.namespace);
+            if self.windows_extern {
+                features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
+            }
+            for features in features {
                 tokens.push_str(&format!(", '{}'", to_feature(features)));
             }
 
@@ -78,7 +83,11 @@ impl Gen<'_> {
                 }
             };
 
-            let features = &cfg.features(self.namespace);
+            let mut features = cfg.features(self.namespace);
+            if self.windows_extern {
+                features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
+            }
+
             let features = match features.len() {
                 0 => quote! {},
                 1 => {
@@ -96,10 +105,13 @@ impl Gen<'_> {
     }
 
     pub(crate) fn not_cfg(&self, cfg: &Cfg) -> TokenStream {
-        let features = &cfg.features(self.namespace);
+        let mut features = cfg.features(self.namespace);
         if !self.cfg || features.is_empty() {
             quote! {}
         } else {
+            if self.windows_extern {
+                features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
+            }
             match features.len() {
                 0 => quote! {},
                 1 => {
