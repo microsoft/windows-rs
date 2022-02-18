@@ -17,6 +17,7 @@ impl Gen<'_> {
         if self.flatten || namespace == self.namespace {
             quote! {}
         } else {
+            let is_windows_extern = namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");
             let mut relative = self.namespace.split('.').peekable();
             let mut namespace = namespace.split('.').peekable();
 
@@ -30,8 +31,13 @@ impl Gen<'_> {
 
             let mut tokens = TokenStream::new();
 
-            for _ in 0..relative.count() {
-                tokens.push_str("super::");
+            if is_windows_extern {
+                tokens.push_str("::windows::");
+                namespace.next();
+            } else {
+                for _ in 0..relative.count() {
+                    tokens.push_str("super::");
+                }
             }
 
             for namespace in namespace {
