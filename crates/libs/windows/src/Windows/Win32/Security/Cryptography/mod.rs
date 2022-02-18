@@ -4018,15 +4018,15 @@ impl ::core::default::Default for CERT_CHAIN_PARA {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_AUTHENTICODE: ::windows::core::PSTR = 2i32 as _;
+pub const CERT_CHAIN_POLICY_AUTHENTICODE: ::windows::core::PCSTR = ::windows::core::PCSTR(2i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_AUTHENTICODE_TS: ::windows::core::PSTR = 3i32 as _;
+pub const CERT_CHAIN_POLICY_AUTHENTICODE_TS: ::windows::core::PCSTR = ::windows::core::PCSTR(3i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_BASE: ::windows::core::PSTR = 1i32 as _;
+pub const CERT_CHAIN_POLICY_BASE: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_BASIC_CONSTRAINTS: ::windows::core::PSTR = 5i32 as _;
+pub const CERT_CHAIN_POLICY_BASIC_CONSTRAINTS: ::windows::core::PCSTR = ::windows::core::PCSTR(5i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_EV: ::windows::core::PSTR = 8i32 as _;
+pub const CERT_CHAIN_POLICY_EV: ::windows::core::PCSTR = ::windows::core::PCSTR(8i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -4089,9 +4089,9 @@ impl ::core::fmt::Debug for CERT_CHAIN_POLICY_FLAGS {
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_CHAIN_POLICY_IGNORE_WEAK_SIGNATURE_FLAG: u32 = 134217728u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_MICROSOFT_ROOT: ::windows::core::PSTR = 7i32 as _;
+pub const CERT_CHAIN_POLICY_MICROSOFT_ROOT: ::windows::core::PCSTR = ::windows::core::PCSTR(7i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_NT_AUTH: ::windows::core::PSTR = 6i32 as _;
+pub const CERT_CHAIN_POLICY_NT_AUTH: ::windows::core::PCSTR = ::windows::core::PCSTR(6i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CERT_CHAIN_POLICY_PARA {
@@ -4125,9 +4125,9 @@ impl ::core::default::Default for CERT_CHAIN_POLICY_PARA {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_SSL: ::windows::core::PSTR = 4i32 as _;
+pub const CERT_CHAIN_POLICY_SSL: ::windows::core::PCSTR = ::windows::core::PCSTR(4i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_SSL_F12: ::windows::core::PSTR = 9i32 as _;
+pub const CERT_CHAIN_POLICY_SSL_F12: ::windows::core::PCSTR = ::windows::core::PCSTR(9i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_CHAIN_POLICY_SSL_F12_ERROR_LEVEL: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -4141,9 +4141,9 @@ pub const CERT_CHAIN_POLICY_SSL_F12_WARNING_LEVEL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_CHAIN_POLICY_SSL_F12_WEAK_CRYPTO_CATEGORY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_SSL_HPKP_HEADER: ::windows::core::PSTR = 10i32 as _;
+pub const CERT_CHAIN_POLICY_SSL_HPKP_HEADER: ::windows::core::PCSTR = ::windows::core::PCSTR(10i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_SSL_KEY_PIN: ::windows::core::PSTR = 12i32 as _;
+pub const CERT_CHAIN_POLICY_SSL_KEY_PIN: ::windows::core::PCSTR = ::windows::core::PCSTR(12i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MISMATCH_ERROR: i32 = -2i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -4189,7 +4189,7 @@ impl ::core::default::Default for CERT_CHAIN_POLICY_STATUS {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_THIRD_PARTY_ROOT: ::windows::core::PSTR = 11i32 as _;
+pub const CERT_CHAIN_POLICY_THIRD_PARTY_ROOT: ::windows::core::PCSTR = ::windows::core::PCSTR(11i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_CHAIN_RETURN_LOWER_QUALITY_CONTEXTS: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -7436,13 +7436,13 @@ pub const CERT_REQUEST_ORIGINATOR_PROP_ID: u32 = 71u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_REQUEST_V1: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RETRIEVE_BIOMETRIC_PREDEFINED_BASE_TYPE: ::windows::core::PSTR = 1000i32 as _;
+pub const CERT_RETRIEVE_BIOMETRIC_PREDEFINED_BASE_TYPE: ::windows::core::PCSTR = ::windows::core::PCSTR(1000i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RETRIEVE_COMMUNITY_LOGO: ::windows::core::PSTR = 3i32 as _;
+pub const CERT_RETRIEVE_COMMUNITY_LOGO: ::windows::core::PCSTR = ::windows::core::PCSTR(3i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RETRIEVE_ISSUER_LOGO: ::windows::core::PSTR = 1i32 as _;
+pub const CERT_RETRIEVE_ISSUER_LOGO: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RETRIEVE_SUBJECT_LOGO: ::windows::core::PSTR = 2i32 as _;
+pub const CERT_RETRIEVE_SUBJECT_LOGO: ::windows::core::PCSTR = ::windows::core::PCSTR(2i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_RETR_BEHAVIOR_FILE_VALUE_NAME: &'static str = "AllowFileUrlScheme";
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -8191,7 +8191,7 @@ pub const CERT_STORE_NO_ISSUER_FLAG: u32 = 131072u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_CLOSE_FUNC: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_COLLECTION: ::windows::core::PSTR = 11i32 as _;
+pub const CERT_STORE_PROV_COLLECTION: ::windows::core::PCSTR = ::windows::core::PCSTR(11i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_CONTROL_FUNC: u32 = 13u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -8201,13 +8201,13 @@ pub const CERT_STORE_PROV_DELETE_CRL_FUNC: u32 = 7u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_DELETE_CTL_FUNC: u32 = 11u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_FILE: ::windows::core::PSTR = 3i32 as _;
+pub const CERT_STORE_PROV_FILE: ::windows::core::PCSTR = ::windows::core::PCSTR(3i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_FILENAME: i32 = 8i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_FILENAME_A: ::windows::core::PSTR = 7i32 as _;
+pub const CERT_STORE_PROV_FILENAME_A: ::windows::core::PCSTR = ::windows::core::PCSTR(7i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_FILENAME_W: ::windows::core::PSTR = 8i32 as _;
+pub const CERT_STORE_PROV_FILENAME_W: ::windows::core::PCSTR = ::windows::core::PCSTR(8i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_FIND_CERT_FUNC: u32 = 14u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -8361,19 +8361,19 @@ impl ::core::default::Default for CERT_STORE_PROV_INFO {
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_LDAP: i32 = 16i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_LDAP_W: ::windows::core::PSTR = 16i32 as _;
+pub const CERT_STORE_PROV_LDAP_W: ::windows::core::PCSTR = ::windows::core::PCSTR(16i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_MEMORY: ::windows::core::PSTR = 2i32 as _;
+pub const CERT_STORE_PROV_MEMORY: ::windows::core::PCSTR = ::windows::core::PCSTR(2i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_MSG: ::windows::core::PSTR = 1i32 as _;
+pub const CERT_STORE_PROV_MSG: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_PHYSICAL: i32 = 14i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_PHYSICAL_W: ::windows::core::PSTR = 14i32 as _;
+pub const CERT_STORE_PROV_PHYSICAL_W: ::windows::core::PCSTR = ::windows::core::PCSTR(14i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_PKCS12: ::windows::core::PSTR = 17i32 as _;
+pub const CERT_STORE_PROV_PKCS12: ::windows::core::PCSTR = ::windows::core::PCSTR(17i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_PKCS7: ::windows::core::PSTR = 5i32 as _;
+pub const CERT_STORE_PROV_PKCS7: ::windows::core::PCSTR = ::windows::core::PCSTR(5i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_READ_CERT_FUNC: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -8381,9 +8381,9 @@ pub const CERT_STORE_PROV_READ_CRL_FUNC: u32 = 5u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_READ_CTL_FUNC: u32 = 9u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_REG: ::windows::core::PSTR = 4i32 as _;
+pub const CERT_STORE_PROV_REG: ::windows::core::PCSTR = ::windows::core::PCSTR(4i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_SERIALIZED: ::windows::core::PSTR = 6i32 as _;
+pub const CERT_STORE_PROV_SERIALIZED: ::windows::core::PCSTR = ::windows::core::PCSTR(6i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_SET_CERT_PROPERTY_FUNC: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -8395,19 +8395,19 @@ pub const CERT_STORE_PROV_SHARED_USER_FLAG: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_SMART_CARD: i32 = 15i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_SMART_CARD_W: ::windows::core::PSTR = 15i32 as _;
+pub const CERT_STORE_PROV_SMART_CARD_W: ::windows::core::PCSTR = ::windows::core::PCSTR(15i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_SYSTEM: i32 = 10i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_SYSTEM_A: ::windows::core::PSTR = 9i32 as _;
+pub const CERT_STORE_PROV_SYSTEM_A: ::windows::core::PCSTR = ::windows::core::PCSTR(9i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_SYSTEM_REGISTRY: i32 = 13i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_SYSTEM_REGISTRY_A: ::windows::core::PSTR = 12i32 as _;
+pub const CERT_STORE_PROV_SYSTEM_REGISTRY_A: ::windows::core::PCSTR = ::windows::core::PCSTR(12i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_SYSTEM_REGISTRY_W: ::windows::core::PSTR = 13i32 as _;
+pub const CERT_STORE_PROV_SYSTEM_REGISTRY_W: ::windows::core::PCSTR = ::windows::core::PCSTR(13i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_SYSTEM_W: ::windows::core::PSTR = 10i32 as _;
+pub const CERT_STORE_PROV_SYSTEM_W: ::windows::core::PCSTR = ::windows::core::PCSTR(10i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_WRITE_ADD_FLAG: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -9360,7 +9360,7 @@ impl ::core::default::Default for CLAIMLIST {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMC_ADD_ATTRIBUTES: ::windows::core::PSTR = 63i32 as _;
+pub const CMC_ADD_ATTRIBUTES: ::windows::core::PCSTR = ::windows::core::PCSTR(63i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CMC_ADD_ATTRIBUTES_INFO {
@@ -9396,7 +9396,7 @@ impl ::core::default::Default for CMC_ADD_ATTRIBUTES_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMC_ADD_EXTENSIONS: ::windows::core::PSTR = 62i32 as _;
+pub const CMC_ADD_EXTENSIONS: ::windows::core::PCSTR = ::windows::core::PCSTR(62i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9440,7 +9440,7 @@ impl ::core::default::Default for CMC_ADD_EXTENSIONS_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMC_DATA: ::windows::core::PSTR = 59i32 as _;
+pub const CMC_DATA: ::windows::core::PCSTR = ::windows::core::PCSTR(59i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CMC_DATA_INFO {
@@ -9550,7 +9550,7 @@ impl ::core::default::Default for CMC_PEND_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMC_RESPONSE: ::windows::core::PSTR = 60i32 as _;
+pub const CMC_RESPONSE: ::windows::core::PCSTR = ::windows::core::PCSTR(60i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CMC_RESPONSE_INFO {
@@ -9587,7 +9587,7 @@ impl ::core::default::Default for CMC_RESPONSE_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMC_STATUS: ::windows::core::PSTR = 61i32 as _;
+pub const CMC_STATUS: ::windows::core::PCSTR = ::windows::core::PCSTR(61i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CMC_STATUS_CONFIRM_REQUIRED: u32 = 5u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -10507,7 +10507,7 @@ impl ::core::default::Default for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMSG_DEFAULT_INSTALLABLE_FUNC_OID: ::windows::core::PSTR = 1i32 as _;
+pub const CMSG_DEFAULT_INSTALLABLE_FUNC_OID: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CMSG_DETACHED_FLAG: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -11885,25 +11885,25 @@ impl ::core::default::Default for CMS_KEY_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMS_SIGNER_INFO: ::windows::core::PSTR = 501i32 as _;
+pub const CMS_SIGNER_INFO: ::windows::core::PCSTR = ::windows::core::PCSTR(501i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CNG_RSA_PRIVATE_KEY_BLOB: ::windows::core::PSTR = 83i32 as _;
+pub const CNG_RSA_PRIVATE_KEY_BLOB: ::windows::core::PCSTR = ::windows::core::PCSTR(83i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CNG_RSA_PUBLIC_KEY_BLOB: ::windows::core::PSTR = 72i32 as _;
+pub const CNG_RSA_PUBLIC_KEY_BLOB: ::windows::core::PCSTR = ::windows::core::PCSTR(72i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CONTEXT_OID_CAPI2_ANY: ::windows::core::PSTR = 5i32 as _;
+pub const CONTEXT_OID_CAPI2_ANY: ::windows::core::PCSTR = ::windows::core::PCSTR(5i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CONTEXT_OID_CERTIFICATE: ::windows::core::PSTR = 1i32 as _;
+pub const CONTEXT_OID_CERTIFICATE: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CONTEXT_OID_CREATE_OBJECT_CONTEXT_FUNC: &'static str = "ContextDllCreateObjectContext";
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CONTEXT_OID_CRL: ::windows::core::PSTR = 2i32 as _;
+pub const CONTEXT_OID_CRL: ::windows::core::PCSTR = ::windows::core::PCSTR(2i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CONTEXT_OID_CTL: ::windows::core::PSTR = 3i32 as _;
+pub const CONTEXT_OID_CTL: ::windows::core::PCSTR = ::windows::core::PCSTR(3i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CONTEXT_OID_OCSP_RESP: ::windows::core::PSTR = 6i32 as _;
+pub const CONTEXT_OID_OCSP_RESP: ::windows::core::PCSTR = ::windows::core::PCSTR(6i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CONTEXT_OID_PKCS7: ::windows::core::PSTR = 4i32 as _;
+pub const CONTEXT_OID_PKCS7: ::windows::core::PCSTR = ::windows::core::PCSTR(4i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CPS_URLS {
@@ -11939,9 +11939,9 @@ impl ::core::default::Default for CPS_URLS {
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS: i32 = 2i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS_A: ::windows::core::PSTR = 1i32 as _;
+pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS_A: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS_W: ::windows::core::PSTR = 2i32 as _;
+pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS_W: ::windows::core::PCSTR = ::windows::core::PCSTR(2i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15243,9 +15243,9 @@ pub const CRYPT_OVERWRITE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_OWF_REPL_LM_HASH: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_PARAM_ASYNC_RETRIEVAL_COMPLETION: ::windows::core::PSTR = 1i32 as _;
+pub const CRYPT_PARAM_ASYNC_RETRIEVAL_COMPLETION: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_PARAM_CANCEL_ASYNC_RETRIEVAL: ::windows::core::PSTR = 2i32 as _;
+pub const CRYPT_PARAM_CANCEL_ASYNC_RETRIEVAL: ::windows::core::PCSTR = ::windows::core::PCSTR(2i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CRYPT_PASSWORD_CREDENTIALSA {
@@ -23080,7 +23080,7 @@ impl ::core::fmt::Debug for Direction {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ECC_CMS_SHARED_INFO: ::windows::core::PSTR = 77i32 as _;
+pub const ECC_CMS_SHARED_INFO: ::windows::core::PCSTR = ::windows::core::PCSTR(77i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -27873,7 +27873,7 @@ pub const OCSP_BASIC_BY_NAME_RESPONDER_ID: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const OCSP_BASIC_GOOD_CERT_STATUS: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const OCSP_BASIC_RESPONSE: ::windows::core::PSTR = 69i32 as _;
+pub const OCSP_BASIC_RESPONSE: ::windows::core::PCSTR = ::windows::core::PCSTR(69i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -28060,7 +28060,7 @@ impl ::core::default::Default for OCSP_BASIC_REVOKED_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const OCSP_BASIC_SIGNED_RESPONSE: ::windows::core::PSTR = 68i32 as _;
+pub const OCSP_BASIC_SIGNED_RESPONSE: ::windows::core::PCSTR = ::windows::core::PCSTR(68i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct OCSP_BASIC_SIGNED_RESPONSE_INFO {
@@ -28132,7 +28132,7 @@ pub const OCSP_INTERNAL_ERROR_RESPONSE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const OCSP_MALFORMED_REQUEST_RESPONSE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const OCSP_REQUEST: ::windows::core::PSTR = 66i32 as _;
+pub const OCSP_REQUEST: ::windows::core::PCSTR = ::windows::core::PCSTR(66i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -28219,7 +28219,7 @@ impl ::core::default::Default for OCSP_REQUEST_INFO {
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const OCSP_REQUEST_V1: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const OCSP_RESPONSE: ::windows::core::PSTR = 67i32 as _;
+pub const OCSP_RESPONSE: ::windows::core::PCSTR = ::windows::core::PCSTR(67i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct OCSP_RESPONSE_INFO {
@@ -28286,7 +28286,7 @@ impl ::core::default::Default for OCSP_SIGNATURE_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const OCSP_SIGNED_REQUEST: ::windows::core::PSTR = 65i32 as _;
+pub const OCSP_SIGNED_REQUEST: ::windows::core::PCSTR = ::windows::core::PCSTR(65i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct OCSP_SIGNED_REQUEST_INFO {
@@ -28720,41 +28720,41 @@ pub const PKCS12_VIRTUAL_ISOLATION_KEY: u32 = 65536u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const PKCS5_PADDING: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS7_SIGNER_INFO: ::windows::core::PSTR = 500i32 as _;
+pub const PKCS7_SIGNER_INFO: ::windows::core::PCSTR = ::windows::core::PCSTR(500i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const PKCS_7_NDR_ENCODING: u32 = 131072u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_ATTRIBUTE: ::windows::core::PSTR = 22i32 as _;
+pub const PKCS_ATTRIBUTE: ::windows::core::PCSTR = ::windows::core::PCSTR(22i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_ATTRIBUTES: ::windows::core::PSTR = 48i32 as _;
+pub const PKCS_ATTRIBUTES: ::windows::core::PCSTR = ::windows::core::PCSTR(48i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_CONTENT_INFO: ::windows::core::PSTR = 33i32 as _;
+pub const PKCS_CONTENT_INFO: ::windows::core::PCSTR = ::windows::core::PCSTR(33i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_CONTENT_INFO_SEQUENCE_OF_ANY: ::windows::core::PSTR = 23i32 as _;
+pub const PKCS_CONTENT_INFO_SEQUENCE_OF_ANY: ::windows::core::PCSTR = ::windows::core::PCSTR(23i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_CTL: ::windows::core::PSTR = 37i32 as _;
+pub const PKCS_CTL: ::windows::core::PCSTR = ::windows::core::PCSTR(37i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_ENCRYPTED_PRIVATE_KEY_INFO: ::windows::core::PSTR = 45i32 as _;
+pub const PKCS_ENCRYPTED_PRIVATE_KEY_INFO: ::windows::core::PCSTR = ::windows::core::PCSTR(45i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_PRIVATE_KEY_INFO: ::windows::core::PSTR = 44i32 as _;
+pub const PKCS_PRIVATE_KEY_INFO: ::windows::core::PCSTR = ::windows::core::PCSTR(44i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_RC2_CBC_PARAMETERS: ::windows::core::PSTR = 41i32 as _;
+pub const PKCS_RC2_CBC_PARAMETERS: ::windows::core::PCSTR = ::windows::core::PCSTR(41i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_RSAES_OAEP_PARAMETERS: ::windows::core::PSTR = 76i32 as _;
+pub const PKCS_RSAES_OAEP_PARAMETERS: ::windows::core::PCSTR = ::windows::core::PCSTR(76i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_RSA_PRIVATE_KEY: ::windows::core::PSTR = 43i32 as _;
+pub const PKCS_RSA_PRIVATE_KEY: ::windows::core::PCSTR = ::windows::core::PCSTR(43i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_RSA_SSA_PSS_PARAMETERS: ::windows::core::PSTR = 75i32 as _;
+pub const PKCS_RSA_SSA_PSS_PARAMETERS: ::windows::core::PCSTR = ::windows::core::PCSTR(75i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const PKCS_RSA_SSA_PSS_TRAILER_FIELD_BC: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_SMIME_CAPABILITIES: ::windows::core::PSTR = 42i32 as _;
+pub const PKCS_SMIME_CAPABILITIES: ::windows::core::PCSTR = ::windows::core::PCSTR(42i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_SORTED_CTL: ::windows::core::PSTR = 49i32 as _;
+pub const PKCS_SORTED_CTL: ::windows::core::PCSTR = ::windows::core::PCSTR(49i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_TIME_REQUEST: ::windows::core::PSTR = 18i32 as _;
+pub const PKCS_TIME_REQUEST: ::windows::core::PCSTR = ::windows::core::PCSTR(18i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_UTC_TIME: ::windows::core::PSTR = 17i32 as _;
+pub const PKCS_UTC_TIME: ::windows::core::PCSTR = ::windows::core::PCSTR(17i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const PLAINTEXTKEYBLOB: u32 = 8u32;
 #[repr(C)]
@@ -29245,7 +29245,7 @@ pub const REPORT_NOT_ABLE_TO_EXPORT_PRIVATE_KEY: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const REPORT_NO_PRIVATE_KEY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const REVOCATION_OID_CRL_REVOCATION: ::windows::core::PSTR = 1i32 as _;
+pub const REVOCATION_OID_CRL_REVOCATION: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct ROOT_INFO_LUID {
@@ -29312,7 +29312,7 @@ impl ::core::default::Default for RSAPUBKEY {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const RSA_CSP_PUBLICKEYBLOB: ::windows::core::PSTR = 19i32 as _;
+pub const RSA_CSP_PUBLICKEYBLOB: ::windows::core::PCSTR = ::windows::core::PCSTR(19i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct SCHANNEL_ALG {
@@ -29578,37 +29578,37 @@ pub const TIMESTAMP_FAILURE_SYSTEM_FAILURE: u32 = 25u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const TIMESTAMP_FAILURE_TIME_NOT_AVAILABLE: u32 = 14u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIMESTAMP_INFO: ::windows::core::PSTR = 80i32 as _;
+pub const TIMESTAMP_INFO: ::windows::core::PCSTR = ::windows::core::PCSTR(80i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const TIMESTAMP_NO_AUTH_RETRIEVAL: u32 = 131072u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIMESTAMP_REQUEST: ::windows::core::PSTR = 78i32 as _;
+pub const TIMESTAMP_REQUEST: ::windows::core::PCSTR = ::windows::core::PCSTR(78i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIMESTAMP_RESPONSE: ::windows::core::PSTR = 79i32 as _;
+pub const TIMESTAMP_RESPONSE: ::windows::core::PCSTR = ::windows::core::PCSTR(79i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const TIMESTAMP_VERIFY_CONTEXT_SIGNATURE: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIME_VALID_OID_FLUSH_CRL: ::windows::core::PSTR = 2i32 as _;
+pub const TIME_VALID_OID_FLUSH_CRL: ::windows::core::PCSTR = ::windows::core::PCSTR(2i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIME_VALID_OID_FLUSH_CRL_FROM_CERT: ::windows::core::PSTR = 3i32 as _;
+pub const TIME_VALID_OID_FLUSH_CRL_FROM_CERT: ::windows::core::PCSTR = ::windows::core::PCSTR(3i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIME_VALID_OID_FLUSH_CTL: ::windows::core::PSTR = 1i32 as _;
+pub const TIME_VALID_OID_FLUSH_CTL: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CERT: ::windows::core::PSTR = 4i32 as _;
+pub const TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CERT: ::windows::core::PCSTR = ::windows::core::PCSTR(4i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CRL: ::windows::core::PSTR = 5i32 as _;
+pub const TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CRL: ::windows::core::PCSTR = ::windows::core::PCSTR(5i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const TIME_VALID_OID_FLUSH_OBJECT_FUNC: &'static str = "TimeValidDllFlushObject";
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIME_VALID_OID_GET_CRL: ::windows::core::PSTR = 2i32 as _;
+pub const TIME_VALID_OID_GET_CRL: ::windows::core::PCSTR = ::windows::core::PCSTR(2i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIME_VALID_OID_GET_CRL_FROM_CERT: ::windows::core::PSTR = 3i32 as _;
+pub const TIME_VALID_OID_GET_CRL_FROM_CERT: ::windows::core::PCSTR = ::windows::core::PCSTR(3i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIME_VALID_OID_GET_CTL: ::windows::core::PSTR = 1i32 as _;
+pub const TIME_VALID_OID_GET_CTL: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CERT: ::windows::core::PSTR = 4i32 as _;
+pub const TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CERT: ::windows::core::PCSTR = ::windows::core::PCSTR(4i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CRL: ::windows::core::PSTR = 5i32 as _;
+pub const TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CRL: ::windows::core::PCSTR = ::windows::core::PCSTR(5i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const TIME_VALID_OID_GET_OBJECT_FUNC: &'static str = "TimeValidDllGetObject";
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -29642,31 +29642,31 @@ pub unsafe fn TransformFinalBlock(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE,
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CERTIFICATE_CRL_DIST_POINT: ::windows::core::PSTR = 2i32 as _;
+pub const URL_OID_CERTIFICATE_CRL_DIST_POINT: ::windows::core::PCSTR = ::windows::core::PCSTR(2i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CERTIFICATE_CRL_DIST_POINT_AND_OCSP: ::windows::core::PSTR = 11i32 as _;
+pub const URL_OID_CERTIFICATE_CRL_DIST_POINT_AND_OCSP: ::windows::core::PCSTR = ::windows::core::PCSTR(11i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CERTIFICATE_FRESHEST_CRL: ::windows::core::PSTR = 6i32 as _;
+pub const URL_OID_CERTIFICATE_FRESHEST_CRL: ::windows::core::PCSTR = ::windows::core::PCSTR(6i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CERTIFICATE_ISSUER: ::windows::core::PSTR = 1i32 as _;
+pub const URL_OID_CERTIFICATE_ISSUER: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CERTIFICATE_OCSP: ::windows::core::PSTR = 9i32 as _;
+pub const URL_OID_CERTIFICATE_OCSP: ::windows::core::PCSTR = ::windows::core::PCSTR(9i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CERTIFICATE_OCSP_AND_CRL_DIST_POINT: ::windows::core::PSTR = 10i32 as _;
+pub const URL_OID_CERTIFICATE_OCSP_AND_CRL_DIST_POINT: ::windows::core::PCSTR = ::windows::core::PCSTR(10i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CERTIFICATE_ONLY_OCSP: ::windows::core::PSTR = 13i32 as _;
+pub const URL_OID_CERTIFICATE_ONLY_OCSP: ::windows::core::PCSTR = ::windows::core::PCSTR(13i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CRL_FRESHEST_CRL: ::windows::core::PSTR = 7i32 as _;
+pub const URL_OID_CRL_FRESHEST_CRL: ::windows::core::PCSTR = ::windows::core::PCSTR(7i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CRL_ISSUER: ::windows::core::PSTR = 5i32 as _;
+pub const URL_OID_CRL_ISSUER: ::windows::core::PCSTR = ::windows::core::PCSTR(5i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CROSS_CERT_DIST_POINT: ::windows::core::PSTR = 8i32 as _;
+pub const URL_OID_CROSS_CERT_DIST_POINT: ::windows::core::PCSTR = ::windows::core::PCSTR(8i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CROSS_CERT_SUBJECT_INFO_ACCESS: ::windows::core::PSTR = 12i32 as _;
+pub const URL_OID_CROSS_CERT_SUBJECT_INFO_ACCESS: ::windows::core::PCSTR = ::windows::core::PCSTR(12i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CTL_ISSUER: ::windows::core::PSTR = 3i32 as _;
+pub const URL_OID_CTL_ISSUER: ::windows::core::PCSTR = ::windows::core::PCSTR(3i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const URL_OID_CTL_NEXT_UPDATE: ::windows::core::PSTR = 4i32 as _;
+pub const URL_OID_CTL_NEXT_UPDATE: ::windows::core::PCSTR = ::windows::core::PCSTR(4i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const URL_OID_GET_OBJECT_URL_FUNC: &'static str = "UrlDllGetObjectUrl";
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -29690,129 +29690,129 @@ pub unsafe fn VerifyHash<'a, Param3: ::windows::core::IntoParam<'a, ::windows::c
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_ALGORITHM_IDENTIFIER: ::windows::core::PSTR = 74i32 as _;
+pub const X509_ALGORITHM_IDENTIFIER: ::windows::core::PCSTR = ::windows::core::PCSTR(74i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_ALTERNATE_NAME: ::windows::core::PSTR = 12i32 as _;
+pub const X509_ALTERNATE_NAME: ::windows::core::PCSTR = ::windows::core::PCSTR(12i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const X509_ANY_STRING: i32 = 6i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_AUTHORITY_INFO_ACCESS: ::windows::core::PSTR = 32i32 as _;
+pub const X509_AUTHORITY_INFO_ACCESS: ::windows::core::PCSTR = ::windows::core::PCSTR(32i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_AUTHORITY_KEY_ID: ::windows::core::PSTR = 9i32 as _;
+pub const X509_AUTHORITY_KEY_ID: ::windows::core::PCSTR = ::windows::core::PCSTR(9i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_AUTHORITY_KEY_ID2: ::windows::core::PSTR = 31i32 as _;
+pub const X509_AUTHORITY_KEY_ID2: ::windows::core::PCSTR = ::windows::core::PCSTR(31i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_BASIC_CONSTRAINTS: ::windows::core::PSTR = 13i32 as _;
+pub const X509_BASIC_CONSTRAINTS: ::windows::core::PCSTR = ::windows::core::PCSTR(13i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_BASIC_CONSTRAINTS2: ::windows::core::PSTR = 15i32 as _;
+pub const X509_BASIC_CONSTRAINTS2: ::windows::core::PCSTR = ::windows::core::PCSTR(15i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_BIOMETRIC_EXT: ::windows::core::PSTR = 71i32 as _;
+pub const X509_BIOMETRIC_EXT: ::windows::core::PCSTR = ::windows::core::PCSTR(71i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_BITS: ::windows::core::PSTR = 26i32 as _;
+pub const X509_BITS: ::windows::core::PCSTR = ::windows::core::PCSTR(26i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_BITS_WITHOUT_TRAILING_ZEROES: ::windows::core::PSTR = 51i32 as _;
+pub const X509_BITS_WITHOUT_TRAILING_ZEROES: ::windows::core::PCSTR = ::windows::core::PCSTR(51i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_CERT: ::windows::core::PSTR = 1i32 as _;
+pub const X509_CERT: ::windows::core::PCSTR = ::windows::core::PCSTR(1i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_CERTIFICATE_TEMPLATE: ::windows::core::PSTR = 64i32 as _;
+pub const X509_CERTIFICATE_TEMPLATE: ::windows::core::PCSTR = ::windows::core::PCSTR(64i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_CERT_BUNDLE: ::windows::core::PSTR = 81i32 as _;
+pub const X509_CERT_BUNDLE: ::windows::core::PCSTR = ::windows::core::PCSTR(81i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_CERT_CRL_TO_BE_SIGNED: ::windows::core::PSTR = 3i32 as _;
+pub const X509_CERT_CRL_TO_BE_SIGNED: ::windows::core::PCSTR = ::windows::core::PCSTR(3i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_CERT_PAIR: ::windows::core::PSTR = 53i32 as _;
+pub const X509_CERT_PAIR: ::windows::core::PCSTR = ::windows::core::PCSTR(53i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_CERT_POLICIES: ::windows::core::PSTR = 16i32 as _;
+pub const X509_CERT_POLICIES: ::windows::core::PCSTR = ::windows::core::PCSTR(16i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_CERT_REQUEST_TO_BE_SIGNED: ::windows::core::PSTR = 4i32 as _;
+pub const X509_CERT_REQUEST_TO_BE_SIGNED: ::windows::core::PCSTR = ::windows::core::PCSTR(4i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_CERT_TO_BE_SIGNED: ::windows::core::PSTR = 2i32 as _;
+pub const X509_CERT_TO_BE_SIGNED: ::windows::core::PCSTR = ::windows::core::PCSTR(2i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_CHOICE_OF_TIME: ::windows::core::PSTR = 30i32 as _;
+pub const X509_CHOICE_OF_TIME: ::windows::core::PCSTR = ::windows::core::PCSTR(30i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_CRL_DIST_POINTS: ::windows::core::PSTR = 35i32 as _;
+pub const X509_CRL_DIST_POINTS: ::windows::core::PCSTR = ::windows::core::PCSTR(35i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const X509_CRL_REASON_CODE: i32 = 29i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_CROSS_CERT_DIST_POINTS: ::windows::core::PSTR = 58i32 as _;
+pub const X509_CROSS_CERT_DIST_POINTS: ::windows::core::PCSTR = ::windows::core::PCSTR(58i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_DH_PARAMETERS: ::windows::core::PSTR = 47i32 as _;
+pub const X509_DH_PARAMETERS: ::windows::core::PCSTR = ::windows::core::PCSTR(47i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const X509_DH_PUBLICKEY: i32 = 38i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_DSS_PARAMETERS: ::windows::core::PSTR = 39i32 as _;
+pub const X509_DSS_PARAMETERS: ::windows::core::PCSTR = ::windows::core::PCSTR(39i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const X509_DSS_PUBLICKEY: i32 = 38i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_DSS_SIGNATURE: ::windows::core::PSTR = 40i32 as _;
+pub const X509_DSS_SIGNATURE: ::windows::core::PCSTR = ::windows::core::PCSTR(40i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_ECC_PARAMETERS: ::windows::core::PSTR = 85i32 as _;
+pub const X509_ECC_PARAMETERS: ::windows::core::PCSTR = ::windows::core::PCSTR(85i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_ECC_PRIVATE_KEY: ::windows::core::PSTR = 82i32 as _;
+pub const X509_ECC_PRIVATE_KEY: ::windows::core::PCSTR = ::windows::core::PCSTR(82i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_ECC_SIGNATURE: ::windows::core::PSTR = 47i32 as _;
+pub const X509_ECC_SIGNATURE: ::windows::core::PCSTR = ::windows::core::PCSTR(47i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_ENHANCED_KEY_USAGE: ::windows::core::PSTR = 36i32 as _;
+pub const X509_ENHANCED_KEY_USAGE: ::windows::core::PCSTR = ::windows::core::PCSTR(36i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_ENUMERATED: ::windows::core::PSTR = 29i32 as _;
+pub const X509_ENUMERATED: ::windows::core::PCSTR = ::windows::core::PCSTR(29i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_EXTENSIONS: ::windows::core::PSTR = 5i32 as _;
+pub const X509_EXTENSIONS: ::windows::core::PCSTR = ::windows::core::PCSTR(5i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_INTEGER: ::windows::core::PSTR = 27i32 as _;
+pub const X509_INTEGER: ::windows::core::PCSTR = ::windows::core::PCSTR(27i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_ISSUING_DIST_POINT: ::windows::core::PSTR = 54i32 as _;
+pub const X509_ISSUING_DIST_POINT: ::windows::core::PCSTR = ::windows::core::PCSTR(54i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_KEYGEN_REQUEST_TO_BE_SIGNED: ::windows::core::PSTR = 21i32 as _;
+pub const X509_KEYGEN_REQUEST_TO_BE_SIGNED: ::windows::core::PCSTR = ::windows::core::PCSTR(21i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_KEY_ATTRIBUTES: ::windows::core::PSTR = 10i32 as _;
+pub const X509_KEY_ATTRIBUTES: ::windows::core::PCSTR = ::windows::core::PCSTR(10i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_KEY_USAGE: ::windows::core::PSTR = 14i32 as _;
+pub const X509_KEY_USAGE: ::windows::core::PCSTR = ::windows::core::PCSTR(14i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_KEY_USAGE_RESTRICTION: ::windows::core::PSTR = 11i32 as _;
+pub const X509_KEY_USAGE_RESTRICTION: ::windows::core::PCSTR = ::windows::core::PCSTR(11i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_LOGOTYPE_EXT: ::windows::core::PSTR = 70i32 as _;
+pub const X509_LOGOTYPE_EXT: ::windows::core::PCSTR = ::windows::core::PCSTR(70i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_MULTI_BYTE_INTEGER: ::windows::core::PSTR = 28i32 as _;
+pub const X509_MULTI_BYTE_INTEGER: ::windows::core::PCSTR = ::windows::core::PCSTR(28i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_MULTI_BYTE_UINT: ::windows::core::PSTR = 38i32 as _;
+pub const X509_MULTI_BYTE_UINT: ::windows::core::PCSTR = ::windows::core::PCSTR(38i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_NAME: ::windows::core::PSTR = 7i32 as _;
+pub const X509_NAME: ::windows::core::PCSTR = ::windows::core::PCSTR(7i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_NAME_CONSTRAINTS: ::windows::core::PSTR = 55i32 as _;
+pub const X509_NAME_CONSTRAINTS: ::windows::core::PCSTR = ::windows::core::PCSTR(55i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_NAME_VALUE: ::windows::core::PSTR = 6i32 as _;
+pub const X509_NAME_VALUE: ::windows::core::PCSTR = ::windows::core::PCSTR(6i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const X509_NDR_ENCODING: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_OBJECT_IDENTIFIER: ::windows::core::PSTR = 73i32 as _;
+pub const X509_OBJECT_IDENTIFIER: ::windows::core::PCSTR = ::windows::core::PCSTR(73i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_OCTET_STRING: ::windows::core::PSTR = 25i32 as _;
+pub const X509_OCTET_STRING: ::windows::core::PCSTR = ::windows::core::PCSTR(25i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_PKIX_POLICY_QUALIFIER_USERNOTICE: ::windows::core::PSTR = 46i32 as _;
+pub const X509_PKIX_POLICY_QUALIFIER_USERNOTICE: ::windows::core::PCSTR = ::windows::core::PCSTR(46i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_POLICY_CONSTRAINTS: ::windows::core::PSTR = 57i32 as _;
+pub const X509_POLICY_CONSTRAINTS: ::windows::core::PCSTR = ::windows::core::PCSTR(57i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_POLICY_MAPPINGS: ::windows::core::PSTR = 56i32 as _;
+pub const X509_POLICY_MAPPINGS: ::windows::core::PCSTR = ::windows::core::PCSTR(56i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_PUBLIC_KEY_INFO: ::windows::core::PSTR = 8i32 as _;
+pub const X509_PUBLIC_KEY_INFO: ::windows::core::PCSTR = ::windows::core::PCSTR(8i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_QC_STATEMENTS_EXT: ::windows::core::PSTR = 42i32 as _;
+pub const X509_QC_STATEMENTS_EXT: ::windows::core::PCSTR = ::windows::core::PCSTR(42i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_SEQUENCE_OF_ANY: ::windows::core::PSTR = 34i32 as _;
+pub const X509_SEQUENCE_OF_ANY: ::windows::core::PCSTR = ::windows::core::PCSTR(34i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_SUBJECT_DIR_ATTRS: ::windows::core::PSTR = 84i32 as _;
+pub const X509_SUBJECT_DIR_ATTRS: ::windows::core::PCSTR = ::windows::core::PCSTR(84i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const X509_SUBJECT_INFO_ACCESS: i32 = 32i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const X509_UNICODE_ANY_STRING: i32 = 24i32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_UNICODE_NAME: ::windows::core::PSTR = 20i32 as _;
+pub const X509_UNICODE_NAME: ::windows::core::PCSTR = ::windows::core::PCSTR(20i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_UNICODE_NAME_VALUE: ::windows::core::PSTR = 24i32 as _;
+pub const X509_UNICODE_NAME_VALUE: ::windows::core::PCSTR = ::windows::core::PCSTR(24i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X942_DH_PARAMETERS: ::windows::core::PSTR = 50i32 as _;
+pub const X942_DH_PARAMETERS: ::windows::core::PCSTR = ::windows::core::PCSTR(50i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X942_OTHER_INFO: ::windows::core::PSTR = 52i32 as _;
+pub const X942_OTHER_INFO: ::windows::core::PCSTR = ::windows::core::PCSTR(52i32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const ZERO_PADDING: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]

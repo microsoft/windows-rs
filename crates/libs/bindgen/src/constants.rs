@@ -4,7 +4,7 @@ use super::*;
 
 pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
     let name = gen_ident(def.name());
-    let ty = def.get_type(None);
+    let ty = def.get_type(None).to_const();
     let cfg = def.cfg();
     let doc = gen.doc(&cfg);
     let features = gen.cfg(&cfg);

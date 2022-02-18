@@ -82,11 +82,11 @@ impl ::core::clone::Clone for CAT_MEMBERINFO2 {
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const CAT_MEMBERINFO2_OBJID: &'static str = "1.3.6.1.4.1.311.12.2.3";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const CAT_MEMBERINFO2_STRUCT: ::windows_sys::core::PSTR = 2223i32 as _;
+pub const CAT_MEMBERINFO2_STRUCT: ::windows_sys::core::PCSTR = 2223i32 as _;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const CAT_MEMBERINFO_OBJID: &'static str = "1.3.6.1.4.1.311.12.2.2";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const CAT_MEMBERINFO_STRUCT: ::windows_sys::core::PSTR = 2222i32 as _;
+pub const CAT_MEMBERINFO_STRUCT: ::windows_sys::core::PCSTR = 2222i32 as _;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -106,7 +106,7 @@ impl ::core::clone::Clone for CAT_NAMEVALUE {
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const CAT_NAMEVALUE_OBJID: &'static str = "1.3.6.1.4.1.311.12.2.1";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const CAT_NAMEVALUE_STRUCT: ::windows_sys::core::PSTR = 2221i32 as _;
+pub const CAT_NAMEVALUE_STRUCT: ::windows_sys::core::PCSTR = 2221i32 as _;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const CCPI_RESULT_ALLOW: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -529,7 +529,7 @@ impl ::core::clone::Clone for INTENT_TO_SEAL_ATTRIBUTE {
     }
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: ::windows_sys::core::PSTR = 2010i32 as _;
+pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: ::windows_sys::core::PCSTR = 2010i32 as _;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const OFFICE_CLEANUPPOLICY_FUNCTION: &'static str = "OfficeCleanupPolicy";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -626,7 +626,7 @@ impl ::core::clone::Clone for SEALING_SIGNATURE_ATTRIBUTE {
     }
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: ::windows_sys::core::PSTR = 2011i32 as _;
+pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: ::windows_sys::core::PCSTR = 2011i32 as _;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -644,13 +644,13 @@ impl ::core::clone::Clone for SEALING_TIMESTAMP_ATTRIBUTE {
     }
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: ::windows_sys::core::PSTR = 2012i32 as _;
+pub const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: ::windows_sys::core::PCSTR = 2012i32 as _;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SGNR_TYPE_TIMESTAMP: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_CAB_DATA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.25";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SPC_CAB_DATA_STRUCT: ::windows_sys::core::PSTR = 2008i32 as _;
+pub const SPC_CAB_DATA_STRUCT: ::windows_sys::core::PCSTR = 2008i32 as _;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_CERT_EXTENSIONS_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.14";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -679,7 +679,7 @@ impl ::core::clone::Clone for SPC_FINANCIAL_CRITERIA {
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_FINANCIAL_CRITERIA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.27";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SPC_FINANCIAL_CRITERIA_STRUCT: ::windows_sys::core::PSTR = 2002i32 as _;
+pub const SPC_FINANCIAL_CRITERIA_STRUCT: ::windows_sys::core::PCSTR = 2002i32 as _;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_GLUE_RDN_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.25";
 #[repr(C)]
@@ -717,7 +717,7 @@ impl ::core::clone::Clone for SPC_INDIRECT_DATA_CONTENT {
     }
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SPC_INDIRECT_DATA_CONTENT_STRUCT: ::windows_sys::core::PSTR = 2003i32 as _;
+pub const SPC_INDIRECT_DATA_CONTENT_STRUCT: ::windows_sys::core::PCSTR = 2003i32 as _;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_INDIRECT_DATA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.4";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -725,7 +725,7 @@ pub const SPC_INDIVIDUAL_SP_KEY_PURPOSE_OBJID: &'static str = "1.3.6.1.4.1.311.2
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_JAVA_CLASS_DATA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.20";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SPC_JAVA_CLASS_DATA_STRUCT: ::windows_sys::core::PSTR = 2009i32 as _;
+pub const SPC_JAVA_CLASS_DATA_STRUCT: ::windows_sys::core::PCSTR = 2009i32 as _;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -760,11 +760,11 @@ impl ::core::clone::Clone for SPC_LINK_0 {
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_LINK_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.28";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SPC_LINK_STRUCT: ::windows_sys::core::PSTR = 2005i32 as _;
+pub const SPC_LINK_STRUCT: ::windows_sys::core::PCSTR = 2005i32 as _;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_MINIMAL_CRITERIA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.26";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SPC_MINIMAL_CRITERIA_STRUCT: ::windows_sys::core::PSTR = 2001i32 as _;
+pub const SPC_MINIMAL_CRITERIA_STRUCT: ::windows_sys::core::PCSTR = 2001i32 as _;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_MONIKER_LINK_CHOICE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -787,7 +787,7 @@ impl ::core::clone::Clone for SPC_PE_IMAGE_DATA {
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_PE_IMAGE_DATA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.15";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SPC_PE_IMAGE_DATA_STRUCT: ::windows_sys::core::PSTR = 2004i32 as _;
+pub const SPC_PE_IMAGE_DATA_STRUCT: ::windows_sys::core::PCSTR = 2004i32 as _;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_PE_IMAGE_PAGE_HASHES_V1_OBJID: &'static str = "1.3.6.1.4.1.311.2.3.1";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -831,7 +831,7 @@ impl ::core::clone::Clone for SPC_SIGINFO {
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_SIGINFO_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.30";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SPC_SIGINFO_STRUCT: ::windows_sys::core::PSTR = 2130i32 as _;
+pub const SPC_SIGINFO_STRUCT: ::windows_sys::core::PCSTR = 2130i32 as _;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -852,7 +852,7 @@ impl ::core::clone::Clone for SPC_SP_AGENCY_INFO {
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_SP_AGENCY_INFO_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.10";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SPC_SP_AGENCY_INFO_STRUCT: ::windows_sys::core::PSTR = 2000i32 as _;
+pub const SPC_SP_AGENCY_INFO_STRUCT: ::windows_sys::core::PCSTR = 2000i32 as _;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -872,7 +872,7 @@ impl ::core::clone::Clone for SPC_SP_OPUS_INFO {
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_SP_OPUS_INFO_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.12";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SPC_SP_OPUS_INFO_STRUCT: ::windows_sys::core::PSTR = 2007i32 as _;
+pub const SPC_SP_OPUS_INFO_STRUCT: ::windows_sys::core::PCSTR = 2007i32 as _;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct SPC_STATEMENT_TYPE {
@@ -888,7 +888,7 @@ impl ::core::clone::Clone for SPC_STATEMENT_TYPE {
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_STATEMENT_TYPE_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.11";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
-pub const SPC_STATEMENT_TYPE_STRUCT: ::windows_sys::core::PSTR = 2006i32 as _;
+pub const SPC_STATEMENT_TYPE_STRUCT: ::windows_sys::core::PCSTR = 2006i32 as _;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_STRUCTURED_STORAGE_DATA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.19";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]

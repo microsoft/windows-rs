@@ -263,7 +263,7 @@ impl Type {
 
     pub fn has_replacement(&self) -> bool {
         match self {
-            Self::HRESULT => true,
+            Self::HRESULT | Self::PCSTR | Self::PCWSTR => true,
             Self::TypeDef(def) => def.is_handle(),
             _ => false,
         }

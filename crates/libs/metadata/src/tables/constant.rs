@@ -6,7 +6,7 @@ pub struct Constant(pub Row);
 impl Constant {
     pub fn value_type(&self) -> Type {
         let code = self.0.u32(0);
-        Type::from_code(code).unwrap_or_else(|| unimplemented!())
+        Type::from_code(code).unwrap_or_else(|| unimplemented!()).to_const()
     }
 
     pub fn value(&self) -> ConstantValue {
