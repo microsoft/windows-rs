@@ -10,7 +10,7 @@ fn main() -> Result<()> {
         let wc = WNDCLASSA {
             hCursor: LoadCursorW(None, IDC_ARROW),
             hInstance: instance,
-            lpszClassName: PSTR(b"window\0".as_ptr()),
+            lpszClassName: PCSTR(b"window\0".as_ptr()),
 
             style: CS_HREDRAW | CS_VREDRAW,
             lpfnWndProc: Some(wndproc),

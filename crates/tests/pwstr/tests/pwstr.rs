@@ -1,6 +1,5 @@
 use std::ffi::{OsStr, OsString};
 use windows::core::*;
-use windows::Win32::Foundation::PWSTR;
 
 #[test]
 fn test() {
@@ -22,7 +21,7 @@ fn test() {
     }
 }
 
-fn get_pwstr_from<'a>(t: impl IntoParam<'a, PWSTR>) -> Param<'a, PWSTR> {
+fn get_pwstr_from<'a>(t: impl IntoParam<'a, PCWSTR>) -> Param<'a, PCWSTR> {
     t.into_param()
 }
 
