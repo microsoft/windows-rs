@@ -22,8 +22,8 @@ pub enum Type {
     IUnknown,
     IInspectable,
     HRESULT,
-    TypeName,             // Used for parsing attribute blobs
-    GenericParam(String), // TODO: can be &'static str?
+    TypeName, // Used for parsing attribute blobs
+    GenericParam(&'static str),
     MethodDef(MethodDef),
     Field(Field),
     TypeDef(TypeDef),

@@ -16,7 +16,7 @@ impl From<Row> for TypeDef {
 impl TypeDef {
     #[must_use]
     pub fn with_generics(mut self) -> Self {
-        self.generics = self.generic_params().map(|generic| Type::GenericParam(generic.name().to_string())).collect();
+        self.generics = self.generic_params().map(|generic| Type::GenericParam(generic.name())).collect();
         self
     }
 
