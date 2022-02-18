@@ -165,7 +165,7 @@ pub fn gen_element_name(def: &Type, gen: &Gen) -> TokenStream {
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
-        Type::GenericParam(generic) => generic.into(),
+        Type::GenericParam(generic) => (*generic).into(),
         Type::MethodDef(def) => def.name().into(),
         Type::Field(field) => field.name().into(),
         Type::TypeDef(t) => gen_type_name(t, gen),
