@@ -1,6 +1,5 @@
 use super::*;
 
-
 #[repr(transparent)]
 pub struct PSTR(pub *mut u8);
 impl PSTR {
@@ -21,7 +20,7 @@ impl ::core::clone::Clone for PSTR {
 impl ::core::marker::Copy for PSTR {}
 impl ::core::cmp::PartialEq for PSTR {
     fn eq(&self, other: &Self) -> bool {
-            self.0 == other.0
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for PSTR {}

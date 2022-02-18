@@ -20,7 +20,7 @@ impl ::core::clone::Clone for PCSTR {
 impl ::core::marker::Copy for PCSTR {}
 impl ::core::cmp::PartialEq for PCSTR {
     fn eq(&self, other: &Self) -> bool {
-            self.0 == other.0
+        self.0 == other.0
     }
 }
 impl ::core::cmp::Eq for PCSTR {}

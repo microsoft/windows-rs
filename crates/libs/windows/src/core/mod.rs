@@ -15,6 +15,10 @@ mod inspectable;
 mod interface;
 mod into_param;
 mod param;
+mod pcstr;
+mod pcwstr;
+mod pstr;
+mod pwstr;
 mod ref_count;
 mod runtime_name;
 mod runtime_type;
@@ -24,10 +28,6 @@ mod unknown;
 mod waiter;
 mod weak;
 mod weak_ref_count;
-mod pcstr;
-mod pcwstr;
-mod pstr;
-mod pwstr;
 
 #[doc(hidden)]
 pub use abi::*;
@@ -54,6 +54,10 @@ pub use interface::*;
 pub use into_param::*;
 #[doc(hidden)]
 pub use param::*;
+pub use pcstr::*;
+pub use pcwstr::*;
+pub use pstr::*;
+pub use pwstr::*;
 #[doc(hidden)]
 pub use ref_count::*;
 #[doc(hidden)]
@@ -71,10 +75,6 @@ pub use waiter::*;
 pub use weak::*;
 #[doc(hidden)]
 pub use weak_ref_count::*;
-pub use pcstr::*;
-pub use pstr::*;
-pub use pwstr::*;
-pub use pcwstr::*;
 
 // A [`Result`] type that provides Windows error information.
 #[must_use]
