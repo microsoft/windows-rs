@@ -22,6 +22,10 @@ pub enum Type {
     IUnknown,
     IInspectable,
     HRESULT,
+    PCSTR,
+    PSTR,
+    PCWSTR,
+    PWSTR,
     TypeName, // Used for parsing attribute blobs
     GenericParam(&'static str),
     MethodDef(MethodDef),
@@ -230,6 +234,8 @@ impl Type {
     pub fn to_const(self) -> Self {
         match self {
             Self::MutPtr((kind, pointers)) => Self::ConstPtr((kind, pointers)),
+            Self::PSTR => Self::PCSTR,
+            Self::PWSTR => Self::PCWSTR,
             _ => self,
         }
     }
