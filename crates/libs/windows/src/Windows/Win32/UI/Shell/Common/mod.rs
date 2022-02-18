@@ -1,38 +1,30 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell_Common', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
 pub struct COMDLG_FILTERSPEC {
-    pub pszName: super::super::super::Foundation::PWSTR,
-    pub pszSpec: super::super::super::Foundation::PWSTR,
+    pub pszName: ::windows::core::PCWSTR,
+    pub pszSpec: ::windows::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COMDLG_FILTERSPEC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COMDLG_FILTERSPEC {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COMDLG_FILTERSPEC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("COMDLG_FILTERSPEC").field("pszName", &self.pszName).field("pszSpec", &self.pszSpec).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COMDLG_FILTERSPEC {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMDLG_FILTERSPEC {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMDLG_FILTERSPEC>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COMDLG_FILTERSPEC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COMDLG_FILTERSPEC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -415,34 +407,27 @@ impl ::core::fmt::Debug for SHCOLSTATE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Shell_Common', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
 pub struct SHELLDETAILS {
     pub fmt: i32,
     pub cxChar: i32,
     pub str: STRRET,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SHELLDETAILS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SHELLDETAILS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SHELLDETAILS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SHELLDETAILS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHELLDETAILS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SHELLDETAILS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SHELLDETAILS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -475,67 +460,53 @@ impl ::core::default::Default for SHITEMID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell_Common', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
 pub struct STRRET {
     pub uType: u32,
     pub Anonymous: STRRET_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STRRET {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STRRET {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STRRET {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STRRET {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STRRET>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STRRET {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STRRET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell_Common', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Shell_Common'*"]
 pub union STRRET_0 {
-    pub pOleStr: super::super::super::Foundation::PWSTR,
+    pub pOleStr: ::windows::core::PWSTR,
     pub uOffset: u32,
     pub cStr: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STRRET_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STRRET_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STRRET_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STRRET_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STRRET_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STRRET_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STRRET_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

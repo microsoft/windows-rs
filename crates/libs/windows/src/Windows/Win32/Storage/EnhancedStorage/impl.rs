@@ -1,13 +1,11 @@
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageACT_Impl: Sized {
     fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::core::Result<()>;
     fn Unauthorize(&self) -> ::windows::core::Result<()>;
     fn GetAuthorizationState(&self) -> ::windows::core::Result<ACT_AUTHORIZATION_STATE>;
-    fn GetMatchingVolume(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetUniqueIdentity(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetMatchingVolume(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetUniqueIdentity(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IEnhancedStorageACT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>() -> IEnhancedStorageACT_Vtbl {
         unsafe extern "system" fn Authorize<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: u32, dwflags: u32) -> ::windows::core::HRESULT {
@@ -31,7 +29,7 @@ impl IEnhancedStorageACT_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMatchingVolume<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszvolume: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMatchingVolume<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszvolume: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetMatchingVolume() {
@@ -42,7 +40,7 @@ impl IEnhancedStorageACT_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUniqueIdentity<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszidentity: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUniqueIdentity<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszidentity: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetUniqueIdentity() {
@@ -74,13 +72,13 @@ impl IEnhancedStorageACT_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageACT2_Impl: Sized + IEnhancedStorageACT_Impl {
-    fn GetDeviceName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetDeviceName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn IsDeviceRemovable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnhancedStorageACT2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT2_Impl, const OFFSET: isize>() -> IEnhancedStorageACT2_Vtbl {
-        unsafe extern "system" fn GetDeviceName<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszdevicename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceName<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszdevicename: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetDeviceName() {
@@ -159,15 +157,15 @@ impl IEnhancedStorageACT3_Vtbl {
         iid == &<IEnhancedStorageACT3 as ::windows::core::Interface>::IID || iid == &<IEnhancedStorageACT as ::windows::core::Interface>::IID || iid == &<IEnhancedStorageACT2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation"))]
+#[cfg(feature = "Win32_Devices_PortableDevices")]
 pub trait IEnhancedStorageSilo_Impl: Sized {
     fn GetInfo(&self) -> ::windows::core::Result<SILO_INFO>;
     fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut ::core::option::Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> ::windows::core::Result<()>;
     fn SendCommand(&self, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::core::Result<()>;
     fn GetPortableDevice(&self) -> ::windows::core::Result<super::super::Devices::PortableDevices::IPortableDevice>;
-    fn GetDevicePath(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetDevicePath(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation"))]
+#[cfg(feature = "Win32_Devices_PortableDevices")]
 impl IEnhancedStorageSilo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSilo_Impl, const OFFSET: isize>() -> IEnhancedStorageSilo_Vtbl {
         unsafe extern "system" fn GetInfo<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSilo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psiloinfo: *mut SILO_INFO) -> ::windows::core::HRESULT {
@@ -202,7 +200,7 @@ impl IEnhancedStorageSilo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDevicePath<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSilo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszsilodevicepath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDevicePath<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSilo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszsilodevicepath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetDevicePath() {
@@ -226,16 +224,14 @@ impl IEnhancedStorageSilo_Vtbl {
         iid == &<IEnhancedStorageSilo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageSiloAction_Impl: Sized {
-    fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn Invoke(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IEnhancedStorageSiloAction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSiloAction_Impl, const OFFSET: isize>() -> IEnhancedStorageSiloAction_Vtbl {
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSiloAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszactionname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSiloAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszactionname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetName() {
@@ -246,7 +242,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSiloAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszactiondescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSiloAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszactiondescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetDescription() {
@@ -273,12 +269,10 @@ impl IEnhancedStorageSiloAction_Vtbl {
         iid == &<IEnhancedStorageSiloAction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnumEnhancedStorageACT_Impl: Sized {
     fn GetACTs(&self, pppienhancedstorageacts: *mut *mut ::core::option::Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> ::windows::core::Result<()>;
-    fn GetMatchingACT(&self, szvolume: super::super::Foundation::PWSTR) -> ::windows::core::Result<IEnhancedStorageACT>;
+    fn GetMatchingACT(&self, szvolume: &::windows::core::PCWSTR) -> ::windows::core::Result<IEnhancedStorageACT>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IEnumEnhancedStorageACT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumEnhancedStorageACT_Impl, const OFFSET: isize>() -> IEnumEnhancedStorageACT_Vtbl {
         unsafe extern "system" fn GetACTs<Identity: ::windows::core::IUnknownImpl, Impl: IEnumEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppienhancedstorageacts: *mut *mut ::windows::core::RawPtr, pcenhancedstorageacts: *mut u32) -> ::windows::core::HRESULT {
@@ -286,10 +280,10 @@ impl IEnumEnhancedStorageACT_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetACTs(::core::mem::transmute_copy(&pppienhancedstorageacts), ::core::mem::transmute_copy(&pcenhancedstorageacts)).into()
         }
-        unsafe extern "system" fn GetMatchingACT<Identity: ::windows::core::IUnknownImpl, Impl: IEnumEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szvolume: super::super::Foundation::PWSTR, ppienhancedstorageact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMatchingACT<Identity: ::windows::core::IUnknownImpl, Impl: IEnumEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szvolume: ::windows::core::PCWSTR, ppienhancedstorageact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetMatchingACT(::core::mem::transmute_copy(&szvolume)) {
+            match (*this).GetMatchingACT(::core::mem::transmute(&szvolume)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppienhancedstorageact = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

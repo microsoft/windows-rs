@@ -432,45 +432,37 @@ impl ::core::default::Default for HTTP_CONNECTION_LIMIT_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_COOKED_URL {
     pub FullUrlLength: u16,
     pub HostLength: u16,
     pub AbsPathLength: u16,
     pub QueryStringLength: u16,
-    pub pFullUrl: super::super::Foundation::PWSTR,
-    pub pHost: super::super::Foundation::PWSTR,
-    pub pAbsPath: super::super::Foundation::PWSTR,
-    pub pQueryString: super::super::Foundation::PWSTR,
+    pub pFullUrl: ::windows::core::PCWSTR,
+    pub pHost: ::windows::core::PCWSTR,
+    pub pAbsPath: ::windows::core::PCWSTR,
+    pub pQueryString: ::windows::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_COOKED_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_COOKED_URL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_COOKED_URL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_COOKED_URL").field("FullUrlLength", &self.FullUrlLength).field("HostLength", &self.HostLength).field("AbsPathLength", &self.AbsPathLength).field("QueryStringLength", &self.QueryStringLength).field("pFullUrl", &self.pFullUrl).field("pHost", &self.pHost).field("pAbsPath", &self.pAbsPath).field("pQueryString", &self.pQueryString).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_COOKED_URL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_COOKED_URL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_COOKED_URL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_COOKED_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_COOKED_URL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -654,7 +646,7 @@ impl ::core::default::Default for HTTP_DATA_CHUNK_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_DATA_CHUNK_0_1 {
     pub ByteRange: HTTP_BYTE_RANGE,
-    pub pFragmentName: super::super::Foundation::PWSTR,
+    pub pFragmentName: ::windows::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_DATA_CHUNK_0_1 {}
@@ -693,7 +685,7 @@ impl ::core::default::Default for HTTP_DATA_CHUNK_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_DATA_CHUNK_0_2 {
     pub FragmentNameLength: u16,
-    pub pFragmentName: super::super::Foundation::PWSTR,
+    pub pFragmentName: ::windows::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_DATA_CHUNK_0_2 {}
@@ -929,40 +921,32 @@ impl ::core::fmt::Debug for HTTP_ENABLED_STATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_ERROR_HEADERS_PARAM {
     pub StatusCode: u16,
     pub HeaderCount: u16,
     pub Headers: *mut HTTP_UNKNOWN_HEADER,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_ERROR_HEADERS_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_ERROR_HEADERS_PARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_ERROR_HEADERS_PARAM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_ERROR_HEADERS_PARAM").field("StatusCode", &self.StatusCode).field("HeaderCount", &self.HeaderCount).field("Headers", &self.Headers).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_ERROR_HEADERS_PARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_ERROR_HEADERS_PARAM {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_ERROR_HEADERS_PARAM>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_ERROR_HEADERS_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_ERROR_HEADERS_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1225,39 +1209,31 @@ impl ::core::ops::Not for HTTP_INITIALIZE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_KNOWN_HEADER {
     pub RawValueLength: u16,
-    pub pRawValue: super::super::Foundation::PSTR,
+    pub pRawValue: ::windows::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_KNOWN_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_KNOWN_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_KNOWN_HEADER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_KNOWN_HEADER").field("RawValueLength", &self.RawValueLength).field("pRawValue", &self.pRawValue).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_KNOWN_HEADER {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_KNOWN_HEADER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_KNOWN_HEADER>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_KNOWN_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_KNOWN_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1316,10 +1292,10 @@ pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: u32 = 2u32;
 pub struct HTTP_LOGGING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub LoggingFlags: u32,
-    pub SoftwareName: super::super::Foundation::PWSTR,
+    pub SoftwareName: ::windows::core::PCWSTR,
     pub SoftwareNameLength: u16,
     pub DirectoryNameLength: u16,
-    pub DirectoryName: super::super::Foundation::PWSTR,
+    pub DirectoryName: ::windows::core::PCWSTR,
     pub Format: HTTP_LOGGING_TYPE,
     pub Fields: u32,
     pub pExtFields: *mut ::core::ffi::c_void,
@@ -1496,8 +1472,7 @@ impl ::core::fmt::Debug for HTTP_LOG_DATA_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_LOG_FIELDS_DATA {
     pub Base: HTTP_LOG_DATA,
     pub UserNameLength: u16,
@@ -1512,33 +1487,30 @@ pub struct HTTP_LOG_FIELDS_DATA {
     pub UserAgentLength: u16,
     pub CookieLength: u16,
     pub ReferrerLength: u16,
-    pub UserName: super::super::Foundation::PWSTR,
-    pub UriStem: super::super::Foundation::PWSTR,
-    pub ClientIp: super::super::Foundation::PSTR,
-    pub ServerName: super::super::Foundation::PSTR,
-    pub ServiceName: super::super::Foundation::PSTR,
-    pub ServerIp: super::super::Foundation::PSTR,
-    pub Method: super::super::Foundation::PSTR,
-    pub UriQuery: super::super::Foundation::PSTR,
-    pub Host: super::super::Foundation::PSTR,
-    pub UserAgent: super::super::Foundation::PSTR,
-    pub Cookie: super::super::Foundation::PSTR,
-    pub Referrer: super::super::Foundation::PSTR,
+    pub UserName: ::windows::core::PWSTR,
+    pub UriStem: ::windows::core::PWSTR,
+    pub ClientIp: ::windows::core::PSTR,
+    pub ServerName: ::windows::core::PSTR,
+    pub ServiceName: ::windows::core::PSTR,
+    pub ServerIp: ::windows::core::PSTR,
+    pub Method: ::windows::core::PSTR,
+    pub UriQuery: ::windows::core::PSTR,
+    pub Host: ::windows::core::PSTR,
+    pub UserAgent: ::windows::core::PSTR,
+    pub Cookie: ::windows::core::PSTR,
+    pub Referrer: ::windows::core::PSTR,
     pub ServerPort: u16,
     pub ProtocolStatus: u16,
     pub Win32Status: u32,
     pub MethodNum: HTTP_VERB,
     pub SubStatus: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_LOG_FIELDS_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_LOG_FIELDS_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_LOG_FIELDS_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_LOG_FIELDS_DATA")
@@ -1575,19 +1547,15 @@ impl ::core::fmt::Debug for HTTP_LOG_FIELDS_DATA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_LOG_FIELDS_DATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_LOG_FIELDS_DATA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_LOG_FIELDS_DATA>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_LOG_FIELDS_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_LOG_FIELDS_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1660,41 +1628,33 @@ pub const HTTP_MAX_SERVER_QUEUE_LENGTH: u32 = 2147483647u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_MIN_SERVER_QUEUE_LENGTH: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_MULTIPLE_KNOWN_HEADERS {
     pub HeaderId: HTTP_HEADER_ID,
     pub Flags: u32,
     pub KnownHeaderCount: u16,
     pub KnownHeaders: *mut HTTP_KNOWN_HEADER,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_MULTIPLE_KNOWN_HEADERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_MULTIPLE_KNOWN_HEADERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_MULTIPLE_KNOWN_HEADERS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_MULTIPLE_KNOWN_HEADERS").field("HeaderId", &self.HeaderId).field("Flags", &self.Flags).field("KnownHeaderCount", &self.KnownHeaderCount).field("KnownHeaders", &self.KnownHeaders).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_MULTIPLE_KNOWN_HEADERS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_MULTIPLE_KNOWN_HEADERS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_MULTIPLE_KNOWN_HEADERS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_MULTIPLE_KNOWN_HEADERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_MULTIPLE_KNOWN_HEADERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2181,9 +2141,9 @@ pub struct HTTP_REQUEST_AUTH_INFO {
     pub PackedContextType: u32,
     pub PackedContext: *mut ::core::ffi::c_void,
     pub MutualAuthDataLength: u32,
-    pub pMutualAuthData: super::super::Foundation::PSTR,
+    pub pMutualAuthData: ::windows::core::PSTR,
     pub PackageNameLength: u16,
-    pub pPackageName: super::super::Foundation::PWSTR,
+    pub pPackageName: ::windows::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_REQUEST_AUTH_INFO {}
@@ -2308,8 +2268,7 @@ pub const HTTP_REQUEST_FLAG_IP_ROUTED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_REQUEST_HEADERS {
     pub UnknownHeaderCount: u16,
     pub pUnknownHeaders: *mut HTTP_UNKNOWN_HEADER,
@@ -2317,33 +2276,26 @@ pub struct HTTP_REQUEST_HEADERS {
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
     pub KnownHeaders: [HTTP_KNOWN_HEADER; 41],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_REQUEST_HEADERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_REQUEST_HEADERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_REQUEST_HEADERS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_REQUEST_HEADERS").field("UnknownHeaderCount", &self.UnknownHeaderCount).field("pUnknownHeaders", &self.pUnknownHeaders).field("TrailerCount", &self.TrailerCount).field("pTrailers", &self.pTrailers).field("KnownHeaders", &self.KnownHeaders).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_REQUEST_HEADERS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_REQUEST_HEADERS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_HEADERS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_REQUEST_HEADERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_REQUEST_HEADERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2768,8 +2720,8 @@ pub struct HTTP_REQUEST_V1 {
     pub Verb: HTTP_VERB,
     pub UnknownVerbLength: u16,
     pub RawUrlLength: u16,
-    pub pUnknownVerb: super::super::Foundation::PSTR,
-    pub pRawUrl: super::super::Foundation::PSTR,
+    pub pUnknownVerb: ::windows::core::PCSTR,
+    pub pRawUrl: ::windows::core::PCSTR,
     pub CookedUrl: HTTP_COOKED_URL,
     pub Address: HTTP_TRANSPORT_ADDRESS,
     pub Headers: HTTP_REQUEST_HEADERS,
@@ -2875,8 +2827,7 @@ pub const HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_RESPONSE_FLAG_MULTIPLE_ENCODINGS_AVAILABLE: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_RESPONSE_HEADERS {
     pub UnknownHeaderCount: u16,
     pub pUnknownHeaders: *mut HTTP_UNKNOWN_HEADER,
@@ -2884,33 +2835,26 @@ pub struct HTTP_RESPONSE_HEADERS {
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
     pub KnownHeaders: [HTTP_KNOWN_HEADER; 30],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_RESPONSE_HEADERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_RESPONSE_HEADERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_RESPONSE_HEADERS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_RESPONSE_HEADERS").field("UnknownHeaderCount", &self.UnknownHeaderCount).field("pUnknownHeaders", &self.pUnknownHeaders).field("TrailerCount", &self.TrailerCount).field("pTrailers", &self.pTrailers).field("KnownHeaders", &self.KnownHeaders).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_RESPONSE_HEADERS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_RESPONSE_HEADERS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_RESPONSE_HEADERS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_RESPONSE_HEADERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_RESPONSE_HEADERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2989,7 +2933,7 @@ pub struct HTTP_RESPONSE_V1 {
     pub Version: HTTP_VERSION,
     pub StatusCode: u16,
     pub ReasonLength: u16,
-    pub pReason: super::super::Foundation::PSTR,
+    pub pReason: ::windows::core::PCSTR,
     pub Headers: HTTP_RESPONSE_HEADERS,
     pub EntityChunkCount: u16,
     pub pEntityChunks: *mut HTTP_DATA_CHUNK,
@@ -3110,80 +3054,64 @@ pub const HTTP_SEND_RESPONSE_FLAG_OPAQUE: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SEND_RESPONSE_FLAG_PROCESS_RANGES: u32 = 32u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     pub RealmLength: u16,
-    pub Realm: super::super::Foundation::PWSTR,
+    pub Realm: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS").field("RealmLength", &self.RealmLength).field("Realm", &self.Realm).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     pub DomainNameLength: u16,
-    pub DomainName: super::super::Foundation::PWSTR,
+    pub DomainName: ::windows::core::PWSTR,
     pub RealmLength: u16,
-    pub Realm: super::super::Foundation::PWSTR,
+    pub Realm: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS").field("DomainNameLength", &self.DomainNameLength).field("DomainName", &self.DomainName).field("RealmLength", &self.RealmLength).field("Realm", &self.Realm).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3284,40 +3212,32 @@ impl ::core::fmt::Debug for HTTP_SERVER_PROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_SERVICE_BINDING_A {
     pub Base: HTTP_SERVICE_BINDING_BASE,
-    pub Buffer: super::super::Foundation::PSTR,
+    pub Buffer: ::windows::core::PSTR,
     pub BufferSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_SERVICE_BINDING_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVICE_BINDING_A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_SERVICE_BINDING_A").field("Base", &self.Base).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_A {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_BINDING_A {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_BINDING_A>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_BINDING_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_SERVICE_BINDING_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3383,40 +3303,32 @@ impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_SERVICE_BINDING_W {
     pub Base: HTTP_SERVICE_BINDING_BASE,
-    pub Buffer: super::super::Foundation::PWSTR,
+    pub Buffer: ::windows::core::PWSTR,
     pub BufferSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_SERVICE_BINDING_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVICE_BINDING_W {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_W {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_SERVICE_BINDING_W").field("Base", &self.Base).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_W {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_BINDING_W {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_BINDING_W>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_BINDING_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_SERVICE_BINDING_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3992,29 +3904,25 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
     pub SslHashLength: u32,
     pub pSslHash: *mut ::core::ffi::c_void,
     pub AppId: ::windows::core::GUID,
-    pub pSslCertStoreName: super::super::Foundation::PWSTR,
+    pub pSslCertStoreName: ::windows::core::PWSTR,
     pub DefaultCertCheckMode: u32,
     pub DefaultRevocationFreshnessTime: u32,
     pub DefaultRevocationUrlRetrievalTimeout: u32,
-    pub pDefaultSslCtlIdentifier: super::super::Foundation::PWSTR,
-    pub pDefaultSslCtlStoreName: super::super::Foundation::PWSTR,
+    pub pDefaultSslCtlIdentifier: ::windows::core::PWSTR,
+    pub pDefaultSslCtlStoreName: ::windows::core::PWSTR,
     pub DefaultFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_PARAM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_SERVICE_CONFIG_SSL_PARAM")
@@ -4031,61 +3939,49 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_PARAM {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_PARAM>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
     pub Flags: u64,
     pub Anonymous: HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_PARAM_EX>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     pub Http2WindowSizeParam: HTTP2_WINDOW_SIZE_PARAM,
     pub Http2SettingsLimitsParam: HTTP2_SETTINGS_LIMITS_PARAM,
@@ -4094,27 +3990,21 @@ pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     pub HttpErrorHeadersParam: HTTP_ERROR_HEADERS_PARAM,
     pub HttpTlsSessionTicketKeysParam: HTTP_TLS_SESSION_TICKET_KEYS_PARAM,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4278,7 +4168,7 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_SET_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     pub IpPort: super::WinSock::SOCKADDR_STORAGE,
-    pub Host: super::super::Foundation::PWSTR,
+    pub Host: ::windows::core::PWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {}
@@ -4524,155 +4414,123 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_SERVICE_CONFIG_URLACL_KEY {
-    pub pUrlPrefix: super::super::Foundation::PWSTR,
+    pub pUrlPrefix: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_URLACL_KEY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_URLACL_KEY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_KEY").field("pUrlPrefix", &self.pUrlPrefix).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_KEY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_KEY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_URLACL_KEY>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_KEY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_URLACL_KEY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_SERVICE_CONFIG_URLACL_PARAM {
-    pub pStringSecurityDescriptor: super::super::Foundation::PWSTR,
+    pub pStringSecurityDescriptor: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_URLACL_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_PARAM").field("pStringSecurityDescriptor", &self.pStringSecurityDescriptor).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_URLACL_PARAM>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_SERVICE_CONFIG_URLACL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
     pub dwToken: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_URLACL_QUERY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_QUERY").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_URLACL_QUERY>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_QUERY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_SERVICE_CONFIG_URLACL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_URLACL_PARAM,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_URLACL_SET {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_URLACL_SET {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_SET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_SET {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_SET {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_URLACL_SET>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_SET {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_URLACL_SET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4728,8 +4586,8 @@ pub struct HTTP_SSL_INFO {
     pub ConnectionKeySize: u16,
     pub ServerCertIssuerSize: u32,
     pub ServerCertSubjectSize: u32,
-    pub pServerCertIssuer: super::super::Foundation::PSTR,
-    pub pServerCertSubject: super::super::Foundation::PSTR,
+    pub pServerCertIssuer: ::windows::core::PCSTR,
+    pub pServerCertSubject: ::windows::core::PCSTR,
     pub pClientCertInfo: *mut HTTP_SSL_CLIENT_CERT_INFO,
     pub SslClientCertNegotiated: u32,
 }
@@ -5007,41 +4865,33 @@ impl ::core::default::Default for HTTP_TRANSPORT_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub struct HTTP_UNKNOWN_HEADER {
     pub NameLength: u16,
     pub RawValueLength: u16,
-    pub pName: super::super::Foundation::PSTR,
-    pub pRawValue: super::super::Foundation::PSTR,
+    pub pName: ::windows::core::PCSTR,
+    pub pRawValue: ::windows::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_UNKNOWN_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_UNKNOWN_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_UNKNOWN_HEADER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HTTP_UNKNOWN_HEADER").field("NameLength", &self.NameLength).field("RawValueLength", &self.RawValueLength).field("pName", &self.pName).field("pRawValue", &self.pRawValue).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_UNKNOWN_HEADER {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_UNKNOWN_HEADER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_UNKNOWN_HEADER>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_UNKNOWN_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_UNKNOWN_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5204,12 +5054,12 @@ impl ::core::default::Default for HTTP_WSK_API_TIMINGS {
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpAddFragmentToCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpAddFragmentToCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpAddFragmentToCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: super::super::Foundation::PWSTR, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
+            fn HttpAddFragmentToCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: ::windows::core::PCWSTR, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
         ::core::mem::transmute(HttpAddFragmentToCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), ::core::mem::transmute(datachunk), ::core::mem::transmute(cachepolicy), ::core::mem::transmute(overlapped)))
     }
@@ -5219,27 +5069,26 @@ pub unsafe fn HttpAddFragmentToCache<'a, Param0: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpAddUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1, reserved: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn HttpAddUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1, reserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpAddUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> u32;
+            fn HttpAddUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: ::windows::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(HttpAddUrl(requestqueuehandle.into_param().abi(), fullyqualifiedurl.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 #[inline]
-pub unsafe fn HttpAddUrlToUrlGroup<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, urlcontext: u64, reserved: u32) -> u32 {
+pub unsafe fn HttpAddUrlToUrlGroup<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, urlcontext: u64, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpAddUrlToUrlGroup(urlgroupid: u64, pfullyqualifiedurl: super::super::Foundation::PWSTR, urlcontext: u64, reserved: u32) -> u32;
+            fn HttpAddUrlToUrlGroup(urlgroupid: u64, pfullyqualifiedurl: ::windows::core::PCWSTR, urlcontext: u64, reserved: u32) -> u32;
         }
         ::core::mem::transmute(HttpAddUrlToUrlGroup(::core::mem::transmute(urlgroupid), pfullyqualifiedurl.into_param().abi(), ::core::mem::transmute(urlcontext), ::core::mem::transmute(reserved)))
     }
@@ -5322,12 +5171,12 @@ pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Founda
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn HttpCreateRequestQueue<'a, Param0: ::windows::core::IntoParam<'a, HTTPAPI_VERSION>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(version: Param0, name: Param1, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn HttpCreateRequestQueue<'a, Param0: ::windows::core::IntoParam<'a, HTTPAPI_VERSION>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(version: Param0, name: Param1, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpCreateRequestQueue(version: HTTPAPI_VERSION, name: super::super::Foundation::PWSTR, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn HttpCreateRequestQueue(version: HTTPAPI_VERSION, name: ::windows::core::PCWSTR, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(HttpCreateRequestQueue(version.into_param().abi(), name.into_param().abi(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(flags), ::core::mem::transmute(requestqueuehandle)))
     }
@@ -5365,12 +5214,12 @@ pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, re
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpDeclarePush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(requestqueuehandle: Param0, requestid: u64, verb: HTTP_VERB, path: Param3, query: Param4, headers: *const HTTP_REQUEST_HEADERS) -> u32 {
+pub unsafe fn HttpDeclarePush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(requestqueuehandle: Param0, requestid: u64, verb: HTTP_VERB, path: Param3, query: Param4, headers: *const HTTP_REQUEST_HEADERS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpDeclarePush(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, verb: HTTP_VERB, path: super::super::Foundation::PWSTR, query: super::super::Foundation::PSTR, headers: *const HTTP_REQUEST_HEADERS) -> u32;
+            fn HttpDeclarePush(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, verb: HTTP_VERB, path: ::windows::core::PCWSTR, query: ::windows::core::PCSTR, headers: *const HTTP_REQUEST_HEADERS) -> u32;
         }
         ::core::mem::transmute(HttpDeclarePush(requestqueuehandle.into_param().abi(), ::core::mem::transmute(requestid), ::core::mem::transmute(verb), path.into_param().abi(), query.into_param().abi(), ::core::mem::transmute(headers)))
     }
@@ -5410,12 +5259,12 @@ pub unsafe fn HttpDeleteServiceConfiguration<'a, Param0: ::windows::core::IntoPa
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpFindUrlGroupId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(fullyqualifiedurl: Param0, requestqueuehandle: Param1, urlgroupid: *mut u64) -> u32 {
+pub unsafe fn HttpFindUrlGroupId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(fullyqualifiedurl: Param0, requestqueuehandle: Param1, urlgroupid: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpFindUrlGroupId(fullyqualifiedurl: super::super::Foundation::PWSTR, requestqueuehandle: super::super::Foundation::HANDLE, urlgroupid: *mut u64) -> u32;
+            fn HttpFindUrlGroupId(fullyqualifiedurl: ::windows::core::PCWSTR, requestqueuehandle: super::super::Foundation::HANDLE, urlgroupid: *mut u64) -> u32;
         }
         ::core::mem::transmute(HttpFindUrlGroupId(fullyqualifiedurl.into_param().abi(), requestqueuehandle.into_param().abi(), ::core::mem::transmute(urlgroupid)))
     }
@@ -5425,12 +5274,12 @@ pub unsafe fn HttpFindUrlGroupId<'a, Param0: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpFlushResponseCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpFlushResponseCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpFlushResponseCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: super::super::Foundation::PWSTR, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
+            fn HttpFlushResponseCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: ::windows::core::PCWSTR, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
         ::core::mem::transmute(HttpFlushResponseCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
     }
@@ -5480,15 +5329,14 @@ pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 #[inline]
-pub unsafe fn HttpPrepareUrl<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: *mut ::core::ffi::c_void, flags: u32, url: Param2, preparedurl: *mut super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn HttpPrepareUrl<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(reserved: *mut ::core::ffi::c_void, flags: u32, url: Param2, preparedurl: *mut ::windows::core::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpPrepareUrl(reserved: *mut ::core::ffi::c_void, flags: u32, url: super::super::Foundation::PWSTR, preparedurl: *mut super::super::Foundation::PWSTR) -> u32;
+            fn HttpPrepareUrl(reserved: *mut ::core::ffi::c_void, flags: u32, url: ::windows::core::PCWSTR, preparedurl: *mut ::windows::core::PWSTR) -> u32;
         }
         ::core::mem::transmute(HttpPrepareUrl(::core::mem::transmute(reserved), ::core::mem::transmute(flags), url.into_param().abi(), ::core::mem::transmute(preparedurl)))
     }
@@ -5556,12 +5404,12 @@ pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_P
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReadFragmentFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
+pub unsafe fn HttpReadFragmentFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpReadFragmentFromCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: super::super::Foundation::PWSTR, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
+            fn HttpReadFragmentFromCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: ::windows::core::PCWSTR, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
         ::core::mem::transmute(HttpReadFragmentFromCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), ::core::mem::transmute(byterange), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength), ::core::mem::transmute(bytesread), ::core::mem::transmute(overlapped)))
     }
@@ -5616,27 +5464,26 @@ pub unsafe fn HttpReceiveRequestEntityBody<'a, Param0: ::windows::core::IntoPara
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpRemoveUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1) -> u32 {
+pub unsafe fn HttpRemoveUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpRemoveUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: super::super::Foundation::PWSTR) -> u32;
+            fn HttpRemoveUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: ::windows::core::PCWSTR) -> u32;
         }
         ::core::mem::transmute(HttpRemoveUrl(requestqueuehandle.into_param().abi(), fullyqualifiedurl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 #[inline]
-pub unsafe fn HttpRemoveUrlFromUrlGroup<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, flags: u32) -> u32 {
+pub unsafe fn HttpRemoveUrlFromUrlGroup<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpRemoveUrlFromUrlGroup(urlgroupid: u64, pfullyqualifiedurl: super::super::Foundation::PWSTR, flags: u32) -> u32;
+            fn HttpRemoveUrlFromUrlGroup(urlgroupid: u64, pfullyqualifiedurl: ::windows::core::PCWSTR, flags: u32) -> u32;
         }
         ::core::mem::transmute(HttpRemoveUrlFromUrlGroup(::core::mem::transmute(urlgroupid), pfullyqualifiedurl.into_param().abi(), ::core::mem::transmute(flags)))
     }

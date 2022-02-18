@@ -6949,7 +6949,7 @@ impl IFaxServerNotify2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub trait IStiDevice_Impl: Sized {
-    fn Initialize(&self, hinst: super::super::Foundation::HINSTANCE, pwszdevicename: super::super::Foundation::PWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, hinst: super::super::Foundation::HINSTANCE, pwszdevicename: &::windows::core::PCWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::Result<()>;
     fn GetCapabilities(&self, pdevcaps: *mut STI_DEV_CAPS) -> ::windows::core::Result<()>;
     fn GetStatus(&self, pdevstatus: *mut STI_DEVICE_STATUS) -> ::windows::core::Result<()>;
     fn DeviceReset(&self) -> ::windows::core::Result<()>;
@@ -6970,10 +6970,10 @@ pub trait IStiDevice_Impl: Sized {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl IStiDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStiDevice_Impl, const OFFSET: isize>() -> IStiDevice_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IStiDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, pwszdevicename: super::super::Foundation::PWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IStiDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, pwszdevicename: ::windows::core::PCWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Initialize(::core::mem::transmute_copy(&hinst), ::core::mem::transmute_copy(&pwszdevicename), ::core::mem::transmute_copy(&dwversion), ::core::mem::transmute_copy(&dwmode)).into()
+            (*this).Initialize(::core::mem::transmute_copy(&hinst), ::core::mem::transmute(&pwszdevicename), ::core::mem::transmute_copy(&dwversion), ::core::mem::transmute_copy(&dwmode)).into()
         }
         unsafe extern "system" fn GetCapabilities<Identity: ::windows::core::IUnknownImpl, Impl: IStiDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevcaps: *mut STI_DEV_CAPS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -7100,25 +7100,25 @@ impl IStiDevice_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub trait IStiDeviceControl_Impl: Sized {
-    fn Initialize(&self, dwdevicetype: u32, dwmode: u32, pwszportname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, dwdevicetype: u32, dwmode: u32, pwszportname: &::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()>;
     fn RawReadData(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()>;
     fn RawWriteData(&self, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()>;
     fn RawReadCommand(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()>;
     fn RawWriteCommand(&self, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()>;
     fn RawDeviceControl(&self, escapefunction: u32, lpindata: *mut ::core::ffi::c_void, cbindatasize: u32, poutdata: *mut ::core::ffi::c_void, dwoutdatasize: u32, pdwactualdata: *mut u32) -> ::windows::core::Result<()>;
     fn GetLastError(&self, lpdwlasterror: *mut u32) -> ::windows::core::Result<()>;
-    fn GetMyDevicePortName(&self, lpszdevicepath: super::super::Foundation::PWSTR, cwdevicepathsize: u32) -> ::windows::core::Result<()>;
+    fn GetMyDevicePortName(&self, lpszdevicepath: ::windows::core::PWSTR, cwdevicepathsize: u32) -> ::windows::core::Result<()>;
     fn GetMyDeviceHandle(&self, lph: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn GetMyDeviceOpenMode(&self, pdwopenmode: *mut u32) -> ::windows::core::Result<()>;
-    fn WriteToErrorLog(&self, dwmessagetype: u32, pszmessage: super::super::Foundation::PWSTR, dwerrorcode: u32) -> ::windows::core::Result<()>;
+    fn WriteToErrorLog(&self, dwmessagetype: u32, pszmessage: &::windows::core::PCWSTR, dwerrorcode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl IStiDeviceControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceControl_Impl, const OFFSET: isize>() -> IStiDeviceControl_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdevicetype: u32, dwmode: u32, pwszportname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdevicetype: u32, dwmode: u32, pwszportname: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Initialize(::core::mem::transmute_copy(&dwdevicetype), ::core::mem::transmute_copy(&dwmode), ::core::mem::transmute_copy(&pwszportname), ::core::mem::transmute_copy(&dwflags)).into()
+            (*this).Initialize(::core::mem::transmute_copy(&dwdevicetype), ::core::mem::transmute_copy(&dwmode), ::core::mem::transmute(&pwszportname), ::core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn RawReadData<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -7150,7 +7150,7 @@ impl IStiDeviceControl_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetLastError(::core::mem::transmute_copy(&lpdwlasterror)).into()
         }
-        unsafe extern "system" fn GetMyDevicePortName<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszdevicepath: super::super::Foundation::PWSTR, cwdevicepathsize: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMyDevicePortName<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszdevicepath: ::windows::core::PWSTR, cwdevicepathsize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetMyDevicePortName(::core::mem::transmute_copy(&lpszdevicepath), ::core::mem::transmute_copy(&cwdevicepathsize)).into()
@@ -7165,10 +7165,10 @@ impl IStiDeviceControl_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetMyDeviceOpenMode(::core::mem::transmute_copy(&pdwopenmode)).into()
         }
-        unsafe extern "system" fn WriteToErrorLog<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pszmessage: super::super::Foundation::PWSTR, dwerrorcode: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteToErrorLog<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pszmessage: ::windows::core::PCWSTR, dwerrorcode: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WriteToErrorLog(::core::mem::transmute_copy(&dwmessagetype), ::core::mem::transmute_copy(&pszmessage), ::core::mem::transmute_copy(&dwerrorcode)).into()
+            (*this).WriteToErrorLog(::core::mem::transmute_copy(&dwmessagetype), ::core::mem::transmute(&pszmessage), ::core::mem::transmute_copy(&dwerrorcode)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -7343,19 +7343,19 @@ impl IStiUSD_Vtbl {
 pub trait IStillImageW_Impl: Sized {
     fn Initialize(&self, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> ::windows::core::Result<()>;
     fn GetDeviceList(&self, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetDeviceInfo(&self, pwszdevicename: super::super::Foundation::PWSTR, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateDevice(&self, pwszdevicename: super::super::Foundation::PWSTR, dwmode: u32, pdevice: *mut ::core::option::Option<IStiDevice>, punkouter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetDeviceValue(&self, pwszdevicename: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> ::windows::core::Result<()>;
-    fn SetDeviceValue(&self, pwszdevicename: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
-    fn GetSTILaunchInformation(&self, pwszdevicename: super::super::Foundation::PWSTR, pdweventcode: *mut u32, pwszeventname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RegisterLaunchApplication(&self, pwszappname: super::super::Foundation::PWSTR, pwszcommandline: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn UnregisterLaunchApplication(&self, pwszappname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn EnableHwNotifications(&self, pwszdevicename: super::super::Foundation::PWSTR, bnewstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetHwNotificationState(&self, pwszdevicename: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn RefreshDeviceBus(&self, pwszdevicename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn LaunchApplicationForDevice(&self, pwszdevicename: super::super::Foundation::PWSTR, pwszappname: super::super::Foundation::PWSTR, pstinotify: *const STINOTIFY) -> ::windows::core::Result<()>;
+    fn GetDeviceInfo(&self, pwszdevicename: &::windows::core::PCWSTR, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateDevice(&self, pwszdevicename: &::windows::core::PCWSTR, dwmode: u32, pdevice: *mut ::core::option::Option<IStiDevice>, punkouter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetDeviceValue(&self, pwszdevicename: &::windows::core::PCWSTR, pvaluename: &::windows::core::PCWSTR, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> ::windows::core::Result<()>;
+    fn SetDeviceValue(&self, pwszdevicename: &::windows::core::PCWSTR, pvaluename: &::windows::core::PCWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
+    fn GetSTILaunchInformation(&self, pwszdevicename: ::windows::core::PWSTR, pdweventcode: *mut u32, pwszeventname: ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn RegisterLaunchApplication(&self, pwszappname: &::windows::core::PCWSTR, pwszcommandline: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn UnregisterLaunchApplication(&self, pwszappname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn EnableHwNotifications(&self, pwszdevicename: &::windows::core::PCWSTR, bnewstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetHwNotificationState(&self, pwszdevicename: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn RefreshDeviceBus(&self, pwszdevicename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn LaunchApplicationForDevice(&self, pwszdevicename: &::windows::core::PCWSTR, pwszappname: &::windows::core::PCWSTR, pstinotify: *const STINOTIFY) -> ::windows::core::Result<()>;
     fn SetupDeviceParameters(&self, param0: *mut STI_DEVICE_INFORMATIONW) -> ::windows::core::Result<()>;
-    fn WriteToErrorLog(&self, dwmessagetype: u32, pszmessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn WriteToErrorLog(&self, dwmessagetype: u32, pszmessage: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IStillImageW_Vtbl {
@@ -7370,50 +7370,50 @@ impl IStillImageW_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDeviceList(::core::mem::transmute_copy(&dwtype), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pdwitemsreturned), ::core::mem::transmute_copy(&ppbuffer)).into()
         }
-        unsafe extern "system" fn GetDeviceInfo<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceInfo<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: ::windows::core::PCWSTR, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetDeviceInfo(::core::mem::transmute_copy(&pwszdevicename), ::core::mem::transmute_copy(&ppbuffer)).into()
+            (*this).GetDeviceInfo(::core::mem::transmute(&pwszdevicename), ::core::mem::transmute_copy(&ppbuffer)).into()
         }
-        unsafe extern "system" fn CreateDevice<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, dwmode: u32, pdevice: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: ::windows::core::PCWSTR, dwmode: u32, pdevice: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateDevice(::core::mem::transmute_copy(&pwszdevicename), ::core::mem::transmute_copy(&dwmode), ::core::mem::transmute_copy(&pdevice), ::core::mem::transmute(&punkouter)).into()
+            (*this).CreateDevice(::core::mem::transmute(&pwszdevicename), ::core::mem::transmute_copy(&dwmode), ::core::mem::transmute_copy(&pdevice), ::core::mem::transmute(&punkouter)).into()
         }
-        unsafe extern "system" fn GetDeviceValue<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceValue<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetDeviceValue(::core::mem::transmute_copy(&pwszdevicename), ::core::mem::transmute_copy(&pvaluename), ::core::mem::transmute_copy(&ptype), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&cbdata)).into()
+            (*this).GetDeviceValue(::core::mem::transmute(&pwszdevicename), ::core::mem::transmute(&pvaluename), ::core::mem::transmute_copy(&ptype), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&cbdata)).into()
         }
-        unsafe extern "system" fn SetDeviceValue<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDeviceValue<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDeviceValue(::core::mem::transmute_copy(&pwszdevicename), ::core::mem::transmute_copy(&pvaluename), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&cbdata)).into()
+            (*this).SetDeviceValue(::core::mem::transmute(&pwszdevicename), ::core::mem::transmute(&pvaluename), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&cbdata)).into()
         }
-        unsafe extern "system" fn GetSTILaunchInformation<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, pdweventcode: *mut u32, pwszeventname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSTILaunchInformation<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: ::windows::core::PWSTR, pdweventcode: *mut u32, pwszeventname: ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetSTILaunchInformation(::core::mem::transmute_copy(&pwszdevicename), ::core::mem::transmute_copy(&pdweventcode), ::core::mem::transmute_copy(&pwszeventname)).into()
         }
-        unsafe extern "system" fn RegisterLaunchApplication<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszappname: super::super::Foundation::PWSTR, pwszcommandline: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterLaunchApplication<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszappname: ::windows::core::PCWSTR, pwszcommandline: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterLaunchApplication(::core::mem::transmute_copy(&pwszappname), ::core::mem::transmute_copy(&pwszcommandline)).into()
+            (*this).RegisterLaunchApplication(::core::mem::transmute(&pwszappname), ::core::mem::transmute(&pwszcommandline)).into()
         }
-        unsafe extern "system" fn UnregisterLaunchApplication<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszappname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterLaunchApplication<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszappname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterLaunchApplication(::core::mem::transmute_copy(&pwszappname)).into()
+            (*this).UnregisterLaunchApplication(::core::mem::transmute(&pwszappname)).into()
         }
-        unsafe extern "system" fn EnableHwNotifications<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, bnewstate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableHwNotifications<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: ::windows::core::PCWSTR, bnewstate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EnableHwNotifications(::core::mem::transmute_copy(&pwszdevicename), ::core::mem::transmute_copy(&bnewstate)).into()
+            (*this).EnableHwNotifications(::core::mem::transmute(&pwszdevicename), ::core::mem::transmute_copy(&bnewstate)).into()
         }
-        unsafe extern "system" fn GetHwNotificationState<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, pbcurrentstate: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHwNotificationState<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: ::windows::core::PCWSTR, pbcurrentstate: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetHwNotificationState(::core::mem::transmute_copy(&pwszdevicename)) {
+            match (*this).GetHwNotificationState(::core::mem::transmute(&pwszdevicename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbcurrentstate = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -7421,25 +7421,25 @@ impl IStillImageW_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RefreshDeviceBus<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RefreshDeviceBus<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RefreshDeviceBus(::core::mem::transmute_copy(&pwszdevicename)).into()
+            (*this).RefreshDeviceBus(::core::mem::transmute(&pwszdevicename)).into()
         }
-        unsafe extern "system" fn LaunchApplicationForDevice<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, pwszappname: super::super::Foundation::PWSTR, pstinotify: *const STINOTIFY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LaunchApplicationForDevice<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: ::windows::core::PCWSTR, pwszappname: ::windows::core::PCWSTR, pstinotify: *const STINOTIFY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).LaunchApplicationForDevice(::core::mem::transmute_copy(&pwszdevicename), ::core::mem::transmute_copy(&pwszappname), ::core::mem::transmute_copy(&pstinotify)).into()
+            (*this).LaunchApplicationForDevice(::core::mem::transmute(&pwszdevicename), ::core::mem::transmute(&pwszappname), ::core::mem::transmute_copy(&pstinotify)).into()
         }
         unsafe extern "system" fn SetupDeviceParameters<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut STI_DEVICE_INFORMATIONW) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetupDeviceParameters(::core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn WriteToErrorLog<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pszmessage: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteToErrorLog<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pszmessage: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WriteToErrorLog(::core::mem::transmute_copy(&dwmessagetype), ::core::mem::transmute_copy(&pszmessage)).into()
+            (*this).WriteToErrorLog(::core::mem::transmute_copy(&dwmessagetype), ::core::mem::transmute(&pszmessage)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

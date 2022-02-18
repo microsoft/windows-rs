@@ -1279,39 +1279,31 @@ impl ::core::fmt::Debug for D3D_SHADER_INPUT_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
 pub struct D3D_SHADER_MACRO {
-    pub Name: super::super::Foundation::PSTR,
-    pub Definition: super::super::Foundation::PSTR,
+    pub Name: ::windows::core::PCSTR,
+    pub Definition: ::windows::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D_SHADER_MACRO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D_SHADER_MACRO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D_SHADER_MACRO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("D3D_SHADER_MACRO").field("Name", &self.Name).field("Definition", &self.Definition).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D_SHADER_MACRO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D_SHADER_MACRO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D_SHADER_MACRO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for D3D_SHADER_MACRO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D_SHADER_MACRO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2035,9 +2027,8 @@ pub struct ID3DDestructionNotifier_Vtbl {
 #[repr(transparent)]
 pub struct ID3DInclude(::windows::core::IUnknown);
 impl ID3DInclude {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Open<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: Param1, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
+    pub unsafe fn Open<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: Param1, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), ::core::mem::transmute(includetype), pfilename.into_param().abi(), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]
@@ -2068,10 +2059,7 @@ unsafe impl ::windows::core::Interface for ID3DInclude {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DInclude_Vtbl {
-    #[cfg(feature = "Win32_Foundation")]
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: super::super::Foundation::PSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Open: usize,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: ::windows::core::PCSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D'*"]

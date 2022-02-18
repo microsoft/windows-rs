@@ -1062,8 +1062,7 @@ pub unsafe fn I_RpcPauseExecution(milliseconds: u32) {
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type I_RpcPerformCalloutFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct I_RpcProxyCallbackInterface {
     pub IsValidMachineFn: I_RpcProxyIsValidMachineFn,
     pub GetClientAddressFn: I_RpcProxyGetClientAddressFn,
@@ -1075,15 +1074,12 @@ pub struct I_RpcProxyCallbackInterface {
     pub RpcProxyUpdatePerfCounterFn: I_RpcProxyUpdatePerfCounterFn,
     pub RpcProxyUpdatePerfCounterBackendServerFn: I_RpcProxyUpdatePerfCounterBackendServerFn,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for I_RpcProxyCallbackInterface {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for I_RpcProxyCallbackInterface {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for I_RpcProxyCallbackInterface {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("I_RpcProxyCallbackInterface")
@@ -1099,19 +1095,15 @@ impl ::core::fmt::Debug for I_RpcProxyCallbackInterface {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for I_RpcProxyCallbackInterface {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for I_RpcProxyCallbackInterface {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<I_RpcProxyCallbackInterface>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for I_RpcProxyCallbackInterface {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for I_RpcProxyCallbackInterface {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1119,9 +1111,8 @@ impl ::core::default::Default for I_RpcProxyCallbackInterface {
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type I_RpcProxyFilterIfFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifuuid: *const ::windows::core::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS>;
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type I_RpcProxyGetClientAddressFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, buffer: super::super::Foundation::PSTR, bufferlength: *mut u32) -> RPC_STATUS>;
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
+pub type I_RpcProxyGetClientAddressFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, buffer: ::windows::core::PCSTR, bufferlength: *mut u32) -> RPC_STATUS>;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type I_RpcProxyGetClientSessionAndResourceUUID = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut ::windows::core::GUID, resourceidpresent: *mut i32, resourceid: *mut ::windows::core::GUID) -> RPC_STATUS>;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
@@ -1658,9 +1649,8 @@ impl ::core::fmt::Debug for MIDL_ES_HANDLE_STYLE {
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub type MIDL_ES_READ = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type MIDL_ES_WRITE = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, buffer: super::super::Foundation::PSTR, size: u32)>;
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
+pub type MIDL_ES_WRITE = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, buffer: ::windows::core::PCSTR, size: u32)>;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct MIDL_FORMAT_STRING {
@@ -2393,15 +2383,14 @@ pub unsafe fn MesBufferHandleReset(handle: *const ::core::ffi::c_void, handlesty
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 #[inline]
-pub unsafe fn MesDecodeBufferHandleCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(buffer: Param0, buffersize: u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn MesDecodeBufferHandleCreate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(buffer: Param0, buffersize: u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesDecodeBufferHandleCreate(buffer: super::super::Foundation::PSTR, buffersize: u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn MesDecodeBufferHandleCreate(buffer: ::windows::core::PCSTR, buffersize: u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(MesDecodeBufferHandleCreate(buffer.into_param().abi(), ::core::mem::transmute(buffersize), ::core::mem::transmute(phandle)))
     }
@@ -2436,23 +2425,21 @@ pub unsafe fn MesEncodeDynBufferHandleCreate(pbuffer: *mut *mut i8, pencodedsize
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 #[inline]
-pub unsafe fn MesEncodeFixedBufferHandleCreate(pbuffer: super::super::Foundation::PSTR, buffersize: u32, pencodedsize: *mut u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn MesEncodeFixedBufferHandleCreate(pbuffer: ::windows::core::PSTR, buffersize: u32, pencodedsize: *mut u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesEncodeFixedBufferHandleCreate(pbuffer: super::super::Foundation::PSTR, buffersize: u32, pencodedsize: *mut u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn MesEncodeFixedBufferHandleCreate(pbuffer: ::windows::core::PSTR, buffersize: u32, pencodedsize: *mut u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(MesEncodeFixedBufferHandleCreate(::core::mem::transmute(pbuffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(pencodedsize), ::core::mem::transmute(phandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 #[inline]
 pub unsafe fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
@@ -2480,8 +2467,7 @@ pub unsafe fn MesHandleFree(handle: *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 #[inline]
 pub unsafe fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, readfn: MIDL_ES_READ, operation: MIDL_ES_CODE) -> RPC_STATUS {
     #[cfg(windows)]
@@ -9122,39 +9108,31 @@ pub const RPC_C_OPT_CALL_TIMEOUT: u32 = 12u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const RPC_C_OPT_COOKIE_AUTH: u32 = 7u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     pub BufferSize: u32,
-    pub Buffer: super::super::Foundation::PSTR,
+    pub Buffer: ::windows::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR").field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9385,70 +9363,56 @@ impl ::core::default::Default for RPC_DISPATCH_TABLE {
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub const RPC_EEINFO_VERSION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub struct RPC_EE_INFO_PARAM {
     pub ParameterType: ExtendedErrorParamTypes,
     pub u: RPC_EE_INFO_PARAM_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_EE_INFO_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_EE_INFO_PARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RPC_EE_INFO_PARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RPC_EE_INFO_PARAM {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_EE_INFO_PARAM>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_EE_INFO_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_EE_INFO_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub union RPC_EE_INFO_PARAM_0 {
-    pub AnsiString: super::super::Foundation::PSTR,
-    pub UnicodeString: super::super::Foundation::PWSTR,
+    pub AnsiString: ::windows::core::PSTR,
+    pub UnicodeString: ::windows::core::PWSTR,
     pub LVal: i32,
     pub SVal: i16,
     pub PVal: u64,
     pub BVal: BinaryParam,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_EE_INFO_PARAM_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_EE_INFO_PARAM_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RPC_EE_INFO_PARAM_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RPC_EE_INFO_PARAM_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPC_EE_INFO_PARAM_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RPC_EE_INFO_PARAM_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RPC_EE_INFO_PARAM_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9559,7 +9523,7 @@ impl ::core::default::Default for RPC_ERROR_ENUM_HANDLE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct RPC_EXTENDED_ERROR_INFO {
     pub Version: u32,
-    pub ComputerName: super::super::Foundation::PWSTR,
+    pub ComputerName: ::windows::core::PWSTR,
     pub ProcessID: u32,
     pub u: RPC_EXTENDED_ERROR_INFO_0,
     pub GeneratingComponent: u32,

@@ -251,7 +251,7 @@ impl BSTR {
         if value.is_empty() {
             return Self(::core::ptr::null_mut());
         }
-        unsafe { SysAllocStringLen(PWSTR(value.as_ptr()), value.len() as u32) }
+        unsafe { SysAllocStringLen(::windows::core::PCWSTR(value.as_ptr()), value.len() as u32) }
     }
     pub fn as_wide(&self) -> &[u16] {
         if self.0.is_null() {
@@ -5883,121 +5883,6 @@ pub const PSINK_E_LARGE_ATTACHMENT: ::windows::core::HRESULT = ::windows::core::
 pub const PSINK_E_QUERY_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215472i32);
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const PSINK_S_LARGE_WORD: ::windows::core::HRESULT = ::windows::core::HRESULT(268179i32);
-#[repr(transparent)]
-pub struct PSTR(pub *const u8);
-impl PSTR {
-    pub fn is_null(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl ::core::default::Default for PSTR {
-    fn default() -> Self {
-        Self(::core::ptr::null_mut())
-    }
-}
-impl ::core::clone::Clone for PSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for PSTR {}
-impl ::core::cmp::PartialEq for PSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PSTR {}
-impl ::core::fmt::Debug for PSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PSTR").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for PSTR {
-    type Abi = Self;
-    #[cfg(feature = "alloc")]
-    unsafe fn drop_param(param: &mut ::windows::core::Param<'_, Self>) {
-        if let ::windows::core::Param::Boxed(value) = param {
-            if !value.is_null() {
-                ::windows::core::alloc::boxed::Box::from_raw(value.0 as *mut u8);
-            }
-        }
-    }
-}
-#[cfg(feature = "alloc")]
-impl<'a> ::windows::core::IntoParam<'a, PSTR> for &str {
-    fn into_param(self) -> ::windows::core::Param<'a, PSTR> {
-        ::windows::core::Param::Boxed(PSTR(::windows::core::alloc::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<::windows::core::alloc::vec::Vec<u8>>().into_boxed_slice()) as _))
-    }
-}
-#[cfg(feature = "alloc")]
-impl<'a> ::windows::core::IntoParam<'a, PSTR> for ::windows::core::alloc::string::String {
-    fn into_param(self) -> ::windows::core::Param<'a, PSTR> {
-        ::windows::core::IntoParam::into_param(self.as_str())
-    }
-}
-#[repr(transparent)]
-pub struct PWSTR(pub *const u16);
-impl PWSTR {
-    pub fn is_null(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl ::core::default::Default for PWSTR {
-    fn default() -> Self {
-        Self(::core::ptr::null_mut())
-    }
-}
-impl ::core::clone::Clone for PWSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for PWSTR {}
-impl ::core::cmp::PartialEq for PWSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PWSTR {}
-impl ::core::fmt::Debug for PWSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PWSTR").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for PWSTR {
-    type Abi = Self;
-    #[cfg(feature = "alloc")]
-    unsafe fn drop_param(param: &mut ::windows::core::Param<'_, Self>) {
-        if let ::windows::core::Param::Boxed(value) = param {
-            if !value.is_null() {
-                ::windows::core::alloc::boxed::Box::from_raw(value.0 as *mut u16);
-            }
-        }
-    }
-}
-#[cfg(feature = "alloc")]
-impl<'a> ::windows::core::IntoParam<'a, PWSTR> for &str {
-    fn into_param(self) -> ::windows::core::Param<'a, PWSTR> {
-        ::windows::core::Param::Boxed(PWSTR(::windows::core::alloc::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::core::iter::once(0)).collect::<::windows::core::alloc::vec::Vec<u16>>().into_boxed_slice()) as _))
-    }
-}
-#[cfg(feature = "alloc")]
-impl<'a> ::windows::core::IntoParam<'a, PWSTR> for ::windows::core::alloc::string::String {
-    fn into_param(self) -> ::windows::core::Param<'a, PWSTR> {
-        ::windows::core::IntoParam::into_param(self.as_str())
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, PWSTR> for &::std::ffi::OsStr {
-    fn into_param(self) -> ::windows::core::Param<'a, PWSTR> {
-        use std::os::windows::ffi::OsStrExt;
-        ::windows::core::Param::Boxed(PWSTR(::windows::core::alloc::boxed::Box::<[u16]>::into_raw(self.encode_wide().chain(::core::iter::once(0)).collect::<::windows::core::alloc::vec::Vec<u16>>().into_boxed_slice()) as _))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
-    fn into_param(self) -> ::windows::core::Param<'a, PWSTR> {
-        ::windows::core::IntoParam::into_param(self.as_os_str())
-    }
-}
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const QPARSE_E_EXPECTING_BRACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215770i32);
 #[doc = "*Required features: 'Win32_Foundation'*"]
@@ -13060,12 +12945,12 @@ pub unsafe fn SysAddRefString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(
 }
 #[doc = "*Required features: 'Win32_Foundation'*"]
 #[inline]
-pub unsafe fn SysAllocString<'a, Param0: ::windows::core::IntoParam<'a, PWSTR>>(psz: Param0) -> BSTR {
+pub unsafe fn SysAllocString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(psz: Param0) -> BSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysAllocString(psz: PWSTR) -> BSTR;
+            fn SysAllocString(psz: ::windows::core::PCWSTR) -> BSTR;
         }
         ::core::mem::transmute(SysAllocString(psz.into_param().abi()))
     }
@@ -13074,12 +12959,12 @@ pub unsafe fn SysAllocString<'a, Param0: ::windows::core::IntoParam<'a, PWSTR>>(
 }
 #[doc = "*Required features: 'Win32_Foundation'*"]
 #[inline]
-pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, PSTR>>(psz: Param0, len: u32) -> BSTR {
+pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(psz: Param0, len: u32) -> BSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysAllocStringByteLen(psz: PSTR, len: u32) -> BSTR;
+            fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
         }
         ::core::mem::transmute(SysAllocStringByteLen(psz.into_param().abi(), ::core::mem::transmute(len)))
     }
@@ -13088,12 +12973,12 @@ pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, P
 }
 #[doc = "*Required features: 'Win32_Foundation'*"]
 #[inline]
-pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::core::IntoParam<'a, PWSTR>>(strin: Param0, ui: u32) -> BSTR {
+pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, ui: u32) -> BSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
+            fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> BSTR;
         }
         ::core::mem::transmute(SysAllocStringLen(strin.into_param().abi(), ::core::mem::transmute(ui)))
     }
@@ -13116,12 +13001,12 @@ pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bs
 }
 #[doc = "*Required features: 'Win32_Foundation'*"]
 #[inline]
-pub unsafe fn SysReAllocString<'a, Param1: ::windows::core::IntoParam<'a, PWSTR>>(pbstr: *mut BSTR, psz: Param1) -> i32 {
+pub unsafe fn SysReAllocString<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pbstr: *mut BSTR, psz: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysReAllocString(pbstr: *mut BSTR, psz: PWSTR) -> i32;
+            fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR) -> i32;
         }
         ::core::mem::transmute(SysReAllocString(::core::mem::transmute(pbstr), psz.into_param().abi()))
     }
@@ -13130,12 +13015,12 @@ pub unsafe fn SysReAllocString<'a, Param1: ::windows::core::IntoParam<'a, PWSTR>
 }
 #[doc = "*Required features: 'Win32_Foundation'*"]
 #[inline]
-pub unsafe fn SysReAllocStringLen<'a, Param1: ::windows::core::IntoParam<'a, PWSTR>>(pbstr: *mut BSTR, psz: Param1, len: u32) -> i32 {
+pub unsafe fn SysReAllocStringLen<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pbstr: *mut BSTR, psz: Param1, len: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysReAllocStringLen(pbstr: *mut BSTR, psz: PWSTR, len: u32) -> i32;
+            fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32;
         }
         ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into_param().abi(), ::core::mem::transmute(len)))
     }
@@ -14085,7 +13970,7 @@ pub const UI_E_WRONG_THREAD: ::windows::core::HRESULT = ::windows::core::HRESULT
 pub struct UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: PWSTR,
+    pub Buffer: ::windows::core::PWSTR,
 }
 impl ::core::marker::Copy for UNICODE_STRING {}
 impl ::core::clone::Clone for UNICODE_STRING {

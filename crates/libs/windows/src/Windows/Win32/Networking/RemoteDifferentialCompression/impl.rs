@@ -439,7 +439,7 @@ impl IRdcSimilarityGenerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarity_Impl: Sized {
-    fn CreateTable(&self, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
+    fn CreateTable(&self, path: &::windows::core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
     fn CreateTableIndirect(&self, mapping: &::core::option::Option<ISimilarityTraitsMapping>, fileidfile: &::core::option::Option<IRdcFileWriter>, truncate: super::super::Foundation::BOOL, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Append(&self, similarityfileid: *const SimilarityFileId, similaritydata: *const SimilarityData) -> ::windows::core::Result<()>;
@@ -450,10 +450,10 @@ pub trait ISimilarity_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl ISimilarity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimilarity_Impl, const OFFSET: isize>() -> ISimilarity_Vtbl {
-        unsafe extern "system" fn CreateTable<Identity: ::windows::core::IUnknownImpl, Impl: ISimilarity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTable<Identity: ::windows::core::IUnknownImpl, Impl: ISimilarity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::windows::core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateTable(::core::mem::transmute_copy(&path), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&securitydescriptor), ::core::mem::transmute_copy(&recordsize)) {
+            match (*this).CreateTable(::core::mem::transmute(&path), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&securitydescriptor), ::core::mem::transmute_copy(&recordsize)) {
                 ::core::result::Result::Ok(ok__) => {
                     *isnew = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -526,7 +526,7 @@ impl ISimilarity_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarityFileIdTable_Impl: Sized {
-    fn CreateTable(&self, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
+    fn CreateTable(&self, path: &::windows::core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
     fn CreateTableIndirect(&self, fileidfile: &::core::option::Option<IRdcFileWriter>, truncate: super::super::Foundation::BOOL, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Append(&self, similarityfileid: *const SimilarityFileId) -> ::windows::core::Result<u32>;
@@ -537,10 +537,10 @@ pub trait ISimilarityFileIdTable_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl ISimilarityFileIdTable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimilarityFileIdTable_Impl, const OFFSET: isize>() -> ISimilarityFileIdTable_Vtbl {
-        unsafe extern "system" fn CreateTable<Identity: ::windows::core::IUnknownImpl, Impl: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTable<Identity: ::windows::core::IUnknownImpl, Impl: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::windows::core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateTable(::core::mem::transmute_copy(&path), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&securitydescriptor), ::core::mem::transmute_copy(&recordsize)) {
+            match (*this).CreateTable(::core::mem::transmute(&path), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&securitydescriptor), ::core::mem::transmute_copy(&recordsize)) {
                 ::core::result::Result::Ok(ok__) => {
                     *isnew = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -786,7 +786,7 @@ impl ISimilarityTraitsMapping_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarityTraitsTable_Impl: Sized {
-    fn CreateTable(&self, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8) -> ::windows::core::Result<RdcCreatedTables>;
+    fn CreateTable(&self, path: &::windows::core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8) -> ::windows::core::Result<RdcCreatedTables>;
     fn CreateTableIndirect(&self, mapping: &::core::option::Option<ISimilarityTraitsMapping>, truncate: super::super::Foundation::BOOL) -> ::windows::core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Append(&self, data: *const SimilarityData, fileindex: u32) -> ::windows::core::Result<()>;
@@ -797,10 +797,10 @@ pub trait ISimilarityTraitsTable_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl ISimilarityTraitsTable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimilarityTraitsTable_Impl, const OFFSET: isize>() -> ISimilarityTraitsTable_Vtbl {
-        unsafe extern "system" fn CreateTable<Identity: ::windows::core::IUnknownImpl, Impl: ISimilarityTraitsTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTable<Identity: ::windows::core::IUnknownImpl, Impl: ISimilarityTraitsTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::windows::core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateTable(::core::mem::transmute_copy(&path), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&securitydescriptor)) {
+            match (*this).CreateTable(::core::mem::transmute(&path), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&securitydescriptor)) {
                 ::core::result::Result::Ok(ok__) => {
                     *isnew = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

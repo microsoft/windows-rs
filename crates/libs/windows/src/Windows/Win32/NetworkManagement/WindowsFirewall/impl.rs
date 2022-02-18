@@ -543,17 +543,15 @@ impl INATNumberOfEntriesCallback_Vtbl {
         iid == &<INATNumberOfEntriesCallback as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait INetConnection_Impl: Sized {
     fn Connect(&self) -> ::windows::core::Result<()>;
     fn Disconnect(&self) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
-    fn Duplicate(&self, pszwduplicatename: super::super::Foundation::PWSTR) -> ::windows::core::Result<INetConnection>;
+    fn Duplicate(&self, pszwduplicatename: &::windows::core::PCWSTR) -> ::windows::core::Result<INetConnection>;
     fn GetProperties(&self) -> ::windows::core::Result<*mut NETCON_PROPERTIES>;
     fn GetUiObjectClassId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Rename(&self, pszwnewname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Rename(&self, pszwnewname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl INetConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetConnection_Impl, const OFFSET: isize>() -> INetConnection_Vtbl {
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -571,10 +569,10 @@ impl INetConnection_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn Duplicate<Identity: ::windows::core::IUnknownImpl, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszwduplicatename: super::super::Foundation::PWSTR, ppcon: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Duplicate<Identity: ::windows::core::IUnknownImpl, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszwduplicatename: ::windows::core::PCWSTR, ppcon: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Duplicate(::core::mem::transmute_copy(&pszwduplicatename)) {
+            match (*this).Duplicate(::core::mem::transmute(&pszwduplicatename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcon = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -604,10 +602,10 @@ impl INetConnection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Rename<Identity: ::windows::core::IUnknownImpl, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszwnewname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rename<Identity: ::windows::core::IUnknownImpl, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszwnewname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Rename(::core::mem::transmute_copy(&pszwnewname)).into()
+            (*this).Rename(::core::mem::transmute(&pszwnewname)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

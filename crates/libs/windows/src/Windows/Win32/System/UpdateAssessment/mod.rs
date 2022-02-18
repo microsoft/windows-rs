@@ -69,9 +69,9 @@ pub struct OSUpdateAssessment {
     pub securityStatus: UpdateAssessmentStatus,
     pub assessmentTime: super::super::Foundation::FILETIME,
     pub releaseInfoTime: super::super::Foundation::FILETIME,
-    pub currentOSBuild: super::super::Foundation::PWSTR,
+    pub currentOSBuild: ::windows::core::PWSTR,
     pub currentOSReleaseTime: super::super::Foundation::FILETIME,
-    pub upToDateOSBuild: super::super::Foundation::PWSTR,
+    pub upToDateOSBuild: ::windows::core::PWSTR,
     pub upToDateOSReleaseTime: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_Foundation")]

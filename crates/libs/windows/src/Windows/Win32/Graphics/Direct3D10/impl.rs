@@ -320,7 +320,7 @@ pub trait ID3D10Device_Impl: Sized {
     fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32>;
     fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32>;
     fn CheckCounterInfo(&self, pcounterinfo: *mut D3D10_COUNTER_INFO);
-    fn CheckCounter(&self, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut u32, szname: super::super::Foundation::PSTR, pnamelength: *mut u32, szunits: super::super::Foundation::PSTR, punitslength: *mut u32, szdescription: super::super::Foundation::PSTR, pdescriptionlength: *mut u32) -> ::windows::core::Result<()>;
+    fn CheckCounter(&self, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: *mut u32, szunits: ::windows::core::PSTR, punitslength: *mut u32, szdescription: ::windows::core::PSTR, pdescriptionlength: *mut u32) -> ::windows::core::Result<()>;
     fn GetCreationFlags(&self) -> u32;
     fn OpenSharedResource(&self, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetTextFilterSize(&self, width: u32, height: u32);
@@ -905,7 +905,7 @@ impl ID3D10Device_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CheckCounterInfo(::core::mem::transmute_copy(&pcounterinfo))
         }
-        unsafe extern "system" fn CheckCounter<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut u32, szname: super::super::Foundation::PSTR, pnamelength: *mut u32, szunits: super::super::Foundation::PSTR, punitslength: *mut u32, szdescription: super::super::Foundation::PSTR, pdescriptionlength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckCounter<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: *mut u32, szunits: ::windows::core::PSTR, punitslength: *mut u32, szdescription: ::windows::core::PSTR, pdescriptionlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).CheckCounter(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ptype), ::core::mem::transmute_copy(&pactivecounters), ::core::mem::transmute_copy(&szname), ::core::mem::transmute_copy(&pnamelength), ::core::mem::transmute_copy(&szunits), ::core::mem::transmute_copy(&punitslength), ::core::mem::transmute_copy(&szdescription), ::core::mem::transmute_copy(&pdescriptionlength)).into()
@@ -1127,12 +1127,12 @@ pub trait ID3D10Effect_Impl: Sized {
     fn GetDevice(&self) -> ::windows::core::Result<ID3D10Device>;
     fn GetDesc(&self) -> ::windows::core::Result<D3D10_EFFECT_DESC>;
     fn GetConstantBufferByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
-    fn GetConstantBufferByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
+    fn GetConstantBufferByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
     fn GetVariableByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetVariableByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetVariableBySemantic(&self, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetVariableByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetVariableBySemantic(&self, semantic: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable>;
     fn GetTechniqueByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectTechnique>;
-    fn GetTechniqueByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectTechnique>;
+    fn GetTechniqueByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectTechnique>;
     fn Optimize(&self) -> ::windows::core::Result<()>;
     fn IsOptimized(&self) -> super::super::Foundation::BOOL;
 }
@@ -1176,35 +1176,35 @@ impl ID3D10Effect_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetConstantBufferByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetConstantBufferByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
+        unsafe extern "system" fn GetConstantBufferByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetConstantBufferByName(::core::mem::transmute_copy(&name))
+            (*this).GetConstantBufferByName(::core::mem::transmute(&name))
         }
         unsafe extern "system" fn GetVariableByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetVariableByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetVariableByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+        unsafe extern "system" fn GetVariableByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetVariableByName(::core::mem::transmute_copy(&name))
+            (*this).GetVariableByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetVariableBySemantic<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+        unsafe extern "system" fn GetVariableBySemantic<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetVariableBySemantic(::core::mem::transmute_copy(&semantic))
+            (*this).GetVariableBySemantic(::core::mem::transmute(&semantic))
         }
         unsafe extern "system" fn GetTechniqueByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectTechnique> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetTechniqueByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetTechniqueByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectTechnique> {
+        unsafe extern "system" fn GetTechniqueByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectTechnique> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetTechniqueByName(::core::mem::transmute_copy(&name))
+            (*this).GetTechniqueByName(::core::mem::transmute(&name))
         }
         unsafe extern "system" fn Optimize<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1491,7 +1491,7 @@ pub trait ID3D10EffectPass_Impl: Sized {
     fn GetGeometryShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::Result<()>;
     fn GetPixelShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::Result<()>;
     fn GetAnnotationByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetAnnotationByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetAnnotationByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable>;
     fn Apply(&self, flags: u32) -> ::windows::core::Result<()>;
     fn ComputeStateBlockMask(&self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK>;
 }
@@ -1528,10 +1528,10 @@ impl ID3D10EffectPass_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetAnnotationByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetAnnotationByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+        unsafe extern "system" fn GetAnnotationByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetAnnotationByName(::core::mem::transmute_copy(&name))
+            (*this).GetAnnotationByName(::core::mem::transmute(&name))
         }
         unsafe extern "system" fn Apply<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1967,13 +1967,13 @@ impl ID3D10EffectShaderVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectStringVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn GetString(&self) -> ::windows::core::Result<super::super::Foundation::PSTR>;
-    fn GetStringArray(&self, ppstrings: *mut super::super::Foundation::PSTR, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetString(&self) -> ::windows::core::Result<::windows::core::PSTR>;
+    fn GetStringArray(&self, ppstrings: *mut ::windows::core::PSTR, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectStringVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectStringVariable_Impl, const OFFSET: isize>() -> ID3D10EffectStringVariable_Vtbl {
-        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectStringVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstring: *mut super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectStringVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstring: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetString() {
@@ -1984,7 +1984,7 @@ impl ID3D10EffectStringVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStringArray<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectStringVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstrings: *mut super::super::Foundation::PSTR, offset: u32, count: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStringArray<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectStringVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstrings: *mut ::windows::core::PSTR, offset: u32, count: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetStringArray(::core::mem::transmute_copy(&ppstrings), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
@@ -2004,9 +2004,9 @@ pub trait ID3D10EffectTechnique_Impl: Sized {
     fn IsValid(&self) -> super::super::Foundation::BOOL;
     fn GetDesc(&self, pdesc: *mut D3D10_TECHNIQUE_DESC) -> ::windows::core::Result<()>;
     fn GetAnnotationByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetAnnotationByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetAnnotationByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable>;
     fn GetPassByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectPass>;
-    fn GetPassByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectPass>;
+    fn GetPassByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectPass>;
     fn ComputeStateBlockMask(&self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2027,20 +2027,20 @@ impl ID3D10EffectTechnique_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetAnnotationByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetAnnotationByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+        unsafe extern "system" fn GetAnnotationByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetAnnotationByName(::core::mem::transmute_copy(&name))
+            (*this).GetAnnotationByName(::core::mem::transmute(&name))
         }
         unsafe extern "system" fn GetPassByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectPass> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPassByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetPassByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectPass> {
+        unsafe extern "system" fn GetPassByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectPass> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetPassByName(::core::mem::transmute_copy(&name))
+            (*this).GetPassByName(::core::mem::transmute(&name))
         }
         unsafe extern "system" fn ComputeStateBlockMask<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2072,10 +2072,10 @@ pub trait ID3D10EffectType_Impl: Sized {
     fn IsValid(&self) -> super::super::Foundation::BOOL;
     fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_TYPE_DESC) -> ::windows::core::Result<()>;
     fn GetMemberTypeByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectType>;
-    fn GetMemberTypeByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectType>;
-    fn GetMemberTypeBySemantic(&self, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectType>;
-    fn GetMemberName(&self, index: u32) -> super::super::Foundation::PSTR;
-    fn GetMemberSemantic(&self, index: u32) -> super::super::Foundation::PSTR;
+    fn GetMemberTypeByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType>;
+    fn GetMemberTypeBySemantic(&self, semantic: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType>;
+    fn GetMemberName(&self, index: u32) -> ::windows::core::PSTR;
+    fn GetMemberSemantic(&self, index: u32) -> ::windows::core::PSTR;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10EffectType_Vtbl {
@@ -2095,22 +2095,22 @@ impl ID3D10EffectType_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetMemberTypeByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetMemberTypeByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectType> {
+        unsafe extern "system" fn GetMemberTypeByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMemberTypeByName(::core::mem::transmute_copy(&name))
+            (*this).GetMemberTypeByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetMemberTypeBySemantic<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectType> {
+        unsafe extern "system" fn GetMemberTypeBySemantic<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMemberTypeBySemantic(::core::mem::transmute_copy(&semantic))
+            (*this).GetMemberTypeBySemantic(::core::mem::transmute(&semantic))
         }
-        unsafe extern "system" fn GetMemberName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> super::super::Foundation::PSTR {
+        unsafe extern "system" fn GetMemberName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetMemberName(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetMemberSemantic<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> super::super::Foundation::PSTR {
+        unsafe extern "system" fn GetMemberSemantic<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetMemberSemantic(::core::mem::transmute_copy(&index))
@@ -2135,10 +2135,10 @@ pub trait ID3D10EffectVariable_Impl: Sized {
     fn GetType(&self) -> ::core::option::Option<ID3D10EffectType>;
     fn GetDesc(&self) -> ::windows::core::Result<D3D10_EFFECT_VARIABLE_DESC>;
     fn GetAnnotationByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetAnnotationByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetAnnotationByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable>;
     fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetMemberByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetMemberBySemantic(&self, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetMemberByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetMemberBySemantic(&self, semantic: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable>;
     fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
     fn GetParentConstantBuffer(&self) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
     fn AsScalar(&self) -> ::core::option::Option<ID3D10EffectScalarVariable>;
@@ -2186,25 +2186,25 @@ impl ID3D10EffectVariable_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetAnnotationByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetAnnotationByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+        unsafe extern "system" fn GetAnnotationByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetAnnotationByName(::core::mem::transmute_copy(&name))
+            (*this).GetAnnotationByName(::core::mem::transmute(&name))
         }
         unsafe extern "system" fn GetMemberByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetMemberByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetMemberByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+        unsafe extern "system" fn GetMemberByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMemberByName(::core::mem::transmute_copy(&name))
+            (*this).GetMemberByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetMemberBySemantic<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+        unsafe extern "system" fn GetMemberBySemantic<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMemberBySemantic(::core::mem::transmute_copy(&semantic))
+            (*this).GetMemberBySemantic(::core::mem::transmute(&semantic))
         }
         unsafe extern "system" fn GetElement<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2457,8 +2457,8 @@ pub trait ID3D10InfoQueue_Impl: Sized {
     fn PushRetrievalFilter(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
     fn PopRetrievalFilter(&self);
     fn GetRetrievalFilterStackSize(&self) -> u32;
-    fn AddMessage(&self, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn AddApplicationMessage(&self, severity: D3D10_MESSAGE_SEVERITY, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn AddMessage(&self, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
+    fn AddApplicationMessage(&self, severity: D3D10_MESSAGE_SEVERITY, pdescription: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
     fn SetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetBreakOnID(&self, id: D3D10_MESSAGE_ID, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -2596,15 +2596,15 @@ impl ID3D10InfoQueue_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRetrievalFilterStackSize()
         }
-        unsafe extern "system" fn AddMessage<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddMessage<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddMessage(::core::mem::transmute_copy(&category), ::core::mem::transmute_copy(&severity), ::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&pdescription)).into()
+            (*this).AddMessage(::core::mem::transmute_copy(&category), ::core::mem::transmute_copy(&severity), ::core::mem::transmute_copy(&id), ::core::mem::transmute(&pdescription)).into()
         }
-        unsafe extern "system" fn AddApplicationMessage<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, severity: D3D10_MESSAGE_SEVERITY, pdescription: super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddApplicationMessage<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, severity: D3D10_MESSAGE_SEVERITY, pdescription: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddApplicationMessage(::core::mem::transmute_copy(&severity), ::core::mem::transmute_copy(&pdescription)).into()
+            (*this).AddApplicationMessage(::core::mem::transmute_copy(&severity), ::core::mem::transmute(&pdescription)).into()
         }
         unsafe extern "system" fn SetBreakOnCategory<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10InfoQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, category: D3D10_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2859,16 +2859,16 @@ impl ID3D10SamplerState_Vtbl {
         iid == &<ID3D10SamplerState as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D10ShaderReflection_Impl: Sized {
     fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_DESC>;
     fn GetConstantBufferByIndex(&self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
-    fn GetConstantBufferByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
+    fn GetConstantBufferByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
     fn GetResourceBindingDesc(&self, resourceindex: u32) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC>;
     fn GetInputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
     fn GetOutputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10ShaderReflection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection_Impl, const OFFSET: isize>() -> ID3D10ShaderReflection_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_DESC) -> ::windows::core::HRESULT {
@@ -2887,10 +2887,10 @@ impl ID3D10ShaderReflection_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetConstantBufferByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetConstantBufferByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer> {
+        unsafe extern "system" fn GetConstantBufferByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetConstantBufferByName(::core::mem::transmute_copy(&name))
+            (*this).GetConstantBufferByName(::core::mem::transmute(&name))
         }
         unsafe extern "system" fn GetResourceBindingDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceindex: u32, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2943,12 +2943,12 @@ impl ID3D10ShaderReflection_Vtbl {
 pub trait ID3D10ShaderReflection1_Impl: Sized {
     fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_DESC>;
     fn GetConstantBufferByIndex(&self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
-    fn GetConstantBufferByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
+    fn GetConstantBufferByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
     fn GetResourceBindingDesc(&self, resourceindex: u32) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC>;
     fn GetInputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
     fn GetOutputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
-    fn GetVariableByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
-    fn GetResourceBindingDescByName(&self, name: super::super::Foundation::PSTR) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC>;
+    fn GetVariableByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
+    fn GetResourceBindingDescByName(&self, name: &::windows::core::PCSTR) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC>;
     fn GetMovInstructionCount(&self) -> ::windows::core::Result<u32>;
     fn GetMovcInstructionCount(&self) -> ::windows::core::Result<u32>;
     fn GetConversionInstructionCount(&self) -> ::windows::core::Result<u32>;
@@ -2976,10 +2976,10 @@ impl ID3D10ShaderReflection1_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetConstantBufferByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetConstantBufferByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer> {
+        unsafe extern "system" fn GetConstantBufferByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetConstantBufferByName(::core::mem::transmute_copy(&name))
+            (*this).GetConstantBufferByName(::core::mem::transmute(&name))
         }
         unsafe extern "system" fn GetResourceBindingDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceindex: u32, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3014,15 +3014,15 @@ impl ID3D10ShaderReflection1_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVariableByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
+        unsafe extern "system" fn GetVariableByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetVariableByName(::core::mem::transmute_copy(&name))
+            (*this).GetVariableByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetResourceBindingDescByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResourceBindingDescByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetResourceBindingDescByName(::core::mem::transmute_copy(&name)) {
+            match (*this).GetResourceBindingDescByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pdesc = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3130,13 +3130,13 @@ impl ID3D10ShaderReflection1_Vtbl {
         iid == &<ID3D10ShaderReflection1 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D10ShaderReflectionConstantBuffer_Impl: Sized {
     fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_BUFFER_DESC>;
     fn GetVariableByIndex(&self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
-    fn GetVariableByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
+    fn GetVariableByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10ShaderReflectionConstantBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>() -> ID3D10ShaderReflectionConstantBuffer_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_BUFFER_DESC) -> ::windows::core::HRESULT {
@@ -3155,10 +3155,10 @@ impl ID3D10ShaderReflectionConstantBuffer_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetVariableByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetVariableByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
+        unsafe extern "system" fn GetVariableByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetVariableByName(::core::mem::transmute_copy(&name))
+            (*this).GetVariableByName(::core::mem::transmute(&name))
         }
         Self {
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
@@ -3170,14 +3170,14 @@ impl ID3D10ShaderReflectionConstantBuffer_Vtbl {
         iid == &<ID3D10ShaderReflectionConstantBuffer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D10ShaderReflectionType_Impl: Sized {
     fn GetDesc(&self, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> ::windows::core::Result<()>;
     fn GetMemberTypeByIndex(&self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionType>;
-    fn GetMemberTypeByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionType>;
-    fn GetMemberTypeName(&self, index: u32) -> super::super::Foundation::PSTR;
+    fn GetMemberTypeByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionType>;
+    fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10ShaderReflectionType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>() -> ID3D10ShaderReflectionType_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> ::windows::core::HRESULT {
@@ -3190,12 +3190,12 @@ impl ID3D10ShaderReflectionType_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetMemberTypeByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetMemberTypeByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionType> {
+        unsafe extern "system" fn GetMemberTypeByName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionType> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMemberTypeByName(::core::mem::transmute_copy(&name))
+            (*this).GetMemberTypeByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetMemberTypeName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> super::super::Foundation::PSTR {
+        unsafe extern "system" fn GetMemberTypeName<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetMemberTypeName(::core::mem::transmute_copy(&index))
@@ -3211,12 +3211,10 @@ impl ID3D10ShaderReflectionType_Vtbl {
         iid == &<ID3D10ShaderReflectionType as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10ShaderReflectionVariable_Impl: Sized {
     fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_VARIABLE_DESC>;
     fn GetType(&self) -> ::core::option::Option<ID3D10ShaderReflectionType>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10ShaderReflectionVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionVariable_Impl, const OFFSET: isize>() -> ID3D10ShaderReflectionVariable_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_VARIABLE_DESC) -> ::windows::core::HRESULT {

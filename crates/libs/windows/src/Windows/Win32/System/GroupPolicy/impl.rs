@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait IGPEInformation_Impl: Sized {
-    fn GetName(&self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
-    fn GetDisplayName(&self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
+    fn GetName(&self, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
+    fn GetDisplayName(&self, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
     fn GetRegistryKey(&self, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows::core::Result<()>;
-    fn GetDSPath(&self, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::Result<()>;
-    fn GetFileSysPath(&self, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::Result<()>;
+    fn GetDSPath(&self, dwsection: u32, pszpath: ::windows::core::PWSTR, cchmaxpath: i32) -> ::windows::core::Result<()>;
+    fn GetFileSysPath(&self, dwsection: u32, pszpath: ::windows::core::PWSTR, cchmaxpath: i32) -> ::windows::core::Result<()>;
     fn GetOptions(&self, dwoptions: *mut u32) -> ::windows::core::Result<()>;
     fn GetType(&self, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> ::windows::core::Result<()>;
     fn GetHint(&self, gphint: *mut GROUP_POLICY_HINT_TYPE) -> ::windows::core::Result<()>;
@@ -13,12 +13,12 @@ pub trait IGPEInformation_Impl: Sized {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl IGPEInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const OFFSET: isize>() -> IGPEInformation_Vtbl {
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetName(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
         }
-        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDisplayName(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
@@ -28,12 +28,12 @@ impl IGPEInformation_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRegistryKey(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&hkey)).into()
         }
-        unsafe extern "system" fn GetDSPath<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDSPath<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: ::windows::core::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDSPath(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchmaxpath)).into()
         }
-        unsafe extern "system" fn GetFileSysPath<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileSysPath<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: ::windows::core::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetFileSysPath(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchmaxpath)).into()
@@ -4553,47 +4553,47 @@ impl IGPMWMIFilterCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Controls"))]
 pub trait IGroupPolicyObject_Impl: Sized {
-    fn New(&self, pszdomainname: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
-    fn OpenDSGPO(&self, pszpath: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn New(&self, pszdomainname: &::windows::core::PCWSTR, pszdisplayname: &::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn OpenDSGPO(&self, pszpath: &::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()>;
     fn OpenLocalMachineGPO(&self, dwflags: u32) -> ::windows::core::Result<()>;
-    fn OpenRemoteMachineGPO(&self, pszcomputername: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn OpenRemoteMachineGPO(&self, pszcomputername: &::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()>;
     fn Save(&self, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows::core::GUID, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
-    fn GetName(&self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
-    fn GetDisplayName(&self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
-    fn SetDisplayName(&self, pszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetPath(&self, pszpath: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
-    fn GetDSPath(&self, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::Result<()>;
-    fn GetFileSysPath(&self, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::Result<()>;
+    fn GetName(&self, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
+    fn GetDisplayName(&self, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
+    fn SetDisplayName(&self, pszname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetPath(&self, pszpath: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
+    fn GetDSPath(&self, dwsection: u32, pszpath: ::windows::core::PWSTR, cchmaxpath: i32) -> ::windows::core::Result<()>;
+    fn GetFileSysPath(&self, dwsection: u32, pszpath: ::windows::core::PWSTR, cchmaxpath: i32) -> ::windows::core::Result<()>;
     fn GetRegistryKey(&self, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows::core::Result<()>;
     fn GetOptions(&self, dwoptions: *mut u32) -> ::windows::core::Result<()>;
     fn SetOptions(&self, dwoptions: u32, dwmask: u32) -> ::windows::core::Result<()>;
     fn GetType(&self, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> ::windows::core::Result<()>;
-    fn GetMachineName(&self, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
+    fn GetMachineName(&self, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
     fn GetPropertySheetPages(&self, hpages: *mut *mut super::super::UI::Controls::HPROPSHEETPAGE, upagecount: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Controls"))]
 impl IGroupPolicyObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>() -> IGroupPolicyObject_Vtbl {
-        unsafe extern "system" fn New<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdomainname: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn New<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdomainname: ::windows::core::PCWSTR, pszdisplayname: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).New(::core::mem::transmute_copy(&pszdomainname), ::core::mem::transmute_copy(&pszdisplayname), ::core::mem::transmute_copy(&dwflags)).into()
+            (*this).New(::core::mem::transmute(&pszdomainname), ::core::mem::transmute(&pszdisplayname), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn OpenDSGPO<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenDSGPO<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OpenDSGPO(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&dwflags)).into()
+            (*this).OpenDSGPO(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn OpenLocalMachineGPO<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).OpenLocalMachineGPO(::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn OpenRemoteMachineGPO<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcomputername: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenRemoteMachineGPO<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcomputername: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OpenRemoteMachineGPO(::core::mem::transmute_copy(&pszcomputername), ::core::mem::transmute_copy(&dwflags)).into()
+            (*this).OpenRemoteMachineGPO(::core::mem::transmute(&pszcomputername), ::core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn Save<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows::core::GUID, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4605,32 +4605,32 @@ impl IGroupPolicyObject_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetName(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
         }
-        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDisplayName(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
         }
-        unsafe extern "system" fn SetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDisplayName(::core::mem::transmute_copy(&pszname)).into()
+            (*this).SetDisplayName(::core::mem::transmute(&pszname)).into()
         }
-        unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPath(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchmaxlength)).into()
         }
-        unsafe extern "system" fn GetDSPath<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDSPath<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: ::windows::core::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDSPath(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchmaxpath)).into()
         }
-        unsafe extern "system" fn GetFileSysPath<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: super::super::Foundation::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileSysPath<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszpath: ::windows::core::PWSTR, cchmaxpath: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetFileSysPath(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&cchmaxpath)).into()
@@ -4655,7 +4655,7 @@ impl IGroupPolicyObject_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetType(::core::mem::transmute_copy(&gpotype)).into()
         }
-        unsafe extern "system" fn GetMachineName<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMachineName<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetMachineName(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
@@ -4691,16 +4691,14 @@ impl IGroupPolicyObject_Vtbl {
         iid == &<IGroupPolicyObject as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IRSOPInformation_Impl: Sized {
-    fn GetNamespace(&self, dwsection: u32, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
+    fn GetNamespace(&self, dwsection: u32, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
     fn GetFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()>;
-    fn GetEventLogEntryText(&self, pszeventsource: super::super::Foundation::PWSTR, pszeventlogname: super::super::Foundation::PWSTR, pszeventtime: super::super::Foundation::PWSTR, dweventid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetEventLogEntryText(&self, pszeventsource: &::windows::core::PCWSTR, pszeventlogname: &::windows::core::PCWSTR, pszeventtime: &::windows::core::PCWSTR, dweventid: u32) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IRSOPInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRSOPInformation_Impl, const OFFSET: isize>() -> IRSOPInformation_Vtbl {
-        unsafe extern "system" fn GetNamespace<Identity: ::windows::core::IUnknownImpl, Impl: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszname: super::super::Foundation::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamespace<Identity: ::windows::core::IUnknownImpl, Impl: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetNamespace(::core::mem::transmute_copy(&dwsection), ::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&cchmaxlength)).into()
@@ -4710,10 +4708,10 @@ impl IRSOPInformation_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetFlags(::core::mem::transmute_copy(&pdwflags)).into()
         }
-        unsafe extern "system" fn GetEventLogEntryText<Identity: ::windows::core::IUnknownImpl, Impl: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszeventsource: super::super::Foundation::PWSTR, pszeventlogname: super::super::Foundation::PWSTR, pszeventtime: super::super::Foundation::PWSTR, dweventid: u32, ppsztext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEventLogEntryText<Identity: ::windows::core::IUnknownImpl, Impl: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszeventsource: ::windows::core::PCWSTR, pszeventlogname: ::windows::core::PCWSTR, pszeventtime: ::windows::core::PCWSTR, dweventid: u32, ppsztext: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEventLogEntryText(::core::mem::transmute_copy(&pszeventsource), ::core::mem::transmute_copy(&pszeventlogname), ::core::mem::transmute_copy(&pszeventtime), ::core::mem::transmute_copy(&dweventid)) {
+            match (*this).GetEventLogEntryText(::core::mem::transmute(&pszeventsource), ::core::mem::transmute(&pszeventlogname), ::core::mem::transmute(&pszeventtime), ::core::mem::transmute_copy(&dweventid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppsztext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

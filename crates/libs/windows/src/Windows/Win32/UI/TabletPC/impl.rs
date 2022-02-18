@@ -2725,16 +2725,14 @@ impl IInkGesture_Vtbl {
         iid == &<IInkGesture as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IInkLineInfo_Impl: Sized {
     fn SetFormat(&self, pim: *const INKMETRIC) -> ::windows::core::Result<()>;
     fn GetFormat(&self, pim: *const INKMETRIC) -> ::windows::core::Result<()>;
     fn GetInkExtent(&self, pim: *const INKMETRIC, pnwidth: *const u32) -> ::windows::core::Result<()>;
-    fn GetCandidate(&self, ncandidatenum: u32, pwcrecogword: super::super::Foundation::PWSTR, pcwcrecogword: *const u32, dwflags: u32) -> ::windows::core::Result<()>;
-    fn SetCandidate(&self, ncandidatenum: u32, strrecogword: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetCandidate(&self, ncandidatenum: u32, pwcrecogword: &::windows::core::PCWSTR, pcwcrecogword: *const u32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn SetCandidate(&self, ncandidatenum: u32, strrecogword: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Recognize(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IInkLineInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkLineInfo_Impl, const OFFSET: isize>() -> IInkLineInfo_Vtbl {
         unsafe extern "system" fn SetFormat<Identity: ::windows::core::IUnknownImpl, Impl: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pim: *const INKMETRIC) -> ::windows::core::HRESULT {
@@ -2752,15 +2750,15 @@ impl IInkLineInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetInkExtent(::core::mem::transmute_copy(&pim), ::core::mem::transmute_copy(&pnwidth)).into()
         }
-        unsafe extern "system" fn GetCandidate<Identity: ::windows::core::IUnknownImpl, Impl: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncandidatenum: u32, pwcrecogword: super::super::Foundation::PWSTR, pcwcrecogword: *const u32, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCandidate<Identity: ::windows::core::IUnknownImpl, Impl: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncandidatenum: u32, pwcrecogword: ::windows::core::PCWSTR, pcwcrecogword: *const u32, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCandidate(::core::mem::transmute_copy(&ncandidatenum), ::core::mem::transmute_copy(&pwcrecogword), ::core::mem::transmute_copy(&pcwcrecogword), ::core::mem::transmute_copy(&dwflags)).into()
+            (*this).GetCandidate(::core::mem::transmute_copy(&ncandidatenum), ::core::mem::transmute(&pwcrecogword), ::core::mem::transmute_copy(&pcwcrecogword), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn SetCandidate<Identity: ::windows::core::IUnknownImpl, Impl: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncandidatenum: u32, strrecogword: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCandidate<Identity: ::windows::core::IUnknownImpl, Impl: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncandidatenum: u32, strrecogword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCandidate(::core::mem::transmute_copy(&ncandidatenum), ::core::mem::transmute_copy(&strrecogword)).into()
+            (*this).SetCandidate(::core::mem::transmute_copy(&ncandidatenum), ::core::mem::transmute(&strrecogword)).into()
         }
         unsafe extern "system" fn Recognize<Identity: ::windows::core::IUnknownImpl, Impl: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

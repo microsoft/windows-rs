@@ -1168,7 +1168,7 @@ pub trait ID2D1DeviceContext_Impl: Sized + ID2D1Resource_Impl + ID2D1RenderTarge
     fn CreateBitmap2(&self, size: &Common::D2D_SIZE_U, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1>;
     fn CreateBitmapFromWicBitmap2(&self, wicbitmapsource: &::core::option::Option<super::Imaging::IWICBitmapSource>, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1>;
     fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32) -> ::windows::core::Result<ID2D1ColorContext>;
-    fn CreateColorContextFromFilename(&self, filename: super::super::Foundation::PWSTR) -> ::windows::core::Result<ID2D1ColorContext>;
+    fn CreateColorContextFromFilename(&self, filename: &::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext>;
     fn CreateColorContextFromWicColorContext(&self, wiccolorcontext: &::core::option::Option<super::Imaging::IWICColorContext>) -> ::windows::core::Result<ID2D1ColorContext>;
     fn CreateBitmapFromDxgiSurface(&self, surface: &::core::option::Option<super::Dxgi::IDXGISurface>, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1>;
     fn CreateEffect(&self, effectid: *const ::windows::core::GUID) -> ::windows::core::Result<ID2D1Effect>;
@@ -1237,10 +1237,10 @@ impl ID2D1DeviceContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateColorContextFromFilename<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::Foundation::PWSTR, colorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateColorContextFromFilename<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::windows::core::PCWSTR, colorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateColorContextFromFilename(::core::mem::transmute_copy(&filename)) {
+            match (*this).CreateColorContextFromFilename(::core::mem::transmute(&filename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *colorcontext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1735,7 +1735,7 @@ impl ID2D1DeviceContext3_Vtbl {
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1DeviceContext4_Impl: Sized + ID2D1Resource_Impl + ID2D1RenderTarget_Impl + ID2D1DeviceContext_Impl + ID2D1DeviceContext1_Impl + ID2D1DeviceContext2_Impl + ID2D1DeviceContext3_Impl {
     fn CreateSvgGlyphStyle(&self) -> ::windows::core::Result<ID2D1SvgGlyphStyle>;
-    fn DrawText2(&self, string: super::super::Foundation::PWSTR, stringlength: u32, textformat: &::core::option::Option<super::DirectWrite::IDWriteTextFormat>, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: &::core::option::Option<ID2D1Brush>, svgglyphstyle: &::core::option::Option<ID2D1SvgGlyphStyle>, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
+    fn DrawText2(&self, string: &::windows::core::PCWSTR, stringlength: u32, textformat: &::core::option::Option<super::DirectWrite::IDWriteTextFormat>, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: &::core::option::Option<ID2D1Brush>, svgglyphstyle: &::core::option::Option<ID2D1SvgGlyphStyle>, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
     fn DrawTextLayout2(&self, origin: &Common::D2D_POINT_2F, textlayout: &::core::option::Option<super::DirectWrite::IDWriteTextLayout>, defaultfillbrush: &::core::option::Option<ID2D1Brush>, svgglyphstyle: &::core::option::Option<ID2D1SvgGlyphStyle>, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS);
     fn DrawColorBitmapGlyphRun(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
     fn DrawSvgGlyphRun(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: &::core::option::Option<ID2D1Brush>, svgglyphstyle: &::core::option::Option<ID2D1SvgGlyphStyle>, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
@@ -1756,10 +1756,10 @@ impl ID2D1DeviceContext4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DrawText2<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, string: super::super::Foundation::PWSTR, stringlength: u32, textformat: ::windows::core::RawPtr, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: ::windows::core::RawPtr, svgglyphstyle: ::windows::core::RawPtr, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
+        unsafe extern "system" fn DrawText2<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, string: ::windows::core::PCWSTR, stringlength: u32, textformat: ::windows::core::RawPtr, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: ::windows::core::RawPtr, svgglyphstyle: ::windows::core::RawPtr, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DrawText2(::core::mem::transmute_copy(&string), ::core::mem::transmute_copy(&stringlength), ::core::mem::transmute(&textformat), ::core::mem::transmute_copy(&layoutrect), ::core::mem::transmute(&defaultfillbrush), ::core::mem::transmute(&svgglyphstyle), ::core::mem::transmute_copy(&colorpaletteindex), ::core::mem::transmute_copy(&options), ::core::mem::transmute_copy(&measuringmode))
+            (*this).DrawText2(::core::mem::transmute(&string), ::core::mem::transmute_copy(&stringlength), ::core::mem::transmute(&textformat), ::core::mem::transmute_copy(&layoutrect), ::core::mem::transmute(&defaultfillbrush), ::core::mem::transmute(&svgglyphstyle), ::core::mem::transmute_copy(&colorpaletteindex), ::core::mem::transmute_copy(&options), ::core::mem::transmute_copy(&measuringmode))
         }
         unsafe extern "system" fn DrawTextLayout2<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, origin: Common::D2D_POINT_2F, textlayout: ::windows::core::RawPtr, defaultfillbrush: ::windows::core::RawPtr, svgglyphstyle: ::windows::core::RawPtr, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2088,7 +2088,7 @@ pub trait ID2D1EffectContext_Impl: Sized {
     fn CreateVertexBuffer(&self, vertexbufferproperties: *const D2D1_VERTEX_BUFFER_PROPERTIES, resourceid: *const ::windows::core::GUID, customvertexbufferproperties: *const D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES) -> ::windows::core::Result<ID2D1VertexBuffer>;
     fn FindVertexBuffer(&self, resourceid: *const ::windows::core::GUID) -> ::windows::core::Result<ID2D1VertexBuffer>;
     fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32) -> ::windows::core::Result<ID2D1ColorContext>;
-    fn CreateColorContextFromFilename(&self, filename: super::super::Foundation::PWSTR) -> ::windows::core::Result<ID2D1ColorContext>;
+    fn CreateColorContextFromFilename(&self, filename: &::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1ColorContext>;
     fn CreateColorContextFromWicColorContext(&self, wiccolorcontext: &::core::option::Option<super::Imaging::IWICColorContext>) -> ::windows::core::Result<ID2D1ColorContext>;
     fn CheckFeatureSupport(&self, feature: D2D1_FEATURE, featuresupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>;
     fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL;
@@ -2253,10 +2253,10 @@ impl ID2D1EffectContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateColorContextFromFilename<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: super::super::Foundation::PWSTR, colorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateColorContextFromFilename<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::windows::core::PCWSTR, colorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateColorContextFromFilename(::core::mem::transmute_copy(&filename)) {
+            match (*this).CreateColorContextFromFilename(::core::mem::transmute(&filename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *colorcontext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2621,7 +2621,7 @@ pub trait ID2D1Factory1_Impl: Sized + ID2D1Factory_Impl {
     fn CreateDrawingStateBlock2(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: &::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) -> ::windows::core::Result<ID2D1DrawingStateBlock1>;
     fn CreateGdiMetafile(&self, metafilestream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<ID2D1GdiMetafile>;
     fn RegisterEffectFromStream(&self, classid: *const ::windows::core::GUID, propertyxml: &::core::option::Option<super::super::System::Com::IStream>, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: &PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>;
-    fn RegisterEffectFromString(&self, classid: *const ::windows::core::GUID, propertyxml: super::super::Foundation::PWSTR, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: &PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>;
+    fn RegisterEffectFromString(&self, classid: *const ::windows::core::GUID, propertyxml: &::windows::core::PCWSTR, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: &PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>;
     fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetRegisteredEffects(&self, effects: *mut ::windows::core::GUID, effectscount: u32, effectsreturned: *mut u32, effectsregistered: *mut u32) -> ::windows::core::Result<()>;
     fn GetEffectProperties(&self, effectid: *const ::windows::core::GUID) -> ::windows::core::Result<ID2D1Properties>;
@@ -2689,10 +2689,10 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RegisterEffectFromStream(::core::mem::transmute_copy(&classid), ::core::mem::transmute(&propertyxml), ::core::mem::transmute_copy(&bindings), ::core::mem::transmute_copy(&bindingscount), ::core::mem::transmute(&effectfactory)).into()
         }
-        unsafe extern "system" fn RegisterEffectFromString<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: *const ::windows::core::GUID, propertyxml: super::super::Foundation::PWSTR, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterEffectFromString<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: *const ::windows::core::GUID, propertyxml: ::windows::core::PCWSTR, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterEffectFromString(::core::mem::transmute_copy(&classid), ::core::mem::transmute_copy(&propertyxml), ::core::mem::transmute_copy(&bindings), ::core::mem::transmute_copy(&bindingscount), ::core::mem::transmute(&effectfactory)).into()
+            (*this).RegisterEffectFromString(::core::mem::transmute_copy(&classid), ::core::mem::transmute(&propertyxml), ::core::mem::transmute_copy(&bindings), ::core::mem::transmute_copy(&bindingscount), ::core::mem::transmute(&effectfactory)).into()
         }
         unsafe extern "system" fn UnregisterEffect<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3975,21 +3975,19 @@ impl ID2D1PrintControl_Vtbl {
         iid == &<ID2D1PrintControl as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1Properties_Impl: Sized {
     fn GetPropertyCount(&self) -> u32;
-    fn GetPropertyName(&self, index: u32, name: super::super::Foundation::PWSTR, namecount: u32) -> ::windows::core::Result<()>;
+    fn GetPropertyName(&self, index: u32, name: ::windows::core::PWSTR, namecount: u32) -> ::windows::core::Result<()>;
     fn GetPropertyNameLength(&self, index: u32) -> u32;
     fn GetType(&self, index: u32) -> D2D1_PROPERTY_TYPE;
-    fn GetPropertyIndex(&self, name: super::super::Foundation::PWSTR) -> u32;
-    fn SetValueByName(&self, name: super::super::Foundation::PWSTR, r#type: D2D1_PROPERTY_TYPE, data: *const u8, datasize: u32) -> ::windows::core::Result<()>;
+    fn GetPropertyIndex(&self, name: &::windows::core::PCWSTR) -> u32;
+    fn SetValueByName(&self, name: &::windows::core::PCWSTR, r#type: D2D1_PROPERTY_TYPE, data: *const u8, datasize: u32) -> ::windows::core::Result<()>;
     fn SetValue(&self, index: u32, r#type: D2D1_PROPERTY_TYPE, data: *const u8, datasize: u32) -> ::windows::core::Result<()>;
-    fn GetValueByName(&self, name: super::super::Foundation::PWSTR, r#type: D2D1_PROPERTY_TYPE, data: *mut u8, datasize: u32) -> ::windows::core::Result<()>;
+    fn GetValueByName(&self, name: &::windows::core::PCWSTR, r#type: D2D1_PROPERTY_TYPE, data: *mut u8, datasize: u32) -> ::windows::core::Result<()>;
     fn GetValue(&self, index: u32, r#type: D2D1_PROPERTY_TYPE, data: *mut u8, datasize: u32) -> ::windows::core::Result<()>;
     fn GetValueSize(&self, index: u32) -> u32;
     fn GetSubProperties(&self, index: u32) -> ::windows::core::Result<ID2D1Properties>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ID2D1Properties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>() -> ID2D1Properties_Vtbl {
         unsafe extern "system" fn GetPropertyCount<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -3997,7 +3995,7 @@ impl ID2D1Properties_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPropertyCount()
         }
-        unsafe extern "system" fn GetPropertyName<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, name: super::super::Foundation::PWSTR, namecount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyName<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, name: ::windows::core::PWSTR, namecount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPropertyName(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&namecount)).into()
@@ -4012,25 +4010,25 @@ impl ID2D1Properties_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetType(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetPropertyIndex<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> u32 {
+        unsafe extern "system" fn GetPropertyIndex<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR) -> u32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetPropertyIndex(::core::mem::transmute_copy(&name))
+            (*this).GetPropertyIndex(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn SetValueByName<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_PROPERTY_TYPE, data: *const u8, datasize: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValueByName<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, r#type: D2D1_PROPERTY_TYPE, data: *const u8, datasize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetValueByName(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&datasize)).into()
+            (*this).SetValueByName(::core::mem::transmute(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&datasize)).into()
         }
         unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, r#type: D2D1_PROPERTY_TYPE, data: *const u8, datasize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetValue(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&datasize)).into()
         }
-        unsafe extern "system" fn GetValueByName<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_PROPERTY_TYPE, data: *mut u8, datasize: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValueByName<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, r#type: D2D1_PROPERTY_TYPE, data: *mut u8, datasize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetValueByName(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&datasize)).into()
+            (*this).GetValueByName(::core::mem::transmute(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&datasize)).into()
         }
         unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, r#type: D2D1_PROPERTY_TYPE, data: *mut u8, datasize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4234,7 +4232,7 @@ pub trait ID2D1RenderTarget_Impl: Sized + ID2D1Resource_Impl {
     fn FillMesh(&self, mesh: &::core::option::Option<ID2D1Mesh>, brush: &::core::option::Option<ID2D1Brush>);
     fn FillOpacityMask(&self, opacitymask: &::core::option::Option<ID2D1Bitmap>, brush: &::core::option::Option<ID2D1Brush>, content: D2D1_OPACITY_MASK_CONTENT, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F);
     fn DrawBitmap(&self, bitmap: &::core::option::Option<ID2D1Bitmap>, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F);
-    fn DrawText(&self, string: super::super::Foundation::PWSTR, stringlength: u32, textformat: &::core::option::Option<super::DirectWrite::IDWriteTextFormat>, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: &::core::option::Option<ID2D1Brush>, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
+    fn DrawText(&self, string: &::windows::core::PCWSTR, stringlength: u32, textformat: &::core::option::Option<super::DirectWrite::IDWriteTextFormat>, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: &::core::option::Option<ID2D1Brush>, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
     fn DrawTextLayout(&self, origin: &Common::D2D_POINT_2F, textlayout: &::core::option::Option<super::DirectWrite::IDWriteTextLayout>, defaultfillbrush: &::core::option::Option<ID2D1Brush>, options: D2D1_DRAW_TEXT_OPTIONS);
     fn DrawGlyphRun(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: &::core::option::Option<ID2D1Brush>, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
     fn SetTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2);
@@ -4443,10 +4441,10 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DrawBitmap(::core::mem::transmute(&bitmap), ::core::mem::transmute_copy(&destinationrectangle), ::core::mem::transmute_copy(&opacity), ::core::mem::transmute_copy(&interpolationmode), ::core::mem::transmute_copy(&sourcerectangle))
         }
-        unsafe extern "system" fn DrawText<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, string: super::super::Foundation::PWSTR, stringlength: u32, textformat: ::windows::core::RawPtr, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: ::windows::core::RawPtr, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
+        unsafe extern "system" fn DrawText<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, string: ::windows::core::PCWSTR, stringlength: u32, textformat: ::windows::core::RawPtr, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: ::windows::core::RawPtr, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DrawText(::core::mem::transmute_copy(&string), ::core::mem::transmute_copy(&stringlength), ::core::mem::transmute(&textformat), ::core::mem::transmute_copy(&layoutrect), ::core::mem::transmute(&defaultfillbrush), ::core::mem::transmute_copy(&options), ::core::mem::transmute_copy(&measuringmode))
+            (*this).DrawText(::core::mem::transmute(&string), ::core::mem::transmute_copy(&stringlength), ::core::mem::transmute(&textformat), ::core::mem::transmute_copy(&layoutrect), ::core::mem::transmute(&defaultfillbrush), ::core::mem::transmute_copy(&options), ::core::mem::transmute_copy(&measuringmode))
         }
         unsafe extern "system" fn DrawTextLayout<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, origin: Common::D2D_POINT_2F, textlayout: ::windows::core::RawPtr, defaultfillbrush: ::windows::core::RawPtr, options: D2D1_DRAW_TEXT_OPTIONS) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4934,21 +4932,21 @@ impl ID2D1SvgAttribute_Vtbl {
         iid == &<ID2D1SvgAttribute as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
 pub trait ID2D1SvgDocument_Impl: Sized + ID2D1Resource_Impl {
     fn SetViewportSize(&self, viewportsize: &Common::D2D_SIZE_F) -> ::windows::core::Result<()>;
     fn GetViewportSize(&self) -> Common::D2D_SIZE_F;
     fn SetRoot(&self, root: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
     fn GetRoot(&self, root: *mut ::core::option::Option<ID2D1SvgElement>);
-    fn FindElementById(&self, id: super::super::Foundation::PWSTR) -> ::windows::core::Result<ID2D1SvgElement>;
+    fn FindElementById(&self, id: &::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1SvgElement>;
     fn Serialize(&self, outputxmlstream: &::core::option::Option<super::super::System::Com::IStream>, subtree: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
     fn Deserialize(&self, inputxmlstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<ID2D1SvgElement>;
-    fn CreatePaint(&self, painttype: D2D1_SVG_PAINT_TYPE, color: *const Common::D2D1_COLOR_F, id: super::super::Foundation::PWSTR) -> ::windows::core::Result<ID2D1SvgPaint>;
+    fn CreatePaint(&self, painttype: D2D1_SVG_PAINT_TYPE, color: *const Common::D2D1_COLOR_F, id: &::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1SvgPaint>;
     fn CreateStrokeDashArray(&self, dashes: *const D2D1_SVG_LENGTH, dashescount: u32) -> ::windows::core::Result<ID2D1SvgStrokeDashArray>;
     fn CreatePointCollection(&self, points: *const Common::D2D_POINT_2F, pointscount: u32) -> ::windows::core::Result<ID2D1SvgPointCollection>;
     fn CreatePathData(&self, segmentdata: *const f32, segmentdatacount: u32, commands: *const D2D1_SVG_PATH_COMMAND, commandscount: u32) -> ::windows::core::Result<ID2D1SvgPathData>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
 impl ID2D1SvgDocument_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>() -> ID2D1SvgDocument_Vtbl {
         unsafe extern "system" fn SetViewportSize<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewportsize: Common::D2D_SIZE_F) -> ::windows::core::HRESULT {
@@ -4971,10 +4969,10 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRoot(::core::mem::transmute_copy(&root))
         }
-        unsafe extern "system" fn FindElementById<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: super::super::Foundation::PWSTR, svgelement: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindElementById<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::windows::core::PCWSTR, svgelement: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).FindElementById(::core::mem::transmute_copy(&id)) {
+            match (*this).FindElementById(::core::mem::transmute(&id)) {
                 ::core::result::Result::Ok(ok__) => {
                     *svgelement = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4998,10 +4996,10 @@ impl ID2D1SvgDocument_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePaint<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, painttype: D2D1_SVG_PAINT_TYPE, color: *const Common::D2D1_COLOR_F, id: super::super::Foundation::PWSTR, paint: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePaint<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, painttype: D2D1_SVG_PAINT_TYPE, color: *const Common::D2D1_COLOR_F, id: ::windows::core::PCWSTR, paint: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreatePaint(::core::mem::transmute_copy(&painttype), ::core::mem::transmute_copy(&color), ::core::mem::transmute_copy(&id)) {
+            match (*this).CreatePaint(::core::mem::transmute_copy(&painttype), ::core::mem::transmute_copy(&color), ::core::mem::transmute(&id)) {
                 ::core::result::Result::Ok(ok__) => {
                     *paint = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5064,7 +5062,7 @@ impl ID2D1SvgDocument_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1SvgElement_Impl: Sized + ID2D1Resource_Impl {
     fn GetDocument(&self, document: *mut ::core::option::Option<ID2D1SvgDocument>);
-    fn GetTagName(&self, name: super::super::Foundation::PWSTR, namecount: u32) -> ::windows::core::Result<()>;
+    fn GetTagName(&self, name: ::windows::core::PWSTR, namecount: u32) -> ::windows::core::Result<()>;
     fn GetTagNameLength(&self) -> u32;
     fn IsTextContent(&self) -> super::super::Foundation::BOOL;
     fn GetParent(&self, parent: *mut ::core::option::Option<ID2D1SvgElement>);
@@ -5077,22 +5075,22 @@ pub trait ID2D1SvgElement_Impl: Sized + ID2D1Resource_Impl {
     fn AppendChild(&self, newchild: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
     fn ReplaceChild(&self, newchild: &::core::option::Option<ID2D1SvgElement>, oldchild: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
     fn RemoveChild(&self, oldchild: &::core::option::Option<ID2D1SvgElement>) -> ::windows::core::Result<()>;
-    fn CreateChild(&self, tagname: super::super::Foundation::PWSTR) -> ::windows::core::Result<ID2D1SvgElement>;
-    fn IsAttributeSpecified(&self, name: super::super::Foundation::PWSTR, inherited: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    fn CreateChild(&self, tagname: &::windows::core::PCWSTR) -> ::windows::core::Result<ID2D1SvgElement>;
+    fn IsAttributeSpecified(&self, name: &::windows::core::PCWSTR, inherited: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     fn GetSpecifiedAttributeCount(&self) -> u32;
-    fn GetSpecifiedAttributeName(&self, index: u32, name: super::super::Foundation::PWSTR, namecount: u32, inherited: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetSpecifiedAttributeName(&self, index: u32, name: ::windows::core::PWSTR, namecount: u32, inherited: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetSpecifiedAttributeNameLength(&self, index: u32, namelength: *mut u32, inherited: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn RemoveAttribute(&self, name: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetTextValue(&self, name: super::super::Foundation::PWSTR, namecount: u32) -> ::windows::core::Result<()>;
-    fn GetTextValue(&self, name: super::super::Foundation::PWSTR, namecount: u32) -> ::windows::core::Result<()>;
+    fn RemoveAttribute(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn SetTextValue(&self, name: &::windows::core::PCWSTR, namecount: u32) -> ::windows::core::Result<()>;
+    fn GetTextValue(&self, name: ::windows::core::PWSTR, namecount: u32) -> ::windows::core::Result<()>;
     fn GetTextValueLength(&self) -> u32;
-    fn SetAttributeValue(&self, name: super::super::Foundation::PWSTR, value: &::core::option::Option<ID2D1SvgAttribute>) -> ::windows::core::Result<()>;
-    fn SetAttributeValue2(&self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>;
-    fn SetAttributeValue3(&self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetAttributeValue(&self, name: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetAttributeValue2(&self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>;
-    fn GetAttributeValue3(&self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR, valuecount: u32) -> ::windows::core::Result<()>;
-    fn GetAttributeValueLength(&self, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE) -> ::windows::core::Result<u32>;
+    fn SetAttributeValue(&self, name: &::windows::core::PCWSTR, value: &::core::option::Option<ID2D1SvgAttribute>) -> ::windows::core::Result<()>;
+    fn SetAttributeValue2(&self, name: &::windows::core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>;
+    fn SetAttributeValue3(&self, name: &::windows::core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetAttributeValue(&self, name: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetAttributeValue2(&self, name: &::windows::core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>;
+    fn GetAttributeValue3(&self, name: &::windows::core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: ::windows::core::PWSTR, valuecount: u32) -> ::windows::core::Result<()>;
+    fn GetAttributeValueLength(&self, name: &::windows::core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID2D1SvgElement_Vtbl {
@@ -5102,7 +5100,7 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDocument(::core::mem::transmute_copy(&document))
         }
-        unsafe extern "system" fn GetTagName<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, namecount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTagName<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PWSTR, namecount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetTagName(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&namecount)).into()
@@ -5179,10 +5177,10 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RemoveChild(::core::mem::transmute(&oldchild)).into()
         }
-        unsafe extern "system" fn CreateChild<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tagname: super::super::Foundation::PWSTR, newchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateChild<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tagname: ::windows::core::PCWSTR, newchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateChild(::core::mem::transmute_copy(&tagname)) {
+            match (*this).CreateChild(::core::mem::transmute(&tagname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *newchild = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5190,17 +5188,17 @@ impl ID2D1SvgElement_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAttributeSpecified<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, inherited: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsAttributeSpecified<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, inherited: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsAttributeSpecified(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&inherited))
+            (*this).IsAttributeSpecified(::core::mem::transmute(&name), ::core::mem::transmute_copy(&inherited))
         }
         unsafe extern "system" fn GetSpecifiedAttributeCount<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetSpecifiedAttributeCount()
         }
-        unsafe extern "system" fn GetSpecifiedAttributeName<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, name: super::super::Foundation::PWSTR, namecount: u32, inherited: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSpecifiedAttributeName<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, name: ::windows::core::PWSTR, namecount: u32, inherited: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetSpecifiedAttributeName(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&namecount), ::core::mem::transmute_copy(&inherited)).into()
@@ -5210,17 +5208,17 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetSpecifiedAttributeNameLength(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&namelength), ::core::mem::transmute_copy(&inherited)).into()
         }
-        unsafe extern "system" fn RemoveAttribute<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveAttribute<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveAttribute(::core::mem::transmute_copy(&name)).into()
+            (*this).RemoveAttribute(::core::mem::transmute(&name)).into()
         }
-        unsafe extern "system" fn SetTextValue<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, namecount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTextValue<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, namecount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTextValue(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&namecount)).into()
+            (*this).SetTextValue(::core::mem::transmute(&name), ::core::mem::transmute_copy(&namecount)).into()
         }
-        unsafe extern "system" fn GetTextValue<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, namecount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTextValue<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PWSTR, namecount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetTextValue(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&namecount)).into()
@@ -5230,40 +5228,40 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetTextValueLength()
         }
-        unsafe extern "system" fn SetAttributeValue<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAttributeValue<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAttributeValue(::core::mem::transmute_copy(&name), ::core::mem::transmute(&value)).into()
+            (*this).SetAttributeValue(::core::mem::transmute(&name), ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn SetAttributeValue2<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAttributeValue2<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAttributeValue2(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuesizeinbytes)).into()
+            (*this).SetAttributeValue2(::core::mem::transmute(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuesizeinbytes)).into()
         }
-        unsafe extern "system" fn SetAttributeValue3<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAttributeValue3<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAttributeValue3(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value)).into()
+            (*this).SetAttributeValue3(::core::mem::transmute(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn GetAttributeValue<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeValue<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetAttributeValue(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&value)).into()
+            (*this).GetAttributeValue(::core::mem::transmute(&name), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetAttributeValue2<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeValue2<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetAttributeValue2(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuesizeinbytes)).into()
+            (*this).GetAttributeValue2(::core::mem::transmute(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuesizeinbytes)).into()
         }
-        unsafe extern "system" fn GetAttributeValue3<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: super::super::Foundation::PWSTR, valuecount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeValue3<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: ::windows::core::PWSTR, valuecount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetAttributeValue3(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuecount)).into()
+            (*this).GetAttributeValue3(::core::mem::transmute(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&valuecount)).into()
         }
-        unsafe extern "system" fn GetAttributeValueLength<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, valuelength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeValueLength<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, valuelength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetAttributeValueLength(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type)) {
+            match (*this).GetAttributeValueLength(::core::mem::transmute(&name), ::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
                     *valuelength = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5356,17 +5354,17 @@ impl ID2D1SvgGlyphStyle_Vtbl {
         iid == &<ID2D1SvgGlyphStyle as ::windows::core::Interface>::IID || iid == &<ID2D1Resource as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1SvgPaint_Impl: Sized + ID2D1Resource_Impl + ID2D1SvgAttribute_Impl {
     fn SetPaintType(&self, painttype: D2D1_SVG_PAINT_TYPE) -> ::windows::core::Result<()>;
     fn GetPaintType(&self) -> D2D1_SVG_PAINT_TYPE;
     fn SetColor(&self, color: *const Common::D2D1_COLOR_F) -> ::windows::core::Result<()>;
     fn GetColor(&self, color: *mut Common::D2D1_COLOR_F);
-    fn SetId(&self, id: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetId(&self, id: super::super::Foundation::PWSTR, idcount: u32) -> ::windows::core::Result<()>;
+    fn SetId(&self, id: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetId(&self, id: ::windows::core::PWSTR, idcount: u32) -> ::windows::core::Result<()>;
     fn GetIdLength(&self) -> u32;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1SvgPaint_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>() -> ID2D1SvgPaint_Vtbl {
         unsafe extern "system" fn SetPaintType<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, painttype: D2D1_SVG_PAINT_TYPE) -> ::windows::core::HRESULT {
@@ -5389,12 +5387,12 @@ impl ID2D1SvgPaint_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetColor(::core::mem::transmute_copy(&color))
         }
-        unsafe extern "system" fn SetId<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetId<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetId(::core::mem::transmute_copy(&id)).into()
+            (*this).SetId(::core::mem::transmute(&id)).into()
         }
-        unsafe extern "system" fn GetId<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: super::super::Foundation::PWSTR, idcount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetId<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::windows::core::PWSTR, idcount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetId(::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&idcount)).into()

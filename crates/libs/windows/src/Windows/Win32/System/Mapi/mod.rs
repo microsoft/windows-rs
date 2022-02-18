@@ -1,40 +1,29 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPMAPIADDRESS = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszcaption: super::super::Foundation::PSTR, neditfields: u32, lpszlabels: super::super::Foundation::PSTR, nrecips: u32, lprecips: *mut MapiRecipDesc, flflags: u32, ulreserved: u32, lpnnewrecips: *mut u32, lppnewrecips: *mut *mut MapiRecipDesc) -> u32>;
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPMAPIDELETEMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32) -> u32>;
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
+pub type LPMAPIADDRESS = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszcaption: ::windows::core::PCSTR, neditfields: u32, lpszlabels: ::windows::core::PCSTR, nrecips: u32, lprecips: *mut MapiRecipDesc, flflags: u32, ulreserved: u32, lpnnewrecips: *mut u32, lppnewrecips: *mut *mut MapiRecipDesc) -> u32>;
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
+pub type LPMAPIDELETEMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: ::windows::core::PCSTR, flflags: u32, ulreserved: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub type LPMAPIDETAILS = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lprecip: *mut MapiRecipDesc, flflags: u32, ulreserved: u32) -> u32>;
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPMAPIFINDNEXT = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessagetype: super::super::Foundation::PSTR, lpszseedmessageid: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lpszmessageid: super::super::Foundation::PSTR) -> u32>;
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
+pub type LPMAPIFINDNEXT = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessagetype: ::windows::core::PCSTR, lpszseedmessageid: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lpszmessageid: ::windows::core::PCSTR) -> u32>;
 #[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub type LPMAPIFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub type LPMAPILOGOFF = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, flflags: u32, ulreserved: u32) -> u32>;
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPMAPILOGON = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpszprofilename: super::super::Foundation::PSTR, lpszpassword: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lplhsession: *mut usize) -> u32>;
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPMAPIREADMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lppmessage: *mut *mut MapiMessage) -> u32>;
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPMAPIRESOLVENAME = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszname: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lpprecip: *mut *mut MapiRecipDesc) -> u32>;
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPMAPISAVEMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32, lpszmessageid: super::super::Foundation::PSTR) -> u32>;
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPMAPISENDDOCUMENTS = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpszdelimchar: super::super::Foundation::PSTR, lpszfilepaths: super::super::Foundation::PSTR, lpszfilenames: super::super::Foundation::PSTR, ulreserved: u32) -> u32>;
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
+pub type LPMAPILOGON = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpszprofilename: ::windows::core::PCSTR, lpszpassword: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lplhsession: *mut usize) -> u32>;
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
+pub type LPMAPIREADMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lppmessage: *mut *mut MapiMessage) -> u32>;
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
+pub type LPMAPIRESOLVENAME = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszname: ::windows::core::PCSTR, flflags: u32, ulreserved: u32, lpprecip: *mut *mut MapiRecipDesc) -> u32>;
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
+pub type LPMAPISAVEMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32, lpszmessageid: ::windows::core::PCSTR) -> u32>;
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
+pub type LPMAPISENDDOCUMENTS = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpszdelimchar: ::windows::core::PCSTR, lpszfilepaths: ::windows::core::PCSTR, lpszfilenames: ::windows::core::PCSTR, ulreserved: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub type LPMAPISENDMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32) -> u32>;
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub type LPMAPISENDMAILW = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *const MapiMessageW, flflags: u32, ulreserved: u32) -> u32>;
 #[doc = "*Required features: 'Win32_System_Mapi'*"]
 #[inline]
@@ -159,86 +148,70 @@ pub const MAPI_UNREAD_ONLY: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub const MAPI_USER_ABORT: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub struct MapiFileDesc {
     pub ulReserved: u32,
     pub flFlags: u32,
     pub nPosition: u32,
-    pub lpszPathName: super::super::Foundation::PSTR,
-    pub lpszFileName: super::super::Foundation::PSTR,
+    pub lpszPathName: ::windows::core::PSTR,
+    pub lpszFileName: ::windows::core::PSTR,
     pub lpFileType: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MapiFileDesc {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MapiFileDesc {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MapiFileDesc {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MapiFileDesc").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MapiFileDesc {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MapiFileDesc {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiFileDesc>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiFileDesc {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MapiFileDesc {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub struct MapiFileDescW {
     pub ulReserved: u32,
     pub flFlags: u32,
     pub nPosition: u32,
-    pub lpszPathName: super::super::Foundation::PWSTR,
-    pub lpszFileName: super::super::Foundation::PWSTR,
+    pub lpszPathName: ::windows::core::PWSTR,
+    pub lpszFileName: ::windows::core::PWSTR,
     pub lpFileType: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MapiFileDescW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MapiFileDescW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MapiFileDescW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MapiFileDescW").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MapiFileDescW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MapiFileDescW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiFileDescW>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiFileDescW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MapiFileDescW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -279,15 +252,14 @@ impl ::core::default::Default for MapiFileTagExt {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub struct MapiMessage {
     pub ulReserved: u32,
-    pub lpszSubject: super::super::Foundation::PSTR,
-    pub lpszNoteText: super::super::Foundation::PSTR,
-    pub lpszMessageType: super::super::Foundation::PSTR,
-    pub lpszDateReceived: super::super::Foundation::PSTR,
-    pub lpszConversationID: super::super::Foundation::PSTR,
+    pub lpszSubject: ::windows::core::PSTR,
+    pub lpszNoteText: ::windows::core::PSTR,
+    pub lpszMessageType: ::windows::core::PSTR,
+    pub lpszDateReceived: ::windows::core::PSTR,
+    pub lpszConversationID: ::windows::core::PSTR,
     pub flFlags: u32,
     pub lpOriginator: *mut MapiRecipDesc,
     pub nRecipCount: u32,
@@ -295,15 +267,12 @@ pub struct MapiMessage {
     pub nFileCount: u32,
     pub lpFiles: *mut MapiFileDesc,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MapiMessage {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MapiMessage {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MapiMessage {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MapiMessage")
@@ -322,34 +291,29 @@ impl ::core::fmt::Debug for MapiMessage {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MapiMessage {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MapiMessage {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiMessage>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiMessage {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MapiMessage {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub struct MapiMessageW {
     pub ulReserved: u32,
-    pub lpszSubject: super::super::Foundation::PWSTR,
-    pub lpszNoteText: super::super::Foundation::PWSTR,
-    pub lpszMessageType: super::super::Foundation::PWSTR,
-    pub lpszDateReceived: super::super::Foundation::PWSTR,
-    pub lpszConversationID: super::super::Foundation::PWSTR,
+    pub lpszSubject: ::windows::core::PWSTR,
+    pub lpszNoteText: ::windows::core::PWSTR,
+    pub lpszMessageType: ::windows::core::PWSTR,
+    pub lpszDateReceived: ::windows::core::PWSTR,
+    pub lpszConversationID: ::windows::core::PWSTR,
     pub flFlags: u32,
     pub lpOriginator: *mut MapiRecipDescW,
     pub nRecipCount: u32,
@@ -357,15 +321,12 @@ pub struct MapiMessageW {
     pub nFileCount: u32,
     pub lpFiles: *mut MapiFileDescW,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MapiMessageW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MapiMessageW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MapiMessageW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MapiMessageW")
@@ -384,105 +345,85 @@ impl ::core::fmt::Debug for MapiMessageW {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MapiMessageW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MapiMessageW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiMessageW>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiMessageW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MapiMessageW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub struct MapiRecipDesc {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
-    pub lpszName: super::super::Foundation::PSTR,
-    pub lpszAddress: super::super::Foundation::PSTR,
+    pub lpszName: ::windows::core::PSTR,
+    pub lpszAddress: ::windows::core::PSTR,
     pub ulEIDSize: u32,
     pub lpEntryID: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MapiRecipDesc {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MapiRecipDesc {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MapiRecipDesc {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MapiRecipDesc").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MapiRecipDesc {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MapiRecipDesc {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiRecipDesc>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiRecipDesc {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MapiRecipDesc {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Mapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Mapi'*"]
 pub struct MapiRecipDescW {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
-    pub lpszName: super::super::Foundation::PWSTR,
-    pub lpszAddress: super::super::Foundation::PWSTR,
+    pub lpszName: ::windows::core::PWSTR,
+    pub lpszAddress: ::windows::core::PWSTR,
     pub ulEIDSize: u32,
     pub lpEntryID: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MapiRecipDescW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MapiRecipDescW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MapiRecipDescW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MapiRecipDescW").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MapiRecipDescW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MapiRecipDescW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiRecipDescW>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MapiRecipDescW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MapiRecipDescW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

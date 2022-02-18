@@ -979,7 +979,7 @@ impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECT_STATE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
-    pub pwstrEndpointID: super::super::super::Foundation::PWSTR,
+    pub pwstrEndpointID: ::windows::core::PWSTR,
     pub pFxProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1503,9 +1503,8 @@ pub struct IAudioProcessingObjectConfiguration_Vtbl {
 #[repr(transparent)]
 pub struct IAudioProcessingObjectLoggingService(::windows::core::IUnknown);
 impl IAudioProcessingObjectLoggingService {
-    #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ApoLog<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, level: APO_LOG_LEVEL, format: Param1) {
+    #[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
+    pub unsafe fn ApoLog<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, level: APO_LOG_LEVEL, format: Param1) {
         (::windows::core::Interface::vtable(self).ApoLog)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), format.into_param().abi())
     }
 }
@@ -1553,10 +1552,7 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectLoggingService 
 #[doc(hidden)]
 pub struct IAudioProcessingObjectLoggingService_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub ApoLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: APO_LOG_LEVEL, format: super::super::super::Foundation::PWSTR),
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ApoLog: usize,
+    pub ApoLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: APO_LOG_LEVEL, format: ::windows::core::PCWSTR),
 }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 #[repr(transparent)]
@@ -2056,11 +2052,10 @@ impl IAudioSystemEffectsCustomFormats {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(nformat), ::core::mem::transmute(&mut result__)).from_abi::<IAudioMediaType>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatRepresentation(&self, nformat: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: super::super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFormatRepresentation)(::core::mem::transmute_copy(self), ::core::mem::transmute(nformat), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    #[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
+    pub unsafe fn GetFormatRepresentation(&self, nformat: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
+        let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetFormatRepresentation)(::core::mem::transmute_copy(self), ::core::mem::transmute(nformat), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
 impl ::core::convert::From<IAudioSystemEffectsCustomFormats> for ::windows::core::IUnknown {
@@ -2109,10 +2104,7 @@ pub struct IAudioSystemEffectsCustomFormats_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub GetFormatCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcformats: *mut u32) -> ::windows::core::HRESULT,
     pub GetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nformat: u32, ppformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetFormatRepresentation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nformat: u32, ppwstrformatrep: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetFormatRepresentation: usize,
+    pub GetFormatRepresentation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nformat: u32, ppwstrformatrep: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

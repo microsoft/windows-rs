@@ -5,7 +5,7 @@
 pub struct SAFER_CODE_PROPERTIES_V1 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
-    pub ImagePath: super::super::Foundation::PWSTR,
+    pub ImagePath: ::windows::core::PCWSTR,
     pub hImageFileHandle: super::super::Foundation::HANDLE,
     pub UrlZoneId: u32,
     pub ImageHash: [u8; 64],
@@ -67,7 +67,7 @@ impl ::core::default::Default for SAFER_CODE_PROPERTIES_V1 {
 pub struct SAFER_CODE_PROPERTIES_V2 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
-    pub ImagePath: super::super::Foundation::PWSTR,
+    pub ImagePath: ::windows::core::PCWSTR,
     pub hImageFileHandle: super::super::Foundation::HANDLE,
     pub UrlZoneId: u32,
     pub ImageHash: [u8; 64],
@@ -77,9 +77,9 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
     pub pByteBlock: *mut u8,
     pub hWndParent: super::super::Foundation::HWND,
     pub dwWVTUIChoice: u32,
-    pub PackageMoniker: super::super::Foundation::PWSTR,
-    pub PackagePublisher: super::super::Foundation::PWSTR,
-    pub PackageName: super::super::Foundation::PWSTR,
+    pub PackageMoniker: ::windows::core::PCWSTR,
+    pub PackagePublisher: ::windows::core::PCWSTR,
+    pub PackageName: ::windows::core::PCWSTR,
     pub PackageVersion: u64,
     pub PackageIsFramework: super::super::Foundation::BOOL,
 }
@@ -445,7 +445,7 @@ impl ::core::fmt::Debug for SAFER_OBJECT_INFO_CLASS {
 pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
-    pub ImageName: super::super::Foundation::PWSTR,
+    pub ImageName: ::windows::core::PWSTR,
     pub dwSaferFlags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -700,12 +700,12 @@ pub unsafe fn SaferIdentifyLevel(dwnumproperties: u32, pcodeproperties: *const S
 #[doc = "*Required features: 'Win32_Security_AppLocker', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlevel: Param0, sztargetpath: Param1, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferRecordEventLogEntry<'a, Param0: ::windows::core::IntoParam<'a, super::SAFER_LEVEL_HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hlevel: Param0, sztargetpath: Param1, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SaferRecordEventLogEntry(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: super::super::Foundation::PWSTR, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn SaferRecordEventLogEntry(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: ::windows::core::PCWSTR, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SaferRecordEventLogEntry(hlevel.into_param().abi(), sztargetpath.into_param().abi(), ::core::mem::transmute(lpreserved)))
     }
@@ -745,12 +745,12 @@ pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
 #[doc = "*Required features: 'Win32_Security_AppLocker', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferiIsExecutableFileType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(szfullpathname: Param0, bfromshellexecute: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferiIsExecutableFileType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(szfullpathname: Param0, bfromshellexecute: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SaferiIsExecutableFileType(szfullpathname: super::super::Foundation::PWSTR, bfromshellexecute: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOL;
+            fn SaferiIsExecutableFileType(szfullpathname: ::windows::core::PCWSTR, bfromshellexecute: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SaferiIsExecutableFileType(szfullpathname.into_param().abi(), bfromshellexecute.into_param().abi()))
     }

@@ -27,40 +27,32 @@ impl ::core::fmt::Debug for COMPARTMENT_ID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Kernel', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Kernel'*"]
 pub struct CSTRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: super::super::Foundation::PSTR,
+    pub Buffer: ::windows::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CSTRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CSTRING {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CSTRING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CSTRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CSTRING {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CSTRING {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CSTRING>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CSTRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CSTRING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1262,40 +1254,32 @@ impl ::core::default::Default for SLIST_HEADER_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Kernel', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Kernel'*"]
 pub struct STRING {
     pub Length: u16,
     pub MaximumLength: u16,
-    pub Buffer: super::super::Foundation::PSTR,
+    pub Buffer: ::windows::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STRING {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for STRING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STRING {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STRING {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STRING>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STRING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

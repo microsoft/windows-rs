@@ -5894,8 +5894,8 @@ pub union IMAGE_POLICY_ENTRY_0 {
     pub UInt32Value: u32,
     pub Int64Value: i64,
     pub UInt64Value: u64,
-    pub AnsiStringValue: super::super::Foundation::PSTR,
-    pub UnicodeStringValue: super::super::Foundation::PWSTR,
+    pub AnsiStringValue: ::windows::core::PCSTR,
+    pub UnicodeStringValue: ::windows::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGE_POLICY_ENTRY_0 {}
@@ -15963,7 +15963,7 @@ pub const TLS_MINIMUM_AVAILABLE: u32 = 64u32;
 #[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_BNO_ISOLATION_INFORMATION {
-    pub IsolationPrefix: super::super::Foundation::PWSTR,
+    pub IsolationPrefix: ::windows::core::PWSTR,
     pub IsolationEnabled: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17388,66 +17388,52 @@ impl ::core::default::Default for userBITMAP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct userCLIPFORMAT {
     pub fContext: i32,
     pub u: userCLIPFORMAT_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for userCLIPFORMAT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for userCLIPFORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for userCLIPFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for userCLIPFORMAT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<userCLIPFORMAT>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for userCLIPFORMAT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for userCLIPFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub union userCLIPFORMAT_0 {
     pub dwValue: u32,
-    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszName: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for userCLIPFORMAT_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for userCLIPFORMAT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for userCLIPFORMAT_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for userCLIPFORMAT_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<userCLIPFORMAT_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for userCLIPFORMAT_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for userCLIPFORMAT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

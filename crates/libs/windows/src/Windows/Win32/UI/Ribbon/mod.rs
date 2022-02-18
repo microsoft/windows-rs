@@ -335,8 +335,7 @@ pub struct IUIContextualUI_Vtbl {
 #[repr(transparent)]
 pub struct IUIEventLogger(::windows::core::IUnknown);
 impl IUIEventLogger {
-    #[doc = "*Required features: 'Win32_UI_Ribbon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_UI_Ribbon'*"]
     pub unsafe fn OnUIEvent(&self, peventparams: *const UI_EVENTPARAMS) {
         (::windows::core::Interface::vtable(self).OnUIEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(peventparams))
     }
@@ -385,10 +384,7 @@ unsafe impl ::windows::core::Interface for IUIEventLogger {
 #[doc(hidden)]
 pub struct IUIEventLogger_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub OnUIEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventparams: *const UI_EVENTPARAMS),
-    #[cfg(not(feature = "Win32_Foundation"))]
-    OnUIEvent: usize,
 }
 #[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 #[repr(transparent)]
@@ -460,7 +456,7 @@ impl IUIFramework {
     }
     #[doc = "*Required features: 'Win32_UI_Ribbon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LoadUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, instance: Param0, resourcename: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn LoadUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, instance: Param0, resourcename: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadUI)(::core::mem::transmute_copy(self), instance.into_param().abi(), resourcename.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Ribbon'*"]
@@ -542,7 +538,7 @@ pub struct IUIFramework_Vtbl {
     Initialize: usize,
     pub Destroy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub LoadUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instance: super::super::Foundation::HINSTANCE, resourcename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub LoadUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instance: super::super::Foundation::HINSTANCE, resourcename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     LoadUI: usize,
     pub GetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -990,109 +986,87 @@ impl ::core::fmt::Debug for UI_EVENTLOCATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Ribbon', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub struct UI_EVENTPARAMS {
     pub EventType: UI_EVENTTYPE,
     pub Anonymous: UI_EVENTPARAMS_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UI_EVENTPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UI_EVENTPARAMS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for UI_EVENTPARAMS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for UI_EVENTPARAMS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for UI_EVENTPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for UI_EVENTPARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Ribbon', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub union UI_EVENTPARAMS_0 {
     pub Modes: i32,
     pub Params: UI_EVENTPARAMS_COMMAND,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UI_EVENTPARAMS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UI_EVENTPARAMS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for UI_EVENTPARAMS_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for UI_EVENTPARAMS_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for UI_EVENTPARAMS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for UI_EVENTPARAMS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Ribbon', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub struct UI_EVENTPARAMS_COMMAND {
     pub CommandID: u32,
-    pub CommandName: super::super::Foundation::PWSTR,
+    pub CommandName: ::windows::core::PCWSTR,
     pub ParentCommandID: u32,
-    pub ParentCommandName: super::super::Foundation::PWSTR,
+    pub ParentCommandName: ::windows::core::PCWSTR,
     pub SelectionIndex: u32,
     pub Location: UI_EVENTLOCATION,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UI_EVENTPARAMS_COMMAND {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UI_EVENTPARAMS_COMMAND {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for UI_EVENTPARAMS_COMMAND {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("UI_EVENTPARAMS_COMMAND").field("CommandID", &self.CommandID).field("CommandName", &self.CommandName).field("ParentCommandID", &self.ParentCommandID).field("ParentCommandName", &self.ParentCommandName).field("SelectionIndex", &self.SelectionIndex).field("Location", &self.Location).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for UI_EVENTPARAMS_COMMAND {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for UI_EVENTPARAMS_COMMAND {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS_COMMAND>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for UI_EVENTPARAMS_COMMAND {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for UI_EVENTPARAMS_COMMAND {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

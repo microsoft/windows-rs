@@ -3,14 +3,12 @@
 #[repr(transparent)]
 pub struct IContentPrefetcherTaskTrigger(::windows::core::IUnknown);
 impl IContentPrefetcherTaskTrigger {
-    #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TriggerContentPrefetcherTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+    pub unsafe fn TriggerContentPrefetcherTask<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::core::mem::transmute_copy(self), packagefullname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsRegisteredForContentPrefetch<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<u8> {
+    #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+    pub unsafe fn IsRegisteredForContentPrefetch<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<u8> {
         let mut result__: u8 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::core::mem::transmute_copy(self), packagefullname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
@@ -79,14 +77,8 @@ unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
 #[doc(hidden)]
 pub struct IContentPrefetcherTaskTrigger_Vtbl {
     pub base: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub TriggerContentPrefetcherTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    TriggerContentPrefetcherTask: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: super::super::Foundation::PWSTR, isregistered: *mut u8) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    IsRegisteredForContentPrefetch: usize,
+    pub TriggerContentPrefetcherTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR, isregistered: *mut u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 3u32;
@@ -97,8 +89,7 @@ pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_API_VERSION_3: u32 = 3u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_ASSERTION {
     pub dwVersion: u32,
     pub cbAuthenticatorData: u32,
@@ -113,15 +104,12 @@ pub struct WEBAUTHN_ASSERTION {
     pub pbCredLargeBlob: *mut u8,
     pub dwCredLargeBlobStatus: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_ASSERTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_ASSERTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_ASSERTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_ASSERTION")
@@ -140,19 +128,15 @@ impl ::core::fmt::Debug for WEBAUTHN_ASSERTION {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_ASSERTION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_ASSERTION {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_ASSERTION>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_ASSERTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_ASSERTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -205,7 +189,7 @@ pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     pub dwAuthenticatorAttachment: u32,
     pub dwUserVerificationRequirement: u32,
     pub dwFlags: u32,
-    pub pwszU2fAppId: super::super::Foundation::PWSTR,
+    pub pwszU2fAppId: ::windows::core::PCWSTR,
     pub pbU2fAppId: *mut super::super::Foundation::BOOL,
     pub pCancellationId: *mut ::windows::core::GUID,
     pub pAllowCredentialList: *mut WEBAUTHN_CREDENTIAL_LIST,
@@ -349,41 +333,33 @@ pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_3: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_4: u32 = 4u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_CLIENT_DATA {
     pub dwVersion: u32,
     pub cbClientDataJSON: u32,
     pub pbClientDataJSON: *mut u8,
-    pub pwszHashAlgId: super::super::Foundation::PWSTR,
+    pub pwszHashAlgId: ::windows::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_CLIENT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_CLIENT_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_CLIENT_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_CLIENT_DATA").field("dwVersion", &self.dwVersion).field("cbClientDataJSON", &self.cbClientDataJSON).field("pbClientDataJSON", &self.pbClientDataJSON).field("pwszHashAlgId", &self.pwszHashAlgId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_CLIENT_DATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_CLIENT_DATA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CLIENT_DATA>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_CLIENT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_CLIENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -392,49 +368,41 @@ impl ::core::default::Default for WEBAUTHN_CLIENT_DATA {
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_COMMON_ATTESTATION {
     pub dwVersion: u32,
-    pub pwszAlg: super::super::Foundation::PWSTR,
+    pub pwszAlg: ::windows::core::PCWSTR,
     pub lAlg: i32,
     pub cbSignature: u32,
     pub pbSignature: *mut u8,
     pub cX5c: u32,
     pub pX5c: *mut WEBAUTHN_X5C,
-    pub pwszVer: super::super::Foundation::PWSTR,
+    pub pwszVer: ::windows::core::PCWSTR,
     pub cbCertInfo: u32,
     pub pbCertInfo: *mut u8,
     pub cbPubArea: u32,
     pub pbPubArea: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_COMMON_ATTESTATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_COMMON_ATTESTATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_COMMON_ATTESTATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_COMMON_ATTESTATION").field("dwVersion", &self.dwVersion).field("pwszAlg", &self.pwszAlg).field("lAlg", &self.lAlg).field("cbSignature", &self.cbSignature).field("pbSignature", &self.pbSignature).field("cX5c", &self.cX5c).field("pX5c", &self.pX5c).field("pwszVer", &self.pwszVer).field("cbCertInfo", &self.cbCertInfo).field("pbCertInfo", &self.pbCertInfo).field("cbPubArea", &self.cbPubArea).field("pbPubArea", &self.pbPubArea).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_COMMON_ATTESTATION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_COMMON_ATTESTATION {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_COMMON_ATTESTATION>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_COMMON_ATTESTATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_COMMON_ATTESTATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -461,79 +429,63 @@ pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA384: i32 = -38i32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA512: i32 = -39i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     pub dwVersion: u32,
-    pub pwszCredentialType: super::super::Foundation::PWSTR,
+    pub pwszCredentialType: ::windows::core::PCWSTR,
     pub lAlg: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_COSE_CREDENTIAL_PARAMETER").field("dwVersion", &self.dwVersion).field("pwszCredentialType", &self.pwszCredentialType).field("lAlg", &self.lAlg).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_COSE_CREDENTIAL_PARAMETER>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     pub cCredentialParameters: u32,
     pub pCredentialParameters: *mut WEBAUTHN_COSE_CREDENTIAL_PARAMETER,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_COSE_CREDENTIAL_PARAMETERS").field("cCredentialParameters", &self.cCredentialParameters).field("pCredentialParameters", &self.pCredentialParameters).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_COSE_CREDENTIAL_PARAMETERS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -542,80 +494,64 @@ impl ::core::default::Default for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_CREDENTIAL {
     pub dwVersion: u32,
     pub cbId: u32,
     pub pbId: *mut u8,
-    pub pwszCredentialType: super::super::Foundation::PWSTR,
+    pub pwszCredentialType: ::windows::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_CREDENTIAL").field("dwVersion", &self.dwVersion).field("cbId", &self.cbId).field("pbId", &self.pbId).field("pwszCredentialType", &self.pwszCredentialType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIAL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CREDENTIAL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_CREDENTIAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_CREDENTIAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_CREDENTIALS {
     pub cCredentials: u32,
     pub pCredentials: *mut WEBAUTHN_CREDENTIAL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_CREDENTIALS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_CREDENTIALS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_CREDENTIALS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_CREDENTIALS").field("cCredentials", &self.cCredentials).field("pCredentials", &self.pCredentials).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIALS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIALS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CREDENTIALS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_CREDENTIALS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_CREDENTIALS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -626,7 +562,7 @@ impl ::core::default::Default for WEBAUTHN_CREDENTIALS {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
     pub dwVersion: u32,
-    pub pwszFormatType: super::super::Foundation::PWSTR,
+    pub pwszFormatType: ::windows::core::PCWSTR,
     pub cbAuthenticatorData: u32,
     pub pbAuthenticatorData: *mut u8,
     pub cbAttestation: u32,
@@ -706,42 +642,34 @@ pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_4: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_CREDENTIAL_EX {
     pub dwVersion: u32,
     pub cbId: u32,
     pub pbId: *mut u8,
-    pub pwszCredentialType: super::super::Foundation::PWSTR,
+    pub pwszCredentialType: ::windows::core::PCWSTR,
     pub dwTransports: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_EX {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_EX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_CREDENTIAL_EX").field("dwVersion", &self.dwVersion).field("cbId", &self.cbId).field("pbId", &self.pbId).field("pwszCredentialType", &self.pwszCredentialType).field("dwTransports", &self.dwTransports).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIAL_EX {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_EX {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CREDENTIAL_EX>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_CREDENTIAL_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_CREDENTIAL_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -750,39 +678,31 @@ impl ::core::default::Default for WEBAUTHN_CREDENTIAL_EX {
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_CREDENTIAL_LIST {
     pub cCredentials: u32,
     pub ppCredentials: *mut *mut WEBAUTHN_CREDENTIAL_EX,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_LIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_LIST {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_LIST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_CREDENTIAL_LIST").field("cCredentials", &self.cCredentials).field("ppCredentials", &self.ppCredentials).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIAL_LIST {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_LIST {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CREDENTIAL_LIST>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_CREDENTIAL_LIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_CREDENTIAL_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -907,79 +827,63 @@ pub const WEBAUTHN_ENTERPRISE_ATTESTATION_PLATFORM_MANAGED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_VENDOR_FACILITATED: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_EXTENSION {
-    pub pwszExtensionIdentifier: super::super::Foundation::PWSTR,
+    pub pwszExtensionIdentifier: ::windows::core::PCWSTR,
     pub cbExtension: u32,
     pub pvExtension: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_EXTENSION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_EXTENSION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_EXTENSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_EXTENSION").field("pwszExtensionIdentifier", &self.pwszExtensionIdentifier).field("cbExtension", &self.cbExtension).field("pvExtension", &self.pvExtension).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_EXTENSION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_EXTENSION>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_EXTENSION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_EXTENSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_EXTENSIONS {
     pub cExtensions: u32,
     pub pExtensions: *mut WEBAUTHN_EXTENSION,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_EXTENSIONS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_EXTENSIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_EXTENSIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_EXTENSIONS").field("cExtensions", &self.cExtensions).field("pExtensions", &self.pExtensions).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_EXTENSIONS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_EXTENSIONS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_EXTENSIONS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_EXTENSIONS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_EXTENSIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1008,41 +912,33 @@ pub const WEBAUTHN_LARGE_BLOB_SUPPORT_REQUIRED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_MAX_USER_ID_LENGTH: u32 = 64u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_RP_ENTITY_INFORMATION {
     pub dwVersion: u32,
-    pub pwszId: super::super::Foundation::PWSTR,
-    pub pwszName: super::super::Foundation::PWSTR,
-    pub pwszIcon: super::super::Foundation::PWSTR,
+    pub pwszId: ::windows::core::PCWSTR,
+    pub pwszName: ::windows::core::PCWSTR,
+    pub pwszIcon: ::windows::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_RP_ENTITY_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_RP_ENTITY_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_RP_ENTITY_INFORMATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_RP_ENTITY_INFORMATION").field("dwVersion", &self.dwVersion).field("pwszId", &self.pwszId).field("pwszName", &self.pwszName).field("pwszIcon", &self.pwszIcon).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_RP_ENTITY_INFORMATION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_RP_ENTITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_RP_ENTITY_INFORMATION>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_RP_ENTITY_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_RP_ENTITY_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1051,43 +947,35 @@ impl ::core::default::Default for WEBAUTHN_RP_ENTITY_INFORMATION {
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_RP_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WEBAUTHN_USER_ENTITY_INFORMATION {
     pub dwVersion: u32,
     pub cbId: u32,
     pub pbId: *mut u8,
-    pub pwszName: super::super::Foundation::PWSTR,
-    pub pwszIcon: super::super::Foundation::PWSTR,
-    pub pwszDisplayName: super::super::Foundation::PWSTR,
+    pub pwszName: ::windows::core::PCWSTR,
+    pub pwszIcon: ::windows::core::PCWSTR,
+    pub pwszDisplayName: ::windows::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEBAUTHN_USER_ENTITY_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEBAUTHN_USER_ENTITY_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_USER_ENTITY_INFORMATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WEBAUTHN_USER_ENTITY_INFORMATION").field("dwVersion", &self.dwVersion).field("cbId", &self.cbId).field("pbId", &self.pbId).field("pwszName", &self.pwszName).field("pwszIcon", &self.pwszIcon).field("pwszDisplayName", &self.pwszDisplayName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WEBAUTHN_USER_ENTITY_INFORMATION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_USER_ENTITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_USER_ENTITY_INFORMATION>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WEBAUTHN_USER_ENTITY_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WEBAUTHN_USER_ENTITY_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1988,8 +1876,7 @@ impl ::core::fmt::Debug for WS_CHANNEL_BINDING {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_CHANNEL_DECODER {
     pub createContext: *mut ::core::ffi::c_void,
     pub createDecoderCallback: WS_CREATE_DECODER_CALLBACK,
@@ -1999,15 +1886,12 @@ pub struct WS_CHANNEL_DECODER {
     pub decoderEndCallback: WS_DECODER_END_CALLBACK,
     pub freeDecoderCallback: WS_FREE_DECODER_CALLBACK,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_CHANNEL_DECODER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_CHANNEL_DECODER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_CHANNEL_DECODER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_CHANNEL_DECODER")
@@ -2021,27 +1905,22 @@ impl ::core::fmt::Debug for WS_CHANNEL_DECODER {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_CHANNEL_DECODER {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_CHANNEL_DECODER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CHANNEL_DECODER>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_CHANNEL_DECODER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_CHANNEL_DECODER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_CHANNEL_ENCODER {
     pub createContext: *mut ::core::ffi::c_void,
     pub createEncoderCallback: WS_CREATE_ENCODER_CALLBACK,
@@ -2051,15 +1930,12 @@ pub struct WS_CHANNEL_ENCODER {
     pub encoderEndCallback: WS_ENCODER_END_CALLBACK,
     pub freeEncoderCallback: WS_FREE_ENCODER_CALLBACK,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_CHANNEL_ENCODER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_CHANNEL_ENCODER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_CHANNEL_ENCODER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_CHANNEL_ENCODER")
@@ -2073,19 +1949,15 @@ impl ::core::fmt::Debug for WS_CHANNEL_ENCODER {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_CHANNEL_ENCODER {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_CHANNEL_ENCODER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CHANNEL_ENCODER>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_CHANNEL_ENCODER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_CHANNEL_ENCODER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2603,8 +2475,7 @@ impl ::core::default::Default for WS_CUSTOM_CERT_CREDENTIAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_CUSTOM_CHANNEL_CALLBACKS {
     pub createChannelCallback: WS_CREATE_CHANNEL_CALLBACK,
     pub freeChannelCallback: WS_FREE_CHANNEL_CALLBACK,
@@ -2621,15 +2492,12 @@ pub struct WS_CUSTOM_CHANNEL_CALLBACKS {
     pub abandonMessageCallback: WS_ABANDON_MESSAGE_CALLBACK,
     pub shutdownSessionChannelCallback: WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_CUSTOM_CHANNEL_CALLBACKS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_CUSTOM_CHANNEL_CALLBACKS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_CUSTOM_CHANNEL_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_CUSTOM_CHANNEL_CALLBACKS")
@@ -2650,66 +2518,53 @@ impl ::core::fmt::Debug for WS_CUSTOM_CHANNEL_CALLBACKS {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_CUSTOM_CHANNEL_CALLBACKS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_CUSTOM_CHANNEL_CALLBACKS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CUSTOM_CHANNEL_CALLBACKS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_CUSTOM_CHANNEL_CALLBACKS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_CUSTOM_CHANNEL_CALLBACKS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_CUSTOM_HTTP_PROXY {
     pub servers: WS_STRING,
     pub bypass: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_CUSTOM_HTTP_PROXY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_CUSTOM_HTTP_PROXY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_CUSTOM_HTTP_PROXY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_CUSTOM_HTTP_PROXY").field("servers", &self.servers).field("bypass", &self.bypass).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_CUSTOM_HTTP_PROXY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_CUSTOM_HTTP_PROXY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CUSTOM_HTTP_PROXY>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_CUSTOM_HTTP_PROXY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_CUSTOM_HTTP_PROXY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_CUSTOM_LISTENER_CALLBACKS {
     pub createListenerCallback: WS_CREATE_LISTENER_CALLBACK,
     pub freeListenerCallback: WS_FREE_LISTENER_CALLBACK,
@@ -2722,15 +2577,12 @@ pub struct WS_CUSTOM_LISTENER_CALLBACKS {
     pub createChannelForListenerCallback: WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK,
     pub acceptChannelCallback: WS_ACCEPT_CHANNEL_CALLBACK,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_CUSTOM_LISTENER_CALLBACKS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_CUSTOM_LISTENER_CALLBACKS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_CUSTOM_LISTENER_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_CUSTOM_LISTENER_CALLBACKS")
@@ -2747,19 +2599,15 @@ impl ::core::fmt::Debug for WS_CUSTOM_LISTENER_CALLBACKS {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_CUSTOM_LISTENER_CALLBACKS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_CUSTOM_LISTENER_CALLBACKS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CUSTOM_LISTENER_CALLBACKS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_CUSTOM_LISTENER_CALLBACKS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_CUSTOM_LISTENER_CALLBACKS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2936,8 +2784,7 @@ impl ::core::default::Default for WS_DECIMAL_DESCRIPTION {
 pub type WS_DECODER_DECODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_DECODER_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(decodercontext: *const ::core::ffi::c_void, contenttype: *const WS_STRING, contentencoding: *const WS_STRING, newcontenttype: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_DECODER_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
@@ -3003,78 +2850,62 @@ impl ::core::default::Default for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL 
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     pub subStringCount: u32,
     pub subStrings: *mut *mut WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_DISALLOWED_USER_AGENT_SUBSTRINGS").field("subStringCount", &self.subStringCount).field("subStrings", &self.subStrings).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DISALLOWED_USER_AGENT_SUBSTRINGS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_DNS_ENDPOINT_IDENTITY {
     pub identity: WS_ENDPOINT_IDENTITY,
     pub dns: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_DNS_ENDPOINT_IDENTITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_DNS_ENDPOINT_IDENTITY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_DNS_ENDPOINT_IDENTITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_DNS_ENDPOINT_IDENTITY").field("identity", &self.identity).field("dns", &self.dns).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_DNS_ENDPOINT_IDENTITY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_DNS_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DNS_ENDPOINT_IDENTITY>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_DNS_ENDPOINT_IDENTITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_DNS_ENDPOINT_IDENTITY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3248,8 +3079,7 @@ impl ::core::default::Default for WS_ELEMENT_DESCRIPTION {
 pub type WS_ENCODER_ENCODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_ENCODER_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, contenttype: *const WS_STRING, newcontenttype: *mut WS_STRING, contentencoding: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_ENCODER_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
@@ -3295,41 +3125,33 @@ impl ::core::fmt::Debug for WS_ENCODING {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_ENDPOINT_ADDRESS {
     pub url: WS_STRING,
     pub headers: *mut WS_XML_BUFFER,
     pub extensions: *mut WS_XML_BUFFER,
     pub identity: *mut WS_ENDPOINT_IDENTITY,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_ENDPOINT_ADDRESS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_ENDPOINT_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_ENDPOINT_ADDRESS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_ENDPOINT_ADDRESS").field("url", &self.url).field("headers", &self.headers).field("extensions", &self.extensions).field("identity", &self.identity).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_ENDPOINT_ADDRESS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ENDPOINT_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ENDPOINT_ADDRESS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_ENDPOINT_ADDRESS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_ENDPOINT_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3997,39 +3819,31 @@ impl ::core::fmt::Debug for WS_FAULT_ERROR_PROPERTY_ID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_FAULT_REASON {
     pub text: WS_STRING,
     pub lang: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_FAULT_REASON {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_FAULT_REASON {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_FAULT_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_FAULT_REASON").field("text", &self.text).field("lang", &self.lang).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_FAULT_REASON {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_FAULT_REASON {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_FAULT_REASON>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_FAULT_REASON {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_FAULT_REASON {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4353,47 +4167,38 @@ impl ::core::fmt::Debug for WS_HEAP_PROPERTY_ID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_HOST_NAMES {
     pub hostNames: *mut WS_STRING,
     pub hostNameCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_HOST_NAMES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_HOST_NAMES {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_HOST_NAMES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_HOST_NAMES").field("hostNames", &self.hostNames).field("hostNameCount", &self.hostNameCount).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HOST_NAMES {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_HOST_NAMES {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HOST_NAMES>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_HOST_NAMES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_HOST_NAMES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_HTTPS_URL {
     pub url: WS_URL,
     pub host: WS_STRING,
@@ -4403,33 +4208,26 @@ pub struct WS_HTTPS_URL {
     pub query: WS_STRING,
     pub fragment: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_HTTPS_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_HTTPS_URL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_HTTPS_URL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_HTTPS_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HTTPS_URL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_HTTPS_URL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTPS_URL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_HTTPS_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_HTTPS_URL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4837,43 +4635,34 @@ impl ::core::fmt::Debug for WS_HTTP_PROXY_SETTING_MODE {
         f.debug_tuple("WS_HTTP_PROXY_SETTING_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_HTTP_REDIRECT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(state: *const ::core::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> ::windows::core::HRESULT>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     pub callback: WS_HTTP_REDIRECT_CALLBACK,
     pub state: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_HTTP_REDIRECT_CALLBACK_CONTEXT").field("callback", &self.callback.map(|f| f as usize)).field("state", &self.state).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_REDIRECT_CALLBACK_CONTEXT>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5150,41 +4939,33 @@ impl ::core::default::Default for WS_HTTP_SSL_POLICY_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     pub channelProperties: WS_CHANNEL_PROPERTIES,
     pub securityProperties: WS_SECURITY_PROPERTIES,
     pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
     pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5224,8 +5005,7 @@ impl ::core::default::Default for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     pub channelProperties: WS_CHANNEL_PROPERTIES,
     pub securityProperties: WS_SECURITY_PROPERTIES,
@@ -5233,33 +5013,26 @@ pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
     pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5300,8 +5073,7 @@ impl ::core::default::Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_D
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_HTTP_URL {
     pub url: WS_URL,
     pub host: WS_STRING,
@@ -5311,33 +5083,26 @@ pub struct WS_HTTP_URL {
     pub query: WS_STRING,
     pub fragment: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_HTTP_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_HTTP_URL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_HTTP_URL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_HTTP_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_HTTP_URL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_HTTP_URL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_URL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_HTTP_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_HTTP_URL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6529,8 +6294,7 @@ impl ::core::default::Default for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_NETPIPE_URL {
     pub url: WS_URL,
     pub host: WS_STRING,
@@ -6540,41 +6304,33 @@ pub struct WS_NETPIPE_URL {
     pub query: WS_STRING,
     pub fragment: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_NETPIPE_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_NETPIPE_URL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_NETPIPE_URL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_NETPIPE_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_NETPIPE_URL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_NETPIPE_URL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_NETPIPE_URL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_NETPIPE_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_NETPIPE_URL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_NETTCP_URL {
     pub url: WS_URL,
     pub host: WS_STRING,
@@ -6584,33 +6340,26 @@ pub struct WS_NETTCP_URL {
     pub query: WS_STRING,
     pub fragment: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_NETTCP_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_NETTCP_URL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_NETTCP_URL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_NETTCP_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_NETTCP_URL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_NETTCP_URL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_NETTCP_URL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_NETTCP_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_NETTCP_URL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6647,11 +6396,9 @@ impl ::core::default::Default for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_OPEN_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_OPEN_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, url: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_OPERATION_CANCEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(reason: WS_SERVICE_CANCEL_REASON, state: *const ::core::ffi::c_void)>;
@@ -9565,39 +9312,31 @@ impl ::core::fmt::Debug for WS_SERVICE_PROXY_STATE {
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_SERVICE_SECURITY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_SERVICE_SECURITY_IDENTITIES {
     pub serviceIdentities: *mut WS_STRING,
     pub serviceIdentityCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_SERVICE_SECURITY_IDENTITIES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_SERVICE_SECURITY_IDENTITIES {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_SERVICE_SECURITY_IDENTITIES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_SERVICE_SECURITY_IDENTITIES").field("serviceIdentities", &self.serviceIdentities).field("serviceIdentityCount", &self.serviceIdentityCount).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SERVICE_SECURITY_IDENTITIES {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SERVICE_SECURITY_IDENTITIES {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SERVICE_SECURITY_IDENTITIES>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_SERVICE_SECURITY_IDENTITIES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_SERVICE_SECURITY_IDENTITIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9612,8 +9351,7 @@ pub type WS_SET_LISTENER_PROPERTY_CALLBACK = ::core::option::Option<unsafe exter
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_SOAPUDP_URL {
     pub url: WS_URL,
     pub host: WS_STRING,
@@ -9623,72 +9361,57 @@ pub struct WS_SOAPUDP_URL {
     pub query: WS_STRING,
     pub fragment: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_SOAPUDP_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_SOAPUDP_URL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_SOAPUDP_URL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_SOAPUDP_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SOAPUDP_URL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SOAPUDP_URL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SOAPUDP_URL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_SOAPUDP_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_SOAPUDP_URL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_SPN_ENDPOINT_IDENTITY {
     pub identity: WS_ENDPOINT_IDENTITY,
     pub spn: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_SPN_ENDPOINT_IDENTITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_SPN_ENDPOINT_IDENTITY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_SPN_ENDPOINT_IDENTITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_SPN_ENDPOINT_IDENTITY").field("identity", &self.identity).field("spn", &self.spn).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SPN_ENDPOINT_IDENTITY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SPN_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SPN_ENDPOINT_IDENTITY>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_SPN_ENDPOINT_IDENTITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_SPN_ENDPOINT_IDENTITY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9894,39 +9617,31 @@ impl ::core::default::Default for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESC
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_STRING {
     pub length: u32,
-    pub chars: super::super::Foundation::PWSTR,
+    pub chars: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_STRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_STRING {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_STRING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_STRING").field("length", &self.length).field("chars", &self.chars).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_STRING {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_STRING {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_STRING>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_STRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_STRING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9964,81 +9679,65 @@ impl ::core::default::Default for WS_STRING_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_STRING_USERNAME_CREDENTIAL {
     pub credential: WS_USERNAME_CREDENTIAL,
     pub username: WS_STRING,
     pub password: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_STRING_USERNAME_CREDENTIAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_STRING_USERNAME_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_STRING_USERNAME_CREDENTIAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_STRING_USERNAME_CREDENTIAL").field("credential", &self.credential).field("username", &self.username).field("password", &self.password).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_STRING_USERNAME_CREDENTIAL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_STRING_USERNAME_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_STRING_USERNAME_CREDENTIAL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_STRING_USERNAME_CREDENTIAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_STRING_USERNAME_CREDENTIAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
     pub username: WS_STRING,
     pub password: WS_STRING,
     pub domain: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL").field("credential", &self.credential).field("username", &self.username).field("password", &self.password).field("domain", &self.domain).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10098,41 +9797,33 @@ pub const WS_STRUCT_IGNORE_TRAILING_ELEMENT_CONTENT: i32 = 2i32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_STRUCT_IGNORE_UNHANDLED_ATTRIBUTES: i32 = 4i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_SUBJECT_NAME_CERT_CREDENTIAL {
     pub credential: WS_CERT_CREDENTIAL,
     pub storeLocation: u32,
     pub storeName: WS_STRING,
     pub subjectName: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_SUBJECT_NAME_CERT_CREDENTIAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_SUBJECT_NAME_CERT_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_SUBJECT_NAME_CERT_CREDENTIAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_SUBJECT_NAME_CERT_CREDENTIAL").field("credential", &self.credential).field("storeLocation", &self.storeLocation).field("storeName", &self.storeName).field("subjectName", &self.subjectName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SUBJECT_NAME_CERT_CREDENTIAL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SUBJECT_NAME_CERT_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SUBJECT_NAME_CERT_CREDENTIAL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_SUBJECT_NAME_CERT_CREDENTIAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_SUBJECT_NAME_CERT_CREDENTIAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10489,41 +10180,33 @@ impl ::core::default::Default for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLAT
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     pub channelProperties: WS_CHANNEL_PROPERTIES,
     pub securityProperties: WS_SECURITY_PROPERTIES,
     pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
     pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10563,8 +10246,7 @@ impl ::core::default::Default for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     pub channelProperties: WS_CHANNEL_PROPERTIES,
     pub securityProperties: WS_SECURITY_PROPERTIES,
@@ -10572,33 +10254,26 @@ pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
     pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10639,41 +10314,33 @@ impl ::core::default::Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_D
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_THUMBPRINT_CERT_CREDENTIAL {
     pub credential: WS_CERT_CREDENTIAL,
     pub storeLocation: u32,
     pub storeName: WS_STRING,
     pub thumbprint: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_THUMBPRINT_CERT_CREDENTIAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_THUMBPRINT_CERT_CREDENTIAL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_THUMBPRINT_CERT_CREDENTIAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_THUMBPRINT_CERT_CREDENTIAL").field("credential", &self.credential).field("storeLocation", &self.storeLocation).field("storeName", &self.storeName).field("thumbprint", &self.thumbprint).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_THUMBPRINT_CERT_CREDENTIAL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_THUMBPRINT_CERT_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_THUMBPRINT_CERT_CREDENTIAL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_THUMBPRINT_CERT_CREDENTIAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_THUMBPRINT_CERT_CREDENTIAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11545,39 +11212,31 @@ impl ::core::default::Default for WS_UNION_FIELD_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_UNIQUE_ID {
     pub uri: WS_STRING,
     pub guid: ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_UNIQUE_ID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_UNIQUE_ID {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_UNIQUE_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_UNIQUE_ID").field("uri", &self.uri).field("guid", &self.guid).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_UNIQUE_ID {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_UNIQUE_ID {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UNIQUE_ID>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_UNIQUE_ID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_UNIQUE_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11646,39 +11305,31 @@ impl ::core::default::Default for WS_UNKNOWN_ENDPOINT_IDENTITY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_UPN_ENDPOINT_IDENTITY {
     pub identity: WS_ENDPOINT_IDENTITY,
     pub upn: WS_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_UPN_ENDPOINT_IDENTITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_UPN_ENDPOINT_IDENTITY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_UPN_ENDPOINT_IDENTITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_UPN_ENDPOINT_IDENTITY").field("identity", &self.identity).field("upn", &self.upn).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_UPN_ENDPOINT_IDENTITY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_UPN_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UPN_ENDPOINT_IDENTITY>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_UPN_ENDPOINT_IDENTITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_UPN_ENDPOINT_IDENTITY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11809,8 +11460,7 @@ impl ::core::fmt::Debug for WS_USERNAME_CREDENTIAL_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
@@ -11818,33 +11468,26 @@ pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING {
     pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
     pub passwordValidatorCallbackState: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_USERNAME_MESSAGE_SECURITY_BINDING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("clientCredential", &self.clientCredential).field("passwordValidator", &self.passwordValidator.map(|f| f as usize)).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_USERNAME_MESSAGE_SECURITY_BINDING>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_USERNAME_MESSAGE_SECURITY_BINDING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11913,41 +11556,33 @@ impl ::core::default::Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DE
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
     pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
     pub passwordValidatorCallbackState: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).field("passwordValidator", &self.passwordValidator.map(|f| f as usize)).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11984,8 +11619,7 @@ impl ::core::default::Default for WS_UTF8_ARRAY_DESCRIPTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_VALIDATE_PASSWORD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(passwordvalidatorcallbackstate: *const ::core::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_VALIDATE_SAML_CALLBACK = ::core::option::Option<unsafe extern "system" fn(samlvalidatorcallbackstate: *const ::core::ffi::c_void, samlassertion: *const WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
@@ -14470,12 +14104,12 @@ impl ::core::default::Default for WS_XML_WRITER_TEXT_ENCODING {
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorGetAssertion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pwszrpid: Param1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS) -> ::windows::core::Result<*mut WEBAUTHN_ASSERTION> {
+pub unsafe fn WebAuthNAuthenticatorGetAssertion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hwnd: Param0, pwszrpid: Param1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS) -> ::windows::core::Result<*mut WEBAUTHN_ASSERTION> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WebAuthNAuthenticatorGetAssertion(hwnd: super::super::Foundation::HWND, pwszrpid: super::super::Foundation::PWSTR, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion: *mut *mut WEBAUTHN_ASSERTION) -> ::windows::core::HRESULT;
+            fn WebAuthNAuthenticatorGetAssertion(hwnd: super::super::Foundation::HWND, pwszrpid: ::windows::core::PCWSTR, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion: *mut *mut WEBAUTHN_ASSERTION) -> ::windows::core::HRESULT;
         }
         let mut result__: *mut WEBAUTHN_ASSERTION = ::core::mem::zeroed();
         WebAuthNAuthenticatorGetAssertion(hwnd.into_param().abi(), pwszrpid.into_param().abi(), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthngetassertionoptions), ::core::mem::transmute(&mut result__)).from_abi::<*mut WEBAUTHN_ASSERTION>(result__)
@@ -14513,8 +14147,7 @@ pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION) {
     #[cfg(windows)]
@@ -14572,15 +14205,14 @@ pub unsafe fn WebAuthNGetCancellationId() -> ::windows::core::Result<::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WebAuthNGetErrorName(hr: ::windows::core::HRESULT) -> super::super::Foundation::PWSTR {
+pub unsafe fn WebAuthNGetErrorName(hr: ::windows::core::HRESULT) -> ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WebAuthNGetErrorName(hr: ::windows::core::HRESULT) -> super::super::Foundation::PWSTR;
+            fn WebAuthNGetErrorName(hr: ::windows::core::HRESULT) -> ::windows::core::PWSTR;
         }
         ::core::mem::transmute(WebAuthNGetErrorName(::core::mem::transmute(hr)))
     }
@@ -14730,8 +14362,7 @@ pub unsafe fn WsAddCustomHeader(message: *const WS_MESSAGE, headerdescription: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsAddErrorString(error: *const WS_ERROR, string: *const WS_STRING) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -14760,8 +14391,7 @@ pub unsafe fn WsAddMappedHeader(message: *const WS_MESSAGE, headername: *const W
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsAddressMessage(message: *const WS_MESSAGE, address: *const WS_ENDPOINT_ADDRESS, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -14888,8 +14518,7 @@ pub unsafe fn WsCloseServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, asyncco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsCombineUrl(baseurl: *const WS_STRING, referenceurl: *const WS_STRING, flags: u32, heap: *const WS_HEAP, resulturl: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -15205,8 +14834,7 @@ pub unsafe fn WsDateTimeToFileTime(datetime: *const WS_DATETIME, filetime: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsDecodeUrl(url: *const WS_STRING, flags: u32, heap: *const WS_HEAP, outurl: *mut *mut WS_URL, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -15220,8 +14848,7 @@ pub unsafe fn WsDecodeUrl(url: *const WS_STRING, flags: u32, heap: *const WS_HEA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsEncodeUrl(url: *const WS_URL, flags: u32, heap: *const WS_HEAP, outurl: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -15561,8 +15188,7 @@ pub unsafe fn WsGetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: u32) -> ::windows::core::Result<WS_STRING> {
     #[cfg(windows)]
@@ -15720,8 +15346,7 @@ pub unsafe fn WsGetMetadataProperty(metadata: *const WS_METADATA, id: WS_METADAT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, address: *mut *mut WS_ENDPOINT_ADDRESS, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -16021,8 +15646,7 @@ pub unsafe fn WsMoveWriter(writer: *const WS_XML_WRITER, moveto: WS_MOVE_TO, fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsOpenChannel(channel: *const WS_CHANNEL, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -16036,8 +15660,7 @@ pub unsafe fn WsOpenChannel(channel: *const WS_CHANNEL, endpointaddress: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsOpenListener(listener: *const WS_LISTENER, url: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -16065,8 +15688,7 @@ pub unsafe fn WsOpenServiceHost(servicehost: *const WS_SERVICE_HOST, asynccontex
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsOpenServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, address: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -16167,15 +15789,14 @@ pub unsafe fn WsReadBytes(reader: *const WS_XML_READER, bytes: *mut ::core::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsReadChars(reader: *const WS_XML_READER, chars: super::super::Foundation::PWSTR, maxcharcount: u32, actualcharcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsReadChars(reader: *const WS_XML_READER, chars: ::windows::core::PWSTR, maxcharcount: u32, actualcharcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsReadChars(reader: *const WS_XML_READER, chars: super::super::Foundation::PWSTR, maxcharcount: u32, actualcharcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsReadChars(reader: *const WS_XML_READER, chars: ::windows::core::PWSTR, maxcharcount: u32, actualcharcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsReadChars(::core::mem::transmute(reader), ::core::mem::transmute(chars), ::core::mem::transmute(maxcharcount), ::core::mem::transmute(actualcharcount), ::core::mem::transmute(error)).ok()
     }
@@ -16239,8 +15860,7 @@ pub unsafe fn WsReadEndElement(reader: *const WS_XML_READER, error: *const WS_ER
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsReadEndpointAddressExtension(reader: *const WS_XML_READER, endpointaddress: *const WS_ENDPOINT_ADDRESS, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -16310,8 +15930,7 @@ pub unsafe fn WsReadMessageStart(channel: *const WS_CHANNEL, message: *const WS_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
 pub unsafe fn WsReadMetadata(metadata: *const WS_METADATA, reader: *const WS_XML_READER, url: *const WS_STRING, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -16994,30 +16613,28 @@ pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsTrimXmlWhitespace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(chars: Param0, charcount: u32, trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsTrimXmlWhitespace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(chars: Param0, charcount: u32, trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsTrimXmlWhitespace(chars: super::super::Foundation::PWSTR, charcount: u32, trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsTrimXmlWhitespace(chars: ::windows::core::PCWSTR, charcount: u32, trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsTrimXmlWhitespace(chars.into_param().abi(), ::core::mem::transmute(charcount), ::core::mem::transmute(trimmedchars), ::core::mem::transmute(trimmedcount), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsVerifyXmlNCName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ncnamechars: Param0, ncnamecharcount: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsVerifyXmlNCName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ncnamechars: Param0, ncnamecharcount: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsVerifyXmlNCName(ncnamechars: super::super::Foundation::PWSTR, ncnamecharcount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsVerifyXmlNCName(ncnamechars: ::windows::core::PCWSTR, ncnamecharcount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsVerifyXmlNCName(ncnamechars.into_param().abi(), ::core::mem::transmute(ncnamecharcount), ::core::mem::transmute(error)).ok()
     }
@@ -17083,15 +16700,14 @@ pub unsafe fn WsWriteBytes(writer: *const WS_XML_WRITER, bytes: *const ::core::f
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsWriteChars<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(writer: *const WS_XML_WRITER, chars: Param1, charcount: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsWriteChars<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(writer: *const WS_XML_WRITER, chars: Param1, charcount: u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsWriteChars(writer: *const WS_XML_WRITER, chars: super::super::Foundation::PWSTR, charcount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsWriteChars(writer: *const WS_XML_WRITER, chars: ::windows::core::PCWSTR, charcount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsWriteChars(::core::mem::transmute(writer), chars.into_param().abi(), ::core::mem::transmute(charcount), ::core::mem::transmute(error)).ok()
     }

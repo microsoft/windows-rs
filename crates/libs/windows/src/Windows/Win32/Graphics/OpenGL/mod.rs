@@ -6789,15 +6789,14 @@ pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_OpenGL', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
 #[inline]
-pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> super::super::Foundation::PWSTR {
+pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluErrorUnicodeStringEXT(errcode: u32) -> super::super::Foundation::PWSTR;
+            fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PWSTR;
         }
         ::core::mem::transmute(gluErrorUnicodeStringEXT(::core::mem::transmute(errcode)))
     }
@@ -7416,12 +7415,12 @@ pub unsafe fn wglGetLayerPaletteEntries<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: 'Win32_Graphics_OpenGL', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PROC {
+pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0) -> super::super::Foundation::PROC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglGetProcAddress(param0: super::super::Foundation::PSTR) -> super::super::Foundation::PROC;
+            fn wglGetProcAddress(param0: ::windows::core::PCSTR) -> super::super::Foundation::PROC;
         }
         ::core::mem::transmute(wglGetProcAddress(param0.into_param().abi()))
     }

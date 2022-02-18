@@ -799,19 +799,17 @@ impl IAudioRenderClient_Vtbl {
         iid == &<IAudioRenderClient as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSessionControl_Impl: Sized {
     fn GetState(&self) -> ::windows::core::Result<AudioSessionState>;
-    fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetDisplayName(&self, value: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetIconPath(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetIconPath(&self, value: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetDisplayName(&self, value: &::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetIconPath(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetIconPath(&self, value: &::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetGroupingParam(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn SetGroupingParam(&self, r#override: *const ::windows::core::GUID, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RegisterAudioSessionNotification(&self, newnotifications: &::core::option::Option<IAudioSessionEvents>) -> ::windows::core::Result<()>;
     fn UnregisterAudioSessionNotification(&self, newnotifications: &::core::option::Option<IAudioSessionEvents>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioSessionControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl_Impl, const OFFSET: isize>() -> IAudioSessionControl_Vtbl {
         unsafe extern "system" fn GetState<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut AudioSessionState) -> ::windows::core::HRESULT {
@@ -825,7 +823,7 @@ impl IAudioSessionControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetDisplayName() {
@@ -836,12 +834,12 @@ impl IAudioSessionControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDisplayName(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&eventcontext)).into()
+            (*this).SetDisplayName(::core::mem::transmute(&value), ::core::mem::transmute_copy(&eventcontext)).into()
         }
-        unsafe extern "system" fn GetIconPath<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIconPath<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetIconPath() {
@@ -852,10 +850,10 @@ impl IAudioSessionControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIconPath<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIconPath<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetIconPath(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&eventcontext)).into()
+            (*this).SetIconPath(::core::mem::transmute(&value), ::core::mem::transmute_copy(&eventcontext)).into()
         }
         unsafe extern "system" fn GetGroupingParam<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -902,8 +900,8 @@ impl IAudioSessionControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSessionControl2_Impl: Sized + IAudioSessionControl_Impl {
-    fn GetSessionIdentifier(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetSessionInstanceIdentifier(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetSessionIdentifier(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetSessionInstanceIdentifier(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetProcessId(&self) -> ::windows::core::Result<u32>;
     fn IsSystemSoundsSession(&self) -> ::windows::core::Result<()>;
     fn SetDuckingPreference(&self, optout: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -911,7 +909,7 @@ pub trait IAudioSessionControl2_Impl: Sized + IAudioSessionControl_Impl {
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioSessionControl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl2_Impl, const OFFSET: isize>() -> IAudioSessionControl2_Vtbl {
-        unsafe extern "system" fn GetSessionIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSessionIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetSessionIdentifier() {
@@ -922,7 +920,7 @@ impl IAudioSessionControl2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSessionInstanceIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSessionInstanceIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetSessionInstanceIdentifier() {
@@ -1007,8 +1005,8 @@ impl IAudioSessionEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSessionEvents_Impl: Sized {
-    fn OnDisplayNameChanged(&self, newdisplayname: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnIconPathChanged(&self, newiconpath: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnDisplayNameChanged(&self, newdisplayname: &::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnIconPathChanged(&self, newiconpath: &::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn OnSimpleVolumeChanged(&self, newvolume: f32, newmute: super::super::Foundation::BOOL, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn OnChannelVolumeChanged(&self, channelcount: u32, newchannelvolumearray: *const f32, changedchannel: u32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn OnGroupingParamChanged(&self, newgroupingparam: *const ::windows::core::GUID, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -1018,15 +1016,15 @@ pub trait IAudioSessionEvents_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioSessionEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionEvents_Impl, const OFFSET: isize>() -> IAudioSessionEvents_Vtbl {
-        unsafe extern "system" fn OnDisplayNameChanged<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newdisplayname: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnDisplayNameChanged<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newdisplayname: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDisplayNameChanged(::core::mem::transmute_copy(&newdisplayname), ::core::mem::transmute_copy(&eventcontext)).into()
+            (*this).OnDisplayNameChanged(::core::mem::transmute(&newdisplayname), ::core::mem::transmute_copy(&eventcontext)).into()
         }
-        unsafe extern "system" fn OnIconPathChanged<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newiconpath: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnIconPathChanged<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newiconpath: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnIconPathChanged(::core::mem::transmute_copy(&newiconpath), ::core::mem::transmute_copy(&eventcontext)).into()
+            (*this).OnIconPathChanged(::core::mem::transmute(&newiconpath), ::core::mem::transmute_copy(&eventcontext)).into()
         }
         unsafe extern "system" fn OnSimpleVolumeChanged<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newvolume: f32, newmute: super::super::Foundation::BOOL, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1106,15 +1104,13 @@ impl IAudioSessionManager_Vtbl {
         iid == &<IAudioSessionManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSessionManager2_Impl: Sized + IAudioSessionManager_Impl {
     fn GetSessionEnumerator(&self) -> ::windows::core::Result<IAudioSessionEnumerator>;
     fn RegisterSessionNotification(&self, sessionnotification: &::core::option::Option<IAudioSessionNotification>) -> ::windows::core::Result<()>;
     fn UnregisterSessionNotification(&self, sessionnotification: &::core::option::Option<IAudioSessionNotification>) -> ::windows::core::Result<()>;
-    fn RegisterDuckNotification(&self, sessionid: super::super::Foundation::PWSTR, ducknotification: &::core::option::Option<IAudioVolumeDuckNotification>) -> ::windows::core::Result<()>;
+    fn RegisterDuckNotification(&self, sessionid: &::windows::core::PCWSTR, ducknotification: &::core::option::Option<IAudioVolumeDuckNotification>) -> ::windows::core::Result<()>;
     fn UnregisterDuckNotification(&self, ducknotification: &::core::option::Option<IAudioVolumeDuckNotification>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioSessionManager2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionManager2_Impl, const OFFSET: isize>() -> IAudioSessionManager2_Vtbl {
         unsafe extern "system" fn GetSessionEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1138,10 +1134,10 @@ impl IAudioSessionManager2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).UnregisterSessionNotification(::core::mem::transmute(&sessionnotification)).into()
         }
-        unsafe extern "system" fn RegisterDuckNotification<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: super::super::Foundation::PWSTR, ducknotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterDuckNotification<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: ::windows::core::PCWSTR, ducknotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterDuckNotification(::core::mem::transmute_copy(&sessionid), ::core::mem::transmute(&ducknotification)).into()
+            (*this).RegisterDuckNotification(::core::mem::transmute(&sessionid), ::core::mem::transmute(&ducknotification)).into()
         }
         unsafe extern "system" fn UnregisterDuckNotification<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ducknotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1383,23 +1379,21 @@ impl IAudioTreble_Vtbl {
         iid == &<IAudioTreble as ::windows::core::Interface>::IID || iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioVolumeDuckNotification_Impl: Sized {
-    fn OnVolumeDuckNotification(&self, sessionid: super::super::Foundation::PWSTR, countcommunicationsessions: u32) -> ::windows::core::Result<()>;
-    fn OnVolumeUnduckNotification(&self, sessionid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OnVolumeDuckNotification(&self, sessionid: &::windows::core::PCWSTR, countcommunicationsessions: u32) -> ::windows::core::Result<()>;
+    fn OnVolumeUnduckNotification(&self, sessionid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioVolumeDuckNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioVolumeDuckNotification_Impl, const OFFSET: isize>() -> IAudioVolumeDuckNotification_Vtbl {
-        unsafe extern "system" fn OnVolumeDuckNotification<Identity: ::windows::core::IUnknownImpl, Impl: IAudioVolumeDuckNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: super::super::Foundation::PWSTR, countcommunicationsessions: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnVolumeDuckNotification<Identity: ::windows::core::IUnknownImpl, Impl: IAudioVolumeDuckNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: ::windows::core::PCWSTR, countcommunicationsessions: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnVolumeDuckNotification(::core::mem::transmute_copy(&sessionid), ::core::mem::transmute_copy(&countcommunicationsessions)).into()
+            (*this).OnVolumeDuckNotification(::core::mem::transmute(&sessionid), ::core::mem::transmute_copy(&countcommunicationsessions)).into()
         }
-        unsafe extern "system" fn OnVolumeUnduckNotification<Identity: ::windows::core::IUnknownImpl, Impl: IAudioVolumeDuckNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnVolumeUnduckNotification<Identity: ::windows::core::IUnknownImpl, Impl: IAudioVolumeDuckNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnVolumeUnduckNotification(::core::mem::transmute_copy(&sessionid)).into()
+            (*this).OnVolumeUnduckNotification(::core::mem::transmute(&sessionid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -1487,8 +1481,8 @@ pub trait IConnector_Impl: Sized {
     fn Disconnect(&self) -> ::windows::core::Result<()>;
     fn IsConnected(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetConnectedTo(&self) -> ::windows::core::Result<IConnector>;
-    fn GetConnectorIdConnectedTo(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetDeviceIdConnectedTo(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetConnectorIdConnectedTo(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetDeviceIdConnectedTo(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IConnector_Vtbl {
@@ -1547,7 +1541,7 @@ impl IConnector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConnectorIdConnectedTo<Identity: ::windows::core::IUnknownImpl, Impl: IConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrconnectorid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConnectorIdConnectedTo<Identity: ::windows::core::IUnknownImpl, Impl: IConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrconnectorid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetConnectorIdConnectedTo() {
@@ -1558,7 +1552,7 @@ impl IConnector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceIdConnectedTo<Identity: ::windows::core::IUnknownImpl, Impl: IConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrdeviceid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceIdConnectedTo<Identity: ::windows::core::IUnknownImpl, Impl: IConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrdeviceid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetDeviceIdConnectedTo() {
@@ -1601,15 +1595,13 @@ impl IControlChangeNotify_Vtbl {
         iid == &<IControlChangeNotify as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IControlInterface_Impl: Sized {
-    fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetIID(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IControlInterface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlInterface_Impl, const OFFSET: isize>() -> IControlInterface_Vtbl {
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IControlInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IControlInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetName() {
@@ -1694,7 +1686,7 @@ pub trait IDeviceTopology_Impl: Sized {
     fn GetSubunitCount(&self) -> ::windows::core::Result<u32>;
     fn GetSubunit(&self, nindex: u32) -> ::windows::core::Result<ISubunit>;
     fn GetPartById(&self, nid: u32) -> ::windows::core::Result<IPart>;
-    fn GetDeviceId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetDeviceId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetSignalPath(&self, pipartfrom: &::core::option::Option<IPart>, pipartto: &::core::option::Option<IPart>, brejectmixedpaths: super::super::Foundation::BOOL) -> ::windows::core::Result<IPartsList>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1755,7 +1747,7 @@ impl IDeviceTopology_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceId<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrdeviceid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceId<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceTopology_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrdeviceid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetDeviceId() {
@@ -1796,7 +1788,7 @@ impl IDeviceTopology_Vtbl {
 pub trait IMMDevice_Impl: Sized {
     fn Activate(&self, iid: *const ::windows::core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn OpenPropertyStore(&self, stgmaccess: super::super::System::Com::StructuredStorage::STGM) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn GetId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetState(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1818,7 +1810,7 @@ impl IMMDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetId<Identity: ::windows::core::IUnknownImpl, Impl: IMMDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstrid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetId<Identity: ::windows::core::IUnknownImpl, Impl: IMMDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstrid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetId() {
@@ -1908,15 +1900,13 @@ impl IMMDeviceCollection_Vtbl {
         iid == &<IMMDeviceCollection as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMMDeviceEnumerator_Impl: Sized {
     fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: u32) -> ::windows::core::Result<IMMDeviceCollection>;
     fn GetDefaultAudioEndpoint(&self, dataflow: EDataFlow, role: ERole) -> ::windows::core::Result<IMMDevice>;
-    fn GetDevice(&self, pwstrid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMMDevice>;
+    fn GetDevice(&self, pwstrid: &::windows::core::PCWSTR) -> ::windows::core::Result<IMMDevice>;
     fn RegisterEndpointNotificationCallback(&self, pclient: &::core::option::Option<IMMNotificationClient>) -> ::windows::core::Result<()>;
     fn UnregisterEndpointNotificationCallback(&self, pclient: &::core::option::Option<IMMNotificationClient>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IMMDeviceEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMMDeviceEnumerator_Impl, const OFFSET: isize>() -> IMMDeviceEnumerator_Vtbl {
         unsafe extern "system" fn EnumAudioEndpoints<Identity: ::windows::core::IUnknownImpl, Impl: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dataflow: EDataFlow, dwstatemask: u32, ppdevices: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1941,10 +1931,10 @@ impl IMMDeviceEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrid: super::super::Foundation::PWSTR, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrid: ::windows::core::PCWSTR, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDevice(::core::mem::transmute_copy(&pwstrid)) {
+            match (*this).GetDevice(::core::mem::transmute(&pwstrid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppdevice = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1997,41 +1987,41 @@ impl IMMEndpoint_Vtbl {
         iid == &<IMMEndpoint as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMMNotificationClient_Impl: Sized {
-    fn OnDeviceStateChanged(&self, pwstrdeviceid: super::super::Foundation::PWSTR, dwnewstate: u32) -> ::windows::core::Result<()>;
-    fn OnDeviceAdded(&self, pwstrdeviceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn OnDeviceRemoved(&self, pwstrdeviceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn OnDefaultDeviceChanged(&self, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn OnPropertyValueChanged(&self, pwstrdeviceid: super::super::Foundation::PWSTR, key: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn OnDeviceStateChanged(&self, pwstrdeviceid: &::windows::core::PCWSTR, dwnewstate: u32) -> ::windows::core::Result<()>;
+    fn OnDeviceAdded(&self, pwstrdeviceid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn OnDeviceRemoved(&self, pwstrdeviceid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn OnDefaultDeviceChanged(&self, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn OnPropertyValueChanged(&self, pwstrdeviceid: &::windows::core::PCWSTR, key: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IMMNotificationClient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>() -> IMMNotificationClient_Vtbl {
-        unsafe extern "system" fn OnDeviceStateChanged<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: super::super::Foundation::PWSTR, dwnewstate: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnDeviceStateChanged<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: ::windows::core::PCWSTR, dwnewstate: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDeviceStateChanged(::core::mem::transmute_copy(&pwstrdeviceid), ::core::mem::transmute_copy(&dwnewstate)).into()
+            (*this).OnDeviceStateChanged(::core::mem::transmute(&pwstrdeviceid), ::core::mem::transmute_copy(&dwnewstate)).into()
         }
-        unsafe extern "system" fn OnDeviceAdded<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnDeviceAdded<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDeviceAdded(::core::mem::transmute_copy(&pwstrdeviceid)).into()
+            (*this).OnDeviceAdded(::core::mem::transmute(&pwstrdeviceid)).into()
         }
-        unsafe extern "system" fn OnDeviceRemoved<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnDeviceRemoved<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDeviceRemoved(::core::mem::transmute_copy(&pwstrdeviceid)).into()
+            (*this).OnDeviceRemoved(::core::mem::transmute(&pwstrdeviceid)).into()
         }
-        unsafe extern "system" fn OnDefaultDeviceChanged<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnDefaultDeviceChanged<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDefaultDeviceChanged(::core::mem::transmute_copy(&flow), ::core::mem::transmute_copy(&role), ::core::mem::transmute_copy(&pwstrdefaultdeviceid)).into()
+            (*this).OnDefaultDeviceChanged(::core::mem::transmute_copy(&flow), ::core::mem::transmute_copy(&role), ::core::mem::transmute(&pwstrdefaultdeviceid)).into()
         }
-        unsafe extern "system" fn OnPropertyValueChanged<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: super::super::Foundation::PWSTR, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnPropertyValueChanged<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: ::windows::core::PCWSTR, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPropertyValueChanged(::core::mem::transmute_copy(&pwstrdeviceid), ::core::mem::transmute(&key)).into()
+            (*this).OnPropertyValueChanged(::core::mem::transmute(&pwstrdeviceid), ::core::mem::transmute(&key)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -2081,11 +2071,10 @@ impl IMessageFilter_Vtbl {
         iid == &<IMessageFilter as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IPart_Impl: Sized {
-    fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetLocalId(&self) -> ::windows::core::Result<u32>;
-    fn GetGlobalId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetGlobalId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetPartType(&self) -> ::windows::core::Result<PartType>;
     fn GetSubType(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetControlInterfaceCount(&self) -> ::windows::core::Result<u32>;
@@ -2097,10 +2086,9 @@ pub trait IPart_Impl: Sized {
     fn RegisterControlChangeCallback(&self, riid: *const ::windows::core::GUID, pnotify: &::core::option::Option<IControlChangeNotify>) -> ::windows::core::Result<()>;
     fn UnregisterControlChangeCallback(&self, pnotify: &::core::option::Option<IControlChangeNotify>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IPart_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPart_Impl, const OFFSET: isize>() -> IPart_Vtbl {
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetName() {
@@ -2122,7 +2110,7 @@ impl IPart_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGlobalId<Identity: ::windows::core::IUnknownImpl, Impl: IPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrglobalid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGlobalId<Identity: ::windows::core::IUnknownImpl, Impl: IPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrglobalid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetGlobalId() {

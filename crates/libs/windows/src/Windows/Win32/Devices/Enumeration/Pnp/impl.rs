@@ -1132,16 +1132,16 @@ impl IUPnPServiceAsync_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPServiceCallback_Impl: Sized {
-    fn StateVariableChanged(&self, pus: &::core::option::Option<IUPnPService>, pcwszstatevarname: super::super::super::Foundation::PWSTR, vavalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn StateVariableChanged(&self, pus: &::core::option::Option<IUPnPService>, pcwszstatevarname: &::windows::core::PCWSTR, vavalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ServiceInstanceDied(&self, pus: &::core::option::Option<IUPnPService>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPServiceCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceCallback_Impl, const OFFSET: isize>() -> IUPnPServiceCallback_Vtbl {
-        unsafe extern "system" fn StateVariableChanged<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pus: ::windows::core::RawPtr, pcwszstatevarname: super::super::super::Foundation::PWSTR, vavalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StateVariableChanged<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pus: ::windows::core::RawPtr, pcwszstatevarname: ::windows::core::PCWSTR, vavalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).StateVariableChanged(::core::mem::transmute(&pus), ::core::mem::transmute_copy(&pcwszstatevarname), ::core::mem::transmute(&vavalue)).into()
+            (*this).StateVariableChanged(::core::mem::transmute(&pus), ::core::mem::transmute(&pcwszstatevarname), ::core::mem::transmute(&vavalue)).into()
         }
         unsafe extern "system" fn ServiceInstanceDied<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pus: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

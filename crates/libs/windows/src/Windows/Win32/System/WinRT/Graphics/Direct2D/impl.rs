@@ -38,16 +38,16 @@ impl IGeometrySource2DInterop_Vtbl {
         iid == &<IGeometrySource2DInterop as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "Graphics_Effects", feature = "Win32_Foundation"))]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Effects"))]
 pub trait IGraphicsEffectD2D1Interop_Impl: Sized {
     fn GetEffectId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetNamedPropertyMapping(&self, name: super::super::super::super::Foundation::PWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()>;
+    fn GetNamedPropertyMapping(&self, name: &::windows::core::PCWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()>;
     fn GetPropertyCount(&self) -> ::windows::core::Result<u32>;
     fn GetProperty(&self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Foundation::IPropertyValue>;
     fn GetSource(&self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource>;
     fn GetSourceCount(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Foundation", feature = "Graphics_Effects", feature = "Win32_Foundation"))]
+#[cfg(all(feature = "Foundation", feature = "Graphics_Effects"))]
 impl IGraphicsEffectD2D1Interop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>() -> IGraphicsEffectD2D1Interop_Vtbl {
         unsafe extern "system" fn GetEffectId<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -61,10 +61,10 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNamedPropertyMapping<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::super::Foundation::PWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedPropertyMapping<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetNamedPropertyMapping(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&mapping)).into()
+            (*this).GetNamedPropertyMapping(::core::mem::transmute(&name), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&mapping)).into()
         }
         unsafe extern "system" fn GetPropertyCount<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

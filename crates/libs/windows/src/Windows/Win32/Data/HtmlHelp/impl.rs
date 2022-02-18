@@ -1,18 +1,18 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IITDatabase_Impl: Sized {
-    fn Open(&self, lpszhost: super::super::Foundation::PWSTR, lpszmoniker: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn Open(&self, lpszhost: &::windows::core::PCWSTR, lpszmoniker: &::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
     fn CreateObject(&self, rclsid: *const ::windows::core::GUID, pdwobjinstance: *mut u32) -> ::windows::core::Result<()>;
     fn GetObject(&self, dwobjinstance: u32, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetObjectPersistence(&self, lpwszobject: super::super::Foundation::PWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetObjectPersistence(&self, lpwszobject: &::windows::core::PCWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IITDatabase_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IITDatabase_Impl, const OFFSET: isize>() -> IITDatabase_Vtbl {
-        unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IITDatabase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszhost: super::super::Foundation::PWSTR, lpszmoniker: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IITDatabase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszhost: ::windows::core::PCWSTR, lpszmoniker: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Open(::core::mem::transmute_copy(&lpszhost), ::core::mem::transmute_copy(&lpszmoniker), ::core::mem::transmute_copy(&dwflags)).into()
+            (*this).Open(::core::mem::transmute(&lpszhost), ::core::mem::transmute(&lpszmoniker), ::core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl, Impl: IITDatabase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -29,10 +29,10 @@ impl IITDatabase_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetObject(::core::mem::transmute_copy(&dwobjinstance), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvobj)).into()
         }
-        unsafe extern "system" fn GetObjectPersistence<Identity: ::windows::core::IUnknownImpl, Impl: IITDatabase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpwszobject: super::super::Foundation::PWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObjectPersistence<Identity: ::windows::core::IUnknownImpl, Impl: IITDatabase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpwszobject: ::windows::core::PCWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetObjectPersistence(::core::mem::transmute_copy(&lpwszobject), ::core::mem::transmute_copy(&dwobjinstance), ::core::mem::transmute_copy(&ppvpersistence), ::core::mem::transmute_copy(&fstream)).into()
+            (*this).GetObjectPersistence(::core::mem::transmute(&lpwszobject), ::core::mem::transmute_copy(&dwobjinstance), ::core::mem::transmute_copy(&ppvpersistence), ::core::mem::transmute_copy(&fstream)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -49,7 +49,7 @@ impl IITDatabase_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersist_Impl + super::super::System::Com::IPersistStreamInit_Impl {
-    fn Set(&self, propid: u32, lpszwstring: super::super::Foundation::PWSTR, dwoperation: u32) -> ::windows::core::Result<()>;
+    fn Set(&self, propid: u32, lpszwstring: &::windows::core::PCWSTR, dwoperation: u32) -> ::windows::core::Result<()>;
     fn Set2(&self, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::core::Result<()>;
     fn Set3(&self, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows::core::Result<()>;
     fn Add(&self, prop: *mut CProperty) -> ::windows::core::Result<()>;
@@ -71,10 +71,10 @@ pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersist_Impl + s
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IITPropList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IITPropList_Impl, const OFFSET: isize>() -> IITPropList_Vtbl {
-        unsafe extern "system" fn Set<Identity: ::windows::core::IUnknownImpl, Impl: IITPropList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpszwstring: super::super::Foundation::PWSTR, dwoperation: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Set<Identity: ::windows::core::IUnknownImpl, Impl: IITPropList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpszwstring: ::windows::core::PCWSTR, dwoperation: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Set(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&lpszwstring), ::core::mem::transmute_copy(&dwoperation)).into()
+            (*this).Set(::core::mem::transmute_copy(&propid), ::core::mem::transmute(&lpszwstring), ::core::mem::transmute_copy(&dwoperation)).into()
         }
         unsafe extern "system" fn Set2<Identity: ::windows::core::IUnknownImpl, Impl: IITPropList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -193,12 +193,12 @@ pub trait IITResultSet_Impl: Sized {
     fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: &PFNCOLHEAPFREE) -> ::windows::core::Result<()>;
     fn SetKeyProp(&self, propid: u32) -> ::windows::core::Result<()>;
     fn Add(&self, propid: u32, dwdefaultdata: u32, priority: PRIORITY) -> ::windows::core::Result<()>;
-    fn Add2(&self, propid: u32, lpszwdefault: super::super::Foundation::PWSTR, priority: PRIORITY) -> ::windows::core::Result<()>;
+    fn Add2(&self, propid: u32, lpszwdefault: &::windows::core::PCWSTR, priority: PRIORITY) -> ::windows::core::Result<()>;
     fn Add3(&self, propid: u32, lpvdefaultdata: *mut ::core::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::core::Result<()>;
     fn Add4(&self, lpvhdr: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Append(&self, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Set(&self, lrowindex: i32, lcolumnindex: i32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32) -> ::windows::core::Result<()>;
-    fn Set2(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Set2(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::core::Result<()>;
     fn Set4(&self, lrowindex: i32, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Copy(&self, prscopy: &::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
@@ -243,10 +243,10 @@ impl IITResultSet_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Add(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&dwdefaultdata), ::core::mem::transmute_copy(&priority)).into()
         }
-        unsafe extern "system" fn Add2<Identity: ::windows::core::IUnknownImpl, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpszwdefault: super::super::Foundation::PWSTR, priority: PRIORITY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add2<Identity: ::windows::core::IUnknownImpl, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpszwdefault: ::windows::core::PCWSTR, priority: PRIORITY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Add2(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&lpszwdefault), ::core::mem::transmute_copy(&priority)).into()
+            (*this).Add2(::core::mem::transmute_copy(&propid), ::core::mem::transmute(&lpszwdefault), ::core::mem::transmute_copy(&priority)).into()
         }
         unsafe extern "system" fn Add3<Identity: ::windows::core::IUnknownImpl, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32, lpvdefaultdata: *mut ::core::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -268,10 +268,10 @@ impl IITResultSet_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Set(::core::mem::transmute_copy(&lrowindex), ::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&lpvdata), ::core::mem::transmute_copy(&cbdata)).into()
         }
-        unsafe extern "system" fn Set2<Identity: ::windows::core::IUnknownImpl, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrowindex: i32, lcolumnindex: i32, lpwstr: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Set2<Identity: ::windows::core::IUnknownImpl, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrowindex: i32, lcolumnindex: i32, lpwstr: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Set2(::core::mem::transmute_copy(&lrowindex), ::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&lpwstr)).into()
+            (*this).Set2(::core::mem::transmute_copy(&lrowindex), ::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute(&lpwstr)).into()
         }
         unsafe extern "system" fn Set3<Identity: ::windows::core::IUnknownImpl, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -413,7 +413,7 @@ impl IITResultSet_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IITWordWheel_Impl: Sized {
-    fn Open(&self, lpitdb: &::core::option::Option<IITDatabase>, lpszmoniker: super::super::Foundation::PWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::Result<()>;
+    fn Open(&self, lpitdb: &::core::option::Option<IITDatabase>, lpszmoniker: &::windows::core::PCWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
     fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()>;
     fn GetSorterInstance(&self, pdwobjinstance: *mut u32) -> ::windows::core::Result<()>;
@@ -430,10 +430,10 @@ pub trait IITWordWheel_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl IITWordWheel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IITWordWheel_Impl, const OFFSET: isize>() -> IITWordWheel_Vtbl {
-        unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IITWordWheel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpitdb: ::windows::core::RawPtr, lpszmoniker: super::super::Foundation::PWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IITWordWheel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpitdb: ::windows::core::RawPtr, lpszmoniker: ::windows::core::PCWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Open(::core::mem::transmute(&lpitdb), ::core::mem::transmute_copy(&lpszmoniker), ::core::mem::transmute_copy(&dwflags)).into()
+            (*this).Open(::core::mem::transmute(&lpitdb), ::core::mem::transmute(&lpszmoniker), ::core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl, Impl: IITWordWheel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -516,23 +516,21 @@ impl IITWordWheel_Vtbl {
         iid == &<IITWordWheel as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IStemSink_Impl: Sized {
-    fn PutAltWord(&self, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::Result<()>;
-    fn PutWord(&self, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::Result<()>;
+    fn PutAltWord(&self, pwcinbuf: &::windows::core::PCWSTR, cwc: u32) -> ::windows::core::Result<()>;
+    fn PutWord(&self, pwcinbuf: &::windows::core::PCWSTR, cwc: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IStemSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStemSink_Impl, const OFFSET: isize>() -> IStemSink_Vtbl {
-        unsafe extern "system" fn PutAltWord<Identity: ::windows::core::IUnknownImpl, Impl: IStemSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutAltWord<Identity: ::windows::core::IUnknownImpl, Impl: IStemSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: ::windows::core::PCWSTR, cwc: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PutAltWord(::core::mem::transmute_copy(&pwcinbuf), ::core::mem::transmute_copy(&cwc)).into()
+            (*this).PutAltWord(::core::mem::transmute(&pwcinbuf), ::core::mem::transmute_copy(&cwc)).into()
         }
-        unsafe extern "system" fn PutWord<Identity: ::windows::core::IUnknownImpl, Impl: IStemSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutWord<Identity: ::windows::core::IUnknownImpl, Impl: IStemSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: ::windows::core::PCWSTR, cwc: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PutWord(::core::mem::transmute_copy(&pwcinbuf), ::core::mem::transmute_copy(&cwc)).into()
+            (*this).PutWord(::core::mem::transmute(&pwcinbuf), ::core::mem::transmute_copy(&cwc)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

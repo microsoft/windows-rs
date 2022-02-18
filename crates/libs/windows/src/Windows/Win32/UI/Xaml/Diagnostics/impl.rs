@@ -170,7 +170,7 @@ impl IVisualTreeService_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IVisualTreeService2_Impl: Sized + IVisualTreeService_Impl {
-    fn GetPropertyIndex(&self, object: u64, propertyname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
+    fn GetPropertyIndex(&self, object: u64, propertyname: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
     fn GetProperty(&self, object: u64, propertyindex: u32) -> ::windows::core::Result<u64>;
     fn ReplaceResource(&self, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::core::Result<()>;
     fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData>;
@@ -178,10 +178,10 @@ pub trait IVisualTreeService2_Impl: Sized + IVisualTreeService_Impl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVisualTreeService2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService2_Impl, const OFFSET: isize>() -> IVisualTreeService2_Vtbl {
-        unsafe extern "system" fn GetPropertyIndex<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: u64, propertyname: super::super::super::Foundation::PWSTR, ppropertyindex: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyIndex<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: u64, propertyname: ::windows::core::PCWSTR, ppropertyindex: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetPropertyIndex(::core::mem::transmute_copy(&object), ::core::mem::transmute_copy(&propertyname)) {
+            match (*this).GetPropertyIndex(::core::mem::transmute_copy(&object), ::core::mem::transmute(&propertyname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppropertyindex = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -230,23 +230,23 @@ impl IVisualTreeService2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IVisualTreeService3_Impl: Sized + IVisualTreeService_Impl + IVisualTreeService2_Impl {
-    fn ResolveResource(&self, resourcecontext: u64, resourcename: super::super::super::Foundation::PWSTR, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::Result<()>;
-    fn GetDictionaryItem(&self, dictionaryhandle: u64, resourcename: super::super::super::Foundation::PWSTR, resourceisimplicitstyle: super::super::super::Foundation::BOOL) -> ::windows::core::Result<u64>;
+    fn ResolveResource(&self, resourcecontext: u64, resourcename: &::windows::core::PCWSTR, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::Result<()>;
+    fn GetDictionaryItem(&self, dictionaryhandle: u64, resourcename: &::windows::core::PCWSTR, resourceisimplicitstyle: super::super::super::Foundation::BOOL) -> ::windows::core::Result<u64>;
     fn AddDictionaryItem(&self, dictionaryhandle: u64, resourcekey: u64, resourcehandle: u64) -> ::windows::core::Result<()>;
     fn RemoveDictionaryItem(&self, dictionaryhandle: u64, resourcekey: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVisualTreeService3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService3_Impl, const OFFSET: isize>() -> IVisualTreeService3_Vtbl {
-        unsafe extern "system" fn ResolveResource<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourcecontext: u64, resourcename: super::super::super::Foundation::PWSTR, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolveResource<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourcecontext: u64, resourcename: ::windows::core::PCWSTR, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ResolveResource(::core::mem::transmute_copy(&resourcecontext), ::core::mem::transmute_copy(&resourcename), ::core::mem::transmute_copy(&resourcetype), ::core::mem::transmute_copy(&propertyindex)).into()
+            (*this).ResolveResource(::core::mem::transmute_copy(&resourcecontext), ::core::mem::transmute(&resourcename), ::core::mem::transmute_copy(&resourcetype), ::core::mem::transmute_copy(&propertyindex)).into()
         }
-        unsafe extern "system" fn GetDictionaryItem<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dictionaryhandle: u64, resourcename: super::super::super::Foundation::PWSTR, resourceisimplicitstyle: super::super::super::Foundation::BOOL, resourcehandle: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDictionaryItem<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dictionaryhandle: u64, resourcename: ::windows::core::PCWSTR, resourceisimplicitstyle: super::super::super::Foundation::BOOL, resourcehandle: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDictionaryItem(::core::mem::transmute_copy(&dictionaryhandle), ::core::mem::transmute_copy(&resourcename), ::core::mem::transmute_copy(&resourceisimplicitstyle)) {
+            match (*this).GetDictionaryItem(::core::mem::transmute_copy(&dictionaryhandle), ::core::mem::transmute(&resourcename), ::core::mem::transmute_copy(&resourceisimplicitstyle)) {
                 ::core::result::Result::Ok(ok__) => {
                     *resourcehandle = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -296,15 +296,15 @@ impl IVisualTreeServiceCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVisualTreeServiceCallback2_Impl: Sized + IVisualTreeServiceCallback_Impl {
-    fn OnElementStateChanged(&self, element: u64, elementstate: VisualElementState, context: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OnElementStateChanged(&self, element: u64, elementstate: VisualElementState, context: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVisualTreeServiceCallback2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeServiceCallback2_Impl, const OFFSET: isize>() -> IVisualTreeServiceCallback2_Vtbl {
-        unsafe extern "system" fn OnElementStateChanged<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeServiceCallback2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: u64, elementstate: VisualElementState, context: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnElementStateChanged<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeServiceCallback2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: u64, elementstate: VisualElementState, context: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnElementStateChanged(::core::mem::transmute_copy(&element), ::core::mem::transmute_copy(&elementstate), ::core::mem::transmute_copy(&context)).into()
+            (*this).OnElementStateChanged(::core::mem::transmute_copy(&element), ::core::mem::transmute_copy(&elementstate), ::core::mem::transmute(&context)).into()
         }
         Self { base: IVisualTreeServiceCallback_Vtbl::new::<Identity, Impl, OFFSET>(), OnElementStateChanged: OnElementStateChanged::<Identity, Impl, OFFSET> }
     }

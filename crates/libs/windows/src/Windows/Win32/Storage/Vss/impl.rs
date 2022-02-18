@@ -130,27 +130,27 @@ pub trait IVssComponent_Impl: Sized {
     fn GetBackupSucceeded(&self, pbsucceeded: *mut bool) -> ::windows::core::Result<()>;
     fn GetAlternateLocationMappingCount(&self, pcmappings: *mut u32) -> ::windows::core::Result<()>;
     fn GetAlternateLocationMapping(&self, imapping: u32) -> ::windows::core::Result<IVssWMFiledesc>;
-    fn SetBackupMetadata(&self, wszdata: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetBackupMetadata(&self, wszdata: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetBackupMetadata(&self, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddPartialFile(&self, wszpath: super::super::Foundation::PWSTR, wszfilename: super::super::Foundation::PWSTR, wszranges: super::super::Foundation::PWSTR, wszmetadata: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddPartialFile(&self, wszpath: &::windows::core::PCWSTR, wszfilename: &::windows::core::PCWSTR, wszranges: &::windows::core::PCWSTR, wszmetadata: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetPartialFileCount(&self, pcpartialfiles: *mut u32) -> ::windows::core::Result<()>;
     fn GetPartialFile(&self, ipartialfile: u32, pbstrpath: *mut super::super::Foundation::BSTR, pbstrfilename: *mut super::super::Foundation::BSTR, pbstrrange: *mut super::super::Foundation::BSTR, pbstrmetadata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn IsSelectedForRestore(&self, pbselectedforrestore: *mut bool) -> ::windows::core::Result<()>;
     fn GetAdditionalRestores(&self, pbadditionalrestores: *mut bool) -> ::windows::core::Result<()>;
     fn GetNewTargetCount(&self, pcnewtarget: *mut u32) -> ::windows::core::Result<()>;
     fn GetNewTarget(&self, inewtarget: u32) -> ::windows::core::Result<IVssWMFiledesc>;
-    fn AddDirectedTarget(&self, wszsourcepath: super::super::Foundation::PWSTR, wszsourcefilename: super::super::Foundation::PWSTR, wszsourcerangelist: super::super::Foundation::PWSTR, wszdestinationpath: super::super::Foundation::PWSTR, wszdestinationfilename: super::super::Foundation::PWSTR, wszdestinationrangelist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddDirectedTarget(&self, wszsourcepath: &::windows::core::PCWSTR, wszsourcefilename: &::windows::core::PCWSTR, wszsourcerangelist: &::windows::core::PCWSTR, wszdestinationpath: &::windows::core::PCWSTR, wszdestinationfilename: &::windows::core::PCWSTR, wszdestinationrangelist: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetDirectedTargetCount(&self, pcdirectedtarget: *mut u32) -> ::windows::core::Result<()>;
     fn GetDirectedTarget(&self, idirectedtarget: u32, pbstrsourcepath: *mut super::super::Foundation::BSTR, pbstrsourcefilename: *mut super::super::Foundation::BSTR, pbstrsourcerangelist: *mut super::super::Foundation::BSTR, pbstrdestinationpath: *mut super::super::Foundation::BSTR, pbstrdestinationfilename: *mut super::super::Foundation::BSTR, pbstrdestinationrangelist: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetRestoreMetadata(&self, wszrestoremetadata: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetRestoreMetadata(&self, wszrestoremetadata: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetRestoreMetadata(&self, pbstrrestoremetadata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetRestoreTarget(&self, target: VSS_RESTORE_TARGET) -> ::windows::core::Result<()>;
     fn GetRestoreTarget(&self, ptarget: *mut VSS_RESTORE_TARGET) -> ::windows::core::Result<()>;
-    fn SetPreRestoreFailureMsg(&self, wszprerestorefailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetPreRestoreFailureMsg(&self, wszprerestorefailuremsg: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetPreRestoreFailureMsg(&self, pbstrprerestorefailuremsg: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetPostRestoreFailureMsg(&self, wszpostrestorefailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetPostRestoreFailureMsg(&self, wszpostrestorefailuremsg: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetPostRestoreFailureMsg(&self, pbstrpostrestorefailuremsg: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetBackupStamp(&self, wszbackupstamp: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetBackupStamp(&self, wszbackupstamp: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetBackupStamp(&self, pbstrbackupstamp: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetPreviousBackupStamp(&self, pbstrbackupstamp: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetBackupOptions(&self, pbstrbackupoptions: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -158,8 +158,8 @@ pub trait IVssComponent_Impl: Sized {
     fn GetRestoreSubcomponentCount(&self, pcrestoresubcomponent: *mut u32) -> ::windows::core::Result<()>;
     fn GetRestoreSubcomponent(&self, icomponent: u32, pbstrlogicalpath: *mut super::super::Foundation::BSTR, pbstrcomponentname: *mut super::super::Foundation::BSTR, pbrepair: *mut bool) -> ::windows::core::Result<()>;
     fn GetFileRestoreStatus(&self, pstatus: *mut VSS_FILE_RESTORE_STATUS) -> ::windows::core::Result<()>;
-    fn AddDifferencedFilesByLastModifyTime(&self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: super::super::Foundation::BOOL, ftlastmodifytime: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn AddDifferencedFilesByLastModifyLSN(&self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddDifferencedFilesByLastModifyTime(&self, wszpath: &::windows::core::PCWSTR, wszfilespec: &::windows::core::PCWSTR, brecursive: super::super::Foundation::BOOL, ftlastmodifytime: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn AddDifferencedFilesByLastModifyLSN(&self, wszpath: &::windows::core::PCWSTR, wszfilespec: &::windows::core::PCWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> ::windows::core::Result<()>;
     fn GetDifferencedFile(&self, idifferencedfile: u32, pbstrpath: *mut super::super::Foundation::BSTR, pbstrfilespec: *mut super::super::Foundation::BSTR, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut super::super::Foundation::BSTR, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
 }
@@ -202,20 +202,20 @@ impl IVssComponent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBackupMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszdata: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackupMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBackupMetadata(::core::mem::transmute_copy(&wszdata)).into()
+            (*this).SetBackupMetadata(::core::mem::transmute(&wszdata)).into()
         }
         unsafe extern "system" fn GetBackupMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetBackupMetadata(::core::mem::transmute_copy(&pbstrdata)).into()
         }
-        unsafe extern "system" fn AddPartialFile<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: super::super::Foundation::PWSTR, wszfilename: super::super::Foundation::PWSTR, wszranges: super::super::Foundation::PWSTR, wszmetadata: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPartialFile<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilename: ::windows::core::PCWSTR, wszranges: ::windows::core::PCWSTR, wszmetadata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddPartialFile(::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilename), ::core::mem::transmute_copy(&wszranges), ::core::mem::transmute_copy(&wszmetadata)).into()
+            (*this).AddPartialFile(::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilename), ::core::mem::transmute(&wszranges), ::core::mem::transmute(&wszmetadata)).into()
         }
         unsafe extern "system" fn GetPartialFileCount<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcpartialfiles: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -253,10 +253,10 @@ impl IVssComponent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddDirectedTarget<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszsourcepath: super::super::Foundation::PWSTR, wszsourcefilename: super::super::Foundation::PWSTR, wszsourcerangelist: super::super::Foundation::PWSTR, wszdestinationpath: super::super::Foundation::PWSTR, wszdestinationfilename: super::super::Foundation::PWSTR, wszdestinationrangelist: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDirectedTarget<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszsourcepath: ::windows::core::PCWSTR, wszsourcefilename: ::windows::core::PCWSTR, wszsourcerangelist: ::windows::core::PCWSTR, wszdestinationpath: ::windows::core::PCWSTR, wszdestinationfilename: ::windows::core::PCWSTR, wszdestinationrangelist: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddDirectedTarget(::core::mem::transmute_copy(&wszsourcepath), ::core::mem::transmute_copy(&wszsourcefilename), ::core::mem::transmute_copy(&wszsourcerangelist), ::core::mem::transmute_copy(&wszdestinationpath), ::core::mem::transmute_copy(&wszdestinationfilename), ::core::mem::transmute_copy(&wszdestinationrangelist)).into()
+            (*this).AddDirectedTarget(::core::mem::transmute(&wszsourcepath), ::core::mem::transmute(&wszsourcefilename), ::core::mem::transmute(&wszsourcerangelist), ::core::mem::transmute(&wszdestinationpath), ::core::mem::transmute(&wszdestinationfilename), ::core::mem::transmute(&wszdestinationrangelist)).into()
         }
         unsafe extern "system" fn GetDirectedTargetCount<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdirectedtarget: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -268,10 +268,10 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDirectedTarget(::core::mem::transmute_copy(&idirectedtarget), ::core::mem::transmute_copy(&pbstrsourcepath), ::core::mem::transmute_copy(&pbstrsourcefilename), ::core::mem::transmute_copy(&pbstrsourcerangelist), ::core::mem::transmute_copy(&pbstrdestinationpath), ::core::mem::transmute_copy(&pbstrdestinationfilename), ::core::mem::transmute_copy(&pbstrdestinationrangelist)).into()
         }
-        unsafe extern "system" fn SetRestoreMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszrestoremetadata: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRestoreMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszrestoremetadata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRestoreMetadata(::core::mem::transmute_copy(&wszrestoremetadata)).into()
+            (*this).SetRestoreMetadata(::core::mem::transmute(&wszrestoremetadata)).into()
         }
         unsafe extern "system" fn GetRestoreMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrestoremetadata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -288,30 +288,30 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRestoreTarget(::core::mem::transmute_copy(&ptarget)).into()
         }
-        unsafe extern "system" fn SetPreRestoreFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszprerestorefailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPreRestoreFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszprerestorefailuremsg: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPreRestoreFailureMsg(::core::mem::transmute_copy(&wszprerestorefailuremsg)).into()
+            (*this).SetPreRestoreFailureMsg(::core::mem::transmute(&wszprerestorefailuremsg)).into()
         }
         unsafe extern "system" fn GetPreRestoreFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprerestorefailuremsg: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPreRestoreFailureMsg(::core::mem::transmute_copy(&pbstrprerestorefailuremsg)).into()
         }
-        unsafe extern "system" fn SetPostRestoreFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpostrestorefailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPostRestoreFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpostrestorefailuremsg: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPostRestoreFailureMsg(::core::mem::transmute_copy(&wszpostrestorefailuremsg)).into()
+            (*this).SetPostRestoreFailureMsg(::core::mem::transmute(&wszpostrestorefailuremsg)).into()
         }
         unsafe extern "system" fn GetPostRestoreFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpostrestorefailuremsg: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPostRestoreFailureMsg(::core::mem::transmute_copy(&pbstrpostrestorefailuremsg)).into()
         }
-        unsafe extern "system" fn SetBackupStamp<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszbackupstamp: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackupStamp<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszbackupstamp: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBackupStamp(::core::mem::transmute_copy(&wszbackupstamp)).into()
+            (*this).SetBackupStamp(::core::mem::transmute(&wszbackupstamp)).into()
         }
         unsafe extern "system" fn GetBackupStamp<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupstamp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -348,15 +348,15 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetFileRestoreStatus(::core::mem::transmute_copy(&pstatus)).into()
         }
-        unsafe extern "system" fn AddDifferencedFilesByLastModifyTime<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: super::super::Foundation::BOOL, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDifferencedFilesByLastModifyTime<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: super::super::Foundation::BOOL, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddDifferencedFilesByLastModifyTime(::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&ftlastmodifytime)).into()
+            (*this).AddDifferencedFilesByLastModifyTime(::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&ftlastmodifytime)).into()
         }
-        unsafe extern "system" fn AddDifferencedFilesByLastModifyLSN<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDifferencedFilesByLastModifyLSN<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddDifferencedFilesByLastModifyLSN(::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&bstrlsnstring)).into()
+            (*this).AddDifferencedFilesByLastModifyLSN(::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&bstrlsnstring)).into()
         }
         unsafe extern "system" fn GetDifferencedFilesCount<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdifferencedfiles: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -416,8 +416,8 @@ impl IVssComponent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssComponentEx_Impl: Sized + IVssComponent_Impl {
-    fn SetPrepareForBackupFailureMsg(&self, wszfailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetPostSnapshotFailureMsg(&self, wszfailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetPrepareForBackupFailureMsg(&self, wszfailuremsg: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn SetPostSnapshotFailureMsg(&self, wszfailuremsg: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetPrepareForBackupFailureMsg(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetPostSnapshotFailureMsg(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetAuthoritativeRestore(&self) -> ::windows::core::Result<bool>;
@@ -427,15 +427,15 @@ pub trait IVssComponentEx_Impl: Sized + IVssComponent_Impl {
 #[cfg(feature = "Win32_Foundation")]
 impl IVssComponentEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx_Impl, const OFFSET: isize>() -> IVssComponentEx_Vtbl {
-        unsafe extern "system" fn SetPrepareForBackupFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszfailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrepareForBackupFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszfailuremsg: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPrepareForBackupFailureMsg(::core::mem::transmute_copy(&wszfailuremsg)).into()
+            (*this).SetPrepareForBackupFailureMsg(::core::mem::transmute(&wszfailuremsg)).into()
         }
-        unsafe extern "system" fn SetPostSnapshotFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszfailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPostSnapshotFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszfailuremsg: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPostSnapshotFailureMsg(::core::mem::transmute_copy(&wszfailuremsg)).into()
+            (*this).SetPostSnapshotFailureMsg(::core::mem::transmute(&wszfailuremsg)).into()
         }
         unsafe extern "system" fn GetPrepareForBackupFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -503,16 +503,16 @@ impl IVssComponentEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssComponentEx2_Impl: Sized + IVssComponent_Impl + IVssComponentEx_Impl {
-    fn SetFailure(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn SetFailure(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: &::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
     fn GetFailure(&self, phr: *mut ::windows::core::HRESULT, phrapplication: *mut ::windows::core::HRESULT, pbstrapplicationmessage: *mut super::super::Foundation::BSTR, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssComponentEx2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx2_Impl, const OFFSET: isize>() -> IVssComponentEx2_Vtbl {
-        unsafe extern "system" fn SetFailure<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFailure<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFailure(::core::mem::transmute_copy(&hr), ::core::mem::transmute_copy(&hrapplication), ::core::mem::transmute_copy(&wszapplicationmessage), ::core::mem::transmute_copy(&dwreserved)).into()
+            (*this).SetFailure(::core::mem::transmute_copy(&hr), ::core::mem::transmute_copy(&hrapplication), ::core::mem::transmute(&wszapplicationmessage), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         unsafe extern "system" fn GetFailure<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phr: *mut ::windows::core::HRESULT, phrapplication: *mut ::windows::core::HRESULT, pbstrapplicationmessage: *mut super::super::Foundation::BSTR, pdwreserved: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -531,55 +531,43 @@ impl IVssComponentEx2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssCreateExpressWriterMetadata_Impl: Sized {
-    fn AddExcludeFiles(&self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8) -> ::windows::core::Result<()>;
-    fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcaption: super::super::Foundation::PWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>;
-    fn AddFilesToFileGroup(&self, wszlogicalpath: super::super::Foundation::PWSTR, wszgroupname: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
-    fn SetRestoreMethod(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: super::super::Foundation::PWSTR, wszuserprocedure: super::super::Foundation::PWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>;
-    fn AddComponentDependency(&self, wszforlogicalpath: super::super::Foundation::PWSTR, wszforcomponentname: super::super::Foundation::PWSTR, onwriterid: &::windows::core::GUID, wszonlogicalpath: super::super::Foundation::PWSTR, wszoncomponentname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddExcludeFiles(&self, wszpath: &::windows::core::PCWSTR, wszfilespec: &::windows::core::PCWSTR, brecursive: u8) -> ::windows::core::Result<()>;
+    fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: &::windows::core::PCWSTR, wszcomponentname: &::windows::core::PCWSTR, wszcaption: &::windows::core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>;
+    fn AddFilesToFileGroup(&self, wszlogicalpath: &::windows::core::PCWSTR, wszgroupname: &::windows::core::PCWSTR, wszpath: &::windows::core::PCWSTR, wszfilespec: &::windows::core::PCWSTR, brecursive: u8, wszalternatelocation: &::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
+    fn SetRestoreMethod(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: &::windows::core::PCWSTR, wszuserprocedure: &::windows::core::PCWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>;
+    fn AddComponentDependency(&self, wszforlogicalpath: &::windows::core::PCWSTR, wszforcomponentname: &::windows::core::PCWSTR, onwriterid: &::windows::core::GUID, wszonlogicalpath: &::windows::core::PCWSTR, wszoncomponentname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetBackupSchema(&self, dwschemamask: u32) -> ::windows::core::Result<()>;
     fn SaveAsXML(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssCreateExpressWriterMetadata_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>() -> IVssCreateExpressWriterMetadata_Vtbl {
-        unsafe extern "system" fn AddExcludeFiles<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddExcludeFiles<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddExcludeFiles(::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&brecursive)).into()
+            (*this).AddExcludeFiles(::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive)).into()
         }
-        unsafe extern "system" fn AddComponent<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ct: VSS_COMPONENT_TYPE, wszlogicalpath: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcaption: super::super::Foundation::PWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddComponent<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ct: VSS_COMPONENT_TYPE, wszlogicalpath: ::windows::core::PCWSTR, wszcomponentname: ::windows::core::PCWSTR, wszcaption: ::windows::core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this)
-                .AddComponent(
-                    ::core::mem::transmute_copy(&ct),
-                    ::core::mem::transmute_copy(&wszlogicalpath),
-                    ::core::mem::transmute_copy(&wszcomponentname),
-                    ::core::mem::transmute_copy(&wszcaption),
-                    ::core::mem::transmute_copy(&pbicon),
-                    ::core::mem::transmute_copy(&cbicon),
-                    ::core::mem::transmute_copy(&brestoremetadata),
-                    ::core::mem::transmute_copy(&bnotifyonbackupcomplete),
-                    ::core::mem::transmute_copy(&bselectable),
-                    ::core::mem::transmute_copy(&bselectableforrestore),
-                    ::core::mem::transmute_copy(&dwcomponentflags),
-                )
+                .AddComponent(::core::mem::transmute_copy(&ct), ::core::mem::transmute(&wszlogicalpath), ::core::mem::transmute(&wszcomponentname), ::core::mem::transmute(&wszcaption), ::core::mem::transmute_copy(&pbicon), ::core::mem::transmute_copy(&cbicon), ::core::mem::transmute_copy(&brestoremetadata), ::core::mem::transmute_copy(&bnotifyonbackupcomplete), ::core::mem::transmute_copy(&bselectable), ::core::mem::transmute_copy(&bselectableforrestore), ::core::mem::transmute_copy(&dwcomponentflags))
                 .into()
         }
-        unsafe extern "system" fn AddFilesToFileGroup<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlogicalpath: super::super::Foundation::PWSTR, wszgroupname: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddFilesToFileGroup<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows::core::PCWSTR, wszgroupname: ::windows::core::PCWSTR, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: u8, wszalternatelocation: ::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddFilesToFileGroup(::core::mem::transmute_copy(&wszlogicalpath), ::core::mem::transmute_copy(&wszgroupname), ::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute_copy(&wszalternatelocation), ::core::mem::transmute_copy(&dwbackuptypemask)).into()
+            (*this).AddFilesToFileGroup(::core::mem::transmute(&wszlogicalpath), ::core::mem::transmute(&wszgroupname), ::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&wszalternatelocation), ::core::mem::transmute_copy(&dwbackuptypemask)).into()
         }
-        unsafe extern "system" fn SetRestoreMethod<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: VSS_RESTOREMETHOD_ENUM, wszservice: super::super::Foundation::PWSTR, wszuserprocedure: super::super::Foundation::PWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRestoreMethod<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: VSS_RESTOREMETHOD_ENUM, wszservice: ::windows::core::PCWSTR, wszuserprocedure: ::windows::core::PCWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRestoreMethod(::core::mem::transmute_copy(&method), ::core::mem::transmute_copy(&wszservice), ::core::mem::transmute_copy(&wszuserprocedure), ::core::mem::transmute_copy(&writerrestore), ::core::mem::transmute_copy(&brebootrequired)).into()
+            (*this).SetRestoreMethod(::core::mem::transmute_copy(&method), ::core::mem::transmute(&wszservice), ::core::mem::transmute(&wszuserprocedure), ::core::mem::transmute_copy(&writerrestore), ::core::mem::transmute_copy(&brebootrequired)).into()
         }
-        unsafe extern "system" fn AddComponentDependency<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszforlogicalpath: super::super::Foundation::PWSTR, wszforcomponentname: super::super::Foundation::PWSTR, onwriterid: ::windows::core::GUID, wszonlogicalpath: super::super::Foundation::PWSTR, wszoncomponentname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddComponentDependency<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszforlogicalpath: ::windows::core::PCWSTR, wszforcomponentname: ::windows::core::PCWSTR, onwriterid: ::windows::core::GUID, wszonlogicalpath: ::windows::core::PCWSTR, wszoncomponentname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddComponentDependency(::core::mem::transmute_copy(&wszforlogicalpath), ::core::mem::transmute_copy(&wszforcomponentname), ::core::mem::transmute(&onwriterid), ::core::mem::transmute_copy(&wszonlogicalpath), ::core::mem::transmute_copy(&wszoncomponentname)).into()
+            (*this).AddComponentDependency(::core::mem::transmute(&wszforlogicalpath), ::core::mem::transmute(&wszforcomponentname), ::core::mem::transmute(&onwriterid), ::core::mem::transmute(&wszonlogicalpath), ::core::mem::transmute(&wszoncomponentname)).into()
         }
         unsafe extern "system" fn SetBackupSchema<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwschemamask: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -614,15 +602,15 @@ impl IVssCreateExpressWriterMetadata_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IVssCreateWriterMetadata_Impl: Sized {
-    fn AddIncludeFiles(&self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddExcludeFiles(&self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8) -> ::windows::core::Result<()>;
-    fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcaption: super::super::Foundation::PWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>;
-    fn AddDatabaseFiles(&self, wszlogicalpath: super::super::Foundation::PWSTR, wszdatabasename: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
-    fn AddDatabaseLogFiles(&self, wszlogicalpath: super::super::Foundation::PWSTR, wszdatabasename: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
-    fn AddFilesToFileGroup(&self, wszlogicalpath: super::super::Foundation::PWSTR, wszgroupname: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
-    fn SetRestoreMethod(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: super::super::Foundation::PWSTR, wszuserprocedure: super::super::Foundation::PWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>;
-    fn AddAlternateLocationMapping(&self, wszsourcepath: super::super::Foundation::PWSTR, wszsourcefilespec: super::super::Foundation::PWSTR, brecursive: u8, wszdestination: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddComponentDependency(&self, wszforlogicalpath: super::super::Foundation::PWSTR, wszforcomponentname: super::super::Foundation::PWSTR, onwriterid: &::windows::core::GUID, wszonlogicalpath: super::super::Foundation::PWSTR, wszoncomponentname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddIncludeFiles(&self, wszpath: &::windows::core::PCWSTR, wszfilespec: &::windows::core::PCWSTR, brecursive: u8, wszalternatelocation: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn AddExcludeFiles(&self, wszpath: &::windows::core::PCWSTR, wszfilespec: &::windows::core::PCWSTR, brecursive: u8) -> ::windows::core::Result<()>;
+    fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: &::windows::core::PCWSTR, wszcomponentname: &::windows::core::PCWSTR, wszcaption: &::windows::core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>;
+    fn AddDatabaseFiles(&self, wszlogicalpath: &::windows::core::PCWSTR, wszdatabasename: &::windows::core::PCWSTR, wszpath: &::windows::core::PCWSTR, wszfilespec: &::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
+    fn AddDatabaseLogFiles(&self, wszlogicalpath: &::windows::core::PCWSTR, wszdatabasename: &::windows::core::PCWSTR, wszpath: &::windows::core::PCWSTR, wszfilespec: &::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
+    fn AddFilesToFileGroup(&self, wszlogicalpath: &::windows::core::PCWSTR, wszgroupname: &::windows::core::PCWSTR, wszpath: &::windows::core::PCWSTR, wszfilespec: &::windows::core::PCWSTR, brecursive: u8, wszalternatelocation: &::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
+    fn SetRestoreMethod(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: &::windows::core::PCWSTR, wszuserprocedure: &::windows::core::PCWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>;
+    fn AddAlternateLocationMapping(&self, wszsourcepath: &::windows::core::PCWSTR, wszsourcefilespec: &::windows::core::PCWSTR, brecursive: u8, wszdestination: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn AddComponentDependency(&self, wszforlogicalpath: &::windows::core::PCWSTR, wszforcomponentname: &::windows::core::PCWSTR, onwriterid: &::windows::core::GUID, wszonlogicalpath: &::windows::core::PCWSTR, wszoncomponentname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetBackupSchema(&self, dwschemamask: u32) -> ::windows::core::Result<()>;
     fn GetDocument(&self) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument>;
     fn SaveAsXML(&self, pbstrxml: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -630,64 +618,52 @@ pub trait IVssCreateWriterMetadata_Impl: Sized {
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVssCreateWriterMetadata_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>() -> IVssCreateWriterMetadata_Vtbl {
-        unsafe extern "system" fn AddIncludeFiles<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddIncludeFiles<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: u8, wszalternatelocation: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddIncludeFiles(::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute_copy(&wszalternatelocation)).into()
+            (*this).AddIncludeFiles(::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&wszalternatelocation)).into()
         }
-        unsafe extern "system" fn AddExcludeFiles<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddExcludeFiles<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddExcludeFiles(::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&brecursive)).into()
+            (*this).AddExcludeFiles(::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive)).into()
         }
-        unsafe extern "system" fn AddComponent<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ct: VSS_COMPONENT_TYPE, wszlogicalpath: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcaption: super::super::Foundation::PWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddComponent<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ct: VSS_COMPONENT_TYPE, wszlogicalpath: ::windows::core::PCWSTR, wszcomponentname: ::windows::core::PCWSTR, wszcaption: ::windows::core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this)
-                .AddComponent(
-                    ::core::mem::transmute_copy(&ct),
-                    ::core::mem::transmute_copy(&wszlogicalpath),
-                    ::core::mem::transmute_copy(&wszcomponentname),
-                    ::core::mem::transmute_copy(&wszcaption),
-                    ::core::mem::transmute_copy(&pbicon),
-                    ::core::mem::transmute_copy(&cbicon),
-                    ::core::mem::transmute_copy(&brestoremetadata),
-                    ::core::mem::transmute_copy(&bnotifyonbackupcomplete),
-                    ::core::mem::transmute_copy(&bselectable),
-                    ::core::mem::transmute_copy(&bselectableforrestore),
-                    ::core::mem::transmute_copy(&dwcomponentflags),
-                )
+                .AddComponent(::core::mem::transmute_copy(&ct), ::core::mem::transmute(&wszlogicalpath), ::core::mem::transmute(&wszcomponentname), ::core::mem::transmute(&wszcaption), ::core::mem::transmute_copy(&pbicon), ::core::mem::transmute_copy(&cbicon), ::core::mem::transmute_copy(&brestoremetadata), ::core::mem::transmute_copy(&bnotifyonbackupcomplete), ::core::mem::transmute_copy(&bselectable), ::core::mem::transmute_copy(&bselectableforrestore), ::core::mem::transmute_copy(&dwcomponentflags))
                 .into()
         }
-        unsafe extern "system" fn AddDatabaseFiles<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlogicalpath: super::super::Foundation::PWSTR, wszdatabasename: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDatabaseFiles<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows::core::PCWSTR, wszdatabasename: ::windows::core::PCWSTR, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddDatabaseFiles(::core::mem::transmute_copy(&wszlogicalpath), ::core::mem::transmute_copy(&wszdatabasename), ::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&dwbackuptypemask)).into()
+            (*this).AddDatabaseFiles(::core::mem::transmute(&wszlogicalpath), ::core::mem::transmute(&wszdatabasename), ::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&dwbackuptypemask)).into()
         }
-        unsafe extern "system" fn AddDatabaseLogFiles<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlogicalpath: super::super::Foundation::PWSTR, wszdatabasename: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDatabaseLogFiles<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows::core::PCWSTR, wszdatabasename: ::windows::core::PCWSTR, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddDatabaseLogFiles(::core::mem::transmute_copy(&wszlogicalpath), ::core::mem::transmute_copy(&wszdatabasename), ::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&dwbackuptypemask)).into()
+            (*this).AddDatabaseLogFiles(::core::mem::transmute(&wszlogicalpath), ::core::mem::transmute(&wszdatabasename), ::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&dwbackuptypemask)).into()
         }
-        unsafe extern "system" fn AddFilesToFileGroup<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlogicalpath: super::super::Foundation::PWSTR, wszgroupname: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddFilesToFileGroup<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows::core::PCWSTR, wszgroupname: ::windows::core::PCWSTR, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: u8, wszalternatelocation: ::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddFilesToFileGroup(::core::mem::transmute_copy(&wszlogicalpath), ::core::mem::transmute_copy(&wszgroupname), ::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute_copy(&wszalternatelocation), ::core::mem::transmute_copy(&dwbackuptypemask)).into()
+            (*this).AddFilesToFileGroup(::core::mem::transmute(&wszlogicalpath), ::core::mem::transmute(&wszgroupname), ::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&wszalternatelocation), ::core::mem::transmute_copy(&dwbackuptypemask)).into()
         }
-        unsafe extern "system" fn SetRestoreMethod<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: VSS_RESTOREMETHOD_ENUM, wszservice: super::super::Foundation::PWSTR, wszuserprocedure: super::super::Foundation::PWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRestoreMethod<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: VSS_RESTOREMETHOD_ENUM, wszservice: ::windows::core::PCWSTR, wszuserprocedure: ::windows::core::PCWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRestoreMethod(::core::mem::transmute_copy(&method), ::core::mem::transmute_copy(&wszservice), ::core::mem::transmute_copy(&wszuserprocedure), ::core::mem::transmute_copy(&writerrestore), ::core::mem::transmute_copy(&brebootrequired)).into()
+            (*this).SetRestoreMethod(::core::mem::transmute_copy(&method), ::core::mem::transmute(&wszservice), ::core::mem::transmute(&wszuserprocedure), ::core::mem::transmute_copy(&writerrestore), ::core::mem::transmute_copy(&brebootrequired)).into()
         }
-        unsafe extern "system" fn AddAlternateLocationMapping<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszsourcepath: super::super::Foundation::PWSTR, wszsourcefilespec: super::super::Foundation::PWSTR, brecursive: u8, wszdestination: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddAlternateLocationMapping<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszsourcepath: ::windows::core::PCWSTR, wszsourcefilespec: ::windows::core::PCWSTR, brecursive: u8, wszdestination: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddAlternateLocationMapping(::core::mem::transmute_copy(&wszsourcepath), ::core::mem::transmute_copy(&wszsourcefilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute_copy(&wszdestination)).into()
+            (*this).AddAlternateLocationMapping(::core::mem::transmute(&wszsourcepath), ::core::mem::transmute(&wszsourcefilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&wszdestination)).into()
         }
-        unsafe extern "system" fn AddComponentDependency<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszforlogicalpath: super::super::Foundation::PWSTR, wszforcomponentname: super::super::Foundation::PWSTR, onwriterid: ::windows::core::GUID, wszonlogicalpath: super::super::Foundation::PWSTR, wszoncomponentname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddComponentDependency<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszforlogicalpath: ::windows::core::PCWSTR, wszforcomponentname: ::windows::core::PCWSTR, onwriterid: ::windows::core::GUID, wszonlogicalpath: ::windows::core::PCWSTR, wszoncomponentname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddComponentDependency(::core::mem::transmute_copy(&wszforlogicalpath), ::core::mem::transmute_copy(&wszforcomponentname), ::core::mem::transmute(&onwriterid), ::core::mem::transmute_copy(&wszonlogicalpath), ::core::mem::transmute_copy(&wszoncomponentname)).into()
+            (*this).AddComponentDependency(::core::mem::transmute(&wszforlogicalpath), ::core::mem::transmute(&wszforcomponentname), ::core::mem::transmute(&onwriterid), ::core::mem::transmute(&wszonlogicalpath), ::core::mem::transmute(&wszoncomponentname)).into()
         }
         unsafe extern "system" fn SetBackupSchema<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwschemamask: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -990,20 +966,18 @@ impl IVssEnumObject_Vtbl {
         iid == &<IVssEnumObject as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVssExpressWriter_Impl: Sized {
-    fn CreateMetadata(&self, writerid: &::windows::core::GUID, writername: super::super::Foundation::PWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32) -> ::windows::core::Result<IVssCreateExpressWriterMetadata>;
-    fn LoadMetadata(&self, metadata: super::super::Foundation::PWSTR, reserved: u32) -> ::windows::core::Result<()>;
+    fn CreateMetadata(&self, writerid: &::windows::core::GUID, writername: &::windows::core::PCWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32) -> ::windows::core::Result<IVssCreateExpressWriterMetadata>;
+    fn LoadMetadata(&self, metadata: &::windows::core::PCWSTR, reserved: u32) -> ::windows::core::Result<()>;
     fn Register(&self) -> ::windows::core::Result<()>;
     fn Unregister(&self, writerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IVssExpressWriter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssExpressWriter_Impl, const OFFSET: isize>() -> IVssExpressWriter_Vtbl {
-        unsafe extern "system" fn CreateMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssExpressWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writerid: ::windows::core::GUID, writername: super::super::Foundation::PWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32, ppmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssExpressWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writerid: ::windows::core::GUID, writername: ::windows::core::PCWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32, ppmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateMetadata(::core::mem::transmute(&writerid), ::core::mem::transmute_copy(&writername), ::core::mem::transmute_copy(&usagetype), ::core::mem::transmute_copy(&versionmajor), ::core::mem::transmute_copy(&versionminor), ::core::mem::transmute_copy(&reserved)) {
+            match (*this).CreateMetadata(::core::mem::transmute(&writerid), ::core::mem::transmute(&writername), ::core::mem::transmute_copy(&usagetype), ::core::mem::transmute_copy(&versionmajor), ::core::mem::transmute_copy(&versionminor), ::core::mem::transmute_copy(&reserved)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppmetadata = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1011,10 +985,10 @@ impl IVssExpressWriter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssExpressWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadata: super::super::Foundation::PWSTR, reserved: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssExpressWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadata: ::windows::core::PCWSTR, reserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).LoadMetadata(::core::mem::transmute_copy(&metadata), ::core::mem::transmute_copy(&reserved)).into()
+            (*this).LoadMetadata(::core::mem::transmute(&metadata), ::core::mem::transmute_copy(&reserved)).into()
         }
         unsafe extern "system" fn Register<Identity: ::windows::core::IUnknownImpl, Impl: IVssExpressWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1658,19 +1632,18 @@ impl IVssWriterComponents_Vtbl {
         iid == &<IVssWriterComponents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVssWriterImpl_Impl: Sized {
-    fn Initialize(&self, writerid: &::windows::core::GUID, wszwritername: super::super::Foundation::PWSTR, wszwriterinstancename: super::super::Foundation::PWSTR, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows::core::Result<()>;
+    fn Initialize(&self, writerid: &::windows::core::GUID, wszwritername: &::windows::core::PCWSTR, wszwriterinstancename: &::windows::core::PCWSTR, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows::core::Result<()>;
     fn Subscribe(&self, dwsubscribetimeout: u32, dweventflags: u32) -> ::windows::core::Result<()>;
     fn Unsubscribe(&self) -> ::windows::core::Result<()>;
     fn Uninitialize(&self);
-    fn GetCurrentVolumeArray(&self) -> *mut super::super::Foundation::PWSTR;
+    fn GetCurrentVolumeArray(&self) -> *mut ::windows::core::PWSTR;
     fn GetCurrentVolumeCount(&self) -> u32;
-    fn GetSnapshotDeviceName(&self, wszoriginalvolume: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetSnapshotDeviceName(&self, wszoriginalvolume: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetCurrentSnapshotSetId(&self) -> ::windows::core::GUID;
     fn GetContext(&self) -> i32;
     fn GetCurrentLevel(&self) -> VSS_APPLICATION_LEVEL;
-    fn IsPathAffected(&self, wszpath: super::super::Foundation::PWSTR) -> bool;
+    fn IsPathAffected(&self, wszpath: &::windows::core::PCWSTR) -> bool;
     fn IsBootableSystemStateBackedUp(&self) -> bool;
     fn AreComponentsSelected(&self) -> bool;
     fn GetBackupType(&self) -> VSS_BACKUP_TYPE;
@@ -1679,19 +1652,16 @@ pub trait IVssWriterImpl_Impl: Sized {
     fn IsPartialFileSupportEnabled(&self) -> bool;
     fn InstallAlternateWriter(&self, idwriter: &::windows::core::GUID, clsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetIdentityInformation(&self) -> *mut IVssExamineWriterMetadata;
-    fn SetWriterFailureEx(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetWriterFailureEx(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetSessionId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn IsWriterShuttingDown(&self) -> bool;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IVssWriterImpl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>() -> IVssWriterImpl_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writerid: ::windows::core::GUID, wszwritername: super::super::Foundation::PWSTR, wszwriterinstancename: super::super::Foundation::PWSTR, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writerid: ::windows::core::GUID, wszwritername: ::windows::core::PCWSTR, wszwriterinstancename: ::windows::core::PCWSTR, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this)
-                .Initialize(::core::mem::transmute(&writerid), ::core::mem::transmute_copy(&wszwritername), ::core::mem::transmute_copy(&wszwriterinstancename), ::core::mem::transmute_copy(&dwmajorversion), ::core::mem::transmute_copy(&dwminorversion), ::core::mem::transmute_copy(&ut), ::core::mem::transmute_copy(&st), ::core::mem::transmute_copy(&nlevel), ::core::mem::transmute_copy(&dwtimeout), ::core::mem::transmute_copy(&aws), ::core::mem::transmute_copy(&biothrottlingonly))
-                .into()
+            (*this).Initialize(::core::mem::transmute(&writerid), ::core::mem::transmute(&wszwritername), ::core::mem::transmute(&wszwriterinstancename), ::core::mem::transmute_copy(&dwmajorversion), ::core::mem::transmute_copy(&dwminorversion), ::core::mem::transmute_copy(&ut), ::core::mem::transmute_copy(&st), ::core::mem::transmute_copy(&nlevel), ::core::mem::transmute_copy(&dwtimeout), ::core::mem::transmute_copy(&aws), ::core::mem::transmute_copy(&biothrottlingonly)).into()
         }
         unsafe extern "system" fn Subscribe<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsubscribetimeout: u32, dweventflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1708,7 +1678,7 @@ impl IVssWriterImpl_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Uninitialize()
         }
-        unsafe extern "system" fn GetCurrentVolumeArray<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut super::super::Foundation::PWSTR {
+        unsafe extern "system" fn GetCurrentVolumeArray<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::windows::core::PWSTR {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetCurrentVolumeArray()
@@ -1718,10 +1688,10 @@ impl IVssWriterImpl_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetCurrentVolumeCount()
         }
-        unsafe extern "system" fn GetSnapshotDeviceName<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszoriginalvolume: super::super::Foundation::PWSTR, ppwszsnapshotdevice: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSnapshotDeviceName<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszoriginalvolume: ::windows::core::PCWSTR, ppwszsnapshotdevice: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSnapshotDeviceName(::core::mem::transmute_copy(&wszoriginalvolume)) {
+            match (*this).GetSnapshotDeviceName(::core::mem::transmute(&wszoriginalvolume)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwszsnapshotdevice = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1744,10 +1714,10 @@ impl IVssWriterImpl_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetCurrentLevel()
         }
-        unsafe extern "system" fn IsPathAffected<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: super::super::Foundation::PWSTR) -> bool {
+        unsafe extern "system" fn IsPathAffected<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR) -> bool {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsPathAffected(::core::mem::transmute_copy(&wszpath))
+            (*this).IsPathAffected(::core::mem::transmute(&wszpath))
         }
         unsafe extern "system" fn IsBootableSystemStateBackedUp<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1789,10 +1759,10 @@ impl IVssWriterImpl_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetIdentityInformation()
         }
-        unsafe extern "system" fn SetWriterFailureEx<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWriterFailureEx<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetWriterFailureEx(::core::mem::transmute_copy(&hr), ::core::mem::transmute_copy(&hrapplication), ::core::mem::transmute_copy(&wszapplicationmessage)).into()
+            (*this).SetWriterFailureEx(::core::mem::transmute_copy(&hr), ::core::mem::transmute_copy(&hrapplication), ::core::mem::transmute(&wszapplicationmessage)).into()
         }
         unsafe extern "system" fn GetSessionId<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idsession: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
