@@ -24,6 +24,10 @@ mod unknown;
 mod waiter;
 mod weak;
 mod weak_ref_count;
+mod pcstr;
+mod pcwstr;
+mod pstr;
+mod pwstr;
 
 #[doc(hidden)]
 pub use abi::*;
@@ -67,6 +71,10 @@ pub use waiter::*;
 pub use weak::*;
 #[doc(hidden)]
 pub use weak_ref_count::*;
+pub use pcstr::*;
+pub use pstr::*;
+pub use pwstr::*;
+pub use pcwstr::*;
 
 // A [`Result`] type that provides Windows error information.
 #[must_use]

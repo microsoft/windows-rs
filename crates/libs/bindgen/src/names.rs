@@ -160,6 +160,22 @@ pub fn gen_element_name(def: &Type, gen: &Gen) -> TokenStream {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::HRESULT }
         }
+        Type::PSTR => {
+            let crate_name = gen_crate_name(gen);
+            quote! { ::#crate_name::core::PSTR }
+        }
+        Type::PWSTR => {
+            let crate_name = gen_crate_name(gen);
+            quote! { ::#crate_name::core::PWSTR }
+        }
+        Type::PCSTR => {
+            let crate_name = gen_crate_name(gen);
+            quote! { ::#crate_name::core::PCSTR }
+        }
+        Type::PCWSTR => {
+            let crate_name = gen_crate_name(gen);
+            quote! { ::#crate_name::core::PCWSTR }
+        }
         Type::Win32Array((kind, len)) => {
             let name = gen_default_type(kind, gen);
             let len = Literal::u32_unsuffixed(*len);
