@@ -12,52 +12,50 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn DecodeImage(pstream: super::super::System::Com::IStream, pmap: IMapMIMEToCLSID, peventsink: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn DecodeImageEx(pstream: super::super::System::Com::IStream, pmap: IMapMIMEToCLSID, peventsink: ::windows_sys::core::IUnknown, pszmimetypeparam: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn DecodeImageEx(pstream: super::super::System::Com::IStream, pmap: IMapMIMEToCLSID, peventsink: ::windows_sys::core::IUnknown, pszmimetypeparam: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn DitherTo8(pdestbits: *mut u8, ndestpitch: i32, psrcbits: *mut u8, nsrcpitch: i32, bfidsrc: *const ::windows_sys::core::GUID, prgbdestcolors: *mut super::super::Graphics::Gdi::RGBQUAD, prgbsrccolors: *mut super::super::Graphics::Gdi::RGBQUAD, pbdestinvmap: *mut u8, x: i32, y: i32, cx: i32, cy: i32, ldesttrans: i32, lsrctrans: i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DoPrivacyDlg(hwndowner: super::super::Foundation::HWND, pszurl: super::super::Foundation::PWSTR, pprivacyenum: IEnumPrivacyRecords, freportallsites: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn DoPrivacyDlg(hwndowner: super::super::Foundation::HWND, pszurl: ::windows_sys::core::PCWSTR, pprivacyenum: IEnumPrivacyRecords, freportallsites: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
     pub fn GetMaxMIMEIDBytes(pnmaxbytes: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
     pub fn IdentifyMIMEType(pbbytes: *const u8, nbytes: u32, pnformat: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingAccessDeniedDialog(hdlg: super::super::Foundation::HWND, pszusername: super::super::Foundation::PSTR, pszcontentdescription: super::super::Foundation::PSTR, pratingdetails: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn RatingAccessDeniedDialog(hdlg: super::super::Foundation::HWND, pszusername: ::windows_sys::core::PCSTR, pszcontentdescription: ::windows_sys::core::PCSTR, pratingdetails: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingAccessDeniedDialog2(hdlg: super::super::Foundation::HWND, pszusername: super::super::Foundation::PSTR, pratingdetails: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn RatingAccessDeniedDialog2(hdlg: super::super::Foundation::HWND, pszusername: ::windows_sys::core::PCSTR, pratingdetails: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingAccessDeniedDialog2W(hdlg: super::super::Foundation::HWND, pszusername: super::super::Foundation::PWSTR, pratingdetails: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn RatingAccessDeniedDialog2W(hdlg: super::super::Foundation::HWND, pszusername: ::windows_sys::core::PCWSTR, pratingdetails: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingAccessDeniedDialogW(hdlg: super::super::Foundation::HWND, pszusername: super::super::Foundation::PWSTR, pszcontentdescription: super::super::Foundation::PWSTR, pratingdetails: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn RatingAccessDeniedDialogW(hdlg: super::super::Foundation::HWND, pszusername: ::windows_sys::core::PCWSTR, pszcontentdescription: ::windows_sys::core::PCWSTR, pratingdetails: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingAddToApprovedSites(hdlg: super::super::Foundation::HWND, cbpasswordblob: u32, pbpasswordblob: *mut u8, lpszurl: super::super::Foundation::PWSTR, falwaysnever: super::super::Foundation::BOOL, fsitepage: super::super::Foundation::BOOL, fapprovedsitesenforced: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn RatingAddToApprovedSites(hdlg: super::super::Foundation::HWND, cbpasswordblob: u32, pbpasswordblob: *mut u8, lpszurl: ::windows_sys::core::PCWSTR, falwaysnever: super::super::Foundation::BOOL, fsitepage: super::super::Foundation::BOOL, fapprovedsitesenforced: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
+    pub fn RatingCheckUserAccess(pszusername: ::windows_sys::core::PCSTR, pszurl: ::windows_sys::core::PCSTR, pszratinginfo: ::windows_sys::core::PCSTR, pdata: *const u8, cbdata: u32, ppratingdetails: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
+    pub fn RatingCheckUserAccessW(pszusername: ::windows_sys::core::PCWSTR, pszurl: ::windows_sys::core::PCWSTR, pszratinginfo: ::windows_sys::core::PCWSTR, pdata: *const u8, cbdata: u32, ppratingdetails: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingCheckUserAccess(pszusername: super::super::Foundation::PSTR, pszurl: super::super::Foundation::PSTR, pszratinginfo: super::super::Foundation::PSTR, pdata: *const u8, cbdata: u32, ppratingdetails: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn RatingClickedOnPRFInternal(hwndowner: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, lpszfilename: ::windows_sys::core::PCSTR, nshow: i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingCheckUserAccessW(pszusername: super::super::Foundation::PWSTR, pszurl: super::super::Foundation::PWSTR, pszratinginfo: super::super::Foundation::PWSTR, pdata: *const u8, cbdata: u32, ppratingdetails: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn RatingClickedOnRATInternal(hwndowner: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, lpszfilename: ::windows_sys::core::PCSTR, nshow: i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingClickedOnPRFInternal(hwndowner: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, lpszfilename: super::super::Foundation::PSTR, nshow: i32) -> ::windows_sys::core::HRESULT;
+    pub fn RatingEnable(hwndparent: super::super::Foundation::HWND, pszusername: ::windows_sys::core::PCSTR, fenable: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingClickedOnRATInternal(hwndowner: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, lpszfilename: super::super::Foundation::PSTR, nshow: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingEnable(hwndparent: super::super::Foundation::HWND, pszusername: super::super::Foundation::PSTR, fenable: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingEnableW(hwndparent: super::super::Foundation::HWND, pszusername: super::super::Foundation::PWSTR, fenable: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn RatingEnableW(hwndparent: super::super::Foundation::HWND, pszusername: ::windows_sys::core::PCWSTR, fenable: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
     pub fn RatingEnabledQuery() -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
@@ -69,16 +67,16 @@ extern "system" {
     pub fn RatingObtainCancel(hratingobtainquery: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingObtainQuery(psztargeturl: super::super::Foundation::PSTR, dwuserdata: u32, fcallback: isize, phratingobtainquery: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+    pub fn RatingObtainQuery(psztargeturl: ::windows_sys::core::PCSTR, dwuserdata: u32, fcallback: isize, phratingobtainquery: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingObtainQueryW(psztargeturl: super::super::Foundation::PWSTR, dwuserdata: u32, fcallback: isize, phratingobtainquery: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+    pub fn RatingObtainQueryW(psztargeturl: ::windows_sys::core::PCWSTR, dwuserdata: u32, fcallback: isize, phratingobtainquery: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingSetupUI(hdlg: super::super::Foundation::HWND, pszusername: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
+    pub fn RatingSetupUI(hdlg: super::super::Foundation::HWND, pszusername: ::windows_sys::core::PCSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RatingSetupUIW(hdlg: super::super::Foundation::HWND, pszusername: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn RatingSetupUIW(hdlg: super::super::Foundation::HWND, pszusername: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn SniffStream(pinstream: super::super::System::Com::IStream, pnformat: *mut u32, ppoutstream: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
@@ -12240,18 +12238,15 @@ pub const DOCHOSTUIFLAG_ENABLE_ACTIVEX_INACTIVATE_MODE: DOCHOSTUIFLAG = 53687091
 #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
 pub const DOCHOSTUIFLAG_DPI_AWARE: DOCHOSTUIFLAG = 1073741824i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Web_MsHtml'*"]
 pub struct DOCHOSTUIINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub dwDoubleClick: u32,
-    pub pchHostCss: super::super::Foundation::PWSTR,
-    pub pchHostNS: super::super::Foundation::PWSTR,
+    pub pchHostCss: ::windows_sys::core::PWSTR,
+    pub pchHostNS: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DOCHOSTUIINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DOCHOSTUIINFO {
     fn clone(&self) -> Self {
         *self
@@ -14884,9 +14879,8 @@ pub const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5u32;
 pub const IEGetProcessModule_PROC_NAME: &'static str = "IEGetProcessModule";
 #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
 pub const IEGetTabWindowExports_PROC_NAME: &'static str = "IEGetTabWindowExports";
-#[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type IEISXMLNSREGISTEREDFN = ::core::option::Option<unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Web_MsHtml'*"]
+pub type IEISXMLNSREGISTEREDFN = ::core::option::Option<unsafe extern "system" fn(lpszuri: ::windows_sys::core::PCWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
 pub type IELAUNCHOPTION_FLAGS = i32;
 #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
@@ -14914,7 +14908,7 @@ impl ::core::clone::Clone for IELAUNCHURLINFO {
 pub const IEPROCESS_MODULE_NAME: &'static str = "IERtUtil.dll";
 #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type IEREGISTERXMLNSFN = ::core::option::Option<unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, clsid: ::windows_sys::core::GUID, fmachine: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT>;
+pub type IEREGISTERXMLNSFN = ::core::option::Option<unsafe extern "system" fn(lpszuri: ::windows_sys::core::PCWSTR, clsid: ::windows_sys::core::GUID, fmachine: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT>;
 pub const IEWebDriverManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2419149554, data2: 21072, data3: 18355, data4: [137, 216, 98, 149, 252, 35, 188, 34] };
 #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
 pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
@@ -16050,10 +16044,10 @@ pub const SELECTION_TYPE_Control: SELECTION_TYPE = 3i32;
 pub const SELECTION_TYPE_Max: SELECTION_TYPE = 2147483647i32;
 #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type SHOWHTMLDIALOGEXFN = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, dwdialogflags: u32, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT>;
+pub type SHOWHTMLDIALOGEXFN = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, dwdialogflags: u32, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: ::windows_sys::core::PCWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type SHOWHTMLDIALOGFN = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT>;
+pub type SHOWHTMLDIALOGFN = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: ::windows_sys::core::PCWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub type SHOWMODELESSHTMLDIALOGFN = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, pvarargin: *mut super::super::System::Com::VARIANT, pvaroptions: *mut super::super::System::Com::VARIANT, ppwindow: *mut IHTMLWindow2) -> ::windows_sys::core::HRESULT>;
@@ -16065,8 +16059,8 @@ pub const SID_SHTMLEditServices: ::windows_sys::core::GUID = ::windows_sys::core
 #[cfg(feature = "Win32_Foundation")]
 pub struct STATURL {
     pub cbSize: u32,
-    pub pwcsUrl: super::super::Foundation::PWSTR,
-    pub pwcsTitle: super::super::Foundation::PWSTR,
+    pub pwcsUrl: ::windows_sys::core::PWSTR,
+    pub pwcsTitle: ::windows_sys::core::PWSTR,
     pub ftLastVisited: super::super::Foundation::FILETIME,
     pub ftLastUpdated: super::super::Foundation::FILETIME,
     pub ftExpires: super::super::Foundation::FILETIME,

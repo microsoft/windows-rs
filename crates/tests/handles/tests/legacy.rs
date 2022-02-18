@@ -1,3 +1,4 @@
+use windows::core::*;
 use windows::Win32::Foundation::*;
 use windows::Win32::System::Registry::*;
 

@@ -4,9 +4,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_UserAccessLogging', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_UserAccessLogging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UalRegisterProduct(wszproductname: super::super::Foundation::PWSTR, wszrolename: super::super::Foundation::PWSTR, wszguid: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_UserAccessLogging'*"]
+    pub fn UalRegisterProduct(wszproductname: ::windows_sys::core::PCWSTR, wszrolename: ::windows_sys::core::PCWSTR, wszguid: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_UserAccessLogging', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows_sys::core::HRESULT;

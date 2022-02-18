@@ -207,17 +207,17 @@ impl IAlterTable_Vtbl {
         iid == &<IAlterTable as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IBindResource_Impl: Sized {
-    fn Bind(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Bind(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, pwszurl: &::windows::core::PCWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IBindResource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindResource_Impl, const OFFSET: isize>() -> IBindResource_Vtbl {
-        unsafe extern "system" fn Bind<Identity: ::windows::core::IUnknownImpl, Impl: IBindResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: ::windows::core::RawPtr, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Bind<Identity: ::windows::core::IUnknownImpl, Impl: IBindResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: ::windows::core::RawPtr, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Bind(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&pwszurl), ::core::mem::transmute_copy(&dwbindurlflags), ::core::mem::transmute_copy(&rguid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute(&pauthenticate), ::core::mem::transmute_copy(&pimplsession), ::core::mem::transmute_copy(&pdwbindstatus), ::core::mem::transmute_copy(&ppunk)).into()
+            (*this).Bind(::core::mem::transmute(&punkouter), ::core::mem::transmute(&pwszurl), ::core::mem::transmute_copy(&dwbindurlflags), ::core::mem::transmute_copy(&rguid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute(&pauthenticate), ::core::mem::transmute_copy(&pimplsession), ::core::mem::transmute_copy(&pdwbindstatus), ::core::mem::transmute_copy(&ppunk)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Bind: Bind::<Identity, Impl, OFFSET> }
     }
@@ -263,20 +263,20 @@ impl IChapteredRowset_Vtbl {
         iid == &<IChapteredRowset as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IColumnMapper_Impl: Sized {
-    fn GetPropInfoFromName(&self, wcspropname: super::super::Foundation::PWSTR, pppropid: *mut *mut super::super::Storage::IndexServer::DBID, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPropInfoFromName(&self, wcspropname: &::windows::core::PCWSTR, pppropid: *mut *mut super::super::Storage::IndexServer::DBID, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::Result<()>;
     fn GetPropInfoFromId(&self, ppropid: *const super::super::Storage::IndexServer::DBID, pwcsname: *mut *mut u16, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::Result<()>;
     fn EnumPropInfo(&self, ientry: u32, pwcsname: *const *const u16, pppropid: *mut *mut super::super::Storage::IndexServer::DBID, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::Result<()>;
     fn IsMapUpToDate(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IColumnMapper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColumnMapper_Impl, const OFFSET: isize>() -> IColumnMapper_Vtbl {
-        unsafe extern "system" fn GetPropInfoFromName<Identity: ::windows::core::IUnknownImpl, Impl: IColumnMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wcspropname: super::super::Foundation::PWSTR, pppropid: *mut *mut super::super::Storage::IndexServer::DBID, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropInfoFromName<Identity: ::windows::core::IUnknownImpl, Impl: IColumnMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wcspropname: ::windows::core::PCWSTR, pppropid: *mut *mut super::super::Storage::IndexServer::DBID, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetPropInfoFromName(::core::mem::transmute_copy(&wcspropname), ::core::mem::transmute_copy(&pppropid), ::core::mem::transmute_copy(&pproptype), ::core::mem::transmute_copy(&puiwidth)).into()
+            (*this).GetPropInfoFromName(::core::mem::transmute(&wcspropname), ::core::mem::transmute_copy(&pppropid), ::core::mem::transmute_copy(&pproptype), ::core::mem::transmute_copy(&puiwidth)).into()
         }
         unsafe extern "system" fn GetPropInfoFromId<Identity: ::windows::core::IUnknownImpl, Impl: IColumnMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropid: *const super::super::Storage::IndexServer::DBID, pwcsname: *mut *mut u16, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -305,17 +305,15 @@ impl IColumnMapper_Vtbl {
         iid == &<IColumnMapper as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IColumnMapperCreator_Impl: Sized {
-    fn GetColumnMapper(&self, wcsmachinename: super::super::Foundation::PWSTR, wcscatalogname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IColumnMapper>;
+    fn GetColumnMapper(&self, wcsmachinename: &::windows::core::PCWSTR, wcscatalogname: &::windows::core::PCWSTR) -> ::windows::core::Result<IColumnMapper>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IColumnMapperCreator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColumnMapperCreator_Impl, const OFFSET: isize>() -> IColumnMapperCreator_Vtbl {
-        unsafe extern "system" fn GetColumnMapper<Identity: ::windows::core::IUnknownImpl, Impl: IColumnMapperCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wcsmachinename: super::super::Foundation::PWSTR, wcscatalogname: super::super::Foundation::PWSTR, ppcolumnmapper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColumnMapper<Identity: ::windows::core::IUnknownImpl, Impl: IColumnMapperCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wcsmachinename: ::windows::core::PCWSTR, wcscatalogname: ::windows::core::PCWSTR, ppcolumnmapper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetColumnMapper(::core::mem::transmute_copy(&wcsmachinename), ::core::mem::transmute_copy(&wcscatalogname)) {
+            match (*this).GetColumnMapper(::core::mem::transmute(&wcsmachinename), ::core::mem::transmute(&wcscatalogname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcolumnmapper = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -329,12 +327,12 @@ impl IColumnMapperCreator_Vtbl {
         iid == &<IColumnMapperCreator as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait IColumnsInfo_Impl: Sized {
     fn GetColumnInfo(&self, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
     fn MapColumnIDs(&self, ccolumnids: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgcolumns: *mut usize) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl IColumnsInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColumnsInfo_Impl, const OFFSET: isize>() -> IColumnsInfo_Vtbl {
         unsafe extern "system" fn GetColumnInfo<Identity: ::windows::core::IUnknownImpl, Impl: IColumnsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
@@ -357,11 +355,11 @@ impl IColumnsInfo_Vtbl {
         iid == &<IColumnsInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait IColumnsInfo2_Impl: Sized + IColumnsInfo_Impl {
     fn GetRestrictedColumnInfo(&self, ccolumnidmasks: usize, rgcolumnidmasks: *const super::super::Storage::IndexServer::DBID, dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl IColumnsInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColumnsInfo2_Impl, const OFFSET: isize>() -> IColumnsInfo2_Vtbl {
         unsafe extern "system" fn GetRestrictedColumnInfo<Identity: ::windows::core::IUnknownImpl, Impl: IColumnsInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumnidmasks: usize, rgcolumnidmasks: *const super::super::Storage::IndexServer::DBID, dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
@@ -442,47 +440,45 @@ impl ICommand_Vtbl {
         iid == &<ICommand as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICommandCost_Impl: Sized {
-    fn GetAccumulatedCost(&self, pwszrowsetname: super::super::Foundation::PWSTR, pccostlimits: *mut u32, prgcostlimits: *mut *mut DBCOST) -> ::windows::core::Result<()>;
-    fn GetCostEstimate(&self, pwszrowsetname: super::super::Foundation::PWSTR, pccostestimates: *mut u32, prgcostestimates: *mut DBCOST) -> ::windows::core::Result<()>;
-    fn GetCostGoals(&self, pwszrowsetname: super::super::Foundation::PWSTR, pccostgoals: *mut u32, prgcostgoals: *mut DBCOST) -> ::windows::core::Result<()>;
-    fn GetCostLimits(&self, pwszrowsetname: super::super::Foundation::PWSTR, pccostlimits: *mut u32, prgcostlimits: *mut DBCOST) -> ::windows::core::Result<()>;
-    fn SetCostGoals(&self, pwszrowsetname: super::super::Foundation::PWSTR, ccostgoals: u32, rgcostgoals: *const DBCOST) -> ::windows::core::Result<()>;
-    fn SetCostLimits(&self, pwszrowsetname: super::super::Foundation::PWSTR, ccostlimits: u32, prgcostlimits: *mut DBCOST, dwexecutionflags: u32) -> ::windows::core::Result<()>;
+    fn GetAccumulatedCost(&self, pwszrowsetname: &::windows::core::PCWSTR, pccostlimits: *mut u32, prgcostlimits: *mut *mut DBCOST) -> ::windows::core::Result<()>;
+    fn GetCostEstimate(&self, pwszrowsetname: &::windows::core::PCWSTR, pccostestimates: *mut u32, prgcostestimates: *mut DBCOST) -> ::windows::core::Result<()>;
+    fn GetCostGoals(&self, pwszrowsetname: &::windows::core::PCWSTR, pccostgoals: *mut u32, prgcostgoals: *mut DBCOST) -> ::windows::core::Result<()>;
+    fn GetCostLimits(&self, pwszrowsetname: &::windows::core::PCWSTR, pccostlimits: *mut u32, prgcostlimits: *mut DBCOST) -> ::windows::core::Result<()>;
+    fn SetCostGoals(&self, pwszrowsetname: &::windows::core::PCWSTR, ccostgoals: u32, rgcostgoals: *const DBCOST) -> ::windows::core::Result<()>;
+    fn SetCostLimits(&self, pwszrowsetname: &::windows::core::PCWSTR, ccostlimits: u32, prgcostlimits: *mut DBCOST, dwexecutionflags: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ICommandCost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>() -> ICommandCost_Vtbl {
-        unsafe extern "system" fn GetAccumulatedCost<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, pccostlimits: *mut u32, prgcostlimits: *mut *mut DBCOST) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAccumulatedCost<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: ::windows::core::PCWSTR, pccostlimits: *mut u32, prgcostlimits: *mut *mut DBCOST) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetAccumulatedCost(::core::mem::transmute_copy(&pwszrowsetname), ::core::mem::transmute_copy(&pccostlimits), ::core::mem::transmute_copy(&prgcostlimits)).into()
+            (*this).GetAccumulatedCost(::core::mem::transmute(&pwszrowsetname), ::core::mem::transmute_copy(&pccostlimits), ::core::mem::transmute_copy(&prgcostlimits)).into()
         }
-        unsafe extern "system" fn GetCostEstimate<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, pccostestimates: *mut u32, prgcostestimates: *mut DBCOST) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCostEstimate<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: ::windows::core::PCWSTR, pccostestimates: *mut u32, prgcostestimates: *mut DBCOST) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCostEstimate(::core::mem::transmute_copy(&pwszrowsetname), ::core::mem::transmute_copy(&pccostestimates), ::core::mem::transmute_copy(&prgcostestimates)).into()
+            (*this).GetCostEstimate(::core::mem::transmute(&pwszrowsetname), ::core::mem::transmute_copy(&pccostestimates), ::core::mem::transmute_copy(&prgcostestimates)).into()
         }
-        unsafe extern "system" fn GetCostGoals<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, pccostgoals: *mut u32, prgcostgoals: *mut DBCOST) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCostGoals<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: ::windows::core::PCWSTR, pccostgoals: *mut u32, prgcostgoals: *mut DBCOST) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCostGoals(::core::mem::transmute_copy(&pwszrowsetname), ::core::mem::transmute_copy(&pccostgoals), ::core::mem::transmute_copy(&prgcostgoals)).into()
+            (*this).GetCostGoals(::core::mem::transmute(&pwszrowsetname), ::core::mem::transmute_copy(&pccostgoals), ::core::mem::transmute_copy(&prgcostgoals)).into()
         }
-        unsafe extern "system" fn GetCostLimits<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, pccostlimits: *mut u32, prgcostlimits: *mut DBCOST) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCostLimits<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: ::windows::core::PCWSTR, pccostlimits: *mut u32, prgcostlimits: *mut DBCOST) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCostLimits(::core::mem::transmute_copy(&pwszrowsetname), ::core::mem::transmute_copy(&pccostlimits), ::core::mem::transmute_copy(&prgcostlimits)).into()
+            (*this).GetCostLimits(::core::mem::transmute(&pwszrowsetname), ::core::mem::transmute_copy(&pccostlimits), ::core::mem::transmute_copy(&prgcostlimits)).into()
         }
-        unsafe extern "system" fn SetCostGoals<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, ccostgoals: u32, rgcostgoals: *const DBCOST) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCostGoals<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: ::windows::core::PCWSTR, ccostgoals: u32, rgcostgoals: *const DBCOST) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCostGoals(::core::mem::transmute_copy(&pwszrowsetname), ::core::mem::transmute_copy(&ccostgoals), ::core::mem::transmute_copy(&rgcostgoals)).into()
+            (*this).SetCostGoals(::core::mem::transmute(&pwszrowsetname), ::core::mem::transmute_copy(&ccostgoals), ::core::mem::transmute_copy(&rgcostgoals)).into()
         }
-        unsafe extern "system" fn SetCostLimits<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, ccostlimits: u32, prgcostlimits: *mut DBCOST, dwexecutionflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCostLimits<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: ::windows::core::PCWSTR, ccostlimits: u32, prgcostlimits: *mut DBCOST, dwexecutionflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCostLimits(::core::mem::transmute_copy(&pwszrowsetname), ::core::mem::transmute_copy(&ccostlimits), ::core::mem::transmute_copy(&prgcostlimits), ::core::mem::transmute_copy(&dwexecutionflags)).into()
+            (*this).SetCostLimits(::core::mem::transmute(&pwszrowsetname), ::core::mem::transmute_copy(&ccostlimits), ::core::mem::transmute_copy(&prgcostlimits), ::core::mem::transmute_copy(&dwexecutionflags)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -498,14 +494,14 @@ impl ICommandCost_Vtbl {
         iid == &<ICommandCost as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait ICommandPersist_Impl: Sized {
     fn DeleteCommand(&self, pcommandid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
     fn GetCurrentCommand(&self, ppcommandid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
     fn LoadCommand(&self, pcommandid: *mut super::super::Storage::IndexServer::DBID, dwflags: u32) -> ::windows::core::Result<()>;
     fn SaveCommand(&self, pcommandid: *mut super::super::Storage::IndexServer::DBID, dwflags: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ICommandPersist_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandPersist_Impl, const OFFSET: isize>() -> ICommandPersist_Vtbl {
         unsafe extern "system" fn DeleteCommand<Identity: ::windows::core::IUnknownImpl, Impl: ICommandPersist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcommandid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
@@ -620,23 +616,21 @@ impl ICommandStream_Vtbl {
         iid == &<ICommandStream as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICommandText_Impl: Sized + ICommand_Impl {
-    fn GetCommandText(&self, pguiddialect: *mut ::windows::core::GUID, ppwszcommand: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetCommandText(&self, rguiddialect: *const ::windows::core::GUID, pwszcommand: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetCommandText(&self, pguiddialect: *mut ::windows::core::GUID, ppwszcommand: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn SetCommandText(&self, rguiddialect: *const ::windows::core::GUID, pwszcommand: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ICommandText_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandText_Impl, const OFFSET: isize>() -> ICommandText_Vtbl {
-        unsafe extern "system" fn GetCommandText<Identity: ::windows::core::IUnknownImpl, Impl: ICommandText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguiddialect: *mut ::windows::core::GUID, ppwszcommand: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCommandText<Identity: ::windows::core::IUnknownImpl, Impl: ICommandText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguiddialect: *mut ::windows::core::GUID, ppwszcommand: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetCommandText(::core::mem::transmute_copy(&pguiddialect), ::core::mem::transmute_copy(&ppwszcommand)).into()
         }
-        unsafe extern "system" fn SetCommandText<Identity: ::windows::core::IUnknownImpl, Impl: ICommandText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguiddialect: *const ::windows::core::GUID, pwszcommand: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCommandText<Identity: ::windows::core::IUnknownImpl, Impl: ICommandText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguiddialect: *const ::windows::core::GUID, pwszcommand: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCommandText(::core::mem::transmute_copy(&rguiddialect), ::core::mem::transmute_copy(&pwszcommand)).into()
+            (*this).SetCommandText(::core::mem::transmute_copy(&rguiddialect), ::core::mem::transmute(&pwszcommand)).into()
         }
         Self {
             base: ICommand_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -674,13 +668,13 @@ impl ICommandValidate_Vtbl {
         iid == &<ICommandValidate as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ICommandWithParameters_Impl: Sized {
     fn GetParameterInfo(&self, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
-    fn MapParameterNames(&self, cparamnames: usize, rgparamnames: *const super::super::Foundation::PWSTR, rgparamordinals: *mut isize) -> ::windows::core::Result<()>;
+    fn MapParameterNames(&self, cparamnames: usize, rgparamnames: *const ::windows::core::PWSTR, rgparamordinals: *mut isize) -> ::windows::core::Result<()>;
     fn SetParameterInfo(&self, cparams: usize, rgparamordinals: *const usize, rgparambindinfo: *const DBPARAMBINDINFO) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ICommandWithParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandWithParameters_Impl, const OFFSET: isize>() -> ICommandWithParameters_Vtbl {
         unsafe extern "system" fn GetParameterInfo<Identity: ::windows::core::IUnknownImpl, Impl: ICommandWithParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
@@ -688,7 +682,7 @@ impl ICommandWithParameters_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetParameterInfo(::core::mem::transmute_copy(&pcparams), ::core::mem::transmute_copy(&prgparaminfo), ::core::mem::transmute_copy(&ppnamesbuffer)).into()
         }
-        unsafe extern "system" fn MapParameterNames<Identity: ::windows::core::IUnknownImpl, Impl: ICommandWithParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cparamnames: usize, rgparamnames: *const super::super::Foundation::PWSTR, rgparamordinals: *mut isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MapParameterNames<Identity: ::windows::core::IUnknownImpl, Impl: ICommandWithParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cparamnames: usize, rgparamnames: *const ::windows::core::PWSTR, rgparamordinals: *mut isize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).MapParameterNames(::core::mem::transmute_copy(&cparamnames), ::core::mem::transmute_copy(&rgparamnames), ::core::mem::transmute_copy(&rgparamordinals)).into()
@@ -713,9 +707,9 @@ impl ICommandWithParameters_Vtbl {
 pub trait ICondition_Impl: Sized + super::Com::IPersist_Impl + super::Com::IPersistStream_Impl {
     fn GetConditionType(&self) -> ::windows::core::Result<Common::CONDITION_TYPE>;
     fn GetSubConditions(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetComparisonInfo(&self, ppszpropertyname: *mut super::super::Foundation::PWSTR, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn GetValueType(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetValueNormalization(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetComparisonInfo(&self, ppszpropertyname: *mut ::windows::core::PWSTR, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetValueType(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetValueNormalization(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetInputTerms(&self, pppropertyterm: *mut ::core::option::Option<IRichChunk>, ppoperationterm: *mut ::core::option::Option<IRichChunk>, ppvalueterm: *mut ::core::option::Option<IRichChunk>) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<ICondition>;
 }
@@ -738,12 +732,12 @@ impl ICondition_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetSubConditions(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn GetComparisonInfo<Identity: ::windows::core::IUnknownImpl, Impl: ICondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpropertyname: *mut super::super::Foundation::PWSTR, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetComparisonInfo<Identity: ::windows::core::IUnknownImpl, Impl: ICondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpropertyname: *mut ::windows::core::PWSTR, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetComparisonInfo(::core::mem::transmute_copy(&ppszpropertyname), ::core::mem::transmute_copy(&pcop), ::core::mem::transmute_copy(&ppropvar)).into()
         }
-        unsafe extern "system" fn GetValueType<Identity: ::windows::core::IUnknownImpl, Impl: ICondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszvaluetypename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValueType<Identity: ::windows::core::IUnknownImpl, Impl: ICondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszvaluetypename: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetValueType() {
@@ -754,7 +748,7 @@ impl ICondition_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValueNormalization<Identity: ::windows::core::IUnknownImpl, Impl: ICondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsznormalization: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValueNormalization<Identity: ::windows::core::IUnknownImpl, Impl: ICondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsznormalization: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetValueNormalization() {
@@ -798,13 +792,13 @@ impl ICondition_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ICondition2_Impl: Sized + super::Com::IPersist_Impl + super::Com::IPersistStream_Impl + ICondition_Impl {
-    fn GetLocale(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetLocale(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetLeafConditionInfo(&self, ppropkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ICondition2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICondition2_Impl, const OFFSET: isize>() -> ICondition2_Vtbl {
-        unsafe extern "system" fn GetLocale<Identity: ::windows::core::IUnknownImpl, Impl: ICondition2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszlocalename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocale<Identity: ::windows::core::IUnknownImpl, Impl: ICondition2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszlocalename: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetLocale() {
@@ -834,7 +828,7 @@ impl ICondition2_Vtbl {
 pub trait IConditionFactory_Impl: Sized {
     fn MakeNot(&self, pcsub: &::core::option::Option<ICondition>, fsimplify: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
     fn MakeAndOr(&self, ct: Common::CONDITION_TYPE, peusubs: &::core::option::Option<super::Com::IEnumUnknown>, fsimplify: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
-    fn MakeLeaf(&self, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, fexpand: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
+    fn MakeLeaf(&self, pszpropertyname: &::windows::core::PCWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: &::windows::core::PCWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, fexpand: super::super::Foundation::BOOL) -> ::windows::core::Result<ICondition>;
     fn Resolve(&self, pc: &::core::option::Option<ICondition>, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<ICondition>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
@@ -862,10 +856,10 @@ impl IConditionFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MakeLeaf<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: ::windows::core::RawPtr, poperationterm: ::windows::core::RawPtr, pvalueterm: ::windows::core::RawPtr, fexpand: super::super::Foundation::BOOL, ppcresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MakeLeaf<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows::core::PCWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: ::windows::core::PCWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: ::windows::core::RawPtr, poperationterm: ::windows::core::RawPtr, pvalueterm: ::windows::core::RawPtr, fexpand: super::super::Foundation::BOOL, ppcresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).MakeLeaf(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&cop), ::core::mem::transmute_copy(&pszvaluetype), ::core::mem::transmute_copy(&ppropvar), ::core::mem::transmute(&ppropertynameterm), ::core::mem::transmute(&poperationterm), ::core::mem::transmute(&pvalueterm), ::core::mem::transmute_copy(&fexpand)) {
+            match (*this).MakeLeaf(::core::mem::transmute(&pszpropertyname), ::core::mem::transmute_copy(&cop), ::core::mem::transmute(&pszvaluetype), ::core::mem::transmute_copy(&ppropvar), ::core::mem::transmute(&ppropertynameterm), ::core::mem::transmute(&poperationterm), ::core::mem::transmute(&pvalueterm), ::core::mem::transmute_copy(&fexpand)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcresult = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -902,10 +896,10 @@ pub trait IConditionFactory2_Impl: Sized + IConditionFactory_Impl {
     fn CreateNegation(&self, pcsub: &::core::option::Option<ICondition>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateCompoundFromObjectArray(&self, ct: Common::CONDITION_TYPE, poasubs: &::core::option::Option<super::super::UI::Shell::Common::IObjectArray>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateCompoundFromArray(&self, ct: Common::CONDITION_TYPE, ppcondsubs: *const ::core::option::Option<ICondition>, csubs: u32, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateStringLeaf(&self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, pszvalue: super::super::Foundation::PWSTR, pszlocalename: super::super::Foundation::PWSTR, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateStringLeaf(&self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, pszvalue: &::windows::core::PCWSTR, pszlocalename: &::windows::core::PCWSTR, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateIntegerLeaf(&self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, lvalue: i32, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateBooleanLeaf(&self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, fvalue: super::super::Foundation::BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateLeaf(&self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, propvar: *const super::Com::StructuredStorage::PROPVARIANT, pszsemantictype: super::super::Foundation::PWSTR, pszlocalename: super::super::Foundation::PWSTR, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateLeaf(&self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, propvar: *const super::Com::StructuredStorage::PROPVARIANT, pszsemantictype: &::windows::core::PCWSTR, pszlocalename: &::windows::core::PCWSTR, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn ResolveCondition(&self, pc: &::core::option::Option<ICondition>, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -931,10 +925,10 @@ impl IConditionFactory2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateCompoundFromArray(::core::mem::transmute_copy(&ct), ::core::mem::transmute_copy(&ppcondsubs), ::core::mem::transmute_copy(&csubs), ::core::mem::transmute_copy(&cco), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn CreateStringLeaf<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, pszvalue: super::super::Foundation::PWSTR, pszlocalename: super::super::Foundation::PWSTR, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStringLeaf<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, pszvalue: ::windows::core::PCWSTR, pszlocalename: ::windows::core::PCWSTR, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateStringLeaf(::core::mem::transmute_copy(&propkey), ::core::mem::transmute_copy(&cop), ::core::mem::transmute_copy(&pszvalue), ::core::mem::transmute_copy(&pszlocalename), ::core::mem::transmute_copy(&cco), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            (*this).CreateStringLeaf(::core::mem::transmute_copy(&propkey), ::core::mem::transmute_copy(&cop), ::core::mem::transmute(&pszvalue), ::core::mem::transmute(&pszlocalename), ::core::mem::transmute_copy(&cco), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn CreateIntegerLeaf<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, lvalue: i32, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -946,10 +940,10 @@ impl IConditionFactory2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateBooleanLeaf(::core::mem::transmute_copy(&propkey), ::core::mem::transmute_copy(&cop), ::core::mem::transmute_copy(&fvalue), ::core::mem::transmute_copy(&cco), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn CreateLeaf<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, propvar: *const super::Com::StructuredStorage::PROPVARIANT, pszsemantictype: super::super::Foundation::PWSTR, pszlocalename: super::super::Foundation::PWSTR, ppropertynameterm: ::windows::core::RawPtr, poperationterm: ::windows::core::RawPtr, pvalueterm: ::windows::core::RawPtr, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLeaf<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, propvar: *const super::Com::StructuredStorage::PROPVARIANT, pszsemantictype: ::windows::core::PCWSTR, pszlocalename: ::windows::core::PCWSTR, ppropertynameterm: ::windows::core::RawPtr, poperationterm: ::windows::core::RawPtr, pvalueterm: ::windows::core::RawPtr, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateLeaf(::core::mem::transmute_copy(&propkey), ::core::mem::transmute_copy(&cop), ::core::mem::transmute_copy(&propvar), ::core::mem::transmute_copy(&pszsemantictype), ::core::mem::transmute_copy(&pszlocalename), ::core::mem::transmute(&ppropertynameterm), ::core::mem::transmute(&poperationterm), ::core::mem::transmute(&pvalueterm), ::core::mem::transmute_copy(&cco), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            (*this).CreateLeaf(::core::mem::transmute_copy(&propkey), ::core::mem::transmute_copy(&cop), ::core::mem::transmute_copy(&propvar), ::core::mem::transmute(&pszsemantictype), ::core::mem::transmute(&pszlocalename), ::core::mem::transmute(&ppropertynameterm), ::core::mem::transmute(&poperationterm), ::core::mem::transmute(&pvalueterm), ::core::mem::transmute_copy(&cco), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn ResolveCondition<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pc: ::windows::core::RawPtr, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -976,9 +970,9 @@ impl IConditionFactory2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IConditionGenerator_Impl: Sized {
     fn Initialize(&self, pschemaprovider: &::core::option::Option<ISchemaProvider>) -> ::windows::core::Result<()>;
-    fn RecognizeNamedEntities(&self, pszinputstring: super::super::Foundation::PWSTR, lciduserlocale: u32, ptokencollection: &::core::option::Option<ITokenCollection>, pnamedentities: &::core::option::Option<INamedEntityCollector>) -> ::windows::core::Result<()>;
-    fn GenerateForLeaf(&self, pconditionfactory: &::core::option::Option<IConditionFactory>, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, pszvalue2: super::super::Foundation::PWSTR, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut ::core::option::Option<ICondition>) -> ::windows::core::Result<()>;
-    fn DefaultPhrase(&self, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn RecognizeNamedEntities(&self, pszinputstring: &::windows::core::PCWSTR, lciduserlocale: u32, ptokencollection: &::core::option::Option<ITokenCollection>, pnamedentities: &::core::option::Option<INamedEntityCollector>) -> ::windows::core::Result<()>;
+    fn GenerateForLeaf(&self, pconditionfactory: &::core::option::Option<IConditionFactory>, pszpropertyname: &::windows::core::PCWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: &::windows::core::PCWSTR, pszvalue: &::windows::core::PCWSTR, pszvalue2: &::windows::core::PCWSTR, ppropertynameterm: &::core::option::Option<IRichChunk>, poperationterm: &::core::option::Option<IRichChunk>, pvalueterm: &::core::option::Option<IRichChunk>, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut ::core::option::Option<ICondition>) -> ::windows::core::Result<()>;
+    fn DefaultPhrase(&self, pszvaluetype: &::windows::core::PCWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: super::super::Foundation::BOOL) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl IConditionGenerator_Vtbl {
@@ -988,22 +982,22 @@ impl IConditionGenerator_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute(&pschemaprovider)).into()
         }
-        unsafe extern "system" fn RecognizeNamedEntities<Identity: ::windows::core::IUnknownImpl, Impl: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszinputstring: super::super::Foundation::PWSTR, lciduserlocale: u32, ptokencollection: ::windows::core::RawPtr, pnamedentities: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RecognizeNamedEntities<Identity: ::windows::core::IUnknownImpl, Impl: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszinputstring: ::windows::core::PCWSTR, lciduserlocale: u32, ptokencollection: ::windows::core::RawPtr, pnamedentities: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RecognizeNamedEntities(::core::mem::transmute_copy(&pszinputstring), ::core::mem::transmute_copy(&lciduserlocale), ::core::mem::transmute(&ptokencollection), ::core::mem::transmute(&pnamedentities)).into()
+            (*this).RecognizeNamedEntities(::core::mem::transmute(&pszinputstring), ::core::mem::transmute_copy(&lciduserlocale), ::core::mem::transmute(&ptokencollection), ::core::mem::transmute(&pnamedentities)).into()
         }
-        unsafe extern "system" fn GenerateForLeaf<Identity: ::windows::core::IUnknownImpl, Impl: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconditionfactory: ::windows::core::RawPtr, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, pszvalue2: super::super::Foundation::PWSTR, ppropertynameterm: ::windows::core::RawPtr, poperationterm: ::windows::core::RawPtr, pvalueterm: ::windows::core::RawPtr, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateForLeaf<Identity: ::windows::core::IUnknownImpl, Impl: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconditionfactory: ::windows::core::RawPtr, pszpropertyname: ::windows::core::PCWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: ::windows::core::PCWSTR, pszvalue: ::windows::core::PCWSTR, pszvalue2: ::windows::core::PCWSTR, ppropertynameterm: ::windows::core::RawPtr, poperationterm: ::windows::core::RawPtr, pvalueterm: ::windows::core::RawPtr, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this)
                 .GenerateForLeaf(
                     ::core::mem::transmute(&pconditionfactory),
-                    ::core::mem::transmute_copy(&pszpropertyname),
+                    ::core::mem::transmute(&pszpropertyname),
                     ::core::mem::transmute_copy(&cop),
-                    ::core::mem::transmute_copy(&pszvaluetype),
-                    ::core::mem::transmute_copy(&pszvalue),
-                    ::core::mem::transmute_copy(&pszvalue2),
+                    ::core::mem::transmute(&pszvaluetype),
+                    ::core::mem::transmute(&pszvalue),
+                    ::core::mem::transmute(&pszvalue2),
                     ::core::mem::transmute(&ppropertynameterm),
                     ::core::mem::transmute(&poperationterm),
                     ::core::mem::transmute(&pvalueterm),
@@ -1013,10 +1007,10 @@ impl IConditionGenerator_Vtbl {
                 )
                 .into()
         }
-        unsafe extern "system" fn DefaultPhrase<Identity: ::windows::core::IUnknownImpl, Impl: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: super::super::Foundation::BOOL, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultPhrase<Identity: ::windows::core::IUnknownImpl, Impl: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvaluetype: ::windows::core::PCWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: super::super::Foundation::BOOL, ppszphrase: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).DefaultPhrase(::core::mem::transmute_copy(&pszvaluetype), ::core::mem::transmute_copy(&ppropvar), ::core::mem::transmute_copy(&fuseenglish)) {
+            match (*this).DefaultPhrase(::core::mem::transmute(&pszvaluetype), ::core::mem::transmute_copy(&ppropvar), ::core::mem::transmute_copy(&fuseenglish)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppszphrase = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1052,17 +1046,17 @@ impl IConvertType_Vtbl {
         iid == &<IConvertType as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ICreateRow_Impl: Sized {
-    fn CreateRow(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppwsznewurl: *mut super::super::Foundation::PWSTR, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateRow(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, pwszurl: &::windows::core::PCWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppwsznewurl: *mut ::windows::core::PWSTR, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ICreateRow_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateRow_Impl, const OFFSET: isize>() -> ICreateRow_Vtbl {
-        unsafe extern "system" fn CreateRow<Identity: ::windows::core::IUnknownImpl, Impl: ICreateRow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: ::windows::core::RawPtr, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppwsznewurl: *mut super::super::Foundation::PWSTR, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRow<Identity: ::windows::core::IUnknownImpl, Impl: ICreateRow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: ::windows::core::RawPtr, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppwsznewurl: *mut ::windows::core::PWSTR, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateRow(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&pwszurl), ::core::mem::transmute_copy(&dwbindurlflags), ::core::mem::transmute_copy(&rguid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute(&pauthenticate), ::core::mem::transmute_copy(&pimplsession), ::core::mem::transmute_copy(&pdwbindstatus), ::core::mem::transmute_copy(&ppwsznewurl), ::core::mem::transmute_copy(&ppunk)).into()
+            (*this).CreateRow(::core::mem::transmute(&punkouter), ::core::mem::transmute(&pwszurl), ::core::mem::transmute_copy(&dwbindurlflags), ::core::mem::transmute_copy(&rguid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute(&pauthenticate), ::core::mem::transmute_copy(&pimplsession), ::core::mem::transmute_copy(&pdwbindstatus), ::core::mem::transmute_copy(&ppwsznewurl), ::core::mem::transmute_copy(&ppunk)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateRow: CreateRow::<Identity, Impl, OFFSET> }
     }
@@ -1070,13 +1064,11 @@ impl ICreateRow_Vtbl {
         iid == &<ICreateRow as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDBAsynchNotify_Impl: Sized {
     fn OnLowResource(&self, dwreserved: usize) -> ::windows::core::Result<()>;
-    fn OnProgress(&self, hchapter: usize, eoperation: u32, ulprogress: usize, ulprogressmax: usize, easynchphase: u32, pwszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn OnStop(&self, hchapter: usize, eoperation: u32, hrstatus: ::windows::core::HRESULT, pwszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OnProgress(&self, hchapter: usize, eoperation: u32, ulprogress: usize, ulprogressmax: usize, easynchphase: u32, pwszstatustext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn OnStop(&self, hchapter: usize, eoperation: u32, hrstatus: ::windows::core::HRESULT, pwszstatustext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IDBAsynchNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchNotify_Impl, const OFFSET: isize>() -> IDBAsynchNotify_Vtbl {
         unsafe extern "system" fn OnLowResource<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwreserved: usize) -> ::windows::core::HRESULT {
@@ -1084,15 +1076,15 @@ impl IDBAsynchNotify_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnLowResource(::core::mem::transmute_copy(&dwreserved)).into()
         }
-        unsafe extern "system" fn OnProgress<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, ulprogress: usize, ulprogressmax: usize, easynchphase: u32, pwszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnProgress<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, ulprogress: usize, ulprogressmax: usize, easynchphase: u32, pwszstatustext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnProgress(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&eoperation), ::core::mem::transmute_copy(&ulprogress), ::core::mem::transmute_copy(&ulprogressmax), ::core::mem::transmute_copy(&easynchphase), ::core::mem::transmute_copy(&pwszstatustext)).into()
+            (*this).OnProgress(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&eoperation), ::core::mem::transmute_copy(&ulprogress), ::core::mem::transmute_copy(&ulprogressmax), ::core::mem::transmute_copy(&easynchphase), ::core::mem::transmute(&pwszstatustext)).into()
         }
-        unsafe extern "system" fn OnStop<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, hrstatus: ::windows::core::HRESULT, pwszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnStop<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, hrstatus: ::windows::core::HRESULT, pwszstatustext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnStop(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&eoperation), ::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute_copy(&pwszstatustext)).into()
+            (*this).OnStop(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&eoperation), ::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute(&pwszstatustext)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -1105,12 +1097,10 @@ impl IDBAsynchNotify_Vtbl {
         iid == &<IDBAsynchNotify as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDBAsynchStatus_Impl: Sized {
     fn Abort(&self, hchapter: usize, eoperation: u32) -> ::windows::core::Result<()>;
-    fn GetStatus(&self, hchapter: usize, eoperation: u32, pulprogress: *mut usize, pulprogressmax: *mut usize, peasynchphase: *mut u32, ppwszstatustext: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetStatus(&self, hchapter: usize, eoperation: u32, pulprogress: *mut usize, pulprogressmax: *mut usize, peasynchphase: *mut u32, ppwszstatustext: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IDBAsynchStatus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchStatus_Impl, const OFFSET: isize>() -> IDBAsynchStatus_Vtbl {
         unsafe extern "system" fn Abort<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32) -> ::windows::core::HRESULT {
@@ -1118,7 +1108,7 @@ impl IDBAsynchStatus_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Abort(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&eoperation)).into()
         }
-        unsafe extern "system" fn GetStatus<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, pulprogress: *mut usize, pulprogressmax: *mut usize, peasynchphase: *mut u32, ppwszstatustext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStatus<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, pulprogress: *mut usize, pulprogressmax: *mut usize, peasynchphase: *mut u32, ppwszstatustext: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetStatus(::core::mem::transmute_copy(&hchapter), ::core::mem::transmute_copy(&eoperation), ::core::mem::transmute_copy(&pulprogress), ::core::mem::transmute_copy(&pulprogressmax), ::core::mem::transmute_copy(&peasynchphase), ::core::mem::transmute_copy(&ppwszstatustext)).into()
@@ -1239,13 +1229,13 @@ impl IDBDataSourceAdmin_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDBInfo_Impl: Sized {
-    fn GetKeywords(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetKeywords(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetLiteralInfo(&self, cliterals: u32, rgliterals: *const u32, pcliteralinfo: *mut u32, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDBInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBInfo_Impl, const OFFSET: isize>() -> IDBInfo_Vtbl {
-        unsafe extern "system" fn GetKeywords<Identity: ::windows::core::IUnknownImpl, Impl: IDBInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszkeywords: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetKeywords<Identity: ::windows::core::IUnknownImpl, Impl: IDBInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszkeywords: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetKeywords() {
@@ -1299,21 +1289,21 @@ impl IDBInitialize_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDBPromptInitialize_Impl: Sized {
-    fn PromptDataSource(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn PromptFileName(&self, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, pwszinitialdirectory: super::super::Foundation::PWSTR, pwszinitialfile: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn PromptDataSource(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn PromptFileName(&self, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, pwszinitialdirectory: &::windows::core::PCWSTR, pwszinitialfile: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDBPromptInitialize_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBPromptInitialize_Impl, const OFFSET: isize>() -> IDBPromptInitialize_Vtbl {
-        unsafe extern "system" fn PromptDataSource<Identity: ::windows::core::IUnknownImpl, Impl: IDBPromptInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PromptDataSource<Identity: ::windows::core::IUnknownImpl, Impl: IDBPromptInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PromptDataSource(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwpromptoptions), ::core::mem::transmute_copy(&csourcetypefilter), ::core::mem::transmute_copy(&rgsourcetypefilter), ::core::mem::transmute_copy(&pwszszzproviderfilter), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppdatasource)).into()
+            (*this).PromptDataSource(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwpromptoptions), ::core::mem::transmute_copy(&csourcetypefilter), ::core::mem::transmute_copy(&rgsourcetypefilter), ::core::mem::transmute(&pwszszzproviderfilter), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppdatasource)).into()
         }
-        unsafe extern "system" fn PromptFileName<Identity: ::windows::core::IUnknownImpl, Impl: IDBPromptInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, pwszinitialdirectory: super::super::Foundation::PWSTR, pwszinitialfile: super::super::Foundation::PWSTR, ppwszselectedfile: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PromptFileName<Identity: ::windows::core::IUnknownImpl, Impl: IDBPromptInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, pwszinitialdirectory: ::windows::core::PCWSTR, pwszinitialfile: ::windows::core::PCWSTR, ppwszselectedfile: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PromptFileName(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwpromptoptions), ::core::mem::transmute_copy(&pwszinitialdirectory), ::core::mem::transmute_copy(&pwszinitialfile)) {
+            match (*this).PromptFileName(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwpromptoptions), ::core::mem::transmute(&pwszinitialdirectory), ::core::mem::transmute(&pwszinitialfile)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwszselectedfile = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1502,24 +1492,24 @@ impl IDataConvert_Vtbl {
         iid == &<IDataConvert as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IDataInitialize_Impl: Sized {
-    fn GetDataSource(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszinitializationstring: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetInitializationString(&self, pdatasource: &::core::option::Option<::windows::core::IUnknown>, fincludepassword: u8) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn CreateDBInstance(&self, clsidprovider: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszreserved: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn CreateDBInstanceEx(&self, clsidprovider: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszreserved: super::super::Foundation::PWSTR, pserverinfo: *const super::Com::COSERVERINFO, cmq: u32, rgmqresults: *mut super::Com::MULTI_QI) -> ::windows::core::Result<()>;
-    fn LoadStringFromStorage(&self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn WriteStringToStorage(&self, pwszfilename: super::super::Foundation::PWSTR, pwszinitializationstring: super::super::Foundation::PWSTR, dwcreationdisposition: u32) -> ::windows::core::Result<()>;
+    fn GetDataSource(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszinitializationstring: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetInitializationString(&self, pdatasource: &::core::option::Option<::windows::core::IUnknown>, fincludepassword: u8) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn CreateDBInstance(&self, clsidprovider: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszreserved: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn CreateDBInstanceEx(&self, clsidprovider: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclsctx: u32, pwszreserved: &::windows::core::PCWSTR, pserverinfo: *const super::Com::COSERVERINFO, cmq: u32, rgmqresults: *mut super::Com::MULTI_QI) -> ::windows::core::Result<()>;
+    fn LoadStringFromStorage(&self, pwszfilename: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn WriteStringToStorage(&self, pwszfilename: &::windows::core::PCWSTR, pwszinitializationstring: &::windows::core::PCWSTR, dwcreationdisposition: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IDataInitialize_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>() -> IDataInitialize_Vtbl {
-        unsafe extern "system" fn GetDataSource<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, dwclsctx: u32, pwszinitializationstring: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDataSource<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, dwclsctx: u32, pwszinitializationstring: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetDataSource(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&dwclsctx), ::core::mem::transmute_copy(&pwszinitializationstring), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppdatasource)).into()
+            (*this).GetDataSource(::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&dwclsctx), ::core::mem::transmute(&pwszinitializationstring), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppdatasource)).into()
         }
-        unsafe extern "system" fn GetInitializationString<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatasource: *mut ::core::ffi::c_void, fincludepassword: u8, ppwszinitstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInitializationString<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatasource: *mut ::core::ffi::c_void, fincludepassword: u8, ppwszinitstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetInitializationString(::core::mem::transmute(&pdatasource), ::core::mem::transmute_copy(&fincludepassword)) {
@@ -1530,10 +1520,10 @@ impl IDataInitialize_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDBInstance<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidprovider: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: u32, pwszreserved: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDBInstance<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidprovider: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: u32, pwszreserved: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateDBInstance(::core::mem::transmute_copy(&clsidprovider), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&dwclsctx), ::core::mem::transmute_copy(&pwszreserved), ::core::mem::transmute_copy(&riid)) {
+            match (*this).CreateDBInstance(::core::mem::transmute_copy(&clsidprovider), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&dwclsctx), ::core::mem::transmute(&pwszreserved), ::core::mem::transmute_copy(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppdatasource = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1541,15 +1531,15 @@ impl IDataInitialize_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDBInstanceEx<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidprovider: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: u32, pwszreserved: super::super::Foundation::PWSTR, pserverinfo: *const super::Com::COSERVERINFO, cmq: u32, rgmqresults: *mut super::Com::MULTI_QI) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDBInstanceEx<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidprovider: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: u32, pwszreserved: ::windows::core::PCWSTR, pserverinfo: *const super::Com::COSERVERINFO, cmq: u32, rgmqresults: *mut super::Com::MULTI_QI) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateDBInstanceEx(::core::mem::transmute_copy(&clsidprovider), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&dwclsctx), ::core::mem::transmute_copy(&pwszreserved), ::core::mem::transmute_copy(&pserverinfo), ::core::mem::transmute_copy(&cmq), ::core::mem::transmute_copy(&rgmqresults)).into()
+            (*this).CreateDBInstanceEx(::core::mem::transmute_copy(&clsidprovider), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&dwclsctx), ::core::mem::transmute(&pwszreserved), ::core::mem::transmute_copy(&pserverinfo), ::core::mem::transmute_copy(&cmq), ::core::mem::transmute_copy(&rgmqresults)).into()
         }
-        unsafe extern "system" fn LoadStringFromStorage<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: super::super::Foundation::PWSTR, ppwszinitializationstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadStringFromStorage<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: ::windows::core::PCWSTR, ppwszinitializationstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).LoadStringFromStorage(::core::mem::transmute_copy(&pwszfilename)) {
+            match (*this).LoadStringFromStorage(::core::mem::transmute(&pwszfilename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwszinitializationstring = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1557,10 +1547,10 @@ impl IDataInitialize_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteStringToStorage<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: super::super::Foundation::PWSTR, pwszinitializationstring: super::super::Foundation::PWSTR, dwcreationdisposition: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteStringToStorage<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitialize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: ::windows::core::PCWSTR, pwszinitializationstring: ::windows::core::PCWSTR, dwcreationdisposition: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WriteStringToStorage(::core::mem::transmute_copy(&pwszfilename), ::core::mem::transmute_copy(&pwszinitializationstring), ::core::mem::transmute_copy(&dwcreationdisposition)).into()
+            (*this).WriteStringToStorage(::core::mem::transmute(&pwszfilename), ::core::mem::transmute(&pwszinitializationstring), ::core::mem::transmute_copy(&dwcreationdisposition)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -1630,21 +1620,19 @@ impl IDataSourceLocator_Vtbl {
         iid == &<IDataSourceLocator as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEntity_Impl: Sized {
-    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn Base(&self) -> ::windows::core::Result<IEntity>;
     fn Relationships(&self, riid: *const ::windows::core::GUID, prelationships: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetRelationship(&self, pszrelationname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IRelationship>;
+    fn GetRelationship(&self, pszrelationname: &::windows::core::PCWSTR) -> ::windows::core::Result<IRelationship>;
     fn MetaData(&self, riid: *const ::windows::core::GUID, pmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn NamedEntities(&self, riid: *const ::windows::core::GUID, pnamedentities: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetNamedEntity(&self, pszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<INamedEntity>;
-    fn DefaultPhrase(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetNamedEntity(&self, pszvalue: &::windows::core::PCWSTR) -> ::windows::core::Result<INamedEntity>;
+    fn DefaultPhrase(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IEntity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntity_Impl, const OFFSET: isize>() -> IEntity_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Name() {
@@ -1671,10 +1659,10 @@ impl IEntity_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Relationships(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&prelationships)).into()
         }
-        unsafe extern "system" fn GetRelationship<Identity: ::windows::core::IUnknownImpl, Impl: IEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrelationname: super::super::Foundation::PWSTR, prelationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRelationship<Identity: ::windows::core::IUnknownImpl, Impl: IEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrelationname: ::windows::core::PCWSTR, prelationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRelationship(::core::mem::transmute_copy(&pszrelationname)) {
+            match (*this).GetRelationship(::core::mem::transmute(&pszrelationname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *prelationship = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1692,10 +1680,10 @@ impl IEntity_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).NamedEntities(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pnamedentities)).into()
         }
-        unsafe extern "system" fn GetNamedEntity<Identity: ::windows::core::IUnknownImpl, Impl: IEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvalue: super::super::Foundation::PWSTR, ppnamedentity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNamedEntity<Identity: ::windows::core::IUnknownImpl, Impl: IEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvalue: ::windows::core::PCWSTR, ppnamedentity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetNamedEntity(::core::mem::transmute_copy(&pszvalue)) {
+            match (*this).GetNamedEntity(::core::mem::transmute(&pszvalue)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppnamedentity = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1703,7 +1691,7 @@ impl IEntity_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultPhrase<Identity: ::windows::core::IUnknownImpl, Impl: IEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultPhrase<Identity: ::windows::core::IUnknownImpl, Impl: IEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszphrase: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).DefaultPhrase() {
@@ -2085,12 +2073,10 @@ impl IGetDataSource_Vtbl {
         iid == &<IGetDataSource as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IGetRow_Impl: Sized {
     fn GetRowFromHROW(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, hrow: usize, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetURLFromHROW(&self, hrow: usize) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetURLFromHROW(&self, hrow: usize) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IGetRow_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetRow_Impl, const OFFSET: isize>() -> IGetRow_Vtbl {
         unsafe extern "system" fn GetRowFromHROW<Identity: ::windows::core::IUnknownImpl, Impl: IGetRow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, hrow: usize, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2104,7 +2090,7 @@ impl IGetRow_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetURLFromHROW<Identity: ::windows::core::IUnknownImpl, Impl: IGetRow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, ppwszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetURLFromHROW<Identity: ::windows::core::IUnknownImpl, Impl: IGetRow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, ppwszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetURLFromHROW(::core::mem::transmute_copy(&hrow)) {
@@ -2217,22 +2203,22 @@ impl IInterval_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ILoadFilter_Impl: Sized {
-    fn LoadIFilter(&self, pwcspath: super::super::Foundation::PWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: &::core::option::Option<::windows::core::IUnknown>, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
-    fn LoadIFilterFromStorage(&self, pstg: &::core::option::Option<super::Com::StructuredStorage::IStorage>, punkouter: &::core::option::Option<::windows::core::IUnknown>, pwcsoverride: super::super::Foundation::PWSTR, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
+    fn LoadIFilter(&self, pwcspath: &::windows::core::PCWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: &::core::option::Option<::windows::core::IUnknown>, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
+    fn LoadIFilterFromStorage(&self, pstg: &::core::option::Option<super::Com::StructuredStorage::IStorage>, punkouter: &::core::option::Option<::windows::core::IUnknown>, pwcsoverride: &::windows::core::PCWSTR, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
     fn LoadIFilterFromStream(&self, pstm: &::core::option::Option<super::Com::IStream>, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: &::core::option::Option<::windows::core::IUnknown>, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ILoadFilter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilter_Impl, const OFFSET: isize>() -> ILoadFilter_Vtbl {
-        unsafe extern "system" fn LoadIFilter<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcspath: super::super::Foundation::PWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut ::core::ffi::c_void, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadIFilter<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcspath: ::windows::core::PCWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut ::core::ffi::c_void, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).LoadIFilter(::core::mem::transmute_copy(&pwcspath), ::core::mem::transmute_copy(&pfilteredsources), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&fusedefault), ::core::mem::transmute_copy(&pfilterclsid), ::core::mem::transmute_copy(&searchdecsize), ::core::mem::transmute_copy(&pwcssearchdesc), ::core::mem::transmute_copy(&ppifilt)).into()
+            (*this).LoadIFilter(::core::mem::transmute(&pwcspath), ::core::mem::transmute_copy(&pfilteredsources), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&fusedefault), ::core::mem::transmute_copy(&pfilterclsid), ::core::mem::transmute_copy(&searchdecsize), ::core::mem::transmute_copy(&pwcssearchdesc), ::core::mem::transmute_copy(&ppifilt)).into()
         }
-        unsafe extern "system" fn LoadIFilterFromStorage<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void, pwcsoverride: super::super::Foundation::PWSTR, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadIFilterFromStorage<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void, pwcsoverride: ::windows::core::PCWSTR, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).LoadIFilterFromStorage(::core::mem::transmute(&pstg), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&pwcsoverride), ::core::mem::transmute_copy(&fusedefault), ::core::mem::transmute_copy(&pfilterclsid), ::core::mem::transmute_copy(&searchdecsize), ::core::mem::transmute_copy(&pwcssearchdesc), ::core::mem::transmute_copy(&ppifilt)).into()
+            (*this).LoadIFilterFromStorage(::core::mem::transmute(&pstg), ::core::mem::transmute(&punkouter), ::core::mem::transmute(&pwcsoverride), ::core::mem::transmute_copy(&fusedefault), ::core::mem::transmute_copy(&pfilterclsid), ::core::mem::transmute_copy(&searchdecsize), ::core::mem::transmute_copy(&pwcssearchdesc), ::core::mem::transmute_copy(&ppifilt)).into()
         }
         unsafe extern "system" fn LoadIFilterFromStream<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut ::core::ffi::c_void, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2326,20 +2312,18 @@ impl IMDDataset_Vtbl {
         iid == &<IMDDataset as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMDFind_Impl: Sized {
-    fn FindCell(&self, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut super::super::Foundation::PWSTR, pulcellordinal: *mut usize) -> ::windows::core::Result<()>;
-    fn FindTuple(&self, ulaxisidentifier: u32, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut super::super::Foundation::PWSTR, pultupleordinal: *mut u32) -> ::windows::core::Result<()>;
+    fn FindCell(&self, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut ::windows::core::PWSTR, pulcellordinal: *mut usize) -> ::windows::core::Result<()>;
+    fn FindTuple(&self, ulaxisidentifier: u32, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut ::windows::core::PWSTR, pultupleordinal: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IMDFind_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMDFind_Impl, const OFFSET: isize>() -> IMDFind_Vtbl {
-        unsafe extern "system" fn FindCell<Identity: ::windows::core::IUnknownImpl, Impl: IMDFind_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut super::super::Foundation::PWSTR, pulcellordinal: *mut usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindCell<Identity: ::windows::core::IUnknownImpl, Impl: IMDFind_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut ::windows::core::PWSTR, pulcellordinal: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).FindCell(::core::mem::transmute_copy(&ulstartingordinal), ::core::mem::transmute_copy(&cmembers), ::core::mem::transmute_copy(&rgpwszmember), ::core::mem::transmute_copy(&pulcellordinal)).into()
         }
-        unsafe extern "system" fn FindTuple<Identity: ::windows::core::IUnknownImpl, Impl: IMDFind_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulaxisidentifier: u32, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut super::super::Foundation::PWSTR, pultupleordinal: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindTuple<Identity: ::windows::core::IUnknownImpl, Impl: IMDFind_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulaxisidentifier: u32, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut ::windows::core::PWSTR, pultupleordinal: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).FindTuple(::core::mem::transmute_copy(&ulaxisidentifier), ::core::mem::transmute_copy(&ulstartingordinal), ::core::mem::transmute_copy(&cmembers), ::core::mem::transmute_copy(&rgpwszmember), ::core::mem::transmute_copy(&pultupleordinal)).into()
@@ -2372,14 +2356,12 @@ impl IMDRangeRowset_Vtbl {
         iid == &<IMDRangeRowset as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMetaData_Impl: Sized {
-    fn GetData(&self, ppszkey: *mut super::super::Foundation::PWSTR, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetData(&self, ppszkey: *mut ::windows::core::PWSTR, ppszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IMetaData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMetaData_Impl, const OFFSET: isize>() -> IMetaData_Vtbl {
-        unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl, Impl: IMetaData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszkey: *mut super::super::Foundation::PWSTR, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl, Impl: IMetaData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszkey: *mut ::windows::core::PWSTR, ppszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetData(::core::mem::transmute_copy(&ppszkey), ::core::mem::transmute_copy(&ppszvalue)).into()
@@ -2406,15 +2388,13 @@ impl IMultipleResults_Vtbl {
         iid == &<IMultipleResults as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait INamedEntity_Impl: Sized {
-    fn GetValue(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn DefaultPhrase(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetValue(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn DefaultPhrase(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl INamedEntity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INamedEntity_Impl, const OFFSET: isize>() -> INamedEntity_Vtbl {
-        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl, Impl: INamedEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl, Impl: INamedEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetValue() {
@@ -2425,7 +2405,7 @@ impl INamedEntity_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DefaultPhrase<Identity: ::windows::core::IUnknownImpl, Impl: INamedEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultPhrase<Identity: ::windows::core::IUnknownImpl, Impl: INamedEntity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszphrase: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).DefaultPhrase() {
@@ -2446,17 +2426,15 @@ impl INamedEntity_Vtbl {
         iid == &<INamedEntity as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait INamedEntityCollector_Impl: Sized {
-    fn Add(&self, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: &::core::option::Option<IEntity>, pszvalue: super::super::Foundation::PWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows::core::Result<()>;
+    fn Add(&self, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: &::core::option::Option<IEntity>, pszvalue: &::windows::core::PCWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl INamedEntityCollector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INamedEntityCollector_Impl, const OFFSET: isize>() -> INamedEntityCollector_Vtbl {
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: INamedEntityCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: ::windows::core::RawPtr, pszvalue: super::super::Foundation::PWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: INamedEntityCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: ::windows::core::RawPtr, pszvalue: ::windows::core::PCWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Add(::core::mem::transmute_copy(&beginspan), ::core::mem::transmute_copy(&endspan), ::core::mem::transmute_copy(&beginactual), ::core::mem::transmute_copy(&endactual), ::core::mem::transmute(&ptype), ::core::mem::transmute_copy(&pszvalue), ::core::mem::transmute_copy(&certainty)).into()
+            (*this).Add(::core::mem::transmute_copy(&beginspan), ::core::mem::transmute_copy(&endspan), ::core::mem::transmute_copy(&beginactual), ::core::mem::transmute_copy(&endactual), ::core::mem::transmute(&ptype), ::core::mem::transmute(&pszvalue), ::core::mem::transmute_copy(&certainty)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, Impl, OFFSET> }
     }
@@ -2606,17 +2584,17 @@ impl IParentRowset_Vtbl {
         iid == &<IParentRowset as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IProtocolHandlerSite_Impl: Sized {
-    fn GetFilter(&self, pclsidobj: *mut ::windows::core::GUID, pcwszcontenttype: super::super::Foundation::PWSTR, pcwszextension: super::super::Foundation::PWSTR, ppfilter: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
+    fn GetFilter(&self, pclsidobj: *mut ::windows::core::GUID, pcwszcontenttype: &::windows::core::PCWSTR, pcwszextension: &::windows::core::PCWSTR, ppfilter: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IProtocolHandlerSite_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtocolHandlerSite_Impl, const OFFSET: isize>() -> IProtocolHandlerSite_Vtbl {
-        unsafe extern "system" fn GetFilter<Identity: ::windows::core::IUnknownImpl, Impl: IProtocolHandlerSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsidobj: *mut ::windows::core::GUID, pcwszcontenttype: super::super::Foundation::PWSTR, pcwszextension: super::super::Foundation::PWSTR, ppfilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilter<Identity: ::windows::core::IUnknownImpl, Impl: IProtocolHandlerSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsidobj: *mut ::windows::core::GUID, pcwszcontenttype: ::windows::core::PCWSTR, pcwszextension: ::windows::core::PCWSTR, ppfilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetFilter(::core::mem::transmute_copy(&pclsidobj), ::core::mem::transmute_copy(&pcwszcontenttype), ::core::mem::transmute_copy(&pcwszextension), ::core::mem::transmute_copy(&ppfilter)).into()
+            (*this).GetFilter(::core::mem::transmute_copy(&pclsidobj), ::core::mem::transmute(&pcwszcontenttype), ::core::mem::transmute(&pcwszextension), ::core::mem::transmute_copy(&ppfilter)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetFilter: GetFilter::<Identity, Impl, OFFSET> }
     }
@@ -2650,22 +2628,22 @@ impl IProvideMoniker_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IQueryParser_Impl: Sized {
-    fn Parse(&self, pszinputstring: super::super::Foundation::PWSTR, pcustomproperties: &::core::option::Option<super::Com::IEnumUnknown>) -> ::windows::core::Result<IQuerySolution>;
+    fn Parse(&self, pszinputstring: &::windows::core::PCWSTR, pcustomproperties: &::core::option::Option<super::Com::IEnumUnknown>) -> ::windows::core::Result<IQuerySolution>;
     fn SetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION) -> ::windows::core::Result<super::Com::StructuredStorage::PROPVARIANT>;
-    fn SetMultiOption(&self, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: super::super::Foundation::PWSTR, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn SetMultiOption(&self, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: &::windows::core::PCWSTR, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetSchemaProvider(&self) -> ::windows::core::Result<ISchemaProvider>;
-    fn RestateToString(&self, pcondition: &::core::option::Option<ICondition>, fuseenglish: super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn ParsePropertyValue(&self, pszpropertyname: super::super::Foundation::PWSTR, pszinputstring: super::super::Foundation::PWSTR) -> ::windows::core::Result<IQuerySolution>;
-    fn RestatePropertyValueToString(&self, pcondition: &::core::option::Option<ICondition>, fuseenglish: super::super::Foundation::BOOL, ppszpropertyname: *mut super::super::Foundation::PWSTR, ppszquerystring: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RestateToString(&self, pcondition: &::core::option::Option<ICondition>, fuseenglish: super::super::Foundation::BOOL) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn ParsePropertyValue(&self, pszpropertyname: &::windows::core::PCWSTR, pszinputstring: &::windows::core::PCWSTR) -> ::windows::core::Result<IQuerySolution>;
+    fn RestatePropertyValueToString(&self, pcondition: &::core::option::Option<ICondition>, fuseenglish: super::super::Foundation::BOOL, ppszpropertyname: *mut ::windows::core::PWSTR, ppszquerystring: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IQueryParser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>() -> IQueryParser_Vtbl {
-        unsafe extern "system" fn Parse<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszinputstring: super::super::Foundation::PWSTR, pcustomproperties: ::windows::core::RawPtr, ppsolution: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parse<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszinputstring: ::windows::core::PCWSTR, pcustomproperties: ::windows::core::RawPtr, ppsolution: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Parse(::core::mem::transmute_copy(&pszinputstring), ::core::mem::transmute(&pcustomproperties)) {
+            match (*this).Parse(::core::mem::transmute(&pszinputstring), ::core::mem::transmute(&pcustomproperties)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppsolution = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2689,10 +2667,10 @@ impl IQueryParser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMultiOption<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: super::super::Foundation::PWSTR, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMultiOption<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: ::windows::core::PCWSTR, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetMultiOption(::core::mem::transmute_copy(&option), ::core::mem::transmute_copy(&pszoptionkey), ::core::mem::transmute_copy(&poptionvalue)).into()
+            (*this).SetMultiOption(::core::mem::transmute_copy(&option), ::core::mem::transmute(&pszoptionkey), ::core::mem::transmute_copy(&poptionvalue)).into()
         }
         unsafe extern "system" fn GetSchemaProvider<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppschemaprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2705,7 +2683,7 @@ impl IQueryParser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RestateToString<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcondition: ::windows::core::RawPtr, fuseenglish: super::super::Foundation::BOOL, ppszquerystring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestateToString<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcondition: ::windows::core::RawPtr, fuseenglish: super::super::Foundation::BOOL, ppszquerystring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).RestateToString(::core::mem::transmute(&pcondition), ::core::mem::transmute_copy(&fuseenglish)) {
@@ -2716,10 +2694,10 @@ impl IQueryParser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParsePropertyValue<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, pszinputstring: super::super::Foundation::PWSTR, ppsolution: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParsePropertyValue<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows::core::PCWSTR, pszinputstring: ::windows::core::PCWSTR, ppsolution: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ParsePropertyValue(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&pszinputstring)) {
+            match (*this).ParsePropertyValue(::core::mem::transmute(&pszpropertyname), ::core::mem::transmute(&pszinputstring)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppsolution = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2727,7 +2705,7 @@ impl IQueryParser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RestatePropertyValueToString<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcondition: ::windows::core::RawPtr, fuseenglish: super::super::Foundation::BOOL, ppszpropertyname: *mut super::super::Foundation::PWSTR, ppszquerystring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestatePropertyValueToString<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcondition: ::windows::core::RawPtr, fuseenglish: super::super::Foundation::BOOL, ppszpropertyname: *mut ::windows::core::PWSTR, ppszquerystring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).RestatePropertyValueToString(::core::mem::transmute(&pcondition), ::core::mem::transmute_copy(&fuseenglish), ::core::mem::transmute_copy(&ppszpropertyname), ::core::mem::transmute_copy(&ppszquerystring)).into()
@@ -2750,17 +2728,17 @@ impl IQueryParser_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IQueryParserManager_Impl: Sized {
-    fn CreateLoadedParser(&self, pszcatalog: super::super::Foundation::PWSTR, langidforkeywords: u16, riid: *const ::windows::core::GUID, ppqueryparser: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateLoadedParser(&self, pszcatalog: &::windows::core::PCWSTR, langidforkeywords: u16, riid: *const ::windows::core::GUID, ppqueryparser: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn InitializeOptions(&self, funderstandnqs: super::super::Foundation::BOOL, fautowildcard: super::super::Foundation::BOOL, pqueryparser: &::core::option::Option<IQueryParser>) -> ::windows::core::Result<()>;
     fn SetOption(&self, option: QUERY_PARSER_MANAGER_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IQueryParserManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParserManager_Impl, const OFFSET: isize>() -> IQueryParserManager_Vtbl {
-        unsafe extern "system" fn CreateLoadedParser<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParserManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: super::super::Foundation::PWSTR, langidforkeywords: u16, riid: *const ::windows::core::GUID, ppqueryparser: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLoadedParser<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParserManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: ::windows::core::PCWSTR, langidforkeywords: u16, riid: *const ::windows::core::GUID, ppqueryparser: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateLoadedParser(::core::mem::transmute_copy(&pszcatalog), ::core::mem::transmute_copy(&langidforkeywords), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppqueryparser)).into()
+            (*this).CreateLoadedParser(::core::mem::transmute(&pszcatalog), ::core::mem::transmute_copy(&langidforkeywords), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppqueryparser)).into()
         }
         unsafe extern "system" fn InitializeOptions<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParserManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, funderstandnqs: super::super::Foundation::BOOL, fautowildcard: super::super::Foundation::BOOL, pqueryparser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2787,7 +2765,7 @@ impl IQueryParserManager_Vtbl {
 pub trait IQuerySolution_Impl: Sized + IConditionFactory_Impl {
     fn GetQuery(&self, ppquerynode: *mut ::core::option::Option<ICondition>, ppmaintype: *mut ::core::option::Option<IEntity>) -> ::windows::core::Result<()>;
     fn GetErrors(&self, riid: *const ::windows::core::GUID, ppparseerrors: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetLexicalData(&self, ppszinputstring: *mut super::super::Foundation::PWSTR, pptokens: *mut ::core::option::Option<ITokenCollection>, plcid: *mut u32, ppwordbreaker: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetLexicalData(&self, ppszinputstring: *mut ::windows::core::PWSTR, pptokens: *mut ::core::option::Option<ITokenCollection>, plcid: *mut u32, ppwordbreaker: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl IQuerySolution_Vtbl {
@@ -2802,7 +2780,7 @@ impl IQuerySolution_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetErrors(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppparseerrors)).into()
         }
-        unsafe extern "system" fn GetLexicalData<Identity: ::windows::core::IUnknownImpl, Impl: IQuerySolution_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszinputstring: *mut super::super::Foundation::PWSTR, pptokens: *mut ::windows::core::RawPtr, plcid: *mut u32, ppwordbreaker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLexicalData<Identity: ::windows::core::IUnknownImpl, Impl: IQuerySolution_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszinputstring: *mut ::windows::core::PWSTR, pptokens: *mut ::windows::core::RawPtr, plcid: *mut u32, ppwordbreaker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetLexicalData(::core::mem::transmute_copy(&ppszinputstring), ::core::mem::transmute_copy(&pptokens), ::core::mem::transmute_copy(&plcid), ::core::mem::transmute_copy(&ppwordbreaker)).into()
@@ -2844,19 +2822,17 @@ impl IReadData_Vtbl {
         iid == &<IReadData as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IRegisterProvider_Impl: Sized {
-    fn GetURLMapping(&self, pwszurl: super::super::Foundation::PWSTR, dwreserved: usize) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetURLMapping(&self, pwszurl: super::super::Foundation::PWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UnregisterProvider(&self, pwszurl: super::super::Foundation::PWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetURLMapping(&self, pwszurl: &::windows::core::PCWSTR, dwreserved: usize) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetURLMapping(&self, pwszurl: &::windows::core::PCWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UnregisterProvider(&self, pwszurl: &::windows::core::PCWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IRegisterProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRegisterProvider_Impl, const OFFSET: isize>() -> IRegisterProvider_Vtbl {
-        unsafe extern "system" fn GetURLMapping<Identity: ::windows::core::IUnknownImpl, Impl: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwreserved: usize, pclsidprovider: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetURLMapping<Identity: ::windows::core::IUnknownImpl, Impl: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, dwreserved: usize, pclsidprovider: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetURLMapping(::core::mem::transmute_copy(&pwszurl), ::core::mem::transmute_copy(&dwreserved)) {
+            match (*this).GetURLMapping(::core::mem::transmute(&pwszurl), ::core::mem::transmute_copy(&dwreserved)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pclsidprovider = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2864,15 +2840,15 @@ impl IRegisterProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetURLMapping<Identity: ::windows::core::IUnknownImpl, Impl: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetURLMapping<Identity: ::windows::core::IUnknownImpl, Impl: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetURLMapping(::core::mem::transmute_copy(&pwszurl), ::core::mem::transmute_copy(&dwreserved), ::core::mem::transmute_copy(&rclsidprovider)).into()
+            (*this).SetURLMapping(::core::mem::transmute(&pwszurl), ::core::mem::transmute_copy(&dwreserved), ::core::mem::transmute_copy(&rclsidprovider)).into()
         }
-        unsafe extern "system" fn UnregisterProvider<Identity: ::windows::core::IUnknownImpl, Impl: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterProvider<Identity: ::windows::core::IUnknownImpl, Impl: IRegisterProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterProvider(::core::mem::transmute_copy(&pwszurl), ::core::mem::transmute_copy(&dwreserved), ::core::mem::transmute_copy(&rclsidprovider)).into()
+            (*this).UnregisterProvider(::core::mem::transmute(&pwszurl), ::core::mem::transmute_copy(&dwreserved), ::core::mem::transmute_copy(&rclsidprovider)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -2887,16 +2863,16 @@ impl IRegisterProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRelationship_Impl: Sized {
-    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn IsReal(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn Destination(&self) -> ::windows::core::Result<IEntity>;
     fn MetaData(&self, riid: *const ::windows::core::GUID, pmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn DefaultPhrase(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn DefaultPhrase(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRelationship_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRelationship_Impl, const OFFSET: isize>() -> IRelationship_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Name() {
@@ -2934,7 +2910,7 @@ impl IRelationship_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).MetaData(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pmetadata)).into()
         }
-        unsafe extern "system" fn DefaultPhrase<Identity: ::windows::core::IUnknownImpl, Impl: IRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DefaultPhrase<Identity: ::windows::core::IUnknownImpl, Impl: IRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszphrase: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).DefaultPhrase() {
@@ -2960,12 +2936,12 @@ impl IRelationship_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IRichChunk_Impl: Sized {
-    fn GetData(&self, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut super::super::Foundation::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetData(&self, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut ::windows::core::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IRichChunk_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRichChunk_Impl, const OFFSET: isize>() -> IRichChunk_Vtbl {
-        unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl, Impl: IRichChunk_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut super::super::Foundation::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl, Impl: IRichChunk_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut ::windows::core::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetData(::core::mem::transmute_copy(&pfirstpos), ::core::mem::transmute_copy(&plength), ::core::mem::transmute_copy(&ppsz), ::core::mem::transmute_copy(&pvalue)).into()
@@ -2976,13 +2952,13 @@ impl IRichChunk_Vtbl {
         iid == &<IRichChunk as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IRow_Impl: Sized {
     fn GetColumns(&self, ccolumns: usize, rgcolumns: *mut DBCOLUMNACCESS) -> ::windows::core::Result<()>;
     fn GetSourceRowset(&self, riid: *const ::windows::core::GUID, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>, phrow: *mut usize) -> ::windows::core::Result<()>;
     fn Open(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const ::windows::core::GUID, dwbindflags: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IRow_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRow_Impl, const OFFSET: isize>() -> IRow_Vtbl {
         unsafe extern "system" fn GetColumns<Identity: ::windows::core::IUnknownImpl, Impl: IRow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumns: usize, rgcolumns: *mut DBCOLUMNACCESS) -> ::windows::core::HRESULT {
@@ -3017,11 +2993,11 @@ impl IRow_Vtbl {
         iid == &<IRow as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IRowChange_Impl: Sized {
     fn SetColumns(&self, ccolumns: usize, rgcolumns: *const DBCOLUMNACCESS) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IRowChange_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowChange_Impl, const OFFSET: isize>() -> IRowChange_Vtbl {
         unsafe extern "system" fn SetColumns<Identity: ::windows::core::IUnknownImpl, Impl: IRowChange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumns: usize, rgcolumns: *const DBCOLUMNACCESS) -> ::windows::core::HRESULT {
@@ -3106,12 +3082,12 @@ impl IRowPositionChange_Vtbl {
         iid == &<IRowPositionChange as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait IRowSchemaChange_Impl: Sized + IRowChange_Impl {
     fn DeleteColumns(&self, ccolumns: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgdwstatus: *mut u32) -> ::windows::core::Result<()>;
     fn AddColumns(&self, ccolumns: usize, rgnewcolumninfo: *const DBCOLUMNINFO, rgcolumns: *mut DBCOLUMNACCESS) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl IRowSchemaChange_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowSchemaChange_Impl, const OFFSET: isize>() -> IRowSchemaChange_Vtbl {
         unsafe extern "system" fn DeleteColumns<Identity: ::windows::core::IUnknownImpl, Impl: IRowSchemaChange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumns: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgdwstatus: *mut u32) -> ::windows::core::HRESULT {
@@ -4002,12 +3978,12 @@ impl IRowsetWatchRegion_Vtbl {
         iid == &<IRowsetWatchRegion as ::windows::core::Interface>::IID || iid == &<IRowsetWatchAll as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRowsetWithParameters_Impl: Sized {
     fn GetParameterInfo(&self, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
     fn Requery(&self, pparams: *mut DBPARAMS, pulerrorparam: *mut u32, phreserved: *mut usize) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRowsetWithParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetWithParameters_Impl, const OFFSET: isize>() -> IRowsetWithParameters_Vtbl {
         unsafe extern "system" fn GetParameterInfo<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetWithParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
@@ -4082,11 +4058,9 @@ impl ISQLRequestDiagFields_Vtbl {
         iid == &<ISQLRequestDiagFields as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISQLServerErrorInfo_Impl: Sized {
     fn GetErrorInfo(&self, pperrorinfo: *mut *mut tagSSErrorInfo, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ISQLServerErrorInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISQLServerErrorInfo_Impl, const OFFSET: isize>() -> ISQLServerErrorInfo_Vtbl {
         unsafe extern "system" fn GetErrorInfo<Identity: ::windows::core::IUnknownImpl, Impl: ISQLServerErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pperrorinfo: *mut *mut tagSSErrorInfo, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
@@ -4100,17 +4074,15 @@ impl ISQLServerErrorInfo_Vtbl {
         iid == &<ISQLServerErrorInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISchemaLocalizerSupport_Impl: Sized {
-    fn Localize(&self, pszglobalstring: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Localize(&self, pszglobalstring: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ISchemaLocalizerSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaLocalizerSupport_Impl, const OFFSET: isize>() -> ISchemaLocalizerSupport_Vtbl {
-        unsafe extern "system" fn Localize<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaLocalizerSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszglobalstring: super::super::Foundation::PWSTR, ppszlocalstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Localize<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaLocalizerSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszglobalstring: ::windows::core::PCWSTR, ppszlocalstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Localize(::core::mem::transmute_copy(&pszglobalstring)) {
+            match (*this).Localize(::core::mem::transmute(&pszglobalstring)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppszlocalstring = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4152,17 +4124,15 @@ impl ISchemaLock_Vtbl {
         iid == &<ISchemaLock as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISchemaProvider_Impl: Sized {
     fn Entities(&self, riid: *const ::windows::core::GUID, pentities: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn RootEntity(&self) -> ::windows::core::Result<IEntity>;
-    fn GetEntity(&self, pszentityname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IEntity>;
+    fn GetEntity(&self, pszentityname: &::windows::core::PCWSTR) -> ::windows::core::Result<IEntity>;
     fn MetaData(&self, riid: *const ::windows::core::GUID, pmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Localize(&self, lcid: u32, pschemalocalizersupport: &::core::option::Option<ISchemaLocalizerSupport>) -> ::windows::core::Result<()>;
-    fn SaveBinary(&self, pszschemabinarypath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn LookupAuthoredNamedEntity(&self, pentity: &::core::option::Option<IEntity>, pszinputstring: super::super::Foundation::PWSTR, ptokencollection: &::core::option::Option<ITokenCollection>, ctokensbegin: u32, pctokenslength: *mut u32, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SaveBinary(&self, pszschemabinarypath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn LookupAuthoredNamedEntity(&self, pentity: &::core::option::Option<IEntity>, pszinputstring: &::windows::core::PCWSTR, ptokencollection: &::core::option::Option<ITokenCollection>, ctokensbegin: u32, pctokenslength: *mut u32, ppszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ISchemaProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaProvider_Impl, const OFFSET: isize>() -> ISchemaProvider_Vtbl {
         unsafe extern "system" fn Entities<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pentities: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4181,10 +4151,10 @@ impl ISchemaProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEntity<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszentityname: super::super::Foundation::PWSTR, pentity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEntity<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszentityname: ::windows::core::PCWSTR, pentity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEntity(::core::mem::transmute_copy(&pszentityname)) {
+            match (*this).GetEntity(::core::mem::transmute(&pszentityname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pentity = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4202,15 +4172,15 @@ impl ISchemaProvider_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Localize(::core::mem::transmute_copy(&lcid), ::core::mem::transmute(&pschemalocalizersupport)).into()
         }
-        unsafe extern "system" fn SaveBinary<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszschemabinarypath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveBinary<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszschemabinarypath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SaveBinary(::core::mem::transmute_copy(&pszschemabinarypath)).into()
+            (*this).SaveBinary(::core::mem::transmute(&pszschemabinarypath)).into()
         }
-        unsafe extern "system" fn LookupAuthoredNamedEntity<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pentity: ::windows::core::RawPtr, pszinputstring: super::super::Foundation::PWSTR, ptokencollection: ::windows::core::RawPtr, ctokensbegin: u32, pctokenslength: *mut u32, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LookupAuthoredNamedEntity<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pentity: ::windows::core::RawPtr, pszinputstring: ::windows::core::PCWSTR, ptokencollection: ::windows::core::RawPtr, ctokensbegin: u32, pctokenslength: *mut u32, ppszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).LookupAuthoredNamedEntity(::core::mem::transmute(&pentity), ::core::mem::transmute_copy(&pszinputstring), ::core::mem::transmute(&ptokencollection), ::core::mem::transmute_copy(&ctokensbegin), ::core::mem::transmute_copy(&pctokenslength), ::core::mem::transmute_copy(&ppszvalue)).into()
+            (*this).LookupAuthoredNamedEntity(::core::mem::transmute(&pentity), ::core::mem::transmute(&pszinputstring), ::core::mem::transmute(&ptokencollection), ::core::mem::transmute_copy(&ctokensbegin), ::core::mem::transmute_copy(&pctokenslength), ::core::mem::transmute_copy(&ppszvalue)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -4229,25 +4199,25 @@ impl ISchemaProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IScopedOperations_Impl: Sized + IBindResource_Impl {
-    fn Copy(&self, crows: usize, rgpwszsourceurls: *const super::super::Foundation::PWSTR, rgpwszdesturls: *const super::super::Foundation::PWSTR, dwcopyflags: u32, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut super::super::Foundation::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
-    fn Move(&self, crows: usize, rgpwszsourceurls: *const super::super::Foundation::PWSTR, rgpwszdesturls: *const super::super::Foundation::PWSTR, dwmoveflags: u32, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut super::super::Foundation::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
-    fn Delete(&self, crows: usize, rgpwszurls: *const super::super::Foundation::PWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> ::windows::core::Result<()>;
+    fn Copy(&self, crows: usize, rgpwszsourceurls: *const ::windows::core::PWSTR, rgpwszdesturls: *const ::windows::core::PWSTR, dwcopyflags: u32, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut ::windows::core::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
+    fn Move(&self, crows: usize, rgpwszsourceurls: *const ::windows::core::PWSTR, rgpwszdesturls: *const ::windows::core::PWSTR, dwmoveflags: u32, pauthenticate: &::core::option::Option<super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut ::windows::core::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
+    fn Delete(&self, crows: usize, rgpwszurls: *const ::windows::core::PWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> ::windows::core::Result<()>;
     fn OpenRowset(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IScopedOperations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScopedOperations_Impl, const OFFSET: isize>() -> IScopedOperations_Vtbl {
-        unsafe extern "system" fn Copy<Identity: ::windows::core::IUnknownImpl, Impl: IScopedOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rgpwszsourceurls: *const super::super::Foundation::PWSTR, rgpwszdesturls: *const super::super::Foundation::PWSTR, dwcopyflags: u32, pauthenticate: ::windows::core::RawPtr, rgdwstatus: *mut u32, rgpwsznewurls: *mut super::super::Foundation::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Copy<Identity: ::windows::core::IUnknownImpl, Impl: IScopedOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rgpwszsourceurls: *const ::windows::core::PWSTR, rgpwszdesturls: *const ::windows::core::PWSTR, dwcopyflags: u32, pauthenticate: ::windows::core::RawPtr, rgdwstatus: *mut u32, rgpwsznewurls: *mut ::windows::core::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).Copy(::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&rgpwszsourceurls), ::core::mem::transmute_copy(&rgpwszdesturls), ::core::mem::transmute_copy(&dwcopyflags), ::core::mem::transmute(&pauthenticate), ::core::mem::transmute_copy(&rgdwstatus), ::core::mem::transmute_copy(&rgpwsznewurls), ::core::mem::transmute_copy(&ppstringsbuffer)).into()
         }
-        unsafe extern "system" fn Move<Identity: ::windows::core::IUnknownImpl, Impl: IScopedOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rgpwszsourceurls: *const super::super::Foundation::PWSTR, rgpwszdesturls: *const super::super::Foundation::PWSTR, dwmoveflags: u32, pauthenticate: ::windows::core::RawPtr, rgdwstatus: *mut u32, rgpwsznewurls: *mut super::super::Foundation::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Move<Identity: ::windows::core::IUnknownImpl, Impl: IScopedOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rgpwszsourceurls: *const ::windows::core::PWSTR, rgpwszdesturls: *const ::windows::core::PWSTR, dwmoveflags: u32, pauthenticate: ::windows::core::RawPtr, rgdwstatus: *mut u32, rgpwsznewurls: *mut ::windows::core::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).Move(::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&rgpwszsourceurls), ::core::mem::transmute_copy(&rgpwszdesturls), ::core::mem::transmute_copy(&dwmoveflags), ::core::mem::transmute(&pauthenticate), ::core::mem::transmute_copy(&rgdwstatus), ::core::mem::transmute_copy(&rgpwsznewurls), ::core::mem::transmute_copy(&ppstringsbuffer)).into()
         }
-        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IScopedOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rgpwszurls: *const super::super::Foundation::PWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IScopedOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rgpwszurls: *const ::windows::core::PWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).Delete(::core::mem::transmute_copy(&crows), ::core::mem::transmute_copy(&rgpwszurls), ::core::mem::transmute_copy(&dwdeleteflags), ::core::mem::transmute_copy(&rgdwstatus)).into()
@@ -4271,27 +4241,27 @@ impl IScopedOperations_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISearchCatalogManager_Impl: Sized {
-    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetParameter(&self, pszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>;
-    fn SetParameter(&self, pszname: super::super::Foundation::PWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetParameter(&self, pszname: &::windows::core::PCWSTR) -> ::windows::core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>;
+    fn SetParameter(&self, pszname: &::windows::core::PCWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetCatalogStatus(&self, pstatus: *mut CatalogStatus, ppausedreason: *mut CatalogPausedReason) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Reindex(&self) -> ::windows::core::Result<()>;
-    fn ReindexMatchingURLs(&self, pszpattern: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ReindexSearchRoot(&self, pszrooturl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ReindexMatchingURLs(&self, pszpattern: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn ReindexSearchRoot(&self, pszrooturl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetConnectTimeout(&self, dwconnecttimeout: u32) -> ::windows::core::Result<()>;
     fn ConnectTimeout(&self) -> ::windows::core::Result<u32>;
     fn SetDataTimeout(&self, dwdatatimeout: u32) -> ::windows::core::Result<()>;
     fn DataTimeout(&self) -> ::windows::core::Result<u32>;
     fn NumberOfItems(&self) -> ::windows::core::Result<i32>;
     fn NumberOfItemsToIndex(&self, plincrementalcount: *mut i32, plnotificationqueue: *mut i32, plhighpriorityqueue: *mut i32) -> ::windows::core::Result<()>;
-    fn URLBeingIndexed(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetURLIndexingState(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
+    fn URLBeingIndexed(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetURLIndexingState(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
     fn GetPersistentItemsChangedSink(&self) -> ::windows::core::Result<ISearchPersistentItemsChangedSink>;
-    fn RegisterViewForNotification(&self, pszview: super::super::Foundation::PWSTR, pviewchangedsink: &::core::option::Option<ISearchViewChangedSink>) -> ::windows::core::Result<u32>;
+    fn RegisterViewForNotification(&self, pszview: &::windows::core::PCWSTR, pviewchangedsink: &::core::option::Option<ISearchViewChangedSink>) -> ::windows::core::Result<u32>;
     fn GetItemsChangedSink(&self, pisearchnotifyinlinesite: &::core::option::Option<ISearchNotifyInlineSite>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void, pguidcatalogresetsignature: *mut ::windows::core::GUID, pguidcheckpointsignature: *mut ::windows::core::GUID, pdwlastcheckpointnumber: *mut u32) -> ::windows::core::Result<()>;
     fn UnregisterViewForNotification(&self, dwcookie: u32) -> ::windows::core::Result<()>;
-    fn SetExtensionClusion(&self, pszextension: super::super::Foundation::PWSTR, fexclude: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetExtensionClusion(&self, pszextension: &::windows::core::PCWSTR, fexclude: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn EnumerateExcludedExtensions(&self) -> ::windows::core::Result<super::Com::IEnumString>;
     fn GetQueryHelper(&self) -> ::windows::core::Result<ISearchQueryHelper>;
     fn SetDiacriticSensitivity(&self, fdiacriticsensitive: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -4301,7 +4271,7 @@ pub trait ISearchCatalogManager_Impl: Sized {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ISearchCatalogManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>() -> ISearchCatalogManager_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Name() {
@@ -4312,10 +4282,10 @@ impl ISearchCatalogManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetParameter<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameter<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetParameter(::core::mem::transmute_copy(&pszname)) {
+            match (*this).GetParameter(::core::mem::transmute(&pszname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4323,10 +4293,10 @@ impl ISearchCatalogManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParameter<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParameter<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetParameter(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&pvalue)).into()
+            (*this).SetParameter(::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn GetCatalogStatus<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut CatalogStatus, ppausedreason: *mut CatalogPausedReason) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4343,15 +4313,15 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Reindex().into()
         }
-        unsafe extern "system" fn ReindexMatchingURLs<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpattern: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReindexMatchingURLs<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpattern: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ReindexMatchingURLs(::core::mem::transmute_copy(&pszpattern)).into()
+            (*this).ReindexMatchingURLs(::core::mem::transmute(&pszpattern)).into()
         }
-        unsafe extern "system" fn ReindexSearchRoot<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrooturl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReindexSearchRoot<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrooturl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ReindexSearchRoot(::core::mem::transmute_copy(&pszrooturl)).into()
+            (*this).ReindexSearchRoot(::core::mem::transmute(&pszrooturl)).into()
         }
         unsafe extern "system" fn SetConnectTimeout<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwconnecttimeout: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4401,7 +4371,7 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).NumberOfItemsToIndex(::core::mem::transmute_copy(&plincrementalcount), ::core::mem::transmute_copy(&plnotificationqueue), ::core::mem::transmute_copy(&plhighpriorityqueue)).into()
         }
-        unsafe extern "system" fn URLBeingIndexed<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn URLBeingIndexed<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).URLBeingIndexed() {
@@ -4412,10 +4382,10 @@ impl ISearchCatalogManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetURLIndexingState<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pdwstate: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetURLIndexingState<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pdwstate: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetURLIndexingState(::core::mem::transmute_copy(&pszurl)) {
+            match (*this).GetURLIndexingState(::core::mem::transmute(&pszurl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pdwstate = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4434,10 +4404,10 @@ impl ISearchCatalogManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterViewForNotification<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszview: super::super::Foundation::PWSTR, pviewchangedsink: ::windows::core::RawPtr, pdwcookie: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterViewForNotification<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszview: ::windows::core::PCWSTR, pviewchangedsink: ::windows::core::RawPtr, pdwcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RegisterViewForNotification(::core::mem::transmute_copy(&pszview), ::core::mem::transmute(&pviewchangedsink)) {
+            match (*this).RegisterViewForNotification(::core::mem::transmute(&pszview), ::core::mem::transmute(&pviewchangedsink)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pdwcookie = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4455,10 +4425,10 @@ impl ISearchCatalogManager_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).UnregisterViewForNotification(::core::mem::transmute_copy(&dwcookie)).into()
         }
-        unsafe extern "system" fn SetExtensionClusion<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszextension: super::super::Foundation::PWSTR, fexclude: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExtensionClusion<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszextension: ::windows::core::PCWSTR, fexclude: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetExtensionClusion(::core::mem::transmute_copy(&pszextension), ::core::mem::transmute_copy(&fexclude)).into()
+            (*this).SetExtensionClusion(::core::mem::transmute(&pszextension), ::core::mem::transmute_copy(&fexclude)).into()
         }
         unsafe extern "system" fn EnumerateExcludedExtensions<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppextensions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4545,15 +4515,15 @@ impl ISearchCatalogManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISearchCatalogManager2_Impl: Sized + ISearchCatalogManager_Impl {
-    fn PrioritizeMatchingURLs(&self, pszpattern: super::super::Foundation::PWSTR, dwprioritizeflags: PRIORITIZE_FLAGS) -> ::windows::core::Result<()>;
+    fn PrioritizeMatchingURLs(&self, pszpattern: &::windows::core::PCWSTR, dwprioritizeflags: PRIORITIZE_FLAGS) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ISearchCatalogManager2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager2_Impl, const OFFSET: isize>() -> ISearchCatalogManager2_Vtbl {
-        unsafe extern "system" fn PrioritizeMatchingURLs<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpattern: super::super::Foundation::PWSTR, dwprioritizeflags: PRIORITIZE_FLAGS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrioritizeMatchingURLs<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpattern: ::windows::core::PCWSTR, dwprioritizeflags: PRIORITIZE_FLAGS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PrioritizeMatchingURLs(::core::mem::transmute_copy(&pszpattern), ::core::mem::transmute_copy(&dwprioritizeflags)).into()
+            (*this).PrioritizeMatchingURLs(::core::mem::transmute(&pszpattern), ::core::mem::transmute_copy(&dwprioritizeflags)).into()
         }
         Self { base: ISearchCatalogManager_Vtbl::new::<Identity, Impl, OFFSET>(), PrioritizeMatchingURLs: PrioritizeMatchingURLs::<Identity, Impl, OFFSET> }
     }
@@ -4563,40 +4533,40 @@ impl ISearchCatalogManager2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchCrawlScopeManager_Impl: Sized {
-    fn AddDefaultScopeRule(&self, pszurl: super::super::Foundation::PWSTR, finclude: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::Result<()>;
+    fn AddDefaultScopeRule(&self, pszurl: &::windows::core::PCWSTR, finclude: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::Result<()>;
     fn AddRoot(&self, psearchroot: &::core::option::Option<ISearchRoot>) -> ::windows::core::Result<()>;
-    fn RemoveRoot(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RemoveRoot(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn EnumerateRoots(&self) -> ::windows::core::Result<IEnumSearchRoots>;
-    fn AddHierarchicalScope(&self, pszurl: super::super::Foundation::PWSTR, finclude: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL, foverridechildren: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn AddUserScopeRule(&self, pszurl: super::super::Foundation::PWSTR, finclude: super::super::Foundation::BOOL, foverridechildren: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::Result<()>;
-    fn RemoveScopeRule(&self, pszrule: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddHierarchicalScope(&self, pszurl: &::windows::core::PCWSTR, finclude: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL, foverridechildren: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddUserScopeRule(&self, pszurl: &::windows::core::PCWSTR, finclude: super::super::Foundation::BOOL, foverridechildren: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::Result<()>;
+    fn RemoveScopeRule(&self, pszrule: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn EnumerateScopeRules(&self) -> ::windows::core::Result<IEnumSearchScopeRules>;
-    fn HasParentScopeRule(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn HasChildScopeRule(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IncludedInCrawlScope(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IncludedInCrawlScopeEx(&self, pszurl: super::super::Foundation::PWSTR, pfisincluded: *mut super::super::Foundation::BOOL, preason: *mut CLUSION_REASON) -> ::windows::core::Result<()>;
+    fn HasParentScopeRule(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn HasChildScopeRule(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IncludedInCrawlScope(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IncludedInCrawlScopeEx(&self, pszurl: &::windows::core::PCWSTR, pfisincluded: *mut super::super::Foundation::BOOL, preason: *mut CLUSION_REASON) -> ::windows::core::Result<()>;
     fn RevertToDefaultScopes(&self) -> ::windows::core::Result<()>;
     fn SaveAll(&self) -> ::windows::core::Result<()>;
-    fn GetParentScopeVersionId(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<i32>;
-    fn RemoveDefaultScopeRule(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetParentScopeVersionId(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<i32>;
+    fn RemoveDefaultScopeRule(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISearchCrawlScopeManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>() -> ISearchCrawlScopeManager_Vtbl {
-        unsafe extern "system" fn AddDefaultScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, finclude: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDefaultScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, finclude: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddDefaultScopeRule(::core::mem::transmute_copy(&pszurl), ::core::mem::transmute_copy(&finclude), ::core::mem::transmute_copy(&ffollowflags)).into()
+            (*this).AddDefaultScopeRule(::core::mem::transmute(&pszurl), ::core::mem::transmute_copy(&finclude), ::core::mem::transmute_copy(&ffollowflags)).into()
         }
         unsafe extern "system" fn AddRoot<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psearchroot: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).AddRoot(::core::mem::transmute(&psearchroot)).into()
         }
-        unsafe extern "system" fn RemoveRoot<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveRoot<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveRoot(::core::mem::transmute_copy(&pszurl)).into()
+            (*this).RemoveRoot(::core::mem::transmute(&pszurl)).into()
         }
         unsafe extern "system" fn EnumerateRoots<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsearchroots: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4609,20 +4579,20 @@ impl ISearchCrawlScopeManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddHierarchicalScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, finclude: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL, foverridechildren: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddHierarchicalScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, finclude: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL, foverridechildren: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddHierarchicalScope(::core::mem::transmute_copy(&pszurl), ::core::mem::transmute_copy(&finclude), ::core::mem::transmute_copy(&fdefault), ::core::mem::transmute_copy(&foverridechildren)).into()
+            (*this).AddHierarchicalScope(::core::mem::transmute(&pszurl), ::core::mem::transmute_copy(&finclude), ::core::mem::transmute_copy(&fdefault), ::core::mem::transmute_copy(&foverridechildren)).into()
         }
-        unsafe extern "system" fn AddUserScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, finclude: super::super::Foundation::BOOL, foverridechildren: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddUserScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, finclude: super::super::Foundation::BOOL, foverridechildren: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddUserScopeRule(::core::mem::transmute_copy(&pszurl), ::core::mem::transmute_copy(&finclude), ::core::mem::transmute_copy(&foverridechildren), ::core::mem::transmute_copy(&ffollowflags)).into()
+            (*this).AddUserScopeRule(::core::mem::transmute(&pszurl), ::core::mem::transmute_copy(&finclude), ::core::mem::transmute_copy(&foverridechildren), ::core::mem::transmute_copy(&ffollowflags)).into()
         }
-        unsafe extern "system" fn RemoveScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrule: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrule: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveScopeRule(::core::mem::transmute_copy(&pszrule)).into()
+            (*this).RemoveScopeRule(::core::mem::transmute(&pszrule)).into()
         }
         unsafe extern "system" fn EnumerateScopeRules<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsearchscoperules: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4635,10 +4605,10 @@ impl ISearchCrawlScopeManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasParentScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pfhasparentrule: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasParentScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pfhasparentrule: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).HasParentScopeRule(::core::mem::transmute_copy(&pszurl)) {
+            match (*this).HasParentScopeRule(::core::mem::transmute(&pszurl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfhasparentrule = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4646,10 +4616,10 @@ impl ISearchCrawlScopeManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasChildScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pfhaschildrule: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasChildScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pfhaschildrule: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).HasChildScopeRule(::core::mem::transmute_copy(&pszurl)) {
+            match (*this).HasChildScopeRule(::core::mem::transmute(&pszurl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfhaschildrule = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4657,10 +4627,10 @@ impl ISearchCrawlScopeManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IncludedInCrawlScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pfisincluded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IncludedInCrawlScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pfisincluded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IncludedInCrawlScope(::core::mem::transmute_copy(&pszurl)) {
+            match (*this).IncludedInCrawlScope(::core::mem::transmute(&pszurl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfisincluded = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4668,10 +4638,10 @@ impl ISearchCrawlScopeManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IncludedInCrawlScopeEx<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pfisincluded: *mut super::super::Foundation::BOOL, preason: *mut CLUSION_REASON) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IncludedInCrawlScopeEx<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pfisincluded: *mut super::super::Foundation::BOOL, preason: *mut CLUSION_REASON) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IncludedInCrawlScopeEx(::core::mem::transmute_copy(&pszurl), ::core::mem::transmute_copy(&pfisincluded), ::core::mem::transmute_copy(&preason)).into()
+            (*this).IncludedInCrawlScopeEx(::core::mem::transmute(&pszurl), ::core::mem::transmute_copy(&pfisincluded), ::core::mem::transmute_copy(&preason)).into()
         }
         unsafe extern "system" fn RevertToDefaultScopes<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4683,10 +4653,10 @@ impl ISearchCrawlScopeManager_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SaveAll().into()
         }
-        unsafe extern "system" fn GetParentScopeVersionId<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, plscopeid: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParentScopeVersionId<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, plscopeid: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetParentScopeVersionId(::core::mem::transmute_copy(&pszurl)) {
+            match (*this).GetParentScopeVersionId(::core::mem::transmute(&pszurl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plscopeid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4694,10 +4664,10 @@ impl ISearchCrawlScopeManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveDefaultScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveDefaultScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveDefaultScopeRule(::core::mem::transmute_copy(&pszurl)).into()
+            (*this).RemoveDefaultScopeRule(::core::mem::transmute(&pszurl)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -4741,24 +4711,24 @@ impl ISearchCrawlScopeManager2_Vtbl {
         iid == &<ISearchCrawlScopeManager2 as ::windows::core::Interface>::IID || iid == &<ISearchCrawlScopeManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISearchItemsChangedSink_Impl: Sized {
-    fn StartedMonitoringScope(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn StoppedMonitoringScope(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn StartedMonitoringScope(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn StoppedMonitoringScope(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn OnItemsChanged(&self, dwnumberofchanges: u32, rgdatachangeentries: *const SEARCH_ITEM_CHANGE, rgdwdocids: *mut u32, rghrcompletioncodes: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISearchItemsChangedSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchItemsChangedSink_Impl, const OFFSET: isize>() -> ISearchItemsChangedSink_Vtbl {
-        unsafe extern "system" fn StartedMonitoringScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchItemsChangedSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartedMonitoringScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchItemsChangedSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).StartedMonitoringScope(::core::mem::transmute_copy(&pszurl)).into()
+            (*this).StartedMonitoringScope(::core::mem::transmute(&pszurl)).into()
         }
-        unsafe extern "system" fn StoppedMonitoringScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchItemsChangedSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StoppedMonitoringScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchItemsChangedSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).StoppedMonitoringScope(::core::mem::transmute_copy(&pszurl)).into()
+            (*this).StoppedMonitoringScope(::core::mem::transmute(&pszurl)).into()
         }
         unsafe extern "system" fn OnItemsChanged<Identity: ::windows::core::IUnknownImpl, Impl: ISearchItemsChangedSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnumberofchanges: u32, rgdatachangeentries: *const SEARCH_ITEM_CHANGE, rgdwdocids: *mut u32, rghrcompletioncodes: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4782,7 +4752,7 @@ pub trait ISearchLanguageSupport_Impl: Sized {
     fn GetDiacriticSensitivity(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn LoadWordBreaker(&self, lcid: u32, riid: *const ::windows::core::GUID, ppwordbreaker: *mut *mut ::core::ffi::c_void, plcidused: *mut u32) -> ::windows::core::Result<()>;
     fn LoadStemmer(&self, lcid: u32, riid: *const ::windows::core::GUID, ppstemmer: *mut *mut ::core::ffi::c_void, plcidused: *mut u32) -> ::windows::core::Result<()>;
-    fn IsPrefixNormalized(&self, pwcsquerytoken: super::super::Foundation::PWSTR, cwcquerytoken: u32, pwcsdocumenttoken: super::super::Foundation::PWSTR, cwcdocumenttoken: u32) -> ::windows::core::Result<u32>;
+    fn IsPrefixNormalized(&self, pwcsquerytoken: &::windows::core::PCWSTR, cwcquerytoken: u32, pwcsdocumenttoken: &::windows::core::PCWSTR, cwcdocumenttoken: u32) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISearchLanguageSupport_Vtbl {
@@ -4813,10 +4783,10 @@ impl ISearchLanguageSupport_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).LoadStemmer(::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppstemmer), ::core::mem::transmute_copy(&plcidused)).into()
         }
-        unsafe extern "system" fn IsPrefixNormalized<Identity: ::windows::core::IUnknownImpl, Impl: ISearchLanguageSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcsquerytoken: super::super::Foundation::PWSTR, cwcquerytoken: u32, pwcsdocumenttoken: super::super::Foundation::PWSTR, cwcdocumenttoken: u32, pulprefixlength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPrefixNormalized<Identity: ::windows::core::IUnknownImpl, Impl: ISearchLanguageSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcsquerytoken: ::windows::core::PCWSTR, cwcquerytoken: u32, pwcsdocumenttoken: ::windows::core::PCWSTR, cwcdocumenttoken: u32, pulprefixlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsPrefixNormalized(::core::mem::transmute_copy(&pwcsquerytoken), ::core::mem::transmute_copy(&cwcquerytoken), ::core::mem::transmute_copy(&pwcsdocumenttoken), ::core::mem::transmute_copy(&cwcdocumenttoken)) {
+            match (*this).IsPrefixNormalized(::core::mem::transmute(&pwcsquerytoken), ::core::mem::transmute_copy(&cwcquerytoken), ::core::mem::transmute(&pwcsdocumenttoken), ::core::mem::transmute_copy(&cwcdocumenttoken)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pulprefixlength = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4839,16 +4809,16 @@ impl ISearchLanguageSupport_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISearchManager_Impl: Sized {
-    fn GetIndexerVersionStr(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetIndexerVersionStr(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetIndexerVersion(&self, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows::core::Result<()>;
-    fn GetParameter(&self, pszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>;
-    fn SetParameter(&self, pszname: super::super::Foundation::PWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn ProxyName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn BypassList(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetProxy(&self, suseproxy: PROXY_ACCESS, flocalbypassproxy: super::super::Foundation::BOOL, dwportnumber: u32, pszproxyname: super::super::Foundation::PWSTR, pszbypasslist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetCatalog(&self, pszcatalog: super::super::Foundation::PWSTR) -> ::windows::core::Result<ISearchCatalogManager>;
-    fn UserAgent(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetUserAgent(&self, pszuseragent: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetParameter(&self, pszname: &::windows::core::PCWSTR) -> ::windows::core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>;
+    fn SetParameter(&self, pszname: &::windows::core::PCWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn ProxyName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn BypassList(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetProxy(&self, suseproxy: PROXY_ACCESS, flocalbypassproxy: super::super::Foundation::BOOL, dwportnumber: u32, pszproxyname: &::windows::core::PCWSTR, pszbypasslist: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetCatalog(&self, pszcatalog: &::windows::core::PCWSTR) -> ::windows::core::Result<ISearchCatalogManager>;
+    fn UserAgent(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetUserAgent(&self, pszuseragent: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn UseProxy(&self) -> ::windows::core::Result<PROXY_ACCESS>;
     fn LocalBypass(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn PortNumber(&self) -> ::windows::core::Result<u32>;
@@ -4856,7 +4826,7 @@ pub trait ISearchManager_Impl: Sized {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ISearchManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>() -> ISearchManager_Vtbl {
-        unsafe extern "system" fn GetIndexerVersionStr<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszversionstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIndexerVersionStr<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszversionstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetIndexerVersionStr() {
@@ -4872,10 +4842,10 @@ impl ISearchManager_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetIndexerVersion(::core::mem::transmute_copy(&pdwmajor), ::core::mem::transmute_copy(&pdwminor)).into()
         }
-        unsafe extern "system" fn GetParameter<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameter<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetParameter(::core::mem::transmute_copy(&pszname)) {
+            match (*this).GetParameter(::core::mem::transmute(&pszname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4883,12 +4853,12 @@ impl ISearchManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParameter<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParameter<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetParameter(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&pvalue)).into()
+            (*this).SetParameter(::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&pvalue)).into()
         }
-        unsafe extern "system" fn ProxyName<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszproxyname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProxyName<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszproxyname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).ProxyName() {
@@ -4899,7 +4869,7 @@ impl ISearchManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BypassList<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszbypasslist: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BypassList<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszbypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).BypassList() {
@@ -4910,15 +4880,15 @@ impl ISearchManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxy<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, suseproxy: PROXY_ACCESS, flocalbypassproxy: super::super::Foundation::BOOL, dwportnumber: u32, pszproxyname: super::super::Foundation::PWSTR, pszbypasslist: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProxy<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, suseproxy: PROXY_ACCESS, flocalbypassproxy: super::super::Foundation::BOOL, dwportnumber: u32, pszproxyname: ::windows::core::PCWSTR, pszbypasslist: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProxy(::core::mem::transmute_copy(&suseproxy), ::core::mem::transmute_copy(&flocalbypassproxy), ::core::mem::transmute_copy(&dwportnumber), ::core::mem::transmute_copy(&pszproxyname), ::core::mem::transmute_copy(&pszbypasslist)).into()
+            (*this).SetProxy(::core::mem::transmute_copy(&suseproxy), ::core::mem::transmute_copy(&flocalbypassproxy), ::core::mem::transmute_copy(&dwportnumber), ::core::mem::transmute(&pszproxyname), ::core::mem::transmute(&pszbypasslist)).into()
         }
-        unsafe extern "system" fn GetCatalog<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: super::super::Foundation::PWSTR, ppcatalogmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCatalog<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: ::windows::core::PCWSTR, ppcatalogmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCatalog(::core::mem::transmute_copy(&pszcatalog)) {
+            match (*this).GetCatalog(::core::mem::transmute(&pszcatalog)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcatalogmanager = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4926,7 +4896,7 @@ impl ISearchManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserAgent<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszuseragent: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserAgent<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszuseragent: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).UserAgent() {
@@ -4937,10 +4907,10 @@ impl ISearchManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUserAgent<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszuseragent: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUserAgent<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszuseragent: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetUserAgent(::core::mem::transmute_copy(&pszuseragent)).into()
+            (*this).SetUserAgent(::core::mem::transmute(&pszuseragent)).into()
         }
         unsafe extern "system" fn UseProxy<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puseproxy: *mut PROXY_ACCESS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4998,16 +4968,16 @@ impl ISearchManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISearchManager2_Impl: Sized + ISearchManager_Impl {
-    fn CreateCatalog(&self, pszcatalog: super::super::Foundation::PWSTR) -> ::windows::core::Result<ISearchCatalogManager>;
-    fn DeleteCatalog(&self, pszcatalog: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CreateCatalog(&self, pszcatalog: &::windows::core::PCWSTR) -> ::windows::core::Result<ISearchCatalogManager>;
+    fn DeleteCatalog(&self, pszcatalog: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ISearchManager2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager2_Impl, const OFFSET: isize>() -> ISearchManager2_Vtbl {
-        unsafe extern "system" fn CreateCatalog<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: super::super::Foundation::PWSTR, ppcatalogmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCatalog<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: ::windows::core::PCWSTR, ppcatalogmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateCatalog(::core::mem::transmute_copy(&pszcatalog)) {
+            match (*this).CreateCatalog(::core::mem::transmute(&pszcatalog)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcatalogmanager = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5015,10 +4985,10 @@ impl ISearchManager2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteCatalog<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteCatalog<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteCatalog(::core::mem::transmute_copy(&pszcatalog)).into()
+            (*this).DeleteCatalog(::core::mem::transmute(&pszcatalog)).into()
         }
         Self {
             base: ISearchManager_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5056,24 +5026,22 @@ impl ISearchNotifyInlineSite_Vtbl {
         iid == &<ISearchNotifyInlineSite as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISearchPersistentItemsChangedSink_Impl: Sized {
-    fn StartedMonitoringScope(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn StoppedMonitoringScope(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn StartedMonitoringScope(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn StoppedMonitoringScope(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn OnItemsChanged(&self, dwnumberofchanges: u32, datachangeentries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrcompletioncodes: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ISearchPersistentItemsChangedSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPersistentItemsChangedSink_Impl, const OFFSET: isize>() -> ISearchPersistentItemsChangedSink_Vtbl {
-        unsafe extern "system" fn StartedMonitoringScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPersistentItemsChangedSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartedMonitoringScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPersistentItemsChangedSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).StartedMonitoringScope(::core::mem::transmute_copy(&pszurl)).into()
+            (*this).StartedMonitoringScope(::core::mem::transmute(&pszurl)).into()
         }
-        unsafe extern "system" fn StoppedMonitoringScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPersistentItemsChangedSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StoppedMonitoringScope<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPersistentItemsChangedSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).StoppedMonitoringScope(::core::mem::transmute_copy(&pszurl)).into()
+            (*this).StoppedMonitoringScope(::core::mem::transmute(&pszurl)).into()
         }
         unsafe extern "system" fn OnItemsChanged<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPersistentItemsChangedSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnumberofchanges: u32, datachangeentries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrcompletioncodes: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5094,7 +5062,7 @@ impl ISearchPersistentItemsChangedSink_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchProtocol_Impl: Sized {
     fn Init(&self, ptimeoutinfo: *mut TIMEOUT_INFO, pprotocolhandlersite: &::core::option::Option<IProtocolHandlerSite>, pproxyinfo: *mut PROXY_INFO) -> ::windows::core::Result<()>;
-    fn CreateAccessor(&self, pcwszurl: super::super::Foundation::PWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, ppaccessor: *mut ::core::option::Option<IUrlAccessor>) -> ::windows::core::Result<()>;
+    fn CreateAccessor(&self, pcwszurl: &::windows::core::PCWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, ppaccessor: *mut ::core::option::Option<IUrlAccessor>) -> ::windows::core::Result<()>;
     fn CloseAccessor(&self, paccessor: &::core::option::Option<IUrlAccessor>) -> ::windows::core::Result<()>;
     fn ShutDown(&self) -> ::windows::core::Result<()>;
 }
@@ -5106,10 +5074,10 @@ impl ISearchProtocol_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Init(::core::mem::transmute_copy(&ptimeoutinfo), ::core::mem::transmute(&pprotocolhandlersite), ::core::mem::transmute_copy(&pproxyinfo)).into()
         }
-        unsafe extern "system" fn CreateAccessor<Identity: ::windows::core::IUnknownImpl, Impl: ISearchProtocol_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, ppaccessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAccessor<Identity: ::windows::core::IUnknownImpl, Impl: ISearchProtocol_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcwszurl: ::windows::core::PCWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, ppaccessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateAccessor(::core::mem::transmute_copy(&pcwszurl), ::core::mem::transmute_copy(&pauthenticationinfo), ::core::mem::transmute_copy(&pincrementalaccessinfo), ::core::mem::transmute_copy(&piteminfo), ::core::mem::transmute_copy(&ppaccessor)).into()
+            (*this).CreateAccessor(::core::mem::transmute(&pcwszurl), ::core::mem::transmute_copy(&pauthenticationinfo), ::core::mem::transmute_copy(&pincrementalaccessinfo), ::core::mem::transmute_copy(&piteminfo), ::core::mem::transmute_copy(&ppaccessor)).into()
         }
         unsafe extern "system" fn CloseAccessor<Identity: ::windows::core::IUnknownImpl, Impl: ISearchProtocol_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paccessor: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5135,15 +5103,15 @@ impl ISearchProtocol_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISearchProtocol2_Impl: Sized + ISearchProtocol_Impl {
-    fn CreateAccessorEx(&self, pcwszurl: super::super::Foundation::PWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, puserdata: *const super::Com::BLOB, ppaccessor: *mut ::core::option::Option<IUrlAccessor>) -> ::windows::core::Result<()>;
+    fn CreateAccessorEx(&self, pcwszurl: &::windows::core::PCWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, puserdata: *const super::Com::BLOB, ppaccessor: *mut ::core::option::Option<IUrlAccessor>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISearchProtocol2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchProtocol2_Impl, const OFFSET: isize>() -> ISearchProtocol2_Vtbl {
-        unsafe extern "system" fn CreateAccessorEx<Identity: ::windows::core::IUnknownImpl, Impl: ISearchProtocol2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, puserdata: *const super::Com::BLOB, ppaccessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAccessorEx<Identity: ::windows::core::IUnknownImpl, Impl: ISearchProtocol2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcwszurl: ::windows::core::PCWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, puserdata: *const super::Com::BLOB, ppaccessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateAccessorEx(::core::mem::transmute_copy(&pcwszurl), ::core::mem::transmute_copy(&pauthenticationinfo), ::core::mem::transmute_copy(&pincrementalaccessinfo), ::core::mem::transmute_copy(&piteminfo), ::core::mem::transmute_copy(&puserdata), ::core::mem::transmute_copy(&ppaccessor)).into()
+            (*this).CreateAccessorEx(::core::mem::transmute(&pcwszurl), ::core::mem::transmute_copy(&pauthenticationinfo), ::core::mem::transmute_copy(&pincrementalaccessinfo), ::core::mem::transmute_copy(&piteminfo), ::core::mem::transmute_copy(&puserdata), ::core::mem::transmute_copy(&ppaccessor)).into()
         }
         Self { base: ISearchProtocol_Vtbl::new::<Identity, Impl, OFFSET>(), CreateAccessorEx: CreateAccessorEx::<Identity, Impl, OFFSET> }
     }
@@ -5186,7 +5154,7 @@ impl ISearchProtocolThreadContext_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISearchQueryHelper_Impl: Sized {
-    fn ConnectionString(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn ConnectionString(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetQueryContentLocale(&self, lcid: u32) -> ::windows::core::Result<()>;
     fn QueryContentLocale(&self) -> ::windows::core::Result<u32>;
     fn SetQueryKeywordLocale(&self, lcid: u32) -> ::windows::core::Result<()>;
@@ -5195,15 +5163,15 @@ pub trait ISearchQueryHelper_Impl: Sized {
     fn QueryTermExpansion(&self) -> ::windows::core::Result<SEARCH_TERM_EXPANSION>;
     fn SetQuerySyntax(&self, querysyntax: SEARCH_QUERY_SYNTAX) -> ::windows::core::Result<()>;
     fn QuerySyntax(&self) -> ::windows::core::Result<SEARCH_QUERY_SYNTAX>;
-    fn SetQueryContentProperties(&self, pszcontentproperties: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn QueryContentProperties(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetQuerySelectColumns(&self, pszselectcolumns: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn QuerySelectColumns(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetQueryWhereRestrictions(&self, pszrestrictions: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn QueryWhereRestrictions(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetQuerySorting(&self, pszsorting: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn QuerySorting(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GenerateSQLFromUserQuery(&self, pszquery: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetQueryContentProperties(&self, pszcontentproperties: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn QueryContentProperties(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetQuerySelectColumns(&self, pszselectcolumns: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn QuerySelectColumns(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetQueryWhereRestrictions(&self, pszrestrictions: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn QueryWhereRestrictions(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetQuerySorting(&self, pszsorting: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn QuerySorting(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GenerateSQLFromUserQuery(&self, pszquery: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn WriteProperties(&self, itemid: i32, dwnumberofcolumns: u32, pcolumns: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalues: *const SEARCH_COLUMN_PROPERTIES, pftgathermodifiedtime: *const super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
     fn SetQueryMaxResults(&self, cmaxresults: i32) -> ::windows::core::Result<()>;
     fn QueryMaxResults(&self) -> ::windows::core::Result<i32>;
@@ -5211,7 +5179,7 @@ pub trait ISearchQueryHelper_Impl: Sized {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISearchQueryHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>() -> ISearchQueryHelper_Vtbl {
-        unsafe extern "system" fn ConnectionString<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszconnectionstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionString<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszconnectionstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).ConnectionString() {
@@ -5286,12 +5254,12 @@ impl ISearchQueryHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQueryContentProperties<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcontentproperties: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQueryContentProperties<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcontentproperties: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetQueryContentProperties(::core::mem::transmute_copy(&pszcontentproperties)).into()
+            (*this).SetQueryContentProperties(::core::mem::transmute(&pszcontentproperties)).into()
         }
-        unsafe extern "system" fn QueryContentProperties<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszcontentproperties: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryContentProperties<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszcontentproperties: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).QueryContentProperties() {
@@ -5302,12 +5270,12 @@ impl ISearchQueryHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQuerySelectColumns<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszselectcolumns: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQuerySelectColumns<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszselectcolumns: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetQuerySelectColumns(::core::mem::transmute_copy(&pszselectcolumns)).into()
+            (*this).SetQuerySelectColumns(::core::mem::transmute(&pszselectcolumns)).into()
         }
-        unsafe extern "system" fn QuerySelectColumns<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszselectcolumns: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QuerySelectColumns<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszselectcolumns: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).QuerySelectColumns() {
@@ -5318,12 +5286,12 @@ impl ISearchQueryHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQueryWhereRestrictions<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrestrictions: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQueryWhereRestrictions<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrestrictions: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetQueryWhereRestrictions(::core::mem::transmute_copy(&pszrestrictions)).into()
+            (*this).SetQueryWhereRestrictions(::core::mem::transmute(&pszrestrictions)).into()
         }
-        unsafe extern "system" fn QueryWhereRestrictions<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszrestrictions: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryWhereRestrictions<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszrestrictions: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).QueryWhereRestrictions() {
@@ -5334,12 +5302,12 @@ impl ISearchQueryHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetQuerySorting<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsorting: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetQuerySorting<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsorting: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetQuerySorting(::core::mem::transmute_copy(&pszsorting)).into()
+            (*this).SetQuerySorting(::core::mem::transmute(&pszsorting)).into()
         }
-        unsafe extern "system" fn QuerySorting<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszsorting: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QuerySorting<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszsorting: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).QuerySorting() {
@@ -5350,10 +5318,10 @@ impl ISearchQueryHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateSQLFromUserQuery<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszquery: super::super::Foundation::PWSTR, ppszsql: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateSQLFromUserQuery<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszquery: ::windows::core::PCWSTR, ppszsql: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GenerateSQLFromUserQuery(::core::mem::transmute_copy(&pszquery)) {
+            match (*this).GenerateSQLFromUserQuery(::core::mem::transmute(&pszquery)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppszsql = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5448,10 +5416,10 @@ impl ISearchQueryHits_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchRoot_Impl: Sized {
-    fn SetSchedule(&self, psztaskarg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Schedule(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetRootURL(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RootURL(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetSchedule(&self, psztaskarg: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn Schedule(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetRootURL(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn RootURL(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetIsHierarchical(&self, fishierarchical: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn IsHierarchical(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetProvidesNotifications(&self, fprovidesnotifications: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -5466,20 +5434,20 @@ pub trait ISearchRoot_Impl: Sized {
     fn FollowDirectories(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetAuthenticationType(&self, authtype: AUTH_TYPE) -> ::windows::core::Result<()>;
     fn AuthenticationType(&self) -> ::windows::core::Result<AUTH_TYPE>;
-    fn SetUser(&self, pszuser: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn User(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetPassword(&self, pszpassword: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Password(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetUser(&self, pszuser: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn User(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetPassword(&self, pszpassword: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn Password(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISearchRoot_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>() -> ISearchRoot_Vtbl {
-        unsafe extern "system" fn SetSchedule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztaskarg: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSchedule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztaskarg: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSchedule(::core::mem::transmute_copy(&psztaskarg)).into()
+            (*this).SetSchedule(::core::mem::transmute(&psztaskarg)).into()
         }
-        unsafe extern "system" fn Schedule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsztaskarg: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Schedule<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsztaskarg: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Schedule() {
@@ -5490,12 +5458,12 @@ impl ISearchRoot_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRootURL<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRootURL<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRootURL(::core::mem::transmute_copy(&pszurl)).into()
+            (*this).SetRootURL(::core::mem::transmute(&pszurl)).into()
         }
-        unsafe extern "system" fn RootURL<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RootURL<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).RootURL() {
@@ -5618,12 +5586,12 @@ impl ISearchRoot_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUser<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszuser: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUser<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszuser: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetUser(::core::mem::transmute_copy(&pszuser)).into()
+            (*this).SetUser(::core::mem::transmute(&pszuser)).into()
         }
-        unsafe extern "system" fn User<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszuser: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn User<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszuser: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).User() {
@@ -5634,12 +5602,12 @@ impl ISearchRoot_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPassword<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpassword: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPassword<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpassword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPassword(::core::mem::transmute_copy(&pszpassword)).into()
+            (*this).SetPassword(::core::mem::transmute(&pszpassword)).into()
         }
-        unsafe extern "system" fn Password<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpassword: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Password<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpassword: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Password() {
@@ -5682,7 +5650,7 @@ impl ISearchRoot_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchScopeRule_Impl: Sized {
-    fn PatternOrURL(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn PatternOrURL(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn IsIncluded(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsDefault(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn FollowFlags(&self) -> ::windows::core::Result<u32>;
@@ -5690,7 +5658,7 @@ pub trait ISearchScopeRule_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl ISearchScopeRule_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchScopeRule_Impl, const OFFSET: isize>() -> ISearchScopeRule_Vtbl {
-        unsafe extern "system" fn PatternOrURL<Identity: ::windows::core::IUnknownImpl, Impl: ISearchScopeRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpatternorurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PatternOrURL<Identity: ::windows::core::IUnknownImpl, Impl: ISearchScopeRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpatternorurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).PatternOrURL() {
@@ -5764,13 +5732,13 @@ impl ISearchViewChangedSink_Vtbl {
         iid == &<ISearchViewChangedSink as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+#[cfg(feature = "Win32_Security_Authorization")]
 pub trait ISecurityInfo_Impl: Sized {
     fn GetCurrentTrustee(&self, pptrustee: *mut *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::Result<()>;
     fn GetObjectTypes(&self, cobjecttypes: *mut u32, rgobjecttypes: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetPermissions(&self, objecttype: &::windows::core::GUID, ppermissions: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+#[cfg(feature = "Win32_Security_Authorization")]
 impl ISecurityInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInfo_Impl, const OFFSET: isize>() -> ISecurityInfo_Vtbl {
         unsafe extern "system" fn GetCurrentTrustee<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptrustee: *mut *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT {
@@ -5843,13 +5811,11 @@ impl ISessionProperties_Vtbl {
         iid == &<ISessionProperties as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISimpleCommandCreator_Impl: Sized {
     fn CreateICommand(&self, ppiunknown: *mut ::core::option::Option<::windows::core::IUnknown>, pouterunk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn VerifyCatalog(&self, pwszmachine: super::super::Foundation::PWSTR, pwszcatalogname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetDefaultCatalog(&self, pwszcatalogname: super::super::Foundation::PWSTR, cwcin: u32, pcwcout: *mut u32) -> ::windows::core::Result<()>;
+    fn VerifyCatalog(&self, pwszmachine: &::windows::core::PCWSTR, pwszcatalogname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetDefaultCatalog(&self, pwszcatalogname: &::windows::core::PCWSTR, cwcin: u32, pcwcout: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ISimpleCommandCreator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleCommandCreator_Impl, const OFFSET: isize>() -> ISimpleCommandCreator_Vtbl {
         unsafe extern "system" fn CreateICommand<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleCommandCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppiunknown: *mut *mut ::core::ffi::c_void, pouterunk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5857,15 +5823,15 @@ impl ISimpleCommandCreator_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateICommand(::core::mem::transmute_copy(&ppiunknown), ::core::mem::transmute(&pouterunk)).into()
         }
-        unsafe extern "system" fn VerifyCatalog<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleCommandCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszmachine: super::super::Foundation::PWSTR, pwszcatalogname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerifyCatalog<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleCommandCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszmachine: ::windows::core::PCWSTR, pwszcatalogname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).VerifyCatalog(::core::mem::transmute_copy(&pwszmachine), ::core::mem::transmute_copy(&pwszcatalogname)).into()
+            (*this).VerifyCatalog(::core::mem::transmute(&pwszmachine), ::core::mem::transmute(&pwszcatalogname)).into()
         }
-        unsafe extern "system" fn GetDefaultCatalog<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleCommandCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcatalogname: super::super::Foundation::PWSTR, cwcin: u32, pcwcout: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefaultCatalog<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleCommandCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcatalogname: ::windows::core::PCWSTR, cwcin: u32, pcwcout: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetDefaultCatalog(::core::mem::transmute_copy(&pwszcatalogname), ::core::mem::transmute_copy(&cwcin), ::core::mem::transmute_copy(&pcwcout)).into()
+            (*this).GetDefaultCatalog(::core::mem::transmute(&pwszcatalogname), ::core::mem::transmute_copy(&cwcin), ::core::mem::transmute_copy(&pcwcout)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -5899,7 +5865,7 @@ impl ISourcesRowset_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStemmer_Impl: Sized {
     fn Init(&self, ulmaxtokensize: u32, pflicense: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GenerateWordForms(&self, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32, pstemsink: &::core::option::Option<IWordFormSink>) -> ::windows::core::Result<()>;
+    fn GenerateWordForms(&self, pwcinbuf: &::windows::core::PCWSTR, cwc: u32, pstemsink: &::core::option::Option<IWordFormSink>) -> ::windows::core::Result<()>;
     fn GetLicenseToUse(&self, ppwcslicense: *const *const u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5910,10 +5876,10 @@ impl IStemmer_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Init(::core::mem::transmute_copy(&ulmaxtokensize), ::core::mem::transmute_copy(&pflicense)).into()
         }
-        unsafe extern "system" fn GenerateWordForms<Identity: ::windows::core::IUnknownImpl, Impl: IStemmer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32, pstemsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateWordForms<Identity: ::windows::core::IUnknownImpl, Impl: IStemmer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: ::windows::core::PCWSTR, cwc: u32, pstemsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GenerateWordForms(::core::mem::transmute_copy(&pwcinbuf), ::core::mem::transmute_copy(&cwc), ::core::mem::transmute(&pstemsink)).into()
+            (*this).GenerateWordForms(::core::mem::transmute(&pwcinbuf), ::core::mem::transmute_copy(&cwc), ::core::mem::transmute(&pstemsink)).into()
         }
         unsafe extern "system" fn GetLicenseToUse<Identity: ::windows::core::IUnknownImpl, Impl: IStemmer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwcslicense: *const *const u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5936,8 +5902,8 @@ pub trait ISubscriptionItem_Impl: Sized {
     fn GetCookie(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetSubscriptionItemInfo(&self) -> ::windows::core::Result<SUBSCRIPTIONITEMINFO>;
     fn SetSubscriptionItemInfo(&self, psubscriptioniteminfo: *const SUBSCRIPTIONITEMINFO) -> ::windows::core::Result<()>;
-    fn ReadProperties(&self, ncount: u32, rgwszname: *const super::super::Foundation::PWSTR, rgvalue: *mut super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn WriteProperties(&self, ncount: u32, rgwszname: *const super::super::Foundation::PWSTR, rgvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ReadProperties(&self, ncount: u32, rgwszname: *const ::windows::core::PWSTR, rgvalue: *mut super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn WriteProperties(&self, ncount: u32, rgwszname: *const ::windows::core::PWSTR, rgvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn EnumProperties(&self) -> ::windows::core::Result<IEnumItemProperties>;
     fn NotifyChanged(&self) -> ::windows::core::Result<()>;
 }
@@ -5971,12 +5937,12 @@ impl ISubscriptionItem_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetSubscriptionItemInfo(::core::mem::transmute_copy(&psubscriptioniteminfo)).into()
         }
-        unsafe extern "system" fn ReadProperties<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const super::super::Foundation::PWSTR, rgvalue: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadProperties<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const ::windows::core::PWSTR, rgvalue: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).ReadProperties(::core::mem::transmute_copy(&ncount), ::core::mem::transmute_copy(&rgwszname), ::core::mem::transmute_copy(&rgvalue)).into()
         }
-        unsafe extern "system" fn WriteProperties<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const super::super::Foundation::PWSTR, rgvalue: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteProperties<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const ::windows::core::PWSTR, rgvalue: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).WriteProperties(::core::mem::transmute_copy(&ncount), ::core::mem::transmute_copy(&rgwszname), ::core::mem::transmute_copy(&rgvalue)).into()
@@ -6014,37 +5980,37 @@ impl ISubscriptionItem_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISubscriptionMgr_Impl: Sized {
-    fn DeleteSubscription(&self, pwszurl: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn UpdateSubscription(&self, pwszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn DeleteSubscription(&self, pwszurl: &::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn UpdateSubscription(&self, pwszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn UpdateAll(&self) -> ::windows::core::Result<()>;
-    fn IsSubscribed(&self, pwszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetSubscriptionInfo(&self, pwszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<SUBSCRIPTIONINFO>;
+    fn IsSubscribed(&self, pwszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetSubscriptionInfo(&self, pwszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<SUBSCRIPTIONINFO>;
     fn GetDefaultInfo(&self, subtype: SUBSCRIPTIONTYPE) -> ::windows::core::Result<SUBSCRIPTIONINFO>;
-    fn ShowSubscriptionProperties(&self, pwszurl: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn CreateSubscription(&self, hwnd: super::super::Foundation::HWND, pwszurl: super::super::Foundation::PWSTR, pwszfriendlyname: super::super::Foundation::PWSTR, dwflags: u32, substype: SUBSCRIPTIONTYPE, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::Result<()>;
+    fn ShowSubscriptionProperties(&self, pwszurl: &::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn CreateSubscription(&self, hwnd: super::super::Foundation::HWND, pwszurl: &::windows::core::PCWSTR, pwszfriendlyname: &::windows::core::PCWSTR, dwflags: u32, substype: SUBSCRIPTIONTYPE, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISubscriptionMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>() -> ISubscriptionMgr_Vtbl {
-        unsafe extern "system" fn DeleteSubscription<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteSubscription<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteSubscription(::core::mem::transmute_copy(&pwszurl), ::core::mem::transmute_copy(&hwnd)).into()
+            (*this).DeleteSubscription(::core::mem::transmute(&pwszurl), ::core::mem::transmute_copy(&hwnd)).into()
         }
-        unsafe extern "system" fn UpdateSubscription<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateSubscription<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UpdateSubscription(::core::mem::transmute_copy(&pwszurl)).into()
+            (*this).UpdateSubscription(::core::mem::transmute(&pwszurl)).into()
         }
         unsafe extern "system" fn UpdateAll<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).UpdateAll().into()
         }
-        unsafe extern "system" fn IsSubscribed<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, pfsubscribed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSubscribed<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, pfsubscribed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsSubscribed(::core::mem::transmute_copy(&pwszurl)) {
+            match (*this).IsSubscribed(::core::mem::transmute(&pwszurl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfsubscribed = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6052,10 +6018,10 @@ impl ISubscriptionMgr_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSubscriptionInfo<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSubscriptionInfo<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSubscriptionInfo(::core::mem::transmute_copy(&pwszurl)) {
+            match (*this).GetSubscriptionInfo(::core::mem::transmute(&pwszurl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pinfo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6074,15 +6040,15 @@ impl ISubscriptionMgr_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowSubscriptionProperties<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowSubscriptionProperties<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ShowSubscriptionProperties(::core::mem::transmute_copy(&pwszurl), ::core::mem::transmute_copy(&hwnd)).into()
+            (*this).ShowSubscriptionProperties(::core::mem::transmute(&pwszurl), ::core::mem::transmute_copy(&hwnd)).into()
         }
-        unsafe extern "system" fn CreateSubscription<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pwszurl: super::super::Foundation::PWSTR, pwszfriendlyname: super::super::Foundation::PWSTR, dwflags: u32, substype: SUBSCRIPTIONTYPE, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSubscription<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pwszurl: ::windows::core::PCWSTR, pwszfriendlyname: ::windows::core::PCWSTR, dwflags: u32, substype: SUBSCRIPTIONTYPE, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateSubscription(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&pwszurl), ::core::mem::transmute_copy(&pwszfriendlyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&substype), ::core::mem::transmute_copy(&pinfo)).into()
+            (*this).CreateSubscription(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&pwszurl), ::core::mem::transmute(&pwszfriendlyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&substype), ::core::mem::transmute_copy(&pinfo)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -6102,7 +6068,7 @@ impl ISubscriptionMgr_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISubscriptionMgr2_Impl: Sized + ISubscriptionMgr_Impl {
-    fn GetItemFromURL(&self, pwszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<ISubscriptionItem>;
+    fn GetItemFromURL(&self, pwszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<ISubscriptionItem>;
     fn GetItemFromCookie(&self, psubscriptioncookie: *const ::windows::core::GUID) -> ::windows::core::Result<ISubscriptionItem>;
     fn GetSubscriptionRunState(&self, dwnumcookies: u32, pcookies: *const ::windows::core::GUID, pdwrunstate: *mut u32) -> ::windows::core::Result<()>;
     fn EnumSubscriptions(&self, dwflags: u32) -> ::windows::core::Result<IEnumSubscription>;
@@ -6113,10 +6079,10 @@ pub trait ISubscriptionMgr2_Impl: Sized + ISubscriptionMgr_Impl {
 #[cfg(feature = "Win32_Foundation")]
 impl ISubscriptionMgr2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr2_Impl, const OFFSET: isize>() -> ISubscriptionMgr2_Vtbl {
-        unsafe extern "system" fn GetItemFromURL<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, ppsubscriptionitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemFromURL<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, ppsubscriptionitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetItemFromURL(::core::mem::transmute_copy(&pwszurl)) {
+            match (*this).GetItemFromURL(::core::mem::transmute(&pwszurl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppsubscriptionitem = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6284,12 +6250,12 @@ impl ITableDefinitionWithConstraints_Vtbl {
         iid == &<ITableDefinitionWithConstraints as ::windows::core::Interface>::IID || iid == &<ITableDefinition as ::windows::core::Interface>::IID || iid == &<ITableCreation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait ITableRename_Impl: Sized {
     fn RenameColumn(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, poldcolumnid: *mut super::super::Storage::IndexServer::DBID, pnewcolumnid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
     fn RenameTable(&self, poldtableid: *mut super::super::Storage::IndexServer::DBID, poldindexid: *mut super::super::Storage::IndexServer::DBID, pnewtableid: *mut super::super::Storage::IndexServer::DBID, pnewindexid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ITableRename_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableRename_Impl, const OFFSET: isize>() -> ITableRename_Vtbl {
         unsafe extern "system" fn RenameColumn<Identity: ::windows::core::IUnknownImpl, Impl: ITableRename_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, poldcolumnid: *mut super::super::Storage::IndexServer::DBID, pnewcolumnid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
@@ -6312,12 +6278,10 @@ impl ITableRename_Vtbl {
         iid == &<ITableRename as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITokenCollection_Impl: Sized {
     fn NumberOfTokens(&self, pcount: *const u32) -> ::windows::core::Result<()>;
-    fn GetToken(&self, i: u32, pbegin: *mut u32, plength: *mut u32, ppsz: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetToken(&self, i: u32, pbegin: *mut u32, plength: *mut u32, ppsz: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ITokenCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITokenCollection_Impl, const OFFSET: isize>() -> ITokenCollection_Vtbl {
         unsafe extern "system" fn NumberOfTokens<Identity: ::windows::core::IUnknownImpl, Impl: ITokenCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *const u32) -> ::windows::core::HRESULT {
@@ -6325,7 +6289,7 @@ impl ITokenCollection_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).NumberOfTokens(::core::mem::transmute_copy(&pcount)).into()
         }
-        unsafe extern "system" fn GetToken<Identity: ::windows::core::IUnknownImpl, Impl: ITokenCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i: u32, pbegin: *mut u32, plength: *mut u32, ppsz: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetToken<Identity: ::windows::core::IUnknownImpl, Impl: ITokenCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i: u32, pbegin: *mut u32, plength: *mut u32, ppsz: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetToken(::core::mem::transmute_copy(&i), ::core::mem::transmute_copy(&pbegin), ::core::mem::transmute_copy(&plength), ::core::mem::transmute_copy(&ppsz)).into()
@@ -6603,15 +6567,15 @@ impl IUMSInitialize_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IUrlAccessor_Impl: Sized {
     fn AddRequestParameter(&self, pspec: *const super::Com::StructuredStorage::PROPSPEC, pvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn GetDocFormat(&self, wszdocformat: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDocFormat(&self, wszdocformat: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
     fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetHost(&self, wszhost: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetHost(&self, wszhost: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
     fn IsDirectory(&self) -> ::windows::core::Result<()>;
     fn GetSize(&self) -> ::windows::core::Result<u64>;
     fn GetLastModified(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn GetFileName(&self, wszfilename: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFileName(&self, wszfilename: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
     fn GetSecurityDescriptor(&self, psd: *mut u8, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
-    fn GetRedirectedURL(&self, wszredirectedurl: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRedirectedURL(&self, wszredirectedurl: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
     fn GetSecurityProvider(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn BindToStream(&self) -> ::windows::core::Result<super::Com::IStream>;
     fn BindToFilter(&self) -> ::windows::core::Result<super::super::Storage::IndexServer::IFilter>;
@@ -6624,7 +6588,7 @@ impl IUrlAccessor_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AddRequestParameter(::core::mem::transmute_copy(&pspec), ::core::mem::transmute_copy(&pvar)).into()
         }
-        unsafe extern "system" fn GetDocFormat<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszdocformat: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDocFormat<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszdocformat: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDocFormat(::core::mem::transmute_copy(&wszdocformat), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pdwlength)).into()
@@ -6640,7 +6604,7 @@ impl IUrlAccessor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHost<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszhost: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHost<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszhost: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetHost(::core::mem::transmute_copy(&wszhost), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pdwlength)).into()
@@ -6672,7 +6636,7 @@ impl IUrlAccessor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFileName<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszfilename: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileName<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszfilename: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetFileName(::core::mem::transmute_copy(&wszfilename), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pdwlength)).into()
@@ -6682,7 +6646,7 @@ impl IUrlAccessor_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetSecurityDescriptor(::core::mem::transmute_copy(&psd), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pdwlength)).into()
         }
-        unsafe extern "system" fn GetRedirectedURL<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszredirectedurl: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRedirectedURL<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszredirectedurl: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRedirectedURL(::core::mem::transmute_copy(&wszredirectedurl), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pdwlength)).into()
@@ -6743,14 +6707,14 @@ impl IUrlAccessor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IUrlAccessor2_Impl: Sized + IUrlAccessor_Impl {
-    fn GetDisplayUrl(&self, wszdocurl: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDisplayUrl(&self, wszdocurl: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
     fn IsDocument(&self) -> ::windows::core::Result<()>;
-    fn GetCodePage(&self, wszcodepage: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCodePage(&self, wszcodepage: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl IUrlAccessor2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor2_Impl, const OFFSET: isize>() -> IUrlAccessor2_Vtbl {
-        unsafe extern "system" fn GetDisplayUrl<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszdocurl: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayUrl<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszdocurl: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDisplayUrl(::core::mem::transmute_copy(&wszdocurl), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pdwlength)).into()
@@ -6760,7 +6724,7 @@ impl IUrlAccessor2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).IsDocument().into()
         }
-        unsafe extern "system" fn GetCodePage<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszcodepage: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCodePage<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszcodepage: ::windows::core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetCodePage(::core::mem::transmute_copy(&wszcodepage), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pdwlength)).into()
@@ -6778,15 +6742,15 @@ impl IUrlAccessor2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IUrlAccessor3_Impl: Sized + IUrlAccessor_Impl + IUrlAccessor2_Impl {
-    fn GetImpersonationSidBlobs(&self, pcwszurl: super::super::Foundation::PWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows::core::Result<()>;
+    fn GetImpersonationSidBlobs(&self, pcwszurl: &::windows::core::PCWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl IUrlAccessor3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor3_Impl, const OFFSET: isize>() -> IUrlAccessor3_Vtbl {
-        unsafe extern "system" fn GetImpersonationSidBlobs<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetImpersonationSidBlobs<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcwszurl: ::windows::core::PCWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetImpersonationSidBlobs(::core::mem::transmute_copy(&pcwszurl), ::core::mem::transmute_copy(&pcsidcount), ::core::mem::transmute_copy(&ppsidblobs)).into()
+            (*this).GetImpersonationSidBlobs(::core::mem::transmute(&pcwszurl), ::core::mem::transmute_copy(&pcsidcount), ::core::mem::transmute_copy(&ppsidblobs)).into()
         }
         Self { base: IUrlAccessor2_Vtbl::new::<Identity, Impl, OFFSET>(), GetImpersonationSidBlobs: GetImpersonationSidBlobs::<Identity, Impl, OFFSET> }
     }
@@ -6975,7 +6939,7 @@ impl IViewSort_Vtbl {
 pub trait IWordBreaker_Impl: Sized {
     fn Init(&self, fquery: super::super::Foundation::BOOL, ulmaxtokensize: u32, pflicense: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn BreakText(&self, ptextsource: *mut TEXT_SOURCE, pwordsink: &::core::option::Option<IWordSink>, pphrasesink: &::core::option::Option<super::super::Storage::IndexServer::IPhraseSink>) -> ::windows::core::Result<()>;
-    fn ComposePhrase(&self, pwcnoun: super::super::Foundation::PWSTR, cwcnoun: u32, pwcmodifier: super::super::Foundation::PWSTR, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: super::super::Foundation::PWSTR, pcwcphrase: *mut u32) -> ::windows::core::Result<()>;
+    fn ComposePhrase(&self, pwcnoun: &::windows::core::PCWSTR, cwcnoun: u32, pwcmodifier: &::windows::core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: &::windows::core::PCWSTR, pcwcphrase: *mut u32) -> ::windows::core::Result<()>;
     fn GetLicenseToUse(&self, ppwcslicense: *const *const u16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -6991,10 +6955,10 @@ impl IWordBreaker_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).BreakText(::core::mem::transmute_copy(&ptextsource), ::core::mem::transmute(&pwordsink), ::core::mem::transmute(&pphrasesink)).into()
         }
-        unsafe extern "system" fn ComposePhrase<Identity: ::windows::core::IUnknownImpl, Impl: IWordBreaker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcnoun: super::super::Foundation::PWSTR, cwcnoun: u32, pwcmodifier: super::super::Foundation::PWSTR, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: super::super::Foundation::PWSTR, pcwcphrase: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ComposePhrase<Identity: ::windows::core::IUnknownImpl, Impl: IWordBreaker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcnoun: ::windows::core::PCWSTR, cwcnoun: u32, pwcmodifier: ::windows::core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: ::windows::core::PCWSTR, pcwcphrase: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ComposePhrase(::core::mem::transmute_copy(&pwcnoun), ::core::mem::transmute_copy(&cwcnoun), ::core::mem::transmute_copy(&pwcmodifier), ::core::mem::transmute_copy(&cwcmodifier), ::core::mem::transmute_copy(&ulattachmenttype), ::core::mem::transmute_copy(&pwcphrase), ::core::mem::transmute_copy(&pcwcphrase)).into()
+            (*this).ComposePhrase(::core::mem::transmute(&pwcnoun), ::core::mem::transmute_copy(&cwcnoun), ::core::mem::transmute(&pwcmodifier), ::core::mem::transmute_copy(&cwcmodifier), ::core::mem::transmute_copy(&ulattachmenttype), ::core::mem::transmute(&pwcphrase), ::core::mem::transmute_copy(&pcwcphrase)).into()
         }
         unsafe extern "system" fn GetLicenseToUse<Identity: ::windows::core::IUnknownImpl, Impl: IWordBreaker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwcslicense: *const *const u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -7013,23 +6977,21 @@ impl IWordBreaker_Vtbl {
         iid == &<IWordBreaker as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWordFormSink_Impl: Sized {
-    fn PutAltWord(&self, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::Result<()>;
-    fn PutWord(&self, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::Result<()>;
+    fn PutAltWord(&self, pwcinbuf: &::windows::core::PCWSTR, cwc: u32) -> ::windows::core::Result<()>;
+    fn PutWord(&self, pwcinbuf: &::windows::core::PCWSTR, cwc: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IWordFormSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordFormSink_Impl, const OFFSET: isize>() -> IWordFormSink_Vtbl {
-        unsafe extern "system" fn PutAltWord<Identity: ::windows::core::IUnknownImpl, Impl: IWordFormSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutAltWord<Identity: ::windows::core::IUnknownImpl, Impl: IWordFormSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: ::windows::core::PCWSTR, cwc: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PutAltWord(::core::mem::transmute_copy(&pwcinbuf), ::core::mem::transmute_copy(&cwc)).into()
+            (*this).PutAltWord(::core::mem::transmute(&pwcinbuf), ::core::mem::transmute_copy(&cwc)).into()
         }
-        unsafe extern "system" fn PutWord<Identity: ::windows::core::IUnknownImpl, Impl: IWordFormSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutWord<Identity: ::windows::core::IUnknownImpl, Impl: IWordFormSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: ::windows::core::PCWSTR, cwc: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PutWord(::core::mem::transmute_copy(&pwcinbuf), ::core::mem::transmute_copy(&cwc)).into()
+            (*this).PutWord(::core::mem::transmute(&pwcinbuf), ::core::mem::transmute_copy(&cwc)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -7041,26 +7003,26 @@ impl IWordFormSink_Vtbl {
         iid == &<IWordFormSink as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IWordSink_Impl: Sized {
-    fn PutWord(&self, cwc: u32, pwcinbuf: super::super::Foundation::PWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::Result<()>;
-    fn PutAltWord(&self, cwc: u32, pwcinbuf: super::super::Foundation::PWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::Result<()>;
+    fn PutWord(&self, cwc: u32, pwcinbuf: &::windows::core::PCWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::Result<()>;
+    fn PutAltWord(&self, cwc: u32, pwcinbuf: &::windows::core::PCWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::Result<()>;
     fn StartAltPhrase(&self) -> ::windows::core::Result<()>;
     fn EndAltPhrase(&self) -> ::windows::core::Result<()>;
     fn PutBreak(&self, breaktype: super::super::Storage::IndexServer::WORDREP_BREAK_TYPE) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IWordSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordSink_Impl, const OFFSET: isize>() -> IWordSink_Vtbl {
-        unsafe extern "system" fn PutWord<Identity: ::windows::core::IUnknownImpl, Impl: IWordSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cwc: u32, pwcinbuf: super::super::Foundation::PWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutWord<Identity: ::windows::core::IUnknownImpl, Impl: IWordSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cwc: u32, pwcinbuf: ::windows::core::PCWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PutWord(::core::mem::transmute_copy(&cwc), ::core::mem::transmute_copy(&pwcinbuf), ::core::mem::transmute_copy(&cwcsrclen), ::core::mem::transmute_copy(&cwcsrcpos)).into()
+            (*this).PutWord(::core::mem::transmute_copy(&cwc), ::core::mem::transmute(&pwcinbuf), ::core::mem::transmute_copy(&cwcsrclen), ::core::mem::transmute_copy(&cwcsrcpos)).into()
         }
-        unsafe extern "system" fn PutAltWord<Identity: ::windows::core::IUnknownImpl, Impl: IWordSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cwc: u32, pwcinbuf: super::super::Foundation::PWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutAltWord<Identity: ::windows::core::IUnknownImpl, Impl: IWordSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cwc: u32, pwcinbuf: ::windows::core::PCWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PutAltWord(::core::mem::transmute_copy(&cwc), ::core::mem::transmute_copy(&pwcinbuf), ::core::mem::transmute_copy(&cwcsrclen), ::core::mem::transmute_copy(&cwcsrcpos)).into()
+            (*this).PutAltWord(::core::mem::transmute_copy(&cwc), ::core::mem::transmute(&pwcinbuf), ::core::mem::transmute_copy(&cwcsrclen), ::core::mem::transmute_copy(&cwcsrcpos)).into()
         }
         unsafe extern "system" fn StartAltPhrase<Identity: ::windows::core::IUnknownImpl, Impl: IWordSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

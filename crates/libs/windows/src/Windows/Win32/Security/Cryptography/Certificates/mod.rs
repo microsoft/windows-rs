@@ -2326,39 +2326,31 @@ pub const CSCONTROL_SHUTDOWN: u64 = 1u64;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub const CSCONTROL_SUSPEND: u64 = 2u64;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub struct CSEDB_RSTMAPW {
-    pub pwszDatabaseName: super::super::super::Foundation::PWSTR,
-    pub pwszNewDatabaseName: super::super::super::Foundation::PWSTR,
+    pub pwszDatabaseName: ::windows::core::PWSTR,
+    pub pwszNewDatabaseName: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CSEDB_RSTMAPW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CSEDB_RSTMAPW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CSEDB_RSTMAPW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CSEDB_RSTMAPW").field("pwszDatabaseName", &self.pwszDatabaseName).field("pwszNewDatabaseName", &self.pwszNewDatabaseName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CSEDB_RSTMAPW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CSEDB_RSTMAPW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CSEDB_RSTMAPW>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CSEDB_RSTMAPW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CSEDB_RSTMAPW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2608,75 +2600,70 @@ pub unsafe fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[inline]
-pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
+            fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
         }
         CertSrvBackupGetBackupLogsW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzbackuplogfiles), ::core::mem::transmute(pcbsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[inline]
-pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
+            fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
         }
         CertSrvBackupGetDatabaseNamesW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzattachmentinformation), ::core::mem::transmute(pcbsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[inline]
-pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
+            fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
         }
         CertSrvBackupGetDynamicFileListW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzfilelist), ::core::mem::transmute(pcbsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[inline]
-pub unsafe fn CertSrvBackupOpenFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hbc: *mut ::core::ffi::c_void, pwszattachmentname: Param1, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvBackupOpenFileW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hbc: *mut ::core::ffi::c_void, pwszattachmentname: Param1, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CertSrvBackupOpenFileW(hbc: *mut ::core::ffi::c_void, pwszattachmentname: super::super::super::Foundation::PWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::HRESULT;
+            fn CertSrvBackupOpenFileW(hbc: *mut ::core::ffi::c_void, pwszattachmentname: ::windows::core::PCWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::HRESULT;
         }
         CertSrvBackupOpenFileW(::core::mem::transmute(hbc), pwszattachmentname.into_param().abi(), ::core::mem::transmute(cbreadhintsize), ::core::mem::transmute(plifilesize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[inline]
-pub unsafe fn CertSrvBackupPrepareW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszservername: Param0, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvBackupPrepareW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszservername: Param0, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CertSrvBackupPrepareW(pwszservername: super::super::super::Foundation::PWSTR, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn CertSrvBackupPrepareW(pwszservername: ::windows::core::PCWSTR, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         CertSrvBackupPrepareW(pwszservername.into_param().abi(), ::core::mem::transmute(grbitjet), ::core::mem::transmute(dwbackupflags), ::core::mem::transmute(phbc)).ok()
     }
@@ -2714,12 +2701,12 @@ pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::wind
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CertSrvIsServerOnlineW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszservername: Param0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvIsServerOnlineW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszservername: Param0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CertSrvIsServerOnlineW(pwszservername: super::super::super::Foundation::PWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+            fn CertSrvIsServerOnlineW(pwszservername: ::windows::core::PCWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
         CertSrvIsServerOnlineW(pwszservername.into_param().abi(), ::core::mem::transmute(pfserveronline)).ok()
     }
@@ -2740,30 +2727,28 @@ pub unsafe fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[inline]
-pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
+            fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
         }
         CertSrvRestoreGetDatabaseLocationsW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzdatabaselocationlist), ::core::mem::transmute(pcbsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[inline]
-pub unsafe fn CertSrvRestorePrepareW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszservername: Param0, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvRestorePrepareW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszservername: Param0, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CertSrvRestorePrepareW(pwszservername: super::super::super::Foundation::PWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn CertSrvRestorePrepareW(pwszservername: ::windows::core::PCWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         CertSrvRestorePrepareW(pwszservername.into_param().abi(), ::core::mem::transmute(dwrestoreflags), ::core::mem::transmute(phbc)).ok()
     }
@@ -2784,45 +2769,42 @@ pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrre
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterThroughFile<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: Param1, pwszlogpath: Param2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: Param5, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvRestoreRegisterThroughFile<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: Param1, pwszlogpath: Param2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: Param5, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CertSrvRestoreRegisterThroughFile(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
+            fn CertSrvRestoreRegisterThroughFile(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
         }
         CertSrvRestoreRegisterThroughFile(::core::mem::transmute(hbc), pwszcheckpointfilepath.into_param().abi(), pwszlogpath.into_param().abi(), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), pwszbackuplogpath.into_param().abi(), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: Param1, pwszlogpath: Param2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: Param5, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvRestoreRegisterW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: Param1, pwszlogpath: Param2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: Param5, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CertSrvRestoreRegisterW(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
+            fn CertSrvRestoreRegisterW(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
         }
         CertSrvRestoreRegisterW(::core::mem::transmute(hbc), pwszcheckpointfilepath.into_param().abi(), pwszlogpath.into_param().abi(), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), pwszbackuplogpath.into_param().abi(), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[inline]
-pub unsafe fn CertSrvServerControlW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszservername: Param0, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()> {
+pub unsafe fn CertSrvServerControlW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszservername: Param0, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CertSrvServerControlW(pwszservername: super::super::super::Foundation::PWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::HRESULT;
+            fn CertSrvServerControlW(pwszservername: ::windows::core::PCWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::HRESULT;
         }
         CertSrvServerControlW(pwszservername.into_param().abi(), ::core::mem::transmute(dwcontrolflags), ::core::mem::transmute(pcbout), ::core::mem::transmute(ppbout)).ok()
     }
@@ -3485,37 +3467,32 @@ pub type FNCERTSRVBACKUPGETBACKUPLOGSW = ::core::option::Option<unsafe extern "s
 pub type FNCERTSRVBACKUPGETDATABASENAMESW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzattachmentinformation: *mut *mut u16, pcbsize: *mut u32) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzfilelist: *mut *mut u16, pcbsize: *mut u32) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVBACKUPOPENFILEW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pwszattachmentname: super::super::super::Foundation::PWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVBACKUPPREPAREW = ::core::option::Option<unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, grbitjet: u32, dwbackupflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+pub type FNCERTSRVBACKUPOPENFILEW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pwszattachmentname: ::windows::core::PCWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+pub type FNCERTSRVBACKUPPREPAREW = ::core::option::Option<unsafe extern "system" fn(pwszservername: ::windows::core::PCWSTR, grbitjet: u32, dwbackupflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub type FNCERTSRVBACKUPREAD = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub type FNCERTSRVBACKUPTRUNCATELOGS = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVISSERVERONLINEW = ::core::option::Option<unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
+pub type FNCERTSRVISSERVERONLINEW = ::core::option::Option<unsafe extern "system" fn(pwszservername: ::windows::core::PCWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub type FNCERTSRVRESTOREEND = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub type FNCERTSRVRESTOREGETDATABASELOCATIONSW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut *mut u16, pcbsize: *mut u32) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVRESTOREPREPAREW = ::core::option::Option<unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+pub type FNCERTSRVRESTOREPREPAREW = ::core::option::Option<unsafe extern "system" fn(pwszservername: ::windows::core::PCWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 pub type FNCERTSRVRESTOREREGISTERCOMPLETE = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows::core::HRESULT) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+pub type FNCERTSRVRESTOREREGISTERW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+pub type FNCERTSRVSERVERCONTROLW = ::core::option::Option<unsafe extern "system" fn(pwszservername: ::windows::core::PCWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVRESTOREREGISTERW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVSERVERCONTROLW = ::core::option::Option<unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type FNIMPORTPFXTOPROVIDER = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::super::Foundation::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: super::super::super::Foundation::PWSTR, pwszprovidername: super::super::super::Foundation::PWSTR, pwszreadername: super::super::super::Foundation::PWSTR, pwszcontainernameprefix: super::super::super::Foundation::PWSTR, pwszpin: super::super::super::Foundation::PWSTR, pwszfriendlyname: super::super::super::Foundation::PWSTR, pccertout: *mut u32, prgpcertout: *mut *mut *mut super::CERT_CONTEXT) -> ::windows::core::HRESULT>;
+pub type FNIMPORTPFXTOPROVIDER = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::super::Foundation::HWND, pbpfx: *const u8, cbpfx: u32, importflags: ImportPFXFlags, pwszpassword: ::windows::core::PCWSTR, pwszprovidername: ::windows::core::PCWSTR, pwszreadername: ::windows::core::PCWSTR, pwszcontainernameprefix: ::windows::core::PCWSTR, pwszpin: ::windows::core::PCWSTR, pwszfriendlyname: ::windows::core::PCWSTR, pccertout: *mut u32, prgpcertout: *mut *mut *mut super::CERT_CONTEXT) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIMPORTPFXTOPROVIDERFREEDATA = ::core::option::Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT)>;
@@ -3606,9 +3583,9 @@ impl IAlternativeName {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -3777,9 +3754,9 @@ impl IAlternativeNames {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -3926,9 +3903,9 @@ impl IBinaryConverter {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -4064,9 +4041,9 @@ impl IBinaryConverter2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -4234,9 +4211,9 @@ impl ICEnroll {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -4810,9 +4787,9 @@ impl ICEnroll2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -5290,9 +5267,9 @@ impl ICEnroll3 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -5884,9 +5861,9 @@ impl ICEnroll4 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -6752,9 +6729,9 @@ impl ICertAdmin {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -6951,9 +6928,9 @@ impl ICertAdmin2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -7243,9 +7220,9 @@ impl ICertConfig {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -7383,9 +7360,9 @@ impl ICertConfig2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -7546,9 +7523,9 @@ impl ICertEncodeAltName {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -7709,9 +7686,9 @@ impl ICertEncodeAltName2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -7915,9 +7892,9 @@ impl ICertEncodeBitString {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -8058,9 +8035,9 @@ impl ICertEncodeBitString2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -8241,9 +8218,9 @@ impl ICertEncodeCRLDistInfo {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -8415,9 +8392,9 @@ impl ICertEncodeCRLDistInfo2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -8611,9 +8588,9 @@ impl ICertEncodeDateArray {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -8760,9 +8737,9 @@ impl ICertEncodeDateArray2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -8940,9 +8917,9 @@ impl ICertEncodeLongArray {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -9089,9 +9066,9 @@ impl ICertEncodeLongArray2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -9269,9 +9246,9 @@ impl ICertEncodeStringArray {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -9432,9 +9409,9 @@ impl ICertEncodeStringArray2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -9619,9 +9596,9 @@ impl ICertExit {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -9752,9 +9729,9 @@ impl ICertExit2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -9910,9 +9887,9 @@ impl ICertGetConfig {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -10028,9 +10005,9 @@ impl ICertManageModule {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -10164,9 +10141,9 @@ impl ICertPolicy {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -10306,9 +10283,9 @@ impl ICertPolicy2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -10469,9 +10446,9 @@ impl ICertProperties {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -10627,9 +10604,9 @@ impl ICertProperty {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -10792,9 +10769,9 @@ impl ICertPropertyArchived {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -10970,9 +10947,9 @@ impl ICertPropertyArchivedKeyHash {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -11156,9 +11133,9 @@ impl ICertPropertyAutoEnroll {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -11342,9 +11319,9 @@ impl ICertPropertyBackedUp {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -11531,9 +11508,9 @@ impl ICertPropertyDescription {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -11717,9 +11694,9 @@ impl ICertPropertyEnrollment {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -11929,9 +11906,9 @@ impl ICertPropertyEnrollmentPolicyServer {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -12169,9 +12146,9 @@ impl ICertPropertyFriendlyName {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -12355,9 +12332,9 @@ impl ICertPropertyKeyProvInfo {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -12541,9 +12518,9 @@ impl ICertPropertyRenewal {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -12736,9 +12713,9 @@ impl ICertPropertyRequestOriginator {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -12927,9 +12904,9 @@ impl ICertPropertySHA1Hash {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -13113,9 +13090,9 @@ impl ICertRequest {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -13283,9 +13260,9 @@ impl ICertRequest2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -13515,9 +13492,9 @@ impl ICertRequest3 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -13768,20 +13745,17 @@ pub struct ICertRequest3_Vtbl {
 #[repr(transparent)]
 pub struct ICertRequestD(::windows::core::IUnknown);
 impl ICertRequestD {
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Request<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwflags: u32, pwszauthority: Param1, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: Param4, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn Request<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwflags: u32, pwszauthority: Param1, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: Param4, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Request)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pwszauthority.into_param().abi(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into_param().abi(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbcertchain), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCACert<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, fchain: u32, pwszauthority: Param1) -> ::windows::core::Result<CERTTRANSBLOB> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn GetCACert<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, fchain: u32, pwszauthority: Param1) -> ::windows::core::Result<CERTTRANSBLOB> {
         let mut result__: CERTTRANSBLOB = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCACert)(::core::mem::transmute_copy(self), ::core::mem::transmute(fchain), pwszauthority.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<CERTTRANSBLOB>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Ping<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszauthority: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn Ping<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszauthority: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Ping)(::core::mem::transmute_copy(self), pwszauthority.into_param().abi()).ok()
     }
 }
@@ -13829,58 +13803,42 @@ unsafe impl ::windows::core::Interface for ICertRequestD {
 #[doc(hidden)]
 pub struct ICertRequestD_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pwszauthority: super::super::super::Foundation::PWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: super::super::super::Foundation::PWSTR, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Request: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetCACert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fchain: u32, pwszauthority: super::super::super::Foundation::PWSTR, pctbout: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetCACert: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub Ping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Ping: usize,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pwszauthority: ::windows::core::PCWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: ::windows::core::PCWSTR, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
+    pub GetCACert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fchain: u32, pwszauthority: ::windows::core::PCWSTR, pctbout: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
+    pub Ping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct ICertRequestD2(::windows::core::IUnknown);
 impl ICertRequestD2 {
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Request<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwflags: u32, pwszauthority: Param1, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: Param4, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn Request<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwflags: u32, pwszauthority: Param1, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: Param4, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Request)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pwszauthority.into_param().abi(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into_param().abi(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbcertchain), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCACert<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, fchain: u32, pwszauthority: Param1) -> ::windows::core::Result<CERTTRANSBLOB> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn GetCACert<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, fchain: u32, pwszauthority: Param1) -> ::windows::core::Result<CERTTRANSBLOB> {
         let mut result__: CERTTRANSBLOB = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetCACert)(::core::mem::transmute_copy(self), ::core::mem::transmute(fchain), pwszauthority.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<CERTTRANSBLOB>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Ping<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszauthority: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn Ping<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszauthority: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Ping)(::core::mem::transmute_copy(self), pwszauthority.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Request2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszauthority: Param0, dwflags: u32, pwszserialnumber: Param2, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: Param5, pctbrequest: *const CERTTRANSBLOB, pctbfullresponse: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn Request2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszauthority: Param0, dwflags: u32, pwszserialnumber: Param2, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: Param5, pctbrequest: *const CERTTRANSBLOB, pctbfullresponse: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Request2)(::core::mem::transmute_copy(self), pwszauthority.into_param().abi(), ::core::mem::transmute(dwflags), pwszserialnumber.into_param().abi(), ::core::mem::transmute(pdwrequestid), ::core::mem::transmute(pdwdisposition), pwszattributes.into_param().abi(), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbfullresponse), ::core::mem::transmute(pctbencodedcert), ::core::mem::transmute(pctbdispositionmessage)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCAProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszauthority: Param0, propid: i32, propindex: i32, proptype: i32) -> ::windows::core::Result<CERTTRANSBLOB> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn GetCAProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszauthority: Param0, propid: i32, propindex: i32, proptype: i32) -> ::windows::core::Result<CERTTRANSBLOB> {
         let mut result__: CERTTRANSBLOB = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCAProperty)(::core::mem::transmute_copy(self), pwszauthority.into_param().abi(), ::core::mem::transmute(propid), ::core::mem::transmute(propindex), ::core::mem::transmute(proptype), ::core::mem::transmute(&mut result__)).from_abi::<CERTTRANSBLOB>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCAPropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszauthority: Param0, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn GetCAPropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszauthority: Param0, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCAPropertyInfo)(::core::mem::transmute_copy(self), pwszauthority.into_param().abi(), ::core::mem::transmute(pcproperty), ::core::mem::transmute(pctbpropinfo)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Ping2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszauthority: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn Ping2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszauthority: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Ping2)(::core::mem::transmute_copy(self), pwszauthority.into_param().abi()).ok()
     }
 }
@@ -13948,22 +13906,10 @@ unsafe impl ::windows::core::Interface for ICertRequestD2 {
 #[doc(hidden)]
 pub struct ICertRequestD2_Vtbl {
     pub base: ICertRequestD_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub Request2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: super::super::super::Foundation::PWSTR, dwflags: u32, pwszserialnumber: super::super::super::Foundation::PWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: super::super::super::Foundation::PWSTR, pctbrequest: *const CERTTRANSBLOB, pctbfullresponse: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Request2: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: super::super::super::Foundation::PWSTR, propid: i32, propindex: i32, proptype: i32, pctbpropertyvalue: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetCAProperty: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetCAPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: super::super::super::Foundation::PWSTR, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetCAPropertyInfo: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub Ping2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Ping2: usize,
+    pub Request2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: ::windows::core::PCWSTR, dwflags: u32, pwszserialnumber: ::windows::core::PCWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: ::windows::core::PCWSTR, pctbrequest: *const CERTTRANSBLOB, pctbfullresponse: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
+    pub GetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: ::windows::core::PCWSTR, propid: i32, propindex: i32, proptype: i32, pctbpropertyvalue: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
+    pub GetCAPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: ::windows::core::PCWSTR, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
+    pub Ping2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -13983,9 +13929,9 @@ impl ICertServerExit {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -14182,9 +14128,9 @@ impl ICertServerPolicy {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -14399,9 +14345,9 @@ impl ICertView {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -14569,9 +14515,9 @@ impl ICertView2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -14745,9 +14691,9 @@ impl ICertificateAttestationChallenge {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -14882,9 +14828,9 @@ impl ICertificateAttestationChallenge2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -15049,9 +14995,9 @@ impl ICertificatePolicies {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -15198,9 +15144,9 @@ impl ICertificatePolicy {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -15335,9 +15281,9 @@ impl ICertificationAuthorities {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -15499,9 +15445,9 @@ impl ICertificationAuthority {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -15617,9 +15563,9 @@ impl ICryptAttribute {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -15763,9 +15709,9 @@ impl ICryptAttributes {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -15931,9 +15877,9 @@ impl ICspAlgorithm {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -16111,9 +16057,9 @@ impl ICspAlgorithms {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -16280,9 +16226,9 @@ impl ICspInformation {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -16512,9 +16458,9 @@ impl ICspInformations {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -16716,9 +16662,9 @@ impl ICspStatus {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -16884,9 +16830,9 @@ impl ICspStatuses {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -17059,19 +17005,16 @@ pub struct ICspStatuses_Vtbl {
 #[repr(transparent)]
 pub struct IEnroll(::windows::core::IUnknown);
 impl IEnroll {
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn createFilePKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dnname: Param0, usage: Param1, wszpkcs10filename: Param2) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn createFilePKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, wszpkcs10filename: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).createFilePKCS10WStr)(::core::mem::transmute_copy(self), dnname.into_param().abi(), usage.into_param().abi(), wszpkcs10filename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn acceptFilePKCS7WStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, wszpkcs7filename: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn acceptFilePKCS7WStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszpkcs7filename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).acceptFilePKCS7WStr)(::core::mem::transmute_copy(self), wszpkcs7filename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn createPKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dnname: Param0, usage: Param1, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn createPKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).createPKCS10WStr)(::core::mem::transmute_copy(self), dnname.into_param().abi(), usage.into_param().abi(), ::core::mem::transmute(ppkcs10blob)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17095,38 +17038,32 @@ impl IEnroll {
     pub unsafe fn getROOTHStore(&self) -> super::HCERTSTORE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).getROOTHStore)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).enumProvidersWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbstrprovname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn enumContainersWStr(&self, dwindex: i32, pbstr: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn enumContainersWStr(&self, dwindex: i32, pbstr: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).enumContainersWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pbstr)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
     pub unsafe fn freeRequestInfoBlob<'a, Param0: ::windows::core::IntoParam<'a, super::CRYPTOAPI_BLOB>>(&self, pkcs7orpkcs10: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).freeRequestInfoBlob)(::core::mem::transmute_copy(self), pkcs7orpkcs10.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MyStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn MyStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MyStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMyStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetMyStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMyStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MyStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMyStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetMyStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMyStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17137,24 +17074,20 @@ impl IEnroll {
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMyStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CAStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn CAStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CAStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCAStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetCAStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCAStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CAStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCAStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetCAStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCAStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17165,24 +17098,20 @@ impl IEnroll {
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCAStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RootStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RootStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RootStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRootStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRootStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRootStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RootStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRootStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRootStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRootStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17193,24 +17122,20 @@ impl IEnroll {
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRootStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RequestStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRequestStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRequestStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRequestStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RequestStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRequestStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRequestStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRequestStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17221,24 +17146,20 @@ impl IEnroll {
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRequestStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ContainerNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwcontainer)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContainerNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwcontainer: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetContainerNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwcontainer: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetContainerNameWStr)(::core::mem::transmute_copy(self), szwcontainer.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ProviderNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwprovider)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProviderNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwprovider: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetProviderNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwprovider: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProviderNameWStr)(::core::mem::transmute_copy(self), szwprovider.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17323,34 +17244,28 @@ impl IEnroll {
     pub unsafe fn SetWriteCertToCSP<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fbool: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWriteCertToCSP)(::core::mem::transmute_copy(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SPCFileNameWStr(&self, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SPCFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SPCFileNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szw)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSPCFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetSPCFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSPCFileNameWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PVKFileNameWStr(&self, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PVKFileNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szw)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPVKFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetPVKFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPVKFileNameWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn HashAlgorithmWStr(&self, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HashAlgorithmWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szw)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHashAlgorithmWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetHashAlgorithmWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetHashAlgorithmWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
@@ -17363,14 +17278,12 @@ impl IEnroll {
     pub unsafe fn SetRenewalCertificate(&self, pcertcontext: *const super::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRenewalCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcertcontext)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddCertTypeToRequestWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn AddCertTypeToRequestWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddCertTypeToRequestWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddNameValuePairToSignatureWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn AddNameValuePairToSignatureWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddNameValuePairToSignatureWStr)(::core::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
@@ -17378,8 +17291,7 @@ impl IEnroll {
     pub unsafe fn AddExtensionsToRequest(&self, pcertextensions: *mut super::CERT_EXTENSIONS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddExtensionsToRequest)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcertextensions)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
     pub unsafe fn AddAuthenticatedAttributesToPKCS7Request(&self, pattributes: *mut super::CRYPT_ATTRIBUTES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddAuthenticatedAttributesToPKCS7Request)(::core::mem::transmute_copy(self), ::core::mem::transmute(pattributes)).ok()
     }
@@ -17433,18 +17345,9 @@ unsafe impl ::windows::core::Interface for IEnroll {
 #[doc(hidden)]
 pub struct IEnroll_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub createFilePKCS10WStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnname: super::super::super::Foundation::PWSTR, usage: super::super::super::Foundation::PWSTR, wszpkcs10filename: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    createFilePKCS10WStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub acceptFilePKCS7WStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpkcs7filename: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    acceptFilePKCS7WStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub createPKCS10WStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnname: super::super::super::Foundation::PWSTR, usage: super::super::super::Foundation::PWSTR, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    createPKCS10WStr: usize,
+    pub createFilePKCS10WStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnname: ::windows::core::PCWSTR, usage: ::windows::core::PCWSTR, wszpkcs10filename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub acceptFilePKCS7WStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpkcs7filename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub createPKCS10WStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnname: ::windows::core::PCWSTR, usage: ::windows::core::PCWSTR, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
     pub acceptPKCS7Blob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblobpkcs7: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub getCertContextFromPKCS7: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblobpkcs7: *mut super::CRYPTOAPI_BLOB) -> *mut super::CERT_CONTEXT,
@@ -17453,103 +17356,37 @@ pub struct IEnroll_Vtbl {
     pub getMyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::HCERTSTORE,
     pub getCAStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::HCERTSTORE,
     pub getROOTHStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::HCERTSTORE,
-    #[cfg(feature = "Win32_Foundation")]
-    pub enumProvidersWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: i32, dwflags: i32, pbstrprovname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    enumProvidersWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub enumContainersWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: i32, pbstr: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    enumContainersWStr: usize,
+    pub enumProvidersWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: i32, dwflags: i32, pbstrprovname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub enumContainersWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: i32, pbstr: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub freeRequestInfoBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkcs7orpkcs10: super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub MyStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    MyStoreNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetMyStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetMyStoreNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub MyStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    MyStoreTypeWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetMyStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetMyStoreTypeWStr: usize,
+    pub MyStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetMyStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub MyStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetMyStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub MyStoreFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut i32) -> ::windows::core::HRESULT,
     pub SetMyStoreFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub CAStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CAStoreNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetCAStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetCAStoreNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub CAStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    CAStoreTypeWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetCAStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetCAStoreTypeWStr: usize,
+    pub CAStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetCAStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub CAStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetCAStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub CAStoreFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut i32) -> ::windows::core::HRESULT,
     pub SetCAStoreFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub RootStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    RootStoreNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetRootStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetRootStoreNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub RootStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    RootStoreTypeWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetRootStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetRootStoreTypeWStr: usize,
+    pub RootStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetRootStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub RootStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetRootStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub RootStoreFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut i32) -> ::windows::core::HRESULT,
     pub SetRootStoreFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub RequestStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    RequestStoreNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetRequestStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetRequestStoreNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub RequestStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    RequestStoreTypeWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetRequestStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetRequestStoreTypeWStr: usize,
+    pub RequestStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetRequestStoreNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub RequestStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetRequestStoreTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwtype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub RequestStoreFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut i32) -> ::windows::core::HRESULT,
     pub SetRequestStoreFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub ContainerNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwcontainer: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ContainerNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetContainerNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwcontainer: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetContainerNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub ProviderNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwprovider: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    ProviderNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetProviderNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwprovider: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetProviderNameWStr: usize,
+    pub ContainerNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwcontainer: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetContainerNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwcontainer: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub ProviderNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetProviderNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szwprovider: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub ProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwtype: *mut i32) -> ::windows::core::HRESULT,
     pub SetProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtype: i32) -> ::windows::core::HRESULT,
     pub KeySpec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdw: *mut i32) -> ::windows::core::HRESULT,
@@ -17598,30 +17435,12 @@ pub struct IEnroll_Vtbl {
     pub SetWriteCertToCSP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fbool: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetWriteCertToCSP: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SPCFileNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SPCFileNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetSPCFileNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetSPCFileNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub PVKFileNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    PVKFileNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetPVKFileNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetPVKFileNameWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub HashAlgorithmWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    HashAlgorithmWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetHashAlgorithmWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetHashAlgorithmWStr: usize,
+    pub SPCFileNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetSPCFileNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub PVKFileNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetPVKFileNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub HashAlgorithmWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetHashAlgorithmWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub RenewalCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -17630,22 +17449,13 @@ pub struct IEnroll_Vtbl {
     pub SetRenewalCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcertcontext: *const super::CERT_CONTEXT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetRenewalCertificate: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub AddCertTypeToRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    AddCertTypeToRequestWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub AddNameValuePairToSignatureWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    AddNameValuePairToSignatureWStr: usize,
+    pub AddCertTypeToRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szw: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub AddNameValuePairToSignatureWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub AddExtensionsToRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcertextensions: *mut super::CERT_EXTENSIONS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AddExtensionsToRequest: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub AddAuthenticatedAttributesToPKCS7Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattributes: *mut super::CRYPT_ATTRIBUTES) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    AddAuthenticatedAttributesToPKCS7Request: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub CreatePKCS7RequestFromRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prequest: *mut super::CRYPTOAPI_BLOB, psigningcertcontext: *const super::CERT_CONTEXT, ppkcs7blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -17655,19 +17465,16 @@ pub struct IEnroll_Vtbl {
 #[repr(transparent)]
 pub struct IEnroll2(::windows::core::IUnknown);
 impl IEnroll2 {
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn createFilePKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dnname: Param0, usage: Param1, wszpkcs10filename: Param2) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn createFilePKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, wszpkcs10filename: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.createFilePKCS10WStr)(::core::mem::transmute_copy(self), dnname.into_param().abi(), usage.into_param().abi(), wszpkcs10filename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn acceptFilePKCS7WStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, wszpkcs7filename: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn acceptFilePKCS7WStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszpkcs7filename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.acceptFilePKCS7WStr)(::core::mem::transmute_copy(self), wszpkcs7filename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn createPKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dnname: Param0, usage: Param1, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn createPKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.createPKCS10WStr)(::core::mem::transmute_copy(self), dnname.into_param().abi(), usage.into_param().abi(), ::core::mem::transmute(ppkcs10blob)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17691,38 +17498,32 @@ impl IEnroll2 {
     pub unsafe fn getROOTHStore(&self) -> super::HCERTSTORE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.getROOTHStore)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.enumProvidersWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbstrprovname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn enumContainersWStr(&self, dwindex: i32, pbstr: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn enumContainersWStr(&self, dwindex: i32, pbstr: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.enumContainersWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pbstr)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
     pub unsafe fn freeRequestInfoBlob<'a, Param0: ::windows::core::IntoParam<'a, super::CRYPTOAPI_BLOB>>(&self, pkcs7orpkcs10: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.freeRequestInfoBlob)(::core::mem::transmute_copy(self), pkcs7orpkcs10.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MyStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn MyStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.MyStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMyStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetMyStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetMyStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.MyStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMyStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetMyStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetMyStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17733,24 +17534,20 @@ impl IEnroll2 {
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetMyStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CAStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn CAStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.CAStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCAStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetCAStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetCAStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.CAStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCAStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetCAStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetCAStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17761,24 +17558,20 @@ impl IEnroll2 {
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetCAStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RootStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RootStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RootStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRootStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRootStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetRootStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RootStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRootStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRootStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetRootStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17789,24 +17582,20 @@ impl IEnroll2 {
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetRootStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RequestStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRequestStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRequestStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetRequestStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RequestStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRequestStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRequestStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetRequestStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17817,24 +17606,20 @@ impl IEnroll2 {
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetRequestStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ContainerNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwcontainer)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContainerNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwcontainer: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetContainerNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwcontainer: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetContainerNameWStr)(::core::mem::transmute_copy(self), szwcontainer.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.ProviderNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwprovider)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProviderNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwprovider: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetProviderNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwprovider: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetProviderNameWStr)(::core::mem::transmute_copy(self), szwprovider.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -17919,34 +17704,28 @@ impl IEnroll2 {
     pub unsafe fn SetWriteCertToCSP<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fbool: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetWriteCertToCSP)(::core::mem::transmute_copy(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SPCFileNameWStr(&self, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SPCFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SPCFileNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szw)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSPCFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetSPCFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetSPCFileNameWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PVKFileNameWStr(&self, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.PVKFileNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szw)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPVKFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetPVKFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPVKFileNameWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn HashAlgorithmWStr(&self, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.HashAlgorithmWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szw)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHashAlgorithmWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetHashAlgorithmWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetHashAlgorithmWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
@@ -17959,14 +17738,12 @@ impl IEnroll2 {
     pub unsafe fn SetRenewalCertificate(&self, pcertcontext: *const super::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetRenewalCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcertcontext)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddCertTypeToRequestWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn AddCertTypeToRequestWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.AddCertTypeToRequestWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddNameValuePairToSignatureWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn AddNameValuePairToSignatureWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.AddNameValuePairToSignatureWStr)(::core::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
@@ -17974,8 +17751,7 @@ impl IEnroll2 {
     pub unsafe fn AddExtensionsToRequest(&self, pcertextensions: *mut super::CERT_EXTENSIONS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.AddExtensionsToRequest)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcertextensions)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
     pub unsafe fn AddAuthenticatedAttributesToPKCS7Request(&self, pattributes: *mut super::CRYPT_ATTRIBUTES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.AddAuthenticatedAttributesToPKCS7Request)(::core::mem::transmute_copy(self), ::core::mem::transmute(pattributes)).ok()
     }
@@ -18005,9 +17781,8 @@ impl IEnroll2 {
     pub unsafe fn EnumAlgs(&self, dwindex: i32, algclass: i32, pdwalgid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnumAlgs)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(algclass), ::core::mem::transmute(pdwalgid)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAlgNameWStr(&self, algid: i32, ppwsz: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn GetAlgNameWStr(&self, algid: i32, ppwsz: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAlgNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(algid), ::core::mem::transmute(ppwsz)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
@@ -18137,10 +17912,7 @@ pub struct IEnroll2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetKeyLen: usize,
     pub EnumAlgs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: i32, algclass: i32, pdwalgid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetAlgNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algid: i32, ppwsz: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetAlgNameWStr: usize,
+    pub GetAlgNameWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algid: i32, ppwsz: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetReuseHardwareKeyIfUnableToGenNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, freusehardwarekeyifunabletogennew: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -18176,19 +17948,16 @@ pub struct IEnroll2_Vtbl {
 #[repr(transparent)]
 pub struct IEnroll4(::windows::core::IUnknown);
 impl IEnroll4 {
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn createFilePKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dnname: Param0, usage: Param1, wszpkcs10filename: Param2) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn createFilePKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, wszpkcs10filename: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.createFilePKCS10WStr)(::core::mem::transmute_copy(self), dnname.into_param().abi(), usage.into_param().abi(), wszpkcs10filename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn acceptFilePKCS7WStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, wszpkcs7filename: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn acceptFilePKCS7WStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszpkcs7filename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.acceptFilePKCS7WStr)(::core::mem::transmute_copy(self), wszpkcs7filename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn createPKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dnname: Param0, usage: Param1, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn createPKCS10WStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dnname: Param0, usage: Param1, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.createPKCS10WStr)(::core::mem::transmute_copy(self), dnname.into_param().abi(), usage.into_param().abi(), ::core::mem::transmute(ppkcs10blob)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -18212,38 +17981,32 @@ impl IEnroll4 {
     pub unsafe fn getROOTHStore(&self) -> super::HCERTSTORE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.getROOTHStore)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn enumProvidersWStr(&self, dwindex: i32, dwflags: i32, pbstrprovname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.enumProvidersWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbstrprovname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn enumContainersWStr(&self, dwindex: i32, pbstr: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn enumContainersWStr(&self, dwindex: i32, pbstr: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.enumContainersWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pbstr)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
     pub unsafe fn freeRequestInfoBlob<'a, Param0: ::windows::core::IntoParam<'a, super::CRYPTOAPI_BLOB>>(&self, pkcs7orpkcs10: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.freeRequestInfoBlob)(::core::mem::transmute_copy(self), pkcs7orpkcs10.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MyStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn MyStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.MyStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMyStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetMyStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetMyStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.MyStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMyStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetMyStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetMyStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -18254,24 +18017,20 @@ impl IEnroll4 {
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetMyStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CAStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn CAStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.CAStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCAStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetCAStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetCAStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.CAStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCAStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetCAStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetCAStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -18282,24 +18041,20 @@ impl IEnroll4 {
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetCAStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RootStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RootStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.RootStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRootStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRootStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetRootStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.RootStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRootStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRootStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetRootStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -18310,24 +18065,20 @@ impl IEnroll4 {
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetRootStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RequestStoreNameWStr(&self, szwname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.RequestStoreNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwname)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRequestStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRequestStoreNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetRequestStoreNameWStr)(::core::mem::transmute_copy(self), szwname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.RequestStoreTypeWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwtype)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRequestStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetRequestStoreTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwtype: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetRequestStoreTypeWStr)(::core::mem::transmute_copy(self), szwtype.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -18338,24 +18089,20 @@ impl IEnroll4 {
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetRequestStoreFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn ContainerNameWStr(&self, szwcontainer: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.ContainerNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwcontainer)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContainerNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwcontainer: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetContainerNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwcontainer: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetContainerNameWStr)(::core::mem::transmute_copy(self), szwcontainer.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.ProviderNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szwprovider)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProviderNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szwprovider: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetProviderNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szwprovider: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetProviderNameWStr)(::core::mem::transmute_copy(self), szwprovider.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -18440,34 +18187,28 @@ impl IEnroll4 {
     pub unsafe fn SetWriteCertToCSP<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fbool: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetWriteCertToCSP)(::core::mem::transmute_copy(self), fbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SPCFileNameWStr(&self, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SPCFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SPCFileNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szw)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSPCFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetSPCFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetSPCFileNameWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PVKFileNameWStr(&self, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.PVKFileNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szw)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPVKFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetPVKFileNameWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPVKFileNameWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn HashAlgorithmWStr(&self, szw: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.HashAlgorithmWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(szw)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHashAlgorithmWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn SetHashAlgorithmWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetHashAlgorithmWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
@@ -18480,14 +18221,12 @@ impl IEnroll4 {
     pub unsafe fn SetRenewalCertificate(&self, pcertcontext: *const super::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetRenewalCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcertcontext)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddCertTypeToRequestWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn AddCertTypeToRequestWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szw: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.AddCertTypeToRequestWStr)(::core::mem::transmute_copy(self), szw.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddNameValuePairToSignatureWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn AddNameValuePairToSignatureWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.AddNameValuePairToSignatureWStr)(::core::mem::transmute_copy(self), name.into_param().abi(), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
@@ -18495,8 +18234,7 @@ impl IEnroll4 {
     pub unsafe fn AddExtensionsToRequest(&self, pcertextensions: *mut super::CERT_EXTENSIONS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.AddExtensionsToRequest)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcertextensions)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
     pub unsafe fn AddAuthenticatedAttributesToPKCS7Request(&self, pattributes: *mut super::CRYPT_ATTRIBUTES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.AddAuthenticatedAttributesToPKCS7Request)(::core::mem::transmute_copy(self), ::core::mem::transmute(pattributes)).ok()
     }
@@ -18526,9 +18264,8 @@ impl IEnroll4 {
     pub unsafe fn EnumAlgs(&self, dwindex: i32, algclass: i32, pdwalgid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.EnumAlgs)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(algclass), ::core::mem::transmute(pdwalgid)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAlgNameWStr(&self, algid: i32, ppwsz: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn GetAlgNameWStr(&self, algid: i32, ppwsz: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetAlgNameWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(algid), ::core::mem::transmute(ppwsz)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
@@ -18603,29 +18340,24 @@ impl IEnroll4 {
     pub unsafe fn GetPrivateKeyArchiveCertificate(&self) -> *mut super::CERT_CONTEXT {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPrivateKeyArchiveCertificate)(::core::mem::transmute_copy(self)))
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn binaryBlobToString(&self, flags: i32, pblobbinary: *mut super::CRYPTOAPI_BLOB, ppwszstring: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn binaryBlobToString(&self, flags: i32, pblobbinary: *mut super::CRYPTOAPI_BLOB, ppwszstring: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).binaryBlobToString)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(pblobbinary), ::core::mem::transmute(ppwszstring)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn stringToBinaryBlob<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, flags: i32, pwszstring: Param1, pblobbinary: *mut super::CRYPTOAPI_BLOB, pdwskip: *mut i32, pdwflags: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn stringToBinaryBlob<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, flags: i32, pwszstring: Param1, pblobbinary: *mut super::CRYPTOAPI_BLOB, pdwskip: *mut i32, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).stringToBinaryBlob)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), pwszstring.into_param().abi(), ::core::mem::transmute(pblobbinary), ::core::mem::transmute(pdwskip), ::core::mem::transmute(pdwflags)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn addExtensionToRequestWStr<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, flags: i32, pwszname: Param1, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn addExtensionToRequestWStr<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, flags: i32, pwszname: Param1, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).addExtensionToRequestWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), pwszname.into_param().abi(), ::core::mem::transmute(pblobvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn addAttributeToRequestWStr<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, flags: i32, pwszname: Param1, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn addAttributeToRequestWStr<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, flags: i32, pwszname: Param1, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).addAttributeToRequestWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), pwszname.into_param().abi(), ::core::mem::transmute(pblobvalue)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn addNameValuePairToRequestWStr<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, flags: i32, pwszname: Param1, pwszvalue: Param2) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn addNameValuePairToRequestWStr<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, flags: i32, pwszname: Param1, pwszvalue: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).addNameValuePairToRequestWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), pwszname.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -18636,23 +18368,20 @@ impl IEnroll4 {
     pub unsafe fn resetAttributes(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).resetAttributes)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn createRequestWStr<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: Param1, pwszusage: Param2, pblobrequest: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn createRequestWStr<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: Param1, pwszusage: Param2, pblobrequest: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).createRequestWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), pwszdnname.into_param().abi(), pwszusage.into_param().abi(), ::core::mem::transmute(pblobrequest)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn createFileRequestWStr<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: Param1, pwszusage: Param2, pwszrequestfilename: Param3) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn createFileRequestWStr<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: Param1, pwszusage: Param2, pwszrequestfilename: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).createFileRequestWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), pwszdnname.into_param().abi(), pwszusage.into_param().abi(), pwszrequestfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
     pub unsafe fn acceptResponseBlob(&self, pblobresponse: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).acceptResponseBlob)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblobresponse)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn acceptFileResponseWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszresponsefilename: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn acceptFileResponseWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszresponsefilename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).acceptFileResponseWStr)(::core::mem::transmute_copy(self), pwszresponsefilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
@@ -18662,22 +18391,19 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getCertContextFromFileResponseWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszresponsefilename: Param0, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows::core::Result<()> {
+    pub unsafe fn getCertContextFromFileResponseWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszresponsefilename: Param0, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).getCertContextFromFileResponseWStr)(::core::mem::transmute_copy(self), pwszresponsefilename.into_param().abi(), ::core::mem::transmute(ppcertcontext)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn createPFXWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszpassword: Param0, pblobpfx: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn createPFXWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszpassword: Param0, pblobpfx: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).createPFXWStr)(::core::mem::transmute_copy(self), pwszpassword.into_param().abi(), ::core::mem::transmute(pblobpfx)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn createFilePFXWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszpassword: Param0, pwszpfxfilename: Param1) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn createFilePFXWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszpassword: Param0, pwszpfxfilename: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).createFilePFXWStr)(::core::mem::transmute_copy(self), pwszpassword.into_param().abi(), pwszpfxfilename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setPendingRequestInfoWStr<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, lrequestid: i32, pwszcadns: Param1, pwszcaname: Param2, pwszfriendlyname: Param3) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn setPendingRequestInfoWStr<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, lrequestid: i32, pwszcadns: Param1, pwszcaname: Param2, pwszfriendlyname: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).setPendingRequestInfoWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(lrequestid), pwszcadns.into_param().abi(), pwszcaname.into_param().abi(), pwszfriendlyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -18698,12 +18424,11 @@ impl IEnroll4 {
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddCertTypeToRequestWStrEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, ltype: ADDED_CERT_TYPE, pwszoidorname: Param1, lmajorversion: i32, fminorversion: Param3, lminorversion: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn AddCertTypeToRequestWStrEx<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, ltype: ADDED_CERT_TYPE, pwszoidorname: Param1, lmajorversion: i32, fminorversion: Param3, lminorversion: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddCertTypeToRequestWStrEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(ltype), pwszoidorname.into_param().abi(), ::core::mem::transmute(lmajorversion), fminorversion.into_param().abi(), ::core::mem::transmute(lminorversion)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getProviderTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszprovname: Param0, plprovtype: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn getProviderTypeWStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszprovname: Param0, plprovtype: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).getProviderTypeWStr)(::core::mem::transmute_copy(self), pwszprovname.into_param().abi(), ::core::mem::transmute(plprovtype)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
@@ -18828,73 +18553,37 @@ pub struct IEnroll4_Vtbl {
     pub GetPrivateKeyArchiveCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut super::CERT_CONTEXT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPrivateKeyArchiveCertificate: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub binaryBlobToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pblobbinary: *mut super::CRYPTOAPI_BLOB, ppwszstring: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    binaryBlobToString: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub stringToBinaryBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pwszstring: super::super::super::Foundation::PWSTR, pblobbinary: *mut super::CRYPTOAPI_BLOB, pdwskip: *mut i32, pdwflags: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    stringToBinaryBlob: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub addExtensionToRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pwszname: super::super::super::Foundation::PWSTR, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    addExtensionToRequestWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub addAttributeToRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pwszname: super::super::super::Foundation::PWSTR, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    addAttributeToRequestWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub addNameValuePairToRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pwszname: super::super::super::Foundation::PWSTR, pwszvalue: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    addNameValuePairToRequestWStr: usize,
+    pub binaryBlobToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pblobbinary: *mut super::CRYPTOAPI_BLOB, ppwszstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub stringToBinaryBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pwszstring: ::windows::core::PCWSTR, pblobbinary: *mut super::CRYPTOAPI_BLOB, pdwskip: *mut i32, pdwflags: *mut i32) -> ::windows::core::HRESULT,
+    pub addExtensionToRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pwszname: ::windows::core::PCWSTR, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
+    pub addAttributeToRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pwszname: ::windows::core::PCWSTR, pblobvalue: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
+    pub addNameValuePairToRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pwszname: ::windows::core::PCWSTR, pwszvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub resetExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub resetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub createRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: super::super::super::Foundation::PWSTR, pwszusage: super::super::super::Foundation::PWSTR, pblobrequest: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    createRequestWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub createFileRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: super::super::super::Foundation::PWSTR, pwszusage: super::super::super::Foundation::PWSTR, pwszrequestfilename: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    createFileRequestWStr: usize,
+    pub createRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: ::windows::core::PCWSTR, pwszusage: ::windows::core::PCWSTR, pblobrequest: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
+    pub createFileRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: ::windows::core::PCWSTR, pwszusage: ::windows::core::PCWSTR, pwszrequestfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub acceptResponseBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblobresponse: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub acceptFileResponseWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszresponsefilename: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    acceptFileResponseWStr: usize,
+    pub acceptFileResponseWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszresponsefilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub getCertContextFromResponseBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblobresponse: *mut super::CRYPTOAPI_BLOB, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     getCertContextFromResponseBlob: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub getCertContextFromFileResponseWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszresponsefilename: super::super::super::Foundation::PWSTR, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows::core::HRESULT,
+    pub getCertContextFromFileResponseWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszresponsefilename: ::windows::core::PCWSTR, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     getCertContextFromFileResponseWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub createPFXWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszpassword: super::super::super::Foundation::PWSTR, pblobpfx: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    createPFXWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub createFilePFXWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszpassword: super::super::super::Foundation::PWSTR, pwszpfxfilename: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    createFilePFXWStr: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub setPendingRequestInfoWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lrequestid: i32, pwszcadns: super::super::super::Foundation::PWSTR, pwszcaname: super::super::super::Foundation::PWSTR, pwszfriendlyname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    setPendingRequestInfoWStr: usize,
+    pub createPFXWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszpassword: ::windows::core::PCWSTR, pblobpfx: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
+    pub createFilePFXWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszpassword: ::windows::core::PCWSTR, pwszpfxfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub setPendingRequestInfoWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lrequestid: i32, pwszcadns: ::windows::core::PCWSTR, pwszcaname: ::windows::core::PCWSTR, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub enumPendingRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY, ppproperty: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub removePendingRequestWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, thumbprintblob: super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
     pub GetKeyLenEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsizespec: XEKL_KEYSIZE, lkeyspec: XEKL_KEYSPEC, pdwkeysize: *mut i32) -> ::windows::core::HRESULT,
     pub InstallPKCS7BlobEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblobpkcs7: *mut super::CRYPTOAPI_BLOB, plcertinstalled: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub AddCertTypeToRequestWStrEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltype: ADDED_CERT_TYPE, pwszoidorname: super::super::super::Foundation::PWSTR, lmajorversion: i32, fminorversion: super::super::super::Foundation::BOOL, lminorversion: i32) -> ::windows::core::HRESULT,
+    pub AddCertTypeToRequestWStrEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltype: ADDED_CERT_TYPE, pwszoidorname: ::windows::core::PCWSTR, lmajorversion: i32, fminorversion: super::super::super::Foundation::BOOL, lminorversion: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AddCertTypeToRequestWStrEx: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub getProviderTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprovname: super::super::super::Foundation::PWSTR, plprovtype: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    getProviderTypeWStr: usize,
+    pub getProviderTypeWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprovname: ::windows::core::PCWSTR, plprovtype: *mut i32) -> ::windows::core::HRESULT,
     pub addBlobPropertyToCertificateWStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropertyid: i32, lreserved: i32, pblobproperty: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetSignerCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psignercert: *const super::CERT_CONTEXT) -> ::windows::core::HRESULT,
@@ -18929,9 +18618,9 @@ impl IEnumCERTVIEWATTRIBUTE {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -19080,9 +18769,9 @@ impl IEnumCERTVIEWCOLUMN {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -19255,9 +18944,9 @@ impl IEnumCERTVIEWEXTENSION {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -19411,9 +19100,9 @@ impl IEnumCERTVIEWROW {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -19601,20 +19290,18 @@ impl INDESPolicy {
     pub unsafe fn Uninitialize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Uninitialize)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GenerateChallenge<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwsztemplate: Param0, pwszparams: Param1) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: super::super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GenerateChallenge)(::core::mem::transmute_copy(self), pwsztemplate.into_param().abi(), pwszparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn GenerateChallenge<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwsztemplate: Param0, pwszparams: Param1) -> ::windows::core::Result<::windows::core::PWSTR> {
+        let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GenerateChallenge)(::core::mem::transmute_copy(self), pwsztemplate.into_param().abi(), pwszparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VerifyRequest<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: Param2, pwsztransactionid: Param3, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    pub unsafe fn VerifyRequest<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: Param2, pwsztransactionid: Param3, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).VerifyRequest)(::core::mem::transmute_copy(self), ::core::mem::transmute(pctbrequest), ::core::mem::transmute(pctbsigningcertencoded), pwsztemplate.into_param().abi(), pwsztransactionid.into_param().abi(), ::core::mem::transmute(pfverified)).ok()
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Notify<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszchallenge: Param0, pwsztransactionid: Param1, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates'*"]
+    pub unsafe fn Notify<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszchallenge: Param0, pwsztransactionid: Param1, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Notify)(::core::mem::transmute_copy(self), pwszchallenge.into_param().abi(), pwsztransactionid.into_param().abi(), ::core::mem::transmute(disposition), ::core::mem::transmute(lasthresult), ::core::mem::transmute(pctbissuedcertencoded)).ok()
     }
 }
@@ -19664,18 +19351,12 @@ pub struct INDESPolicy_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GenerateChallenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwsztemplate: ::windows::core::PCWSTR, pwszparams: ::windows::core::PCWSTR, ppwszresponse: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GenerateChallenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwsztemplate: super::super::super::Foundation::PWSTR, pwszparams: super::super::super::Foundation::PWSTR, ppwszresponse: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GenerateChallenge: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub VerifyRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: super::super::super::Foundation::PWSTR, pwsztransactionid: super::super::super::Foundation::PWSTR, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub VerifyRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: ::windows::core::PCWSTR, pwsztransactionid: ::windows::core::PCWSTR, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     VerifyRequest: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszchallenge: super::super::super::Foundation::PWSTR, pwsztransactionid: super::super::super::Foundation::PWSTR, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Notify: usize,
+    pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszchallenge: ::windows::core::PCWSTR, pwsztransactionid: ::windows::core::PCWSTR, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -19695,9 +19376,9 @@ impl IOCSPAdmin {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -19899,9 +19580,9 @@ impl IOCSPCAConfiguration {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -20210,9 +19891,9 @@ impl IOCSPCAConfigurationCollection {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -20369,9 +20050,9 @@ impl IOCSPProperty {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -20512,9 +20193,9 @@ impl IOCSPPropertyCollection {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -20690,9 +20371,9 @@ impl IObjectId {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -20866,9 +20547,9 @@ impl IObjectIds {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -21024,9 +20705,9 @@ impl IPolicyQualifier {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -21177,9 +20858,9 @@ impl IPolicyQualifiers {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -21342,9 +21023,9 @@ impl ISignerCertificate {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -21539,9 +21220,9 @@ impl ISignerCertificates {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -21698,9 +21379,9 @@ impl ISmimeCapabilities {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -21861,9 +21542,9 @@ impl ISmimeCapability {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -21994,9 +21675,9 @@ impl IX500DistinguishedName {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -22140,9 +21821,9 @@ impl IX509Attribute {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -22277,9 +21958,9 @@ impl IX509AttributeArchiveKey {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -22470,9 +22151,9 @@ impl IX509AttributeArchiveKeyHash {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -22647,9 +22328,9 @@ impl IX509AttributeClientId {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -22850,9 +22531,9 @@ impl IX509AttributeCspProvider {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -23043,9 +22724,9 @@ impl IX509AttributeExtensions {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -23220,9 +22901,9 @@ impl IX509AttributeOSVersion {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -23397,9 +23078,9 @@ impl IX509AttributeRenewalCertificate {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -23574,9 +23255,9 @@ impl IX509Attributes {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -23723,9 +23404,9 @@ impl IX509CertificateRequest {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -24009,9 +23690,9 @@ impl IX509CertificateRequestCertificate {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -24529,9 +24210,9 @@ impl IX509CertificateRequestCertificate2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -25079,9 +24760,9 @@ impl IX509CertificateRequestCmc {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -25595,9 +25276,9 @@ impl IX509CertificateRequestCmc2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -26116,9 +25797,9 @@ impl IX509CertificateRequestPkcs10 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -26618,9 +26299,9 @@ impl IX509CertificateRequestPkcs10V2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -27097,9 +26778,9 @@ impl IX509CertificateRequestPkcs10V3 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -27669,9 +27350,9 @@ impl IX509CertificateRequestPkcs10V4 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -28255,9 +27936,9 @@ impl IX509CertificateRequestPkcs7 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -28584,9 +28265,9 @@ impl IX509CertificateRequestPkcs7V2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -28939,9 +28620,9 @@ impl IX509CertificateRevocationList {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -29287,9 +28968,9 @@ impl IX509CertificateRevocationListEntries {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -29455,9 +29136,9 @@ impl IX509CertificateRevocationListEntry {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -29619,9 +29300,9 @@ impl IX509CertificateTemplate {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -29737,9 +29418,9 @@ impl IX509CertificateTemplateWritable {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -29892,9 +29573,9 @@ impl IX509CertificateTemplates {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -30061,9 +29742,9 @@ impl IX509EndorsementKey {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -30254,9 +29935,9 @@ impl IX509Enrollment {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -30551,9 +30232,9 @@ impl IX509Enrollment2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -30852,9 +30533,9 @@ impl IX509EnrollmentHelper {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -30993,9 +30674,9 @@ impl IX509EnrollmentPolicyServer {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -31291,9 +30972,9 @@ impl IX509EnrollmentStatus {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -31481,9 +31162,9 @@ impl IX509EnrollmentWebClassFactory {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -31599,9 +31280,9 @@ impl IX509Extension {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -31747,9 +31428,9 @@ impl IX509ExtensionAlternativeNames {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -31933,9 +31614,9 @@ impl IX509ExtensionAuthorityKeyIdentifier {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -32119,9 +31800,9 @@ impl IX509ExtensionBasicConstraints {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -32303,9 +31984,9 @@ impl IX509ExtensionCertificatePolicies {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -32489,9 +32170,9 @@ impl IX509ExtensionEnhancedKeyUsage {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -32675,9 +32356,9 @@ impl IX509ExtensionKeyUsage {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -32853,9 +32534,9 @@ impl IX509ExtensionMSApplicationPolicies {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -33039,9 +32720,9 @@ impl IX509ExtensionSmimeCapabilities {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -33225,9 +32906,9 @@ impl IX509ExtensionSubjectKeyIdentifier {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -33411,9 +33092,9 @@ impl IX509ExtensionTemplate {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -33609,9 +33290,9 @@ impl IX509ExtensionTemplateName {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -33795,9 +33476,9 @@ impl IX509Extensions {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -33963,9 +33644,9 @@ impl IX509MachineEnrollmentFactory {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -34081,9 +33762,9 @@ impl IX509NameValuePair {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -34218,9 +33899,9 @@ impl IX509NameValuePairs {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -34367,9 +34048,9 @@ impl IX509PolicyServerListManager {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -34521,9 +34202,9 @@ impl IX509PolicyServerUrl {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -34726,9 +34407,9 @@ impl IX509PrivateKey {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -35268,9 +34949,9 @@ impl IX509PrivateKey2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -35768,9 +35449,9 @@ impl IX509PublicKey {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -35940,9 +35621,9 @@ impl IX509SCEPEnrollment {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -36239,9 +35920,9 @@ impl IX509SCEPEnrollment2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -36544,9 +36225,9 @@ impl IX509SCEPEnrollmentHelper {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -36702,9 +36383,9 @@ impl IX509SignatureInformation {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography_Certificates', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]

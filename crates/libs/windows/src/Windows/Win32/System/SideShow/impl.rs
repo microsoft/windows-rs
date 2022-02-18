@@ -271,10 +271,10 @@ impl ISideShowKeyCollection_Vtbl {
 pub trait ISideShowNotification_Impl: Sized {
     fn NotificationId(&self) -> ::windows::core::Result<u32>;
     fn SetNotificationId(&self, in_notificationid: u32) -> ::windows::core::Result<()>;
-    fn Title(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetTitle(&self, in_pwsztitle: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Message(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetMessage(&self, in_pwszmessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Title(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetTitle(&self, in_pwsztitle: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn Message(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetMessage(&self, in_pwszmessage: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Image(&self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HICON>;
     fn SetImage(&self, in_hicon: super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::Result<()>;
     fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
@@ -299,7 +299,7 @@ impl ISideShowNotification_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetNotificationId(::core::mem::transmute_copy(&in_notificationid)).into()
         }
-        unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_ppwsztitle: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_ppwsztitle: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Title() {
@@ -310,12 +310,12 @@ impl ISideShowNotification_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTitle<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pwsztitle: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTitle<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pwsztitle: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTitle(::core::mem::transmute_copy(&in_pwsztitle)).into()
+            (*this).SetTitle(::core::mem::transmute(&in_pwsztitle)).into()
         }
-        unsafe extern "system" fn Message<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_ppwszmessage: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Message<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_ppwszmessage: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Message() {
@@ -326,10 +326,10 @@ impl ISideShowNotification_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMessage<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pwszmessage: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMessage<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pwszmessage: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetMessage(::core::mem::transmute_copy(&in_pwszmessage)).into()
+            (*this).SetMessage(::core::mem::transmute(&in_pwszmessage)).into()
         }
         unsafe extern "system" fn Image<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_phicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

@@ -81,49 +81,40 @@ pub const UI_EVENTLOCATION_ApplicationMenu: UI_EVENTLOCATION = 2i32;
 #[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub const UI_EVENTLOCATION_ContextPopup: UI_EVENTLOCATION = 3i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Ribbon', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub struct UI_EVENTPARAMS {
     pub EventType: UI_EVENTTYPE,
     pub Anonymous: UI_EVENTPARAMS_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UI_EVENTPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UI_EVENTPARAMS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Ribbon', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub union UI_EVENTPARAMS_0 {
     pub Modes: i32,
     pub Params: UI_EVENTPARAMS_COMMAND,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UI_EVENTPARAMS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UI_EVENTPARAMS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Ribbon', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub struct UI_EVENTPARAMS_COMMAND {
     pub CommandID: u32,
-    pub CommandName: super::super::Foundation::PWSTR,
+    pub CommandName: ::windows_sys::core::PCWSTR,
     pub ParentCommandID: u32,
-    pub ParentCommandName: super::super::Foundation::PWSTR,
+    pub ParentCommandName: ::windows_sys::core::PCWSTR,
     pub SelectionIndex: u32,
     pub Location: UI_EVENTLOCATION,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UI_EVENTPARAMS_COMMAND {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UI_EVENTPARAMS_COMMAND {
     fn clone(&self) -> Self {
         *self

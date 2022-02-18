@@ -1,30 +1,24 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CoGetClassObjectFromURL(rclassid: *const ::windows_sys::core::GUID, szcode: super::super::super::Foundation::PWSTR, dwfileversionms: u32, dwfileversionls: u32, sztype: super::super::super::Foundation::PWSTR, pbindctx: super::IBindCtx, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CoGetClassObjectFromURL(rclassid: *const ::windows_sys::core::GUID, szcode: ::windows_sys::core::PCWSTR, dwfileversionms: u32, dwfileversionls: u32, sztype: ::windows_sys::core::PCWSTR, pbindctx: super::IBindCtx, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn CoInternetCombineIUri(pbaseuri: super::IUri, prelativeuri: super::IUri, dwcombineflags: u32, ppcombineduri: *mut super::IUri, dwreserved: usize) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetCombineUrl(pwzbaseurl: super::super::super::Foundation::PWSTR, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetCombineUrlEx(pbaseuri: super::IUri, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, ppcombineduri: *mut super::IUri, dwreserved: usize) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetCompareUrl(pwzurl1: super::super::super::Foundation::PWSTR, pwzurl2: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CoInternetCombineUrl(pwzbaseurl: ::windows_sys::core::PCWSTR, pwzrelativeurl: ::windows_sys::core::PCWSTR, dwcombineflags: u32, pszresult: ::windows_sys::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CoInternetCombineUrlEx(pbaseuri: super::IUri, pwzrelativeurl: ::windows_sys::core::PCWSTR, dwcombineflags: u32, ppcombineduri: *mut super::IUri, dwreserved: usize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CoInternetCompareUrl(pwzurl1: ::windows_sys::core::PCWSTR, pwzurl2: ::windows_sys::core::PCWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn CoInternetCreateSecurityManager(psp: super::IServiceProvider, ppsm: *mut IInternetSecurityManager, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn CoInternetCreateZoneManager(psp: super::IServiceProvider, ppzm: *mut IInternetZoneManager, dwreserved: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetGetProtocolFlags(pwzurl: super::super::super::Foundation::PWSTR, pdwflags: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetGetSecurityUrl(pwszurl: super::super::super::Foundation::PWSTR, ppwszsecurl: *mut super::super::super::Foundation::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CoInternetGetProtocolFlags(pwzurl: ::windows_sys::core::PCWSTR, pdwflags: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CoInternetGetSecurityUrl(pwszurl: ::windows_sys::core::PCWSTR, ppwszsecurl: *mut ::windows_sys::core::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn CoInternetGetSecurityUrlEx(puri: super::IUri, ppsecuri: *mut super::IUri, psuaction: PSUACTION, dwreserved: usize) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
@@ -33,21 +27,16 @@ extern "system" {
     pub fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn CoInternetIsFeatureEnabledForIUri(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: super::IUri, psecmgr: IInternetSecurityManagerEx2) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetIsFeatureEnabledForUrl(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: super::super::super::Foundation::PWSTR, psecmgr: IInternetSecurityManager) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetIsFeatureZoneElevationEnabled(szfromurl: super::super::super::Foundation::PWSTR, sztourl: super::super::super::Foundation::PWSTR, psecmgr: IInternetSecurityManager, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetParseIUri(piuri: super::IUri, parseaction: PARSEACTION, dwflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetParseUrl(pwzurl: super::super::super::Foundation::PWSTR, parseaction: PARSEACTION, dwflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetQueryInfo(pwzurl: super::super::super::Foundation::PWSTR, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CoInternetIsFeatureEnabledForUrl(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: ::windows_sys::core::PCWSTR, psecmgr: IInternetSecurityManager) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CoInternetIsFeatureZoneElevationEnabled(szfromurl: ::windows_sys::core::PCWSTR, sztourl: ::windows_sys::core::PCWSTR, psecmgr: IInternetSecurityManager, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CoInternetParseIUri(piuri: super::IUri, parseaction: PARSEACTION, dwflags: u32, pwzresult: ::windows_sys::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CoInternetParseUrl(pwzurl: ::windows_sys::core::PCWSTR, parseaction: PARSEACTION, dwflags: u32, pszresult: ::windows_sys::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CoInternetQueryInfo(pwzurl: ::windows_sys::core::PCWSTR, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoInternetSetFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
@@ -58,8 +47,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super::BINDINFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Graphics_Gdi', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM, pstgmeddest: *mut super::STGMEDIUM) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn CreateAsyncBindCtx(reserved: u32, pbscb: super::IBindStatusCallback, pefetc: super::IEnumFORMATETC, ppbc: *mut super::IBindCtx) -> ::windows_sys::core::HRESULT;
@@ -67,85 +56,67 @@ extern "system" {
     pub fn CreateAsyncBindCtxEx(pbc: super::IBindCtx, dwoptions: u32, pbscb: super::IBindStatusCallback, penum: super::IEnumFORMATETC, ppbc: *mut super::IBindCtx, reserved: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMATETC, ppenumfmtetc: *mut super::IEnumFORMATETC) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateURLMoniker(pmkctx: super::IMoniker, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut super::IMoniker) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateURLMonikerEx(pmkctx: super::IMoniker, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut super::IMoniker, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CreateURLMoniker(pmkctx: super::IMoniker, szurl: ::windows_sys::core::PCWSTR, ppmk: *mut super::IMoniker) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn CreateURLMonikerEx(pmkctx: super::IMoniker, szurl: ::windows_sys::core::PCWSTR, ppmk: *mut super::IMoniker, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn CreateURLMonikerEx2(pmkctx: super::IMoniker, puri: super::IUri, ppmk: *mut super::IMoniker, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FaultInIEFeature(hwnd: super::super::super::Foundation::HWND, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FindMediaType(rgsztypes: super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FindMediaTypeClass(pbc: super::IBindCtx, sztype: super::super::super::Foundation::PSTR, pclsid: *mut ::windows_sys::core::GUID, reserved: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FindMimeFromData(pbc: super::IBindCtx, pwzurl: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: super::super::super::Foundation::PWSTR, dwmimeflags: u32, ppwzmimeout: *mut super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClassFileOrMime(pbc: super::IBindCtx, szfilename: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: super::super::super::Foundation::PWSTR, dwreserved: u32, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClassURL(szurl: super::super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC, ppszcomponentid: *mut super::super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSoftwareUpdateInfo(szdistunit: super::super::super::Foundation::PWSTR, psdi: *mut SOFTDISTINFO) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn FindMediaType(rgsztypes: ::windows_sys::core::PCSTR, rgcftypes: *mut u16) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn FindMediaTypeClass(pbc: super::IBindCtx, sztype: ::windows_sys::core::PCSTR, pclsid: *mut ::windows_sys::core::GUID, reserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn FindMimeFromData(pbc: super::IBindCtx, pwzurl: ::windows_sys::core::PCWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: ::windows_sys::core::PCWSTR, dwmimeflags: u32, ppwzmimeout: *mut ::windows_sys::core::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn GetClassFileOrMime(pbc: super::IBindCtx, szfilename: ::windows_sys::core::PCWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: ::windows_sys::core::PCWSTR, dwreserved: u32, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn GetClassURL(szurl: ::windows_sys::core::PCWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC, ppszcomponentid: *mut ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn GetSoftwareUpdateInfo(szdistunit: ::windows_sys::core::PCWSTR, psdi: *mut SOFTDISTINFO) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn HlinkGoBack(punk: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn HlinkGoForward(punk: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn HlinkNavigateMoniker(punk: ::windows_sys::core::IUnknown, pmktarget: super::IMoniker) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HlinkNavigateString(punk: ::windows_sys::core::IUnknown, sztarget: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HlinkSimpleNavigateToMoniker(pmktarget: super::IMoniker, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: ::windows_sys::core::IUnknown, pbc: super::IBindCtx, param5: super::IBindStatusCallback, grfhlnf: u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HlinkSimpleNavigateToString(sztarget: super::super::super::Foundation::PWSTR, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: ::windows_sys::core::IUnknown, pbc: super::IBindCtx, param5: super::IBindStatusCallback, grfhlnf: u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IEGetUserPrivateNamespaceName() -> super::super::super::Foundation::PWSTR;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn HlinkNavigateString(punk: ::windows_sys::core::IUnknown, sztarget: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn HlinkSimpleNavigateToMoniker(pmktarget: super::IMoniker, szlocation: ::windows_sys::core::PCWSTR, sztargetframename: ::windows_sys::core::PCWSTR, punk: ::windows_sys::core::IUnknown, pbc: super::IBindCtx, param5: super::IBindStatusCallback, grfhlnf: u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn HlinkSimpleNavigateToString(sztarget: ::windows_sys::core::PCWSTR, szlocation: ::windows_sys::core::PCWSTR, sztargetframename: ::windows_sys::core::PCWSTR, punk: ::windows_sys::core::IUnknown, pbc: super::IBindCtx, param5: super::IBindStatusCallback, grfhlnf: u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn IEGetUserPrivateNamespaceName() -> ::windows_sys::core::PWSTR;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn IEInstallScope(pdwscope: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn IsAsyncMoniker(pmk: super::IMoniker) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsLoggingEnabledA(pszurl: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+    pub fn IsLoggingEnabledA(pszurl: ::windows_sys::core::PCSTR) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsLoggingEnabledW(pwszurl: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsValidURL(pbc: super::IBindCtx, szurl: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MkParseDisplayNameEx(pbc: super::IBindCtx, szdisplayname: super::super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmk: *mut super::IMoniker) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ObtainUserAgentString(dwoption: u32, pszuaout: super::super::super::Foundation::PSTR, cbsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn IsLoggingEnabledW(pwszurl: ::windows_sys::core::PCWSTR) -> super::super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn IsValidURL(pbc: super::IBindCtx, szurl: ::windows_sys::core::PCWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn MkParseDisplayNameEx(pbc: super::IBindCtx, szdisplayname: ::windows_sys::core::PCWSTR, pcheaten: *mut u32, ppmk: *mut super::IMoniker) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn ObtainUserAgentString(dwoption: u32, pszuaout: ::windows_sys::core::PSTR, cbsize: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn RegisterBindStatusCallback(pbc: super::IBindCtx, pbscb: super::IBindStatusCallback, ppbscbprev: *mut super::IBindStatusCallback, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn RegisterFormatEnumerator(pbc: super::IBindCtx, pefetc: super::IEnumFORMATETC, reserved: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterMediaTypeClass(pbc: super::IBindCtx, ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgclsid: *const ::windows_sys::core::GUID, reserved: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn RegisterMediaTypeClass(pbc: super::IBindCtx, ctypes: u32, rgsztypes: *const ::windows_sys::core::PSTR, rgclsid: *const ::windows_sys::core::GUID, reserved: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows_sys::core::PSTR, rgcftypes: *mut u16) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO);
@@ -156,39 +127,28 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetAccessForIEAppContainer(hobject: super::super::super::Foundation::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetSoftwareUpdateAdvertisementState(szdistunit: super::super::super::Foundation::PWSTR, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn URLDownloadToCacheFileA(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, cchfilename: u32, param4: u32, param5: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn URLDownloadToCacheFileW(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, cchfilename: u32, param4: u32, param5: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn URLDownloadToFileA(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn URLDownloadToFileW(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenBlockingStreamA(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PSTR, param2: *mut super::IStream, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenBlockingStreamW(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PWSTR, param2: *mut super::IStream, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenPullStreamA(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenPullStreamW(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenStreamA(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenStreamW(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn SetSoftwareUpdateAdvertisementState(szdistunit: ::windows_sys::core::PCWSTR, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn URLDownloadToCacheFileA(param0: ::windows_sys::core::IUnknown, param1: ::windows_sys::core::PCSTR, param2: ::windows_sys::core::PSTR, cchfilename: u32, param4: u32, param5: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn URLDownloadToCacheFileW(param0: ::windows_sys::core::IUnknown, param1: ::windows_sys::core::PCWSTR, param2: ::windows_sys::core::PWSTR, cchfilename: u32, param4: u32, param5: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn URLDownloadToFileA(param0: ::windows_sys::core::IUnknown, param1: ::windows_sys::core::PCSTR, param2: ::windows_sys::core::PCSTR, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn URLDownloadToFileW(param0: ::windows_sys::core::IUnknown, param1: ::windows_sys::core::PCWSTR, param2: ::windows_sys::core::PCWSTR, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn URLOpenBlockingStreamA(param0: ::windows_sys::core::IUnknown, param1: ::windows_sys::core::PCSTR, param2: *mut super::IStream, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn URLOpenBlockingStreamW(param0: ::windows_sys::core::IUnknown, param1: ::windows_sys::core::PCWSTR, param2: *mut super::IStream, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn URLOpenPullStreamA(param0: ::windows_sys::core::IUnknown, param1: ::windows_sys::core::PCSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn URLOpenPullStreamW(param0: ::windows_sys::core::IUnknown, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn URLOpenStreamA(param0: ::windows_sys::core::IUnknown, param1: ::windows_sys::core::PCSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub fn URLOpenStreamW(param0: ::windows_sys::core::IUnknown, param1: ::windows_sys::core::PCWSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
@@ -640,19 +600,16 @@ pub const CIP_NEED_REBOOT: CIP_STATUS = 8i32;
 #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
 pub const CIP_NEED_REBOOT_UI_PERMISSION: CIP_STATUS = 9i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
 pub struct CODEBASEHOLD {
     pub cbSize: u32,
-    pub szDistUnit: super::super::super::Foundation::PWSTR,
-    pub szCodeBase: super::super::super::Foundation::PWSTR,
+    pub szDistUnit: ::windows_sys::core::PWSTR,
+    pub szCodeBase: ::windows_sys::core::PWSTR,
     pub dwVersionMS: u32,
     pub dwVersionLS: u32,
     pub dwStyle: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CODEBASEHOLD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CODEBASEHOLD {
     fn clone(&self) -> Self {
         *self
@@ -736,10 +693,10 @@ pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: u32,
-    pub lpszLoggedUrlName: super::super::super::Foundation::PSTR,
+    pub lpszLoggedUrlName: ::windows_sys::core::PSTR,
     pub StartTime: super::super::super::Foundation::SYSTEMTIME,
     pub EndTime: super::super::super::Foundation::SYSTEMTIME,
-    pub lpszExtendedInfo: super::super::super::Foundation::PSTR,
+    pub lpszExtendedInfo: ::windows_sys::core::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIT_LOGGING_INFO {}
@@ -1128,15 +1085,12 @@ impl ::core::clone::Clone for PROTOCOLFILTERDATA {
 #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
 pub struct PROTOCOL_ARGUMENT {
-    pub szMethod: super::super::super::Foundation::PWSTR,
-    pub szTargetUrl: super::super::super::Foundation::PWSTR,
+    pub szMethod: ::windows_sys::core::PCWSTR,
+    pub szTargetUrl: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROTOCOL_ARGUMENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROTOCOL_ARGUMENT {
     fn clone(&self) -> Self {
         *self
@@ -1253,10 +1207,10 @@ impl ::core::clone::Clone for REMSECURITY_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 pub struct RemBINDINFO {
     pub cbSize: u32,
-    pub szExtraInfo: super::super::super::Foundation::PWSTR,
+    pub szExtraInfo: ::windows_sys::core::PWSTR,
     pub grfBindInfoF: u32,
     pub dwBindVerb: u32,
-    pub szCustomVerb: super::super::super::Foundation::PWSTR,
+    pub szCustomVerb: ::windows_sys::core::PWSTR,
     pub cbstgmedData: u32,
     pub dwOptions: u32,
     pub dwOptionsFlags: u32,
@@ -1310,15 +1264,14 @@ pub const SET_FEATURE_ON_THREAD_RESTRICTED: u32 = 128u32;
 #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
 pub const SET_FEATURE_ON_THREAD_TRUSTED: u32 = 32u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
 pub struct SOFTDISTINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub dwAdState: u32,
-    pub szTitle: super::super::super::Foundation::PWSTR,
-    pub szAbstract: super::super::super::Foundation::PWSTR,
-    pub szHREF: super::super::super::Foundation::PWSTR,
+    pub szTitle: ::windows_sys::core::PWSTR,
+    pub szAbstract: ::windows_sys::core::PWSTR,
+    pub szHREF: ::windows_sys::core::PWSTR,
     pub dwInstalledVersionMS: u32,
     pub dwInstalledVersionLS: u32,
     pub dwUpdateVersionMS: u32,
@@ -1327,9 +1280,7 @@ pub struct SOFTDISTINFO {
     pub dwAdvertisedVersionLS: u32,
     pub dwReserved: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SOFTDISTINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SOFTDISTINFO {
     fn clone(&self) -> Self {
         *self

@@ -1,4 +1,4 @@
-use windows::{core::*, Win32::Foundation::*, Win32::Globalization::*, Win32::System::Com::*};
+use windows::{core::*, Win32::Globalization::*, Win32::System::Com::*};
 
 fn main() -> Result<()> {
     let input = std::env::args().nth(1).expect("Expected one command line argument for text to be spell-corrected");

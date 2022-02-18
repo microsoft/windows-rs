@@ -1,58 +1,43 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNetScheduleAccountInformation(pwszservername: super::super::Foundation::PWSTR, ccaccount: u32, wszaccount: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn I_NetLogonControl2(servername: super::super::Foundation::PWSTR, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR, dwerrorcode: u32);
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR, dwerrorcode: u32);
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR);
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR);
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn GetNetScheduleAccountInformation(pwszservername: ::windows_sys::core::PCWSTR, ccaccount: u32, wszaccount: ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn I_NetLogonControl2(servername: ::windows_sys::core::PCWSTR, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows_sys::core::PSTR, dwerrorcode: u32);
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows_sys::core::PWSTR, dwerrorcode: u32);
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows_sys::core::PSTR);
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows_sys::core::PWSTR);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: *mut *mut u8, lpdwentriesread: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub fn MprSetupProtocolFree(lpbuffer: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAccessAdd(servername: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAccessDel(servername: ::windows_sys::core::PCWSTR, resource: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAccessEnum(servername: ::windows_sys::core::PCWSTR, basepath: ::windows_sys::core::PCWSTR, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAccessGetInfo(servername: ::windows_sys::core::PCWSTR, resource: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAccessGetUserPerms(servername: ::windows_sys::core::PCWSTR, ugname: ::windows_sys::core::PCWSTR, resource: ::windows_sys::core::PCWSTR, perms: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAccessSetInfo(servername: ::windows_sys::core::PCWSTR, resource: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAddAlternateComputerName(server: ::windows_sys::core::PCWSTR, alternatename: ::windows_sys::core::PCWSTR, domainaccount: ::windows_sys::core::PCWSTR, domainaccountpassword: ::windows_sys::core::PCWSTR, reserved: u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAccessAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAccessDel(servername: super::super::Foundation::PWSTR, resource: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAccessEnum(servername: super::super::Foundation::PWSTR, basepath: super::super::Foundation::PWSTR, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAccessGetInfo(servername: super::super::Foundation::PWSTR, resource: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAccessGetUserPerms(servername: super::super::Foundation::PWSTR, ugname: super::super::Foundation::PWSTR, resource: super::super::Foundation::PWSTR, perms: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAccessSetInfo(servername: super::super::Foundation::PWSTR, resource: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAddAlternateComputerName(server: super::super::Foundation::PWSTR, alternatename: super::super::Foundation::PWSTR, domainaccount: super::super::Foundation::PWSTR, domainaccountpassword: super::super::Foundation::PWSTR, reserved: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAddServiceAccount(servername: super::super::Foundation::PWSTR, accountname: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAlertRaise(alerttype: super::super::Foundation::PWSTR, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAlertRaiseEx(alerttype: super::super::Foundation::PWSTR, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: super::super::Foundation::PWSTR) -> u32;
+    pub fn NetAddServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, password: ::windows_sys::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAlertRaise(alerttype: ::windows_sys::core::PCWSTR, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAlertRaiseEx(alerttype: ::windows_sys::core::PCWSTR, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -61,362 +46,254 @@ extern "system" {
     pub fn NetApiBufferReallocate(oldbuffer: *const ::core::ffi::c_void, newbytecount: u32, newbuffer: *mut *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub fn NetApiBufferSize(buffer: *const ::core::ffi::c_void, bytecount: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAuditClear(server: ::windows_sys::core::PCWSTR, backupfile: ::windows_sys::core::PCWSTR, service: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAuditRead(server: ::windows_sys::core::PCWSTR, service: ::windows_sys::core::PCWSTR, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetAuditWrite(r#type: u32, buf: *mut u8, numbytes: u32, service: ::windows_sys::core::PCWSTR, reserved: *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetConfigGet(server: ::windows_sys::core::PCWSTR, component: ::windows_sys::core::PCWSTR, parameter: ::windows_sys::core::PCWSTR, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetConfigGetAll(server: ::windows_sys::core::PCWSTR, component: ::windows_sys::core::PCWSTR, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetConfigSet(server: ::windows_sys::core::PCWSTR, reserved1: ::windows_sys::core::PCWSTR, component: ::windows_sys::core::PCWSTR, level: u32, reserved2: u32, buf: *mut u8, reserved3: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata: *mut *mut u8, pdwpackagebindatasize: *mut u32, pppackagetextdata: *mut ::windows_sys::core::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetEnumerateComputerNames(server: ::windows_sys::core::PCWSTR, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut ::windows_sys::core::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAuditClear(server: super::super::Foundation::PWSTR, backupfile: super::super::Foundation::PWSTR, service: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAuditRead(server: super::super::Foundation::PWSTR, service: super::super::Foundation::PWSTR, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetAuditWrite(r#type: u32, buf: *mut u8, numbytes: u32, service: super::super::Foundation::PWSTR, reserved: *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetConfigGet(server: super::super::Foundation::PWSTR, component: super::super::Foundation::PWSTR, parameter: super::super::Foundation::PWSTR, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetConfigGetAll(server: super::super::Foundation::PWSTR, component: super::super::Foundation::PWSTR, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetConfigSet(server: super::super::Foundation::PWSTR, reserved1: super::super::Foundation::PWSTR, component: super::super::Foundation::PWSTR, level: u32, reserved2: u32, buf: *mut u8, reserved3: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata: *mut *mut u8, pdwpackagebindatasize: *mut u32, pppackagetextdata: *mut super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetEnumerateComputerNames(server: super::super::Foundation::PWSTR, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetEnumerateServiceAccounts(servername: super::super::Foundation::PWSTR, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetErrorLogClear(uncservername: super::super::Foundation::PWSTR, backupfile: super::super::Foundation::PWSTR, reserved: *const u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetErrorLogRead(uncservername: super::super::Foundation::PWSTR, reserved1: super::super::Foundation::PWSTR, errorloghandle: *const HLOG, offset: u32, reserved2: *const u32, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetErrorLogWrite(reserved1: *const u8, code: u32, component: super::super::Foundation::PWSTR, buffer: *const u8, numbytes: u32, msgbuf: *const u8, strcount: u32, reserved2: *const u8) -> u32;
+    pub fn NetEnumerateServiceAccounts(servername: ::windows_sys::core::PCWSTR, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetErrorLogClear(uncservername: ::windows_sys::core::PCWSTR, backupfile: ::windows_sys::core::PCWSTR, reserved: *const u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetErrorLogRead(uncservername: ::windows_sys::core::PCWSTR, reserved1: ::windows_sys::core::PCWSTR, errorloghandle: *const HLOG, offset: u32, reserved2: *const u32, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetErrorLogWrite(reserved1: *const u8, code: u32, component: ::windows_sys::core::PCWSTR, buffer: *const u8, numbytes: u32, msgbuf: *const u8, strcount: u32, reserved2: *const u8) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub fn NetGetAadJoinInformation(pcsztenantid: super::super::Foundation::PWSTR, ppjoininfo: *mut *mut DSREG_JOIN_INFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGetAnyDCName(servername: super::super::Foundation::PWSTR, domainname: super::super::Foundation::PWSTR, buffer: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGetDCName(servername: super::super::Foundation::PWSTR, domainname: super::super::Foundation::PWSTR, buffer: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGetDisplayInformationIndex(servername: super::super::Foundation::PWSTR, level: u32, prefix: super::super::Foundation::PWSTR, index: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGetJoinInformation(lpserver: super::super::Foundation::PWSTR, lpnamebuffer: *mut super::super::Foundation::PWSTR, buffertype: *mut NETSETUP_JOIN_STATUS) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGetJoinableOUs(lpserver: super::super::Foundation::PWSTR, lpdomain: super::super::Foundation::PWSTR, lpaccount: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, oucount: *mut u32, ous: *mut *mut super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGroupAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGroupAddUser(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGroupDel(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGroupDelUser(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGroupEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGroupGetInfo(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGroupGetUsers(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGroupSetInfo(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetGroupSetUsers(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetIsServiceAccount(servername: super::super::Foundation::PWSTR, accountname: super::super::Foundation::PWSTR, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetJoinDomain(lpserver: super::super::Foundation::PWSTR, lpdomain: super::super::Foundation::PWSTR, lpmachineaccountou: super::super::Foundation::PWSTR, lpaccount: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetLocalGroupAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetLocalGroupAddMember(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, membersid: super::super::Foundation::PSID) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetLocalGroupAddMembers(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetLocalGroupDel(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetLocalGroupDelMember(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, membersid: super::super::Foundation::PSID) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetLocalGroupDelMembers(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetLocalGroupEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetLocalGroupGetInfo(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetLocalGroupGetMembers(servername: super::super::Foundation::PWSTR, localgroupname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetLocalGroupSetInfo(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetLocalGroupSetMembers(servername: super::super::Foundation::PWSTR, groupname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetMessageBufferSend(servername: super::super::Foundation::PWSTR, msgname: super::super::Foundation::PWSTR, fromname: super::super::Foundation::PWSTR, buf: *const u8, buflen: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetMessageNameAdd(servername: super::super::Foundation::PWSTR, msgname: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetMessageNameDel(servername: super::super::Foundation::PWSTR, msgname: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetMessageNameEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *const *const u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetMessageNameGetInfo(servername: super::super::Foundation::PWSTR, msgname: super::super::Foundation::PWSTR, level: u32, bufptr: *const *const u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetProvisionComputerAccount(lpdomain: super::super::Foundation::PWSTR, lpmachinename: super::super::Foundation::PWSTR, lpmachineaccountou: super::super::Foundation::PWSTR, lpdcname: super::super::Foundation::PWSTR, dwoptions: NETSETUP_PROVISION, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetQueryDisplayInformation(servername: super::super::Foundation::PWSTR, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetQueryServiceAccount(servername: super::super::Foundation::PWSTR, accountname: super::super::Foundation::PWSTR, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetRemoteComputerSupports(uncservername: super::super::Foundation::PWSTR, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetRemoteTOD(uncservername: super::super::Foundation::PWSTR, bufferptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetRemoveAlternateComputerName(server: super::super::Foundation::PWSTR, alternatename: super::super::Foundation::PWSTR, domainaccount: super::super::Foundation::PWSTR, domainaccountpassword: super::super::Foundation::PWSTR, reserved: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetRemoveServiceAccount(servername: super::super::Foundation::PWSTR, accountname: super::super::Foundation::PWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetRenameMachineInDomain(lpserver: super::super::Foundation::PWSTR, lpnewmachinename: super::super::Foundation::PWSTR, lpaccount: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, frenameoptions: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplExportDirAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplExportDirDel(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplExportDirEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplExportDirGetInfo(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplExportDirLock(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplExportDirSetInfo(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplExportDirUnlock(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR, unlockforce: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplGetInfo(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplImportDirAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplImportDirDel(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplImportDirEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplImportDirGetInfo(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplImportDirLock(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplImportDirUnlock(servername: super::super::Foundation::PWSTR, dirname: super::super::Foundation::PWSTR, unlockforce: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetReplSetInfo(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetRequestOfflineDomainJoin(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetRequestProvisioningPackageInstall(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: super::super::Foundation::PWSTR, pvreserved: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetScheduleJobAdd(servername: super::super::Foundation::PWSTR, buffer: *mut u8, jobid: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetScheduleJobDel(servername: super::super::Foundation::PWSTR, minjobid: u32, maxjobid: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetScheduleJobEnum(servername: super::super::Foundation::PWSTR, pointertobuffer: *mut *mut u8, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetScheduleJobGetInfo(servername: super::super::Foundation::PWSTR, jobid: u32, pointertobuffer: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerComputerNameAdd(servername: super::super::Foundation::PWSTR, emulateddomainname: super::super::Foundation::PWSTR, emulatedservername: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerComputerNameDel(servername: super::super::Foundation::PWSTR, emulatedservername: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerDiskEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: super::super::Foundation::PWSTR, resume_handle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerGetInfo(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerSetInfo(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parmerror: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerTransportAdd(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *const u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerTransportAddEx(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *const u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerTransportDel(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *const u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServerTransportEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServiceControl(servername: super::super::Foundation::PWSTR, service: super::super::Foundation::PWSTR, opcode: u32, arg: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServiceEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServiceGetInfo(servername: super::super::Foundation::PWSTR, service: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetServiceInstall(servername: super::super::Foundation::PWSTR, service: super::super::Foundation::PWSTR, argc: u32, argv: *const super::super::Foundation::PWSTR, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetSetPrimaryComputerName(server: super::super::Foundation::PWSTR, primaryname: super::super::Foundation::PWSTR, domainaccount: super::super::Foundation::PWSTR, domainaccountpassword: super::super::Foundation::PWSTR, reserved: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUnjoinDomain(lpserver: super::super::Foundation::PWSTR, lpaccount: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, funjoinoptions: u32) -> u32;
+    pub fn NetGetAadJoinInformation(pcsztenantid: ::windows_sys::core::PCWSTR, ppjoininfo: *mut *mut DSREG_JOIN_INFO) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGetAnyDCName(servername: ::windows_sys::core::PCWSTR, domainname: ::windows_sys::core::PCWSTR, buffer: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGetDCName(servername: ::windows_sys::core::PCWSTR, domainname: ::windows_sys::core::PCWSTR, buffer: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGetDisplayInformationIndex(servername: ::windows_sys::core::PCWSTR, level: u32, prefix: ::windows_sys::core::PCWSTR, index: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGetJoinInformation(lpserver: ::windows_sys::core::PCWSTR, lpnamebuffer: *mut ::windows_sys::core::PWSTR, buffertype: *mut NETSETUP_JOIN_STATUS) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGetJoinableOUs(lpserver: ::windows_sys::core::PCWSTR, lpdomain: ::windows_sys::core::PCWSTR, lpaccount: ::windows_sys::core::PCWSTR, lppassword: ::windows_sys::core::PCWSTR, oucount: *mut u32, ous: *mut *mut ::windows_sys::core::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGroupAdd(servername: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGroupAddUser(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGroupDel(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGroupDelUser(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGroupEnum(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGroupGetInfo(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGroupGetUsers(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGroupSetInfo(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetGroupSetUsers(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NetIsServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, isservice: *mut super::super::Foundation::BOOL) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetJoinDomain(lpserver: ::windows_sys::core::PCWSTR, lpdomain: ::windows_sys::core::PCWSTR, lpmachineaccountou: ::windows_sys::core::PCWSTR, lpaccount: ::windows_sys::core::PCWSTR, lppassword: ::windows_sys::core::PCWSTR, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetLocalGroupAdd(servername: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NetLocalGroupAddMember(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, membersid: super::super::Foundation::PSID) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetLocalGroupAddMembers(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetLocalGroupDel(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NetLocalGroupDelMember(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, membersid: super::super::Foundation::PSID) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetLocalGroupDelMembers(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetLocalGroupEnum(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetLocalGroupGetInfo(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetLocalGroupGetMembers(servername: ::windows_sys::core::PCWSTR, localgroupname: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetLocalGroupSetInfo(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetLocalGroupSetMembers(servername: ::windows_sys::core::PCWSTR, groupname: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetMessageBufferSend(servername: ::windows_sys::core::PCWSTR, msgname: ::windows_sys::core::PCWSTR, fromname: ::windows_sys::core::PCWSTR, buf: *const u8, buflen: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetMessageNameAdd(servername: ::windows_sys::core::PCWSTR, msgname: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetMessageNameDel(servername: ::windows_sys::core::PCWSTR, msgname: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetMessageNameEnum(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *const *const u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetMessageNameGetInfo(servername: ::windows_sys::core::PCWSTR, msgname: ::windows_sys::core::PCWSTR, level: u32, bufptr: *const *const u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetProvisionComputerAccount(lpdomain: ::windows_sys::core::PCWSTR, lpmachinename: ::windows_sys::core::PCWSTR, lpmachineaccountou: ::windows_sys::core::PCWSTR, lpdcname: ::windows_sys::core::PCWSTR, dwoptions: NETSETUP_PROVISION, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut ::windows_sys::core::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetQueryDisplayInformation(servername: ::windows_sys::core::PCWSTR, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NetQueryServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetRemoteComputerSupports(uncservername: ::windows_sys::core::PCWSTR, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetRemoteTOD(uncservername: ::windows_sys::core::PCWSTR, bufferptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetRemoveAlternateComputerName(server: ::windows_sys::core::PCWSTR, alternatename: ::windows_sys::core::PCWSTR, domainaccount: ::windows_sys::core::PCWSTR, domainaccountpassword: ::windows_sys::core::PCWSTR, reserved: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NetRemoveServiceAccount(servername: ::windows_sys::core::PCWSTR, accountname: ::windows_sys::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetRenameMachineInDomain(lpserver: ::windows_sys::core::PCWSTR, lpnewmachinename: ::windows_sys::core::PCWSTR, lpaccount: ::windows_sys::core::PCWSTR, lppassword: ::windows_sys::core::PCWSTR, frenameoptions: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplExportDirAdd(servername: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplExportDirDel(servername: ::windows_sys::core::PCWSTR, dirname: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplExportDirEnum(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplExportDirGetInfo(servername: ::windows_sys::core::PCWSTR, dirname: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplExportDirLock(servername: ::windows_sys::core::PCWSTR, dirname: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplExportDirSetInfo(servername: ::windows_sys::core::PCWSTR, dirname: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplExportDirUnlock(servername: ::windows_sys::core::PCWSTR, dirname: ::windows_sys::core::PCWSTR, unlockforce: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplGetInfo(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplImportDirAdd(servername: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplImportDirDel(servername: ::windows_sys::core::PCWSTR, dirname: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplImportDirEnum(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplImportDirGetInfo(servername: ::windows_sys::core::PCWSTR, dirname: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplImportDirLock(servername: ::windows_sys::core::PCWSTR, dirname: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplImportDirUnlock(servername: ::windows_sys::core::PCWSTR, dirname: ::windows_sys::core::PCWSTR, unlockforce: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetReplSetInfo(servername: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetRequestOfflineDomainJoin(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetRequestProvisioningPackageInstall(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: ::windows_sys::core::PCWSTR, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetScheduleJobAdd(servername: ::windows_sys::core::PCWSTR, buffer: *mut u8, jobid: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetScheduleJobDel(servername: ::windows_sys::core::PCWSTR, minjobid: u32, maxjobid: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetScheduleJobEnum(servername: ::windows_sys::core::PCWSTR, pointertobuffer: *mut *mut u8, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetScheduleJobGetInfo(servername: ::windows_sys::core::PCWSTR, jobid: u32, pointertobuffer: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServerComputerNameAdd(servername: ::windows_sys::core::PCWSTR, emulateddomainname: ::windows_sys::core::PCWSTR, emulatedservername: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServerComputerNameDel(servername: ::windows_sys::core::PCWSTR, emulatedservername: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServerDiskEnum(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServerEnum(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: ::windows_sys::core::PCWSTR, resume_handle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServerGetInfo(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServerSetInfo(servername: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parmerror: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServerTransportAdd(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServerTransportAddEx(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServerTransportDel(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServerTransportEnum(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServiceControl(servername: ::windows_sys::core::PCWSTR, service: ::windows_sys::core::PCWSTR, opcode: u32, arg: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServiceEnum(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServiceGetInfo(servername: ::windows_sys::core::PCWSTR, service: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetServiceInstall(servername: ::windows_sys::core::PCWSTR, service: ::windows_sys::core::PCWSTR, argc: u32, argv: *const ::windows_sys::core::PWSTR, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetSetPrimaryComputerName(server: ::windows_sys::core::PCWSTR, primaryname: ::windows_sys::core::PCWSTR, domainaccount: ::windows_sys::core::PCWSTR, domainaccountpassword: ::windows_sys::core::PCWSTR, reserved: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUnjoinDomain(lpserver: ::windows_sys::core::PCWSTR, lpaccount: ::windows_sys::core::PCWSTR, lppassword: ::windows_sys::core::PCWSTR, funjoinoptions: u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub fn NetUseAdd(servername: *const i8, levelflags: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUseDel(uncservername: super::super::Foundation::PWSTR, usename: super::super::Foundation::PWSTR, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUseEnum(uncservername: super::super::Foundation::PWSTR, levelflags: u32, bufptr: *mut *mut u8, preferedmaximumsize: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUseGetInfo(uncservername: super::super::Foundation::PWSTR, usename: super::super::Foundation::PWSTR, levelflags: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUserAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUserChangePassword(domainname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, oldpassword: super::super::Foundation::PWSTR, newpassword: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUserDel(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUserEnum(servername: super::super::Foundation::PWSTR, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUserGetGroups(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUserGetInfo(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUserGetLocalGroups(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, flags: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUserModalsGet(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUserModalsSet(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUserSetGroups(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, buf: *const u8, num_entries: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetUserSetInfo(servername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetValidateName(lpserver: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, lpaccount: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, nametype: NETSETUP_NAME_TYPE) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetValidatePasswordPolicy(servername: super::super::Foundation::PWSTR, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUseDel(uncservername: ::windows_sys::core::PCWSTR, usename: ::windows_sys::core::PCWSTR, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUseEnum(uncservername: ::windows_sys::core::PCWSTR, levelflags: u32, bufptr: *mut *mut u8, preferedmaximumsize: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUseGetInfo(uncservername: ::windows_sys::core::PCWSTR, usename: ::windows_sys::core::PCWSTR, levelflags: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUserAdd(servername: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUserChangePassword(domainname: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR, oldpassword: ::windows_sys::core::PCWSTR, newpassword: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUserDel(servername: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUserEnum(servername: ::windows_sys::core::PCWSTR, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUserGetGroups(servername: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUserGetInfo(servername: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUserGetLocalGroups(servername: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR, level: u32, flags: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUserModalsGet(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUserModalsSet(servername: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUserSetGroups(servername: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, num_entries: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetUserSetInfo(servername: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetValidateName(lpserver: ::windows_sys::core::PCWSTR, lpname: ::windows_sys::core::PCWSTR, lpaccount: ::windows_sys::core::PCWSTR, lppassword: ::windows_sys::core::PCWSTR, nametype: NETSETUP_NAME_TYPE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetValidatePasswordPolicy(servername: ::windows_sys::core::PCWSTR, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetWkstaGetInfo(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetWkstaSetInfo(servername: super::super::Foundation::PWSTR, level: u32, buffer: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetWkstaGetInfo(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetWkstaSetInfo(servername: ::windows_sys::core::PCWSTR, level: u32, buffer: *const u8, parm_err: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub fn NetWkstaTransportAdd(servername: *const i8, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetWkstaTransportDel(servername: super::super::Foundation::PWSTR, transportname: super::super::Foundation::PWSTR, ucond: FORCE_LEVEL_FLAGS) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetWkstaTransportDel(servername: ::windows_sys::core::PCWSTR, transportname: ::windows_sys::core::PCWSTR, ucond: FORCE_LEVEL_FLAGS) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub fn NetWkstaTransportEnum(servername: *const i8, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetWkstaUserEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetWkstaUserGetInfo(reserved: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NetWkstaUserSetInfo(reserved: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterAssert(pszfailedassertion: super::super::Foundation::PSTR, pszfilename: super::super::Foundation::PSTR, dwlinenumber: u32, pszmessage: super::super::Foundation::PSTR);
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetWkstaUserEnum(servername: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetWkstaUserGetInfo(reserved: ::windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn NetWkstaUserSetInfo(reserved: ::windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn RouterAssert(pszfailedassertion: ::windows_sys::core::PCSTR, pszfilename: ::windows_sys::core::PCSTR, dwlinenumber: u32, pszmessage: ::windows_sys::core::PCSTR);
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut ::windows_sys::core::PSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut ::windows_sys::core::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RouterLogDeregisterA(hloghandle: super::super::Foundation::HANDLE);
@@ -425,43 +302,42 @@ extern "system" {
     pub fn RouterLogDeregisterW(hloghandle: super::super::Foundation::HANDLE);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32);
+    pub fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PSTR, dwerrorcode: u32);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
+    pub fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
+    pub fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: super::super::Foundation::PSTR);
+    pub fn RouterLogEventExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows_sys::core::PCSTR);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: super::super::Foundation::PWSTR);
+    pub fn RouterLogEventExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows_sys::core::PCWSTR);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32, dwerrorindex: u32);
+    pub fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PSTR, dwerrorcode: u32, dwerrorindex: u32);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32, dwerrorindex: u32);
+    pub fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PWSTR, dwerrorcode: u32, dwerrorindex: u32);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventValistExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: super::super::Foundation::PSTR, arglist: *mut i8);
+    pub fn RouterLogEventValistExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows_sys::core::PCSTR, arglist: *mut i8);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventValistExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: super::super::Foundation::PWSTR, arglist: *mut i8);
+    pub fn RouterLogEventValistExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows_sys::core::PCWSTR, arglist: *mut i8);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32);
+    pub fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows_sys::core::PWSTR, dwerrorcode: u32);
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogRegisterA(lpszsource: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
+    pub fn RouterLogRegisterA(lpszsource: ::windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RouterLogRegisterW(lpszsource: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetNetScheduleAccountInformation(pwszservername: super::super::Foundation::PWSTR, pwszaccount: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn RouterLogRegisterW(lpszsource: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn SetNetScheduleAccountInformation(pwszservername: ::windows_sys::core::PCWSTR, pwszaccount: ::windows_sys::core::PCWSTR, pwszpassword: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub fn TraceDeregisterA(dwtraceid: u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -472,46 +348,36 @@ extern "system" {
     pub fn TraceDeregisterW(dwtraceid: u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TraceDumpExA(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: super::super::Foundation::PSTR) -> u32;
+    pub fn TraceDumpExA(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: ::windows_sys::core::PCSTR) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TraceDumpExW(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: super::super::Foundation::PWSTR) -> u32;
+    pub fn TraceDumpExW(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TracePrintfA(dwtraceid: u32, lpszformat: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TracePrintfExA(dwtraceid: u32, dwflags: u32, lpszformat: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TracePrintfExW(dwtraceid: u32, dwflags: u32, lpszformat: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TracePrintfW(dwtraceid: u32, lpszformat: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TracePutsExA(dwtraceid: u32, dwflags: u32, lpszstring: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TracePutsExW(dwtraceid: u32, dwflags: u32, lpszstring: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TraceRegisterExA(lpszcallername: super::super::Foundation::PSTR, dwflags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TraceRegisterExW(lpszcallername: super::super::Foundation::PWSTR, dwflags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TraceVprintfExA(dwtraceid: u32, dwflags: u32, lpszformat: super::super::Foundation::PSTR, arglist: *mut i8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TraceVprintfExW(dwtraceid: u32, dwflags: u32, lpszformat: super::super::Foundation::PWSTR, arglist: *mut i8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn TracePrintfA(dwtraceid: u32, lpszformat: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn TracePrintfExA(dwtraceid: u32, dwflags: u32, lpszformat: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn TracePrintfExW(dwtraceid: u32, dwflags: u32, lpszformat: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn TracePrintfW(dwtraceid: u32, lpszformat: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn TracePutsExA(dwtraceid: u32, dwflags: u32, lpszstring: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn TracePutsExW(dwtraceid: u32, dwflags: u32, lpszstring: ::windows_sys::core::PCWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn TraceRegisterExA(lpszcallername: ::windows_sys::core::PCSTR, dwflags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn TraceRegisterExW(lpszcallername: ::windows_sys::core::PCWSTR, dwflags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn TraceVprintfExA(dwtraceid: u32, dwflags: u32, lpszformat: ::windows_sys::core::PCSTR, arglist: *mut i8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn TraceVprintfExW(dwtraceid: u32, dwflags: u32, lpszformat: ::windows_sys::core::PCWSTR, arglist: *mut i8) -> u32;
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const AA_AUDIT_ALL: u32 = 1u32;
@@ -572,30 +438,24 @@ pub const ACCESS_FAIL_WRITE: u32 = 512u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const ACCESS_GROUP: u32 = 32768u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct ACCESS_INFO_0 {
-    pub acc0_resource_name: super::super::Foundation::PWSTR,
+    pub acc0_resource_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACCESS_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACCESS_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct ACCESS_INFO_1 {
-    pub acc1_resource_name: super::super::Foundation::PWSTR,
+    pub acc1_resource_name: ::windows_sys::core::PWSTR,
     pub acc1_attr: u32,
     pub acc1_count: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACCESS_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACCESS_INFO_1 {
     fn clone(&self) -> Self {
         *self
@@ -615,15 +475,12 @@ impl ::core::clone::Clone for ACCESS_INFO_1002 {
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const ACCESS_LETTERS: &'static str = "RWCXDAP         ";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct ACCESS_LIST {
-    pub acl_ugname: super::super::Foundation::PWSTR,
+    pub acl_ugname: ::windows_sys::core::PWSTR,
     pub acl_access: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACCESS_LIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACCESS_LIST {
     fn clone(&self) -> Self {
         *self
@@ -1063,37 +920,31 @@ pub const ALIGN_SIZE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const ALLOCATE_RESPONSE: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct AT_ENUM {
     pub JobId: u32,
     pub JobTime: usize,
     pub DaysOfMonth: u32,
     pub DaysOfWeek: u8,
     pub Flags: u8,
-    pub Command: super::super::Foundation::PWSTR,
+    pub Command: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AT_ENUM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AT_ENUM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct AT_INFO {
     pub JobTime: usize,
     pub DaysOfMonth: u32,
     pub DaysOfWeek: u8,
     pub Flags: u8,
-    pub Command: super::super::Foundation::PWSTR,
+    pub Command: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AT_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AT_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1178,15 +1029,12 @@ pub const NCF_FIXED_BINDING: COMPONENT_CHARACTERISTICS = 131072i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NCF_LW_FILTER: COMPONENT_CHARACTERISTICS = 262144i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct CONFIG_INFO_0 {
-    pub cfgi0_key: super::super::Foundation::PWSTR,
-    pub cfgi0_data: super::super::Foundation::PWSTR,
+    pub cfgi0_key: ::windows_sys::core::PWSTR,
+    pub cfgi0_data: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONFIG_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONFIG_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -1344,15 +1192,15 @@ pub const DNLEN: u32 = 15u32;
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
     pub pJoinCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
-    pub pszDeviceId: super::super::Foundation::PWSTR,
-    pub pszIdpDomain: super::super::Foundation::PWSTR,
-    pub pszTenantId: super::super::Foundation::PWSTR,
-    pub pszJoinUserEmail: super::super::Foundation::PWSTR,
-    pub pszTenantDisplayName: super::super::Foundation::PWSTR,
-    pub pszMdmEnrollmentUrl: super::super::Foundation::PWSTR,
-    pub pszMdmTermsOfUseUrl: super::super::Foundation::PWSTR,
-    pub pszMdmComplianceUrl: super::super::Foundation::PWSTR,
-    pub pszUserSettingSyncUrl: super::super::Foundation::PWSTR,
+    pub pszDeviceId: ::windows_sys::core::PWSTR,
+    pub pszIdpDomain: ::windows_sys::core::PWSTR,
+    pub pszTenantId: ::windows_sys::core::PWSTR,
+    pub pszJoinUserEmail: ::windows_sys::core::PWSTR,
+    pub pszTenantDisplayName: ::windows_sys::core::PWSTR,
+    pub pszMdmEnrollmentUrl: ::windows_sys::core::PWSTR,
+    pub pszMdmTermsOfUseUrl: ::windows_sys::core::PWSTR,
+    pub pszMdmComplianceUrl: ::windows_sys::core::PWSTR,
+    pub pszUserSettingSyncUrl: ::windows_sys::core::PWSTR,
     pub pUserInfo: *mut DSREG_USER_INFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1372,16 +1220,13 @@ pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const DSREG_WORKPLACE_JOIN: DSREG_JOIN_TYPE = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct DSREG_USER_INFO {
-    pub pszUserEmail: super::super::Foundation::PWSTR,
-    pub pszUserKeyId: super::super::Foundation::PWSTR,
-    pub pszUserKeyName: super::super::Foundation::PWSTR,
+    pub pszUserEmail: ::windows_sys::core::PWSTR,
+    pub pszUserKeyId: ::windows_sys::core::PWSTR,
+    pub pszUserKeyName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DSREG_USER_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DSREG_USER_INFO {
     fn clone(&self) -> Self {
         *self
@@ -1412,22 +1257,19 @@ impl ::core::clone::Clone for ERRLOG_OTHER_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct ERROR_LOG {
     pub el_len: u32,
     pub el_reserved: u32,
     pub el_time: u32,
     pub el_error: u32,
-    pub el_name: super::super::Foundation::PWSTR,
-    pub el_text: super::super::Foundation::PWSTR,
+    pub el_name: ::windows_sys::core::PWSTR,
+    pub el_text: ::windows_sys::core::PWSTR,
     pub el_data: *mut u8,
     pub el_data_size: u32,
     pub el_nstrings: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ERROR_LOG {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ERROR_LOG {
     fn clone(&self) -> Self {
         *self
@@ -2454,43 +2296,34 @@ pub const GROUP_ATTRIBUTES_PARMNUM: u32 = 3u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const GROUP_COMMENT_PARMNUM: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct GROUP_INFO_0 {
-    pub grpi0_name: super::super::Foundation::PWSTR,
+    pub grpi0_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GROUP_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GROUP_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct GROUP_INFO_1 {
-    pub grpi1_name: super::super::Foundation::PWSTR,
-    pub grpi1_comment: super::super::Foundation::PWSTR,
+    pub grpi1_name: ::windows_sys::core::PWSTR,
+    pub grpi1_comment: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GROUP_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GROUP_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct GROUP_INFO_1002 {
-    pub grpi1002_comment: super::super::Foundation::PWSTR,
+    pub grpi1002_comment: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GROUP_INFO_1002 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GROUP_INFO_1002 {
     fn clone(&self) -> Self {
         *self
@@ -2508,17 +2341,14 @@ impl ::core::clone::Clone for GROUP_INFO_1005 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct GROUP_INFO_2 {
-    pub grpi2_name: super::super::Foundation::PWSTR,
-    pub grpi2_comment: super::super::Foundation::PWSTR,
+    pub grpi2_name: ::windows_sys::core::PWSTR,
+    pub grpi2_comment: ::windows_sys::core::PWSTR,
     pub grpi2_group_id: u32,
     pub grpi2_attributes: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GROUP_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GROUP_INFO_2 {
     fn clone(&self) -> Self {
         *self
@@ -2528,8 +2358,8 @@ impl ::core::clone::Clone for GROUP_INFO_2 {
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_INFO_3 {
-    pub grpi3_name: super::super::Foundation::PWSTR,
-    pub grpi3_comment: super::super::Foundation::PWSTR,
+    pub grpi3_name: ::windows_sys::core::PWSTR,
+    pub grpi3_comment: ::windows_sys::core::PWSTR,
     pub grpi3_group_sid: super::super::Foundation::PSID,
     pub grpi3_attributes: u32,
 }
@@ -2552,29 +2382,23 @@ pub const GROUP_SPECIALGRP_LOCAL: &'static str = "LOCAL";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const GROUP_SPECIALGRP_USERS: &'static str = "USERS";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct GROUP_USERS_INFO_0 {
-    pub grui0_name: super::super::Foundation::PWSTR,
+    pub grui0_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GROUP_USERS_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GROUP_USERS_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct GROUP_USERS_INFO_1 {
-    pub grui1_name: super::super::Foundation::PWSTR,
+    pub grui1_name: ::windows_sys::core::PWSTR,
     pub grui1_attributes: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GROUP_USERS_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GROUP_USERS_INFO_1 {
     fn clone(&self) -> Self {
         *self
@@ -2699,43 +2523,34 @@ pub const LM_REDIR_FAILURE: i32 = 1073756225i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const LOCALGROUP_COMMENT_PARMNUM: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct LOCALGROUP_INFO_0 {
-    pub lgrpi0_name: super::super::Foundation::PWSTR,
+    pub lgrpi0_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOCALGROUP_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LOCALGROUP_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct LOCALGROUP_INFO_1 {
-    pub lgrpi1_name: super::super::Foundation::PWSTR,
-    pub lgrpi1_comment: super::super::Foundation::PWSTR,
+    pub lgrpi1_name: ::windows_sys::core::PWSTR,
+    pub lgrpi1_comment: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOCALGROUP_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LOCALGROUP_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct LOCALGROUP_INFO_1002 {
-    pub lgrpi1002_comment: super::super::Foundation::PWSTR,
+    pub lgrpi1002_comment: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOCALGROUP_INFO_1002 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LOCALGROUP_INFO_1002 {
     fn clone(&self) -> Self {
         *self
@@ -2761,7 +2576,7 @@ impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_0 {
 pub struct LOCALGROUP_MEMBERS_INFO_1 {
     pub lgrmi1_sid: super::super::Foundation::PSID,
     pub lgrmi1_sidusage: super::super::Security::SID_NAME_USE,
-    pub lgrmi1_name: super::super::Foundation::PWSTR,
+    pub lgrmi1_name: ::windows_sys::core::PWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for LOCALGROUP_MEMBERS_INFO_1 {}
@@ -2777,7 +2592,7 @@ impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_1 {
 pub struct LOCALGROUP_MEMBERS_INFO_2 {
     pub lgrmi2_sid: super::super::Foundation::PSID,
     pub lgrmi2_sidusage: super::super::Security::SID_NAME_USE,
-    pub lgrmi2_domainandname: super::super::Foundation::PWSTR,
+    pub lgrmi2_domainandname: ::windows_sys::core::PWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for LOCALGROUP_MEMBERS_INFO_2 {}
@@ -2788,14 +2603,11 @@ impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct LOCALGROUP_MEMBERS_INFO_3 {
-    pub lgrmi3_domainandname: super::super::Foundation::PWSTR,
+    pub lgrmi3_domainandname: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOCALGROUP_MEMBERS_INFO_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_3 {
     fn clone(&self) -> Self {
         *self
@@ -2804,14 +2616,11 @@ impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_3 {
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const LOCALGROUP_NAME_PARMNUM: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct LOCALGROUP_USERS_INFO_0 {
-    pub lgrui0_name: super::super::Foundation::PWSTR,
+    pub lgrui0_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOCALGROUP_USERS_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LOCALGROUP_USERS_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -2976,30 +2785,24 @@ pub const MSGNAME_FORWARDED_TO: u32 = 4u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const MSGNAME_NOT_FORWARDED: u32 = 0u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct MSG_INFO_0 {
-    pub msgi0_name: super::super::Foundation::PWSTR,
+    pub msgi0_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MSG_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MSG_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct MSG_INFO_1 {
-    pub msgi1_name: super::super::Foundation::PWSTR,
+    pub msgi1_name: ::windows_sys::core::PWSTR,
     pub msgi1_forward_flag: u32,
-    pub msgi1_forward: super::super::Foundation::PWSTR,
+    pub msgi1_forward: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MSG_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MSG_INFO_1 {
     fn clone(&self) -> Self {
         *self
@@ -4270,17 +4073,14 @@ impl ::core::clone::Clone for NETLOGON_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct NETLOGON_INFO_2 {
     pub netlog2_flags: u32,
     pub netlog2_pdc_connection_status: u32,
-    pub netlog2_trusted_dc_name: super::super::Foundation::PWSTR,
+    pub netlog2_trusted_dc_name: ::windows_sys::core::PWSTR,
     pub netlog2_tc_connection_status: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NETLOGON_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NETLOGON_INFO_2 {
     fn clone(&self) -> Self {
         *self
@@ -4304,15 +4104,12 @@ impl ::core::clone::Clone for NETLOGON_INFO_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct NETLOGON_INFO_4 {
-    pub netlog4_trusted_dc_name: super::super::Foundation::PWSTR,
-    pub netlog4_trusted_domain_name: super::super::Foundation::PWSTR,
+    pub netlog4_trusted_dc_name: ::windows_sys::core::PWSTR,
+    pub netlog4_trusted_domain_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NETLOGON_INFO_4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NETLOGON_INFO_4 {
     fn clone(&self) -> Self {
         *self
@@ -4389,28 +4186,25 @@ pub const NETSETUP_PROVISION_SKIP_ACCOUNT_SEARCH: NETSETUP_PROVISION = 8u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NETSETUP_PROVISION_ROOT_CA_CERTS: NETSETUP_PROVISION = 16u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct NETSETUP_PROVISIONING_PARAMS {
     pub dwVersion: u32,
-    pub lpDomain: super::super::Foundation::PWSTR,
-    pub lpHostName: super::super::Foundation::PWSTR,
-    pub lpMachineAccountOU: super::super::Foundation::PWSTR,
-    pub lpDcName: super::super::Foundation::PWSTR,
+    pub lpDomain: ::windows_sys::core::PCWSTR,
+    pub lpHostName: ::windows_sys::core::PCWSTR,
+    pub lpMachineAccountOU: ::windows_sys::core::PCWSTR,
+    pub lpDcName: ::windows_sys::core::PCWSTR,
     pub dwProvisionOptions: NETSETUP_PROVISION,
-    pub aCertTemplateNames: *mut super::super::Foundation::PWSTR,
+    pub aCertTemplateNames: *mut ::windows_sys::core::PWSTR,
     pub cCertTemplateNames: u32,
-    pub aMachinePolicyNames: *mut super::super::Foundation::PWSTR,
+    pub aMachinePolicyNames: *mut ::windows_sys::core::PWSTR,
     pub cMachinePolicyNames: u32,
-    pub aMachinePolicyPaths: *mut super::super::Foundation::PWSTR,
+    pub aMachinePolicyPaths: *mut ::windows_sys::core::PWSTR,
     pub cMachinePolicyPaths: u32,
-    pub lpNetbiosName: super::super::Foundation::PWSTR,
-    pub lpSiteName: super::super::Foundation::PWSTR,
-    pub lpPrimaryDNSDomain: super::super::Foundation::PWSTR,
+    pub lpNetbiosName: ::windows_sys::core::PWSTR,
+    pub lpSiteName: ::windows_sys::core::PWSTR,
+    pub lpPrimaryDNSDomain: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NETSETUP_PROVISIONING_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NETSETUP_PROVISIONING_PARAMS {
     fn clone(&self) -> Self {
         *self
@@ -4473,55 +4267,46 @@ pub const NET_DFS_ENUM: i32 = 1073756324i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const NET_DFS_ENUMEX: i32 = 1073756325i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct NET_DISPLAY_GROUP {
-    pub grpi3_name: super::super::Foundation::PWSTR,
-    pub grpi3_comment: super::super::Foundation::PWSTR,
+    pub grpi3_name: ::windows_sys::core::PWSTR,
+    pub grpi3_comment: ::windows_sys::core::PWSTR,
     pub grpi3_group_id: u32,
     pub grpi3_attributes: u32,
     pub grpi3_next_index: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NET_DISPLAY_GROUP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NET_DISPLAY_GROUP {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct NET_DISPLAY_MACHINE {
-    pub usri2_name: super::super::Foundation::PWSTR,
-    pub usri2_comment: super::super::Foundation::PWSTR,
+    pub usri2_name: ::windows_sys::core::PWSTR,
+    pub usri2_comment: ::windows_sys::core::PWSTR,
     pub usri2_flags: USER_ACCOUNT_FLAGS,
     pub usri2_user_id: u32,
     pub usri2_next_index: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NET_DISPLAY_MACHINE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NET_DISPLAY_MACHINE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct NET_DISPLAY_USER {
-    pub usri1_name: super::super::Foundation::PWSTR,
-    pub usri1_comment: super::super::Foundation::PWSTR,
+    pub usri1_name: ::windows_sys::core::PWSTR,
+    pub usri1_comment: ::windows_sys::core::PWSTR,
     pub usri1_flags: USER_ACCOUNT_FLAGS,
-    pub usri1_full_name: super::super::Foundation::PWSTR,
+    pub usri1_full_name: ::windows_sys::core::PWSTR,
     pub usri1_user_id: u32,
     pub usri1_next_index: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NET_DISPLAY_USER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NET_DISPLAY_USER {
     fn clone(&self) -> Self {
         *self
@@ -4702,8 +4487,8 @@ impl ::core::clone::Clone for NET_VALIDATE_OUTPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-    pub ClearPassword: super::super::Foundation::PWSTR,
-    pub UserAccountName: super::super::Foundation::PWSTR,
+    pub ClearPassword: ::windows_sys::core::PWSTR,
+    pub UserAccountName: ::windows_sys::core::PWSTR,
     pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
     pub PasswordMatch: super::super::Foundation::BOOLEAN,
 }
@@ -4738,8 +4523,8 @@ pub const NET_VALIDATE_PASSWORD_LAST_SET: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-    pub ClearPassword: super::super::Foundation::PWSTR,
-    pub UserAccountName: super::super::Foundation::PWSTR,
+    pub ClearPassword: ::windows_sys::core::PWSTR,
+    pub UserAccountName: ::windows_sys::core::PWSTR,
     pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
     pub PasswordMustChangeAtNextLogon: super::super::Foundation::BOOLEAN,
     pub ClearLockout: super::super::Foundation::BOOLEAN,
@@ -4889,9 +4674,9 @@ pub const NetProvisioning: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 pub struct OBO_TOKEN {
     pub Type: OBO_TOKEN_TYPE,
     pub pncc: INetCfgComponent,
-    pub pszwManufacturer: super::super::Foundation::PWSTR,
-    pub pszwProduct: super::super::Foundation::PWSTR,
-    pub pszwDisplayName: super::super::Foundation::PWSTR,
+    pub pszwManufacturer: ::windows_sys::core::PCWSTR,
+    pub pszwProduct: ::windows_sys::core::PCWSTR,
+    pub pszwDisplayName: ::windows_sys::core::PCWSTR,
     pub fRegistered: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5061,30 +4846,24 @@ impl ::core::clone::Clone for RASCON_IPUI {
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const REGISTER_PROTOCOL_ENTRY_POINT_STRING: &'static str = "RegisterProtocol";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct REPL_EDIR_INFO_0 {
-    pub rped0_dirname: super::super::Foundation::PWSTR,
+    pub rped0_dirname: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REPL_EDIR_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REPL_EDIR_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct REPL_EDIR_INFO_1 {
-    pub rped1_dirname: super::super::Foundation::PWSTR,
+    pub rped1_dirname: ::windows_sys::core::PWSTR,
     pub rped1_integrity: u32,
     pub rped1_extent: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REPL_EDIR_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REPL_EDIR_INFO_1 {
     fn clone(&self) -> Self {
         *self
@@ -5113,18 +4892,15 @@ impl ::core::clone::Clone for REPL_EDIR_INFO_1001 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct REPL_EDIR_INFO_2 {
-    pub rped2_dirname: super::super::Foundation::PWSTR,
+    pub rped2_dirname: ::windows_sys::core::PWSTR,
     pub rped2_integrity: u32,
     pub rped2_extent: u32,
     pub rped2_lockcount: u32,
     pub rped2_locktime: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REPL_EDIR_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REPL_EDIR_INFO_2 {
     fn clone(&self) -> Self {
         *self
@@ -5141,56 +4917,47 @@ pub const REPL_EXTENT_TREE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const REPL_GUARDTIME_INFOLEVEL: u32 = 1002u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct REPL_IDIR_INFO_0 {
-    pub rpid0_dirname: super::super::Foundation::PWSTR,
+    pub rpid0_dirname: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REPL_IDIR_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REPL_IDIR_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct REPL_IDIR_INFO_1 {
-    pub rpid1_dirname: super::super::Foundation::PWSTR,
+    pub rpid1_dirname: ::windows_sys::core::PWSTR,
     pub rpid1_state: u32,
-    pub rpid1_mastername: super::super::Foundation::PWSTR,
+    pub rpid1_mastername: ::windows_sys::core::PWSTR,
     pub rpid1_last_update_time: u32,
     pub rpid1_lockcount: u32,
     pub rpid1_locktime: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REPL_IDIR_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REPL_IDIR_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct REPL_INFO_0 {
     pub rp0_role: u32,
-    pub rp0_exportpath: super::super::Foundation::PWSTR,
-    pub rp0_exportlist: super::super::Foundation::PWSTR,
-    pub rp0_importpath: super::super::Foundation::PWSTR,
-    pub rp0_importlist: super::super::Foundation::PWSTR,
-    pub rp0_logonusername: super::super::Foundation::PWSTR,
+    pub rp0_exportpath: ::windows_sys::core::PWSTR,
+    pub rp0_exportlist: ::windows_sys::core::PWSTR,
+    pub rp0_importpath: ::windows_sys::core::PWSTR,
+    pub rp0_importlist: ::windows_sys::core::PWSTR,
+    pub rp0_logonusername: ::windows_sys::core::PWSTR,
     pub rp0_interval: u32,
     pub rp0_pulse: u32,
     pub rp0_guardtime: u32,
     pub rp0_random: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REPL_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REPL_INFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -5331,48 +5098,39 @@ pub const SERVCE_LM20_W32TIME: &'static str = "w32time";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVER_DISPLAY_NAME: &'static str = "Server";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVER_INFO_100 {
     pub sv100_platform_id: u32,
-    pub sv100_name: super::super::Foundation::PWSTR,
+    pub sv100_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVER_INFO_100 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVER_INFO_100 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVER_INFO_1005 {
-    pub sv1005_comment: super::super::Foundation::PWSTR,
+    pub sv1005_comment: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVER_INFO_1005 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVER_INFO_1005 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVER_INFO_101 {
     pub sv101_platform_id: u32,
-    pub sv101_name: super::super::Foundation::PWSTR,
+    pub sv101_name: ::windows_sys::core::PWSTR,
     pub sv101_version_major: u32,
     pub sv101_version_minor: u32,
     pub sv101_type: NET_SERVER_TYPE,
-    pub sv101_comment: super::super::Foundation::PWSTR,
+    pub sv101_comment: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVER_INFO_101 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVER_INFO_101 {
     fn clone(&self) -> Self {
         *self
@@ -5423,26 +5181,23 @@ impl ::core::clone::Clone for SERVER_INFO_1018 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVER_INFO_102 {
     pub sv102_platform_id: u32,
-    pub sv102_name: super::super::Foundation::PWSTR,
+    pub sv102_name: ::windows_sys::core::PWSTR,
     pub sv102_version_major: u32,
     pub sv102_version_minor: u32,
     pub sv102_type: NET_SERVER_TYPE,
-    pub sv102_comment: super::super::Foundation::PWSTR,
+    pub sv102_comment: ::windows_sys::core::PWSTR,
     pub sv102_users: u32,
     pub sv102_disc: i32,
     pub sv102_hidden: SERVER_INFO_HIDDEN,
     pub sv102_announce: u32,
     pub sv102_anndelta: u32,
     pub sv102_licenses: u32,
-    pub sv102_userpath: super::super::Foundation::PWSTR,
+    pub sv102_userpath: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVER_INFO_102 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVER_INFO_102 {
     fn clone(&self) -> Self {
         *self
@@ -5453,18 +5208,18 @@ impl ::core::clone::Clone for SERVER_INFO_102 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_INFO_103 {
     pub sv103_platform_id: u32,
-    pub sv103_name: super::super::Foundation::PWSTR,
+    pub sv103_name: ::windows_sys::core::PWSTR,
     pub sv103_version_major: u32,
     pub sv103_version_minor: u32,
     pub sv103_type: u32,
-    pub sv103_comment: super::super::Foundation::PWSTR,
+    pub sv103_comment: ::windows_sys::core::PWSTR,
     pub sv103_users: u32,
     pub sv103_disc: i32,
     pub sv103_hidden: super::super::Foundation::BOOL,
     pub sv103_announce: u32,
     pub sv103_anndelta: u32,
     pub sv103_licenses: u32,
-    pub sv103_userpath: super::super::Foundation::PWSTR,
+    pub sv103_userpath: ::windows_sys::core::PWSTR,
     pub sv103_capabilities: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6503,17 +6258,16 @@ impl ::core::clone::Clone for SERVER_INFO_1602 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVER_INFO_402 {
     pub sv402_ulist_mtime: u32,
     pub sv402_glist_mtime: u32,
     pub sv402_alist_mtime: u32,
-    pub sv402_alerts: super::super::Foundation::PWSTR,
+    pub sv402_alerts: ::windows_sys::core::PWSTR,
     pub sv402_security: SERVER_INFO_SECURITY,
     pub sv402_numadmin: u32,
     pub sv402_lanmask: u32,
-    pub sv402_guestacct: super::super::Foundation::PWSTR,
+    pub sv402_guestacct: ::windows_sys::core::PWSTR,
     pub sv402_chdevs: u32,
     pub sv402_chdevq: u32,
     pub sv402_chdevjobs: u32,
@@ -6536,28 +6290,25 @@ pub struct SERVER_INFO_402 {
     pub sv402_diskalert: u32,
     pub sv402_netioalert: u32,
     pub sv402_maxauditsz: u32,
-    pub sv402_srvheuristics: super::super::Foundation::PWSTR,
+    pub sv402_srvheuristics: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVER_INFO_402 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVER_INFO_402 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVER_INFO_403 {
     pub sv403_ulist_mtime: u32,
     pub sv403_glist_mtime: u32,
     pub sv403_alist_mtime: u32,
-    pub sv403_alerts: super::super::Foundation::PWSTR,
+    pub sv403_alerts: ::windows_sys::core::PWSTR,
     pub sv403_security: SERVER_INFO_SECURITY,
     pub sv403_numadmin: u32,
     pub sv403_lanmask: u32,
-    pub sv403_guestacct: super::super::Foundation::PWSTR,
+    pub sv403_guestacct: ::windows_sys::core::PWSTR,
     pub sv403_chdevs: u32,
     pub sv403_chdevq: u32,
     pub sv403_chdevjobs: u32,
@@ -6580,14 +6331,12 @@ pub struct SERVER_INFO_403 {
     pub sv403_diskalert: u32,
     pub sv403_netioalert: u32,
     pub sv403_maxauditsz: u32,
-    pub sv403_srvheuristics: super::super::Foundation::PWSTR,
+    pub sv403_srvheuristics: ::windows_sys::core::PWSTR,
     pub sv403_auditedevents: u32,
     pub sv403_autoprofile: u32,
-    pub sv403_autopath: super::super::Foundation::PWSTR,
+    pub sv403_autopath: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVER_INFO_403 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVER_INFO_403 {
     fn clone(&self) -> Self {
         *self
@@ -6646,7 +6395,7 @@ pub struct SERVER_INFO_503 {
     pub sv503_timesource: super::super::Foundation::BOOL,
     pub sv503_acceptdownlevelapis: super::super::Foundation::BOOL,
     pub sv503_lmannounce: super::super::Foundation::BOOL,
-    pub sv503_domain: super::super::Foundation::PWSTR,
+    pub sv503_domain: ::windows_sys::core::PWSTR,
     pub sv503_maxcopyreadlen: u32,
     pub sv503_maxcopywritelen: u32,
     pub sv503_minkeepsearch: u32,
@@ -6757,7 +6506,7 @@ pub struct SERVER_INFO_599 {
     pub sv599_timesource: super::super::Foundation::BOOL,
     pub sv599_acceptdownlevelapis: super::super::Foundation::BOOL,
     pub sv599_lmannounce: super::super::Foundation::BOOL,
-    pub sv599_domain: super::super::Foundation::PWSTR,
+    pub sv599_domain: ::windows_sys::core::PWSTR,
     pub sv599_maxcopyreadlen: u32,
     pub sv599_maxcopywritelen: u32,
     pub sv599_minkeepsearch: u32,
@@ -6817,79 +6566,67 @@ pub const SV_SHARESECURITY: SERVER_INFO_SECURITY = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SV_USERSECURITY: SERVER_INFO_SECURITY = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_numberofvcs: u32,
-    pub svti0_transportname: super::super::Foundation::PWSTR,
+    pub svti0_transportname: ::windows_sys::core::PWSTR,
     pub svti0_transportaddress: *mut u8,
     pub svti0_transportaddresslength: u32,
-    pub svti0_networkaddress: super::super::Foundation::PWSTR,
+    pub svti0_networkaddress: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVER_TRANSPORT_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVER_TRANSPORT_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_numberofvcs: u32,
-    pub svti1_transportname: super::super::Foundation::PWSTR,
+    pub svti1_transportname: ::windows_sys::core::PWSTR,
     pub svti1_transportaddress: *mut u8,
     pub svti1_transportaddresslength: u32,
-    pub svti1_networkaddress: super::super::Foundation::PWSTR,
-    pub svti1_domain: super::super::Foundation::PWSTR,
+    pub svti1_networkaddress: ::windows_sys::core::PWSTR,
+    pub svti1_domain: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVER_TRANSPORT_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVER_TRANSPORT_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_numberofvcs: u32,
-    pub svti2_transportname: super::super::Foundation::PWSTR,
+    pub svti2_transportname: ::windows_sys::core::PWSTR,
     pub svti2_transportaddress: *mut u8,
     pub svti2_transportaddresslength: u32,
-    pub svti2_networkaddress: super::super::Foundation::PWSTR,
-    pub svti2_domain: super::super::Foundation::PWSTR,
+    pub svti2_networkaddress: ::windows_sys::core::PWSTR,
+    pub svti2_domain: ::windows_sys::core::PWSTR,
     pub svti2_flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVER_TRANSPORT_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVER_TRANSPORT_INFO_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVER_TRANSPORT_INFO_3 {
     pub svti3_numberofvcs: u32,
-    pub svti3_transportname: super::super::Foundation::PWSTR,
+    pub svti3_transportname: ::windows_sys::core::PWSTR,
     pub svti3_transportaddress: *mut u8,
     pub svti3_transportaddresslength: u32,
-    pub svti3_networkaddress: super::super::Foundation::PWSTR,
-    pub svti3_domain: super::super::Foundation::PWSTR,
+    pub svti3_networkaddress: ::windows_sys::core::PWSTR,
+    pub svti3_domain: ::windows_sys::core::PWSTR,
     pub svti3_flags: u32,
     pub svti3_passwordlength: u32,
     pub svti3_password: [u8; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVER_TRANSPORT_INFO_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVER_TRANSPORT_INFO_3 {
     fn clone(&self) -> Self {
         *self
@@ -6950,51 +6687,42 @@ pub const SERVICE_DOS_ENCRYPTION: &'static str = "ENCRYPT";
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const SERVICE_DSROLE: &'static str = "DsRoleSvc";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVICE_INFO_0 {
-    pub svci0_name: super::super::Foundation::PWSTR,
+    pub svci0_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVICE_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVICE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVICE_INFO_1 {
-    pub svci1_name: super::super::Foundation::PWSTR,
+    pub svci1_name: ::windows_sys::core::PWSTR,
     pub svci1_status: u32,
     pub svci1_code: u32,
     pub svci1_pid: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVICE_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVICE_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct SERVICE_INFO_2 {
-    pub svci2_name: super::super::Foundation::PWSTR,
+    pub svci2_name: ::windows_sys::core::PWSTR,
     pub svci2_status: u32,
     pub svci2_code: u32,
     pub svci2_pid: u32,
-    pub svci2_text: super::super::Foundation::PWSTR,
+    pub svci2_text: ::windows_sys::core::PWSTR,
     pub svci2_specific_error: u32,
-    pub svci2_display_name: super::super::Foundation::PWSTR,
+    pub svci2_display_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVICE_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERVICE_INFO_2 {
     fn clone(&self) -> Self {
         *self
@@ -7820,66 +7548,54 @@ pub const USER_HOME_DIR_DRIVE_PARMNUM: u32 = 53u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const USER_HOME_DIR_PARMNUM: u32 = 6u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_0 {
-    pub usri0_name: super::super::Foundation::PWSTR,
+    pub usri0_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1 {
-    pub usri1_name: super::super::Foundation::PWSTR,
-    pub usri1_password: super::super::Foundation::PWSTR,
+    pub usri1_name: ::windows_sys::core::PWSTR,
+    pub usri1_password: ::windows_sys::core::PWSTR,
     pub usri1_password_age: u32,
     pub usri1_priv: USER_PRIV,
-    pub usri1_home_dir: super::super::Foundation::PWSTR,
-    pub usri1_comment: super::super::Foundation::PWSTR,
+    pub usri1_home_dir: ::windows_sys::core::PWSTR,
+    pub usri1_comment: ::windows_sys::core::PWSTR,
     pub usri1_flags: USER_ACCOUNT_FLAGS,
-    pub usri1_script_path: super::super::Foundation::PWSTR,
+    pub usri1_script_path: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_10 {
-    pub usri10_name: super::super::Foundation::PWSTR,
-    pub usri10_comment: super::super::Foundation::PWSTR,
-    pub usri10_usr_comment: super::super::Foundation::PWSTR,
-    pub usri10_full_name: super::super::Foundation::PWSTR,
+    pub usri10_name: ::windows_sys::core::PWSTR,
+    pub usri10_comment: ::windows_sys::core::PWSTR,
+    pub usri10_usr_comment: ::windows_sys::core::PWSTR,
+    pub usri10_full_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_10 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_10 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1003 {
-    pub usri1003_password: super::super::Foundation::PWSTR,
+    pub usri1003_password: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1003 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1003 {
     fn clone(&self) -> Self {
         *self
@@ -7897,28 +7613,22 @@ impl ::core::clone::Clone for USER_INFO_1005 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1006 {
-    pub usri1006_home_dir: super::super::Foundation::PWSTR,
+    pub usri1006_home_dir: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1006 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1006 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1007 {
-    pub usri1007_comment: super::super::Foundation::PWSTR,
+    pub usri1007_comment: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1007 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1007 {
     fn clone(&self) -> Self {
         *self
@@ -7936,14 +7646,11 @@ impl ::core::clone::Clone for USER_INFO_1008 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1009 {
-    pub usri1009_script_path: super::super::Foundation::PWSTR,
+    pub usri1009_script_path: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1009 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1009 {
     fn clone(&self) -> Self {
         *self
@@ -7961,56 +7668,44 @@ impl ::core::clone::Clone for USER_INFO_1010 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1011 {
-    pub usri1011_full_name: super::super::Foundation::PWSTR,
+    pub usri1011_full_name: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1011 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1011 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1012 {
-    pub usri1012_usr_comment: super::super::Foundation::PWSTR,
+    pub usri1012_usr_comment: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1012 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1012 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1013 {
-    pub usri1013_parms: super::super::Foundation::PWSTR,
+    pub usri1013_parms: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1013 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1013 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1014 {
-    pub usri1014_workstations: super::super::Foundation::PWSTR,
+    pub usri1014_workstations: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1014 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1014 {
     fn clone(&self) -> Self {
         *self
@@ -8051,14 +7746,11 @@ impl ::core::clone::Clone for USER_INFO_1020 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1023 {
-    pub usri1023_logon_server: super::super::Foundation::PWSTR,
+    pub usri1023_logon_server: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1023 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1023 {
     fn clone(&self) -> Self {
         *self
@@ -8098,83 +7790,73 @@ impl ::core::clone::Clone for USER_INFO_1051 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1052 {
-    pub usri1052_profile: super::super::Foundation::PWSTR,
+    pub usri1052_profile: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1052 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1052 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_1053 {
-    pub usri1053_home_dir_drive: super::super::Foundation::PWSTR,
+    pub usri1053_home_dir_drive: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_1053 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_1053 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_11 {
-    pub usri11_name: super::super::Foundation::PWSTR,
-    pub usri11_comment: super::super::Foundation::PWSTR,
-    pub usri11_usr_comment: super::super::Foundation::PWSTR,
-    pub usri11_full_name: super::super::Foundation::PWSTR,
+    pub usri11_name: ::windows_sys::core::PWSTR,
+    pub usri11_comment: ::windows_sys::core::PWSTR,
+    pub usri11_usr_comment: ::windows_sys::core::PWSTR,
+    pub usri11_full_name: ::windows_sys::core::PWSTR,
     pub usri11_priv: USER_PRIV,
     pub usri11_auth_flags: AF_OP,
     pub usri11_password_age: u32,
-    pub usri11_home_dir: super::super::Foundation::PWSTR,
-    pub usri11_parms: super::super::Foundation::PWSTR,
+    pub usri11_home_dir: ::windows_sys::core::PWSTR,
+    pub usri11_parms: ::windows_sys::core::PWSTR,
     pub usri11_last_logon: u32,
     pub usri11_last_logoff: u32,
     pub usri11_bad_pw_count: u32,
     pub usri11_num_logons: u32,
-    pub usri11_logon_server: super::super::Foundation::PWSTR,
+    pub usri11_logon_server: ::windows_sys::core::PWSTR,
     pub usri11_country_code: u32,
-    pub usri11_workstations: super::super::Foundation::PWSTR,
+    pub usri11_workstations: ::windows_sys::core::PWSTR,
     pub usri11_max_storage: u32,
     pub usri11_units_per_week: u32,
     pub usri11_logon_hours: *mut u8,
     pub usri11_code_page: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_11 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_11 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_2 {
-    pub usri2_name: super::super::Foundation::PWSTR,
-    pub usri2_password: super::super::Foundation::PWSTR,
+    pub usri2_name: ::windows_sys::core::PWSTR,
+    pub usri2_password: ::windows_sys::core::PWSTR,
     pub usri2_password_age: u32,
     pub usri2_priv: USER_PRIV,
-    pub usri2_home_dir: super::super::Foundation::PWSTR,
-    pub usri2_comment: super::super::Foundation::PWSTR,
+    pub usri2_home_dir: ::windows_sys::core::PWSTR,
+    pub usri2_comment: ::windows_sys::core::PWSTR,
     pub usri2_flags: USER_ACCOUNT_FLAGS,
-    pub usri2_script_path: super::super::Foundation::PWSTR,
+    pub usri2_script_path: ::windows_sys::core::PWSTR,
     pub usri2_auth_flags: AF_OP,
-    pub usri2_full_name: super::super::Foundation::PWSTR,
-    pub usri2_usr_comment: super::super::Foundation::PWSTR,
-    pub usri2_parms: super::super::Foundation::PWSTR,
-    pub usri2_workstations: super::super::Foundation::PWSTR,
+    pub usri2_full_name: ::windows_sys::core::PWSTR,
+    pub usri2_usr_comment: ::windows_sys::core::PWSTR,
+    pub usri2_parms: ::windows_sys::core::PWSTR,
+    pub usri2_workstations: ::windows_sys::core::PWSTR,
     pub usri2_last_logon: u32,
     pub usri2_last_logoff: u32,
     pub usri2_acct_expires: u32,
@@ -8183,31 +7865,26 @@ pub struct USER_INFO_2 {
     pub usri2_logon_hours: *mut u8,
     pub usri2_bad_pw_count: u32,
     pub usri2_num_logons: u32,
-    pub usri2_logon_server: super::super::Foundation::PWSTR,
+    pub usri2_logon_server: ::windows_sys::core::PWSTR,
     pub usri2_country_code: u32,
     pub usri2_code_page: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_20 {
-    pub usri20_name: super::super::Foundation::PWSTR,
-    pub usri20_full_name: super::super::Foundation::PWSTR,
-    pub usri20_comment: super::super::Foundation::PWSTR,
+    pub usri20_name: ::windows_sys::core::PWSTR,
+    pub usri20_full_name: ::windows_sys::core::PWSTR,
+    pub usri20_comment: ::windows_sys::core::PWSTR,
     pub usri20_flags: USER_ACCOUNT_FLAGS,
     pub usri20_user_id: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_20 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_20 {
     fn clone(&self) -> Self {
         *self
@@ -8225,22 +7902,21 @@ impl ::core::clone::Clone for USER_INFO_21 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_22 {
-    pub usri22_name: super::super::Foundation::PWSTR,
+    pub usri22_name: ::windows_sys::core::PWSTR,
     pub usri22_password: [u8; 16],
     pub usri22_password_age: u32,
     pub usri22_priv: USER_PRIV,
-    pub usri22_home_dir: super::super::Foundation::PWSTR,
-    pub usri22_comment: super::super::Foundation::PWSTR,
+    pub usri22_home_dir: ::windows_sys::core::PWSTR,
+    pub usri22_comment: ::windows_sys::core::PWSTR,
     pub usri22_flags: USER_ACCOUNT_FLAGS,
-    pub usri22_script_path: super::super::Foundation::PWSTR,
+    pub usri22_script_path: ::windows_sys::core::PWSTR,
     pub usri22_auth_flags: AF_OP,
-    pub usri22_full_name: super::super::Foundation::PWSTR,
-    pub usri22_usr_comment: super::super::Foundation::PWSTR,
-    pub usri22_parms: super::super::Foundation::PWSTR,
-    pub usri22_workstations: super::super::Foundation::PWSTR,
+    pub usri22_full_name: ::windows_sys::core::PWSTR,
+    pub usri22_usr_comment: ::windows_sys::core::PWSTR,
+    pub usri22_parms: ::windows_sys::core::PWSTR,
+    pub usri22_workstations: ::windows_sys::core::PWSTR,
     pub usri22_last_logon: u32,
     pub usri22_last_logoff: u32,
     pub usri22_acct_expires: u32,
@@ -8249,13 +7925,11 @@ pub struct USER_INFO_22 {
     pub usri22_logon_hours: *mut u8,
     pub usri22_bad_pw_count: u32,
     pub usri22_num_logons: u32,
-    pub usri22_logon_server: super::super::Foundation::PWSTR,
+    pub usri22_logon_server: ::windows_sys::core::PWSTR,
     pub usri22_country_code: u32,
     pub usri22_code_page: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_22 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_22 {
     fn clone(&self) -> Self {
         *self
@@ -8265,9 +7939,9 @@ impl ::core::clone::Clone for USER_INFO_22 {
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USER_INFO_23 {
-    pub usri23_name: super::super::Foundation::PWSTR,
-    pub usri23_full_name: super::super::Foundation::PWSTR,
-    pub usri23_comment: super::super::Foundation::PWSTR,
+    pub usri23_name: ::windows_sys::core::PWSTR,
+    pub usri23_full_name: ::windows_sys::core::PWSTR,
+    pub usri23_comment: ::windows_sys::core::PWSTR,
     pub usri23_flags: USER_ACCOUNT_FLAGS,
     pub usri23_user_sid: super::super::Foundation::PSID,
 }
@@ -8285,8 +7959,8 @@ impl ::core::clone::Clone for USER_INFO_23 {
 pub struct USER_INFO_24 {
     pub usri24_internet_identity: super::super::Foundation::BOOL,
     pub usri24_flags: u32,
-    pub usri24_internet_provider_name: super::super::Foundation::PWSTR,
-    pub usri24_internet_principal_name: super::super::Foundation::PWSTR,
+    pub usri24_internet_provider_name: ::windows_sys::core::PWSTR,
+    pub usri24_internet_principal_name: ::windows_sys::core::PWSTR,
     pub usri24_user_sid: super::super::Foundation::PSID,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8298,22 +7972,21 @@ impl ::core::clone::Clone for USER_INFO_24 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_INFO_3 {
-    pub usri3_name: super::super::Foundation::PWSTR,
-    pub usri3_password: super::super::Foundation::PWSTR,
+    pub usri3_name: ::windows_sys::core::PWSTR,
+    pub usri3_password: ::windows_sys::core::PWSTR,
     pub usri3_password_age: u32,
     pub usri3_priv: USER_PRIV,
-    pub usri3_home_dir: super::super::Foundation::PWSTR,
-    pub usri3_comment: super::super::Foundation::PWSTR,
+    pub usri3_home_dir: ::windows_sys::core::PWSTR,
+    pub usri3_comment: ::windows_sys::core::PWSTR,
     pub usri3_flags: USER_ACCOUNT_FLAGS,
-    pub usri3_script_path: super::super::Foundation::PWSTR,
+    pub usri3_script_path: ::windows_sys::core::PWSTR,
     pub usri3_auth_flags: AF_OP,
-    pub usri3_full_name: super::super::Foundation::PWSTR,
-    pub usri3_usr_comment: super::super::Foundation::PWSTR,
-    pub usri3_parms: super::super::Foundation::PWSTR,
-    pub usri3_workstations: super::super::Foundation::PWSTR,
+    pub usri3_full_name: ::windows_sys::core::PWSTR,
+    pub usri3_usr_comment: ::windows_sys::core::PWSTR,
+    pub usri3_parms: ::windows_sys::core::PWSTR,
+    pub usri3_workstations: ::windows_sys::core::PWSTR,
     pub usri3_last_logon: u32,
     pub usri3_last_logoff: u32,
     pub usri3_acct_expires: u32,
@@ -8322,18 +7995,16 @@ pub struct USER_INFO_3 {
     pub usri3_logon_hours: *mut u8,
     pub usri3_bad_pw_count: u32,
     pub usri3_num_logons: u32,
-    pub usri3_logon_server: super::super::Foundation::PWSTR,
+    pub usri3_logon_server: ::windows_sys::core::PWSTR,
     pub usri3_country_code: u32,
     pub usri3_code_page: u32,
     pub usri3_user_id: u32,
     pub usri3_primary_group_id: u32,
-    pub usri3_profile: super::super::Foundation::PWSTR,
-    pub usri3_home_dir_drive: super::super::Foundation::PWSTR,
+    pub usri3_profile: ::windows_sys::core::PWSTR,
+    pub usri3_home_dir_drive: ::windows_sys::core::PWSTR,
     pub usri3_password_expired: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_INFO_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_INFO_3 {
     fn clone(&self) -> Self {
         *self
@@ -8343,19 +8014,19 @@ impl ::core::clone::Clone for USER_INFO_3 {
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USER_INFO_4 {
-    pub usri4_name: super::super::Foundation::PWSTR,
-    pub usri4_password: super::super::Foundation::PWSTR,
+    pub usri4_name: ::windows_sys::core::PWSTR,
+    pub usri4_password: ::windows_sys::core::PWSTR,
     pub usri4_password_age: u32,
     pub usri4_priv: USER_PRIV,
-    pub usri4_home_dir: super::super::Foundation::PWSTR,
-    pub usri4_comment: super::super::Foundation::PWSTR,
+    pub usri4_home_dir: ::windows_sys::core::PWSTR,
+    pub usri4_comment: ::windows_sys::core::PWSTR,
     pub usri4_flags: USER_ACCOUNT_FLAGS,
-    pub usri4_script_path: super::super::Foundation::PWSTR,
+    pub usri4_script_path: ::windows_sys::core::PWSTR,
     pub usri4_auth_flags: AF_OP,
-    pub usri4_full_name: super::super::Foundation::PWSTR,
-    pub usri4_usr_comment: super::super::Foundation::PWSTR,
-    pub usri4_parms: super::super::Foundation::PWSTR,
-    pub usri4_workstations: super::super::Foundation::PWSTR,
+    pub usri4_full_name: ::windows_sys::core::PWSTR,
+    pub usri4_usr_comment: ::windows_sys::core::PWSTR,
+    pub usri4_parms: ::windows_sys::core::PWSTR,
+    pub usri4_workstations: ::windows_sys::core::PWSTR,
     pub usri4_last_logon: u32,
     pub usri4_last_logoff: u32,
     pub usri4_acct_expires: u32,
@@ -8364,13 +8035,13 @@ pub struct USER_INFO_4 {
     pub usri4_logon_hours: *mut u8,
     pub usri4_bad_pw_count: u32,
     pub usri4_num_logons: u32,
-    pub usri4_logon_server: super::super::Foundation::PWSTR,
+    pub usri4_logon_server: ::windows_sys::core::PWSTR,
     pub usri4_country_code: u32,
     pub usri4_code_page: u32,
     pub usri4_user_sid: super::super::Foundation::PSID,
     pub usri4_primary_group_id: u32,
-    pub usri4_profile: super::super::Foundation::PWSTR,
-    pub usri4_home_dir_drive: super::super::Foundation::PWSTR,
+    pub usri4_profile: ::windows_sys::core::PWSTR,
+    pub usri4_home_dir_drive: ::windows_sys::core::PWSTR,
     pub usri4_password_expired: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8407,15 +8078,12 @@ impl ::core::clone::Clone for USER_MODALS_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_MODALS_INFO_1 {
     pub usrmod1_role: u32,
-    pub usrmod1_primary: super::super::Foundation::PWSTR,
+    pub usrmod1_primary: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_MODALS_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_MODALS_INFO_1 {
     fn clone(&self) -> Self {
         *self
@@ -8488,14 +8156,11 @@ impl ::core::clone::Clone for USER_MODALS_INFO_1006 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USER_MODALS_INFO_1007 {
-    pub usrmod1007_primary: super::super::Foundation::PWSTR,
+    pub usrmod1007_primary: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USER_MODALS_INFO_1007 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USER_MODALS_INFO_1007 {
     fn clone(&self) -> Self {
         *self
@@ -8505,7 +8170,7 @@ impl ::core::clone::Clone for USER_MODALS_INFO_1007 {
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USER_MODALS_INFO_2 {
-    pub usrmod2_domain_name: super::super::Foundation::PWSTR,
+    pub usrmod2_domain_name: ::windows_sys::core::PWSTR,
     pub usrmod2_domain_id: super::super::Foundation::PSID,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8608,96 +8273,80 @@ pub const USE_FLAGS_PARMNUM: u32 = 7u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const USE_FLAG_GLOBAL_MAPPING: u32 = 65536u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USE_INFO_0 {
-    pub ui0_local: super::super::Foundation::PWSTR,
-    pub ui0_remote: super::super::Foundation::PWSTR,
+    pub ui0_local: ::windows_sys::core::PWSTR,
+    pub ui0_remote: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USE_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USE_INFO_1 {
-    pub ui1_local: super::super::Foundation::PWSTR,
-    pub ui1_remote: super::super::Foundation::PWSTR,
-    pub ui1_password: super::super::Foundation::PWSTR,
+    pub ui1_local: ::windows_sys::core::PWSTR,
+    pub ui1_remote: ::windows_sys::core::PWSTR,
+    pub ui1_password: ::windows_sys::core::PWSTR,
     pub ui1_status: u32,
     pub ui1_asg_type: USE_INFO_ASG_TYPE,
     pub ui1_refcount: u32,
     pub ui1_usecount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USE_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USE_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USE_INFO_2 {
-    pub ui2_local: super::super::Foundation::PWSTR,
-    pub ui2_remote: super::super::Foundation::PWSTR,
-    pub ui2_password: super::super::Foundation::PWSTR,
+    pub ui2_local: ::windows_sys::core::PWSTR,
+    pub ui2_remote: ::windows_sys::core::PWSTR,
+    pub ui2_password: ::windows_sys::core::PWSTR,
     pub ui2_status: u32,
     pub ui2_asg_type: USE_INFO_ASG_TYPE,
     pub ui2_refcount: u32,
     pub ui2_usecount: u32,
-    pub ui2_username: super::super::Foundation::PWSTR,
-    pub ui2_domainname: super::super::Foundation::PWSTR,
+    pub ui2_username: ::windows_sys::core::PWSTR,
+    pub ui2_domainname: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USE_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USE_INFO_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USE_INFO_3 {
     pub ui3_ui2: USE_INFO_2,
     pub ui3_flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USE_INFO_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USE_INFO_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USE_INFO_4 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: u32,
     pub ui4_auth_identity: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USE_INFO_4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USE_INFO_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct USE_INFO_5 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: u32,
@@ -8707,9 +8356,7 @@ pub struct USE_INFO_5 {
     pub ui5_use_options_length: u32,
     pub ui5_use_options: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for USE_INFO_5 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for USE_INFO_5 {
     fn clone(&self) -> Self {
         *self
@@ -8828,37 +8475,31 @@ pub const WKSTA_ERRLOGSZ_PARMNUM: u32 = 27u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const WKSTA_FORCECORECREATEMODE_PARMNUM: u32 = 60u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct WKSTA_INFO_100 {
     pub wki100_platform_id: u32,
-    pub wki100_computername: super::super::Foundation::PWSTR,
-    pub wki100_langroup: super::super::Foundation::PWSTR,
+    pub wki100_computername: ::windows_sys::core::PWSTR,
+    pub wki100_langroup: ::windows_sys::core::PWSTR,
     pub wki100_ver_major: u32,
     pub wki100_ver_minor: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WKSTA_INFO_100 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WKSTA_INFO_100 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct WKSTA_INFO_101 {
     pub wki101_platform_id: u32,
-    pub wki101_computername: super::super::Foundation::PWSTR,
-    pub wki101_langroup: super::super::Foundation::PWSTR,
+    pub wki101_computername: ::windows_sys::core::PWSTR,
+    pub wki101_langroup: ::windows_sys::core::PWSTR,
     pub wki101_ver_major: u32,
     pub wki101_ver_minor: u32,
-    pub wki101_lanroot: super::super::Foundation::PWSTR,
+    pub wki101_lanroot: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WKSTA_INFO_101 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WKSTA_INFO_101 {
     fn clone(&self) -> Self {
         *self
@@ -8920,20 +8561,17 @@ impl ::core::clone::Clone for WKSTA_INFO_1018 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct WKSTA_INFO_102 {
     pub wki102_platform_id: u32,
-    pub wki102_computername: super::super::Foundation::PWSTR,
-    pub wki102_langroup: super::super::Foundation::PWSTR,
+    pub wki102_computername: ::windows_sys::core::PWSTR,
+    pub wki102_langroup: ::windows_sys::core::PWSTR,
     pub wki102_ver_major: u32,
     pub wki102_ver_minor: u32,
-    pub wki102_lanroot: super::super::Foundation::PWSTR,
+    pub wki102_lanroot: ::windows_sys::core::PWSTR,
     pub wki102_logged_on_users: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WKSTA_INFO_102 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WKSTA_INFO_102 {
     fn clone(&self) -> Self {
         *self
@@ -9279,8 +8917,7 @@ impl ::core::clone::Clone for WKSTA_INFO_1062 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct WKSTA_INFO_302 {
     pub wki302_char_wait: u32,
     pub wki302_collection_time: u32,
@@ -9299,21 +8936,18 @@ pub struct WKSTA_INFO_302 {
     pub wki302_print_buf_time: u32,
     pub wki302_num_char_buf: u32,
     pub wki302_siz_char_buf: u32,
-    pub wki302_wrk_heuristics: super::super::Foundation::PWSTR,
+    pub wki302_wrk_heuristics: ::windows_sys::core::PWSTR,
     pub wki302_mailslots: u32,
     pub wki302_num_dgram_buf: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WKSTA_INFO_302 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WKSTA_INFO_302 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct WKSTA_INFO_402 {
     pub wki402_char_wait: u32,
     pub wki402_collection_time: u32,
@@ -9332,14 +8966,12 @@ pub struct WKSTA_INFO_402 {
     pub wki402_print_buf_time: u32,
     pub wki402_num_char_buf: u32,
     pub wki402_siz_char_buf: u32,
-    pub wki402_wrk_heuristics: super::super::Foundation::PWSTR,
+    pub wki402_wrk_heuristics: ::windows_sys::core::PWSTR,
     pub wki402_mailslots: u32,
     pub wki402_num_dgram_buf: u32,
     pub wki402_max_threads: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WKSTA_INFO_402 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WKSTA_INFO_402 {
     fn clone(&self) -> Self {
         *self
@@ -9457,8 +9089,8 @@ pub const WKSTA_SIZWORKBUF_PARMNUM: u32 = 29u32;
 pub struct WKSTA_TRANSPORT_INFO_0 {
     pub wkti0_quality_of_service: u32,
     pub wkti0_number_of_vcs: u32,
-    pub wkti0_transport_name: super::super::Foundation::PWSTR,
-    pub wkti0_transport_address: super::super::Foundation::PWSTR,
+    pub wkti0_transport_name: ::windows_sys::core::PWSTR,
+    pub wkti0_transport_address: ::windows_sys::core::PWSTR,
     pub wkti0_wan_ish: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9484,45 +9116,36 @@ pub const WKSTA_USERAWREAD_PARMNUM: u32 = 54u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub const WKSTA_USERAWWRITE_PARMNUM: u32 = 55u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct WKSTA_USER_INFO_0 {
-    pub wkui0_username: super::super::Foundation::PWSTR,
+    pub wkui0_username: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WKSTA_USER_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WKSTA_USER_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct WKSTA_USER_INFO_1 {
-    pub wkui1_username: super::super::Foundation::PWSTR,
-    pub wkui1_logon_domain: super::super::Foundation::PWSTR,
-    pub wkui1_oth_domains: super::super::Foundation::PWSTR,
-    pub wkui1_logon_server: super::super::Foundation::PWSTR,
+    pub wkui1_username: ::windows_sys::core::PWSTR,
+    pub wkui1_logon_domain: ::windows_sys::core::PWSTR,
+    pub wkui1_oth_domains: ::windows_sys::core::PWSTR,
+    pub wkui1_logon_server: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WKSTA_USER_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WKSTA_USER_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 pub struct WKSTA_USER_INFO_1101 {
-    pub wkui1101_oth_domains: super::super::Foundation::PWSTR,
+    pub wkui1101_oth_domains: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WKSTA_USER_INFO_1101 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WKSTA_USER_INFO_1101 {
     fn clone(&self) -> Self {
         *self

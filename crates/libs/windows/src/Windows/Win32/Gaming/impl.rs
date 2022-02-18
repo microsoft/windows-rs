@@ -48,27 +48,27 @@ impl IGameExplorer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGameExplorer2_Impl: Sized {
-    fn InstallGame(&self, binarygdfpath: super::Foundation::PWSTR, installdirectory: super::Foundation::PWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::Result<()>;
-    fn UninstallGame(&self, binarygdfpath: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn CheckAccess(&self, binarygdfpath: super::Foundation::PWSTR) -> ::windows::core::Result<super::Foundation::BOOL>;
+    fn InstallGame(&self, binarygdfpath: &::windows::core::PCWSTR, installdirectory: &::windows::core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::Result<()>;
+    fn UninstallGame(&self, binarygdfpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn CheckAccess(&self, binarygdfpath: &::windows::core::PCWSTR) -> ::windows::core::Result<super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IGameExplorer2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameExplorer2_Impl, const OFFSET: isize>() -> IGameExplorer2_Vtbl {
-        unsafe extern "system" fn InstallGame<Identity: ::windows::core::IUnknownImpl, Impl: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binarygdfpath: super::Foundation::PWSTR, installdirectory: super::Foundation::PWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallGame<Identity: ::windows::core::IUnknownImpl, Impl: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binarygdfpath: ::windows::core::PCWSTR, installdirectory: ::windows::core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).InstallGame(::core::mem::transmute_copy(&binarygdfpath), ::core::mem::transmute_copy(&installdirectory), ::core::mem::transmute_copy(&installscope)).into()
+            (*this).InstallGame(::core::mem::transmute(&binarygdfpath), ::core::mem::transmute(&installdirectory), ::core::mem::transmute_copy(&installscope)).into()
         }
-        unsafe extern "system" fn UninstallGame<Identity: ::windows::core::IUnknownImpl, Impl: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binarygdfpath: super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UninstallGame<Identity: ::windows::core::IUnknownImpl, Impl: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binarygdfpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UninstallGame(::core::mem::transmute_copy(&binarygdfpath)).into()
+            (*this).UninstallGame(::core::mem::transmute(&binarygdfpath)).into()
         }
-        unsafe extern "system" fn CheckAccess<Identity: ::windows::core::IUnknownImpl, Impl: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binarygdfpath: super::Foundation::PWSTR, phasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckAccess<Identity: ::windows::core::IUnknownImpl, Impl: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, binarygdfpath: ::windows::core::PCWSTR, phasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CheckAccess(::core::mem::transmute_copy(&binarygdfpath)) {
+            match (*this).CheckAccess(::core::mem::transmute(&binarygdfpath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *phasaccess = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -94,10 +94,10 @@ pub trait IGameStatistics_Impl: Sized {
     fn GetMaxValueLength(&self) -> ::windows::core::Result<u32>;
     fn GetMaxCategories(&self) -> ::windows::core::Result<u16>;
     fn GetMaxStatsPerCategory(&self) -> ::windows::core::Result<u16>;
-    fn SetCategoryTitle(&self, categoryindex: u16, title: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetCategoryTitle(&self, categoryindex: u16) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: *mut super::Foundation::PWSTR, pvalue: *mut super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetStatistic(&self, categoryindex: u16, statindex: u16, name: super::Foundation::PWSTR, value: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetCategoryTitle(&self, categoryindex: u16, title: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetCategoryTitle(&self, categoryindex: u16) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn SetStatistic(&self, categoryindex: u16, statindex: u16, name: &::windows::core::PCWSTR, value: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Save(&self, trackchanges: super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetLastPlayedCategory(&self, categoryindex: u32) -> ::windows::core::Result<()>;
     fn GetLastPlayedCategory(&self) -> ::windows::core::Result<u32>;
@@ -160,12 +160,12 @@ impl IGameStatistics_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCategoryTitle<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryindex: u16, title: super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCategoryTitle<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryindex: u16, title: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCategoryTitle(::core::mem::transmute_copy(&categoryindex), ::core::mem::transmute_copy(&title)).into()
+            (*this).SetCategoryTitle(::core::mem::transmute_copy(&categoryindex), ::core::mem::transmute(&title)).into()
         }
-        unsafe extern "system" fn GetCategoryTitle<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryindex: u16, ptitle: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCategoryTitle<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryindex: u16, ptitle: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetCategoryTitle(::core::mem::transmute_copy(&categoryindex)) {
@@ -176,15 +176,15 @@ impl IGameStatistics_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStatistic<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryindex: u16, statindex: u16, pname: *mut super::Foundation::PWSTR, pvalue: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStatistic<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryindex: u16, statindex: u16, pname: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetStatistic(::core::mem::transmute_copy(&categoryindex), ::core::mem::transmute_copy(&statindex), ::core::mem::transmute_copy(&pname), ::core::mem::transmute_copy(&pvalue)).into()
         }
-        unsafe extern "system" fn SetStatistic<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryindex: u16, statindex: u16, name: super::Foundation::PWSTR, value: super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStatistic<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryindex: u16, statindex: u16, name: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetStatistic(::core::mem::transmute_copy(&categoryindex), ::core::mem::transmute_copy(&statindex), ::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&value)).into()
+            (*this).SetStatistic(::core::mem::transmute_copy(&categoryindex), ::core::mem::transmute_copy(&statindex), ::core::mem::transmute(&name), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn Save<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatistics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, trackchanges: super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -227,23 +227,21 @@ impl IGameStatistics_Vtbl {
         iid == &<IGameStatistics as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IGameStatisticsMgr_Impl: Sized {
-    fn GetGameStatistics(&self, gdfbinarypath: super::Foundation::PWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows::core::Result<()>;
-    fn RemoveGameStatistics(&self, gdfbinarypath: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetGameStatistics(&self, gdfbinarypath: &::windows::core::PCWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows::core::Result<()>;
+    fn RemoveGameStatistics(&self, gdfbinarypath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IGameStatisticsMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatisticsMgr_Impl, const OFFSET: isize>() -> IGameStatisticsMgr_Vtbl {
-        unsafe extern "system" fn GetGameStatistics<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatisticsMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gdfbinarypath: super::Foundation::PWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGameStatistics<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatisticsMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gdfbinarypath: ::windows::core::PCWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetGameStatistics(::core::mem::transmute_copy(&gdfbinarypath), ::core::mem::transmute_copy(&opentype), ::core::mem::transmute_copy(&popenresult), ::core::mem::transmute_copy(&ppistats)).into()
+            (*this).GetGameStatistics(::core::mem::transmute(&gdfbinarypath), ::core::mem::transmute_copy(&opentype), ::core::mem::transmute_copy(&popenresult), ::core::mem::transmute_copy(&ppistats)).into()
         }
-        unsafe extern "system" fn RemoveGameStatistics<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatisticsMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gdfbinarypath: super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveGameStatistics<Identity: ::windows::core::IUnknownImpl, Impl: IGameStatisticsMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gdfbinarypath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveGameStatistics(::core::mem::transmute_copy(&gdfbinarypath)).into()
+            (*this).RemoveGameStatistics(::core::mem::transmute(&gdfbinarypath)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -257,32 +255,32 @@ impl IGameStatisticsMgr_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXblIdpAuthManager_Impl: Sized {
-    fn SetGamerAccount(&self, msaaccountid: super::Foundation::PWSTR, xuid: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetGamerAccount(&self, msaaccountid: *mut super::Foundation::PWSTR, xuid: *mut super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetAppViewInitialized(&self, appsid: super::Foundation::PWSTR, msaaccountid: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetEnvironment(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetSandbox(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetTokenAndSignatureWithTokenResult(&self, msaaccountid: super::Foundation::PWSTR, appsid: super::Foundation::PWSTR, msatarget: super::Foundation::PWSTR, msapolicy: super::Foundation::PWSTR, httpmethod: super::Foundation::PWSTR, uri: super::Foundation::PWSTR, headers: super::Foundation::PWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL) -> ::windows::core::Result<IXblIdpAuthTokenResult>;
+    fn SetGamerAccount(&self, msaaccountid: &::windows::core::PCWSTR, xuid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetGamerAccount(&self, msaaccountid: *mut ::windows::core::PWSTR, xuid: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn SetAppViewInitialized(&self, appsid: &::windows::core::PCWSTR, msaaccountid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetEnvironment(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetSandbox(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetTokenAndSignatureWithTokenResult(&self, msaaccountid: &::windows::core::PCWSTR, appsid: &::windows::core::PCWSTR, msatarget: &::windows::core::PCWSTR, msapolicy: &::windows::core::PCWSTR, httpmethod: &::windows::core::PCWSTR, uri: &::windows::core::PCWSTR, headers: &::windows::core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL) -> ::windows::core::Result<IXblIdpAuthTokenResult>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXblIdpAuthManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>() -> IXblIdpAuthManager_Vtbl {
-        unsafe extern "system" fn SetGamerAccount<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msaaccountid: super::Foundation::PWSTR, xuid: super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGamerAccount<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msaaccountid: ::windows::core::PCWSTR, xuid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetGamerAccount(::core::mem::transmute_copy(&msaaccountid), ::core::mem::transmute_copy(&xuid)).into()
+            (*this).SetGamerAccount(::core::mem::transmute(&msaaccountid), ::core::mem::transmute(&xuid)).into()
         }
-        unsafe extern "system" fn GetGamerAccount<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msaaccountid: *mut super::Foundation::PWSTR, xuid: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGamerAccount<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msaaccountid: *mut ::windows::core::PWSTR, xuid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetGamerAccount(::core::mem::transmute_copy(&msaaccountid), ::core::mem::transmute_copy(&xuid)).into()
         }
-        unsafe extern "system" fn SetAppViewInitialized<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appsid: super::Foundation::PWSTR, msaaccountid: super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAppViewInitialized<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appsid: ::windows::core::PCWSTR, msaaccountid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAppViewInitialized(::core::mem::transmute_copy(&appsid), ::core::mem::transmute_copy(&msaaccountid)).into()
+            (*this).SetAppViewInitialized(::core::mem::transmute(&appsid), ::core::mem::transmute(&msaaccountid)).into()
         }
-        unsafe extern "system" fn GetEnvironment<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, environment: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnvironment<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, environment: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetEnvironment() {
@@ -293,7 +291,7 @@ impl IXblIdpAuthManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSandbox<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sandbox: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSandbox<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sandbox: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetSandbox() {
@@ -304,10 +302,10 @@ impl IXblIdpAuthManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTokenAndSignatureWithTokenResult<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msaaccountid: super::Foundation::PWSTR, appsid: super::Foundation::PWSTR, msatarget: super::Foundation::PWSTR, msapolicy: super::Foundation::PWSTR, httpmethod: super::Foundation::PWSTR, uri: super::Foundation::PWSTR, headers: super::Foundation::PWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTokenAndSignatureWithTokenResult<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msaaccountid: ::windows::core::PCWSTR, appsid: ::windows::core::PCWSTR, msatarget: ::windows::core::PCWSTR, msapolicy: ::windows::core::PCWSTR, httpmethod: ::windows::core::PCWSTR, uri: ::windows::core::PCWSTR, headers: ::windows::core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetTokenAndSignatureWithTokenResult(::core::mem::transmute_copy(&msaaccountid), ::core::mem::transmute_copy(&appsid), ::core::mem::transmute_copy(&msatarget), ::core::mem::transmute_copy(&msapolicy), ::core::mem::transmute_copy(&httpmethod), ::core::mem::transmute_copy(&uri), ::core::mem::transmute_copy(&headers), ::core::mem::transmute_copy(&body), ::core::mem::transmute_copy(&bodysize), ::core::mem::transmute_copy(&forcerefresh)) {
+            match (*this).GetTokenAndSignatureWithTokenResult(::core::mem::transmute(&msaaccountid), ::core::mem::transmute(&appsid), ::core::mem::transmute(&msatarget), ::core::mem::transmute(&msapolicy), ::core::mem::transmute(&httpmethod), ::core::mem::transmute(&uri), ::core::mem::transmute(&headers), ::core::mem::transmute_copy(&body), ::core::mem::transmute_copy(&bodysize), ::core::mem::transmute_copy(&forcerefresh)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -329,30 +327,28 @@ impl IXblIdpAuthManager_Vtbl {
         iid == &<IXblIdpAuthManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXblIdpAuthTokenResult_Impl: Sized {
     fn GetStatus(&self) -> ::windows::core::Result<XBL_IDP_AUTH_TOKEN_STATUS>;
     fn GetErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn GetToken(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetSignature(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetSandbox(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetEnvironment(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetMsaAccountId(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetXuid(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetAgeGroup(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetPrivileges(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetMsaTarget(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetMsaPolicy(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetMsaAppId(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetRedirect(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetMessage(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetHelpId(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetEnforcementBans(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetRestrictions(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetTitleRestrictions(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetToken(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetSignature(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetSandbox(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetEnvironment(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetMsaAccountId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetXuid(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetGamertag(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetAgeGroup(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetPrivileges(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetMsaTarget(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetMsaPolicy(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetMsaAppId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetRedirect(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetMessage(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetHelpId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetEnforcementBans(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetRestrictions(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetTitleRestrictions(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXblIdpAuthTokenResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>() -> IXblIdpAuthTokenResult_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: *mut XBL_IDP_AUTH_TOKEN_STATUS) -> ::windows::core::HRESULT {
@@ -377,7 +373,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetToken<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetToken<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetToken() {
@@ -388,7 +384,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSignature<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signature: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignature<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signature: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetSignature() {
@@ -399,7 +395,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSandbox<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sandbox: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSandbox<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sandbox: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetSandbox() {
@@ -410,7 +406,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEnvironment<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, environment: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnvironment<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, environment: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetEnvironment() {
@@ -421,7 +417,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMsaAccountId<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msaaccountid: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMsaAccountId<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msaaccountid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetMsaAccountId() {
@@ -432,7 +428,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXuid<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xuid: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetXuid<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xuid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetXuid() {
@@ -443,7 +439,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGamertag<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamertag: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGamertag<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gamertag: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetGamertag() {
@@ -454,7 +450,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAgeGroup<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, agegroup: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAgeGroup<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, agegroup: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetAgeGroup() {
@@ -465,7 +461,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPrivileges<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, privileges: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPrivileges<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, privileges: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetPrivileges() {
@@ -476,7 +472,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMsaTarget<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msatarget: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMsaTarget<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msatarget: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetMsaTarget() {
@@ -487,7 +483,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMsaPolicy<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msapolicy: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMsaPolicy<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msapolicy: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetMsaPolicy() {
@@ -498,7 +494,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMsaAppId<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msaappid: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMsaAppId<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, msaappid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetMsaAppId() {
@@ -509,7 +505,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRedirect<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, redirect: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRedirect<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, redirect: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetRedirect() {
@@ -520,7 +516,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMessage<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetMessage() {
@@ -531,7 +527,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHelpId<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, helpid: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHelpId<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, helpid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetHelpId() {
@@ -542,7 +538,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEnforcementBans<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enforcementbans: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnforcementBans<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enforcementbans: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetEnforcementBans() {
@@ -553,7 +549,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRestrictions<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, restrictions: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRestrictions<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, restrictions: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetRestrictions() {
@@ -564,7 +560,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTitleRestrictions<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, titlerestrictions: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTitleRestrictions<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, titlerestrictions: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetTitleRestrictions() {
@@ -603,16 +599,14 @@ impl IXblIdpAuthTokenResult_Vtbl {
         iid == &<IXblIdpAuthTokenResult as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXblIdpAuthTokenResult2_Impl: Sized {
-    fn GetModernGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetModernGamertagSuffix(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetUniqueModernGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetModernGamertag(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetModernGamertagSuffix(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetUniqueModernGamertag(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXblIdpAuthTokenResult2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult2_Impl, const OFFSET: isize>() -> IXblIdpAuthTokenResult2_Vtbl {
-        unsafe extern "system" fn GetModernGamertag<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetModernGamertag<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetModernGamertag() {
@@ -623,7 +617,7 @@ impl IXblIdpAuthTokenResult2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetModernGamertagSuffix<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetModernGamertagSuffix<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetModernGamertagSuffix() {
@@ -634,7 +628,7 @@ impl IXblIdpAuthTokenResult2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUniqueModernGamertag<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUniqueModernGamertag<Identity: ::windows::core::IUnknownImpl, Impl: IXblIdpAuthTokenResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetUniqueModernGamertag() {

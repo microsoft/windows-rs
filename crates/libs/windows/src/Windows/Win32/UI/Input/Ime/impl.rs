@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIME_Impl: Sized {
-    fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::Result<()>;
-    fn ConversionList(&self, himc: super::super::super::Globalization::HIMC, szsource: super::super::super::Foundation::PWSTR, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: ::windows::core::PWSTR, pdwprivate: *mut u32) -> ::windows::core::Result<()>;
+    fn ConversionList(&self, himc: super::super::super::Globalization::HIMC, szsource: &::windows::core::PCWSTR, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn Configure(&self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pregisterword: *const REGISTERWORDW) -> ::windows::core::Result<()>;
     fn Destroy(&self, ureserved: u32) -> ::windows::core::Result<()>;
     fn Escape(&self, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
@@ -11,25 +11,25 @@ pub trait IActiveIME_Impl: Sized {
     fn Select(&self, himc: super::super::super::Globalization::HIMC, fselect: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetCompositionString(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()>;
     fn ToAsciiEx(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: super::super::super::Globalization::HIMC, pdwtransbuf: *mut u32, pusize: *mut u32) -> ::windows::core::Result<()>;
-    fn RegisterWord(&self, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn UnregisterWord(&self, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RegisterWord(&self, szreading: &::windows::core::PCWSTR, dwstyle: u32, szstring: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn UnregisterWord(&self, szreading: &::windows::core::PCWSTR, dwstyle: u32, szstring: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetRegisterWordStyle(&self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::Result<()>;
-    fn EnumRegisterWord(&self, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
+    fn EnumRegisterWord(&self, szreading: &::windows::core::PCWSTR, dwstyle: u32, szregister: &::windows::core::PCWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
     fn GetCodePageA(&self) -> ::windows::core::Result<u32>;
     fn GetLangId(&self) -> ::windows::core::Result<u16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 impl IActiveIME_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>() -> IActiveIME_Vtbl {
-        unsafe extern "system" fn Inquire<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Inquire<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: ::windows::core::PWSTR, pdwprivate: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).Inquire(::core::mem::transmute_copy(&dwsysteminfoflags), ::core::mem::transmute_copy(&pimeinfo), ::core::mem::transmute_copy(&szwndclass), ::core::mem::transmute_copy(&pdwprivate)).into()
         }
-        unsafe extern "system" fn ConversionList<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, szsource: super::super::super::Foundation::PWSTR, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConversionList<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, szsource: ::windows::core::PCWSTR, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ConversionList(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&szsource), ::core::mem::transmute_copy(&uflag), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&pdest), ::core::mem::transmute_copy(&pucopied)).into()
+            (*this).ConversionList(::core::mem::transmute_copy(&himc), ::core::mem::transmute(&szsource), ::core::mem::transmute_copy(&uflag), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&pdest), ::core::mem::transmute_copy(&pucopied)).into()
         }
         unsafe extern "system" fn Configure<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pregisterword: *const REGISTERWORDW) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -76,25 +76,25 @@ impl IActiveIME_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ToAsciiEx(::core::mem::transmute_copy(&uvirkey), ::core::mem::transmute_copy(&uscancode), ::core::mem::transmute_copy(&pbkeystate), ::core::mem::transmute_copy(&fustate), ::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&pdwtransbuf), ::core::mem::transmute_copy(&pusize)).into()
         }
-        unsafe extern "system" fn RegisterWord<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterWord<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szreading: ::windows::core::PCWSTR, dwstyle: u32, szstring: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterWord(::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szstring)).into()
+            (*this).RegisterWord(::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szstring)).into()
         }
-        unsafe extern "system" fn UnregisterWord<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterWord<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szreading: ::windows::core::PCWSTR, dwstyle: u32, szstring: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterWord(::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szstring)).into()
+            (*this).UnregisterWord(::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szstring)).into()
         }
         unsafe extern "system" fn GetRegisterWordStyle<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetRegisterWordStyle(::core::mem::transmute_copy(&nitem), ::core::mem::transmute_copy(&pstylebuf), ::core::mem::transmute_copy(&pubufsize)).into()
         }
-        unsafe extern "system" fn EnumRegisterWord<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumRegisterWord<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szreading: ::windows::core::PCWSTR, dwstyle: u32, szregister: ::windows::core::PCWSTR, pdata: *const ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EnumRegisterWord(::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szregister), ::core::mem::transmute_copy(&pdata)) {
+            match (*this).EnumRegisterWord(::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szregister), ::core::mem::transmute_copy(&pdata)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppenum = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -180,8 +180,8 @@ pub trait IActiveIMMApp_Impl: Sized {
     fn ConfigureIMEW(&self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::Result<()>;
     fn CreateContext(&self) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
     fn DestroyContext(&self, hime: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
-    fn EnumRegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA>;
-    fn EnumRegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
+    fn EnumRegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCSTR, dwstyle: u32, szregister: &::windows::core::PCSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA>;
+    fn EnumRegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCWSTR, dwstyle: u32, szregister: &::windows::core::PCWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
     fn EscapeA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
     fn EscapeW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
     fn GetCandidateListA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
@@ -195,30 +195,30 @@ pub trait IActiveIMMApp_Impl: Sized {
     fn GetCompositionStringW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetCompositionWindow(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<COMPOSITIONFORM>;
     fn GetContext(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
-    fn GetConversionListA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetConversionListW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetConversionListA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: &::windows::core::PCSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetConversionListW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: &::windows::core::PCWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetConversionStatus(&self, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::Result<()>;
     fn GetDefaultIMEWnd(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
-    fn GetDescriptionA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDescriptionW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGuideLineA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGuideLineW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn GetIMEFileNameA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetIMEFileNameW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDescriptionA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: ::windows::core::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDescriptionW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: ::windows::core::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGuideLineA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: ::windows::core::PSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGuideLineW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: ::windows::core::PWSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn GetIMEFileNameA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: ::windows::core::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetIMEFileNameW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: ::windows::core::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetOpenStatus(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
     fn GetProperty(&self, hkl: super::super::TextServices::HKL, fdwindex: u32) -> ::windows::core::Result<u32>;
     fn GetRegisterWordStyleA(&self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetRegisterWordStyleW(&self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetStatusWindowPos(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Foundation::POINT>;
     fn GetVirtualKey(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<u32>;
-    fn InstallIMEA(&self, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
-    fn InstallIMEW(&self, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
+    fn InstallIMEA(&self, szimefilename: &::windows::core::PCSTR, szlayouttext: &::windows::core::PCSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
+    fn InstallIMEW(&self, szimefilename: &::windows::core::PCWSTR, szlayouttext: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
     fn IsIME(&self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<()>;
     fn IsUIMessageA(&self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn IsUIMessageW(&self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn NotifyIME(&self, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()>;
-    fn RegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn RegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCSTR, dwstyle: u32, szregister: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
+    fn RegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCWSTR, dwstyle: u32, szregister: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn ReleaseContext(&self, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
     fn SetCandidateWindow(&self, himc: super::super::super::Globalization::HIMC, pcandidate: *const CANDIDATEFORM) -> ::windows::core::Result<()>;
     fn SetCompositionFontA(&self, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()>;
@@ -230,8 +230,8 @@ pub trait IActiveIMMApp_Impl: Sized {
     fn SetOpenStatus(&self, himc: super::super::super::Globalization::HIMC, fopen: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetStatusWindowPos(&self, himc: super::super::super::Globalization::HIMC, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
     fn SimulateHotKey(&self, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> ::windows::core::Result<()>;
-    fn UnregisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn UnregisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn UnregisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCSTR, dwstyle: u32, szunregister: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
+    fn UnregisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCWSTR, dwstyle: u32, szunregister: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Activate(&self, frestorelayout: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Deactivate(&self) -> ::windows::core::Result<()>;
     fn OnDefWindowProc(&self, hwnd: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
@@ -284,10 +284,10 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DestroyContext(::core::mem::transmute_copy(&hime)).into()
         }
-        unsafe extern "system" fn EnumRegisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumRegisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCSTR, dwstyle: u32, szregister: ::windows::core::PCSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EnumRegisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szregister), ::core::mem::transmute_copy(&pdata)) {
+            match (*this).EnumRegisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szregister), ::core::mem::transmute_copy(&pdata)) {
                 ::core::result::Result::Ok(ok__) => {
                     *penum = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -295,10 +295,10 @@ impl IActiveIMMApp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumRegisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumRegisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCWSTR, dwstyle: u32, szregister: ::windows::core::PCWSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EnumRegisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szregister), ::core::mem::transmute_copy(&pdata)) {
+            match (*this).EnumRegisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szregister), ::core::mem::transmute_copy(&pdata)) {
                 ::core::result::Result::Ok(ok__) => {
                     *penum = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -401,15 +401,15 @@ impl IActiveIMMApp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConversionListA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConversionListA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: ::windows::core::PCSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetConversionListA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&psrc), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&uflag), ::core::mem::transmute_copy(&pdst), ::core::mem::transmute_copy(&pucopied)).into()
+            (*this).GetConversionListA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&himc), ::core::mem::transmute(&psrc), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&uflag), ::core::mem::transmute_copy(&pdst), ::core::mem::transmute_copy(&pucopied)).into()
         }
-        unsafe extern "system" fn GetConversionListW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConversionListW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: ::windows::core::PCWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetConversionListW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&psrc), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&uflag), ::core::mem::transmute_copy(&pdst), ::core::mem::transmute_copy(&pucopied)).into()
+            (*this).GetConversionListW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&himc), ::core::mem::transmute(&psrc), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&uflag), ::core::mem::transmute_copy(&pdst), ::core::mem::transmute_copy(&pucopied)).into()
         }
         unsafe extern "system" fn GetConversionStatus<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -427,32 +427,32 @@ impl IActiveIMMApp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescriptionA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescriptionA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: ::windows::core::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDescriptionA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&szdescription), ::core::mem::transmute_copy(&pucopied)).into()
         }
-        unsafe extern "system" fn GetDescriptionW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescriptionW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: ::windows::core::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDescriptionW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&szdescription), ::core::mem::transmute_copy(&pucopied)).into()
         }
-        unsafe extern "system" fn GetGuideLineA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGuideLineA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: ::windows::core::PSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetGuideLineA(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&dwbuflen), ::core::mem::transmute_copy(&pbuf), ::core::mem::transmute_copy(&pdwresult)).into()
         }
-        unsafe extern "system" fn GetGuideLineW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGuideLineW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: ::windows::core::PWSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetGuideLineW(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&dwbuflen), ::core::mem::transmute_copy(&pbuf), ::core::mem::transmute_copy(&pdwresult)).into()
         }
-        unsafe extern "system" fn GetIMEFileNameA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIMEFileNameA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: ::windows::core::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetIMEFileNameA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&szfilename), ::core::mem::transmute_copy(&pucopied)).into()
         }
-        unsafe extern "system" fn GetIMEFileNameW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIMEFileNameW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: ::windows::core::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetIMEFileNameW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&szfilename), ::core::mem::transmute_copy(&pucopied)).into()
@@ -505,10 +505,10 @@ impl IActiveIMMApp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InstallIMEA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallIMEA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szimefilename: ::windows::core::PCSTR, szlayouttext: ::windows::core::PCSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).InstallIMEA(::core::mem::transmute_copy(&szimefilename), ::core::mem::transmute_copy(&szlayouttext)) {
+            match (*this).InstallIMEA(::core::mem::transmute(&szimefilename), ::core::mem::transmute(&szlayouttext)) {
                 ::core::result::Result::Ok(ok__) => {
                     *phkl = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -516,10 +516,10 @@ impl IActiveIMMApp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InstallIMEW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallIMEW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szimefilename: ::windows::core::PCWSTR, szlayouttext: ::windows::core::PCWSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).InstallIMEW(::core::mem::transmute_copy(&szimefilename), ::core::mem::transmute_copy(&szlayouttext)) {
+            match (*this).InstallIMEW(::core::mem::transmute(&szimefilename), ::core::mem::transmute(&szlayouttext)) {
                 ::core::result::Result::Ok(ok__) => {
                     *phkl = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -547,15 +547,15 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).NotifyIME(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&dwaction), ::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&dwvalue)).into()
         }
-        unsafe extern "system" fn RegisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCSTR, dwstyle: u32, szregister: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szregister)).into()
+            (*this).RegisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szregister)).into()
         }
-        unsafe extern "system" fn RegisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCWSTR, dwstyle: u32, szregister: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szregister)).into()
+            (*this).RegisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szregister)).into()
         }
         unsafe extern "system" fn ReleaseContext<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -612,15 +612,15 @@ impl IActiveIMMApp_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SimulateHotKey(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwhotkeyid)).into()
         }
-        unsafe extern "system" fn UnregisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCSTR, dwstyle: u32, szunregister: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szunregister)).into()
+            (*this).UnregisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szunregister)).into()
         }
-        unsafe extern "system" fn UnregisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCWSTR, dwstyle: u32, szunregister: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szunregister)).into()
+            (*this).UnregisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szunregister)).into()
         }
         unsafe extern "system" fn Activate<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frestorelayout: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -784,8 +784,8 @@ pub trait IActiveIMMIME_Impl: Sized {
     fn ConfigureIMEW(&self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::Result<()>;
     fn CreateContext(&self) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
     fn DestroyContext(&self, hime: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
-    fn EnumRegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA>;
-    fn EnumRegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
+    fn EnumRegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCSTR, dwstyle: u32, szregister: &::windows::core::PCSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA>;
+    fn EnumRegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCWSTR, dwstyle: u32, szregister: &::windows::core::PCWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
     fn EscapeA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
     fn EscapeW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
     fn GetCandidateListA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
@@ -799,30 +799,30 @@ pub trait IActiveIMMIME_Impl: Sized {
     fn GetCompositionStringW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetCompositionWindow(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<COMPOSITIONFORM>;
     fn GetContext(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
-    fn GetConversionListA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetConversionListW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetConversionListA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: &::windows::core::PCSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetConversionListW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: &::windows::core::PCWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetConversionStatus(&self, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::Result<()>;
     fn GetDefaultIMEWnd(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
-    fn GetDescriptionA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDescriptionW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGuideLineA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGuideLineW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn GetIMEFileNameA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetIMEFileNameW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDescriptionA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: ::windows::core::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDescriptionW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: ::windows::core::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGuideLineA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: ::windows::core::PSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGuideLineW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: ::windows::core::PWSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn GetIMEFileNameA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: ::windows::core::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetIMEFileNameW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: ::windows::core::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetOpenStatus(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
     fn GetProperty(&self, hkl: super::super::TextServices::HKL, fdwindex: u32) -> ::windows::core::Result<u32>;
     fn GetRegisterWordStyleA(&self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetRegisterWordStyleW(&self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::Result<()>;
     fn GetStatusWindowPos(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Foundation::POINT>;
     fn GetVirtualKey(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<u32>;
-    fn InstallIMEA(&self, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
-    fn InstallIMEW(&self, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
+    fn InstallIMEA(&self, szimefilename: &::windows::core::PCSTR, szlayouttext: &::windows::core::PCSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
+    fn InstallIMEW(&self, szimefilename: &::windows::core::PCWSTR, szlayouttext: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
     fn IsIME(&self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<()>;
     fn IsUIMessageA(&self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn IsUIMessageW(&self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn NotifyIME(&self, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()>;
-    fn RegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn RegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCSTR, dwstyle: u32, szregister: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
+    fn RegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCWSTR, dwstyle: u32, szregister: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn ReleaseContext(&self, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
     fn SetCandidateWindow(&self, himc: super::super::super::Globalization::HIMC, pcandidate: *const CANDIDATEFORM) -> ::windows::core::Result<()>;
     fn SetCompositionFontA(&self, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()>;
@@ -834,8 +834,8 @@ pub trait IActiveIMMIME_Impl: Sized {
     fn SetOpenStatus(&self, himc: super::super::super::Globalization::HIMC, fopen: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetStatusWindowPos(&self, himc: super::super::super::Globalization::HIMC, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
     fn SimulateHotKey(&self, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> ::windows::core::Result<()>;
-    fn UnregisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn UnregisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn UnregisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCSTR, dwstyle: u32, szunregister: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
+    fn UnregisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: &::windows::core::PCWSTR, dwstyle: u32, szunregister: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GenerateMessage(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
     fn LockIMC(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<*mut INPUTCONTEXT>;
     fn UnlockIMC(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
@@ -908,10 +908,10 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DestroyContext(::core::mem::transmute_copy(&hime)).into()
         }
-        unsafe extern "system" fn EnumRegisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumRegisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCSTR, dwstyle: u32, szregister: ::windows::core::PCSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EnumRegisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szregister), ::core::mem::transmute_copy(&pdata)) {
+            match (*this).EnumRegisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szregister), ::core::mem::transmute_copy(&pdata)) {
                 ::core::result::Result::Ok(ok__) => {
                     *penum = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -919,10 +919,10 @@ impl IActiveIMMIME_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumRegisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumRegisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCWSTR, dwstyle: u32, szregister: ::windows::core::PCWSTR, pdata: *const ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EnumRegisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szregister), ::core::mem::transmute_copy(&pdata)) {
+            match (*this).EnumRegisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szregister), ::core::mem::transmute_copy(&pdata)) {
                 ::core::result::Result::Ok(ok__) => {
                     *penum = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1025,15 +1025,15 @@ impl IActiveIMMIME_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConversionListA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConversionListA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: ::windows::core::PCSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetConversionListA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&psrc), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&uflag), ::core::mem::transmute_copy(&pdst), ::core::mem::transmute_copy(&pucopied)).into()
+            (*this).GetConversionListA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&himc), ::core::mem::transmute(&psrc), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&uflag), ::core::mem::transmute_copy(&pdst), ::core::mem::transmute_copy(&pucopied)).into()
         }
-        unsafe extern "system" fn GetConversionListW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConversionListW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: ::windows::core::PCWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetConversionListW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&psrc), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&uflag), ::core::mem::transmute_copy(&pdst), ::core::mem::transmute_copy(&pucopied)).into()
+            (*this).GetConversionListW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&himc), ::core::mem::transmute(&psrc), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&uflag), ::core::mem::transmute_copy(&pdst), ::core::mem::transmute_copy(&pucopied)).into()
         }
         unsafe extern "system" fn GetConversionStatus<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1051,32 +1051,32 @@ impl IActiveIMMIME_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescriptionA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescriptionA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: ::windows::core::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDescriptionA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&szdescription), ::core::mem::transmute_copy(&pucopied)).into()
         }
-        unsafe extern "system" fn GetDescriptionW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescriptionW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: ::windows::core::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDescriptionW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&szdescription), ::core::mem::transmute_copy(&pucopied)).into()
         }
-        unsafe extern "system" fn GetGuideLineA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGuideLineA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: ::windows::core::PSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetGuideLineA(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&dwbuflen), ::core::mem::transmute_copy(&pbuf), ::core::mem::transmute_copy(&pdwresult)).into()
         }
-        unsafe extern "system" fn GetGuideLineW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGuideLineW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: ::windows::core::PWSTR, pdwresult: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetGuideLineW(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&dwbuflen), ::core::mem::transmute_copy(&pbuf), ::core::mem::transmute_copy(&pdwresult)).into()
         }
-        unsafe extern "system" fn GetIMEFileNameA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIMEFileNameA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: ::windows::core::PSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetIMEFileNameA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&szfilename), ::core::mem::transmute_copy(&pucopied)).into()
         }
-        unsafe extern "system" fn GetIMEFileNameW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIMEFileNameW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: ::windows::core::PWSTR, pucopied: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetIMEFileNameW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&ubuflen), ::core::mem::transmute_copy(&szfilename), ::core::mem::transmute_copy(&pucopied)).into()
@@ -1129,10 +1129,10 @@ impl IActiveIMMIME_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InstallIMEA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallIMEA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szimefilename: ::windows::core::PCSTR, szlayouttext: ::windows::core::PCSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).InstallIMEA(::core::mem::transmute_copy(&szimefilename), ::core::mem::transmute_copy(&szlayouttext)) {
+            match (*this).InstallIMEA(::core::mem::transmute(&szimefilename), ::core::mem::transmute(&szlayouttext)) {
                 ::core::result::Result::Ok(ok__) => {
                     *phkl = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1140,10 +1140,10 @@ impl IActiveIMMIME_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InstallIMEW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallIMEW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szimefilename: ::windows::core::PCWSTR, szlayouttext: ::windows::core::PCWSTR, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).InstallIMEW(::core::mem::transmute_copy(&szimefilename), ::core::mem::transmute_copy(&szlayouttext)) {
+            match (*this).InstallIMEW(::core::mem::transmute(&szimefilename), ::core::mem::transmute(&szlayouttext)) {
                 ::core::result::Result::Ok(ok__) => {
                     *phkl = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1171,15 +1171,15 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).NotifyIME(::core::mem::transmute_copy(&himc), ::core::mem::transmute_copy(&dwaction), ::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&dwvalue)).into()
         }
-        unsafe extern "system" fn RegisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCSTR, dwstyle: u32, szregister: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szregister)).into()
+            (*this).RegisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szregister)).into()
         }
-        unsafe extern "system" fn RegisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCWSTR, dwstyle: u32, szregister: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szregister)).into()
+            (*this).RegisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szregister)).into()
         }
         unsafe extern "system" fn ReleaseContext<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1236,15 +1236,15 @@ impl IActiveIMMIME_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SimulateHotKey(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwhotkeyid)).into()
         }
-        unsafe extern "system" fn UnregisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterWordA<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCSTR, dwstyle: u32, szunregister: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szunregister)).into()
+            (*this).UnregisterWordA(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szunregister)).into()
         }
-        unsafe extern "system" fn UnregisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnregisterWordW<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkl: super::super::TextServices::HKL, szreading: ::windows::core::PCWSTR, dwstyle: u32, szunregister: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute_copy(&szunregister)).into()
+            (*this).UnregisterWordW(::core::mem::transmute_copy(&hkl), ::core::mem::transmute(&szreading), ::core::mem::transmute_copy(&dwstyle), ::core::mem::transmute(&szunregister)).into()
         }
         unsafe extern "system" fn GenerateMessage<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, himc: super::super::super::Globalization::HIMC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1636,18 +1636,16 @@ impl IActiveIMMMessagePumpOwner_Vtbl {
         iid == &<IActiveIMMMessagePumpOwner as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IActiveIMMRegistrar_Impl: Sized {
-    fn RegisterIME(&self, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: super::super::super::Foundation::PWSTR, pszdesc: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RegisterIME(&self, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: &::windows::core::PCWSTR, pszdesc: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn UnregisterIME(&self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IActiveIMMRegistrar_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMRegistrar_Impl, const OFFSET: isize>() -> IActiveIMMRegistrar_Vtbl {
-        unsafe extern "system" fn RegisterIME<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: super::super::super::Foundation::PWSTR, pszdesc: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterIME<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: ::windows::core::PCWSTR, pszdesc: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterIME(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&lgid), ::core::mem::transmute_copy(&psziconfile), ::core::mem::transmute_copy(&pszdesc)).into()
+            (*this).RegisterIME(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&lgid), ::core::mem::transmute(&psziconfile), ::core::mem::transmute(&pszdesc)).into()
         }
         unsafe extern "system" fn UnregisterIME<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1712,14 +1710,12 @@ impl IEnumInputContext_Vtbl {
         iid == &<IEnumInputContext as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnumRegisterWordA_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumRegisterWordA>;
     fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IEnumRegisterWordA_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumRegisterWordA_Impl, const OFFSET: isize>() -> IEnumRegisterWordA_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumRegisterWordA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1760,14 +1756,12 @@ impl IEnumRegisterWordA_Vtbl {
         iid == &<IEnumRegisterWordA as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnumRegisterWordW_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumRegisterWordW>;
     fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IEnumRegisterWordW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumRegisterWordW_Impl, const OFFSET: isize>() -> IEnumRegisterWordW_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumRegisterWordW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1821,7 +1815,7 @@ impl IFEClassFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFECommon_Impl: Sized {
-    fn IsDefaultIME(&self, szname: super::super::super::Foundation::PSTR, cszname: i32) -> ::windows::core::Result<()>;
+    fn IsDefaultIME(&self, szname: &::windows::core::PCSTR, cszname: i32) -> ::windows::core::Result<()>;
     fn SetDefaultIME(&self) -> ::windows::core::Result<()>;
     fn InvokeWordRegDialog(&self, pimedlg: *mut IMEDLG) -> ::windows::core::Result<()>;
     fn InvokeDictToolDialog(&self, pimedlg: *mut IMEDLG) -> ::windows::core::Result<()>;
@@ -1829,10 +1823,10 @@ pub trait IFECommon_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl IFECommon_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFECommon_Impl, const OFFSET: isize>() -> IFECommon_Vtbl {
-        unsafe extern "system" fn IsDefaultIME<Identity: ::windows::core::IUnknownImpl, Impl: IFECommon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szname: super::super::super::Foundation::PSTR, cszname: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDefaultIME<Identity: ::windows::core::IUnknownImpl, Impl: IFECommon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szname: ::windows::core::PCSTR, cszname: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsDefaultIME(::core::mem::transmute_copy(&szname), ::core::mem::transmute_copy(&cszname)).into()
+            (*this).IsDefaultIME(::core::mem::transmute(&szname), ::core::mem::transmute_copy(&cszname)).into()
         }
         unsafe extern "system" fn SetDefaultIME<Identity: ::windows::core::IUnknownImpl, Impl: IFECommon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1863,41 +1857,41 @@ impl IFECommon_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFEDictionary_Impl: Sized {
-    fn Open(&self, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::Result<()>;
+    fn Open(&self, pchdictpath: &::windows::core::PSTR, pshf: *mut IMESHF) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
-    fn GetHeader(&self, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::Result<()>;
+    fn GetHeader(&self, pchdictpath: &::windows::core::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::Result<()>;
     fn DisplayProperty(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn GetPosTable(&self, prgpostbl: *mut *mut POSTBL, pcpostbl: *mut i32) -> ::windows::core::Result<()>;
-    fn GetWords(&self, pwchfirst: super::super::super::Foundation::PWSTR, pwchlast: super::super::super::Foundation::PWSTR, pwchdisplay: super::super::super::Foundation::PWSTR, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()>;
+    fn GetWords(&self, pwchfirst: &::windows::core::PCWSTR, pwchlast: &::windows::core::PCWSTR, pwchdisplay: &::windows::core::PCWSTR, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()>;
     fn NextWords(&self, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()>;
-    fn Create(&self, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::Result<()>;
+    fn Create(&self, pchdictpath: &::windows::core::PCSTR, pshf: *mut IMESHF) -> ::windows::core::Result<()>;
     fn SetHeader(&self, pshf: *mut IMESHF) -> ::windows::core::Result<()>;
     fn ExistWord(&self, pwrd: *mut IMEWRD) -> ::windows::core::Result<()>;
     fn ExistDependency(&self, pdp: *mut IMEDP) -> ::windows::core::Result<()>;
     fn RegisterWord(&self, reg: IMEREG, pwrd: *mut IMEWRD) -> ::windows::core::Result<()>;
     fn RegisterDependency(&self, reg: IMEREG, pdp: *mut IMEDP) -> ::windows::core::Result<()>;
-    fn GetDependencies(&self, pwchkakarireading: super::super::super::Foundation::PWSTR, pwchkakaridisplay: super::super::super::Foundation::PWSTR, ulkakaripos: u32, pwchukereading: super::super::super::Foundation::PWSTR, pwchukedisplay: super::super::super::Foundation::PWSTR, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDependencies(&self, pwchkakarireading: &::windows::core::PCWSTR, pwchkakaridisplay: &::windows::core::PCWSTR, ulkakaripos: u32, pwchukereading: &::windows::core::PCWSTR, pwchukedisplay: &::windows::core::PCWSTR, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>;
     fn NextDependencies(&self, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>;
-    fn ConvertFromOldMSIME(&self, pchdic: super::super::super::Foundation::PSTR, pfnlog: &PFNLOG, reg: IMEREG) -> ::windows::core::Result<()>;
+    fn ConvertFromOldMSIME(&self, pchdic: &::windows::core::PCSTR, pfnlog: &PFNLOG, reg: IMEREG) -> ::windows::core::Result<()>;
     fn ConvertFromUserToSys(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFEDictionary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>() -> IFEDictionary_Vtbl {
-        unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchdictpath: ::windows::core::PSTR, pshf: *mut IMESHF) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Open(::core::mem::transmute_copy(&pchdictpath), ::core::mem::transmute_copy(&pshf)).into()
+            (*this).Open(::core::mem::transmute(&pchdictpath), ::core::mem::transmute_copy(&pshf)).into()
         }
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).Close().into()
         }
-        unsafe extern "system" fn GetHeader<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHeader<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchdictpath: ::windows::core::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetHeader(::core::mem::transmute_copy(&pchdictpath), ::core::mem::transmute_copy(&pshf), ::core::mem::transmute_copy(&pjfmt), ::core::mem::transmute_copy(&pultype)).into()
+            (*this).GetHeader(::core::mem::transmute(&pchdictpath), ::core::mem::transmute_copy(&pshf), ::core::mem::transmute_copy(&pjfmt), ::core::mem::transmute_copy(&pultype)).into()
         }
         unsafe extern "system" fn DisplayProperty<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1909,20 +1903,20 @@ impl IFEDictionary_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPosTable(::core::mem::transmute_copy(&prgpostbl), ::core::mem::transmute_copy(&pcpostbl)).into()
         }
-        unsafe extern "system" fn GetWords<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchfirst: super::super::super::Foundation::PWSTR, pwchlast: super::super::super::Foundation::PWSTR, pwchdisplay: super::super::super::Foundation::PWSTR, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetWords<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchfirst: ::windows::core::PCWSTR, pwchlast: ::windows::core::PCWSTR, pwchdisplay: ::windows::core::PCWSTR, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetWords(::core::mem::transmute_copy(&pwchfirst), ::core::mem::transmute_copy(&pwchlast), ::core::mem::transmute_copy(&pwchdisplay), ::core::mem::transmute_copy(&ulpos), ::core::mem::transmute_copy(&ulselect), ::core::mem::transmute_copy(&ulwordsrc), ::core::mem::transmute_copy(&pchbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&pcwrd)).into()
+            (*this).GetWords(::core::mem::transmute(&pwchfirst), ::core::mem::transmute(&pwchlast), ::core::mem::transmute(&pwchdisplay), ::core::mem::transmute_copy(&ulpos), ::core::mem::transmute_copy(&ulselect), ::core::mem::transmute_copy(&ulwordsrc), ::core::mem::transmute_copy(&pchbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&pcwrd)).into()
         }
         unsafe extern "system" fn NextWords<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).NextWords(::core::mem::transmute_copy(&pchbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&pcwrd)).into()
         }
-        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchdictpath: ::windows::core::PCSTR, pshf: *mut IMESHF) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Create(::core::mem::transmute_copy(&pchdictpath), ::core::mem::transmute_copy(&pshf)).into()
+            (*this).Create(::core::mem::transmute(&pchdictpath), ::core::mem::transmute_copy(&pshf)).into()
         }
         unsafe extern "system" fn SetHeader<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshf: *mut IMESHF) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1949,22 +1943,20 @@ impl IFEDictionary_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RegisterDependency(::core::mem::transmute_copy(&reg), ::core::mem::transmute_copy(&pdp)).into()
         }
-        unsafe extern "system" fn GetDependencies<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchkakarireading: super::super::super::Foundation::PWSTR, pwchkakaridisplay: super::super::super::Foundation::PWSTR, ulkakaripos: u32, pwchukereading: super::super::super::Foundation::PWSTR, pwchukedisplay: super::super::super::Foundation::PWSTR, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDependencies<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchkakarireading: ::windows::core::PCWSTR, pwchkakaridisplay: ::windows::core::PCWSTR, ulkakaripos: u32, pwchukereading: ::windows::core::PCWSTR, pwchukedisplay: ::windows::core::PCWSTR, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this)
-                .GetDependencies(::core::mem::transmute_copy(&pwchkakarireading), ::core::mem::transmute_copy(&pwchkakaridisplay), ::core::mem::transmute_copy(&ulkakaripos), ::core::mem::transmute_copy(&pwchukereading), ::core::mem::transmute_copy(&pwchukedisplay), ::core::mem::transmute_copy(&ulukepos), ::core::mem::transmute_copy(&jrel), ::core::mem::transmute_copy(&ulwordsrc), ::core::mem::transmute_copy(&pchbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&pcdp))
-                .into()
+            (*this).GetDependencies(::core::mem::transmute(&pwchkakarireading), ::core::mem::transmute(&pwchkakaridisplay), ::core::mem::transmute_copy(&ulkakaripos), ::core::mem::transmute(&pwchukereading), ::core::mem::transmute(&pwchukedisplay), ::core::mem::transmute_copy(&ulukepos), ::core::mem::transmute_copy(&jrel), ::core::mem::transmute_copy(&ulwordsrc), ::core::mem::transmute_copy(&pchbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&pcdp)).into()
         }
         unsafe extern "system" fn NextDependencies<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).NextDependencies(::core::mem::transmute_copy(&pchbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&pcdp)).into()
         }
-        unsafe extern "system" fn ConvertFromOldMSIME<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchdic: super::super::super::Foundation::PSTR, pfnlog: ::windows::core::RawPtr, reg: IMEREG) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConvertFromOldMSIME<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchdic: ::windows::core::PCSTR, pfnlog: ::windows::core::RawPtr, reg: IMEREG) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ConvertFromOldMSIME(::core::mem::transmute_copy(&pchdic), ::core::mem::transmute(&pfnlog), ::core::mem::transmute_copy(&reg)).into()
+            (*this).ConvertFromOldMSIME(::core::mem::transmute(&pchdic), ::core::mem::transmute(&pfnlog), ::core::mem::transmute_copy(&reg)).into()
         }
         unsafe extern "system" fn ConvertFromUserToSys<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2000,7 +1992,7 @@ impl IFEDictionary_Vtbl {
 pub trait IFELanguage_Impl: Sized {
     fn Open(&self) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
-    fn GetJMorphResult(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: super::super::super::Foundation::PWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::Result<()>;
+    fn GetJMorphResult(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: &::windows::core::PCWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::Result<()>;
     fn GetConversionModeCaps(&self, pdwcaps: *mut u32) -> ::windows::core::Result<()>;
     fn GetPhonetic(&self, string: &super::super::super::Foundation::BSTR, start: i32, length: i32, phonetic: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetConversion(&self, string: &super::super::super::Foundation::BSTR, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -2018,10 +2010,10 @@ impl IFELanguage_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Close().into()
         }
-        unsafe extern "system" fn GetJMorphResult<Identity: ::windows::core::IUnknownImpl, Impl: IFELanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: super::super::super::Foundation::PWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetJMorphResult<Identity: ::windows::core::IUnknownImpl, Impl: IFELanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: ::windows::core::PCWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetJMorphResult(::core::mem::transmute_copy(&dwrequest), ::core::mem::transmute_copy(&dwcmode), ::core::mem::transmute_copy(&cwchinput), ::core::mem::transmute_copy(&pwchinput), ::core::mem::transmute_copy(&pfcinfo), ::core::mem::transmute_copy(&ppresult)).into()
+            (*this).GetJMorphResult(::core::mem::transmute_copy(&dwrequest), ::core::mem::transmute_copy(&dwcmode), ::core::mem::transmute_copy(&cwchinput), ::core::mem::transmute(&pwchinput), ::core::mem::transmute_copy(&pfcinfo), ::core::mem::transmute_copy(&ppresult)).into()
         }
         unsafe extern "system" fn GetConversionModeCaps<Identity: ::windows::core::IUnknownImpl, Impl: IFELanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcaps: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

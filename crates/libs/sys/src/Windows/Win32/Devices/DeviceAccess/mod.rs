@@ -1,9 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
-    #[doc = "*Required features: 'Win32_Devices_DeviceAccess', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateDeviceAccessInstance(deviceinterfacepath: super::super::Foundation::PWSTR, desiredaccess: u32, createasync: *mut ICreateDeviceAccessAsync) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Devices_DeviceAccess'*"]
+    pub fn CreateDeviceAccessInstance(deviceinterfacepath: ::windows_sys::core::PCWSTR, desiredaccess: u32, createasync: *mut ICreateDeviceAccessAsync) -> ::windows_sys::core::HRESULT;
 }
 pub const CLSID_DeviceIoControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 315876210, data2: 34635, data3: 17789, data4: [159, 223, 115, 151, 119, 120, 104, 108] };
 #[doc = "*Required features: 'Win32_Devices_DeviceAccess'*"]

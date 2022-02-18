@@ -7,12 +7,10 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn BindIFilterFromStream(pstm: super::super::System::Com::IStream, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadIFilter(pwcspath: super::super::Foundation::PWSTR, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadIFilterEx(pwcspath: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows_sys::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
+    pub fn LoadIFilter(pwcspath: ::windows_sys::core::PCWSTR, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
+    pub fn LoadIFilterEx(pwcspath: ::windows_sys::core::PCWSTR, dwflags: u32, riid: *const ::windows_sys::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub type CHUNKSTATE = i32;
@@ -126,110 +124,92 @@ pub const CI_VERSION_WDS40: u32 = 265u32;
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const CI_VERSION_WIN70: u32 = 1792u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DBID {
     pub uGuid: DBID_0,
     pub eKind: u32,
     pub uName: DBID_1,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 pub union DBID_0 {
     pub guid: ::windows_sys::core::GUID,
     pub pguid: *mut ::windows_sys::core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_0 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 pub union DBID_1 {
-    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszName: ::windows_sys::core::PWSTR,
     pub ulPropid: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_1 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct DBID {
     pub uGuid: DBID_0,
     pub eKind: u32,
     pub uName: DBID_1,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub union DBID_0 {
     pub guid: ::windows_sys::core::GUID,
     pub pguid: *mut ::windows_sys::core::GUID,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_0 {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub union DBID_1 {
-    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszName: ::windows_sys::core::PWSTR,
     pub ulPropid: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_1 {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_1 {
     fn clone(&self) -> Self {
         *self
@@ -349,15 +329,15 @@ pub const FILTER_S_LAST_VALUES: ::windows_sys::core::HRESULT = 268042i32;
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_W_MONIKER_CLIPPED: ::windows_sys::core::HRESULT = 268036i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_System_Com_StructuredStorage'*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct FULLPROPSPEC {
     pub guidPropSet: ::windows_sys::core::GUID,
     pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::marker::Copy for FULLPROPSPEC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for FULLPROPSPEC {
     fn clone(&self) -> Self {
         *self
@@ -488,8 +468,8 @@ pub const SCOPE_TYPE_WINPATH: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const STAT_BUSY: u32 = 0u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_System_Com_StructuredStorage'*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct STAT_CHUNK {
     pub idChunk: u32,
     pub breakType: CHUNK_BREAKTYPE,
@@ -500,9 +480,9 @@ pub struct STAT_CHUNK {
     pub cwcStartSource: u32,
     pub cwcLenSource: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::marker::Copy for STAT_CHUNK {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for STAT_CHUNK {
     fn clone(&self) -> Self {
         *self

@@ -21,16 +21,16 @@ extern "system" {
     pub fn FaxCompleteJobParamsW(jobparams: *mut *mut FAX_JOB_PARAMW, coverpageinfo: *mut *mut FAX_COVERPAGE_INFOW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxConnectFaxServerA(machinename: super::super::Foundation::PSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn FaxConnectFaxServerA(machinename: ::windows_sys::core::PCSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxConnectFaxServerW(machinename: super::super::Foundation::PWSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn FaxConnectFaxServerW(machinename: ::windows_sys::core::PCWSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxEnableRoutingMethodA(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PSTR, enabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn FaxEnableRoutingMethodA(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCSTR, enabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxEnableRoutingMethodW(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PWSTR, enabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn FaxEnableRoutingMethodW(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCWSTR, enabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FaxEnumGlobalRoutingInfoA(faxhandle: super::super::Foundation::HANDLE, routinginfo: *mut *mut FAX_GLOBAL_ROUTING_INFOA, methodsreturned: *mut u32) -> super::super::Foundation::BOOL;
@@ -92,10 +92,10 @@ extern "system" {
     pub fn FaxGetPortW(faxporthandle: super::super::Foundation::HANDLE, portinfo: *mut *mut FAX_PORT_INFOW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxGetRoutingInfoA(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PSTR, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn FaxGetRoutingInfoA(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCSTR, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxGetRoutingInfoW(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PWSTR, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn FaxGetRoutingInfoW(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCWSTR, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FaxInitializeEventQueue(faxhandle: super::super::Foundation::HANDLE, completionport: super::super::Foundation::HANDLE, completionkey: usize, hwnd: super::super::Foundation::HWND, messagestart: u32) -> super::super::Foundation::BOOL;
@@ -110,22 +110,22 @@ extern "system" {
     pub fn FaxPrintCoverPageW(faxcontextinfo: *const FAX_CONTEXT_INFOW, coverpageinfo: *const FAX_COVERPAGE_INFOW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxRegisterRoutingExtensionW(faxhandle: super::super::Foundation::HANDLE, extensionname: super::super::Foundation::PWSTR, friendlyname: super::super::Foundation::PWSTR, imagename: super::super::Foundation::PWSTR, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn FaxRegisterRoutingExtensionW(faxhandle: super::super::Foundation::HANDLE, extensionname: ::windows_sys::core::PCWSTR, friendlyname: ::windows_sys::core::PCWSTR, imagename: ::windows_sys::core::PCWSTR, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxRegisterServiceProviderW(deviceprovider: super::super::Foundation::PWSTR, friendlyname: super::super::Foundation::PWSTR, imagename: super::super::Foundation::PWSTR, tspname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn FaxRegisterServiceProviderW(deviceprovider: ::windows_sys::core::PCWSTR, friendlyname: ::windows_sys::core::PCWSTR, imagename: ::windows_sys::core::PCWSTR, tspname: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxSendDocumentA(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PSTR, jobparams: *mut FAX_JOB_PARAMA, coverpageinfo: *const FAX_COVERPAGE_INFOA, faxjobid: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn FaxSendDocumentA(faxhandle: super::super::Foundation::HANDLE, filename: ::windows_sys::core::PCSTR, jobparams: *mut FAX_JOB_PARAMA, coverpageinfo: *const FAX_COVERPAGE_INFOA, faxjobid: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxSendDocumentForBroadcastA(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PSTR, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn FaxSendDocumentForBroadcastA(faxhandle: super::super::Foundation::HANDLE, filename: ::windows_sys::core::PCSTR, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxSendDocumentForBroadcastW(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PWSTR, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    pub fn FaxSendDocumentForBroadcastW(faxhandle: super::super::Foundation::HANDLE, filename: ::windows_sys::core::PCWSTR, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxSendDocumentW(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PWSTR, jobparams: *mut FAX_JOB_PARAMW, coverpageinfo: *const FAX_COVERPAGE_INFOW, faxjobid: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn FaxSendDocumentW(faxhandle: super::super::Foundation::HANDLE, filename: ::windows_sys::core::PCWSTR, jobparams: *mut FAX_JOB_PARAMW, coverpageinfo: *const FAX_COVERPAGE_INFOW, faxjobid: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FaxSetConfigurationA(faxhandle: super::super::Foundation::HANDLE, faxconfig: *const FAX_CONFIGURATIONA) -> super::super::Foundation::BOOL;
@@ -158,22 +158,21 @@ extern "system" {
     pub fn FaxSetPortW(faxporthandle: super::super::Foundation::HANDLE, portinfo: *const FAX_PORT_INFOW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxSetRoutingInfoA(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL;
+    pub fn FaxSetRoutingInfoA(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxSetRoutingInfoW(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PWSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL;
+    pub fn FaxSetRoutingInfoW(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCWSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn FaxStartPrintJobA(printername: super::super::Foundation::PSTR, printinfo: *const FAX_PRINT_INFOA, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOA) -> super::super::Foundation::BOOL;
+    pub fn FaxStartPrintJobA(printername: ::windows_sys::core::PCSTR, printinfo: *const FAX_PRINT_INFOA, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOA) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn FaxStartPrintJobW(printername: super::super::Foundation::PWSTR, printinfo: *const FAX_PRINT_INFOW, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOW) -> super::super::Foundation::BOOL;
+    pub fn FaxStartPrintJobW(printername: ::windows_sys::core::PCWSTR, printinfo: *const FAX_PRINT_INFOW, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FaxUnregisterServiceProviderW(deviceprovider: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SendToFaxRecipient(sndmode: SendToMode, lpfilename: super::super::Foundation::PWSTR) -> u32;
+    pub fn FaxUnregisterServiceProviderW(deviceprovider: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Devices_Fax'*"]
+    pub fn SendToFaxRecipient(sndmode: SendToMode, lpfilename: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StiCreateInstanceW(hinst: super::super::Foundation::HINSTANCE, dwver: u32, ppsti: *mut IStillImageW, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
@@ -282,8 +281,8 @@ pub struct FAX_CONFIGURATIONA {
     pub StartCheapTime: FAX_TIME,
     pub StopCheapTime: FAX_TIME,
     pub ArchiveOutgoingFaxes: super::super::Foundation::BOOL,
-    pub ArchiveDirectory: super::super::Foundation::PSTR,
-    pub Reserved: super::super::Foundation::PSTR,
+    pub ArchiveDirectory: ::windows_sys::core::PCSTR,
+    pub Reserved: ::windows_sys::core::PCSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_CONFIGURATIONA {}
@@ -308,8 +307,8 @@ pub struct FAX_CONFIGURATIONW {
     pub StartCheapTime: FAX_TIME,
     pub StopCheapTime: FAX_TIME,
     pub ArchiveOutgoingFaxes: super::super::Foundation::BOOL,
-    pub ArchiveDirectory: super::super::Foundation::PWSTR,
-    pub Reserved: super::super::Foundation::PWSTR,
+    pub ArchiveDirectory: ::windows_sys::core::PCWSTR,
+    pub Reserved: ::windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_CONFIGURATIONW {}
@@ -360,32 +359,32 @@ impl ::core::clone::Clone for FAX_CONTEXT_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct FAX_COVERPAGE_INFOA {
     pub SizeOfStruct: u32,
-    pub CoverPageName: super::super::Foundation::PSTR,
+    pub CoverPageName: ::windows_sys::core::PCSTR,
     pub UseServerCoverPage: super::super::Foundation::BOOL,
-    pub RecName: super::super::Foundation::PSTR,
-    pub RecFaxNumber: super::super::Foundation::PSTR,
-    pub RecCompany: super::super::Foundation::PSTR,
-    pub RecStreetAddress: super::super::Foundation::PSTR,
-    pub RecCity: super::super::Foundation::PSTR,
-    pub RecState: super::super::Foundation::PSTR,
-    pub RecZip: super::super::Foundation::PSTR,
-    pub RecCountry: super::super::Foundation::PSTR,
-    pub RecTitle: super::super::Foundation::PSTR,
-    pub RecDepartment: super::super::Foundation::PSTR,
-    pub RecOfficeLocation: super::super::Foundation::PSTR,
-    pub RecHomePhone: super::super::Foundation::PSTR,
-    pub RecOfficePhone: super::super::Foundation::PSTR,
-    pub SdrName: super::super::Foundation::PSTR,
-    pub SdrFaxNumber: super::super::Foundation::PSTR,
-    pub SdrCompany: super::super::Foundation::PSTR,
-    pub SdrAddress: super::super::Foundation::PSTR,
-    pub SdrTitle: super::super::Foundation::PSTR,
-    pub SdrDepartment: super::super::Foundation::PSTR,
-    pub SdrOfficeLocation: super::super::Foundation::PSTR,
-    pub SdrHomePhone: super::super::Foundation::PSTR,
-    pub SdrOfficePhone: super::super::Foundation::PSTR,
-    pub Note: super::super::Foundation::PSTR,
-    pub Subject: super::super::Foundation::PSTR,
+    pub RecName: ::windows_sys::core::PCSTR,
+    pub RecFaxNumber: ::windows_sys::core::PCSTR,
+    pub RecCompany: ::windows_sys::core::PCSTR,
+    pub RecStreetAddress: ::windows_sys::core::PCSTR,
+    pub RecCity: ::windows_sys::core::PCSTR,
+    pub RecState: ::windows_sys::core::PCSTR,
+    pub RecZip: ::windows_sys::core::PCSTR,
+    pub RecCountry: ::windows_sys::core::PCSTR,
+    pub RecTitle: ::windows_sys::core::PCSTR,
+    pub RecDepartment: ::windows_sys::core::PCSTR,
+    pub RecOfficeLocation: ::windows_sys::core::PCSTR,
+    pub RecHomePhone: ::windows_sys::core::PCSTR,
+    pub RecOfficePhone: ::windows_sys::core::PCSTR,
+    pub SdrName: ::windows_sys::core::PCSTR,
+    pub SdrFaxNumber: ::windows_sys::core::PCSTR,
+    pub SdrCompany: ::windows_sys::core::PCSTR,
+    pub SdrAddress: ::windows_sys::core::PCSTR,
+    pub SdrTitle: ::windows_sys::core::PCSTR,
+    pub SdrDepartment: ::windows_sys::core::PCSTR,
+    pub SdrOfficeLocation: ::windows_sys::core::PCSTR,
+    pub SdrHomePhone: ::windows_sys::core::PCSTR,
+    pub SdrOfficePhone: ::windows_sys::core::PCSTR,
+    pub Note: ::windows_sys::core::PCSTR,
+    pub Subject: ::windows_sys::core::PCSTR,
     pub TimeSent: super::super::Foundation::SYSTEMTIME,
     pub PageCount: u32,
 }
@@ -402,32 +401,32 @@ impl ::core::clone::Clone for FAX_COVERPAGE_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct FAX_COVERPAGE_INFOW {
     pub SizeOfStruct: u32,
-    pub CoverPageName: super::super::Foundation::PWSTR,
+    pub CoverPageName: ::windows_sys::core::PCWSTR,
     pub UseServerCoverPage: super::super::Foundation::BOOL,
-    pub RecName: super::super::Foundation::PWSTR,
-    pub RecFaxNumber: super::super::Foundation::PWSTR,
-    pub RecCompany: super::super::Foundation::PWSTR,
-    pub RecStreetAddress: super::super::Foundation::PWSTR,
-    pub RecCity: super::super::Foundation::PWSTR,
-    pub RecState: super::super::Foundation::PWSTR,
-    pub RecZip: super::super::Foundation::PWSTR,
-    pub RecCountry: super::super::Foundation::PWSTR,
-    pub RecTitle: super::super::Foundation::PWSTR,
-    pub RecDepartment: super::super::Foundation::PWSTR,
-    pub RecOfficeLocation: super::super::Foundation::PWSTR,
-    pub RecHomePhone: super::super::Foundation::PWSTR,
-    pub RecOfficePhone: super::super::Foundation::PWSTR,
-    pub SdrName: super::super::Foundation::PWSTR,
-    pub SdrFaxNumber: super::super::Foundation::PWSTR,
-    pub SdrCompany: super::super::Foundation::PWSTR,
-    pub SdrAddress: super::super::Foundation::PWSTR,
-    pub SdrTitle: super::super::Foundation::PWSTR,
-    pub SdrDepartment: super::super::Foundation::PWSTR,
-    pub SdrOfficeLocation: super::super::Foundation::PWSTR,
-    pub SdrHomePhone: super::super::Foundation::PWSTR,
-    pub SdrOfficePhone: super::super::Foundation::PWSTR,
-    pub Note: super::super::Foundation::PWSTR,
-    pub Subject: super::super::Foundation::PWSTR,
+    pub RecName: ::windows_sys::core::PCWSTR,
+    pub RecFaxNumber: ::windows_sys::core::PCWSTR,
+    pub RecCompany: ::windows_sys::core::PCWSTR,
+    pub RecStreetAddress: ::windows_sys::core::PCWSTR,
+    pub RecCity: ::windows_sys::core::PCWSTR,
+    pub RecState: ::windows_sys::core::PCWSTR,
+    pub RecZip: ::windows_sys::core::PCWSTR,
+    pub RecCountry: ::windows_sys::core::PCWSTR,
+    pub RecTitle: ::windows_sys::core::PCWSTR,
+    pub RecDepartment: ::windows_sys::core::PCWSTR,
+    pub RecOfficeLocation: ::windows_sys::core::PCWSTR,
+    pub RecHomePhone: ::windows_sys::core::PCWSTR,
+    pub RecOfficePhone: ::windows_sys::core::PCWSTR,
+    pub SdrName: ::windows_sys::core::PCWSTR,
+    pub SdrFaxNumber: ::windows_sys::core::PCWSTR,
+    pub SdrCompany: ::windows_sys::core::PCWSTR,
+    pub SdrAddress: ::windows_sys::core::PCWSTR,
+    pub SdrTitle: ::windows_sys::core::PCWSTR,
+    pub SdrDepartment: ::windows_sys::core::PCWSTR,
+    pub SdrOfficeLocation: ::windows_sys::core::PCWSTR,
+    pub SdrHomePhone: ::windows_sys::core::PCWSTR,
+    pub SdrOfficePhone: ::windows_sys::core::PCWSTR,
+    pub Note: ::windows_sys::core::PCWSTR,
+    pub Subject: ::windows_sys::core::PCWSTR,
     pub TimeSent: super::super::Foundation::SYSTEMTIME,
     pub PageCount: u32,
 }
@@ -460,25 +459,25 @@ pub const fdrmMANUAL_ANSWER: FAX_DEVICE_RECEIVE_MODE_ENUM = 2i32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct FAX_DEVICE_STATUSA {
     pub SizeOfStruct: u32,
-    pub CallerId: super::super::Foundation::PSTR,
-    pub Csid: super::super::Foundation::PSTR,
+    pub CallerId: ::windows_sys::core::PCSTR,
+    pub Csid: ::windows_sys::core::PCSTR,
     pub CurrentPage: u32,
     pub DeviceId: u32,
-    pub DeviceName: super::super::Foundation::PSTR,
-    pub DocumentName: super::super::Foundation::PSTR,
+    pub DeviceName: ::windows_sys::core::PCSTR,
+    pub DocumentName: ::windows_sys::core::PCSTR,
     pub JobType: u32,
-    pub PhoneNumber: super::super::Foundation::PSTR,
-    pub RoutingString: super::super::Foundation::PSTR,
-    pub SenderName: super::super::Foundation::PSTR,
-    pub RecipientName: super::super::Foundation::PSTR,
+    pub PhoneNumber: ::windows_sys::core::PCSTR,
+    pub RoutingString: ::windows_sys::core::PCSTR,
+    pub SenderName: ::windows_sys::core::PCSTR,
+    pub RecipientName: ::windows_sys::core::PCSTR,
     pub Size: u32,
     pub StartTime: super::super::Foundation::FILETIME,
     pub Status: u32,
-    pub StatusString: super::super::Foundation::PSTR,
+    pub StatusString: ::windows_sys::core::PCSTR,
     pub SubmittedTime: super::super::Foundation::FILETIME,
     pub TotalPages: u32,
-    pub Tsid: super::super::Foundation::PSTR,
-    pub UserName: super::super::Foundation::PSTR,
+    pub Tsid: ::windows_sys::core::PCSTR,
+    pub UserName: ::windows_sys::core::PCSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_DEVICE_STATUSA {}
@@ -493,25 +492,25 @@ impl ::core::clone::Clone for FAX_DEVICE_STATUSA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct FAX_DEVICE_STATUSW {
     pub SizeOfStruct: u32,
-    pub CallerId: super::super::Foundation::PWSTR,
-    pub Csid: super::super::Foundation::PWSTR,
+    pub CallerId: ::windows_sys::core::PCWSTR,
+    pub Csid: ::windows_sys::core::PCWSTR,
     pub CurrentPage: u32,
     pub DeviceId: u32,
-    pub DeviceName: super::super::Foundation::PWSTR,
-    pub DocumentName: super::super::Foundation::PWSTR,
+    pub DeviceName: ::windows_sys::core::PCWSTR,
+    pub DocumentName: ::windows_sys::core::PCWSTR,
     pub JobType: u32,
-    pub PhoneNumber: super::super::Foundation::PWSTR,
-    pub RoutingString: super::super::Foundation::PWSTR,
-    pub SenderName: super::super::Foundation::PWSTR,
-    pub RecipientName: super::super::Foundation::PWSTR,
+    pub PhoneNumber: ::windows_sys::core::PCWSTR,
+    pub RoutingString: ::windows_sys::core::PCWSTR,
+    pub SenderName: ::windows_sys::core::PCWSTR,
+    pub RecipientName: ::windows_sys::core::PCWSTR,
     pub Size: u32,
     pub StartTime: super::super::Foundation::FILETIME,
     pub Status: u32,
-    pub StatusString: super::super::Foundation::PWSTR,
+    pub StatusString: ::windows_sys::core::PCWSTR,
     pub SubmittedTime: super::super::Foundation::FILETIME,
     pub TotalPages: u32,
-    pub Tsid: super::super::Foundation::PWSTR,
-    pub UserName: super::super::Foundation::PWSTR,
+    pub Tsid: ::windows_sys::core::PCWSTR,
+    pub UserName: ::windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_DEVICE_STATUSW {}
@@ -522,22 +521,19 @@ impl ::core::clone::Clone for FAX_DEVICE_STATUSW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_DEV_STATUS {
     pub SizeOfStruct: u32,
     pub StatusId: u32,
     pub StringId: u32,
     pub PageCount: u32,
-    pub CSI: super::super::Foundation::PWSTR,
-    pub CallerId: super::super::Foundation::PWSTR,
-    pub RoutingInfo: super::super::Foundation::PWSTR,
+    pub CSI: ::windows_sys::core::PWSTR,
+    pub CallerId: ::windows_sys::core::PWSTR,
+    pub RoutingInfo: ::windows_sys::core::PWSTR,
     pub ErrorCode: u32,
     pub Reserved: [u32; 3],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_DEV_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FAX_DEV_STATUS {
     fn clone(&self) -> Self {
         *self
@@ -694,40 +690,34 @@ pub const FAX_E_SRV_OUTOFMEMORY: ::windows_sys::core::HRESULT = -2147214503i32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const FAX_E_VERSION_MISMATCH: ::windows_sys::core::HRESULT = -2147214492i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_GLOBAL_ROUTING_INFOA {
     pub SizeOfStruct: u32,
     pub Priority: u32,
-    pub Guid: super::super::Foundation::PSTR,
-    pub FriendlyName: super::super::Foundation::PSTR,
-    pub FunctionName: super::super::Foundation::PSTR,
-    pub ExtensionImageName: super::super::Foundation::PSTR,
-    pub ExtensionFriendlyName: super::super::Foundation::PSTR,
+    pub Guid: ::windows_sys::core::PCSTR,
+    pub FriendlyName: ::windows_sys::core::PCSTR,
+    pub FunctionName: ::windows_sys::core::PCSTR,
+    pub ExtensionImageName: ::windows_sys::core::PCSTR,
+    pub ExtensionFriendlyName: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_GLOBAL_ROUTING_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FAX_GLOBAL_ROUTING_INFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_GLOBAL_ROUTING_INFOW {
     pub SizeOfStruct: u32,
     pub Priority: u32,
-    pub Guid: super::super::Foundation::PWSTR,
-    pub FriendlyName: super::super::Foundation::PWSTR,
-    pub FunctionName: super::super::Foundation::PWSTR,
-    pub ExtensionImageName: super::super::Foundation::PWSTR,
-    pub ExtensionFriendlyName: super::super::Foundation::PWSTR,
+    pub Guid: ::windows_sys::core::PCWSTR,
+    pub FriendlyName: ::windows_sys::core::PCWSTR,
+    pub FunctionName: ::windows_sys::core::PCWSTR,
+    pub ExtensionImageName: ::windows_sys::core::PCWSTR,
+    pub ExtensionFriendlyName: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_GLOBAL_ROUTING_INFOW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FAX_GLOBAL_ROUTING_INFOW {
     fn clone(&self) -> Self {
         *self
@@ -749,24 +739,24 @@ pub const fgsSOME_DEV_NOT_VALID: FAX_GROUP_STATUS_ENUM = 3i32;
 pub struct FAX_JOB_ENTRYA {
     pub SizeOfStruct: u32,
     pub JobId: u32,
-    pub UserName: super::super::Foundation::PSTR,
+    pub UserName: ::windows_sys::core::PCSTR,
     pub JobType: u32,
     pub QueueStatus: u32,
     pub Status: u32,
     pub Size: u32,
     pub PageCount: u32,
-    pub RecipientNumber: super::super::Foundation::PSTR,
-    pub RecipientName: super::super::Foundation::PSTR,
-    pub Tsid: super::super::Foundation::PSTR,
-    pub SenderName: super::super::Foundation::PSTR,
-    pub SenderCompany: super::super::Foundation::PSTR,
-    pub SenderDept: super::super::Foundation::PSTR,
-    pub BillingCode: super::super::Foundation::PSTR,
+    pub RecipientNumber: ::windows_sys::core::PCSTR,
+    pub RecipientName: ::windows_sys::core::PCSTR,
+    pub Tsid: ::windows_sys::core::PCSTR,
+    pub SenderName: ::windows_sys::core::PCSTR,
+    pub SenderCompany: ::windows_sys::core::PCSTR,
+    pub SenderDept: ::windows_sys::core::PCSTR,
+    pub BillingCode: ::windows_sys::core::PCSTR,
     pub ScheduleAction: u32,
     pub ScheduleTime: super::super::Foundation::SYSTEMTIME,
     pub DeliveryReportType: u32,
-    pub DeliveryReportAddress: super::super::Foundation::PSTR,
-    pub DocumentName: super::super::Foundation::PSTR,
+    pub DeliveryReportAddress: ::windows_sys::core::PCSTR,
+    pub DocumentName: ::windows_sys::core::PCSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_JOB_ENTRYA {}
@@ -782,24 +772,24 @@ impl ::core::clone::Clone for FAX_JOB_ENTRYA {
 pub struct FAX_JOB_ENTRYW {
     pub SizeOfStruct: u32,
     pub JobId: u32,
-    pub UserName: super::super::Foundation::PWSTR,
+    pub UserName: ::windows_sys::core::PCWSTR,
     pub JobType: u32,
     pub QueueStatus: u32,
     pub Status: u32,
     pub Size: u32,
     pub PageCount: u32,
-    pub RecipientNumber: super::super::Foundation::PWSTR,
-    pub RecipientName: super::super::Foundation::PWSTR,
-    pub Tsid: super::super::Foundation::PWSTR,
-    pub SenderName: super::super::Foundation::PWSTR,
-    pub SenderCompany: super::super::Foundation::PWSTR,
-    pub SenderDept: super::super::Foundation::PWSTR,
-    pub BillingCode: super::super::Foundation::PWSTR,
+    pub RecipientNumber: ::windows_sys::core::PCWSTR,
+    pub RecipientName: ::windows_sys::core::PCWSTR,
+    pub Tsid: ::windows_sys::core::PCWSTR,
+    pub SenderName: ::windows_sys::core::PCWSTR,
+    pub SenderCompany: ::windows_sys::core::PCWSTR,
+    pub SenderDept: ::windows_sys::core::PCWSTR,
+    pub BillingCode: ::windows_sys::core::PCWSTR,
     pub ScheduleAction: u32,
     pub ScheduleTime: super::super::Foundation::SYSTEMTIME,
     pub DeliveryReportType: u32,
-    pub DeliveryReportAddress: super::super::Foundation::PWSTR,
-    pub DocumentName: super::super::Foundation::PWSTR,
+    pub DeliveryReportAddress: ::windows_sys::core::PCWSTR,
+    pub DocumentName: ::windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_JOB_ENTRYW {}
@@ -876,18 +866,18 @@ pub const fjoSENDER_INFO: FAX_JOB_OPERATIONS_ENUM = 64i32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct FAX_JOB_PARAMA {
     pub SizeOfStruct: u32,
-    pub RecipientNumber: super::super::Foundation::PSTR,
-    pub RecipientName: super::super::Foundation::PSTR,
-    pub Tsid: super::super::Foundation::PSTR,
-    pub SenderName: super::super::Foundation::PSTR,
-    pub SenderCompany: super::super::Foundation::PSTR,
-    pub SenderDept: super::super::Foundation::PSTR,
-    pub BillingCode: super::super::Foundation::PSTR,
+    pub RecipientNumber: ::windows_sys::core::PCSTR,
+    pub RecipientName: ::windows_sys::core::PCSTR,
+    pub Tsid: ::windows_sys::core::PCSTR,
+    pub SenderName: ::windows_sys::core::PCSTR,
+    pub SenderCompany: ::windows_sys::core::PCSTR,
+    pub SenderDept: ::windows_sys::core::PCSTR,
+    pub BillingCode: ::windows_sys::core::PCSTR,
     pub ScheduleAction: u32,
     pub ScheduleTime: super::super::Foundation::SYSTEMTIME,
     pub DeliveryReportType: u32,
-    pub DeliveryReportAddress: super::super::Foundation::PSTR,
-    pub DocumentName: super::super::Foundation::PSTR,
+    pub DeliveryReportAddress: ::windows_sys::core::PCSTR,
+    pub DocumentName: ::windows_sys::core::PCSTR,
     pub CallHandle: u32,
     pub Reserved: [usize; 3],
 }
@@ -904,18 +894,18 @@ impl ::core::clone::Clone for FAX_JOB_PARAMA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct FAX_JOB_PARAMW {
     pub SizeOfStruct: u32,
-    pub RecipientNumber: super::super::Foundation::PWSTR,
-    pub RecipientName: super::super::Foundation::PWSTR,
-    pub Tsid: super::super::Foundation::PWSTR,
-    pub SenderName: super::super::Foundation::PWSTR,
-    pub SenderCompany: super::super::Foundation::PWSTR,
-    pub SenderDept: super::super::Foundation::PWSTR,
-    pub BillingCode: super::super::Foundation::PWSTR,
+    pub RecipientNumber: ::windows_sys::core::PCWSTR,
+    pub RecipientName: ::windows_sys::core::PCWSTR,
+    pub Tsid: ::windows_sys::core::PCWSTR,
+    pub SenderName: ::windows_sys::core::PCWSTR,
+    pub SenderCompany: ::windows_sys::core::PCWSTR,
+    pub SenderDept: ::windows_sys::core::PCWSTR,
+    pub BillingCode: ::windows_sys::core::PCWSTR,
     pub ScheduleAction: u32,
     pub ScheduleTime: super::super::Foundation::SYSTEMTIME,
     pub DeliveryReportType: u32,
-    pub DeliveryReportAddress: super::super::Foundation::PWSTR,
-    pub DocumentName: super::super::Foundation::PWSTR,
+    pub DeliveryReportAddress: ::windows_sys::core::PCWSTR,
+    pub DocumentName: ::windows_sys::core::PCWSTR,
     pub CallHandle: u32,
     pub Reserved: [usize; 3],
 }
@@ -964,32 +954,26 @@ pub const fjtRECEIVE: FAX_JOB_TYPE_ENUM = 1i32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const fjtROUTING: FAX_JOB_TYPE_ENUM = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_LOG_CATEGORYA {
-    pub Name: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
     pub Category: u32,
     pub Level: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_LOG_CATEGORYA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FAX_LOG_CATEGORYA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_LOG_CATEGORYW {
-    pub Name: super::super::Foundation::PWSTR,
+    pub Name: ::windows_sys::core::PCWSTR,
     pub Category: u32,
     pub Level: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_LOG_CATEGORYW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FAX_LOG_CATEGORYW {
     fn clone(&self) -> Self {
         *self
@@ -1006,8 +990,7 @@ pub const fllMED: FAX_LOG_LEVEL_ENUM = 2i32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const fllMAX: FAX_LOG_LEVEL_ENUM = 3i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_PORT_INFOA {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -1015,21 +998,18 @@ pub struct FAX_PORT_INFOA {
     pub Flags: u32,
     pub Rings: u32,
     pub Priority: u32,
-    pub DeviceName: super::super::Foundation::PSTR,
-    pub Tsid: super::super::Foundation::PSTR,
-    pub Csid: super::super::Foundation::PSTR,
+    pub DeviceName: ::windows_sys::core::PCSTR,
+    pub Tsid: ::windows_sys::core::PCSTR,
+    pub Csid: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_PORT_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FAX_PORT_INFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_PORT_INFOW {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -1037,13 +1017,11 @@ pub struct FAX_PORT_INFOW {
     pub Flags: u32,
     pub Rings: u32,
     pub Priority: u32,
-    pub DeviceName: super::super::Foundation::PWSTR,
-    pub Tsid: super::super::Foundation::PWSTR,
-    pub Csid: super::super::Foundation::PWSTR,
+    pub DeviceName: ::windows_sys::core::PCWSTR,
+    pub Tsid: ::windows_sys::core::PCWSTR,
+    pub Csid: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_PORT_INFOW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FAX_PORT_INFOW {
     fn clone(&self) -> Self {
         *self
@@ -1054,48 +1032,42 @@ pub const FAX_PORT_QUERY: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const FAX_PORT_SET: u32 = 32u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_PRINT_INFOA {
     pub SizeOfStruct: u32,
-    pub DocName: super::super::Foundation::PSTR,
-    pub RecipientName: super::super::Foundation::PSTR,
-    pub RecipientNumber: super::super::Foundation::PSTR,
-    pub SenderName: super::super::Foundation::PSTR,
-    pub SenderCompany: super::super::Foundation::PSTR,
-    pub SenderDept: super::super::Foundation::PSTR,
-    pub SenderBillingCode: super::super::Foundation::PSTR,
-    pub Reserved: super::super::Foundation::PSTR,
-    pub DrEmailAddress: super::super::Foundation::PSTR,
-    pub OutputFileName: super::super::Foundation::PSTR,
+    pub DocName: ::windows_sys::core::PCSTR,
+    pub RecipientName: ::windows_sys::core::PCSTR,
+    pub RecipientNumber: ::windows_sys::core::PCSTR,
+    pub SenderName: ::windows_sys::core::PCSTR,
+    pub SenderCompany: ::windows_sys::core::PCSTR,
+    pub SenderDept: ::windows_sys::core::PCSTR,
+    pub SenderBillingCode: ::windows_sys::core::PCSTR,
+    pub Reserved: ::windows_sys::core::PCSTR,
+    pub DrEmailAddress: ::windows_sys::core::PCSTR,
+    pub OutputFileName: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_PRINT_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FAX_PRINT_INFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_PRINT_INFOW {
     pub SizeOfStruct: u32,
-    pub DocName: super::super::Foundation::PWSTR,
-    pub RecipientName: super::super::Foundation::PWSTR,
-    pub RecipientNumber: super::super::Foundation::PWSTR,
-    pub SenderName: super::super::Foundation::PWSTR,
-    pub SenderCompany: super::super::Foundation::PWSTR,
-    pub SenderDept: super::super::Foundation::PWSTR,
-    pub SenderBillingCode: super::super::Foundation::PWSTR,
-    pub Reserved: super::super::Foundation::PWSTR,
-    pub DrEmailAddress: super::super::Foundation::PWSTR,
-    pub OutputFileName: super::super::Foundation::PWSTR,
+    pub DocName: ::windows_sys::core::PCWSTR,
+    pub RecipientName: ::windows_sys::core::PCWSTR,
+    pub RecipientNumber: ::windows_sys::core::PCWSTR,
+    pub SenderName: ::windows_sys::core::PCWSTR,
+    pub SenderCompany: ::windows_sys::core::PCWSTR,
+    pub SenderDept: ::windows_sys::core::PCWSTR,
+    pub SenderBillingCode: ::windows_sys::core::PCWSTR,
+    pub Reserved: ::windows_sys::core::PCWSTR,
+    pub DrEmailAddress: ::windows_sys::core::PCWSTR,
+    pub OutputFileName: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_PRINT_INFOW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FAX_PRINT_INFOW {
     fn clone(&self) -> Self {
         *self
@@ -1134,46 +1106,40 @@ pub const frtMAIL: FAX_RECEIPT_TYPE_ENUM = 1i32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const frtMSGBOX: FAX_RECEIPT_TYPE_ENUM = 4i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_RECEIVE {
     pub SizeOfStruct: u32,
-    pub FileName: super::super::Foundation::PWSTR,
-    pub ReceiverName: super::super::Foundation::PWSTR,
-    pub ReceiverNumber: super::super::Foundation::PWSTR,
+    pub FileName: ::windows_sys::core::PWSTR,
+    pub ReceiverName: ::windows_sys::core::PWSTR,
+    pub ReceiverNumber: ::windows_sys::core::PWSTR,
     pub Reserved: [u32; 4],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_RECEIVE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FAX_RECEIVE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_ROUTE {
     pub SizeOfStruct: u32,
     pub JobId: u32,
     pub ElapsedTime: u64,
     pub ReceiveTime: u64,
     pub PageCount: u32,
-    pub Csid: super::super::Foundation::PWSTR,
-    pub Tsid: super::super::Foundation::PWSTR,
-    pub CallerId: super::super::Foundation::PWSTR,
-    pub RoutingInfo: super::super::Foundation::PWSTR,
-    pub ReceiverName: super::super::Foundation::PWSTR,
-    pub ReceiverNumber: super::super::Foundation::PWSTR,
-    pub DeviceName: super::super::Foundation::PWSTR,
+    pub Csid: ::windows_sys::core::PCWSTR,
+    pub Tsid: ::windows_sys::core::PCWSTR,
+    pub CallerId: ::windows_sys::core::PCWSTR,
+    pub RoutingInfo: ::windows_sys::core::PCWSTR,
+    pub ReceiverName: ::windows_sys::core::PCWSTR,
+    pub ReceiverNumber: ::windows_sys::core::PCWSTR,
+    pub DeviceName: ::windows_sys::core::PCWSTR,
     pub DeviceId: u32,
     pub RoutingInfoData: *mut u8,
     pub RoutingInfoDataSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_ROUTE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FAX_ROUTE {
     fn clone(&self) -> Self {
         *self
@@ -1205,12 +1171,12 @@ pub struct FAX_ROUTING_METHODA {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
     pub Enabled: super::super::Foundation::BOOL,
-    pub DeviceName: super::super::Foundation::PSTR,
-    pub Guid: super::super::Foundation::PSTR,
-    pub FriendlyName: super::super::Foundation::PSTR,
-    pub FunctionName: super::super::Foundation::PSTR,
-    pub ExtensionImageName: super::super::Foundation::PSTR,
-    pub ExtensionFriendlyName: super::super::Foundation::PSTR,
+    pub DeviceName: ::windows_sys::core::PCSTR,
+    pub Guid: ::windows_sys::core::PCSTR,
+    pub FriendlyName: ::windows_sys::core::PCSTR,
+    pub FunctionName: ::windows_sys::core::PCSTR,
+    pub ExtensionImageName: ::windows_sys::core::PCSTR,
+    pub ExtensionFriendlyName: ::windows_sys::core::PCSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_ROUTING_METHODA {}
@@ -1227,12 +1193,12 @@ pub struct FAX_ROUTING_METHODW {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
     pub Enabled: super::super::Foundation::BOOL,
-    pub DeviceName: super::super::Foundation::PWSTR,
-    pub Guid: super::super::Foundation::PWSTR,
-    pub FriendlyName: super::super::Foundation::PWSTR,
-    pub FunctionName: super::super::Foundation::PWSTR,
-    pub ExtensionImageName: super::super::Foundation::PWSTR,
-    pub ExtensionFriendlyName: super::super::Foundation::PWSTR,
+    pub DeviceName: ::windows_sys::core::PCWSTR,
+    pub Guid: ::windows_sys::core::PCWSTR,
+    pub FriendlyName: ::windows_sys::core::PCWSTR,
+    pub FunctionName: ::windows_sys::core::PCWSTR,
+    pub ExtensionImageName: ::windows_sys::core::PCWSTR,
+    pub ExtensionFriendlyName: ::windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FAX_ROUTING_METHODW {}
@@ -1271,11 +1237,11 @@ pub const fstDISCOUNT_PERIOD: FAX_SCHEDULE_TYPE_ENUM = 2i32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct FAX_SEND {
     pub SizeOfStruct: u32,
-    pub FileName: super::super::Foundation::PWSTR,
-    pub CallerName: super::super::Foundation::PWSTR,
-    pub CallerNumber: super::super::Foundation::PWSTR,
-    pub ReceiverName: super::super::Foundation::PWSTR,
-    pub ReceiverNumber: super::super::Foundation::PWSTR,
+    pub FileName: ::windows_sys::core::PWSTR,
+    pub CallerName: ::windows_sys::core::PWSTR,
+    pub CallerNumber: ::windows_sys::core::PWSTR,
+    pub ReceiverName: ::windows_sys::core::PWSTR,
+    pub ReceiverNumber: ::windows_sys::core::PWSTR,
     pub Branding: super::super::Foundation::BOOL,
     pub CallHandle: u32,
     pub Reserved: [u32; 3],
@@ -1660,10 +1626,10 @@ pub type PFAXCOMPLETEJOBPARAMSA = ::core::option::Option<unsafe extern "system" 
 pub type PFAXCOMPLETEJOBPARAMSW = ::core::option::Option<unsafe extern "system" fn(jobparams: *mut *mut FAX_JOB_PARAMW, coverpageinfo: *mut *mut FAX_COVERPAGE_INFOW) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXCONNECTFAXSERVERA = ::core::option::Option<unsafe extern "system" fn(machinename: super::super::Foundation::PSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFAXCONNECTFAXSERVERA = ::core::option::Option<unsafe extern "system" fn(machinename: ::windows_sys::core::PCSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXCONNECTFAXSERVERW = ::core::option::Option<unsafe extern "system" fn(machinename: super::super::Foundation::PWSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PFAXCONNECTFAXSERVERW = ::core::option::Option<unsafe extern "system" fn(machinename: ::windows_sys::core::PCWSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAXDEVABORTOPERATION = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
@@ -1692,13 +1658,13 @@ pub type PFAXDEVSHUTDOWN = ::core::option::Option<unsafe extern "system" fn() ->
 pub type PFAXDEVSTARTJOB = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: *mut super::super::Foundation::HANDLE, param3: super::super::Foundation::HANDLE, param4: usize) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXDEVVIRTUALDEVICECREATION = ::core::option::Option<unsafe extern "system" fn(devicecount: *mut u32, devicenameprefix: super::super::Foundation::PWSTR, deviceidprefix: *mut u32, completionport: super::super::Foundation::HANDLE, completionkey: usize) -> super::super::Foundation::BOOL>;
+pub type PFAXDEVVIRTUALDEVICECREATION = ::core::option::Option<unsafe extern "system" fn(devicecount: *mut u32, devicenameprefix: ::windows_sys::core::PWSTR, deviceidprefix: *mut u32, completionport: super::super::Foundation::HANDLE, completionkey: usize) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXENABLEROUTINGMETHODA = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PSTR, enabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
+pub type PFAXENABLEROUTINGMETHODA = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCSTR, enabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXENABLEROUTINGMETHODW = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PWSTR, enabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
+pub type PFAXENABLEROUTINGMETHODW = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCWSTR, enabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAXENUMGLOBALROUTINGINFOA = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, routinginfo: *mut *mut FAX_GLOBAL_ROUTING_INFOA, methodsreturned: *mut u32) -> super::super::Foundation::BOOL>;
@@ -1760,10 +1726,10 @@ pub type PFAXGETPORTA = ::core::option::Option<unsafe extern "system" fn(faxport
 pub type PFAXGETPORTW = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, portinfo: *mut *mut FAX_PORT_INFOW) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXGETROUTINGINFOA = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PSTR, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFAXGETROUTINGINFOA = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCSTR, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXGETROUTINGINFOW = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PWSTR, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFAXGETROUTINGINFOW = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCWSTR, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAXINITIALIZEEVENTQUEUE = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, completionport: super::super::Foundation::HANDLE, completionkey: usize, hwnd: super::super::Foundation::HWND, messagestart: u32) -> super::super::Foundation::BOOL>;
@@ -1778,34 +1744,32 @@ pub type PFAXPRINTCOVERPAGEA = ::core::option::Option<unsafe extern "system" fn(
 pub type PFAXPRINTCOVERPAGEW = ::core::option::Option<unsafe extern "system" fn(faxcontextinfo: *const FAX_CONTEXT_INFOW, coverpageinfo: *const FAX_COVERPAGE_INFOW) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXREGISTERROUTINGEXTENSIONW = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, extensionname: super::super::Foundation::PWSTR, friendlyname: super::super::Foundation::PWSTR, imagename: super::super::Foundation::PWSTR, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFAXREGISTERROUTINGEXTENSIONW = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, extensionname: ::windows_sys::core::PCWSTR, friendlyname: ::windows_sys::core::PCWSTR, imagename: ::windows_sys::core::PCWSTR, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXREGISTERSERVICEPROVIDERW = ::core::option::Option<unsafe extern "system" fn(deviceprovider: super::super::Foundation::PWSTR, friendlyname: super::super::Foundation::PWSTR, imagename: super::super::Foundation::PWSTR, tspname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PFAXROUTEADDFILE = ::core::option::Option<unsafe extern "system" fn(jobid: u32, filename: super::super::Foundation::PWSTR, guid: *mut ::windows_sys::core::GUID) -> i32>;
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PFAXROUTEDELETEFILE = ::core::option::Option<unsafe extern "system" fn(jobid: u32, filename: super::super::Foundation::PWSTR) -> i32>;
+pub type PFAXREGISTERSERVICEPROVIDERW = ::core::option::Option<unsafe extern "system" fn(deviceprovider: ::windows_sys::core::PCWSTR, friendlyname: ::windows_sys::core::PCWSTR, imagename: ::windows_sys::core::PCWSTR, tspname: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub type PFAXROUTEADDFILE = ::core::option::Option<unsafe extern "system" fn(jobid: u32, filename: ::windows_sys::core::PCWSTR, guid: *mut ::windows_sys::core::GUID) -> i32>;
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub type PFAXROUTEDELETEFILE = ::core::option::Option<unsafe extern "system" fn(jobid: u32, filename: ::windows_sys::core::PCWSTR) -> i32>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAXROUTEDEVICECHANGENOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXROUTEDEVICEENABLE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: u32, param2: i32) -> super::super::Foundation::BOOL>;
+pub type PFAXROUTEDEVICEENABLE = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: i32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXROUTEENUMFILE = ::core::option::Option<unsafe extern "system" fn(jobid: u32, guidowner: *mut ::windows_sys::core::GUID, guidcaller: *mut ::windows_sys::core::GUID, filename: super::super::Foundation::PWSTR, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFAXROUTEENUMFILE = ::core::option::Option<unsafe extern "system" fn(jobid: u32, guidowner: *mut ::windows_sys::core::GUID, guidcaller: *mut ::windows_sys::core::GUID, filename: ::windows_sys::core::PCWSTR, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAXROUTEENUMFILES = ::core::option::Option<unsafe extern "system" fn(jobid: u32, guid: *mut ::windows_sys::core::GUID, fileenumerator: PFAXROUTEENUMFILE, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXROUTEGETFILE = ::core::option::Option<unsafe extern "system" fn(jobid: u32, index: u32, filenamebuffer: super::super::Foundation::PWSTR, requiredsize: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFAXROUTEGETFILE = ::core::option::Option<unsafe extern "system" fn(jobid: u32, index: u32, filenamebuffer: ::windows_sys::core::PWSTR, requiredsize: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXROUTEGETROUTINGINFO = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut u8, param3: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFAXROUTEGETROUTINGINFO = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: *mut u8, param3: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAXROUTEINITIALIZE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: *mut FAX_ROUTE_CALLBACKROUTINES) -> super::super::Foundation::BOOL>;
@@ -1814,22 +1778,22 @@ pub type PFAXROUTEINITIALIZE = ::core::option::Option<unsafe extern "system" fn(
 pub type PFAXROUTEMETHOD = ::core::option::Option<unsafe extern "system" fn(param0: *const FAX_ROUTE, param1: *mut *mut ::core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXROUTEMODIFYROUTINGDATA = ::core::option::Option<unsafe extern "system" fn(jobid: u32, routingguid: super::super::Foundation::PWSTR, routingdata: *mut u8, routingdatasize: u32) -> super::super::Foundation::BOOL>;
+pub type PFAXROUTEMODIFYROUTINGDATA = ::core::option::Option<unsafe extern "system" fn(jobid: u32, routingguid: ::windows_sys::core::PCWSTR, routingdata: *mut u8, routingdatasize: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXROUTESETROUTINGINFO = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: u32, param2: *const u8, param3: u32) -> super::super::Foundation::BOOL>;
+pub type PFAXROUTESETROUTINGINFO = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: u32, param2: *const u8, param3: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXSENDDOCUMENTA = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PSTR, jobparams: *mut FAX_JOB_PARAMA, coverpageinfo: *const FAX_COVERPAGE_INFOA, faxjobid: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFAXSENDDOCUMENTA = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, filename: ::windows_sys::core::PCSTR, jobparams: *mut FAX_JOB_PARAMA, coverpageinfo: *const FAX_COVERPAGE_INFOA, faxjobid: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXSENDDOCUMENTFORBROADCASTA = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PSTR, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFAXSENDDOCUMENTFORBROADCASTA = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, filename: ::windows_sys::core::PCSTR, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXSENDDOCUMENTFORBROADCASTW = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PWSTR, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PFAXSENDDOCUMENTFORBROADCASTW = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, filename: ::windows_sys::core::PCWSTR, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXSENDDOCUMENTW = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, filename: super::super::Foundation::PWSTR, jobparams: *mut FAX_JOB_PARAMW, coverpageinfo: *const FAX_COVERPAGE_INFOW, faxjobid: *mut u32) -> super::super::Foundation::BOOL>;
+pub type PFAXSENDDOCUMENTW = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, filename: ::windows_sys::core::PCWSTR, jobparams: *mut FAX_JOB_PARAMW, coverpageinfo: *const FAX_COVERPAGE_INFOW, faxjobid: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAXSETCONFIGURATIONA = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, faxconfig: *const FAX_CONFIGURATIONA) -> super::super::Foundation::BOOL>;
@@ -1862,36 +1826,34 @@ pub type PFAXSETPORTA = ::core::option::Option<unsafe extern "system" fn(faxport
 pub type PFAXSETPORTW = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, portinfo: *const FAX_PORT_INFOW) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXSETROUTINGINFOA = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL>;
+pub type PFAXSETROUTINGINFOA = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXSETROUTINGINFOW = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: super::super::Foundation::PWSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL>;
+pub type PFAXSETROUTINGINFOW = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_sys::core::PCWSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFAXSTARTPRINTJOBA = ::core::option::Option<unsafe extern "system" fn(printername: super::super::Foundation::PSTR, printinfo: *const FAX_PRINT_INFOA, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOA) -> super::super::Foundation::BOOL>;
+pub type PFAXSTARTPRINTJOBA = ::core::option::Option<unsafe extern "system" fn(printername: ::windows_sys::core::PCSTR, printinfo: *const FAX_PRINT_INFOA, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOA) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFAXSTARTPRINTJOBW = ::core::option::Option<unsafe extern "system" fn(printername: super::super::Foundation::PWSTR, printinfo: *const FAX_PRINT_INFOW, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOW) -> super::super::Foundation::BOOL>;
+pub type PFAXSTARTPRINTJOBW = ::core::option::Option<unsafe extern "system" fn(printername: ::windows_sys::core::PCWSTR, printinfo: *const FAX_PRINT_INFOW, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOW) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAXUNREGISTERSERVICEPROVIDERW = ::core::option::Option<unsafe extern "system" fn(deviceprovider: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PFAX_EXT_CONFIG_CHANGE = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: super::super::Foundation::PWSTR, param2: *mut u8, param3: u32) -> ::windows_sys::core::HRESULT>;
+pub type PFAXUNREGISTERSERVICEPROVIDERW = ::core::option::Option<unsafe extern "system" fn(deviceprovider: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub type PFAX_EXT_CONFIG_CHANGE = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: ::windows_sys::core::PCWSTR, param2: *mut u8, param3: u32) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub type PFAX_EXT_FREE_BUFFER = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PFAX_EXT_GET_DATA = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: FAX_ENUM_DEVICE_ID_SOURCE, param2: super::super::Foundation::PWSTR, param3: *mut *mut u8, param4: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
+pub type PFAX_EXT_GET_DATA = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: FAX_ENUM_DEVICE_ID_SOURCE, param2: ::windows_sys::core::PCWSTR, param3: *mut *mut u8, param4: *mut u32) -> u32>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAX_EXT_INITIALIZE_CONFIG = ::core::option::Option<unsafe extern "system" fn(param0: PFAX_EXT_GET_DATA, param1: PFAX_EXT_SET_DATA, param2: PFAX_EXT_REGISTER_FOR_EVENTS, param3: PFAX_EXT_UNREGISTER_FOR_EVENTS, param4: PFAX_EXT_FREE_BUFFER) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAX_EXT_REGISTER_FOR_EVENTS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HINSTANCE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: super::super::Foundation::PWSTR, param4: PFAX_EXT_CONFIG_CHANGE) -> super::super::Foundation::HANDLE>;
+pub type PFAX_EXT_REGISTER_FOR_EVENTS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HINSTANCE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: ::windows_sys::core::PCWSTR, param4: PFAX_EXT_CONFIG_CHANGE) -> super::super::Foundation::HANDLE>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAX_EXT_SET_DATA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HINSTANCE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: super::super::Foundation::PWSTR, param4: *mut u8, param5: u32) -> u32>;
+pub type PFAX_EXT_SET_DATA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HINSTANCE, param1: u32, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: ::windows_sys::core::PCWSTR, param4: *mut u8, param5: u32) -> u32>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAX_EXT_UNREGISTER_FOR_EVENTS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> u32>;
@@ -1906,7 +1868,7 @@ pub type PFAX_RECIPIENT_CALLBACKA = ::core::option::Option<unsafe extern "system
 pub type PFAX_RECIPIENT_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, recipientnumber: u32, context: *mut ::core::ffi::c_void, jobparams: *mut FAX_JOB_PARAMW, coverpageinfo: *mut FAX_COVERPAGE_INFOW) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFAX_ROUTING_INSTALLATION_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, context: *mut ::core::ffi::c_void, methodname: super::super::Foundation::PWSTR, friendlyname: super::super::Foundation::PWSTR, functionname: super::super::Foundation::PWSTR, guid: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL>;
+pub type PFAX_ROUTING_INSTALLATION_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, context: *mut ::core::ffi::c_void, methodname: ::windows_sys::core::PCWSTR, friendlyname: ::windows_sys::core::PCWSTR, functionname: ::windows_sys::core::PCWSTR, guid: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFAX_SEND_CALLBACK = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, callhandle: u32, reserved1: u32, reserved2: u32) -> super::super::Foundation::BOOL>;
@@ -2054,23 +2016,20 @@ pub const STI_DEVICE_CREATE_MASK: u32 = 65535u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const STI_DEVICE_CREATE_STATUS: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct STI_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: u32,
     pub szDeviceInternalName: [u16; 128],
     pub DeviceCapabilitiesA: STI_DEV_CAPS,
     pub dwHardwareConfiguration: u32,
-    pub pszVendorDescription: super::super::Foundation::PWSTR,
-    pub pszDeviceDescription: super::super::Foundation::PWSTR,
-    pub pszPortName: super::super::Foundation::PWSTR,
-    pub pszPropProvider: super::super::Foundation::PWSTR,
-    pub pszLocalName: super::super::Foundation::PWSTR,
+    pub pszVendorDescription: ::windows_sys::core::PWSTR,
+    pub pszDeviceDescription: ::windows_sys::core::PWSTR,
+    pub pszPortName: ::windows_sys::core::PWSTR,
+    pub pszPropProvider: ::windows_sys::core::PWSTR,
+    pub pszLocalName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STI_DEVICE_INFORMATIONW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STI_DEVICE_INFORMATIONW {
     fn clone(&self) -> Self {
         *self
@@ -2265,25 +2224,22 @@ pub const STI_VERSION_MIN_ALLOWED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const STI_VERSION_REAL: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: u32,
     pub szDeviceInternalName: [u16; 128],
     pub DeviceCapabilitiesA: STI_DEV_CAPS,
     pub dwHardwareConfiguration: u32,
-    pub pszVendorDescription: super::super::Foundation::PWSTR,
-    pub pszDeviceDescription: super::super::Foundation::PWSTR,
-    pub pszPortName: super::super::Foundation::PWSTR,
-    pub pszPropProvider: super::super::Foundation::PWSTR,
-    pub pszLocalName: super::super::Foundation::PWSTR,
-    pub pszUiDll: super::super::Foundation::PWSTR,
-    pub pszServer: super::super::Foundation::PWSTR,
+    pub pszVendorDescription: ::windows_sys::core::PWSTR,
+    pub pszDeviceDescription: ::windows_sys::core::PWSTR,
+    pub pszPortName: ::windows_sys::core::PWSTR,
+    pub pszPropProvider: ::windows_sys::core::PWSTR,
+    pub pszLocalName: ::windows_sys::core::PWSTR,
+    pub pszUiDll: ::windows_sys::core::PWSTR,
+    pub pszServer: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STI_WIA_DEVICE_INFORMATIONW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STI_WIA_DEVICE_INFORMATIONW {
     fn clone(&self) -> Self {
         *self

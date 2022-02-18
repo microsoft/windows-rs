@@ -245,19 +245,16 @@ impl ::core::clone::Clone for VDS_CONTROLLER_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_VirtualDiskService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub struct VDS_CONTROLLER_PROP {
     pub id: ::windows_sys::core::GUID,
-    pub pwszFriendlyName: super::super::Foundation::PWSTR,
-    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub pwszFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwszIdentification: ::windows_sys::core::PWSTR,
     pub status: VDS_CONTROLLER_STATUS,
     pub health: VDS_HEALTH,
     pub sNumberOfPorts: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDS_CONTROLLER_PROP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDS_CONTROLLER_PROP {
     fn clone(&self) -> Self {
         *self
@@ -344,35 +341,31 @@ impl ::core::clone::Clone for VDS_DRIVE_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_VirtualDiskService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub struct VDS_DRIVE_PROP {
     pub id: ::windows_sys::core::GUID,
     pub ullSize: u64,
-    pub pwszFriendlyName: super::super::Foundation::PWSTR,
-    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub pwszFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwszIdentification: ::windows_sys::core::PWSTR,
     pub ulFlags: u32,
     pub status: VDS_DRIVE_STATUS,
     pub health: VDS_HEALTH,
     pub sInternalBusNumber: i16,
     pub sSlotNumber: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDS_DRIVE_PROP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDS_DRIVE_PROP {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_VirtualDiskService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub struct VDS_DRIVE_PROP2 {
     pub id: ::windows_sys::core::GUID,
     pub ullSize: u64,
-    pub pwszFriendlyName: super::super::Foundation::PWSTR,
-    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub pwszFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwszIdentification: ::windows_sys::core::PWSTR,
     pub ulFlags: u32,
     pub status: VDS_DRIVE_STATUS,
     pub health: VDS_HEALTH,
@@ -382,9 +375,7 @@ pub struct VDS_DRIVE_PROP2 {
     pub busType: VDS_STORAGE_BUS_TYPE,
     pub ulSpindleSpeed: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDS_DRIVE_PROP2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDS_DRIVE_PROP2 {
     fn clone(&self) -> Self {
         *self
@@ -1432,15 +1423,12 @@ pub const VDS_IAT_CHAP: VDS_ISCSI_AUTH_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub const VDS_IAT_MUTUAL_CHAP: VDS_ISCSI_AUTH_TYPE = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_VirtualDiskService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     pub id: ::windows_sys::core::GUID,
-    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDS_ISCSI_INITIATOR_ADAPTER_PROP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     fn clone(&self) -> Self {
         *self
@@ -1555,8 +1543,8 @@ impl ::core::clone::Clone for VDS_ISCSI_SHARED_SECRET {
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_ISCSI_TARGET_PROP {
     pub id: ::windows_sys::core::GUID,
-    pub pwszIscsiName: super::super::Foundation::PWSTR,
-    pub pwszFriendlyName: super::super::Foundation::PWSTR,
+    pub pwszIscsiName: ::windows_sys::core::PWSTR,
+    pub pwszFriendlyName: ::windows_sys::core::PWSTR,
     pub bChapEnabled: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1717,14 +1705,13 @@ pub const VDS_LPT_RAID53: VDS_LUN_PLEX_TYPE = 28i32;
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub const VDS_LPT_RAID60: VDS_LUN_PLEX_TYPE = 29i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_VirtualDiskService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub struct VDS_LUN_PROP {
     pub id: ::windows_sys::core::GUID,
     pub ullSize: u64,
-    pub pwszFriendlyName: super::super::Foundation::PWSTR,
-    pub pwszIdentification: super::super::Foundation::PWSTR,
-    pub pwszUnmaskingList: super::super::Foundation::PWSTR,
+    pub pwszFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwszIdentification: ::windows_sys::core::PWSTR,
+    pub pwszUnmaskingList: ::windows_sys::core::PWSTR,
     pub ulFlags: u32,
     pub r#type: VDS_LUN_TYPE,
     pub status: VDS_LUN_STATUS,
@@ -1732,9 +1719,7 @@ pub struct VDS_LUN_PROP {
     pub TransitionState: VDS_TRANSITION_STATE,
     pub sRebuildPriority: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDS_LUN_PROP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDS_LUN_PROP {
     fn clone(&self) -> Self {
         *self
@@ -2180,7 +2165,7 @@ pub struct VDS_POOL_ATTRIBUTES {
     pub ullAttributeMask: u64,
     pub raidType: VDS_RAID_TYPE,
     pub busType: VDS_STORAGE_BUS_TYPE,
-    pub pwszIntendedUsage: super::super::Foundation::PWSTR,
+    pub pwszIntendedUsage: ::windows_sys::core::PWSTR,
     pub bSpinDown: super::super::Foundation::BOOL,
     pub bIsThinProvisioned: super::super::Foundation::BOOL,
     pub ullProvisionedSpace: u64,
@@ -2281,15 +2266,12 @@ pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MIN: i32 = 8192i32;
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub const VDS_POOL_ATTRIB_THIN_PROVISION: i32 = 8i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_VirtualDiskService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub struct VDS_POOL_CUSTOM_ATTRIBUTES {
-    pub pwszName: super::super::Foundation::PWSTR,
-    pub pwszValue: super::super::Foundation::PWSTR,
+    pub pwszName: ::windows_sys::core::PWSTR,
+    pub pwszValue: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDS_POOL_CUSTOM_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDS_POOL_CUSTOM_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
@@ -2332,17 +2314,14 @@ impl ::core::clone::Clone for VDS_PORT_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_VirtualDiskService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub struct VDS_PORT_PROP {
     pub id: ::windows_sys::core::GUID,
-    pub pwszFriendlyName: super::super::Foundation::PWSTR,
-    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub pwszFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwszIdentification: ::windows_sys::core::PWSTR,
     pub status: VDS_PORT_STATUS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDS_PORT_PROP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDS_PORT_PROP {
     fn clone(&self) -> Self {
         *self
@@ -2401,21 +2380,18 @@ pub const VDS_LBF_LEAST_BLOCKS: VDS_PROVIDER_LBSUPPORT_FLAG = 32i32;
 #[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub const VDS_LBF_VENDOR_SPECIFIC: VDS_PROVIDER_LBSUPPORT_FLAG = 64i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_VirtualDiskService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub struct VDS_PROVIDER_PROP {
     pub id: ::windows_sys::core::GUID,
-    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszName: ::windows_sys::core::PWSTR,
     pub guidVersionId: ::windows_sys::core::GUID,
-    pub pwszVersion: super::super::Foundation::PWSTR,
+    pub pwszVersion: ::windows_sys::core::PWSTR,
     pub r#type: VDS_PROVIDER_TYPE,
     pub ulFlags: u32,
     pub ulStripeSizeFlags: u32,
     pub sRebuildPriority: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDS_PROVIDER_PROP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDS_PROVIDER_PROP {
     fn clone(&self) -> Self {
         *self
@@ -2617,22 +2593,19 @@ impl ::core::clone::Clone for VDS_STORAGE_POOL_DRIVE_EXTENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_VirtualDiskService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub struct VDS_STORAGE_POOL_PROP {
     pub id: ::windows_sys::core::GUID,
     pub status: VDS_STORAGE_POOL_STATUS,
     pub health: VDS_HEALTH,
     pub r#type: VDS_STORAGE_POOL_TYPE,
-    pub pwszName: super::super::Foundation::PWSTR,
-    pub pwszDescription: super::super::Foundation::PWSTR,
+    pub pwszName: ::windows_sys::core::PWSTR,
+    pub pwszDescription: ::windows_sys::core::PWSTR,
     pub ullTotalConsumedSpace: u64,
     pub ullTotalManagedSpace: u64,
     pub ullRemainingFreeSpace: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDS_STORAGE_POOL_PROP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDS_STORAGE_POOL_PROP {
     fn clone(&self) -> Self {
         *self
@@ -2719,12 +2692,11 @@ impl ::core::clone::Clone for VDS_SUB_SYSTEM_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_VirtualDiskService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub struct VDS_SUB_SYSTEM_PROP {
     pub id: ::windows_sys::core::GUID,
-    pub pwszFriendlyName: super::super::Foundation::PWSTR,
-    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub pwszFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwszIdentification: ::windows_sys::core::PWSTR,
     pub ulFlags: u32,
     pub ulStripeSizeFlags: u32,
     pub status: VDS_SUB_SYSTEM_STATUS,
@@ -2734,21 +2706,18 @@ pub struct VDS_SUB_SYSTEM_PROP {
     pub sMaxNumberOfControllers: i16,
     pub sRebuildPriority: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDS_SUB_SYSTEM_PROP {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDS_SUB_SYSTEM_PROP {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_VirtualDiskService', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_VirtualDiskService'*"]
 pub struct VDS_SUB_SYSTEM_PROP2 {
     pub id: ::windows_sys::core::GUID,
-    pub pwszFriendlyName: super::super::Foundation::PWSTR,
-    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub pwszFriendlyName: ::windows_sys::core::PWSTR,
+    pub pwszIdentification: ::windows_sys::core::PWSTR,
     pub ulFlags: u32,
     pub ulStripeSizeFlags: u32,
     pub ulSupportedRaidTypeFlags: u32,
@@ -2760,9 +2729,7 @@ pub struct VDS_SUB_SYSTEM_PROP2 {
     pub sRebuildPriority: i16,
     pub ulNumberOfEnclosures: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VDS_SUB_SYSTEM_PROP2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VDS_SUB_SYSTEM_PROP2 {
     fn clone(&self) -> Self {
         *self

@@ -1,13 +1,14 @@
-use windows::Win32::{
-    Foundation::{CloseHandle, BOOL, HANDLE, HWND, PSTR, PWSTR, RECT},
-    Gaming::HasExpandedResources,
-    Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*, Hlsl::D3DCOMPILER_DLL},
-    Networking::Ldap::ldapsearch,
-    Security::Authorization::*,
-    System::Com::StructuredStorage::*,
-    System::Com::*,
-    System::{Com::CreateUri, Diagnostics::Debug::*, Threading::*},
-    UI::{
+use windows::{
+    core::*,
+    Win32::Foundation::{CloseHandle, BOOL, HANDLE, HWND, RECT},
+    Win32::Gaming::HasExpandedResources,
+    Win32::Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*, Hlsl::D3DCOMPILER_DLL},
+    Win32::Networking::Ldap::ldapsearch,
+    Win32::Security::Authorization::*,
+    Win32::System::Com::StructuredStorage::*,
+    Win32::System::Com::*,
+    Win32::System::{Com::CreateUri, Diagnostics::Debug::*, Threading::*},
+    Win32::UI::{
         Accessibility::UIA_ScrollPatternNoScroll,
         Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
         Controls::Dialogs::CHOOSECOLORW,
@@ -91,7 +92,7 @@ fn constant() {
 #[test]
 fn function() -> windows::core::Result<()> {
     unsafe {
-        let event = CreateEventW(core::ptr::null_mut(), true, false, PWSTR(core::ptr::null_mut()));
+        let event = CreateEventW(core::ptr::null(), true, false, PCWSTR(core::ptr::null()));
         assert!(event.0 != 0);
 
         SetEvent(event).ok()?;
@@ -182,7 +183,7 @@ fn onecore_imports() -> windows::core::Result<()> {
     unsafe {
         HasExpandedResources()?;
 
-        let uri = CreateUri(PWSTR(windows::core::HSTRING::from("http://kennykerr.ca").as_wide().as_ptr() as _), Default::default(), 0)?;
+        let uri = CreateUri(PCWSTR(windows::core::HSTRING::from("http://kennykerr.ca").as_wide().as_ptr()), Default::default(), 0)?;
 
         let port = uri.GetPort()?;
         assert!(port == 80);
@@ -211,14 +212,14 @@ fn interface() -> windows::core::Result<()> {
 fn callback() {
     unsafe {
         let a: PROPENUMPROCA = Some(callback_a);
-        assert!(BOOL(789) == a.unwrap()(HWND(123), PSTR("hello a\0".as_ptr() as _), HANDLE(456)));
+        assert!(BOOL(789) == a.unwrap()(HWND(123), PCSTR("hello a\0".as_ptr()), HANDLE(456)));
 
         let a: PROPENUMPROCW = Some(callback_w);
-        assert!(BOOL(789) == a.unwrap()(HWND(123), PWSTR(windows::core::HSTRING::from("hello w\0").as_wide().as_ptr() as _), HANDLE(456)));
+        assert!(BOOL(789) == a.unwrap()(HWND(123), PCWSTR(windows::core::HSTRING::from("hello w\0").as_wide().as_ptr()), HANDLE(456)));
     }
 }
 
-extern "system" fn callback_a(param0: HWND, param1: PSTR, param2: HANDLE) -> BOOL {
+extern "system" fn callback_a(param0: HWND, param1: PCSTR, param2: HANDLE) -> BOOL {
     unsafe {
         assert!(param0.0 == 123);
         assert!(param2.0 == 456);
@@ -240,7 +241,7 @@ extern "system" fn callback_a(param0: HWND, param1: PSTR, param2: HANDLE) -> BOO
     }
 }
 
-extern "system" fn callback_w(param0: HWND, param1: PWSTR, param2: HANDLE) -> BOOL {
+extern "system" fn callback_w(param0: HWND, param1: PCWSTR, param2: HANDLE) -> BOOL {
     unsafe {
         assert!(param0.0 == 123);
         assert!(param2.0 == 456);

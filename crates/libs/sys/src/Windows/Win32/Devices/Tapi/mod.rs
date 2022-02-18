@@ -10,34 +10,29 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_AddressBook', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
     pub fn OpenTnefStreamEx(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpadressbook: super::super::System::AddressBook::IAddrBook, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineAccept(hcall: u32, lpsuseruserinfo: ::windows_sys::core::PCSTR, dwsize: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineAccept(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
+    pub fn lineAddProvider(lpszproviderfilename: ::windows_sys::core::PCSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineAddProvider(lpszproviderfilename: super::super::Foundation::PSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
+    pub fn lineAddProviderA(lpszproviderfilename: ::windows_sys::core::PCSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineAddProviderA(lpszproviderfilename: super::super::Foundation::PSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineAddProviderW(lpszproviderfilename: super::super::Foundation::PWSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
+    pub fn lineAddProviderW(lpszproviderfilename: ::windows_sys::core::PCWSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionidindex: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineAnswer(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineBlindTransfer(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineBlindTransferA(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineBlindTransferW(hcall: u32, lpszdestaddressw: super::super::Foundation::PWSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineAnswer(hcall: u32, lpsuseruserinfo: ::windows_sys::core::PCSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineBlindTransfer(hcall: u32, lpszdestaddress: ::windows_sys::core::PCSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineBlindTransferA(hcall: u32, lpszdestaddress: ::windows_sys::core::PCSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineBlindTransferW(hcall: u32, lpszdestaddressw: ::windows_sys::core::PCWSTR, dwcountrycode: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineClose(hline: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -46,79 +41,65 @@ extern "system" {
     pub fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *mut u32, dwtransfermode: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    pub fn lineConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    pub fn lineConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineConfigDialogEdit(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
+    pub fn lineConfigDialogEdit(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows_sys::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineConfigDialogEditA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
+    pub fn lineConfigDialogEditA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows_sys::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineConfigDialogEditW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PWSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
+    pub fn lineConfigDialogEditW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows_sys::core::PCWSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
+    pub fn lineConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineConfigProvider(hwndowner: super::super::Foundation::HWND, dwpermanentproviderid: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineCreateAgentA(hline: u32, lpszagentid: super::super::Foundation::PSTR, lpszagentpin: super::super::Foundation::PSTR, lphagent: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineCreateAgentSessionA(hline: u32, hagent: u32, lpszagentpin: super::super::Foundation::PSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows_sys::core::GUID, lphagentsession: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineCreateAgentSessionW(hline: u32, hagent: u32, lpszagentpin: super::super::Foundation::PWSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows_sys::core::GUID, lphagentsession: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineCreateAgentW(hline: u32, lpszagentid: super::super::Foundation::PWSTR, lpszagentpin: super::super::Foundation::PWSTR, lphagent: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineCreateAgentA(hline: u32, lpszagentid: ::windows_sys::core::PCSTR, lpszagentpin: ::windows_sys::core::PCSTR, lphagent: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineCreateAgentSessionA(hline: u32, hagent: u32, lpszagentpin: ::windows_sys::core::PCSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows_sys::core::GUID, lphagentsession: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineCreateAgentSessionW(hline: u32, hagent: u32, lpszagentpin: ::windows_sys::core::PCWSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows_sys::core::GUID, lphagentsession: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineCreateAgentW(hline: u32, lpszagentid: ::windows_sys::core::PCWSTR, lpszagentpin: ::windows_sys::core::PCWSTR, lphagent: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineDeallocateCall(hcall: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineDial(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineDialA(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineDialW(hcall: u32, lpszdestaddress: super::super::Foundation::PWSTR, dwcountrycode: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineDrop(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineDial(hcall: u32, lpszdestaddress: ::windows_sys::core::PCSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineDialA(hcall: u32, lpszdestaddress: ::windows_sys::core::PCSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineDialW(hcall: u32, lpszdestaddress: ::windows_sys::core::PCWSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineDrop(hcall: u32, lpsuseruserinfo: ::windows_sys::core::PCSTR, dwsize: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGatherDigits(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PSTR, dwnumdigits: u32, lpszterminationdigits: super::super::Foundation::PSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGatherDigitsA(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PSTR, dwnumdigits: u32, lpszterminationdigits: super::super::Foundation::PSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGatherDigitsW(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PWSTR, dwnumdigits: u32, lpszterminationdigits: super::super::Foundation::PWSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGenerateDigits(hcall: u32, dwdigitmode: u32, lpszdigits: super::super::Foundation::PSTR, dwduration: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGenerateDigitsA(hcall: u32, dwdigitmode: u32, lpszdigits: super::super::Foundation::PSTR, dwduration: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGenerateDigitsW(hcall: u32, dwdigitmode: u32, lpszdigits: super::super::Foundation::PWSTR, dwduration: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGatherDigits(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows_sys::core::PSTR, dwnumdigits: u32, lpszterminationdigits: ::windows_sys::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGatherDigitsA(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows_sys::core::PSTR, dwnumdigits: u32, lpszterminationdigits: ::windows_sys::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGatherDigitsW(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows_sys::core::PWSTR, dwnumdigits: u32, lpszterminationdigits: ::windows_sys::core::PCWSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGenerateDigits(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows_sys::core::PCSTR, dwduration: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGenerateDigitsA(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows_sys::core::PCSTR, dwduration: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGenerateDigitsW(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows_sys::core::PCWSTR, dwduration: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -127,15 +108,12 @@ extern "system" {
     pub fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetAddressID(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: super::super::Foundation::PSTR, dwsize: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetAddressIDA(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: super::super::Foundation::PSTR, dwsize: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetAddressIDW(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: super::super::Foundation::PWSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetAddressID(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows_sys::core::PCSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetAddressIDA(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows_sys::core::PCSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetAddressIDW(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows_sys::core::PCWSTR, dwsize: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -166,15 +144,12 @@ extern "system" {
     pub fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetAppPriority(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetAppPriorityA(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetAppPriorityW(lpszappfilename: super::super::Foundation::PWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetAppPriority(lpszappfilename: ::windows_sys::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetAppPriorityA(lpszappfilename: ::windows_sys::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetAppPriorityW(lpszappfilename: ::windows_sys::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -198,37 +173,28 @@ extern "system" {
     pub fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetDevConfig(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetDevConfig(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetID(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetIDA(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetIDW(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetIcon(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetIconA(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineGetIconW(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PWSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetID(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetIDA(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetIDW(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows_sys::core::PCWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows_sys::core::PCSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows_sys::core::PCSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows_sys::core::PCWSTR, lphicon: *mut isize) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -269,35 +235,29 @@ extern "system" {
     pub fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineHandoff(hcall: u32, lpszfilename: super::super::Foundation::PSTR, dwmediamode: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineHandoffA(hcall: u32, lpszfilename: super::super::Foundation::PSTR, dwmediamode: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineHandoffW(hcall: u32, lpszfilename: super::super::Foundation::PWSTR, dwmediamode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineHandoff(hcall: u32, lpszfilename: ::windows_sys::core::PCSTR, dwmediamode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineHandoffA(hcall: u32, lpszfilename: ::windows_sys::core::PCSTR, dwmediamode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineHandoffW(hcall: u32, lpszfilename: ::windows_sys::core::PCWSTR, dwmediamode: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineHold(hcall: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineInitialize(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32) -> i32;
+    pub fn lineInitialize(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszappname: ::windows_sys::core::PCSTR, lpdwnumdevs: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineInitializeExA(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
+    pub fn lineInitializeExA(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: ::windows_sys::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineInitializeExW(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: super::super::Foundation::PWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineMakeCall(hline: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineMakeCallA(hline: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineMakeCallW(hline: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PWSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    pub fn lineInitializeExW(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: ::windows_sys::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineMakeCall(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows_sys::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineMakeCallA(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows_sys::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineMakeCallW(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows_sys::core::PCWSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -314,24 +274,18 @@ extern "system" {
     pub fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn linePark(hcall: u32, dwparkmode: u32, lpszdiraddress: super::super::Foundation::PSTR, lpnondiraddress: *mut VARSTRING) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineParkA(hcall: u32, dwparkmode: u32, lpszdiraddress: super::super::Foundation::PSTR, lpnondiraddress: *mut VARSTRING) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineParkW(hcall: u32, dwparkmode: u32, lpszdiraddress: super::super::Foundation::PWSTR, lpnondiraddress: *mut VARSTRING) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn linePickup(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, lpszgroupid: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn linePickupA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, lpszgroupid: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn linePickupW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PWSTR, lpszgroupid: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn linePark(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows_sys::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineParkA(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows_sys::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineParkW(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows_sys::core::PCWSTR, lpnondiraddress: *mut VARSTRING) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn linePickup(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows_sys::core::PCSTR, lpszgroupid: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn linePickupA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows_sys::core::PCSTR, lpszgroupid: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn linePickupW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows_sys::core::PCWSTR, lpszgroupid: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -343,15 +297,12 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUEST, dwresult: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineRedirect(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineRedirectA(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineRedirectW(hcall: u32, lpszdestaddress: super::super::Foundation::PWSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineRedirect(hcall: u32, lpszdestaddress: ::windows_sys::core::PCSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineRedirectA(hcall: u32, lpszdestaddress: ::windows_sys::core::PCSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineRedirectW(hcall: u32, lpszdestaddress: ::windows_sys::core::PCWSTR, dwcountrycode: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance: u32, dwrequestmode: u32, benable: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -363,9 +314,8 @@ extern "system" {
     pub fn lineRemoveProvider(dwpermanentproviderid: u32, hwndowner: super::super::Foundation::HWND) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSecureCall(hcall: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineSendUserUserInfo(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineSendUserUserInfo(hcall: u32, lpsuseruserinfo: ::windows_sys::core::PCSTR, dwsize: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -378,15 +328,12 @@ extern "system" {
     pub fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineSetAppPriority(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: super::super::Foundation::PSTR, dwpriority: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineSetAppPriorityA(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: super::super::Foundation::PSTR, dwpriority: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineSetAppPriorityW(lpszappfilename: super::super::Foundation::PWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: super::super::Foundation::PWSTR, dwpriority: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineSetAppPriority(lpszappfilename: ::windows_sys::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows_sys::core::PCSTR, dwpriority: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineSetAppPriorityA(lpszappfilename: ::windows_sys::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows_sys::core::PCSTR, dwpriority: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineSetAppPriorityW(lpszappfilename: ::windows_sys::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows_sys::core::PCWSTR, dwpriority: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -401,15 +348,12 @@ extern "system" {
     pub fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineSetDevConfig(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineSetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineSetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineSetDevConfig(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineSetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineSetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -424,15 +368,12 @@ extern "system" {
     pub fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, dwterminalmodes: u32, dwterminalid: u32, benable: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineSetTollList(hlineapp: u32, dwdeviceid: u32, lpszaddressin: super::super::Foundation::PSTR, dwtolllistoption: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineSetTollListA(hlineapp: u32, dwdeviceid: u32, lpszaddressin: super::super::Foundation::PSTR, dwtolllistoption: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineSetTollListW(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: super::super::Foundation::PWSTR, dwtolllistoption: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineSetTollList(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows_sys::core::PCSTR, dwtolllistoption: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineSetTollListA(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows_sys::core::PCSTR, dwtolllistoption: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineSetTollListW(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: ::windows_sys::core::PCWSTR, dwtolllistoption: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -449,48 +390,42 @@ extern "system" {
     pub fn lineShutdown(hlineapp: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineTranslateAddress(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows_sys::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineTranslateAddressA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows_sys::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineTranslateAddressW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows_sys::core::PCWSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineTranslateAddress(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: super::super::Foundation::PSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
+    pub fn lineTranslateDialog(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows_sys::core::PCSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineTranslateAddressA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: super::super::Foundation::PSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
+    pub fn lineTranslateDialogA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows_sys::core::PCSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn lineTranslateAddressW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: super::super::Foundation::PWSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineTranslateDialog(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineTranslateDialogA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineTranslateDialogW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: super::super::Foundation::PWSTR) -> i32;
+    pub fn lineTranslateDialogW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineUnhold(hcall: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineUnpark(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineUnparkA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lineUnparkW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineUnpark(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineUnparkA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn lineUnparkW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneClose(hphone: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    pub fn phoneConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    pub fn phoneConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
+    pub fn phoneConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -513,24 +448,18 @@ extern "system" {
     pub fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneGetID(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneGetIDA(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneGetIDW(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneGetIcon(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneGetIconA(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneGetIconW(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PWSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn phoneGetID(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn phoneGetIDA(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn phoneGetIDW(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows_sys::core::PCWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn phoneGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows_sys::core::PCSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn phoneGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows_sys::core::PCSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn phoneGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows_sys::core::PCWSTR, lphicon: *mut isize) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -549,13 +478,13 @@ extern "system" {
     pub fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneInitialize(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32) -> i32;
+    pub fn phoneInitialize(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszappname: ::windows_sys::core::PCSTR, lpdwnumdevs: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneInitializeExA(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
+    pub fn phoneInitializeExA(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: ::windows_sys::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneInitializeExW(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: super::super::Foundation::PWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
+    pub fn phoneInitializeExW(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: ::windows_sys::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -570,9 +499,8 @@ extern "system" {
     pub fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ffi::c_void, dwsize: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn phoneSetDisplay(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: super::super::Foundation::PSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn phoneSetDisplay(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: ::windows_sys::core::PCSTR, dwsize: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
@@ -587,36 +515,30 @@ extern "system" {
     pub fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneShutdown(hphoneapp: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn tapiGetLocationInfo(lpszcountrycode: super::super::Foundation::PSTR, lpszcitycode: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn tapiGetLocationInfoA(lpszcountrycode: super::super::Foundation::PSTR, lpszcitycode: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn tapiGetLocationInfoW(lpszcountrycodew: super::super::Foundation::PWSTR, lpszcitycodew: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn tapiGetLocationInfo(lpszcountrycode: ::windows_sys::core::PSTR, lpszcitycode: ::windows_sys::core::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn tapiGetLocationInfoA(lpszcountrycode: ::windows_sys::core::PSTR, lpszcitycode: ::windows_sys::core::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn tapiGetLocationInfoW(lpszcountrycodew: ::windows_sys::core::PWSTR, lpszcitycodew: ::windows_sys::core::PWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn tapiRequestDrop(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn tapiRequestMakeCall(lpszdestaddress: ::windows_sys::core::PCSTR, lpszappname: ::windows_sys::core::PCSTR, lpszcalledparty: ::windows_sys::core::PCSTR, lpszcomment: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn tapiRequestMakeCallA(lpszdestaddress: ::windows_sys::core::PCSTR, lpszappname: ::windows_sys::core::PCSTR, lpszcalledparty: ::windows_sys::core::PCSTR, lpszcomment: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+    pub fn tapiRequestMakeCallW(lpszdestaddress: ::windows_sys::core::PCWSTR, lpszappname: ::windows_sys::core::PCWSTR, lpszcalledparty: ::windows_sys::core::PCWSTR, lpszcomment: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn tapiRequestMakeCall(lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
+    pub fn tapiRequestMediaCall(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows_sys::core::PCSTR, lpdeviceid: ::windows_sys::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows_sys::core::PCSTR, lpszappname: ::windows_sys::core::PCSTR, lpszcalledparty: ::windows_sys::core::PCSTR, lpszcomment: ::windows_sys::core::PCSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn tapiRequestMakeCallA(lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
+    pub fn tapiRequestMediaCallA(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows_sys::core::PCSTR, lpdeviceid: ::windows_sys::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows_sys::core::PCSTR, lpszappname: ::windows_sys::core::PCSTR, lpszcalledparty: ::windows_sys::core::PCSTR, lpszcomment: ::windows_sys::core::PCSTR) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn tapiRequestMakeCallW(lpszdestaddress: super::super::Foundation::PWSTR, lpszappname: super::super::Foundation::PWSTR, lpszcalledparty: super::super::Foundation::PWSTR, lpszcomment: super::super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn tapiRequestMediaCall(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceid: super::super::Foundation::PSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn tapiRequestMediaCallA(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceid: super::super::Foundation::PSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn tapiRequestMediaCallW(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: super::super::Foundation::PWSTR, lpdeviceid: super::super::Foundation::PWSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: super::super::Foundation::PWSTR, lpszappname: super::super::Foundation::PWSTR, lpszcalledparty: super::super::Foundation::PWSTR, lpszcomment: super::super::Foundation::PWSTR) -> i32;
+    pub fn tapiRequestMediaCallW(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows_sys::core::PCWSTR, lpdeviceid: ::windows_sys::core::PCWSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows_sys::core::PCWSTR, lpszappname: ::windows_sys::core::PCWSTR, lpszcalledparty: ::windows_sys::core::PCWSTR, lpszcomment: ::windows_sys::core::PCWSTR) -> i32;
 }
 #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ACDGROUP_EVENT = i32;
@@ -5996,19 +5918,16 @@ pub const TSPI_PROVIDERREMOVE: u32 = 593u32;
 #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TSPI_PROVIDERSHUTDOWN: u32 = 594u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
     pub dwRequestID: u32,
     pub hdDlgInst: *mut HDRVDIALOGINSTANCE__,
     pub htDlgInst: u32,
-    pub lpszUIDLLName: super::super::Foundation::PWSTR,
+    pub lpszUIDLLName: ::windows_sys::core::PCWSTR,
     pub lpParams: *mut ::core::ffi::c_void,
     pub dwSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TUISPICREATEDIALOGINSTANCEPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TUISPICREATEDIALOGINSTANCEPARAMS {
     fn clone(&self) -> Self {
         *self

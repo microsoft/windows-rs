@@ -723,12 +723,12 @@ pub unsafe fn CreateStdAccessibleObject<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, pclassname: Param1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CreateStdAccessibleProxyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hwnd: Param0, pclassname: Param1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: super::super::Foundation::PSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: ::windows::core::PCSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         CreateStdAccessibleProxyA(hwnd.into_param().abi(), pclassname.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
@@ -738,12 +738,12 @@ pub unsafe fn CreateStdAccessibleProxyA<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pclassname: Param1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CreateStdAccessibleProxyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hwnd: Param0, pclassname: Param1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: super::super::Foundation::PWSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: ::windows::core::PCWSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         CreateStdAccessibleProxyW(hwnd.into_param().abi(), pclassname.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
@@ -1121,60 +1121,56 @@ pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[inline]
-pub unsafe fn GetRoleTextA(lrole: u32, lpszrole: super::super::Foundation::PSTR, cchrolemax: u32) -> u32 {
+pub unsafe fn GetRoleTextA(lrole: u32, lpszrole: ::windows::core::PSTR, cchrolemax: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetRoleTextA(lrole: u32, lpszrole: super::super::Foundation::PSTR, cchrolemax: u32) -> u32;
+            fn GetRoleTextA(lrole: u32, lpszrole: ::windows::core::PSTR, cchrolemax: u32) -> u32;
         }
         ::core::mem::transmute(GetRoleTextA(::core::mem::transmute(lrole), ::core::mem::transmute(lpszrole), ::core::mem::transmute(cchrolemax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[inline]
-pub unsafe fn GetRoleTextW(lrole: u32, lpszrole: super::super::Foundation::PWSTR, cchrolemax: u32) -> u32 {
+pub unsafe fn GetRoleTextW(lrole: u32, lpszrole: ::windows::core::PWSTR, cchrolemax: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetRoleTextW(lrole: u32, lpszrole: super::super::Foundation::PWSTR, cchrolemax: u32) -> u32;
+            fn GetRoleTextW(lrole: u32, lpszrole: ::windows::core::PWSTR, cchrolemax: u32) -> u32;
         }
         ::core::mem::transmute(GetRoleTextW(::core::mem::transmute(lrole), ::core::mem::transmute(lpszrole), ::core::mem::transmute(cchrolemax)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[inline]
-pub unsafe fn GetStateTextA(lstatebit: u32, lpszstate: super::super::Foundation::PSTR, cchstate: u32) -> u32 {
+pub unsafe fn GetStateTextA(lstatebit: u32, lpszstate: ::windows::core::PSTR, cchstate: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetStateTextA(lstatebit: u32, lpszstate: super::super::Foundation::PSTR, cchstate: u32) -> u32;
+            fn GetStateTextA(lstatebit: u32, lpszstate: ::windows::core::PSTR, cchstate: u32) -> u32;
         }
         ::core::mem::transmute(GetStateTextA(::core::mem::transmute(lstatebit), ::core::mem::transmute(lpszstate), ::core::mem::transmute(cchstate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[inline]
-pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: super::super::Foundation::PWSTR, cchstate: u32) -> u32 {
+pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: ::windows::core::PWSTR, cchstate: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetStateTextW(lstatebit: u32, lpszstate: super::super::Foundation::PWSTR, cchstate: u32) -> u32;
+            fn GetStateTextW(lstatebit: u32, lpszstate: ::windows::core::PWSTR, cchstate: u32) -> u32;
         }
         ::core::mem::transmute(GetStateTextW(::core::mem::transmute(lstatebit), ::core::mem::transmute(lpszstate), ::core::mem::transmute(cchstate)))
     }
@@ -1206,80 +1202,64 @@ pub const Grid_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from
 pub const Grid_RowCount_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a9505bf_c2eb_4fb6_b356_8245ae53703e);
 pub const Group_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad50aa1c_e8c8_4774_ae1b_dd86df0b3bdc);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct HIGHCONTRASTA {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
-    pub lpszDefaultScheme: super::super::Foundation::PSTR,
+    pub lpszDefaultScheme: ::windows::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIGHCONTRASTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIGHCONTRASTA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HIGHCONTRASTA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HIGHCONTRASTA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszDefaultScheme", &self.lpszDefaultScheme).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HIGHCONTRASTA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HIGHCONTRASTA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIGHCONTRASTA>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HIGHCONTRASTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIGHCONTRASTA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct HIGHCONTRASTW {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
-    pub lpszDefaultScheme: super::super::Foundation::PWSTR,
+    pub lpszDefaultScheme: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIGHCONTRASTW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIGHCONTRASTW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HIGHCONTRASTW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HIGHCONTRASTW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszDefaultScheme", &self.lpszDefaultScheme).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HIGHCONTRASTW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HIGHCONTRASTW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIGHCONTRASTW>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HIGHCONTRASTW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIGHCONTRASTW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1718,7 +1698,7 @@ impl IAccPropServices {
     }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHwndPropStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hwnd: Param0, idobject: u32, idchild: u32, idprop: Param3, str: Param4) -> ::windows::core::Result<()> {
+    pub unsafe fn SetHwndPropStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hwnd: Param0, idobject: u32, idchild: u32, idprop: Param3, str: Param4) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetHwndPropStr)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(idchild), idprop.into_param().abi(), str.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
@@ -1746,9 +1726,9 @@ impl IAccPropServices {
     pub unsafe fn SetHmenuProp<'a, Param0: ::windows::core::IntoParam<'a, super::WindowsAndMessaging::HMENU>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, hmenu: Param0, idchild: u32, idprop: Param2, var: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetHmenuProp)(::core::mem::transmute_copy(self), hmenu.into_param().abi(), ::core::mem::transmute(idchild), idprop.into_param().abi(), var.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn SetHmenuPropStr<'a, Param0: ::windows::core::IntoParam<'a, super::WindowsAndMessaging::HMENU>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmenu: Param0, idchild: u32, idprop: Param2, str: Param3) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub unsafe fn SetHmenuPropStr<'a, Param0: ::windows::core::IntoParam<'a, super::WindowsAndMessaging::HMENU>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hmenu: Param0, idchild: u32, idprop: Param2, str: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetHmenuPropStr)(::core::mem::transmute_copy(self), hmenu.into_param().abi(), ::core::mem::transmute(idchild), idprop.into_param().abi(), str.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_UI_WindowsAndMessaging'*"]
@@ -1827,7 +1807,7 @@ pub struct IAccPropServices_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetHwndProp: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetHwndPropStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: ::windows::core::GUID, str: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
+    pub SetHwndPropStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: ::windows::core::GUID, str: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetHwndPropStr: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -1850,9 +1830,9 @@ pub struct IAccPropServices_Vtbl {
     pub SetHmenuProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows::core::GUID, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging")))]
     SetHmenuProp: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub SetHmenuPropStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows::core::GUID, str: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub SetHmenuPropStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows::core::GUID, str: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     SetHmenuPropStr: usize,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub SetHmenuPropServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: ::windows::core::RawPtr, annoscope: AnnoScope) -> ::windows::core::HRESULT,
@@ -1889,9 +1869,9 @@ impl IAccessible {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const ::windows::core::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -3179,9 +3159,8 @@ impl ILegacyIAccessibleProvider {
     pub unsafe fn DoDefaultAction(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DoDefaultAction)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szvalue: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szvalue: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValue)(::core::mem::transmute_copy(self), szvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
@@ -3294,10 +3273,7 @@ pub struct ILegacyIAccessibleProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Select: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flagsselect: i32) -> ::windows::core::HRESULT,
     pub DoDefaultAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetValue: usize,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetIAccessible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5038,9 +5014,8 @@ pub struct ISpreadsheetItemProvider_Vtbl {
 #[repr(transparent)]
 pub struct ISpreadsheetProvider(::windows::core::IUnknown);
 impl ISpreadsheetProvider {
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetItemByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<IRawElementProviderSimple> {
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn GetItemByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0) -> ::windows::core::Result<IRawElementProviderSimple> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetItemByName)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IRawElementProviderSimple>(result__)
     }
@@ -5089,10 +5064,7 @@ unsafe impl ::windows::core::Interface for ISpreadsheetProvider {
 #[doc(hidden)]
 pub struct ISpreadsheetProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetItemByName: usize,
+    pub GetItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[repr(transparent)]
@@ -17292,9 +17264,8 @@ impl IUIAutomationLegacyIAccessiblePattern {
     pub unsafe fn DoDefaultAction(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DoDefaultAction)(::core::mem::transmute_copy(self)).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szvalue: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szvalue: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValue)(::core::mem::transmute_copy(self), szvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
@@ -17462,10 +17433,7 @@ pub struct IUIAutomationLegacyIAccessiblePattern_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub Select: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flagsselect: i32) -> ::windows::core::HRESULT,
     pub DoDefaultAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetValue: usize,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub CurrentChildId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub CurrentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
@@ -18291,14 +18259,12 @@ impl IUIAutomationProxyFactoryEntry {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).NeedsAdviseEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClassName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, classname: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetClassName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, classname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetClassName)(::core::mem::transmute_copy(self), classname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetImageName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, imagename: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetImageName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, imagename: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetImageName)(::core::mem::transmute_copy(self), imagename.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
@@ -18393,14 +18359,8 @@ pub struct IUIAutomationProxyFactoryEntry_Vtbl {
     pub NeedsAdviseEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adviseevents: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     NeedsAdviseEvents: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetClassName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetClassName: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetImageName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetImageName: usize,
+    pub SetClassName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub SetImageName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetAllowSubstringMatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allowsubstringmatch: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -18671,14 +18631,12 @@ pub struct IUIAutomationRangeValuePattern_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationRegistrar(::windows::core::IUnknown);
 impl IUIAutomationRegistrar {
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RegisterProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(property), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn RegisterEvent(&self, event: *const UIAutomationEventInfo) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).RegisterEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(event), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
@@ -18733,14 +18691,8 @@ unsafe impl ::windows::core::Interface for IUIAutomationRegistrar {
 #[doc(hidden)]
 pub struct IUIAutomationRegistrar_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
     pub RegisterProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: *const UIAutomationPropertyInfo, propertyid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    RegisterProperty: usize,
-    #[cfg(feature = "Win32_Foundation")]
     pub RegisterEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *const UIAutomationEventInfo, eventid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    RegisterEvent: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterPattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -21816,9 +21768,8 @@ pub struct IUIAutomationWindowPattern_Vtbl {
 #[repr(transparent)]
 pub struct IValueProvider(::windows::core::IUnknown);
 impl IValueProvider {
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValue)(::core::mem::transmute_copy(self), val.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
@@ -21878,10 +21829,7 @@ unsafe impl ::windows::core::Interface for IValueProvider {
 #[doc(hidden)]
 pub struct IValueProvider_Vtbl {
     pub base: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    SetValue: usize,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -22233,15 +22181,14 @@ pub unsafe fn LegacyIAccessiblePattern_Select<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[inline]
-pub unsafe fn LegacyIAccessiblePattern_SetValue<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hobj: Param0, szvalue: Param1) -> ::windows::core::Result<()> {
+pub unsafe fn LegacyIAccessiblePattern_SetValue<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hobj: Param0, szvalue: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
+            fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
         }
         LegacyIAccessiblePattern_SetValue(hobj.into_param().abi(), szvalue.into_param().abi()).ok()
     }
@@ -22347,40 +22294,32 @@ impl ::core::default::Default for MOUSEKEYS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct MSAAMENUINFO {
     pub dwMSAASignature: u32,
     pub cchWText: u32,
-    pub pszWText: super::super::Foundation::PWSTR,
+    pub pszWText: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MSAAMENUINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MSAAMENUINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MSAAMENUINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MSAAMENUINFO").field("dwMSAASignature", &self.dwMSAASignature).field("cchWText", &self.cchWText).field("pszWText", &self.pszWText).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MSAAMENUINFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSAAMENUINFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSAAMENUINFO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MSAAMENUINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MSAAMENUINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -23030,88 +22969,72 @@ pub const SELFLAG_TAKESELECTION: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub const SELFLAG_VALID: u32 = 31u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct SERIALKEYSA {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
-    pub lpszActivePort: super::super::Foundation::PSTR,
-    pub lpszPort: super::super::Foundation::PSTR,
+    pub lpszActivePort: ::windows::core::PSTR,
+    pub lpszPort: ::windows::core::PSTR,
     pub iBaudRate: u32,
     pub iPortState: u32,
     pub iActive: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERIALKEYSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERIALKEYSA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERIALKEYSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SERIALKEYSA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszActivePort", &self.lpszActivePort).field("lpszPort", &self.lpszPort).field("iBaudRate", &self.iBaudRate).field("iPortState", &self.iPortState).field("iActive", &self.iActive).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERIALKEYSA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERIALKEYSA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERIALKEYSA>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERIALKEYSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERIALKEYSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct SERIALKEYSW {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
-    pub lpszActivePort: super::super::Foundation::PWSTR,
-    pub lpszPort: super::super::Foundation::PWSTR,
+    pub lpszActivePort: ::windows::core::PWSTR,
+    pub lpszPort: ::windows::core::PWSTR,
     pub iBaudRate: u32,
     pub iPortState: u32,
     pub iActive: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERIALKEYSW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERIALKEYSW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERIALKEYSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SERIALKEYSW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszActivePort", &self.lpszActivePort).field("lpszPort", &self.lpszPort).field("iBaudRate", &self.iBaudRate).field("iPortState", &self.iPortState).field("iActive", &self.iActive).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERIALKEYSW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERIALKEYSW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERIALKEYSW>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SERIALKEYSW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERIALKEYSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -23177,8 +23100,7 @@ impl ::core::ops::Not for SERIALKEYS_FLAGS {
 pub const SID_ControlElementProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4791d68_e254_4ba3_9a53_26a5c5497946);
 pub const SID_IsUIAutomationObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96fdb85_7204_4724_842b_c7059dedb9d0);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct SOUNDSENTRYA {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -23190,18 +23112,15 @@ pub struct SOUNDSENTRYA {
     pub iFSGrafEffectColor: u32,
     pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
     pub iWindowsEffectMSec: u32,
-    pub lpszWindowsEffectDLL: super::super::Foundation::PSTR,
+    pub lpszWindowsEffectDLL: ::windows::core::PSTR,
     pub iWindowsEffectOrdinal: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SOUNDSENTRYA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SOUNDSENTRYA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SOUNDSENTRYA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SOUNDSENTRYA")
@@ -23220,27 +23139,22 @@ impl ::core::fmt::Debug for SOUNDSENTRYA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SOUNDSENTRYA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SOUNDSENTRYA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOUNDSENTRYA>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SOUNDSENTRYA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SOUNDSENTRYA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct SOUNDSENTRYW {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -23252,18 +23166,15 @@ pub struct SOUNDSENTRYW {
     pub iFSGrafEffectColor: u32,
     pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
     pub iWindowsEffectMSec: u32,
-    pub lpszWindowsEffectDLL: super::super::Foundation::PWSTR,
+    pub lpszWindowsEffectDLL: ::windows::core::PWSTR,
     pub iWindowsEffectOrdinal: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SOUNDSENTRYW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SOUNDSENTRYW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SOUNDSENTRYW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SOUNDSENTRYW")
@@ -23282,19 +23193,15 @@ impl ::core::fmt::Debug for SOUNDSENTRYW {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SOUNDSENTRYW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SOUNDSENTRYW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOUNDSENTRYW>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SOUNDSENTRYW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SOUNDSENTRYW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25497,39 +25404,31 @@ pub const UIA_Window_WindowClosedEventId: i32 = 20017i32;
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub const UIA_Window_WindowOpenedEventId: i32 = 20016i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct UIAutomationEventInfo {
     pub guid: ::windows::core::GUID,
-    pub pProgrammaticName: super::super::Foundation::PWSTR,
+    pub pProgrammaticName: ::windows::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UIAutomationEventInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UIAutomationEventInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for UIAutomationEventInfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("UIAutomationEventInfo").field("guid", &self.guid).field("pProgrammaticName", &self.pProgrammaticName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for UIAutomationEventInfo {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for UIAutomationEventInfo {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UIAutomationEventInfo>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for UIAutomationEventInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for UIAutomationEventInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25539,12 +25438,12 @@ impl ::core::default::Default for UIAutomationEventInfo {
 #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationMethodInfo {
-    pub pProgrammaticName: super::super::Foundation::PWSTR,
+    pub pProgrammaticName: ::windows::core::PCWSTR,
     pub doSetFocus: super::super::Foundation::BOOL,
     pub cInParameters: u32,
     pub cOutParameters: u32,
     pub pParameterTypes: *mut UIAutomationType,
-    pub pParameterNames: *mut super::super::Foundation::PWSTR,
+    pub pParameterNames: *mut ::windows::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UIAutomationMethodInfo {}
@@ -25614,7 +25513,7 @@ impl ::core::default::Default for UIAutomationParameter {
 #[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationPatternInfo {
     pub guid: ::windows::core::GUID,
-    pub pProgrammaticName: super::super::Foundation::PWSTR,
+    pub pProgrammaticName: ::windows::core::PCWSTR,
     pub providerInterfaceId: ::windows::core::GUID,
     pub clientInterfaceId: ::windows::core::GUID,
     pub cProperties: u32,
@@ -25680,40 +25579,32 @@ impl ::core::default::Default for UIAutomationPatternInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct UIAutomationPropertyInfo {
     pub guid: ::windows::core::GUID,
-    pub pProgrammaticName: super::super::Foundation::PWSTR,
+    pub pProgrammaticName: ::windows::core::PCWSTR,
     pub r#type: UIAutomationType,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UIAutomationPropertyInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UIAutomationPropertyInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for UIAutomationPropertyInfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("UIAutomationPropertyInfo").field("guid", &self.guid).field("pProgrammaticName", &self.pProgrammaticName).field("type", &self.r#type).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for UIAutomationPropertyInfo {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for UIAutomationPropertyInfo {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UIAutomationPropertyInfo>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for UIAutomationPropertyInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for UIAutomationPropertyInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27054,15 +26945,14 @@ pub unsafe fn UnregisterPointerInputTargetEx<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 #[inline]
-pub unsafe fn ValuePattern_SetValue<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hobj: Param0, pval: Param1) -> ::windows::core::Result<()> {
+pub unsafe fn ValuePattern_SetValue<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hobj: Param0, pval: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
+            fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
         }
         ValuePattern_SetValue(hobj.into_param().abi(), pval.into_param().abi()).ok()
     }

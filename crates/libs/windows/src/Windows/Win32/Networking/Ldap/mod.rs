@@ -1,9 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DBGPRINT = ::core::option::Option<unsafe extern "system" fn(format: super::super::Foundation::PSTR) -> u32>;
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
+pub type DBGPRINT = ::core::option::Option<unsafe extern "system" fn(format: ::windows::core::PCSTR) -> u32>;
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub type DEREFERENCECONNECTION = ::core::option::Option<unsafe extern "system" fn(primaryconnection: *mut ldap, connectiontodereference: *mut ldap) -> u32>;
 #[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub const LAPI_MAJOR_VER1: u32 = 1u32;
@@ -20,80 +18,64 @@ pub const LBER_USE_DER: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub const LBER_USE_INDEFINITE_LEN: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
-    pub ldapaif_name: super::super::Foundation::PSTR,
+    pub ldapaif_name: ::windows::core::PSTR,
     pub ldapaif_version: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LDAPAPIFeatureInfoA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LDAPAPIFeatureInfoA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LDAPAPIFeatureInfoA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LDAPAPIFeatureInfoA").field("ldapaif_info_version", &self.ldapaif_info_version).field("ldapaif_name", &self.ldapaif_name).field("ldapaif_version", &self.ldapaif_version).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LDAPAPIFeatureInfoA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPAPIFeatureInfoA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPAPIFeatureInfoA>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LDAPAPIFeatureInfoA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LDAPAPIFeatureInfoA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_info_version: i32,
-    pub ldapaif_name: super::super::Foundation::PWSTR,
+    pub ldapaif_name: ::windows::core::PWSTR,
     pub ldapaif_version: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LDAPAPIFeatureInfoW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LDAPAPIFeatureInfoW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LDAPAPIFeatureInfoW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LDAPAPIFeatureInfoW").field("ldapaif_info_version", &self.ldapaif_info_version).field("ldapaif_name", &self.ldapaif_name).field("ldapaif_version", &self.ldapaif_version).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LDAPAPIFeatureInfoW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPAPIFeatureInfoW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPAPIFeatureInfoW>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LDAPAPIFeatureInfoW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LDAPAPIFeatureInfoW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -180,39 +162,31 @@ pub const LDAP_AUTH_SASL: i32 = 131i32;
 #[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub const LDAP_AUTH_SIMPLE: i32 = 128i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct LDAP_BERVAL {
     pub bv_len: u32,
-    pub bv_val: super::super::Foundation::PSTR,
+    pub bv_val: ::windows::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LDAP_BERVAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LDAP_BERVAL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LDAP_BERVAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LDAP_BERVAL").field("bv_len", &self.bv_len).field("bv_val", &self.bv_val).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LDAP_BERVAL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAP_BERVAL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAP_BERVAL>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LDAP_BERVAL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LDAP_BERVAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1077,30 +1051,28 @@ pub unsafe fn LdapMapErrorToWin32(ldaperror: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn LdapUTF8ToUnicode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpsrcstr: Param0, cchsrc: i32, lpdeststr: super::super::Foundation::PWSTR, cchdest: i32) -> i32 {
+pub unsafe fn LdapUTF8ToUnicode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpsrcstr: Param0, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LdapUTF8ToUnicode(lpsrcstr: super::super::Foundation::PSTR, cchsrc: i32, lpdeststr: super::super::Foundation::PWSTR, cchdest: i32) -> i32;
+            fn LdapUTF8ToUnicode(lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32) -> i32;
         }
         ::core::mem::transmute(LdapUTF8ToUnicode(lpsrcstr.into_param().abi(), ::core::mem::transmute(cchsrc), ::core::mem::transmute(lpdeststr), ::core::mem::transmute(cchdest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn LdapUnicodeToUTF8<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsrcstr: Param0, cchsrc: i32, lpdeststr: super::super::Foundation::PSTR, cchdest: i32) -> i32 {
+pub unsafe fn LdapUnicodeToUTF8<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpsrcstr: Param0, cchsrc: i32, lpdeststr: ::windows::core::PSTR, cchdest: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LdapUnicodeToUTF8(lpsrcstr: super::super::Foundation::PWSTR, cchsrc: i32, lpdeststr: super::super::Foundation::PSTR, cchdest: i32) -> i32;
+            fn LdapUnicodeToUTF8(lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpdeststr: ::windows::core::PSTR, cchdest: i32) -> i32;
         }
         ::core::mem::transmute(LdapUnicodeToUTF8(lpsrcstr.into_param().abi(), ::core::mem::transmute(cchsrc), ::core::mem::transmute(lpdeststr), ::core::mem::transmute(cchdest)))
     }
@@ -1109,13 +1081,12 @@ pub unsafe fn LdapUnicodeToUTF8<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type NOTIFYOFNEWCONNECTION = ::core::option::Option<unsafe extern "system" fn(primaryconnection: *mut ldap, referralfromconnection: *mut ldap, newdn: super::super::Foundation::PWSTR, hostname: super::super::Foundation::PSTR, newconnection: *mut ldap, portnumber: u32, secauthidentity: *mut ::core::ffi::c_void, currentuser: *mut ::core::ffi::c_void, errorcodefrombind: u32) -> super::super::Foundation::BOOLEAN>;
+pub type NOTIFYOFNEWCONNECTION = ::core::option::Option<unsafe extern "system" fn(primaryconnection: *mut ldap, referralfromconnection: *mut ldap, newdn: ::windows::core::PCWSTR, hostname: ::windows::core::PCSTR, newconnection: *mut ldap, portnumber: u32, secauthidentity: *mut ::core::ffi::c_void, currentuser: *mut ::core::ffi::c_void, errorcodefrombind: u32) -> super::super::Foundation::BOOLEAN>;
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation', 'Win32_Security_Authentication_Identity', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub type QUERYCLIENTCERT = ::core::option::Option<unsafe extern "system" fn(connection: *mut ldap, trusted_cas: *mut super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertificate: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN>;
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type QUERYFORCONNECTION = ::core::option::Option<unsafe extern "system" fn(primaryconnection: *mut ldap, referralfromconnection: *mut ldap, newdn: super::super::Foundation::PWSTR, hostname: super::super::Foundation::PSTR, portnumber: u32, secauthidentity: *mut ::core::ffi::c_void, currentusertoken: *mut ::core::ffi::c_void, connectiontouse: *mut *mut ldap) -> u32>;
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
+pub type QUERYFORCONNECTION = ::core::option::Option<unsafe extern "system" fn(primaryconnection: *mut ldap, referralfromconnection: *mut ldap, newdn: ::windows::core::PCWSTR, hostname: ::windows::core::PCSTR, portnumber: u32, secauthidentity: *mut ::core::ffi::c_void, currentusertoken: *mut ::core::ffi::c_void, connectiontouse: *mut *mut ldap) -> u32>;
 #[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Ldap'*"]
@@ -1123,8 +1094,7 @@ pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type VERIFYSERVERCERT = ::core::option::Option<unsafe extern "system" fn(connection: *mut ldap, pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN>;
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ber_alloc_t(options: i32) -> *mut berelement {
     #[cfg(windows)]
@@ -1138,8 +1108,7 @@ pub unsafe fn ber_alloc_t(options: i32) -> *mut berelement {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ber_bvdup(pberval: *mut LDAP_BERVAL) -> *mut LDAP_BERVAL {
     #[cfg(windows)]
@@ -1153,8 +1122,7 @@ pub unsafe fn ber_bvdup(pberval: *mut LDAP_BERVAL) -> *mut LDAP_BERVAL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL) {
     #[cfg(windows)]
@@ -1168,8 +1136,7 @@ pub unsafe fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ber_bvfree(bv: *mut LDAP_BERVAL) {
     #[cfg(windows)]
@@ -1198,8 +1165,7 @@ pub unsafe fn ber_first_element(pberelement: *mut berelement, plen: *mut u32, pp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ber_flatten(pberelement: *mut berelement, pberval: *mut *mut LDAP_BERVAL) -> i32 {
     #[cfg(windows)]
@@ -1213,8 +1179,7 @@ pub unsafe fn ber_flatten(pberelement: *mut berelement, pberval: *mut *mut LDAP_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ber_free(pberelement: *mut berelement, fbuf: i32) {
     #[cfg(windows)]
@@ -1228,8 +1193,7 @@ pub unsafe fn ber_free(pberelement: *mut berelement, fbuf: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ber_init(pberval: *mut LDAP_BERVAL) -> *mut berelement {
     #[cfg(windows)]
@@ -1243,23 +1207,21 @@ pub unsafe fn ber_init(pberval: *mut LDAP_BERVAL) -> *mut berelement {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ber_next_element<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pberelement: *mut berelement, plen: *mut u32, opaque: Param2) -> u32 {
+pub unsafe fn ber_next_element<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pberelement: *mut berelement, plen: *mut u32, opaque: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ber_next_element(pberelement: *mut berelement, plen: *mut u32, opaque: super::super::Foundation::PSTR) -> u32;
+            fn ber_next_element(pberelement: *mut berelement, plen: *mut u32, opaque: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ber_next_element(::core::mem::transmute(pberelement), ::core::mem::transmute(plen), opaque.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ber_peek_tag(pberelement: *mut berelement, plen: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1273,38 +1235,35 @@ pub unsafe fn ber_peek_tag(pberelement: *mut berelement, plen: *mut u32) -> u32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ber_printf<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pberelement: *mut berelement, fmt: Param1) -> i32 {
+pub unsafe fn ber_printf<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pberelement: *mut berelement, fmt: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ber_printf(pberelement: *mut berelement, fmt: super::super::Foundation::PSTR) -> i32;
+            fn ber_printf(pberelement: *mut berelement, fmt: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(ber_printf(::core::mem::transmute(pberelement), fmt.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ber_scanf<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pberelement: *mut berelement, fmt: Param1) -> u32 {
+pub unsafe fn ber_scanf<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pberelement: *mut berelement, fmt: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ber_scanf(pberelement: *mut berelement, fmt: super::super::Foundation::PSTR) -> u32;
+            fn ber_scanf(pberelement: *mut berelement, fmt: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ber_scanf(::core::mem::transmute(pberelement), fmt.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ber_skip_tag(pberelement: *mut berelement, plen: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1319,82 +1278,71 @@ pub unsafe fn ber_skip_tag(pberelement: *mut berelement, plen: *mut u32) -> u32 
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct berelement {
-    pub opaque: super::super::Foundation::PSTR,
+    pub opaque: ::windows::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for berelement {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for berelement {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for berelement {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("berelement").field("opaque", &self.opaque).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for berelement {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for berelement {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<berelement>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for berelement {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for berelement {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn cldap_open<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
+pub unsafe fn cldap_open<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn cldap_open(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
+            fn cldap_open(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
         }
         ::core::mem::transmute(cldap_open(hostname.into_param().abi(), ::core::mem::transmute(portnumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn cldap_openA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
+pub unsafe fn cldap_openA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn cldap_openA(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
+            fn cldap_openA(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
         }
         ::core::mem::transmute(cldap_openA(hostname.into_param().abi(), ::core::mem::transmute(portnumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn cldap_openW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
+pub unsafe fn cldap_openW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn cldap_openW(hostname: super::super::Foundation::PWSTR, portnumber: u32) -> *mut ldap;
+            fn cldap_openW(hostname: ::windows::core::PCWSTR, portnumber: u32) -> *mut ldap;
         }
         ::core::mem::transmute(cldap_openW(hostname.into_param().abi(), ::core::mem::transmute(portnumber)))
     }
@@ -1402,19 +1350,18 @@ pub unsafe fn cldap_openW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct ldap {
     pub ld_sb: ldap_0,
-    pub ld_host: super::super::Foundation::PSTR,
+    pub ld_host: ::windows::core::PSTR,
     pub ld_version: u32,
     pub ld_lberoptions: u8,
     pub ld_deref: u32,
     pub ld_timelimit: u32,
     pub ld_sizelimit: u32,
     pub ld_errno: u32,
-    pub ld_matched: super::super::Foundation::PSTR,
-    pub ld_error: super::super::Foundation::PSTR,
+    pub ld_matched: ::windows::core::PSTR,
+    pub ld_error: ::windows::core::PSTR,
     pub ld_msgid: u32,
     pub Reserved3: [u8; 25],
     pub ld_cldaptries: u32,
@@ -1422,15 +1369,12 @@ pub struct ldap {
     pub ld_refhoplimit: u32,
     pub ld_options: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ldap {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldap {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ldap {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ldap")
@@ -1453,67 +1397,54 @@ impl ::core::fmt::Debug for ldap {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldap {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldap {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldap>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldap {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldap {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct ldap_0 {
     pub sb_sd: usize,
     pub Reserved1: [u8; 41],
     pub sb_naddr: usize,
     pub Reserved2: [u8; 24],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ldap_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldap_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ldap_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ldap_0").field("sb_sd", &self.sb_sd).field("Reserved1", &self.Reserved1).field("sb_naddr", &self.sb_naddr).field("Reserved2", &self.Reserved2).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldap_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldap_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldap_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldap_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldap_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_abandon(ld: *mut ldap, msgid: u32) -> u32 {
     #[cfg(windows)]
@@ -1527,45 +1458,42 @@ pub unsafe fn ldap_abandon(ld: *mut ldap, msgid: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_add<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA) -> u32 {
+pub unsafe fn ldap_add<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_add(ld: *mut ldap, dn: super::super::Foundation::PSTR, attrs: *mut *mut ldapmodA) -> u32;
+            fn ldap_add(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
         }
         ::core::mem::transmute(ldap_add(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_addA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA) -> u32 {
+pub unsafe fn ldap_addA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_addA(ld: *mut ldap, dn: super::super::Foundation::PSTR, attrs: *mut *mut ldapmodA) -> u32;
+            fn ldap_addA(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
         }
         ::core::mem::transmute(ldap_addA(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_addW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodW) -> u32 {
+pub unsafe fn ldap_addW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_addW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, attrs: *mut *mut ldapmodW) -> u32;
+            fn ldap_addW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attrs: *mut *mut ldapmodW) -> u32;
         }
         ::core::mem::transmute(ldap_addW(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs)))
     }
@@ -1575,12 +1503,12 @@ pub unsafe fn ldap_addW<'a, Param1: ::windows::core::IntoParam<'a, super::super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_ext<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_add_ext<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_add_ext(ld: *mut ldap, dn: super::super::Foundation::PSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_add_ext(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_add_ext(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -1590,12 +1518,12 @@ pub unsafe fn ldap_add_ext<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_extA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_add_extA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_add_extA(ld: *mut ldap, dn: super::super::Foundation::PSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_add_extA(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_add_extA(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -1605,12 +1533,12 @@ pub unsafe fn ldap_add_extA<'a, Param1: ::windows::core::IntoParam<'a, super::su
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_extW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_add_extW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_add_extW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+            fn ldap_add_extW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_add_extW(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -1620,12 +1548,12 @@ pub unsafe fn ldap_add_extW<'a, Param1: ::windows::core::IntoParam<'a, super::su
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_add_ext_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_add_ext_s(ld: *mut ldap, dn: super::super::Foundation::PSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+            fn ldap_add_ext_s(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
         }
         ::core::mem::transmute(ldap_add_ext_s(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
@@ -1635,12 +1563,12 @@ pub unsafe fn ldap_add_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super::s
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_add_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_add_ext_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+            fn ldap_add_ext_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
         }
         ::core::mem::transmute(ldap_add_ext_sA(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
@@ -1650,177 +1578,166 @@ pub unsafe fn ldap_add_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_add_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32 {
+pub unsafe fn ldap_add_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_add_ext_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
+            fn ldap_add_ext_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
         }
         ::core::mem::transmute(ldap_add_ext_sW(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_add_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA) -> u32 {
+pub unsafe fn ldap_add_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_add_s(ld: *mut ldap, dn: super::super::Foundation::PSTR, attrs: *mut *mut ldapmodA) -> u32;
+            fn ldap_add_s(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
         }
         ::core::mem::transmute(ldap_add_s(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_add_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA) -> u32 {
+pub unsafe fn ldap_add_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_add_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR, attrs: *mut *mut ldapmodA) -> u32;
+            fn ldap_add_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
         }
         ::core::mem::transmute(ldap_add_sA(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_add_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodW) -> u32 {
+pub unsafe fn ldap_add_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, attrs: *mut *mut ldapmodW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_add_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, attrs: *mut *mut ldapmodW) -> u32;
+            fn ldap_add_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attrs: *mut *mut ldapmodW) -> u32;
         }
         ::core::mem::transmute(ldap_add_sW(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(attrs)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_bind<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
+pub unsafe fn ldap_bind<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_bind(ld: *mut ldap, dn: super::super::Foundation::PSTR, cred: super::super::Foundation::PSTR, method: u32) -> u32;
+            fn ldap_bind(ld: *mut ldap, dn: ::windows::core::PCSTR, cred: ::windows::core::PCSTR, method: u32) -> u32;
         }
         ::core::mem::transmute(ldap_bind(::core::mem::transmute(ld), dn.into_param().abi(), cred.into_param().abi(), ::core::mem::transmute(method)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_bindA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
+pub unsafe fn ldap_bindA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_bindA(ld: *mut ldap, dn: super::super::Foundation::PSTR, cred: super::super::Foundation::PSTR, method: u32) -> u32;
+            fn ldap_bindA(ld: *mut ldap, dn: ::windows::core::PCSTR, cred: ::windows::core::PCSTR, method: u32) -> u32;
         }
         ::core::mem::transmute(ldap_bindA(::core::mem::transmute(ld), dn.into_param().abi(), cred.into_param().abi(), ::core::mem::transmute(method)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_bindW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
+pub unsafe fn ldap_bindW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_bindW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, cred: super::super::Foundation::PWSTR, method: u32) -> u32;
+            fn ldap_bindW(ld: *mut ldap, dn: ::windows::core::PCWSTR, cred: ::windows::core::PCWSTR, method: u32) -> u32;
         }
         ::core::mem::transmute(ldap_bindW(::core::mem::transmute(ld), dn.into_param().abi(), cred.into_param().abi(), ::core::mem::transmute(method)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_bind_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
+pub unsafe fn ldap_bind_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_bind_s(ld: *mut ldap, dn: super::super::Foundation::PSTR, cred: super::super::Foundation::PSTR, method: u32) -> u32;
+            fn ldap_bind_s(ld: *mut ldap, dn: ::windows::core::PCSTR, cred: ::windows::core::PCSTR, method: u32) -> u32;
         }
         ::core::mem::transmute(ldap_bind_s(::core::mem::transmute(ld), dn.into_param().abi(), cred.into_param().abi(), ::core::mem::transmute(method)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_bind_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
+pub unsafe fn ldap_bind_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_bind_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR, cred: super::super::Foundation::PSTR, method: u32) -> u32;
+            fn ldap_bind_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, cred: ::windows::core::PCSTR, method: u32) -> u32;
         }
         ::core::mem::transmute(ldap_bind_sA(::core::mem::transmute(ld), dn.into_param().abi(), cred.into_param().abi(), ::core::mem::transmute(method)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_bind_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
+pub unsafe fn ldap_bind_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, cred: Param2, method: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_bind_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, cred: super::super::Foundation::PWSTR, method: u32) -> u32;
+            fn ldap_bind_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, cred: ::windows::core::PCWSTR, method: u32) -> u32;
         }
         ::core::mem::transmute(ldap_bind_sW(::core::mem::transmute(ld), dn.into_param().abi(), cred.into_param().abi(), ::core::mem::transmute(method)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_check_filterA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, searchfilter: Param1) -> u32 {
+pub unsafe fn ldap_check_filterA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, searchfilter: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_check_filterA(ld: *mut ldap, searchfilter: super::super::Foundation::PSTR) -> u32;
+            fn ldap_check_filterA(ld: *mut ldap, searchfilter: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_check_filterA(::core::mem::transmute(ld), searchfilter.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_check_filterW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, searchfilter: Param1) -> u32 {
+pub unsafe fn ldap_check_filterW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, searchfilter: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_check_filterW(ld: *mut ldap, searchfilter: super::super::Foundation::PWSTR) -> u32;
+            fn ldap_check_filterW(ld: *mut ldap, searchfilter: ::windows::core::PCWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_check_filterW(::core::mem::transmute(ld), searchfilter.into_param().abi()))
     }
@@ -1842,8 +1759,7 @@ pub unsafe fn ldap_cleanup<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_close_extended_op(ld: *mut ldap, messagenumber: u32) -> u32 {
     #[cfg(windows)]
@@ -1857,45 +1773,42 @@ pub unsafe fn ldap_close_extended_op(ld: *mut ldap, messagenumber: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_compare<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
+pub unsafe fn ldap_compare<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compare(ld: *mut ldap, dn: super::super::Foundation::PSTR, attr: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> u32;
+            fn ldap_compare(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_compare(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_compareA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
+pub unsafe fn ldap_compareA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compareA(ld: *mut ldap, dn: super::super::Foundation::PSTR, attr: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> u32;
+            fn ldap_compareA(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_compareA(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_compareW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
+pub unsafe fn ldap_compareW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compareW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, attr: super::super::Foundation::PWSTR, value: super::super::Foundation::PWSTR) -> u32;
+            fn ldap_compareW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attr: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_compareW(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi()))
     }
@@ -1905,12 +1818,12 @@ pub unsafe fn ldap_compareW<'a, Param1: ::windows::core::IntoParam<'a, super::su
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_ext<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_compare_ext<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compare_ext(ld: *mut ldap, dn: super::super::Foundation::PSTR, attr: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_compare_ext(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_compare_ext(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -1920,12 +1833,12 @@ pub unsafe fn ldap_compare_ext<'a, Param1: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_extA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_compare_extA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compare_extA(ld: *mut ldap, dn: super::super::Foundation::PSTR, attr: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_compare_extA(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_compare_extA(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -1935,12 +1848,12 @@ pub unsafe fn ldap_compare_extA<'a, Param1: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_extW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_compare_extW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compare_extW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, attr: super::super::Foundation::PWSTR, value: super::super::Foundation::PWSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+            fn ldap_compare_extW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attr: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_compare_extW(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -1950,12 +1863,12 @@ pub unsafe fn ldap_compare_extW<'a, Param1: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_compare_ext_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compare_ext_s(ld: *mut ldap, dn: super::super::Foundation::PSTR, attr: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+            fn ldap_compare_ext_s(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
         }
         ::core::mem::transmute(ldap_compare_ext_s(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
@@ -1965,12 +1878,12 @@ pub unsafe fn ldap_compare_ext_s<'a, Param1: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_compare_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compare_ext_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR, attr: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+            fn ldap_compare_ext_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
         }
         ::core::mem::transmute(ldap_compare_ext_sA(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
@@ -1980,57 +1893,54 @@ pub unsafe fn ldap_compare_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_compare_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32 {
+pub unsafe fn ldap_compare_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compare_ext_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, attr: super::super::Foundation::PWSTR, value: super::super::Foundation::PWSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
+            fn ldap_compare_ext_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attr: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
         }
         ::core::mem::transmute(ldap_compare_ext_sW(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_compare_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
+pub unsafe fn ldap_compare_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compare_s(ld: *mut ldap, dn: super::super::Foundation::PSTR, attr: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> u32;
+            fn ldap_compare_s(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_compare_s(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_compare_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
+pub unsafe fn ldap_compare_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compare_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR, attr: super::super::Foundation::PSTR, value: super::super::Foundation::PSTR) -> u32;
+            fn ldap_compare_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_compare_sA(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_compare_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
+pub unsafe fn ldap_compare_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, attr: Param2, value: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_compare_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, attr: super::super::Foundation::PWSTR, value: super::super::Foundation::PWSTR) -> u32;
+            fn ldap_compare_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attr: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_compare_sW(::core::mem::transmute(ld), dn.into_param().abi(), attr.into_param().abi(), value.into_param().abi()))
     }
@@ -2052,8 +1962,7 @@ pub unsafe fn ldap_conn_from_msg(primaryconn: *mut ldap, res: *mut LDAPMessage) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_connect(ld: *mut ldap, timeout: *mut LDAP_TIMEVAL) -> u32 {
     #[cfg(windows)]
@@ -2187,53 +2096,49 @@ pub unsafe fn ldap_count_references(ld: *mut ldap, res: *mut LDAPMessage) -> u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_count_values(vals: *const super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn ldap_count_values(vals: *const ::windows::core::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_count_values(vals: *const super::super::Foundation::PSTR) -> u32;
+            fn ldap_count_values(vals: *const ::windows::core::PSTR) -> u32;
         }
         ::core::mem::transmute(ldap_count_values(::core::mem::transmute(vals)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_count_valuesA(vals: *const super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn ldap_count_valuesA(vals: *const ::windows::core::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_count_valuesA(vals: *const super::super::Foundation::PSTR) -> u32;
+            fn ldap_count_valuesA(vals: *const ::windows::core::PSTR) -> u32;
         }
         ::core::mem::transmute(ldap_count_valuesA(::core::mem::transmute(vals)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_count_valuesW(vals: *const super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn ldap_count_valuesW(vals: *const ::windows::core::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_count_valuesW(vals: *const super::super::Foundation::PWSTR) -> u32;
+            fn ldap_count_valuesW(vals: *const ::windows::core::PWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_count_valuesW(::core::mem::transmute(vals)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_count_values_len(vals: *mut *mut LDAP_BERVAL) -> u32 {
     #[cfg(windows)]
@@ -2367,45 +2272,42 @@ pub unsafe fn ldap_create_vlv_controlW(externalhandle: *mut ldap, vlvinfo: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_delete<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
+pub unsafe fn ldap_delete<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_delete(ld: *mut ldap, dn: super::super::Foundation::PSTR) -> u32;
+            fn ldap_delete(ld: *mut ldap, dn: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_delete(::core::mem::transmute(ld), dn.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_deleteA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
+pub unsafe fn ldap_deleteA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_deleteA(ld: *mut ldap, dn: super::super::Foundation::PSTR) -> u32;
+            fn ldap_deleteA(ld: *mut ldap, dn: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_deleteA(::core::mem::transmute(ld), dn.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_deleteW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
+pub unsafe fn ldap_deleteW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_deleteW(ld: *mut ldap, dn: super::super::Foundation::PWSTR) -> u32;
+            fn ldap_deleteW(ld: *mut ldap, dn: ::windows::core::PCWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_deleteW(::core::mem::transmute(ld), dn.into_param().abi()))
     }
@@ -2415,12 +2317,12 @@ pub unsafe fn ldap_deleteW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_ext<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_delete_ext<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_delete_ext(ld: *mut ldap, dn: super::super::Foundation::PSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_delete_ext(ld: *mut ldap, dn: ::windows::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_delete_ext(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -2430,12 +2332,12 @@ pub unsafe fn ldap_delete_ext<'a, Param1: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_extA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_delete_extA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_delete_extA(ld: *mut ldap, dn: super::super::Foundation::PSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_delete_extA(ld: *mut ldap, dn: ::windows::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_delete_extA(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -2445,12 +2347,12 @@ pub unsafe fn ldap_delete_extA<'a, Param1: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_extW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_delete_extW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_delete_extW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+            fn ldap_delete_extW(ld: *mut ldap, dn: ::windows::core::PCWSTR, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_delete_extW(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -2460,12 +2362,12 @@ pub unsafe fn ldap_delete_extW<'a, Param1: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_delete_ext_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_delete_ext_s(ld: *mut ldap, dn: super::super::Foundation::PSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+            fn ldap_delete_ext_s(ld: *mut ldap, dn: ::windows::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
         }
         ::core::mem::transmute(ldap_delete_ext_s(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
@@ -2475,12 +2377,12 @@ pub unsafe fn ldap_delete_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_delete_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_delete_ext_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+            fn ldap_delete_ext_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
         }
         ::core::mem::transmute(ldap_delete_ext_sA(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
@@ -2490,102 +2392,96 @@ pub unsafe fn ldap_delete_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_delete_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32 {
+pub unsafe fn ldap_delete_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_delete_ext_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
+            fn ldap_delete_ext_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
         }
         ::core::mem::transmute(ldap_delete_ext_sW(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_delete_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
+pub unsafe fn ldap_delete_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_delete_s(ld: *mut ldap, dn: super::super::Foundation::PSTR) -> u32;
+            fn ldap_delete_s(ld: *mut ldap, dn: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_delete_s(::core::mem::transmute(ld), dn.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_delete_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
+pub unsafe fn ldap_delete_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_delete_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR) -> u32;
+            fn ldap_delete_sA(ld: *mut ldap, dn: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_delete_sA(::core::mem::transmute(ld), dn.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_delete_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
+pub unsafe fn ldap_delete_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_delete_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR) -> u32;
+            fn ldap_delete_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_delete_sW(::core::mem::transmute(ld), dn.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_dn2ufn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dn: Param0) -> super::super::Foundation::PSTR {
+pub unsafe fn ldap_dn2ufn<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dn: Param0) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_dn2ufn(dn: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+            fn ldap_dn2ufn(dn: ::windows::core::PCSTR) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_dn2ufn(dn.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_dn2ufnA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dn: Param0) -> super::super::Foundation::PSTR {
+pub unsafe fn ldap_dn2ufnA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dn: Param0) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_dn2ufnA(dn: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+            fn ldap_dn2ufnA(dn: ::windows::core::PCSTR) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_dn2ufnA(dn.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_dn2ufnW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dn: Param0) -> super::super::Foundation::PWSTR {
+pub unsafe fn ldap_dn2ufnW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dn: Param0) -> ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_dn2ufnW(dn: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
+            fn ldap_dn2ufnW(dn: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
         }
         ::core::mem::transmute(ldap_dn2ufnW(dn.into_param().abi()))
     }
@@ -2622,135 +2518,126 @@ pub unsafe fn ldap_encode_sort_controlW<'a, Param3: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_err2string(err: u32) -> super::super::Foundation::PSTR {
+pub unsafe fn ldap_err2string(err: u32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_err2string(err: u32) -> super::super::Foundation::PSTR;
+            fn ldap_err2string(err: u32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_err2string(::core::mem::transmute(err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_err2stringA(err: u32) -> super::super::Foundation::PSTR {
+pub unsafe fn ldap_err2stringA(err: u32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_err2stringA(err: u32) -> super::super::Foundation::PSTR;
+            fn ldap_err2stringA(err: u32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_err2stringA(::core::mem::transmute(err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_err2stringW(err: u32) -> super::super::Foundation::PWSTR {
+pub unsafe fn ldap_err2stringW(err: u32) -> ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_err2stringW(err: u32) -> super::super::Foundation::PWSTR;
+            fn ldap_err2stringW(err: u32) -> ::windows::core::PWSTR;
         }
         ::core::mem::transmute(ldap_err2stringW(::core::mem::transmute(err)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_escape_filter_element<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sourcefilterelement: Param0, sourcelength: u32, destfilterelement: super::super::Foundation::PSTR, destlength: u32) -> u32 {
+pub unsafe fn ldap_escape_filter_element<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(sourcefilterelement: Param0, sourcelength: u32, destfilterelement: ::windows::core::PSTR, destlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_escape_filter_element(sourcefilterelement: super::super::Foundation::PSTR, sourcelength: u32, destfilterelement: super::super::Foundation::PSTR, destlength: u32) -> u32;
+            fn ldap_escape_filter_element(sourcefilterelement: ::windows::core::PCSTR, sourcelength: u32, destfilterelement: ::windows::core::PSTR, destlength: u32) -> u32;
         }
         ::core::mem::transmute(ldap_escape_filter_element(sourcefilterelement.into_param().abi(), ::core::mem::transmute(sourcelength), ::core::mem::transmute(destfilterelement), ::core::mem::transmute(destlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_escape_filter_elementA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sourcefilterelement: Param0, sourcelength: u32, destfilterelement: super::super::Foundation::PSTR, destlength: u32) -> u32 {
+pub unsafe fn ldap_escape_filter_elementA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(sourcefilterelement: Param0, sourcelength: u32, destfilterelement: ::windows::core::PSTR, destlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_escape_filter_elementA(sourcefilterelement: super::super::Foundation::PSTR, sourcelength: u32, destfilterelement: super::super::Foundation::PSTR, destlength: u32) -> u32;
+            fn ldap_escape_filter_elementA(sourcefilterelement: ::windows::core::PCSTR, sourcelength: u32, destfilterelement: ::windows::core::PSTR, destlength: u32) -> u32;
         }
         ::core::mem::transmute(ldap_escape_filter_elementA(sourcefilterelement.into_param().abi(), ::core::mem::transmute(sourcelength), ::core::mem::transmute(destfilterelement), ::core::mem::transmute(destlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_escape_filter_elementW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sourcefilterelement: Param0, sourcelength: u32, destfilterelement: super::super::Foundation::PWSTR, destlength: u32) -> u32 {
+pub unsafe fn ldap_escape_filter_elementW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(sourcefilterelement: Param0, sourcelength: u32, destfilterelement: ::windows::core::PWSTR, destlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_escape_filter_elementW(sourcefilterelement: super::super::Foundation::PSTR, sourcelength: u32, destfilterelement: super::super::Foundation::PWSTR, destlength: u32) -> u32;
+            fn ldap_escape_filter_elementW(sourcefilterelement: ::windows::core::PCSTR, sourcelength: u32, destfilterelement: ::windows::core::PWSTR, destlength: u32) -> u32;
         }
         ::core::mem::transmute(ldap_escape_filter_elementW(sourcefilterelement.into_param().abi(), ::core::mem::transmute(sourcelength), ::core::mem::transmute(destfilterelement), ::core::mem::transmute(destlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_explode_dn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dn: Param0, notypes: u32) -> *mut super::super::Foundation::PSTR {
+pub unsafe fn ldap_explode_dn<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dn: Param0, notypes: u32) -> *mut ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_explode_dn(dn: super::super::Foundation::PSTR, notypes: u32) -> *mut super::super::Foundation::PSTR;
+            fn ldap_explode_dn(dn: ::windows::core::PCSTR, notypes: u32) -> *mut ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_explode_dn(dn.into_param().abi(), ::core::mem::transmute(notypes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_explode_dnA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dn: Param0, notypes: u32) -> *mut super::super::Foundation::PSTR {
+pub unsafe fn ldap_explode_dnA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dn: Param0, notypes: u32) -> *mut ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_explode_dnA(dn: super::super::Foundation::PSTR, notypes: u32) -> *mut super::super::Foundation::PSTR;
+            fn ldap_explode_dnA(dn: ::windows::core::PCSTR, notypes: u32) -> *mut ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_explode_dnA(dn.into_param().abi(), ::core::mem::transmute(notypes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_explode_dnW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dn: Param0, notypes: u32) -> *mut super::super::Foundation::PWSTR {
+pub unsafe fn ldap_explode_dnW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dn: Param0, notypes: u32) -> *mut ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_explode_dnW(dn: super::super::Foundation::PWSTR, notypes: u32) -> *mut super::super::Foundation::PWSTR;
+            fn ldap_explode_dnW(dn: ::windows::core::PCWSTR, notypes: u32) -> *mut ::windows::core::PWSTR;
         }
         ::core::mem::transmute(ldap_explode_dnW(dn.into_param().abi(), ::core::mem::transmute(notypes)))
     }
@@ -2760,12 +2647,12 @@ pub unsafe fn ldap_explode_dnW<'a, Param0: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_extended_operation<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, oid: Param1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_extended_operation<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, oid: Param1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_extended_operation(ld: *mut ldap, oid: super::super::Foundation::PSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_extended_operation(ld: *mut ldap, oid: ::windows::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_extended_operation(::core::mem::transmute(ld), oid.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -2775,12 +2662,12 @@ pub unsafe fn ldap_extended_operation<'a, Param1: ::windows::core::IntoParam<'a,
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_extended_operationA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, oid: Param1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_extended_operationA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, oid: Param1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_extended_operationA(ld: *mut ldap, oid: super::super::Foundation::PSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_extended_operationA(ld: *mut ldap, oid: ::windows::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_extended_operationA(::core::mem::transmute(ld), oid.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -2790,12 +2677,12 @@ pub unsafe fn ldap_extended_operationA<'a, Param1: ::windows::core::IntoParam<'a
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_extended_operationW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, oid: Param1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_extended_operationW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, oid: Param1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_extended_operationW(ld: *mut ldap, oid: super::super::Foundation::PWSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+            fn ldap_extended_operationW(ld: *mut ldap, oid: ::windows::core::PCWSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_extended_operationW(::core::mem::transmute(ld), oid.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -2805,12 +2692,12 @@ pub unsafe fn ldap_extended_operationW<'a, Param1: ::windows::core::IntoParam<'a
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_extended_operation_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, oid: Param1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, returnedoid: *mut super::super::Foundation::PSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32 {
+pub unsafe fn ldap_extended_operation_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, oid: Param1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, returnedoid: *mut ::windows::core::PSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_extended_operation_sA(externalhandle: *mut ldap, oid: super::super::Foundation::PSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, returnedoid: *mut super::super::Foundation::PSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32;
+            fn ldap_extended_operation_sA(externalhandle: *mut ldap, oid: ::windows::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, returnedoid: *mut ::windows::core::PSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32;
         }
         ::core::mem::transmute(ldap_extended_operation_sA(::core::mem::transmute(externalhandle), oid.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(returnedoid), ::core::mem::transmute(returneddata)))
     }
@@ -2820,12 +2707,12 @@ pub unsafe fn ldap_extended_operation_sA<'a, Param1: ::windows::core::IntoParam<
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_extended_operation_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(externalhandle: *mut ldap, oid: Param1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, returnedoid: *mut super::super::Foundation::PWSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32 {
+pub unsafe fn ldap_extended_operation_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(externalhandle: *mut ldap, oid: Param1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, returnedoid: *mut ::windows::core::PWSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_extended_operation_sW(externalhandle: *mut ldap, oid: super::super::Foundation::PWSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, returnedoid: *mut super::super::Foundation::PWSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32;
+            fn ldap_extended_operation_sW(externalhandle: *mut ldap, oid: ::windows::core::PCWSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, returnedoid: *mut ::windows::core::PWSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32;
         }
         ::core::mem::transmute(ldap_extended_operation_sW(::core::mem::transmute(externalhandle), oid.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(returnedoid), ::core::mem::transmute(returneddata)))
     }
@@ -2835,12 +2722,12 @@ pub unsafe fn ldap_extended_operation_sW<'a, Param1: ::windows::core::IntoParam<
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_first_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> super::super::Foundation::PSTR {
+pub unsafe fn ldap_first_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_first_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> super::super::Foundation::PSTR;
+            fn ldap_first_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_first_attribute(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr)))
     }
@@ -2850,12 +2737,12 @@ pub unsafe fn ldap_first_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: 
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_first_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> super::super::Foundation::PSTR {
+pub unsafe fn ldap_first_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_first_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> super::super::Foundation::PSTR;
+            fn ldap_first_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_first_attributeA(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr)))
     }
@@ -2865,12 +2752,12 @@ pub unsafe fn ldap_first_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_first_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> super::super::Foundation::PWSTR {
+pub unsafe fn ldap_first_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_first_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> super::super::Foundation::PWSTR;
+            fn ldap_first_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PWSTR;
         }
         ::core::mem::transmute(ldap_first_attributeW(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr)))
     }
@@ -2955,12 +2842,12 @@ pub unsafe fn ldap_free_controlsW(controls: *mut *mut ldapcontrolW) -> u32 {
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_dn(ld: *mut ldap, entry: *mut LDAPMessage) -> super::super::Foundation::PSTR {
+pub unsafe fn ldap_get_dn(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_get_dn(ld: *mut ldap, entry: *mut LDAPMessage) -> super::super::Foundation::PSTR;
+            fn ldap_get_dn(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_get_dn(::core::mem::transmute(ld), ::core::mem::transmute(entry)))
     }
@@ -2970,12 +2857,12 @@ pub unsafe fn ldap_get_dn(ld: *mut ldap, entry: *mut LDAPMessage) -> super::supe
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_dnA(ld: *mut ldap, entry: *mut LDAPMessage) -> super::super::Foundation::PSTR {
+pub unsafe fn ldap_get_dnA(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_get_dnA(ld: *mut ldap, entry: *mut LDAPMessage) -> super::super::Foundation::PSTR;
+            fn ldap_get_dnA(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_get_dnA(::core::mem::transmute(ld), ::core::mem::transmute(entry)))
     }
@@ -2985,20 +2872,19 @@ pub unsafe fn ldap_get_dnA(ld: *mut ldap, entry: *mut LDAPMessage) -> super::sup
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_dnW(ld: *mut ldap, entry: *mut LDAPMessage) -> super::super::Foundation::PWSTR {
+pub unsafe fn ldap_get_dnW(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_get_dnW(ld: *mut ldap, entry: *mut LDAPMessage) -> super::super::Foundation::PWSTR;
+            fn ldap_get_dnW(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PWSTR;
         }
         ::core::mem::transmute(ldap_get_dnW(::core::mem::transmute(ld), ::core::mem::transmute(entry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_get_next_page(externalhandle: *mut ldap, searchhandle: *mut ldapsearch, pagesize: u32, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -3027,8 +2913,7 @@ pub unsafe fn ldap_get_next_page_s(externalhandle: *mut ldap, searchhandle: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_get_option(ld: *mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -3042,8 +2927,7 @@ pub unsafe fn ldap_get_option(ld: *mut ldap, option: i32, outvalue: *mut ::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_get_optionW(ld: *mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -3075,12 +2959,12 @@ pub unsafe fn ldap_get_paged_count(externalhandle: *mut ldap, searchblock: *mut 
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_values<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, entry: *mut LDAPMessage, attr: Param2) -> *mut super::super::Foundation::PSTR {
+pub unsafe fn ldap_get_values<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, entry: *mut LDAPMessage, attr: Param2) -> *mut ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_get_values(ld: *mut ldap, entry: *mut LDAPMessage, attr: super::super::Foundation::PSTR) -> *mut super::super::Foundation::PSTR;
+            fn ldap_get_values(ld: *mut ldap, entry: *mut LDAPMessage, attr: ::windows::core::PCSTR) -> *mut ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_get_values(::core::mem::transmute(ld), ::core::mem::transmute(entry), attr.into_param().abi()))
     }
@@ -3090,12 +2974,12 @@ pub unsafe fn ldap_get_values<'a, Param2: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_valuesA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, entry: *mut LDAPMessage, attr: Param2) -> *mut super::super::Foundation::PSTR {
+pub unsafe fn ldap_get_valuesA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, entry: *mut LDAPMessage, attr: Param2) -> *mut ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_get_valuesA(ld: *mut ldap, entry: *mut LDAPMessage, attr: super::super::Foundation::PSTR) -> *mut super::super::Foundation::PSTR;
+            fn ldap_get_valuesA(ld: *mut ldap, entry: *mut LDAPMessage, attr: ::windows::core::PCSTR) -> *mut ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_get_valuesA(::core::mem::transmute(ld), ::core::mem::transmute(entry), attr.into_param().abi()))
     }
@@ -3105,12 +2989,12 @@ pub unsafe fn ldap_get_valuesA<'a, Param2: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_valuesW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, entry: *mut LDAPMessage, attr: Param2) -> *mut super::super::Foundation::PWSTR {
+pub unsafe fn ldap_get_valuesW<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, entry: *mut LDAPMessage, attr: Param2) -> *mut ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_get_valuesW(ld: *mut ldap, entry: *mut LDAPMessage, attr: super::super::Foundation::PWSTR) -> *mut super::super::Foundation::PWSTR;
+            fn ldap_get_valuesW(ld: *mut ldap, entry: *mut LDAPMessage, attr: ::windows::core::PCWSTR) -> *mut ::windows::core::PWSTR;
         }
         ::core::mem::transmute(ldap_get_valuesW(::core::mem::transmute(ld), ::core::mem::transmute(entry), attr.into_param().abi()))
     }
@@ -3120,12 +3004,12 @@ pub unsafe fn ldap_get_valuesW<'a, Param2: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_values_len<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: Param2) -> *mut *mut LDAP_BERVAL {
+pub unsafe fn ldap_get_values_len<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: Param2) -> *mut *mut LDAP_BERVAL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_get_values_len(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: super::super::Foundation::PSTR) -> *mut *mut LDAP_BERVAL;
+            fn ldap_get_values_len(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: ::windows::core::PCSTR) -> *mut *mut LDAP_BERVAL;
         }
         ::core::mem::transmute(ldap_get_values_len(::core::mem::transmute(externalhandle), ::core::mem::transmute(message), attr.into_param().abi()))
     }
@@ -3135,12 +3019,12 @@ pub unsafe fn ldap_get_values_len<'a, Param2: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_values_lenA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: Param2) -> *mut *mut LDAP_BERVAL {
+pub unsafe fn ldap_get_values_lenA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: Param2) -> *mut *mut LDAP_BERVAL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_get_values_lenA(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: super::super::Foundation::PSTR) -> *mut *mut LDAP_BERVAL;
+            fn ldap_get_values_lenA(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: ::windows::core::PCSTR) -> *mut *mut LDAP_BERVAL;
         }
         ::core::mem::transmute(ldap_get_values_lenA(::core::mem::transmute(externalhandle), ::core::mem::transmute(message), attr.into_param().abi()))
     }
@@ -3150,147 +3034,138 @@ pub unsafe fn ldap_get_values_lenA<'a, Param2: ::windows::core::IntoParam<'a, su
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_values_lenW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: Param2) -> *mut *mut LDAP_BERVAL {
+pub unsafe fn ldap_get_values_lenW<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: Param2) -> *mut *mut LDAP_BERVAL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_get_values_lenW(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: super::super::Foundation::PWSTR) -> *mut *mut LDAP_BERVAL;
+            fn ldap_get_values_lenW(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: ::windows::core::PCWSTR) -> *mut *mut LDAP_BERVAL;
         }
         ::core::mem::transmute(ldap_get_values_lenW(::core::mem::transmute(externalhandle), ::core::mem::transmute(message), attr.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_init<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
+pub unsafe fn ldap_init<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_init(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
+            fn ldap_init(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
         }
         ::core::mem::transmute(ldap_init(hostname.into_param().abi(), ::core::mem::transmute(portnumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_initA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
+pub unsafe fn ldap_initA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_initA(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
+            fn ldap_initA(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
         }
         ::core::mem::transmute(ldap_initA(hostname.into_param().abi(), ::core::mem::transmute(portnumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_initW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
+pub unsafe fn ldap_initW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_initW(hostname: super::super::Foundation::PWSTR, portnumber: u32) -> *mut ldap;
+            fn ldap_initW(hostname: ::windows::core::PCWSTR, portnumber: u32) -> *mut ldap;
         }
         ::core::mem::transmute(ldap_initW(hostname.into_param().abi(), ::core::mem::transmute(portnumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_memfree<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(block: Param0) {
+pub unsafe fn ldap_memfree<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(block: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_memfree(block: super::super::Foundation::PSTR);
+            fn ldap_memfree(block: ::windows::core::PCSTR);
         }
         ldap_memfree(block.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_memfreeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(block: Param0) {
+pub unsafe fn ldap_memfreeA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(block: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_memfreeA(block: super::super::Foundation::PSTR);
+            fn ldap_memfreeA(block: ::windows::core::PCSTR);
         }
         ldap_memfreeA(block.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_memfreeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(block: Param0) {
+pub unsafe fn ldap_memfreeW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(block: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_memfreeW(block: super::super::Foundation::PWSTR);
+            fn ldap_memfreeW(block: ::windows::core::PCWSTR);
         }
         ldap_memfreeW(block.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modify<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA) -> u32 {
+pub unsafe fn ldap_modify<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modify(ld: *mut ldap, dn: super::super::Foundation::PSTR, mods: *mut *mut ldapmodA) -> u32;
+            fn ldap_modify(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
         }
         ::core::mem::transmute(ldap_modify(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modifyA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA) -> u32 {
+pub unsafe fn ldap_modifyA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modifyA(ld: *mut ldap, dn: super::super::Foundation::PSTR, mods: *mut *mut ldapmodA) -> u32;
+            fn ldap_modifyA(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
         }
         ::core::mem::transmute(ldap_modifyA(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modifyW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodW) -> u32 {
+pub unsafe fn ldap_modifyW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modifyW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, mods: *mut *mut ldapmodW) -> u32;
+            fn ldap_modifyW(ld: *mut ldap, dn: ::windows::core::PCWSTR, mods: *mut *mut ldapmodW) -> u32;
         }
         ::core::mem::transmute(ldap_modifyW(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods)))
     }
@@ -3300,12 +3175,12 @@ pub unsafe fn ldap_modifyW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_ext<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_modify_ext<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modify_ext(ld: *mut ldap, dn: super::super::Foundation::PSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_modify_ext(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_modify_ext(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -3315,12 +3190,12 @@ pub unsafe fn ldap_modify_ext<'a, Param1: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_extA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_modify_extA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modify_extA(ld: *mut ldap, dn: super::super::Foundation::PSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_modify_extA(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_modify_extA(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -3330,12 +3205,12 @@ pub unsafe fn ldap_modify_extA<'a, Param1: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_extW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_modify_extW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modify_extW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+            fn ldap_modify_extW(ld: *mut ldap, dn: ::windows::core::PCWSTR, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_modify_extW(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -3345,12 +3220,12 @@ pub unsafe fn ldap_modify_extW<'a, Param1: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_modify_ext_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modify_ext_s(ld: *mut ldap, dn: super::super::Foundation::PSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+            fn ldap_modify_ext_s(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
         }
         ::core::mem::transmute(ldap_modify_ext_s(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
@@ -3360,12 +3235,12 @@ pub unsafe fn ldap_modify_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_modify_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modify_ext_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+            fn ldap_modify_ext_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
         }
         ::core::mem::transmute(ldap_modify_ext_sA(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
@@ -3375,237 +3250,222 @@ pub unsafe fn ldap_modify_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_modify_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32 {
+pub unsafe fn ldap_modify_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modify_ext_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
+            fn ldap_modify_ext_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
         }
         ::core::mem::transmute(ldap_modify_ext_sW(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modify_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA) -> u32 {
+pub unsafe fn ldap_modify_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modify_s(ld: *mut ldap, dn: super::super::Foundation::PSTR, mods: *mut *mut ldapmodA) -> u32;
+            fn ldap_modify_s(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
         }
         ::core::mem::transmute(ldap_modify_s(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modify_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA) -> u32 {
+pub unsafe fn ldap_modify_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modify_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR, mods: *mut *mut ldapmodA) -> u32;
+            fn ldap_modify_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
         }
         ::core::mem::transmute(ldap_modify_sA(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modify_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodW) -> u32 {
+pub unsafe fn ldap_modify_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, mods: *mut *mut ldapmodW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modify_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, mods: *mut *mut ldapmodW) -> u32;
+            fn ldap_modify_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, mods: *mut *mut ldapmodW) -> u32;
         }
         ::core::mem::transmute(ldap_modify_sW(::core::mem::transmute(ld), dn.into_param().abi(), ::core::mem::transmute(mods)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdn<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
+pub unsafe fn ldap_modrdn<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdn(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, newdistinguishedname: super::super::Foundation::PSTR) -> u32;
+            fn ldap_modrdn(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_modrdn(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdn2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
+pub unsafe fn ldap_modrdn2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdn2(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, newdistinguishedname: super::super::Foundation::PSTR, deleteoldrdn: i32) -> u32;
+            fn ldap_modrdn2(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR, deleteoldrdn: i32) -> u32;
         }
         ::core::mem::transmute(ldap_modrdn2(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi(), ::core::mem::transmute(deleteoldrdn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdn2A<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
+pub unsafe fn ldap_modrdn2A<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdn2A(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, newdistinguishedname: super::super::Foundation::PSTR, deleteoldrdn: i32) -> u32;
+            fn ldap_modrdn2A(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR, deleteoldrdn: i32) -> u32;
         }
         ::core::mem::transmute(ldap_modrdn2A(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi(), ::core::mem::transmute(deleteoldrdn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdn2W<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
+pub unsafe fn ldap_modrdn2W<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdn2W(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PWSTR, newdistinguishedname: super::super::Foundation::PWSTR, deleteoldrdn: i32) -> u32;
+            fn ldap_modrdn2W(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCWSTR, newdistinguishedname: ::windows::core::PCWSTR, deleteoldrdn: i32) -> u32;
         }
         ::core::mem::transmute(ldap_modrdn2W(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi(), ::core::mem::transmute(deleteoldrdn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdn2_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
+pub unsafe fn ldap_modrdn2_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdn2_s(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, newdistinguishedname: super::super::Foundation::PSTR, deleteoldrdn: i32) -> u32;
+            fn ldap_modrdn2_s(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR, deleteoldrdn: i32) -> u32;
         }
         ::core::mem::transmute(ldap_modrdn2_s(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi(), ::core::mem::transmute(deleteoldrdn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdn2_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
+pub unsafe fn ldap_modrdn2_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdn2_sA(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, newdistinguishedname: super::super::Foundation::PSTR, deleteoldrdn: i32) -> u32;
+            fn ldap_modrdn2_sA(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR, deleteoldrdn: i32) -> u32;
         }
         ::core::mem::transmute(ldap_modrdn2_sA(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi(), ::core::mem::transmute(deleteoldrdn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdn2_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
+pub unsafe fn ldap_modrdn2_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2, deleteoldrdn: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdn2_sW(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PWSTR, newdistinguishedname: super::super::Foundation::PWSTR, deleteoldrdn: i32) -> u32;
+            fn ldap_modrdn2_sW(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCWSTR, newdistinguishedname: ::windows::core::PCWSTR, deleteoldrdn: i32) -> u32;
         }
         ::core::mem::transmute(ldap_modrdn2_sW(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi(), ::core::mem::transmute(deleteoldrdn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdnA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
+pub unsafe fn ldap_modrdnA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdnA(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, newdistinguishedname: super::super::Foundation::PSTR) -> u32;
+            fn ldap_modrdnA(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_modrdnA(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdnW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
+pub unsafe fn ldap_modrdnW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdnW(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PWSTR, newdistinguishedname: super::super::Foundation::PWSTR) -> u32;
+            fn ldap_modrdnW(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCWSTR, newdistinguishedname: ::windows::core::PCWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_modrdnW(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdn_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
+pub unsafe fn ldap_modrdn_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdn_s(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, newdistinguishedname: super::super::Foundation::PSTR) -> u32;
+            fn ldap_modrdn_s(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_modrdn_s(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdn_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
+pub unsafe fn ldap_modrdn_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdn_sA(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, newdistinguishedname: super::super::Foundation::PSTR) -> u32;
+            fn ldap_modrdn_sA(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_modrdn_sA(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_modrdn_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
+pub unsafe fn ldap_modrdn_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, newdistinguishedname: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_modrdn_sW(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PWSTR, newdistinguishedname: super::super::Foundation::PWSTR) -> u32;
+            fn ldap_modrdn_sW(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCWSTR, newdistinguishedname: ::windows::core::PCWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_modrdn_sW(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), newdistinguishedname.into_param().abi()))
     }
@@ -3630,12 +3490,12 @@ pub unsafe fn ldap_msgfree(res: *mut LDAPMessage) -> u32 {
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_next_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> super::super::Foundation::PSTR {
+pub unsafe fn ldap_next_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_next_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> super::super::Foundation::PSTR;
+            fn ldap_next_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_next_attribute(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr)))
     }
@@ -3645,12 +3505,12 @@ pub unsafe fn ldap_next_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_next_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> super::super::Foundation::PSTR {
+pub unsafe fn ldap_next_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_next_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> super::super::Foundation::PSTR;
+            fn ldap_next_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(ldap_next_attributeA(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr)))
     }
@@ -3660,12 +3520,12 @@ pub unsafe fn ldap_next_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: 
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_next_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> super::super::Foundation::PWSTR {
+pub unsafe fn ldap_next_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_next_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> super::super::Foundation::PWSTR;
+            fn ldap_next_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PWSTR;
         }
         ::core::mem::transmute(ldap_next_attributeW(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr)))
     }
@@ -3702,45 +3562,42 @@ pub unsafe fn ldap_next_reference(ld: *mut ldap, entry: *mut LDAPMessage) -> *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_open<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
+pub unsafe fn ldap_open<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_open(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
+            fn ldap_open(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
         }
         ::core::mem::transmute(ldap_open(hostname.into_param().abi(), ::core::mem::transmute(portnumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_openA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
+pub unsafe fn ldap_openA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_openA(hostname: super::super::Foundation::PSTR, portnumber: u32) -> *mut ldap;
+            fn ldap_openA(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
         }
         ::core::mem::transmute(ldap_openA(hostname.into_param().abi(), ::core::mem::transmute(portnumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_openW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
+pub unsafe fn ldap_openW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hostname: Param0, portnumber: u32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_openW(hostname: super::super::Foundation::PWSTR, portnumber: u32) -> *mut ldap;
+            fn ldap_openW(hostname: ::windows::core::PCWSTR, portnumber: u32) -> *mut ldap;
         }
         ::core::mem::transmute(ldap_openW(hostname.into_param().abi(), ::core::mem::transmute(portnumber)))
     }
@@ -3750,12 +3607,12 @@ pub unsafe fn ldap_openW<'a, Param0: ::windows::core::IntoParam<'a, super::super
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_extended_resultA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut super::super::Foundation::PSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: Param4) -> u32 {
+pub unsafe fn ldap_parse_extended_resultA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut ::windows::core::PSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_parse_extended_resultA(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut super::super::Foundation::PSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: super::super::Foundation::BOOLEAN) -> u32;
+            fn ldap_parse_extended_resultA(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut ::windows::core::PSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: super::super::Foundation::BOOLEAN) -> u32;
         }
         ::core::mem::transmute(ldap_parse_extended_resultA(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(resultoid), ::core::mem::transmute(resultdata), freeit.into_param().abi()))
     }
@@ -3765,12 +3622,12 @@ pub unsafe fn ldap_parse_extended_resultA<'a, Param4: ::windows::core::IntoParam
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_extended_resultW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut super::super::Foundation::PWSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: Param4) -> u32 {
+pub unsafe fn ldap_parse_extended_resultW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut ::windows::core::PWSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_parse_extended_resultW(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut super::super::Foundation::PWSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: super::super::Foundation::BOOLEAN) -> u32;
+            fn ldap_parse_extended_resultW(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut ::windows::core::PWSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: super::super::Foundation::BOOLEAN) -> u32;
         }
         ::core::mem::transmute(ldap_parse_extended_resultW(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(resultoid), ::core::mem::transmute(resultdata), freeit.into_param().abi()))
     }
@@ -3825,12 +3682,12 @@ pub unsafe fn ldap_parse_page_controlW(externalhandle: *mut ldap, servercontrols
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_reference(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn ldap_parse_reference(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_parse_reference(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut super::super::Foundation::PSTR) -> u32;
+            fn ldap_parse_reference(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PSTR) -> u32;
         }
         ::core::mem::transmute(ldap_parse_reference(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(referrals)))
     }
@@ -3840,12 +3697,12 @@ pub unsafe fn ldap_parse_reference(connection: *mut ldap, resultmessage: *mut LD
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_referenceA(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn ldap_parse_referenceA(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_parse_referenceA(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut super::super::Foundation::PSTR) -> u32;
+            fn ldap_parse_referenceA(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PSTR) -> u32;
         }
         ::core::mem::transmute(ldap_parse_referenceA(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(referrals)))
     }
@@ -3855,12 +3712,12 @@ pub unsafe fn ldap_parse_referenceA(connection: *mut ldap, resultmessage: *mut L
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_referenceW(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn ldap_parse_referenceW(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_parse_referenceW(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut super::super::Foundation::PWSTR) -> u32;
+            fn ldap_parse_referenceW(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_parse_referenceW(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(referrals)))
     }
@@ -3870,12 +3727,12 @@ pub unsafe fn ldap_parse_referenceW(connection: *mut ldap, resultmessage: *mut L
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_result<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut super::super::Foundation::PSTR, errormessage: *mut super::super::Foundation::PSTR, referrals: *mut *mut super::super::Foundation::PSTR, servercontrols: *mut *mut *mut ldapcontrolA, freeit: Param7) -> u32 {
+pub unsafe fn ldap_parse_result<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PSTR, errormessage: *mut ::windows::core::PSTR, referrals: *mut *mut ::windows::core::PSTR, servercontrols: *mut *mut *mut ldapcontrolA, freeit: Param7) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_parse_result(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut super::super::Foundation::PSTR, errormessage: *mut super::super::Foundation::PSTR, referrals: *mut *mut super::super::Foundation::PSTR, servercontrols: *mut *mut *mut ldapcontrolA, freeit: super::super::Foundation::BOOLEAN) -> u32;
+            fn ldap_parse_result(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PSTR, errormessage: *mut ::windows::core::PSTR, referrals: *mut *mut ::windows::core::PSTR, servercontrols: *mut *mut *mut ldapcontrolA, freeit: super::super::Foundation::BOOLEAN) -> u32;
         }
         ::core::mem::transmute(ldap_parse_result(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(returncode), ::core::mem::transmute(matcheddns), ::core::mem::transmute(errormessage), ::core::mem::transmute(referrals), ::core::mem::transmute(servercontrols), freeit.into_param().abi()))
     }
@@ -3885,12 +3742,12 @@ pub unsafe fn ldap_parse_result<'a, Param7: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_resultA<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut super::super::Foundation::PSTR, errormessage: *mut super::super::Foundation::PSTR, referrals: *mut *mut *mut i8, servercontrols: *mut *mut *mut ldapcontrolA, freeit: Param7) -> u32 {
+pub unsafe fn ldap_parse_resultA<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PSTR, errormessage: *mut ::windows::core::PSTR, referrals: *mut *mut *mut i8, servercontrols: *mut *mut *mut ldapcontrolA, freeit: Param7) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_parse_resultA(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut super::super::Foundation::PSTR, errormessage: *mut super::super::Foundation::PSTR, referrals: *mut *mut *mut i8, servercontrols: *mut *mut *mut ldapcontrolA, freeit: super::super::Foundation::BOOLEAN) -> u32;
+            fn ldap_parse_resultA(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PSTR, errormessage: *mut ::windows::core::PSTR, referrals: *mut *mut *mut i8, servercontrols: *mut *mut *mut ldapcontrolA, freeit: super::super::Foundation::BOOLEAN) -> u32;
         }
         ::core::mem::transmute(ldap_parse_resultA(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(returncode), ::core::mem::transmute(matcheddns), ::core::mem::transmute(errormessage), ::core::mem::transmute(referrals), ::core::mem::transmute(servercontrols), freeit.into_param().abi()))
     }
@@ -3900,12 +3757,12 @@ pub unsafe fn ldap_parse_resultA<'a, Param7: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_resultW<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut super::super::Foundation::PWSTR, errormessage: *mut super::super::Foundation::PWSTR, referrals: *mut *mut *mut u16, servercontrols: *mut *mut *mut ldapcontrolW, freeit: Param7) -> u32 {
+pub unsafe fn ldap_parse_resultW<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PWSTR, errormessage: *mut ::windows::core::PWSTR, referrals: *mut *mut *mut u16, servercontrols: *mut *mut *mut ldapcontrolW, freeit: Param7) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_parse_resultW(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut super::super::Foundation::PWSTR, errormessage: *mut super::super::Foundation::PWSTR, referrals: *mut *mut *mut u16, servercontrols: *mut *mut *mut ldapcontrolW, freeit: super::super::Foundation::BOOLEAN) -> u32;
+            fn ldap_parse_resultW(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PWSTR, errormessage: *mut ::windows::core::PWSTR, referrals: *mut *mut *mut u16, servercontrols: *mut *mut *mut ldapcontrolW, freeit: super::super::Foundation::BOOLEAN) -> u32;
         }
         ::core::mem::transmute(ldap_parse_resultW(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(returncode), ::core::mem::transmute(matcheddns), ::core::mem::transmute(errormessage), ::core::mem::transmute(referrals), ::core::mem::transmute(servercontrols), freeit.into_param().abi()))
     }
@@ -3915,12 +3772,12 @@ pub unsafe fn ldap_parse_resultW<'a, Param7: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_sort_control(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn ldap_parse_sort_control(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows::core::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_parse_sort_control(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut super::super::Foundation::PSTR) -> u32;
+            fn ldap_parse_sort_control(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows::core::PSTR) -> u32;
         }
         ::core::mem::transmute(ldap_parse_sort_control(::core::mem::transmute(externalhandle), ::core::mem::transmute(control), ::core::mem::transmute(result), ::core::mem::transmute(attribute)))
     }
@@ -3930,12 +3787,12 @@ pub unsafe fn ldap_parse_sort_control(externalhandle: *mut ldap, control: *mut *
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_sort_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn ldap_parse_sort_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows::core::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_parse_sort_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut super::super::Foundation::PSTR) -> u32;
+            fn ldap_parse_sort_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows::core::PSTR) -> u32;
         }
         ::core::mem::transmute(ldap_parse_sort_controlA(::core::mem::transmute(externalhandle), ::core::mem::transmute(control), ::core::mem::transmute(result), ::core::mem::transmute(attribute)))
     }
@@ -3945,12 +3802,12 @@ pub unsafe fn ldap_parse_sort_controlA(externalhandle: *mut ldap, control: *mut 
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_parse_sort_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, result: *mut u32, attribute: *mut super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn ldap_parse_sort_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, result: *mut u32, attribute: *mut ::windows::core::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_parse_sort_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, result: *mut u32, attribute: *mut super::super::Foundation::PWSTR) -> u32;
+            fn ldap_parse_sort_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, result: *mut u32, attribute: *mut ::windows::core::PWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_parse_sort_controlW(::core::mem::transmute(externalhandle), ::core::mem::transmute(control), ::core::mem::transmute(result), ::core::mem::transmute(attribute)))
     }
@@ -3987,15 +3844,14 @@ pub unsafe fn ldap_parse_vlv_controlW(externalhandle: *mut ldap, control: *mut *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_perror<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, msg: Param1) {
+pub unsafe fn ldap_perror<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, msg: Param1) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_perror(ld: *mut ldap, msg: super::super::Foundation::PSTR);
+            fn ldap_perror(ld: *mut ldap, msg: ::windows::core::PCSTR);
         }
         ldap_perror(::core::mem::transmute(ld), msg.into_param().abi())
     }
@@ -4005,12 +3861,12 @@ pub unsafe fn ldap_perror<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_ext<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_rename_ext<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_rename_ext(ld: *mut ldap, dn: super::super::Foundation::PSTR, newrdn: super::super::Foundation::PSTR, newparent: super::super::Foundation::PSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_rename_ext(ld: *mut ldap, dn: ::windows::core::PCSTR, newrdn: ::windows::core::PCSTR, newparent: ::windows::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_rename_ext(::core::mem::transmute(ld), dn.into_param().abi(), newrdn.into_param().abi(), newparent.into_param().abi(), ::core::mem::transmute(deleteoldrdn), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -4020,12 +3876,12 @@ pub unsafe fn ldap_rename_ext<'a, Param1: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_extA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_rename_extA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_rename_extA(ld: *mut ldap, dn: super::super::Foundation::PSTR, newrdn: super::super::Foundation::PSTR, newparent: super::super::Foundation::PSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+            fn ldap_rename_extA(ld: *mut ldap, dn: ::windows::core::PCSTR, newrdn: ::windows::core::PCSTR, newparent: ::windows::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_rename_extA(::core::mem::transmute(ld), dn.into_param().abi(), newrdn.into_param().abi(), newparent.into_param().abi(), ::core::mem::transmute(deleteoldrdn), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -4035,12 +3891,12 @@ pub unsafe fn ldap_rename_extA<'a, Param1: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_extW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_rename_extW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_rename_extW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, newrdn: super::super::Foundation::PWSTR, newparent: super::super::Foundation::PWSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+            fn ldap_rename_extW(ld: *mut ldap, dn: ::windows::core::PCWSTR, newrdn: ::windows::core::PCWSTR, newparent: ::windows::core::PCWSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_rename_extW(::core::mem::transmute(ld), dn.into_param().abi(), newrdn.into_param().abi(), newparent.into_param().abi(), ::core::mem::transmute(deleteoldrdn), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber)))
     }
@@ -4050,12 +3906,12 @@ pub unsafe fn ldap_rename_extW<'a, Param1: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_rename_ext_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_rename_ext_s(ld: *mut ldap, dn: super::super::Foundation::PSTR, newrdn: super::super::Foundation::PSTR, newparent: super::super::Foundation::PSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+            fn ldap_rename_ext_s(ld: *mut ldap, dn: ::windows::core::PCSTR, newrdn: ::windows::core::PCSTR, newparent: ::windows::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
         }
         ::core::mem::transmute(ldap_rename_ext_s(::core::mem::transmute(ld), dn.into_param().abi(), newrdn.into_param().abi(), newparent.into_param().abi(), ::core::mem::transmute(deleteoldrdn), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
@@ -4065,12 +3921,12 @@ pub unsafe fn ldap_rename_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
+pub unsafe fn ldap_rename_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_rename_ext_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR, newrdn: super::super::Foundation::PSTR, newparent: super::super::Foundation::PSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+            fn ldap_rename_ext_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, newrdn: ::windows::core::PCSTR, newparent: ::windows::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
         }
         ::core::mem::transmute(ldap_rename_ext_sA(::core::mem::transmute(ld), dn.into_param().abi(), newrdn.into_param().abi(), newparent.into_param().abi(), ::core::mem::transmute(deleteoldrdn), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
@@ -4080,12 +3936,12 @@ pub unsafe fn ldap_rename_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_rename_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32 {
+pub unsafe fn ldap_rename_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, newrdn: Param2, newparent: Param3, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_rename_ext_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, newrdn: super::super::Foundation::PWSTR, newparent: super::super::Foundation::PWSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
+            fn ldap_rename_ext_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, newrdn: ::windows::core::PCWSTR, newparent: ::windows::core::PCWSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
         }
         ::core::mem::transmute(ldap_rename_ext_sW(::core::mem::transmute(ld), dn.into_param().abi(), newrdn.into_param().abi(), newparent.into_param().abi(), ::core::mem::transmute(deleteoldrdn), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols)))
     }
@@ -4125,12 +3981,12 @@ pub unsafe fn ldap_result2error(ld: *mut ldap, res: *mut LDAPMessage, freeit: u3
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_sasl_bindA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distname: Param1, authmechanism: Param2, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, messagenumber: *mut i32) -> i32 {
+pub unsafe fn ldap_sasl_bindA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distname: Param1, authmechanism: Param2, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, messagenumber: *mut i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_sasl_bindA(externalhandle: *mut ldap, distname: super::super::Foundation::PSTR, authmechanism: super::super::Foundation::PSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, messagenumber: *mut i32) -> i32;
+            fn ldap_sasl_bindA(externalhandle: *mut ldap, distname: ::windows::core::PCSTR, authmechanism: ::windows::core::PCSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, messagenumber: *mut i32) -> i32;
         }
         ::core::mem::transmute(ldap_sasl_bindA(::core::mem::transmute(externalhandle), distname.into_param().abi(), authmechanism.into_param().abi(), ::core::mem::transmute(cred), ::core::mem::transmute(serverctrls), ::core::mem::transmute(clientctrls), ::core::mem::transmute(messagenumber)))
     }
@@ -4140,12 +3996,12 @@ pub unsafe fn ldap_sasl_bindA<'a, Param1: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_sasl_bindW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(externalhandle: *mut ldap, distname: Param1, authmechanism: Param2, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, messagenumber: *mut i32) -> i32 {
+pub unsafe fn ldap_sasl_bindW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(externalhandle: *mut ldap, distname: Param1, authmechanism: Param2, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, messagenumber: *mut i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_sasl_bindW(externalhandle: *mut ldap, distname: super::super::Foundation::PWSTR, authmechanism: super::super::Foundation::PWSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, messagenumber: *mut i32) -> i32;
+            fn ldap_sasl_bindW(externalhandle: *mut ldap, distname: ::windows::core::PCWSTR, authmechanism: ::windows::core::PCWSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, messagenumber: *mut i32) -> i32;
         }
         ::core::mem::transmute(ldap_sasl_bindW(::core::mem::transmute(externalhandle), distname.into_param().abi(), authmechanism.into_param().abi(), ::core::mem::transmute(cred), ::core::mem::transmute(serverctrls), ::core::mem::transmute(clientctrls), ::core::mem::transmute(messagenumber)))
     }
@@ -4155,12 +4011,12 @@ pub unsafe fn ldap_sasl_bindW<'a, Param1: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_sasl_bind_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distname: Param1, authmechanism: Param2, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, serverdata: *mut *mut LDAP_BERVAL) -> i32 {
+pub unsafe fn ldap_sasl_bind_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distname: Param1, authmechanism: Param2, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, serverdata: *mut *mut LDAP_BERVAL) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_sasl_bind_sA(externalhandle: *mut ldap, distname: super::super::Foundation::PSTR, authmechanism: super::super::Foundation::PSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, serverdata: *mut *mut LDAP_BERVAL) -> i32;
+            fn ldap_sasl_bind_sA(externalhandle: *mut ldap, distname: ::windows::core::PCSTR, authmechanism: ::windows::core::PCSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, serverdata: *mut *mut LDAP_BERVAL) -> i32;
         }
         ::core::mem::transmute(ldap_sasl_bind_sA(::core::mem::transmute(externalhandle), distname.into_param().abi(), authmechanism.into_param().abi(), ::core::mem::transmute(cred), ::core::mem::transmute(serverctrls), ::core::mem::transmute(clientctrls), ::core::mem::transmute(serverdata)))
     }
@@ -4170,65 +4026,61 @@ pub unsafe fn ldap_sasl_bind_sA<'a, Param1: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_sasl_bind_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(externalhandle: *mut ldap, distname: Param1, authmechanism: Param2, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, serverdata: *mut *mut LDAP_BERVAL) -> i32 {
+pub unsafe fn ldap_sasl_bind_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(externalhandle: *mut ldap, distname: Param1, authmechanism: Param2, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, serverdata: *mut *mut LDAP_BERVAL) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_sasl_bind_sW(externalhandle: *mut ldap, distname: super::super::Foundation::PWSTR, authmechanism: super::super::Foundation::PWSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, serverdata: *mut *mut LDAP_BERVAL) -> i32;
+            fn ldap_sasl_bind_sW(externalhandle: *mut ldap, distname: ::windows::core::PCWSTR, authmechanism: ::windows::core::PCWSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, serverdata: *mut *mut LDAP_BERVAL) -> i32;
         }
         ::core::mem::transmute(ldap_sasl_bind_sW(::core::mem::transmute(externalhandle), distname.into_param().abi(), authmechanism.into_param().abi(), ::core::mem::transmute(cred), ::core::mem::transmute(serverctrls), ::core::mem::transmute(clientctrls), ::core::mem::transmute(serverdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_search<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32) -> u32 {
+pub unsafe fn ldap_search<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32) -> u32;
+            fn ldap_search(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32) -> u32;
         }
         ::core::mem::transmute(ldap_search(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_searchA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32) -> u32 {
+pub unsafe fn ldap_searchA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_searchA(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32) -> u32;
+            fn ldap_searchA(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32) -> u32;
         }
         ::core::mem::transmute(ldap_searchA(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_searchW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const u16, attrsonly: u32) -> u32 {
+pub unsafe fn ldap_searchW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const u16, attrsonly: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_searchW(ld: *mut ldap, base: super::super::Foundation::PWSTR, scope: u32, filter: super::super::Foundation::PWSTR, attrs: *const *const u16, attrsonly: u32) -> u32;
+            fn ldap_searchW(ld: *mut ldap, base: ::windows::core::PCWSTR, scope: u32, filter: ::windows::core::PCWSTR, attrs: *const *const u16, attrsonly: u32) -> u32;
         }
         ::core::mem::transmute(ldap_searchW(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_search_abandon_page(externalhandle: *mut ldap, searchblock: *mut ldapsearch) -> u32 {
     #[cfg(windows)]
@@ -4245,12 +4097,12 @@ pub unsafe fn ldap_search_abandon_page(externalhandle: *mut ldap, searchblock: *
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_ext<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_search_ext<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_ext(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
+            fn ldap_search_ext(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_search_ext(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timelimit), ::core::mem::transmute(sizelimit), ::core::mem::transmute(messagenumber)))
     }
@@ -4260,12 +4112,12 @@ pub unsafe fn ldap_search_ext<'a, Param1: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_extA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_search_extA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_extA(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
+            fn ldap_search_extA(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_search_extA(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timelimit), ::core::mem::transmute(sizelimit), ::core::mem::transmute(messagenumber)))
     }
@@ -4275,12 +4127,12 @@ pub unsafe fn ldap_search_extA<'a, Param1: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_extW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32 {
+pub unsafe fn ldap_search_extW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_extW(ld: *mut ldap, base: super::super::Foundation::PWSTR, scope: u32, filter: super::super::Foundation::PWSTR, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
+            fn ldap_search_extW(ld: *mut ldap, base: ::windows::core::PCWSTR, scope: u32, filter: ::windows::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
         }
         ::core::mem::transmute(ldap_search_extW(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timelimit), ::core::mem::transmute(sizelimit), ::core::mem::transmute(messagenumber)))
     }
@@ -4290,12 +4142,12 @@ pub unsafe fn ldap_search_extW<'a, Param1: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_search_ext_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_ext_s(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
+            fn ldap_search_ext_s(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
         }
         ::core::mem::transmute(ldap_search_ext_s(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timeout), ::core::mem::transmute(sizelimit), ::core::mem::transmute(res)))
     }
@@ -4305,12 +4157,12 @@ pub unsafe fn ldap_search_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_search_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_ext_sA(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
+            fn ldap_search_ext_sA(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
         }
         ::core::mem::transmute(ldap_search_ext_sA(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timeout), ::core::mem::transmute(sizelimit), ::core::mem::transmute(res)))
     }
@@ -4320,12 +4172,12 @@ pub unsafe fn ldap_search_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_search_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_ext_sW(ld: *mut ldap, base: super::super::Foundation::PWSTR, scope: u32, filter: super::super::Foundation::PWSTR, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
+            fn ldap_search_ext_sW(ld: *mut ldap, base: ::windows::core::PCWSTR, scope: u32, filter: ::windows::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
         }
         ::core::mem::transmute(ldap_search_ext_sW(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timeout), ::core::mem::transmute(sizelimit), ::core::mem::transmute(res)))
     }
@@ -4335,12 +4187,12 @@ pub unsafe fn ldap_search_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_page<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, scopeofsearch: u32, searchfilter: Param3, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch {
+pub unsafe fn ldap_search_init_page<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, scopeofsearch: u32, searchfilter: Param3, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_init_page(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, scopeofsearch: u32, searchfilter: super::super::Foundation::PSTR, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch;
+            fn ldap_search_init_page(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, scopeofsearch: u32, searchfilter: ::windows::core::PCSTR, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch;
         }
         ::core::mem::transmute(ldap_search_init_page(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), ::core::mem::transmute(scopeofsearch), searchfilter.into_param().abi(), ::core::mem::transmute(attributelist), ::core::mem::transmute(attributesonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(pagetimelimit), ::core::mem::transmute(totalsizelimit), ::core::mem::transmute(sortkeys)))
     }
@@ -4350,12 +4202,12 @@ pub unsafe fn ldap_search_init_page<'a, Param1: ::windows::core::IntoParam<'a, s
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_pageA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, scopeofsearch: u32, searchfilter: Param3, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch {
+pub unsafe fn ldap_search_init_pageA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, scopeofsearch: u32, searchfilter: Param3, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_init_pageA(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, scopeofsearch: u32, searchfilter: super::super::Foundation::PSTR, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch;
+            fn ldap_search_init_pageA(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, scopeofsearch: u32, searchfilter: ::windows::core::PCSTR, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch;
         }
         ::core::mem::transmute(ldap_search_init_pageA(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), ::core::mem::transmute(scopeofsearch), searchfilter.into_param().abi(), ::core::mem::transmute(attributelist), ::core::mem::transmute(attributesonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(pagetimelimit), ::core::mem::transmute(totalsizelimit), ::core::mem::transmute(sortkeys)))
     }
@@ -4365,12 +4217,12 @@ pub unsafe fn ldap_search_init_pageA<'a, Param1: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_pageW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, scopeofsearch: u32, searchfilter: Param3, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyW) -> *mut ldapsearch {
+pub unsafe fn ldap_search_init_pageW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, scopeofsearch: u32, searchfilter: Param3, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyW) -> *mut ldapsearch {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_init_pageW(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PWSTR, scopeofsearch: u32, searchfilter: super::super::Foundation::PWSTR, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyW) -> *mut ldapsearch;
+            fn ldap_search_init_pageW(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCWSTR, scopeofsearch: u32, searchfilter: ::windows::core::PCWSTR, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyW) -> *mut ldapsearch;
         }
         ::core::mem::transmute(ldap_search_init_pageW(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), ::core::mem::transmute(scopeofsearch), searchfilter.into_param().abi(), ::core::mem::transmute(attributelist), ::core::mem::transmute(attributesonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(pagetimelimit), ::core::mem::transmute(totalsizelimit), ::core::mem::transmute(sortkeys)))
     }
@@ -4380,12 +4232,12 @@ pub unsafe fn ldap_search_init_pageW<'a, Param1: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_search_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_s(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
+            fn ldap_search_s(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
         }
         ::core::mem::transmute(ldap_search_s(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(res)))
     }
@@ -4395,12 +4247,12 @@ pub unsafe fn ldap_search_s<'a, Param1: ::windows::core::IntoParam<'a, super::su
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_search_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_sA(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
+            fn ldap_search_sA(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
         }
         ::core::mem::transmute(ldap_search_sA(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(res)))
     }
@@ -4410,12 +4262,12 @@ pub unsafe fn ldap_search_sA<'a, Param1: ::windows::core::IntoParam<'a, super::s
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const u16, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_search_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const u16, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_sW(ld: *mut ldap, base: super::super::Foundation::PWSTR, scope: u32, filter: super::super::Foundation::PWSTR, attrs: *const *const u16, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
+            fn ldap_search_sW(ld: *mut ldap, base: ::windows::core::PCWSTR, scope: u32, filter: ::windows::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
         }
         ::core::mem::transmute(ldap_search_sW(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(res)))
     }
@@ -4425,12 +4277,12 @@ pub unsafe fn ldap_search_sW<'a, Param1: ::windows::core::IntoParam<'a, super::s
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_st<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_search_st<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_st(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
+            fn ldap_search_st(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
         }
         ::core::mem::transmute(ldap_search_st(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(timeout), ::core::mem::transmute(res)))
     }
@@ -4440,12 +4292,12 @@ pub unsafe fn ldap_search_st<'a, Param1: ::windows::core::IntoParam<'a, super::s
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_stA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_search_stA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_stA(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
+            fn ldap_search_stA(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
         }
         ::core::mem::transmute(ldap_search_stA(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(timeout), ::core::mem::transmute(res)))
     }
@@ -4455,12 +4307,12 @@ pub unsafe fn ldap_search_stA<'a, Param1: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_stW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const u16, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32 {
+pub unsafe fn ldap_search_stW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, base: Param1, scope: u32, filter: Param3, attrs: *const *const u16, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_search_stW(ld: *mut ldap, base: super::super::Foundation::PWSTR, scope: u32, filter: super::super::Foundation::PWSTR, attrs: *const *const u16, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
+            fn ldap_search_stW(ld: *mut ldap, base: ::windows::core::PCWSTR, scope: u32, filter: ::windows::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
         }
         ::core::mem::transmute(ldap_search_stW(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(timeout), ::core::mem::transmute(res)))
     }
@@ -4481,8 +4333,7 @@ pub unsafe fn ldap_set_dbg_flags(newflags: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
     #[cfg(windows)]
@@ -4496,8 +4347,7 @@ pub unsafe fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_set_option(ld: *mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4511,8 +4361,7 @@ pub unsafe fn ldap_set_option(ld: *mut ldap, option: i32, invalue: *const ::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_set_optionW(ld: *mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4526,135 +4375,126 @@ pub unsafe fn ldap_set_optionW(ld: *mut ldap, option: i32, invalue: *const ::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_simple_bind<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
+pub unsafe fn ldap_simple_bind<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_simple_bind(ld: *mut ldap, dn: super::super::Foundation::PSTR, passwd: super::super::Foundation::PSTR) -> u32;
+            fn ldap_simple_bind(ld: *mut ldap, dn: ::windows::core::PCSTR, passwd: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_simple_bind(::core::mem::transmute(ld), dn.into_param().abi(), passwd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_simple_bindA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
+pub unsafe fn ldap_simple_bindA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_simple_bindA(ld: *mut ldap, dn: super::super::Foundation::PSTR, passwd: super::super::Foundation::PSTR) -> u32;
+            fn ldap_simple_bindA(ld: *mut ldap, dn: ::windows::core::PCSTR, passwd: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_simple_bindA(::core::mem::transmute(ld), dn.into_param().abi(), passwd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_simple_bindW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
+pub unsafe fn ldap_simple_bindW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_simple_bindW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, passwd: super::super::Foundation::PWSTR) -> u32;
+            fn ldap_simple_bindW(ld: *mut ldap, dn: ::windows::core::PCWSTR, passwd: ::windows::core::PCWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_simple_bindW(::core::mem::transmute(ld), dn.into_param().abi(), passwd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_simple_bind_s<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
+pub unsafe fn ldap_simple_bind_s<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_simple_bind_s(ld: *mut ldap, dn: super::super::Foundation::PSTR, passwd: super::super::Foundation::PSTR) -> u32;
+            fn ldap_simple_bind_s(ld: *mut ldap, dn: ::windows::core::PCSTR, passwd: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_simple_bind_s(::core::mem::transmute(ld), dn.into_param().abi(), passwd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_simple_bind_sA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
+pub unsafe fn ldap_simple_bind_sA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_simple_bind_sA(ld: *mut ldap, dn: super::super::Foundation::PSTR, passwd: super::super::Foundation::PSTR) -> u32;
+            fn ldap_simple_bind_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, passwd: ::windows::core::PCSTR) -> u32;
         }
         ::core::mem::transmute(ldap_simple_bind_sA(::core::mem::transmute(ld), dn.into_param().abi(), passwd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_simple_bind_sW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
+pub unsafe fn ldap_simple_bind_sW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ld: *mut ldap, dn: Param1, passwd: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_simple_bind_sW(ld: *mut ldap, dn: super::super::Foundation::PWSTR, passwd: super::super::Foundation::PWSTR) -> u32;
+            fn ldap_simple_bind_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, passwd: ::windows::core::PCWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_simple_bind_sW(::core::mem::transmute(ld), dn.into_param().abi(), passwd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_sslinit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hostname: Param0, portnumber: u32, secure: i32) -> *mut ldap {
+pub unsafe fn ldap_sslinit<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hostname: Param0, portnumber: u32, secure: i32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_sslinit(hostname: super::super::Foundation::PSTR, portnumber: u32, secure: i32) -> *mut ldap;
+            fn ldap_sslinit(hostname: ::windows::core::PCSTR, portnumber: u32, secure: i32) -> *mut ldap;
         }
         ::core::mem::transmute(ldap_sslinit(hostname.into_param().abi(), ::core::mem::transmute(portnumber), ::core::mem::transmute(secure)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_sslinitA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hostname: Param0, portnumber: u32, secure: i32) -> *mut ldap {
+pub unsafe fn ldap_sslinitA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hostname: Param0, portnumber: u32, secure: i32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_sslinitA(hostname: super::super::Foundation::PSTR, portnumber: u32, secure: i32) -> *mut ldap;
+            fn ldap_sslinitA(hostname: ::windows::core::PCSTR, portnumber: u32, secure: i32) -> *mut ldap;
         }
         ::core::mem::transmute(ldap_sslinitA(hostname.into_param().abi(), ::core::mem::transmute(portnumber), ::core::mem::transmute(secure)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_sslinitW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, portnumber: u32, secure: i32) -> *mut ldap {
+pub unsafe fn ldap_sslinitW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hostname: Param0, portnumber: u32, secure: i32) -> *mut ldap {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_sslinitW(hostname: super::super::Foundation::PWSTR, portnumber: u32, secure: i32) -> *mut ldap;
+            fn ldap_sslinitW(hostname: ::windows::core::PCWSTR, portnumber: u32, secure: i32) -> *mut ldap;
         }
         ::core::mem::transmute(ldap_sslinitW(hostname.into_param().abi(), ::core::mem::transmute(portnumber), ::core::mem::transmute(secure)))
     }
@@ -4721,53 +4561,49 @@ pub unsafe fn ldap_stop_tls_s(externalhandle: *mut ldap) -> super::super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_ufn2dn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ufn: Param0, pdn: *mut super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn ldap_ufn2dn<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ufn: Param0, pdn: *mut ::windows::core::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_ufn2dn(ufn: super::super::Foundation::PSTR, pdn: *mut super::super::Foundation::PSTR) -> u32;
+            fn ldap_ufn2dn(ufn: ::windows::core::PCSTR, pdn: *mut ::windows::core::PSTR) -> u32;
         }
         ::core::mem::transmute(ldap_ufn2dn(ufn.into_param().abi(), ::core::mem::transmute(pdn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_ufn2dnA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ufn: Param0, pdn: *mut super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn ldap_ufn2dnA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ufn: Param0, pdn: *mut ::windows::core::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_ufn2dnA(ufn: super::super::Foundation::PSTR, pdn: *mut super::super::Foundation::PSTR) -> u32;
+            fn ldap_ufn2dnA(ufn: ::windows::core::PCSTR, pdn: *mut ::windows::core::PSTR) -> u32;
         }
         ::core::mem::transmute(ldap_ufn2dnA(ufn.into_param().abi(), ::core::mem::transmute(pdn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_ufn2dnW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ufn: Param0, pdn: *mut super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn ldap_ufn2dnW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ufn: Param0, pdn: *mut ::windows::core::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_ufn2dnW(ufn: super::super::Foundation::PWSTR, pdn: *mut super::super::Foundation::PWSTR) -> u32;
+            fn ldap_ufn2dnW(ufn: ::windows::core::PCWSTR, pdn: *mut ::windows::core::PWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_ufn2dnW(ufn.into_param().abi(), ::core::mem::transmute(pdn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_unbind(ld: *mut ldap) -> u32 {
     #[cfg(windows)]
@@ -4781,8 +4617,7 @@ pub unsafe fn ldap_unbind(ld: *mut ldap) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_unbind_s(ld: *mut ldap) -> u32 {
     #[cfg(windows)]
@@ -4796,53 +4631,49 @@ pub unsafe fn ldap_unbind_s(ld: *mut ldap) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_value_free(vals: *const super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn ldap_value_free(vals: *const ::windows::core::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_value_free(vals: *const super::super::Foundation::PSTR) -> u32;
+            fn ldap_value_free(vals: *const ::windows::core::PSTR) -> u32;
         }
         ::core::mem::transmute(ldap_value_free(::core::mem::transmute(vals)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_value_freeA(vals: *const super::super::Foundation::PSTR) -> u32 {
+pub unsafe fn ldap_value_freeA(vals: *const ::windows::core::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_value_freeA(vals: *const super::super::Foundation::PSTR) -> u32;
+            fn ldap_value_freeA(vals: *const ::windows::core::PSTR) -> u32;
         }
         ::core::mem::transmute(ldap_value_freeA(::core::mem::transmute(vals)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_value_freeW(vals: *const super::super::Foundation::PWSTR) -> u32 {
+pub unsafe fn ldap_value_freeW(vals: *const ::windows::core::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_value_freeW(vals: *const super::super::Foundation::PWSTR) -> u32;
+            fn ldap_value_freeW(vals: *const ::windows::core::PWSTR) -> u32;
         }
         ::core::mem::transmute(ldap_value_freeW(::core::mem::transmute(vals)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
 pub unsafe fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32 {
     #[cfg(windows)]
@@ -4889,86 +4720,70 @@ impl ::core::default::Default for ldap_version_info {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct ldapapiinfoA {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
     pub ldapai_protocol_version: i32,
     pub ldapai_extensions: *mut *mut i8,
-    pub ldapai_vendor_name: super::super::Foundation::PSTR,
+    pub ldapai_vendor_name: ::windows::core::PSTR,
     pub ldapai_vendor_version: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ldapapiinfoA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapapiinfoA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ldapapiinfoA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ldapapiinfoA").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldapapiinfoA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldapapiinfoA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapapiinfoA>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldapapiinfoA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapapiinfoA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct ldapapiinfoW {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
     pub ldapai_protocol_version: i32,
-    pub ldapai_extensions: *mut super::super::Foundation::PWSTR,
-    pub ldapai_vendor_name: super::super::Foundation::PWSTR,
+    pub ldapai_extensions: *mut ::windows::core::PWSTR,
+    pub ldapai_vendor_name: ::windows::core::PWSTR,
     pub ldapai_vendor_version: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ldapapiinfoW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapapiinfoW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ldapapiinfoW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ldapapiinfoW").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldapapiinfoW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldapapiinfoW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapapiinfoW>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldapapiinfoW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapapiinfoW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4978,7 +4793,7 @@ impl ::core::default::Default for ldapapiinfoW {
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapcontrolA {
-    pub ldctl_oid: super::super::Foundation::PSTR,
+    pub ldctl_oid: ::windows::core::PSTR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
 }
@@ -5018,7 +4833,7 @@ impl ::core::default::Default for ldapcontrolA {
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapcontrolW {
-    pub ldctl_oid: super::super::Foundation::PWSTR,
+    pub ldctl_oid: ::windows::core::PWSTR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
 }
@@ -5055,134 +4870,106 @@ impl ::core::default::Default for ldapcontrolW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct ldapmodA {
     pub mod_op: u32,
-    pub mod_type: super::super::Foundation::PSTR,
+    pub mod_type: ::windows::core::PSTR,
     pub mod_vals: ldapmodA_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ldapmodA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapmodA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldapmodA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldapmodA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapmodA>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldapmodA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapmodA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub union ldapmodA_0 {
-    pub modv_strvals: *mut super::super::Foundation::PSTR,
+    pub modv_strvals: *mut ::windows::core::PSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ldapmodA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapmodA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldapmodA_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldapmodA_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapmodA_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldapmodA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapmodA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct ldapmodW {
     pub mod_op: u32,
-    pub mod_type: super::super::Foundation::PWSTR,
+    pub mod_type: ::windows::core::PWSTR,
     pub mod_vals: ldapmodW_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ldapmodW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapmodW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldapmodW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldapmodW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapmodW>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldapmodW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapmodW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub union ldapmodW_0 {
-    pub modv_strvals: *mut super::super::Foundation::PWSTR,
+    pub modv_strvals: *mut ::windows::core::PWSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ldapmodW_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapmodW_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldapmodW_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldapmodW_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapmodW_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldapmodW_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapmodW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5194,8 +4981,8 @@ pub struct ldapsearch(pub u8);
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapsortkeyA {
-    pub sk_attrtype: super::super::Foundation::PSTR,
-    pub sk_matchruleoid: super::super::Foundation::PSTR,
+    pub sk_attrtype: ::windows::core::PSTR,
+    pub sk_matchruleoid: ::windows::core::PSTR,
     pub sk_reverseorder: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5234,8 +5021,8 @@ impl ::core::default::Default for ldapsortkeyA {
 #[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapsortkeyW {
-    pub sk_attrtype: super::super::Foundation::PWSTR,
-    pub sk_matchruleoid: super::super::Foundation::PWSTR,
+    pub sk_attrtype: ::windows::core::PWSTR,
+    pub sk_matchruleoid: ::windows::core::PWSTR,
     pub sk_reverseorder: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5271,8 +5058,7 @@ impl ::core::default::Default for ldapsortkeyW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct ldapvlvinfo {
     pub ldvlv_version: i32,
     pub ldvlv_before_count: u32,
@@ -5283,33 +5069,26 @@ pub struct ldapvlvinfo {
     pub ldvlv_context: *mut LDAP_BERVAL,
     pub ldvlv_extradata: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ldapvlvinfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldapvlvinfo {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ldapvlvinfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ldapvlvinfo").field("ldvlv_version", &self.ldvlv_version).field("ldvlv_before_count", &self.ldvlv_before_count).field("ldvlv_after_count", &self.ldvlv_after_count).field("ldvlv_offset", &self.ldvlv_offset).field("ldvlv_count", &self.ldvlv_count).field("ldvlv_attrvalue", &self.ldvlv_attrvalue).field("ldvlv_context", &self.ldvlv_context).field("ldvlv_extradata", &self.ldvlv_extradata).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldapvlvinfo {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldapvlvinfo {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapvlvinfo>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldapvlvinfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapvlvinfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

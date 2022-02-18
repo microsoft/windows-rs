@@ -8,33 +8,33 @@ extern "system" {
     pub fn AbortDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DeviceCapabilitiesA(pdevice: super::super::Foundation::PSTR, pport: super::super::Foundation::PSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32;
+    pub fn DeviceCapabilitiesA(pdevice: ::windows_sys::core::PCSTR, pport: ::windows_sys::core::PCSTR, fwcapability: DEVICE_CAPABILITIES, poutput: ::windows_sys::core::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DeviceCapabilitiesW(pdevice: super::super::Foundation::PWSTR, pport: super::super::Foundation::PWSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32;
+    pub fn DeviceCapabilitiesW(pdevice: ::windows_sys::core::PCWSTR, pport: ::windows_sys::core::PCWSTR, fwcapability: DEVICE_CAPABILITIES, poutput: ::windows_sys::core::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn EndDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn EndPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn Escape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjin: i32, pvin: super::super::Foundation::PSTR, pvout: *mut ::core::ffi::c_void) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjinput: i32, lpindata: super::super::Foundation::PSTR, cjoutput: i32, lpoutdata: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn Escape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjin: i32, pvin: ::windows_sys::core::PCSTR, pvout: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjinput: i32, lpindata: ::windows_sys::core::PCSTR, cjoutput: i32, lpoutdata: ::windows_sys::core::PSTR) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn PrintWindow(hwnd: super::super::Foundation::HWND, hdcblt: super::super::Graphics::Gdi::HDC, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn SetAbortProc(hdc: super::super::Graphics::Gdi::HDC, proc: ABORTPROC) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn StartDocA(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOA) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn StartDocW(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOW) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -106,36 +106,30 @@ pub const DC_TRUETYPE: DEVICE_CAPABILITIES = 15u32;
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_VERSION: DEVICE_CAPABILITIES = 10u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct DOCINFOA {
     pub cbSize: i32,
-    pub lpszDocName: super::super::Foundation::PSTR,
-    pub lpszOutput: super::super::Foundation::PSTR,
-    pub lpszDatatype: super::super::Foundation::PSTR,
+    pub lpszDocName: ::windows_sys::core::PCSTR,
+    pub lpszOutput: ::windows_sys::core::PCSTR,
+    pub lpszDatatype: ::windows_sys::core::PCSTR,
     pub fwType: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DOCINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DOCINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct DOCINFOW {
     pub cbSize: i32,
-    pub lpszDocName: super::super::Foundation::PWSTR,
-    pub lpszOutput: super::super::Foundation::PWSTR,
-    pub lpszDatatype: super::super::Foundation::PWSTR,
+    pub lpszDocName: ::windows_sys::core::PCWSTR,
+    pub lpszOutput: ::windows_sys::core::PCWSTR,
+    pub lpszDatatype: ::windows_sys::core::PCWSTR,
     pub fwType: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DOCINFOW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DOCINFOW {
     fn clone(&self) -> Self {
         *self

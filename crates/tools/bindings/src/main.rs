@@ -22,8 +22,6 @@ fn main() -> std::io::Result<()> {
         "Windows.Win32.Foundation.GetLastError",
         "Windows.Win32.Foundation.HANDLE",
         "Windows.Win32.Foundation.HINSTANCE",
-        "Windows.Win32.Foundation.PSTR",
-        "Windows.Win32.Foundation.PWSTR",
         "Windows.Win32.Foundation.S_OK",
         "Windows.Win32.Foundation.SysAllocStringLen",
         "Windows.Win32.Foundation.SysFreeString",

@@ -22,36 +22,32 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_ProcessStatus'*"]
+    pub fn K32GetDeviceDriverBaseNameA(imagebase: *const ::core::ffi::c_void, lpfilename: ::windows_sys::core::PSTR, nsize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_ProcessStatus'*"]
+    pub fn K32GetDeviceDriverBaseNameW(imagebase: *const ::core::ffi::c_void, lpbasename: ::windows_sys::core::PWSTR, nsize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_ProcessStatus'*"]
+    pub fn K32GetDeviceDriverFileNameA(imagebase: *const ::core::ffi::c_void, lpfilename: ::windows_sys::core::PSTR, nsize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_ProcessStatus'*"]
+    pub fn K32GetDeviceDriverFileNameW(imagebase: *const ::core::ffi::c_void, lpfilename: ::windows_sys::core::PWSTR, nsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetDeviceDriverBaseNameA(imagebase: *const ::core::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
+    pub fn K32GetMappedFileNameA(hprocess: super::super::Foundation::HANDLE, lpv: *const ::core::ffi::c_void, lpfilename: ::windows_sys::core::PSTR, nsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetDeviceDriverBaseNameW(imagebase: *const ::core::ffi::c_void, lpbasename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
+    pub fn K32GetMappedFileNameW(hprocess: super::super::Foundation::HANDLE, lpv: *const ::core::ffi::c_void, lpfilename: ::windows_sys::core::PWSTR, nsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetDeviceDriverFileNameA(imagebase: *const ::core::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
+    pub fn K32GetModuleBaseNameA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpbasename: ::windows_sys::core::PSTR, nsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetDeviceDriverFileNameW(imagebase: *const ::core::ffi::c_void, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
+    pub fn K32GetModuleBaseNameW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpbasename: ::windows_sys::core::PWSTR, nsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetMappedFileNameA(hprocess: super::super::Foundation::HANDLE, lpv: *const ::core::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
+    pub fn K32GetModuleFileNameExA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpfilename: ::windows_sys::core::PSTR, nsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetMappedFileNameW(hprocess: super::super::Foundation::HANDLE, lpv: *const ::core::ffi::c_void, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetModuleBaseNameA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpbasename: super::super::Foundation::PSTR, nsize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetModuleBaseNameW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpbasename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetModuleFileNameExA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetModuleFileNameExW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
+    pub fn K32GetModuleFileNameExW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpfilename: ::windows_sys::core::PWSTR, nsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn K32GetModuleInformation(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpmodinfo: *mut MODULEINFO, cb: u32) -> super::super::Foundation::BOOL;
@@ -60,10 +56,10 @@ extern "system" {
     pub fn K32GetPerformanceInfo(pperformanceinformation: *mut PERFORMANCE_INFORMATION, cb: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetProcessImageFileNameA(hprocess: super::super::Foundation::HANDLE, lpimagefilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
+    pub fn K32GetProcessImageFileNameA(hprocess: super::super::Foundation::HANDLE, lpimagefilename: ::windows_sys::core::PSTR, nsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn K32GetProcessImageFileNameW(hprocess: super::super::Foundation::HANDLE, lpimagefilename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
+    pub fn K32GetProcessImageFileNameW(hprocess: super::super::Foundation::HANDLE, lpimagefilename: ::windows_sys::core::PWSTR, nsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn K32GetProcessMemoryInfo(process: super::super::Foundation::HANDLE, ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS, cb: u32) -> super::super::Foundation::BOOL;
@@ -123,10 +119,10 @@ impl ::core::clone::Clone for MODULEINFO {
 }
 #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUM_PAGE_FILE_CALLBACKA = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL>;
+pub type PENUM_PAGE_FILE_CALLBACKA = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_System_ProcessStatus', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUM_PAGE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL>;
+pub type PENUM_PAGE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_ProcessStatus'*"]
 pub struct PERFORMANCE_INFORMATION {

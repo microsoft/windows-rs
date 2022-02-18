@@ -28,12 +28,10 @@ extern "system" {
     pub fn GetFocus() -> super::super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
     pub fn GetKBCodePage() -> u32;
-    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetKeyNameTextA(lparam: i32, lpstring: super::super::super::Foundation::PSTR, cchsize: i32) -> i32;
-    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetKeyNameTextW(lparam: i32, lpstring: super::super::super::Foundation::PWSTR, cchsize: i32) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+    pub fn GetKeyNameTextA(lparam: i32, lpstring: ::windows_sys::core::PSTR, cchsize: i32) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+    pub fn GetKeyNameTextW(lparam: i32, lpstring: ::windows_sys::core::PWSTR, cchsize: i32) -> i32;
     #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
     pub fn GetKeyState(nvirtkey: i32) -> i16;
     #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_UI_TextServices'*"]
@@ -44,10 +42,10 @@ extern "system" {
     pub fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::super::TextServices::HKL) -> i32;
     #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetKeyboardLayoutNameA(pwszklid: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+    pub fn GetKeyboardLayoutNameA(pwszklid: ::windows_sys::core::PSTR) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetKeyboardLayoutNameW(pwszklid: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+    pub fn GetKeyboardLayoutNameW(pwszklid: ::windows_sys::core::PWSTR) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetKeyboardState(lpkeystate: *mut u8) -> super::super::super::Foundation::BOOL;
@@ -61,12 +59,12 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsWindowEnabled(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn LoadKeyboardLayoutA(pwszklid: super::super::super::Foundation::PSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
-    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn LoadKeyboardLayoutW(pwszklid: super::super::super::Foundation::PWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
+    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_UI_TextServices'*"]
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub fn LoadKeyboardLayoutA(pwszklid: ::windows_sys::core::PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
+    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_UI_TextServices'*"]
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub fn LoadKeyboardLayoutW(pwszklid: ::windows_sys::core::PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
     #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
     pub fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32;
     #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_UI_TextServices'*"]
@@ -110,12 +108,11 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_UI_TextServices'*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
-    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
+    pub fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows_sys::core::PWSTR, cchbuff: i32, wflags: u32) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_UI_TextServices'*"]
+    #[cfg(feature = "Win32_UI_TextServices")]
+    pub fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows_sys::core::PWSTR, cchbuff: i32, wflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
     #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL;
@@ -1371,15 +1368,12 @@ impl ::core::clone::Clone for VK_VSC {
 #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
 pub const VK__none_: u32 = 255u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
 pub struct VSC_LPWSTR {
     pub vsc: u8,
-    pub pwsz: super::super::super::Foundation::PWSTR,
+    pub pwsz: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VSC_LPWSTR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VSC_LPWSTR {
     fn clone(&self) -> Self {
         *self
@@ -1432,8 +1426,7 @@ impl ::core::clone::Clone for _VK_TO_FUNCTION_TABLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
 pub struct tagKbdLayer {
     pub pCharModifiers: *mut MODIFIERS,
     pub pVkToWcharTable: *mut VK_TO_WCHAR_TABLE,
@@ -1452,9 +1445,7 @@ pub struct tagKbdLayer {
     pub dwType: u32,
     pub dwSubType: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for tagKbdLayer {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for tagKbdLayer {
     fn clone(&self) -> Self {
         *self

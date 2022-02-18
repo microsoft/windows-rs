@@ -860,17 +860,15 @@ impl IDtcToXaHelper_Vtbl {
         iid == &<IDtcToXaHelper as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDtcToXaHelperFactory_Impl: Sized {
-    fn Create(&self, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pguidrm: *mut ::windows::core::GUID, ppxahelper: *mut ::core::option::Option<IDtcToXaHelper>) -> ::windows::core::Result<()>;
+    fn Create(&self, pszdsn: &::windows::core::PCSTR, pszclientdllname: &::windows::core::PCSTR, pguidrm: *mut ::windows::core::GUID, ppxahelper: *mut ::core::option::Option<IDtcToXaHelper>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IDtcToXaHelperFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperFactory_Impl, const OFFSET: isize>() -> IDtcToXaHelperFactory_Vtbl {
-        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pguidrm: *mut ::windows::core::GUID, ppxahelper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: ::windows::core::PCSTR, pszclientdllname: ::windows::core::PCSTR, pguidrm: *mut ::windows::core::GUID, ppxahelper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Create(::core::mem::transmute_copy(&pszdsn), ::core::mem::transmute_copy(&pszclientdllname), ::core::mem::transmute_copy(&pguidrm), ::core::mem::transmute_copy(&ppxahelper)).into()
+            (*this).Create(::core::mem::transmute(&pszdsn), ::core::mem::transmute(&pszclientdllname), ::core::mem::transmute_copy(&pguidrm), ::core::mem::transmute_copy(&ppxahelper)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
@@ -880,7 +878,7 @@ impl IDtcToXaHelperFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcToXaHelperSinglePipe_Impl: Sized {
-    fn XARMCreate(&self, pszdsn: super::super::Foundation::PSTR, pszclientdll: super::super::Foundation::PSTR, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>;
+    fn XARMCreate(&self, pszdsn: &::windows::core::PCSTR, pszclientdll: &::windows::core::PCSTR, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>;
     fn ConvertTridToXID(&self, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::Result<()>;
     fn EnlistWithRM(&self, dwrmcookie: u32, i_pitransaction: &::core::option::Option<ITransaction>, i_pitransres: &::core::option::Option<ITransactionResourceAsync>) -> ::windows::core::Result<ITransactionEnlistmentAsync>;
     fn ReleaseRMCookie(&self, i_dwrmcookie: u32, i_fnormal: super::super::Foundation::BOOL);
@@ -888,10 +886,10 @@ pub trait IDtcToXaHelperSinglePipe_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl IDtcToXaHelperSinglePipe_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>() -> IDtcToXaHelperSinglePipe_Vtbl {
-        unsafe extern "system" fn XARMCreate<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: super::super::Foundation::PSTR, pszclientdll: super::super::Foundation::PSTR, pdwrmcookie: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XARMCreate<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: ::windows::core::PCSTR, pszclientdll: ::windows::core::PCSTR, pdwrmcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).XARMCreate(::core::mem::transmute_copy(&pszdsn), ::core::mem::transmute_copy(&pszclientdll), ::core::mem::transmute_copy(&pdwrmcookie)).into()
+            (*this).XARMCreate(::core::mem::transmute(&pszdsn), ::core::mem::transmute(&pszclientdll), ::core::mem::transmute_copy(&pdwrmcookie)).into()
         }
         unsafe extern "system" fn ConvertTridToXID<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaHelperSinglePipe_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -928,7 +926,7 @@ impl IDtcToXaHelperSinglePipe_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcToXaMapper_Impl: Sized {
-    fn RequestNewResourceManager(&self, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>;
+    fn RequestNewResourceManager(&self, pszdsn: &::windows::core::PCSTR, pszclientdllname: &::windows::core::PCSTR, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>;
     fn TranslateTridToXid(&self, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::Result<()>;
     fn EnlistResourceManager(&self, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::core::Result<()>;
     fn ReleaseResourceManager(&self, dwrmcookie: u32) -> ::windows::core::Result<()>;
@@ -936,10 +934,10 @@ pub trait IDtcToXaMapper_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl IDtcToXaMapper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaMapper_Impl, const OFFSET: isize>() -> IDtcToXaMapper_Vtbl {
-        unsafe extern "system" fn RequestNewResourceManager<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pdwrmcookie: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestNewResourceManager<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdsn: ::windows::core::PCSTR, pszclientdllname: ::windows::core::PCSTR, pdwrmcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RequestNewResourceManager(::core::mem::transmute_copy(&pszdsn), ::core::mem::transmute_copy(&pszclientdllname), ::core::mem::transmute_copy(&pdwrmcookie)).into()
+            (*this).RequestNewResourceManager(::core::mem::transmute(&pszdsn), ::core::mem::transmute(&pszclientdllname), ::core::mem::transmute_copy(&pdwrmcookie)).into()
         }
         unsafe extern "system" fn TranslateTridToXid<Identity: ::windows::core::IUnknownImpl, Impl: IDtcToXaMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1095,7 +1093,7 @@ impl IPrepareInfo2_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRMHelper_Impl: Sized {
     fn RMCount(&self, dwctotalnumberofrms: u32) -> ::windows::core::Result<()>;
-    fn RMInfo(&self, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: super::super::Foundation::PSTR, pszclosestring: super::super::Foundation::PSTR, guidrmrecovery: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RMInfo(&self, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: &::windows::core::PCSTR, pszclosestring: &::windows::core::PCSTR, guidrmrecovery: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRMHelper_Vtbl {
@@ -1105,10 +1103,10 @@ impl IRMHelper_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RMCount(::core::mem::transmute_copy(&dwctotalnumberofrms)).into()
         }
-        unsafe extern "system" fn RMInfo<Identity: ::windows::core::IUnknownImpl, Impl: IRMHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: super::super::Foundation::PSTR, pszclosestring: super::super::Foundation::PSTR, guidrmrecovery: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RMInfo<Identity: ::windows::core::IUnknownImpl, Impl: IRMHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: ::windows::core::PCSTR, pszclosestring: ::windows::core::PCSTR, guidrmrecovery: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RMInfo(::core::mem::transmute_copy(&pxa_switch), ::core::mem::transmute_copy(&fcdeclcallingconv), ::core::mem::transmute_copy(&pszopenstring), ::core::mem::transmute_copy(&pszclosestring), ::core::mem::transmute(&guidrmrecovery)).into()
+            (*this).RMInfo(::core::mem::transmute_copy(&pxa_switch), ::core::mem::transmute_copy(&fcdeclcallingconv), ::core::mem::transmute(&pszopenstring), ::core::mem::transmute(&pszclosestring), ::core::mem::transmute(&guidrmrecovery)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -1200,17 +1198,15 @@ impl IResourceManager2_Vtbl {
         iid == &<IResourceManager2 as ::windows::core::Interface>::IID || iid == &<IResourceManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IResourceManagerFactory_Impl: Sized {
-    fn Create(&self, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: &::core::option::Option<IResourceManagerSink>) -> ::windows::core::Result<IResourceManager>;
+    fn Create(&self, pguidrm: *const ::windows::core::GUID, pszrmname: &::windows::core::PCSTR, piresmgrsink: &::core::option::Option<IResourceManagerSink>) -> ::windows::core::Result<IResourceManager>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IResourceManagerFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactory_Impl, const OFFSET: isize>() -> IResourceManagerFactory_Vtbl {
-        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, ppresmgr: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: ::windows::core::PCSTR, piresmgrsink: ::windows::core::RawPtr, ppresmgr: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Create(::core::mem::transmute_copy(&pguidrm), ::core::mem::transmute_copy(&pszrmname), ::core::mem::transmute(&piresmgrsink)) {
+            match (*this).Create(::core::mem::transmute_copy(&pguidrm), ::core::mem::transmute(&pszrmname), ::core::mem::transmute(&piresmgrsink)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppresmgr = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1224,17 +1220,15 @@ impl IResourceManagerFactory_Vtbl {
         iid == &<IResourceManagerFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IResourceManagerFactory2_Impl: Sized + IResourceManagerFactory_Impl {
-    fn CreateEx(&self, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: &::core::option::Option<IResourceManagerSink>, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateEx(&self, pguidrm: *const ::windows::core::GUID, pszrmname: &::windows::core::PCSTR, piresmgrsink: &::core::option::Option<IResourceManagerSink>, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IResourceManagerFactory2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactory2_Impl, const OFFSET: isize>() -> IResourceManagerFactory2_Vtbl {
-        unsafe extern "system" fn CreateEx<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEx<Identity: ::windows::core::IUnknownImpl, Impl: IResourceManagerFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: ::windows::core::PCSTR, piresmgrsink: ::windows::core::RawPtr, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateEx(::core::mem::transmute_copy(&pguidrm), ::core::mem::transmute_copy(&pszrmname), ::core::mem::transmute(&piresmgrsink), ::core::mem::transmute_copy(&riidrequested), ::core::mem::transmute_copy(&ppvresmgr)).into()
+            (*this).CreateEx(::core::mem::transmute_copy(&pguidrm), ::core::mem::transmute(&pszrmname), ::core::mem::transmute(&piresmgrsink), ::core::mem::transmute_copy(&riidrequested), ::core::mem::transmute_copy(&ppvresmgr)).into()
         }
         Self { base: IResourceManagerFactory_Vtbl::new::<Identity, Impl, OFFSET>(), CreateEx: CreateEx::<Identity, Impl, OFFSET> }
     }
@@ -1349,15 +1343,13 @@ impl ITipPullSink_Vtbl {
         iid == &<ITipPullSink as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITipTransaction_Impl: Sized {
-    fn Push(&self, i_pszremotetmurl: *const u8) -> ::windows::core::Result<super::super::Foundation::PSTR>;
-    fn GetTransactionUrl(&self) -> ::windows::core::Result<super::super::Foundation::PSTR>;
+    fn Push(&self, i_pszremotetmurl: *const u8) -> ::windows::core::Result<::windows::core::PSTR>;
+    fn GetTransactionUrl(&self) -> ::windows::core::Result<::windows::core::PSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ITipTransaction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITipTransaction_Impl, const OFFSET: isize>() -> ITipTransaction_Vtbl {
-        unsafe extern "system" fn Push<Identity: ::windows::core::IUnknownImpl, Impl: ITipTransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_pszremotetmurl: *const u8, o_ppszremotetxurl: *mut super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Push<Identity: ::windows::core::IUnknownImpl, Impl: ITipTransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i_pszremotetmurl: *const u8, o_ppszremotetxurl: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Push(::core::mem::transmute_copy(&i_pszremotetmurl)) {
@@ -1368,7 +1360,7 @@ impl ITipTransaction_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTransactionUrl<Identity: ::windows::core::IUnknownImpl, Impl: ITipTransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, o_ppszlocaltxurl: *mut super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTransactionUrl<Identity: ::windows::core::IUnknownImpl, Impl: ITipTransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, o_ppszlocaltxurl: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetTransactionUrl() {
@@ -1389,12 +1381,10 @@ impl ITipTransaction_Vtbl {
         iid == &<ITipTransaction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITmNodeName_Impl: Sized {
     fn GetNodeNameSize(&self) -> ::windows::core::Result<u32>;
-    fn GetNodeName(&self, cbnodenamebuffersize: u32, pnodenamebuffer: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetNodeName(&self, cbnodenamebuffersize: u32, pnodenamebuffer: &::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ITmNodeName_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITmNodeName_Impl, const OFFSET: isize>() -> ITmNodeName_Vtbl {
         unsafe extern "system" fn GetNodeNameSize<Identity: ::windows::core::IUnknownImpl, Impl: ITmNodeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbnodenamesize: *mut u32) -> ::windows::core::HRESULT {
@@ -1408,10 +1398,10 @@ impl ITmNodeName_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNodeName<Identity: ::windows::core::IUnknownImpl, Impl: ITmNodeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbnodenamebuffersize: u32, pnodenamebuffer: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNodeName<Identity: ::windows::core::IUnknownImpl, Impl: ITmNodeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbnodenamebuffersize: u32, pnodenamebuffer: ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetNodeName(::core::mem::transmute_copy(&cbnodenamebuffersize), ::core::mem::transmute_copy(&pnodenamebuffer)).into()
+            (*this).GetNodeName(::core::mem::transmute_copy(&cbnodenamebuffersize), ::core::mem::transmute(&pnodenamebuffer)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

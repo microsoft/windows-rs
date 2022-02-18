@@ -18,10 +18,10 @@ extern "system" {
     pub fn AnyPopup() -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AppendMenuA(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn AppendMenuA(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AppendMenuW(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn AppendMenuW(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ArrangeIconicWindows(hwnd: super::super::Foundation::HWND) -> u32;
@@ -56,70 +56,56 @@ extern "system" {
     pub fn CascadeWindows(hwndparent: super::super::Foundation::HWND, whow: CASCADE_WINDOWS_HOW, lprect: *const super::super::Foundation::RECT, ckids: u32, lpkids: *const super::super::Foundation::HWND) -> u16;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ChangeMenuA(hmenu: HMENU, cmd: u32, lpsznewitem: super::super::Foundation::PSTR, cmdinsert: u32, flags: u32) -> super::super::Foundation::BOOL;
+    pub fn ChangeMenuA(hmenu: HMENU, cmd: u32, lpsznewitem: ::windows_sys::core::PCSTR, cmdinsert: u32, flags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ChangeMenuW(hmenu: HMENU, cmd: u32, lpsznewitem: super::super::Foundation::PWSTR, cmdinsert: u32, flags: u32) -> super::super::Foundation::BOOL;
+    pub fn ChangeMenuW(hmenu: HMENU, cmd: u32, lpsznewitem: ::windows_sys::core::PCWSTR, cmdinsert: u32, flags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ChangeWindowMessageFilter(message: u32, dwflag: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ChangeWindowMessageFilterEx(hwnd: super::super::Foundation::HWND, message: u32, action: WINDOW_MESSAGE_FILTER_ACTION, pchangefilterstruct: *mut CHANGEFILTERSTRUCT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharLowerA(lpsz: ::windows_sys::core::PSTR) -> ::windows_sys::core::PSTR;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharLowerBuffA(lpsz: ::windows_sys::core::PSTR, cchlength: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharLowerBuffW(lpsz: ::windows_sys::core::PWSTR, cchlength: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharLowerW(lpsz: ::windows_sys::core::PWSTR) -> ::windows_sys::core::PWSTR;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharNextA(lpsz: ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharNextExA(codepage: u16, lpcurrentchar: ::windows_sys::core::PCSTR, dwflags: u32) -> ::windows_sys::core::PSTR;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharNextW(lpsz: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharPrevA(lpszstart: ::windows_sys::core::PCSTR, lpszcurrent: ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharPrevExA(codepage: u16, lpstart: ::windows_sys::core::PCSTR, lpcurrentchar: ::windows_sys::core::PCSTR, dwflags: u32) -> ::windows_sys::core::PSTR;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharPrevW(lpszstart: ::windows_sys::core::PCWSTR, lpszcurrent: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CharLowerA(lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+    pub fn CharToOemA(psrc: ::windows_sys::core::PCSTR, pdst: ::windows_sys::core::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CharLowerBuffA(lpsz: super::super::Foundation::PSTR, cchlength: u32) -> u32;
+    pub fn CharToOemBuffA(lpszsrc: ::windows_sys::core::PCSTR, lpszdst: ::windows_sys::core::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CharLowerBuffW(lpsz: super::super::Foundation::PWSTR, cchlength: u32) -> u32;
+    pub fn CharToOemBuffW(lpszsrc: ::windows_sys::core::PCWSTR, lpszdst: ::windows_sys::core::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CharLowerW(lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharNextA(lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharNextExA(codepage: u16, lpcurrentchar: super::super::Foundation::PSTR, dwflags: u32) -> super::super::Foundation::PSTR;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharNextW(lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharPrevA(lpszstart: super::super::Foundation::PSTR, lpszcurrent: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharPrevExA(codepage: u16, lpstart: super::super::Foundation::PSTR, lpcurrentchar: super::super::Foundation::PSTR, dwflags: u32) -> super::super::Foundation::PSTR;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharPrevW(lpszstart: super::super::Foundation::PWSTR, lpszcurrent: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharToOemA(psrc: super::super::Foundation::PSTR, pdst: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharToOemBuffA(lpszsrc: super::super::Foundation::PSTR, lpszdst: super::super::Foundation::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharToOemBuffW(lpszsrc: super::super::Foundation::PWSTR, lpszdst: super::super::Foundation::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharToOemW(psrc: super::super::Foundation::PWSTR, pdst: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharUpperA(lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharUpperBuffA(lpsz: super::super::Foundation::PSTR, cchlength: u32) -> u32;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharUpperBuffW(lpsz: super::super::Foundation::PWSTR, cchlength: u32) -> u32;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CharUpperW(lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
+    pub fn CharToOemW(psrc: ::windows_sys::core::PCWSTR, pdst: ::windows_sys::core::PSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharUpperA(lpsz: ::windows_sys::core::PSTR) -> ::windows_sys::core::PSTR;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharUpperBuffA(lpsz: ::windows_sys::core::PSTR, cchlength: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharUpperBuffW(lpsz: ::windows_sys::core::PWSTR, cchlength: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CharUpperW(lpsz: ::windows_sys::core::PWSTR) -> ::windows_sys::core::PWSTR;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn CheckMenuItem(hmenu: HMENU, uidcheckitem: u32, ucheck: u32) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
@@ -164,10 +150,10 @@ extern "system" {
     pub fn CreateDialogIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateDialogParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+    pub fn CreateDialogParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows_sys::core::PCSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateDialogParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+    pub fn CreateDialogParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows_sys::core::PCWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateIcon(hinstance: super::super::Foundation::HINSTANCE, nwidth: i32, nheight: i32, cplanes: u8, cbitspixel: u8, lpbandbits: *const u8, lpbxorbits: *const u8) -> HICON;
@@ -182,23 +168,22 @@ extern "system" {
     pub fn CreateIconIndirect(piconinfo: *const ICONINFO) -> HICON;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateMDIWindowA(lpclassname: super::super::Foundation::PSTR, lpwindowname: super::super::Foundation::PSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+    pub fn CreateMDIWindowA(lpclassname: ::windows_sys::core::PCSTR, lpwindowname: ::windows_sys::core::PCSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateMDIWindowW(lpclassname: super::super::Foundation::PWSTR, lpwindowname: super::super::Foundation::PWSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+    pub fn CreateMDIWindowW(lpclassname: ::windows_sys::core::PCWSTR, lpwindowname: ::windows_sys::core::PCWSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn CreateMenu() -> HMENU;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn CreatePopupMenu() -> HMENU;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn CreateResourceIndexer(projectroot: ::windows_sys::core::PCWSTR, extensiondllpath: ::windows_sys::core::PCWSTR, ppresourceindexer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateResourceIndexer(projectroot: super::super::Foundation::PWSTR, extensiondllpath: super::super::Foundation::PWSTR, ppresourceindexer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: ::windows_sys::core::PCSTR, lpwindowname: ::windows_sys::core::PCSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: super::super::Foundation::PSTR, lpwindowname: super::super::Foundation::PSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateWindowExW(dwexstyle: WINDOW_EX_STYLE, lpclassname: super::super::Foundation::PWSTR, lpwindowname: super::super::Foundation::PWSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND;
+    pub fn CreateWindowExW(dwexstyle: WINDOW_EX_STYLE, lpclassname: ::windows_sys::core::PCWSTR, lpwindowname: ::windows_sys::core::PCWSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DefDlgProcA(hdlg: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
@@ -244,9 +229,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DestroyIcon(hicon: HICON) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DestroyIndexedResults(resourceuri: super::super::Foundation::PWSTR, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier);
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn DestroyIndexedResults(resourceuri: ::windows_sys::core::PCWSTR, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier);
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DestroyMenu(hmenu: HMENU) -> super::super::Foundation::BOOL;
@@ -263,10 +247,10 @@ extern "system" {
     pub fn DialogBoxIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DialogBoxParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize;
+    pub fn DialogBoxParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows_sys::core::PCSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DialogBoxParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize;
+    pub fn DialogBoxParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows_sys::core::PCWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn DisableProcessWindowsGhosting();
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
@@ -322,16 +306,16 @@ extern "system" {
     pub fn EnumWindows(lpenumfunc: WNDENUMPROC, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindWindowA(lpclassname: super::super::Foundation::PSTR, lpwindowname: super::super::Foundation::PSTR) -> super::super::Foundation::HWND;
+    pub fn FindWindowA(lpclassname: ::windows_sys::core::PCSTR, lpwindowname: ::windows_sys::core::PCSTR) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindWindowExA(hwndparent: super::super::Foundation::HWND, hwndchildafter: super::super::Foundation::HWND, lpszclass: super::super::Foundation::PSTR, lpszwindow: super::super::Foundation::PSTR) -> super::super::Foundation::HWND;
+    pub fn FindWindowExA(hwndparent: super::super::Foundation::HWND, hwndchildafter: super::super::Foundation::HWND, lpszclass: ::windows_sys::core::PCSTR, lpszwindow: ::windows_sys::core::PCSTR) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindWindowExW(hwndparent: super::super::Foundation::HWND, hwndchildafter: super::super::Foundation::HWND, lpszclass: super::super::Foundation::PWSTR, lpszwindow: super::super::Foundation::PWSTR) -> super::super::Foundation::HWND;
+    pub fn FindWindowExW(hwndparent: super::super::Foundation::HWND, hwndchildafter: super::super::Foundation::HWND, lpszclass: ::windows_sys::core::PCWSTR, lpszwindow: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindWindowW(lpclassname: super::super::Foundation::PWSTR, lpwindowname: super::super::Foundation::PWSTR) -> super::super::Foundation::HWND;
+    pub fn FindWindowW(lpclassname: ::windows_sys::core::PCWSTR, lpwindowname: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FlashWindow(hwnd: super::super::Foundation::HWND, binvert: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
@@ -340,10 +324,10 @@ extern "system" {
     pub fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetAltTabInfoA(hwnd: super::super::Foundation::HWND, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: super::super::Foundation::PSTR, cchitemtext: u32) -> super::super::Foundation::BOOL;
+    pub fn GetAltTabInfoA(hwnd: super::super::Foundation::HWND, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: ::windows_sys::core::PSTR, cchitemtext: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetAltTabInfoW(hwnd: super::super::Foundation::HWND, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: super::super::Foundation::PWSTR, cchitemtext: u32) -> super::super::Foundation::BOOL;
+    pub fn GetAltTabInfoW(hwnd: super::super::Foundation::HWND, iitem: i32, pati: *mut ALTTABINFO, pszitemtext: ::windows_sys::core::PWSTR, cchitemtext: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetAncestor(hwnd: super::super::Foundation::HWND, gaflags: GET_ANCESTOR_FLAGS) -> super::super::Foundation::HWND;
@@ -354,16 +338,16 @@ extern "system" {
     pub fn GetCaretPos(lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetClassInfoA(hinstance: super::super::Foundation::HINSTANCE, lpclassname: super::super::Foundation::PSTR, lpwndclass: *mut WNDCLASSA) -> super::super::Foundation::BOOL;
+    pub fn GetClassInfoA(hinstance: super::super::Foundation::HINSTANCE, lpclassname: ::windows_sys::core::PCSTR, lpwndclass: *mut WNDCLASSA) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetClassInfoExA(hinstance: super::super::Foundation::HINSTANCE, lpszclass: super::super::Foundation::PSTR, lpwcx: *mut WNDCLASSEXA) -> super::super::Foundation::BOOL;
+    pub fn GetClassInfoExA(hinstance: super::super::Foundation::HINSTANCE, lpszclass: ::windows_sys::core::PCSTR, lpwcx: *mut WNDCLASSEXA) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetClassInfoExW(hinstance: super::super::Foundation::HINSTANCE, lpszclass: super::super::Foundation::PWSTR, lpwcx: *mut WNDCLASSEXW) -> super::super::Foundation::BOOL;
+    pub fn GetClassInfoExW(hinstance: super::super::Foundation::HINSTANCE, lpszclass: ::windows_sys::core::PCWSTR, lpwcx: *mut WNDCLASSEXW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetClassInfoW(hinstance: super::super::Foundation::HINSTANCE, lpclassname: super::super::Foundation::PWSTR, lpwndclass: *mut WNDCLASSW) -> super::super::Foundation::BOOL;
+    pub fn GetClassInfoW(hinstance: super::super::Foundation::HINSTANCE, lpclassname: ::windows_sys::core::PCWSTR, lpwndclass: *mut WNDCLASSW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetClassLongA(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX) -> u32;
@@ -380,10 +364,10 @@ extern "system" {
     pub fn GetClassLongW(hwnd: super::super::Foundation::HWND, nindex: GET_CLASS_LONG_INDEX) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClassNameA(hwnd: super::super::Foundation::HWND, lpclassname: super::super::Foundation::PSTR, nmaxcount: i32) -> i32;
+    pub fn GetClassNameA(hwnd: super::super::Foundation::HWND, lpclassname: ::windows_sys::core::PSTR, nmaxcount: i32) -> i32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClassNameW(hwnd: super::super::Foundation::HWND, lpclassname: super::super::Foundation::PWSTR, nmaxcount: i32) -> i32;
+    pub fn GetClassNameW(hwnd: super::super::Foundation::HWND, lpclassname: ::windows_sys::core::PWSTR, nmaxcount: i32) -> i32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetClassWord(hwnd: super::super::Foundation::HWND, nindex: i32) -> u16;
@@ -417,10 +401,10 @@ extern "system" {
     pub fn GetDlgItemInt(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lptranslated: *mut super::super::Foundation::BOOL, bsigned: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDlgItemTextA(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: super::super::Foundation::PSTR, cchmax: i32) -> u32;
+    pub fn GetDlgItemTextA(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: ::windows_sys::core::PSTR, cchmax: i32) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDlgItemTextW(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: super::super::Foundation::PWSTR, cchmax: i32) -> u32;
+    pub fn GetDlgItemTextW(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: ::windows_sys::core::PWSTR, cchmax: i32) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetForegroundWindow() -> super::super::Foundation::HWND;
@@ -473,12 +457,10 @@ extern "system" {
     pub fn GetMenuItemRect(hwnd: super::super::Foundation::HWND, hmenu: HMENU, uitem: u32, lprcitem: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn GetMenuState(hmenu: HMENU, uid: u32, uflags: MENU_ITEM_FLAGS) -> u32;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMenuStringA(hmenu: HMENU, uiditem: u32, lpstring: super::super::Foundation::PSTR, cchmax: i32, flags: MENU_ITEM_FLAGS) -> i32;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMenuStringW(hmenu: HMENU, uiditem: u32, lpstring: super::super::Foundation::PWSTR, cchmax: i32, flags: MENU_ITEM_FLAGS) -> i32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn GetMenuStringA(hmenu: HMENU, uiditem: u32, lpstring: ::windows_sys::core::PSTR, cchmax: i32, flags: MENU_ITEM_FLAGS) -> i32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn GetMenuStringW(hmenu: HMENU, uiditem: u32, lpstring: ::windows_sys::core::PWSTR, cchmax: i32, flags: MENU_ITEM_FLAGS) -> i32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetMessageA(lpmsg: *mut MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32) -> super::super::Foundation::BOOL;
@@ -509,10 +491,10 @@ extern "system" {
     pub fn GetProcessDefaultLayout(pdwdefaultlayout: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPropA(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
+    pub fn GetPropA(hwnd: super::super::Foundation::HWND, lpstring: ::windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPropW(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+    pub fn GetPropW(hwnd: super::super::Foundation::HWND, lpstring: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn GetQueueStatus(flags: QUEUE_STATUS_FLAGS) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
@@ -570,10 +552,10 @@ extern "system" {
     pub fn GetWindowLongW(hwnd: super::super::Foundation::HWND, nindex: WINDOW_LONG_PTR_INDEX) -> i32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowModuleFileNameA(hwnd: super::super::Foundation::HWND, pszfilename: super::super::Foundation::PSTR, cchfilenamemax: u32) -> u32;
+    pub fn GetWindowModuleFileNameA(hwnd: super::super::Foundation::HWND, pszfilename: ::windows_sys::core::PSTR, cchfilenamemax: u32) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowModuleFileNameW(hwnd: super::super::Foundation::HWND, pszfilename: super::super::Foundation::PWSTR, cchfilenamemax: u32) -> u32;
+    pub fn GetWindowModuleFileNameW(hwnd: super::super::Foundation::HWND, pszfilename: ::windows_sys::core::PWSTR, cchfilenamemax: u32) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetWindowPlacement(hwnd: super::super::Foundation::HWND, lpwndpl: *mut WINDOWPLACEMENT) -> super::super::Foundation::BOOL;
@@ -582,7 +564,7 @@ extern "system" {
     pub fn GetWindowRect(hwnd: super::super::Foundation::HWND, lprect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowTextA(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR, nmaxcount: i32) -> i32;
+    pub fn GetWindowTextA(hwnd: super::super::Foundation::HWND, lpstring: ::windows_sys::core::PSTR, nmaxcount: i32) -> i32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetWindowTextLengthA(hwnd: super::super::Foundation::HWND) -> i32;
@@ -591,7 +573,7 @@ extern "system" {
     pub fn GetWindowTextLengthW(hwnd: super::super::Foundation::HWND) -> i32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowTextW(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR, nmaxcount: i32) -> i32;
+    pub fn GetWindowTextW(hwnd: super::super::Foundation::HWND, lpstring: ::windows_sys::core::PWSTR, nmaxcount: i32) -> i32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetWindowThreadProcessId(hwnd: super::super::Foundation::HWND, lpdwprocessid: *mut u32) -> u32;
@@ -609,15 +591,14 @@ extern "system" {
     pub fn InSendMessage() -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn InSendMessageEx(lpreserved: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IndexFilePath(resourceindexer: *const ::core::ffi::c_void, filepath: super::super::Foundation::PWSTR, ppresourceuri: *mut super::super::Foundation::PWSTR, pqualifiercount: *mut u32, ppqualifiers: *mut *mut IndexedResourceQualifier) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn IndexFilePath(resourceindexer: *const ::core::ffi::c_void, filepath: ::windows_sys::core::PCWSTR, ppresourceuri: *mut ::windows_sys::core::PWSTR, pqualifiercount: *mut u32, ppqualifiers: *mut *mut IndexedResourceQualifier) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn InheritWindowMonitor(hwnd: super::super::Foundation::HWND, hwndinherit: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InsertMenuA(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn InsertMenuA(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn InsertMenuItemA(hmenu: HMENU, item: u32, fbyposition: super::super::Foundation::BOOL, lpmi: *const MENUITEMINFOA) -> super::super::Foundation::BOOL;
@@ -626,10 +607,10 @@ extern "system" {
     pub fn InsertMenuItemW(hmenu: HMENU, item: u32, fbyposition: super::super::Foundation::BOOL, lpmi: *const MENUITEMINFOW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InsertMenuW(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn InsertMenuW(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InternalGetWindowText(hwnd: super::super::Foundation::HWND, pstring: super::super::Foundation::PWSTR, cchmaxcount: i32) -> i32;
+    pub fn InternalGetWindowText(hwnd: super::super::Foundation::HWND, pstring: ::windows_sys::core::PWSTR, cchmaxcount: i32) -> i32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsCharAlphaA(ch: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
@@ -695,50 +676,48 @@ extern "system" {
     pub fn KillTimer(hwnd: super::super::Foundation::HWND, uidevent: usize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadAcceleratorsA(hinstance: super::super::Foundation::HINSTANCE, lptablename: super::super::Foundation::PSTR) -> HACCEL;
+    pub fn LoadAcceleratorsA(hinstance: super::super::Foundation::HINSTANCE, lptablename: ::windows_sys::core::PCSTR) -> HACCEL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadAcceleratorsW(hinstance: super::super::Foundation::HINSTANCE, lptablename: super::super::Foundation::PWSTR) -> HACCEL;
+    pub fn LoadAcceleratorsW(hinstance: super::super::Foundation::HINSTANCE, lptablename: ::windows_sys::core::PCWSTR) -> HACCEL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadCursorA(hinstance: super::super::Foundation::HINSTANCE, lpcursorname: super::super::Foundation::PSTR) -> HCURSOR;
+    pub fn LoadCursorA(hinstance: super::super::Foundation::HINSTANCE, lpcursorname: ::windows_sys::core::PCSTR) -> HCURSOR;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn LoadCursorFromFileA(lpfilename: ::windows_sys::core::PCSTR) -> HCURSOR;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn LoadCursorFromFileW(lpfilename: ::windows_sys::core::PCWSTR) -> HCURSOR;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadCursorFromFileA(lpfilename: super::super::Foundation::PSTR) -> HCURSOR;
+    pub fn LoadCursorW(hinstance: super::super::Foundation::HINSTANCE, lpcursorname: ::windows_sys::core::PCWSTR) -> HCURSOR;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadCursorFromFileW(lpfilename: super::super::Foundation::PWSTR) -> HCURSOR;
+    pub fn LoadIconA(hinstance: super::super::Foundation::HINSTANCE, lpiconname: ::windows_sys::core::PCSTR) -> HICON;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadCursorW(hinstance: super::super::Foundation::HINSTANCE, lpcursorname: super::super::Foundation::PWSTR) -> HCURSOR;
+    pub fn LoadIconW(hinstance: super::super::Foundation::HINSTANCE, lpiconname: ::windows_sys::core::PCWSTR) -> HICON;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadIconA(hinstance: super::super::Foundation::HINSTANCE, lpiconname: super::super::Foundation::PSTR) -> HICON;
+    pub fn LoadImageA(hinst: super::super::Foundation::HINSTANCE, name: ::windows_sys::core::PCSTR, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadIconW(hinstance: super::super::Foundation::HINSTANCE, lpiconname: super::super::Foundation::PWSTR) -> HICON;
+    pub fn LoadImageW(hinst: super::super::Foundation::HINSTANCE, name: ::windows_sys::core::PCWSTR, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadImageA(hinst: super::super::Foundation::HINSTANCE, name: super::super::Foundation::PSTR, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> super::super::Foundation::HANDLE;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadImageW(hinst: super::super::Foundation::HINSTANCE, name: super::super::Foundation::PWSTR, r#type: GDI_IMAGE_TYPE, cx: i32, cy: i32, fuload: IMAGE_FLAGS) -> super::super::Foundation::HANDLE;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadMenuA(hinstance: super::super::Foundation::HINSTANCE, lpmenuname: super::super::Foundation::PSTR) -> HMENU;
+    pub fn LoadMenuA(hinstance: super::super::Foundation::HINSTANCE, lpmenuname: ::windows_sys::core::PCSTR) -> HMENU;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn LoadMenuIndirectA(lpmenutemplate: *const ::core::ffi::c_void) -> HMENU;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn LoadMenuIndirectW(lpmenutemplate: *const ::core::ffi::c_void) -> HMENU;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadMenuW(hinstance: super::super::Foundation::HINSTANCE, lpmenuname: super::super::Foundation::PWSTR) -> HMENU;
+    pub fn LoadMenuW(hinstance: super::super::Foundation::HINSTANCE, lpmenuname: ::windows_sys::core::PCWSTR) -> HMENU;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadStringA(hinstance: super::super::Foundation::HINSTANCE, uid: u32, lpbuffer: super::super::Foundation::PSTR, cchbuffermax: i32) -> i32;
+    pub fn LoadStringA(hinstance: super::super::Foundation::HINSTANCE, uid: u32, lpbuffer: ::windows_sys::core::PSTR, cchbuffermax: i32) -> i32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadStringW(hinstance: super::super::Foundation::HINSTANCE, uid: u32, lpbuffer: super::super::Foundation::PWSTR, cchbuffermax: i32) -> i32;
+    pub fn LoadStringW(hinstance: super::super::Foundation::HINSTANCE, uid: u32, lpbuffer: ::windows_sys::core::PWSTR, cchbuffermax: i32) -> i32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE) -> super::super::Foundation::BOOL;
@@ -759,13 +738,13 @@ extern "system" {
     pub fn MenuItemFromPoint(hwnd: super::super::Foundation::HWND, hmenu: HMENU, ptscreen: super::super::Foundation::POINT) -> i32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MessageBoxA(hwnd: super::super::Foundation::HWND, lptext: super::super::Foundation::PSTR, lpcaption: super::super::Foundation::PSTR, utype: MESSAGEBOX_STYLE) -> MESSAGEBOX_RESULT;
+    pub fn MessageBoxA(hwnd: super::super::Foundation::HWND, lptext: ::windows_sys::core::PCSTR, lpcaption: ::windows_sys::core::PCSTR, utype: MESSAGEBOX_STYLE) -> MESSAGEBOX_RESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MessageBoxExA(hwnd: super::super::Foundation::HWND, lptext: super::super::Foundation::PSTR, lpcaption: super::super::Foundation::PSTR, utype: MESSAGEBOX_STYLE, wlanguageid: u16) -> MESSAGEBOX_RESULT;
+    pub fn MessageBoxExA(hwnd: super::super::Foundation::HWND, lptext: ::windows_sys::core::PCSTR, lpcaption: ::windows_sys::core::PCSTR, utype: MESSAGEBOX_STYLE, wlanguageid: u16) -> MESSAGEBOX_RESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MessageBoxExW(hwnd: super::super::Foundation::HWND, lptext: super::super::Foundation::PWSTR, lpcaption: super::super::Foundation::PWSTR, utype: MESSAGEBOX_STYLE, wlanguageid: u16) -> MESSAGEBOX_RESULT;
+    pub fn MessageBoxExW(hwnd: super::super::Foundation::HWND, lptext: ::windows_sys::core::PCWSTR, lpcaption: ::windows_sys::core::PCWSTR, utype: MESSAGEBOX_STYLE, wlanguageid: u16) -> MESSAGEBOX_RESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_UI_Shell'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
     pub fn MessageBoxIndirectA(lpmbp: *const MSGBOXPARAMSA) -> MESSAGEBOX_RESULT;
@@ -774,80 +753,61 @@ extern "system" {
     pub fn MessageBoxIndirectW(lpmbp: *const MSGBOXPARAMSW) -> MESSAGEBOX_RESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MessageBoxW(hwnd: super::super::Foundation::HWND, lptext: super::super::Foundation::PWSTR, lpcaption: super::super::Foundation::PWSTR, utype: MESSAGEBOX_STYLE) -> MESSAGEBOX_RESULT;
+    pub fn MessageBoxW(hwnd: super::super::Foundation::HWND, lptext: ::windows_sys::core::PCWSTR, lpcaption: ::windows_sys::core::PCWSTR, utype: MESSAGEBOX_STYLE) -> MESSAGEBOX_RESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ModifyMenuA(hmnu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn ModifyMenuA(hmnu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ModifyMenuW(hmnu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn ModifyMenuW(hmnu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS, uidnewitem: usize, lpnewitem: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MoveWindow(hwnd: super::super::Foundation::HWND, x: i32, y: i32, nwidth: i32, nheight: i32, brepaint: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, outputxmlfile: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: ::windows_sys::core::PCWSTR, outputxmlfile: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: ::windows_sys::core::PCWSTR, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn MrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: *mut *mut u8, outputprisize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: u32, outputdirectory: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexer(packagefamilyname: super::super::Foundation::PWSTR, projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexerFromPreviousPriData(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, pridata: *const u8, prisize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexerFromPreviousPriFile(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, prifile: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexerFromPreviousSchemaData(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, schemaxmldata: *const u8, schemaxmlsize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, schemafile: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexerWithFlags(packagefamilyname: super::super::Foundation::PWSTR, projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, flags: MrmIndexerFlags, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: u32, outputdirectory: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmCreateResourceIndexer(packagefamilyname: ::windows_sys::core::PCWSTR, projectroot: ::windows_sys::core::PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: ::windows_sys::core::PCWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmCreateResourceIndexerFromPreviousPriData(projectroot: ::windows_sys::core::PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: ::windows_sys::core::PCWSTR, pridata: *const u8, prisize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmCreateResourceIndexerFromPreviousPriFile(projectroot: ::windows_sys::core::PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: ::windows_sys::core::PCWSTR, prifile: ::windows_sys::core::PCWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmCreateResourceIndexerFromPreviousSchemaData(projectroot: ::windows_sys::core::PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: ::windows_sys::core::PCWSTR, schemaxmldata: *const u8, schemaxmlsize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: ::windows_sys::core::PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: ::windows_sys::core::PCWSTR, schemafile: ::windows_sys::core::PCWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmCreateResourceIndexerWithFlags(packagefamilyname: ::windows_sys::core::PCWSTR, projectroot: ::windows_sys::core::PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: ::windows_sys::core::PCWSTR, flags: MrmIndexerFlags, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn MrmDumpPriDataInMemory(inputpridata: *const u8, inputprisize: u32, schemapridata: *const u8, schemaprisize: u32, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmDumpPriFile(indexfilename: super::super::Foundation::PWSTR, schemaprifile: super::super::Foundation::PWSTR, dumptype: MrmDumpType, outputxmlfile: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmDumpPriFileInMemory(indexfilename: super::super::Foundation::PWSTR, schemaprifile: super::super::Foundation::PWSTR, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmDumpPriFile(indexfilename: ::windows_sys::core::PCWSTR, schemaprifile: ::windows_sys::core::PCWSTR, dumptype: MrmDumpType, outputxmlfile: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmDumpPriFileInMemory(indexfilename: ::windows_sys::core::PCWSTR, schemaprifile: ::windows_sys::core::PCWSTR, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn MrmFreeMemory(data: *const u8) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmGetPriFileContentChecksum(prifile: super::super::Foundation::PWSTR, checksum: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: super::super::Foundation::PWSTR, embeddeddata: *const u8, embeddeddatasize: u32, qualifiers: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: super::super::Foundation::PWSTR, filepath: super::super::Foundation::PWSTR, qualifiers: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: super::super::Foundation::PWSTR, resourcestring: super::super::Foundation::PWSTR, qualifiers: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmGetPriFileContentChecksum(prifile: ::windows_sys::core::PCWSTR, checksum: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: ::windows_sys::core::PCWSTR, embeddeddata: *const u8, embeddeddatasize: u32, qualifiers: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: ::windows_sys::core::PCWSTR, filepath: ::windows_sys::core::PCWSTR, qualifiers: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: ::windows_sys::core::PCWSTR, resourcestring: ::windows_sys::core::PCWSTR, qualifiers: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
     pub fn MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: *mut *mut MrmResourceIndexerMessage, nummsgs: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -857,16 +817,16 @@ extern "system" {
     pub fn MsgWaitForMultipleObjectsEx(ncount: u32, phandles: *const super::super::Foundation::HANDLE, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OemToCharA(psrc: super::super::Foundation::PSTR, pdst: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn OemToCharA(psrc: ::windows_sys::core::PCSTR, pdst: ::windows_sys::core::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OemToCharBuffA(lpszsrc: super::super::Foundation::PSTR, lpszdst: super::super::Foundation::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
+    pub fn OemToCharBuffA(lpszsrc: ::windows_sys::core::PCSTR, lpszdst: ::windows_sys::core::PSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OemToCharBuffW(lpszsrc: super::super::Foundation::PSTR, lpszdst: super::super::Foundation::PWSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
+    pub fn OemToCharBuffW(lpszsrc: ::windows_sys::core::PCSTR, lpszdst: ::windows_sys::core::PWSTR, cchdstlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OemToCharW(psrc: super::super::Foundation::PSTR, pdst: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn OemToCharW(psrc: ::windows_sys::core::PCSTR, pdst: ::windows_sys::core::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenIcon(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
@@ -893,21 +853,19 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PostThreadMessageW(idthread: u32, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrivateExtractIconsA(szfilename: super::super::Foundation::PSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrivateExtractIconsW(szfilename: super::super::Foundation::PWSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn PrivateExtractIconsA(szfilename: ::windows_sys::core::PCSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn PrivateExtractIconsW(szfilename: ::windows_sys::core::PCWSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RealChildWindowFromPoint(hwndparent: super::super::Foundation::HWND, ptparentclientcoords: super::super::Foundation::POINT) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RealGetWindowClassA(hwnd: super::super::Foundation::HWND, ptszclassname: super::super::Foundation::PSTR, cchclassnamemax: u32) -> u32;
+    pub fn RealGetWindowClassA(hwnd: super::super::Foundation::HWND, ptszclassname: ::windows_sys::core::PSTR, cchclassnamemax: u32) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RealGetWindowClassW(hwnd: super::super::Foundation::HWND, ptszclassname: super::super::Foundation::PWSTR, cchclassnamemax: u32) -> u32;
+    pub fn RealGetWindowClassW(hwnd: super::super::Foundation::HWND, ptszclassname: ::windows_sys::core::PWSTR, cchclassnamemax: u32) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn RegisterClassA(lpwndclass: *const WNDCLASSA) -> u16;
@@ -929,21 +887,19 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterShellHookWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterWindowMessageA(lpstring: super::super::Foundation::PSTR) -> u32;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterWindowMessageW(lpstring: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn RegisterWindowMessageA(lpstring: ::windows_sys::core::PCSTR) -> u32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn RegisterWindowMessageW(lpstring: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RemoveMenu(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemovePropA(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
+    pub fn RemovePropA(hwnd: super::super::Foundation::HWND, lpstring: ::windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemovePropW(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+    pub fn RemovePropW(hwnd: super::super::Foundation::HWND, lpstring: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ReplyMessage(lresult: super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL;
@@ -1024,10 +980,10 @@ extern "system" {
     pub fn SetDlgItemInt(hdlg: super::super::Foundation::HWND, niddlgitem: i32, uvalue: u32, bsigned: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDlgItemTextA(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn SetDlgItemTextA(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDlgItemTextW(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn SetDlgItemTextW(hdlg: super::super::Foundation::HWND, niddlgitem: i32, lpstring: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetForegroundWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
@@ -1072,10 +1028,10 @@ extern "system" {
     pub fn SetProcessDefaultLayout(dwdefaultlayout: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetPropA(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR, hdata: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn SetPropA(hwnd: super::super::Foundation::HWND, lpstring: ::windows_sys::core::PCSTR, hdata: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetPropW(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR, hdata: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn SetPropW(hwnd: super::super::Foundation::HWND, lpstring: ::windows_sys::core::PCWSTR, hdata: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const u32) -> super::super::Foundation::BOOL;
@@ -1110,10 +1066,10 @@ extern "system" {
     pub fn SetWindowPos(hwnd: super::super::Foundation::HWND, hwndinsertafter: super::super::Foundation::HWND, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWindowTextA(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn SetWindowTextA(hwnd: super::super::Foundation::HWND, lpstring: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWindowTextW(hwnd: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn SetWindowTextW(hwnd: super::super::Foundation::HWND, lpstring: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetWindowWord(hwnd: super::super::Foundation::HWND, nindex: i32, wnewword: u16) -> u16;
@@ -1185,10 +1141,10 @@ extern "system" {
     pub fn UnhookWindowsHookEx(hhk: HHOOK) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UnregisterClassA(lpclassname: super::super::Foundation::PSTR, hinstance: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
+    pub fn UnregisterClassA(lpclassname: ::windows_sys::core::PCSTR, hinstance: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UnregisterClassW(lpclassname: super::super::Foundation::PWSTR, hinstance: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
+    pub fn UnregisterClassW(lpclassname: ::windows_sys::core::PCWSTR, hinstance: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn UpdateLayeredWindow(hwnd: super::super::Foundation::HWND, hdcdst: super::super::Graphics::Gdi::HDC, pptdst: *const super::super::Foundation::POINT, psize: *const super::super::Foundation::SIZE, hdcsrc: super::super::Graphics::Gdi::HDC, pptsrc: *const super::super::Foundation::POINT, crkey: u32, pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION, dwflags: UPDATE_LAYERED_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
@@ -1204,18 +1160,14 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WindowFromPoint(point: super::super::Foundation::POINT) -> super::super::Foundation::HWND;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn wsprintfA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn wsprintfW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn wvsprintfA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, arglist: *const i8) -> i32;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn wvsprintfW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, arglist: *const i8) -> i32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn wsprintfA(param0: ::windows_sys::core::PSTR, param1: ::windows_sys::core::PCSTR) -> i32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn wsprintfW(param0: ::windows_sys::core::PWSTR, param1: ::windows_sys::core::PCWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn wvsprintfA(param0: ::windows_sys::core::PSTR, param1: ::windows_sys::core::PCSTR, arglist: *const i8) -> i32;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn wvsprintfW(param0: ::windows_sys::core::PWSTR, param1: ::windows_sys::core::PCWSTR, arglist: *const i8) -> i32;
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -1677,8 +1629,8 @@ pub struct CREATESTRUCTA {
     pub y: i32,
     pub x: i32,
     pub style: i32,
-    pub lpszName: super::super::Foundation::PSTR,
-    pub lpszClass: super::super::Foundation::PSTR,
+    pub lpszName: ::windows_sys::core::PCSTR,
+    pub lpszClass: ::windows_sys::core::PCSTR,
     pub dwExStyle: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1702,8 +1654,8 @@ pub struct CREATESTRUCTW {
     pub y: i32,
     pub x: i32,
     pub style: i32,
-    pub lpszName: super::super::Foundation::PWSTR,
-    pub lpszClass: super::super::Foundation::PWSTR,
+    pub lpszName: ::windows_sys::core::PCWSTR,
+    pub lpszClass: ::windows_sys::core::PCWSTR,
     pub dwExStyle: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2907,60 +2859,42 @@ pub const ICON_SMALL2: u32 = 2u32;
 pub const IDANI_CAPTION: u32 = 3u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const IDANI_OPEN: u32 = 1u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_APPSTARTING: super::super::Foundation::PWSTR = 32650i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_ARROW: super::super::Foundation::PWSTR = 32512i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_CROSS: super::super::Foundation::PWSTR = 32515i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_HAND: super::super::Foundation::PWSTR = 32649i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_HELP: super::super::Foundation::PWSTR = 32651i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_IBEAM: super::super::Foundation::PWSTR = 32513i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_ICON: super::super::Foundation::PWSTR = 32641i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_NO: super::super::Foundation::PWSTR = 32648i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_PERSON: super::super::Foundation::PWSTR = 32672i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_PIN: super::super::Foundation::PWSTR = 32671i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_SIZE: super::super::Foundation::PWSTR = 32640i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_SIZEALL: super::super::Foundation::PWSTR = 32646i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_SIZENESW: super::super::Foundation::PWSTR = 32643i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_SIZENS: super::super::Foundation::PWSTR = 32645i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_SIZENWSE: super::super::Foundation::PWSTR = 32642i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_SIZEWE: super::super::Foundation::PWSTR = 32644i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_UPARROW: super::super::Foundation::PWSTR = 32516i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDC_WAIT: super::super::Foundation::PWSTR = 32514i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_APPSTARTING: ::windows_sys::core::PCWSTR = 32650i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_ARROW: ::windows_sys::core::PCWSTR = 32512i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_CROSS: ::windows_sys::core::PCWSTR = 32515i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_HAND: ::windows_sys::core::PCWSTR = 32649i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_HELP: ::windows_sys::core::PCWSTR = 32651i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_IBEAM: ::windows_sys::core::PCWSTR = 32513i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_ICON: ::windows_sys::core::PCWSTR = 32641i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_NO: ::windows_sys::core::PCWSTR = 32648i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_PERSON: ::windows_sys::core::PCWSTR = 32672i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_PIN: ::windows_sys::core::PCWSTR = 32671i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_SIZE: ::windows_sys::core::PCWSTR = 32640i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_SIZEALL: ::windows_sys::core::PCWSTR = 32646i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_SIZENESW: ::windows_sys::core::PCWSTR = 32643i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_SIZENS: ::windows_sys::core::PCWSTR = 32645i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_SIZENWSE: ::windows_sys::core::PCWSTR = 32642i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_SIZEWE: ::windows_sys::core::PCWSTR = 32644i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_UPARROW: ::windows_sys::core::PCWSTR = 32516i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDC_WAIT: ::windows_sys::core::PCWSTR = 32514i32 as _;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const IDHOT_SNAPDESKTOP: i32 = -2i32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -2977,33 +2911,26 @@ pub const IDH_MISSING_CONTEXT: u32 = 28441u32;
 pub const IDH_NO_HELP: u32 = 28440u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const IDH_OK: u32 = 28443u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDI_APPLICATION: super::super::Foundation::PWSTR = 32512u32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDI_ASTERISK: super::super::Foundation::PWSTR = 32516u32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDI_APPLICATION: ::windows_sys::core::PCWSTR = 32512u32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDI_ASTERISK: ::windows_sys::core::PCWSTR = 32516u32 as _;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const IDI_ERROR: u32 = 32513u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDI_EXCLAMATION: super::super::Foundation::PWSTR = 32515u32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDI_HAND: super::super::Foundation::PWSTR = 32513u32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDI_EXCLAMATION: ::windows_sys::core::PCWSTR = 32515u32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDI_HAND: ::windows_sys::core::PCWSTR = 32513u32 as _;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const IDI_INFORMATION: u32 = 32516u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDI_QUESTION: super::super::Foundation::PWSTR = 32514u32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDI_SHIELD: super::super::Foundation::PWSTR = 32518u32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDI_QUESTION: ::windows_sys::core::PCWSTR = 32514u32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDI_SHIELD: ::windows_sys::core::PCWSTR = 32518u32 as _;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const IDI_WARNING: u32 = 32515u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const IDI_WINLOGO: super::super::Foundation::PWSTR = 32517u32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDI_WINLOGO: ::windows_sys::core::PCWSTR = 32517u32 as _;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const IMAGE_ENHMETAFILE: u32 = 3u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -3061,15 +2988,12 @@ pub const ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID: u32 = 5u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const ISOLATIONPOLICY_MANIFEST_RESOURCE_ID: u32 = 4u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub struct IndexedResourceQualifier {
-    pub name: super::super::Foundation::PWSTR,
-    pub value: super::super::Foundation::PWSTR,
+    pub name: ::windows_sys::core::PWSTR,
+    pub value: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IndexedResourceQualifier {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IndexedResourceQualifier {
     fn clone(&self) -> Self {
         *self
@@ -3300,8 +3224,8 @@ pub const MA_NOACTIVATEANDEAT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MDICREATESTRUCTA {
-    pub szClass: super::super::Foundation::PSTR,
-    pub szTitle: super::super::Foundation::PSTR,
+    pub szClass: ::windows_sys::core::PCSTR,
+    pub szTitle: ::windows_sys::core::PCSTR,
     pub hOwner: super::super::Foundation::HANDLE,
     pub x: i32,
     pub y: i32,
@@ -3322,8 +3246,8 @@ impl ::core::clone::Clone for MDICREATESTRUCTA {
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MDICREATESTRUCTW {
-    pub szClass: super::super::Foundation::PWSTR,
-    pub szTitle: super::super::Foundation::PWSTR,
+    pub szClass: ::windows_sys::core::PCWSTR,
+    pub szTitle: ::windows_sys::core::PCWSTR,
     pub hOwner: super::super::Foundation::HANDLE,
     pub x: i32,
     pub y: i32,
@@ -3446,8 +3370,8 @@ pub const MNS_NOCHECK: MENUINFO_STYLE = 2147483648u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const MNS_NOTIFYBYPOS: MENUINFO_STYLE = 134217728u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct MENUITEMINFOA {
     pub cbSize: u32,
     pub fMask: MENU_ITEM_MASK,
@@ -3458,21 +3382,21 @@ pub struct MENUITEMINFOA {
     pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
     pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
     pub dwItemData: usize,
-    pub dwTypeData: super::super::Foundation::PSTR,
+    pub dwTypeData: ::windows_sys::core::PSTR,
     pub cch: u32,
     pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for MENUITEMINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for MENUITEMINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct MENUITEMINFOW {
     pub cbSize: u32,
     pub fMask: MENU_ITEM_MASK,
@@ -3483,13 +3407,13 @@ pub struct MENUITEMINFOW {
     pub hbmpChecked: super::super::Graphics::Gdi::HBITMAP,
     pub hbmpUnchecked: super::super::Graphics::Gdi::HBITMAP,
     pub dwItemData: usize,
-    pub dwTypeData: super::super::Foundation::PWSTR,
+    pub dwTypeData: ::windows_sys::core::PWSTR,
     pub cch: u32,
     pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for MENUITEMINFOW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for MENUITEMINFOW {
     fn clone(&self) -> Self {
         *self
@@ -3960,10 +3884,10 @@ pub struct MSGBOXPARAMSA {
     pub cbSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
     pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszText: super::super::Foundation::PSTR,
-    pub lpszCaption: super::super::Foundation::PSTR,
+    pub lpszText: ::windows_sys::core::PCSTR,
+    pub lpszCaption: ::windows_sys::core::PCSTR,
     pub dwStyle: MESSAGEBOX_STYLE,
-    pub lpszIcon: super::super::Foundation::PSTR,
+    pub lpszIcon: ::windows_sys::core::PCSTR,
     pub dwContextHelpId: usize,
     pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
@@ -3983,10 +3907,10 @@ pub struct MSGBOXPARAMSW {
     pub cbSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
     pub hInstance: super::super::Foundation::HINSTANCE,
-    pub lpszText: super::super::Foundation::PWSTR,
-    pub lpszCaption: super::super::Foundation::PWSTR,
+    pub lpszText: ::windows_sys::core::PCWSTR,
+    pub lpszCaption: ::windows_sys::core::PCWSTR,
     pub dwStyle: MESSAGEBOX_STYLE,
-    pub lpszIcon: super::super::Foundation::PWSTR,
+    pub lpszIcon: ::windows_sys::core::PCWSTR,
     pub dwContextHelpId: usize,
     pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
     pub dwLanguageId: u32,
@@ -4103,16 +4027,13 @@ impl ::core::clone::Clone for MrmResourceIndexerHandle {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub struct MrmResourceIndexerMessage {
     pub severity: MrmResourceIndexerMessageSeverity,
     pub id: u32,
-    pub text: super::super::Foundation::PWSTR,
+    pub text: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MrmResourceIndexerMessage {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MrmResourceIndexerMessage {
     fn clone(&self) -> Self {
         *self
@@ -4130,10 +4051,10 @@ pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSev
 pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = 3i32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type NAMEENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type NAMEENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type NAMEENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+pub type NAMEENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4537,7 +4458,7 @@ pub const POINTER_MOD_CTRL: u32 = 8u32;
 pub const POINTER_MOD_SHIFT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PREGISTERCLASSNAMEW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOLEAN>;
+pub type PREGISTERCLASSNAMEW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOLEAN>;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const PRF_CHECKVISIBLE: i32 = 1i32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -4552,16 +4473,16 @@ pub const PRF_NONCLIENT: i32 = 2i32;
 pub const PRF_OWNED: i32 = 32i32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PROPENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: ::windows_sys::core::PCSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PROPENUMPROCEXA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCEXA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: ::windows_sys::core::PCSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PROPENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: ::windows_sys::core::PCWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PROPENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
+pub type PROPENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: ::windows_sys::core::PCWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const PWR_CRITICALRESUME: u32 = 3u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -4668,56 +4589,40 @@ pub const RI_MOUSE_RIGHT_BUTTON_DOWN: u32 = 4u32;
 pub const RI_MOUSE_RIGHT_BUTTON_UP: u32 = 8u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const RI_MOUSE_WHEEL: u32 = 1024u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_ACCELERATOR: super::super::Foundation::PWSTR = 9i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_ANICURSOR: super::super::Foundation::PWSTR = 21i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_ANIICON: super::super::Foundation::PWSTR = 22i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_BITMAP: super::super::Foundation::PWSTR = 2i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_CURSOR: super::super::Foundation::PWSTR = 1i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_DIALOG: super::super::Foundation::PWSTR = 5i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_DLGINCLUDE: super::super::Foundation::PWSTR = 17i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_FONT: super::super::Foundation::PWSTR = 8i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_FONTDIR: super::super::Foundation::PWSTR = 7i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_HTML: super::super::Foundation::PWSTR = 23i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_ICON: super::super::Foundation::PWSTR = 3i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_ACCELERATOR: ::windows_sys::core::PCWSTR = 9i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_ANICURSOR: ::windows_sys::core::PCWSTR = 21i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_ANIICON: ::windows_sys::core::PCWSTR = 22i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_BITMAP: ::windows_sys::core::PCWSTR = 2i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_CURSOR: ::windows_sys::core::PCWSTR = 1i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_DIALOG: ::windows_sys::core::PCWSTR = 5i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_DLGINCLUDE: ::windows_sys::core::PCWSTR = 17i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_FONT: ::windows_sys::core::PCWSTR = 8i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_FONTDIR: ::windows_sys::core::PCWSTR = 7i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_HTML: ::windows_sys::core::PCWSTR = 23i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_ICON: ::windows_sys::core::PCWSTR = 3i32 as _;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const RT_MANIFEST: u32 = 24u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_MENU: super::super::Foundation::PWSTR = 4i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_MESSAGETABLE: super::super::Foundation::PWSTR = 11i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_PLUGPLAY: super::super::Foundation::PWSTR = 19i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_VERSION: super::super::Foundation::PWSTR = 16i32 as _;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const RT_VXD: super::super::Foundation::PWSTR = 20i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_MENU: ::windows_sys::core::PCWSTR = 4i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_MESSAGETABLE: ::windows_sys::core::PCWSTR = 11i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_PLUGPLAY: ::windows_sys::core::PCWSTR = 19i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_VERSION: ::windows_sys::core::PCWSTR = 16i32 as _;
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const RT_VXD: ::windows_sys::core::PCWSTR = 20i32 as _;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const SBM_ENABLE_ARROWS: u32 = 228u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -7087,8 +6992,8 @@ pub struct WNDCLASSA {
     pub hIcon: HICON,
     pub hCursor: HCURSOR,
     pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: super::super::Foundation::PSTR,
-    pub lpszClassName: super::super::Foundation::PSTR,
+    pub lpszMenuName: ::windows_sys::core::PCSTR,
+    pub lpszClassName: ::windows_sys::core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for WNDCLASSA {}
@@ -7111,8 +7016,8 @@ pub struct WNDCLASSEXA {
     pub hIcon: HICON,
     pub hCursor: HCURSOR,
     pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: super::super::Foundation::PSTR,
-    pub lpszClassName: super::super::Foundation::PSTR,
+    pub lpszMenuName: ::windows_sys::core::PCSTR,
+    pub lpszClassName: ::windows_sys::core::PCSTR,
     pub hIconSm: HICON,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7136,8 +7041,8 @@ pub struct WNDCLASSEXW {
     pub hIcon: HICON,
     pub hCursor: HCURSOR,
     pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: super::super::Foundation::PWSTR,
-    pub lpszClassName: super::super::Foundation::PWSTR,
+    pub lpszMenuName: ::windows_sys::core::PCWSTR,
+    pub lpszClassName: ::windows_sys::core::PCWSTR,
     pub hIconSm: HICON,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7160,8 +7065,8 @@ pub struct WNDCLASSW {
     pub hIcon: HICON,
     pub hCursor: HCURSOR,
     pub hbrBackground: super::super::Graphics::Gdi::HBRUSH,
-    pub lpszMenuName: super::super::Foundation::PWSTR,
-    pub lpszClassName: super::super::Foundation::PWSTR,
+    pub lpszMenuName: ::windows_sys::core::PCWSTR,
+    pub lpszClassName: ::windows_sys::core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for WNDCLASSW {}

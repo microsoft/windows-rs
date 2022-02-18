@@ -13,33 +13,31 @@ pub mod XAudio2;
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn ActivateAudioInterfaceAsync(deviceinterfacepath: super::super::Foundation::PWSTR, riid: *const ::windows_sys::core::GUID, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: IActivateAudioInterfaceCompletionHandler, activationoperation: *mut IActivateAudioInterfaceAsyncOperation) -> ::windows_sys::core::HRESULT;
+    pub fn ActivateAudioInterfaceAsync(deviceinterfacepath: ::windows_sys::core::PCWSTR, riid: *const ::windows_sys::core::GUID, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: IActivateAudioInterfaceCompletionHandler, activationoperation: *mut IActivateAudioInterfaceAsyncOperation) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn CoRegisterMessageFilter(lpmessagefilter: IMessageFilter, lplpmessagefilter: *mut IMessageFilter) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn CreateCaptureAudioStateMonitor(audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: ::windows_sys::core::PCWSTR, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn CreateRenderAudioStateMonitor(audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: ::windows_sys::core::PCWSTR, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PlaySoundA(pszsound: super::super::Foundation::PSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
+    pub fn PlaySoundA(pszsound: ::windows_sys::core::PCSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PlaySoundW(pszsound: super::super::Foundation::PWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
+    pub fn PlaySoundW(pszsound: ::windows_sys::core::PCWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn acmDriverAddA(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
@@ -164,8 +162,7 @@ extern "system" {
     pub fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiInAddBuffer(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiInClose(hmi: HMIDIIN) -> u32;
@@ -174,12 +171,10 @@ extern "system" {
     pub fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn midiInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn midiInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn midiInGetErrorTextA(mmrerror: u32, psztext: ::windows_sys::core::PSTR, cchtext: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn midiInGetErrorTextW(mmrerror: u32, psztext: ::windows_sys::core::PWSTR, cchtext: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiInGetID(hmi: HMIDIIN, pudeviceid: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -188,8 +183,7 @@ extern "system" {
     pub fn midiInMessage(hmi: HMIDIIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiInPrepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiInReset(hmi: HMIDIIN) -> u32;
@@ -197,8 +191,7 @@ extern "system" {
     pub fn midiInStart(hmi: HMIDIIN) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiInStop(hmi: HMIDIIN) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: u32, pwkya: *const u16, fucache: u32) -> u32;
@@ -211,27 +204,23 @@ extern "system" {
     pub fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn midiOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn midiOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn midiOutGetErrorTextA(mmrerror: u32, psztext: ::windows_sys::core::PSTR, cchtext: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn midiOutGetErrorTextW(mmrerror: u32, psztext: ::windows_sys::core::PWSTR, cchtext: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutGetID(hmo: HMIDIOUT, pudeviceid: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutGetNumDevs() -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutGetVolume(hmo: HMIDIOUT, pdwvolume: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutLongMsg(hmo: HMIDIOUT, pmh: *const MIDIHDR, cbmh: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutMessage(hmo: HMIDIOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutPrepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutReset(hmo: HMIDIOUT) -> u32;
@@ -239,15 +228,13 @@ extern "system" {
     pub fn midiOutSetVolume(hmo: HMIDIOUT, dwvolume: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutShortMsg(hmo: HMIDIOUT, dwmsg: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiStreamClose(hms: HMIDISTRM) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiStreamOut(hms: HMIDISTRM, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn midiStreamPause(hms: HMIDISTRM) -> u32;
@@ -295,12 +282,11 @@ extern "system" {
     pub fn mixerSetControlDetails(hmxobj: HMIXEROBJ, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn sndPlaySoundA(pszsound: super::super::Foundation::PSTR, fusound: u32) -> super::super::Foundation::BOOL;
+    pub fn sndPlaySoundA(pszsound: ::windows_sys::core::PCSTR, fusound: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn sndPlaySoundW(pszsound: super::super::Foundation::PWSTR, fusound: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    pub fn sndPlaySoundW(pszsound: ::windows_sys::core::PCWSTR, fusound: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveInAddBuffer(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveInClose(hwi: HWAVEIN) -> u32;
@@ -309,12 +295,10 @@ extern "system" {
     pub fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn waveInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn waveInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn waveInGetErrorTextA(mmrerror: u32, psztext: ::windows_sys::core::PSTR, cchtext: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn waveInGetErrorTextW(mmrerror: u32, psztext: ::windows_sys::core::PWSTR, cchtext: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveInGetID(hwi: HWAVEIN, pudeviceid: *const u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -325,8 +309,7 @@ extern "system" {
     pub fn waveInMessage(hwi: HWAVEIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveInPrepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveInReset(hwi: HWAVEIN) -> u32;
@@ -334,8 +317,7 @@ extern "system" {
     pub fn waveInStart(hwi: HWAVEIN) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveInStop(hwi: HWAVEIN) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveInUnprepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveOutBreakLoop(hwo: HWAVEOUT) -> u32;
@@ -346,12 +328,10 @@ extern "system" {
     pub fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn waveOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn waveOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn waveOutGetErrorTextA(mmrerror: u32, psztext: ::windows_sys::core::PSTR, cchtext: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn waveOutGetErrorTextW(mmrerror: u32, psztext: ::windows_sys::core::PWSTR, cchtext: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveOutGetID(hwo: HWAVEOUT, pudeviceid: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -370,8 +350,7 @@ extern "system" {
     pub fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveOutPause(hwo: HWAVEOUT) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveOutPrepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveOutReset(hwo: HWAVEOUT) -> u32;
@@ -383,11 +362,9 @@ extern "system" {
     pub fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveOutSetVolume(hwo: HWAVEOUT, dwvolume: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -617,15 +594,15 @@ pub struct ACMFILTERCHOOSEA {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
-    pub pszTitle: super::super::Foundation::PSTR,
+    pub pszTitle: ::windows_sys::core::PCSTR,
     pub szFilterTag: [super::super::Foundation::CHAR; 48],
     pub szFilter: [super::super::Foundation::CHAR; 128],
-    pub pszName: super::super::Foundation::PSTR,
+    pub pszName: ::windows_sys::core::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfltrEnum: *mut WAVEFILTER,
     pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: super::super::Foundation::PSTR,
+    pub pszTemplateName: ::windows_sys::core::PCSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
 }
@@ -652,15 +629,15 @@ pub struct ACMFILTERCHOOSEW {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
-    pub pszTitle: super::super::Foundation::PWSTR,
+    pub pszTitle: ::windows_sys::core::PCWSTR,
     pub szFilterTag: [u16; 48],
     pub szFilter: [u16; 128],
-    pub pszName: super::super::Foundation::PWSTR,
+    pub pszName: ::windows_sys::core::PWSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfltrEnum: *mut WAVEFILTER,
     pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: super::super::Foundation::PWSTR,
+    pub pszTemplateName: ::windows_sys::core::PCWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
 }
@@ -783,15 +760,15 @@ pub struct ACMFORMATCHOOSEA {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
-    pub pszTitle: super::super::Foundation::PSTR,
+    pub pszTitle: ::windows_sys::core::PCSTR,
     pub szFormatTag: [super::super::Foundation::CHAR; 48],
     pub szFormat: [super::super::Foundation::CHAR; 128],
-    pub pszName: super::super::Foundation::PSTR,
+    pub pszName: ::windows_sys::core::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfxEnum: *mut WAVEFORMATEX,
     pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: super::super::Foundation::PSTR,
+    pub pszTemplateName: ::windows_sys::core::PCSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
 }
@@ -818,15 +795,15 @@ pub struct ACMFORMATCHOOSEW {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
-    pub pszTitle: super::super::Foundation::PWSTR,
+    pub pszTitle: ::windows_sys::core::PCWSTR,
     pub szFormatTag: [u16; 48],
     pub szFormat: [u16; 128],
-    pub pszName: super::super::Foundation::PWSTR,
+    pub pszName: ::windows_sys::core::PWSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
     pub pwfxEnum: *mut WAVEFORMATEX,
     pub hInstance: super::super::Foundation::HINSTANCE,
-    pub pszTemplateName: super::super::Foundation::PWSTR,
+    pub pszTemplateName: ::windows_sys::core::PCWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,
 }
@@ -1907,10 +1884,9 @@ impl ::core::clone::Clone for MIDIEVENT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub struct MIDIHDR {
-    pub lpData: super::super::Foundation::PSTR,
+    pub lpData: ::windows_sys::core::PSTR,
     pub dwBufferLength: u32,
     pub dwBytesRecorded: u32,
     pub dwUser: usize,
@@ -1920,9 +1896,7 @@ pub struct MIDIHDR {
     pub dwOffset: u32,
     pub dwReserved: [usize; 8],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MIDIHDR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MIDIHDR {
     fn clone(&self) -> Self {
         *self
@@ -3479,10 +3453,9 @@ impl ::core::clone::Clone for WAVEFORMATEXTENSIBLE_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub struct WAVEHDR {
-    pub lpData: super::super::Foundation::PSTR,
+    pub lpData: ::windows_sys::core::PSTR,
     pub dwBufferLength: u32,
     pub dwBytesRecorded: u32,
     pub dwUser: usize,
@@ -3491,9 +3464,7 @@ pub struct WAVEHDR {
     pub lpNext: *mut WAVEHDR,
     pub reserved: usize,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WAVEHDR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAVEHDR {
     fn clone(&self) -> Self {
         *self
@@ -3772,8 +3743,7 @@ pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: __MIDL___MIDL_itf_mmd
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = 3i32;
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub struct tACMDRVOPENDESCA {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -3781,21 +3751,18 @@ pub struct tACMDRVOPENDESCA {
     pub dwVersion: u32,
     pub dwFlags: u32,
     pub dwError: u32,
-    pub pszSectionName: super::super::Foundation::PSTR,
-    pub pszAliasName: super::super::Foundation::PSTR,
+    pub pszSectionName: ::windows_sys::core::PCSTR,
+    pub pszAliasName: ::windows_sys::core::PCSTR,
     pub dnDevNode: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for tACMDRVOPENDESCA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for tACMDRVOPENDESCA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub struct tACMDRVOPENDESCW {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -3803,13 +3770,11 @@ pub struct tACMDRVOPENDESCW {
     pub dwVersion: u32,
     pub dwFlags: u32,
     pub dwError: u32,
-    pub pszSectionName: super::super::Foundation::PWSTR,
-    pub pszAliasName: super::super::Foundation::PWSTR,
+    pub pszSectionName: ::windows_sys::core::PCWSTR,
+    pub pszAliasName: ::windows_sys::core::PCWSTR,
     pub dnDevNode: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for tACMDRVOPENDESCW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for tACMDRVOPENDESCW {
     fn clone(&self) -> Self {
         *self

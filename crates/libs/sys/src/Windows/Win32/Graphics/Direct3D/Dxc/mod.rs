@@ -97,15 +97,12 @@ pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = 10i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = -1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub struct DxcArgPair {
-    pub pName: super::super::super::Foundation::PWSTR,
-    pub pValue: super::super::super::Foundation::PWSTR,
+    pub pName: ::windows_sys::core::PCWSTR,
+    pub pValue: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DxcArgPair {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DxcArgPair {
     fn clone(&self) -> Self {
         *self
@@ -130,15 +127,12 @@ pub type DxcCreateInstance2Proc = ::core::option::Option<unsafe extern "system" 
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub type DxcCreateInstanceProc = ::core::option::Option<unsafe extern "system" fn(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub struct DxcDefine {
-    pub Name: super::super::super::Foundation::PWSTR,
-    pub Value: super::super::super::Foundation::PWSTR,
+    pub Name: ::windows_sys::core::PCWSTR,
+    pub Value: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DxcDefine {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DxcDefine {
     fn clone(&self) -> Self {
         *self

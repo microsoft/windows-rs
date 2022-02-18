@@ -7,7 +7,7 @@ pub trait ICameraUIControl_Impl: Sized {
     fn GetCurrentViewType(&self) -> ::windows::core::Result<CameraUIControlViewType>;
     fn GetActiveItem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetSelectedItems(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn RemoveCapturedItem(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RemoveCapturedItem(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ICameraUIControl_Vtbl {
@@ -71,10 +71,10 @@ impl ICameraUIControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCapturedItem<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveCapturedItem<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveCapturedItem(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).RemoveCapturedItem(::core::mem::transmute(&pszpath)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -92,15 +92,13 @@ impl ICameraUIControl_Vtbl {
         iid == &<ICameraUIControl as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ICameraUIControlEventCallback_Impl: Sized {
     fn OnStartupComplete(&self);
     fn OnSuspendComplete(&self);
-    fn OnItemCaptured(&self, pszpath: super::super::Foundation::PWSTR);
-    fn OnItemDeleted(&self, pszpath: super::super::Foundation::PWSTR);
+    fn OnItemCaptured(&self, pszpath: &::windows::core::PCWSTR);
+    fn OnItemDeleted(&self, pszpath: &::windows::core::PCWSTR);
     fn OnClosed(&self);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ICameraUIControlEventCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControlEventCallback_Impl, const OFFSET: isize>() -> ICameraUIControlEventCallback_Vtbl {
         unsafe extern "system" fn OnStartupComplete<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -113,15 +111,15 @@ impl ICameraUIControlEventCallback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).OnSuspendComplete()
         }
-        unsafe extern "system" fn OnItemCaptured<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) {
+        unsafe extern "system" fn OnItemCaptured<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnItemCaptured(::core::mem::transmute_copy(&pszpath))
+            (*this).OnItemCaptured(::core::mem::transmute(&pszpath))
         }
-        unsafe extern "system" fn OnItemDeleted<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) {
+        unsafe extern "system" fn OnItemDeleted<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnItemDeleted(::core::mem::transmute_copy(&pszpath))
+            (*this).OnItemDeleted(::core::mem::transmute(&pszpath))
         }
         unsafe extern "system" fn OnClosed<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -260,9 +258,9 @@ impl IEditionUpgradeBroker_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEditionUpgradeHelper_Impl: Sized {
     fn CanUpgrade(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn UpdateOperatingSystem(&self, contentid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn UpdateOperatingSystem(&self, contentid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn ShowProductKeyUI(&self) -> ::windows::core::Result<()>;
-    fn GetOsProductContentId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetOsProductContentId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetGenuineLocalStatus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -279,17 +277,17 @@ impl IEditionUpgradeHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateOperatingSystem<Identity: ::windows::core::IUnknownImpl, Impl: IEditionUpgradeHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateOperatingSystem<Identity: ::windows::core::IUnknownImpl, Impl: IEditionUpgradeHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UpdateOperatingSystem(::core::mem::transmute_copy(&contentid)).into()
+            (*this).UpdateOperatingSystem(::core::mem::transmute(&contentid)).into()
         }
         unsafe extern "system" fn ShowProductKeyUI<Identity: ::windows::core::IUnknownImpl, Impl: IEditionUpgradeHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).ShowProductKeyUI().into()
         }
-        unsafe extern "system" fn GetOsProductContentId<Identity: ::windows::core::IUnknownImpl, Impl: IEditionUpgradeHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOsProductContentId<Identity: ::windows::core::IUnknownImpl, Impl: IEditionUpgradeHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetOsProductContentId() {

@@ -1,17 +1,15 @@
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMLOperatorAttributes_Impl: Sized {
-    fn GetAttributeElementCount(&self, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32>;
-    fn GetAttribute(&self, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetStringAttributeElementLength(&self, name: super::super::super::Foundation::PSTR, elementindex: u32) -> ::windows::core::Result<u32>;
-    fn GetStringAttributeElement(&self, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn GetAttributeElementCount(&self, name: &::windows::core::PCSTR, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32>;
+    fn GetAttribute(&self, name: &::windows::core::PCSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetStringAttributeElementLength(&self, name: &::windows::core::PCSTR, elementindex: u32) -> ::windows::core::Result<u32>;
+    fn GetStringAttributeElement(&self, name: &::windows::core::PCSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: ::windows::core::PSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IMLOperatorAttributes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributes_Impl, const OFFSET: isize>() -> IMLOperatorAttributes_Vtbl {
-        unsafe extern "system" fn GetAttributeElementCount<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeElementCount<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, r#type: MLOperatorAttributeType, elementcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetAttributeElementCount(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type)) {
+            match (*this).GetAttributeElementCount(::core::mem::transmute(&name), ::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
                     *elementcount = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -19,15 +17,15 @@ impl IMLOperatorAttributes_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttribute<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttribute<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetAttribute(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&elementcount), ::core::mem::transmute_copy(&elementbytesize), ::core::mem::transmute_copy(&value)).into()
+            (*this).GetAttribute(::core::mem::transmute(&name), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&elementcount), ::core::mem::transmute_copy(&elementbytesize), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetStringAttributeElementLength<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStringAttributeElementLength<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, elementindex: u32, attributeelementbytesize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetStringAttributeElementLength(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&elementindex)) {
+            match (*this).GetStringAttributeElementLength(::core::mem::transmute(&name), ::core::mem::transmute_copy(&elementindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *attributeelementbytesize = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -35,10 +33,10 @@ impl IMLOperatorAttributes_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStringAttributeElement<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStringAttributeElement<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: ::windows::core::PSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetStringAttributeElement(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&elementindex), ::core::mem::transmute_copy(&attributeelementbytesize), ::core::mem::transmute_copy(&attributeelement)).into()
+            (*this).GetStringAttributeElement(::core::mem::transmute(&name), ::core::mem::transmute_copy(&elementindex), ::core::mem::transmute_copy(&attributeelementbytesize), ::core::mem::transmute_copy(&attributeelement)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -139,7 +137,6 @@ impl IMLOperatorKernelContext_Vtbl {
         iid == &<IMLOperatorKernelContext as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMLOperatorKernelCreationContext_Impl: Sized + IMLOperatorAttributes_Impl {
     fn GetInputCount(&self) -> u32;
     fn GetOutputCount(&self) -> u32;
@@ -151,7 +148,6 @@ pub trait IMLOperatorKernelCreationContext_Impl: Sized + IMLOperatorAttributes_I
     fn GetTensorShapeDescription(&self) -> ::windows::core::Result<IMLOperatorTensorShapeDescription>;
     fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IMLOperatorKernelCreationContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>() -> IMLOperatorKernelCreationContext_Vtbl {
         unsafe extern "system" fn GetInputCount<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -256,12 +252,10 @@ impl IMLOperatorKernelFactory_Vtbl {
         iid == &<IMLOperatorKernelFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMLOperatorRegistry_Impl: Sized {
     fn RegisterOperatorSetSchema(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: &::core::option::Option<IMLOperatorTypeInferrer>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
     fn RegisterOperatorKernel(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: &::core::option::Option<IMLOperatorKernelFactory>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IMLOperatorRegistry_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorRegistry_Impl, const OFFSET: isize>() -> IMLOperatorRegistry_Vtbl {
         unsafe extern "system" fn RegisterOperatorSetSchema<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorRegistry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: ::windows::core::RawPtr, shapeinferrer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -284,7 +278,6 @@ impl IMLOperatorRegistry_Vtbl {
         iid == &<IMLOperatorRegistry as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMLOperatorShapeInferenceContext_Impl: Sized + IMLOperatorAttributes_Impl {
     fn GetInputCount(&self) -> u32;
     fn GetOutputCount(&self) -> u32;
@@ -295,7 +288,6 @@ pub trait IMLOperatorShapeInferenceContext_Impl: Sized + IMLOperatorAttributes_I
     fn GetInputTensorShape(&self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
     fn SetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IMLOperatorShapeInferenceContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>() -> IMLOperatorShapeInferenceContext_Vtbl {
         unsafe extern "system" fn GetInputCount<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -502,7 +494,6 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
         iid == &<IMLOperatorTensorShapeDescription as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMLOperatorTypeInferenceContext_Impl: Sized + IMLOperatorAttributes_Impl {
     fn GetInputCount(&self) -> u32;
     fn GetOutputCount(&self) -> u32;
@@ -511,7 +502,6 @@ pub trait IMLOperatorTypeInferenceContext_Impl: Sized + IMLOperatorAttributes_Im
     fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription>;
     fn SetOutputEdgeDescription(&self, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IMLOperatorTypeInferenceContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTypeInferenceContext_Impl, const OFFSET: isize>() -> IMLOperatorTypeInferenceContext_Vtbl {
         unsafe extern "system" fn GetInputCount<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTypeInferenceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -580,13 +570,13 @@ impl IMLOperatorTypeInferrer_Vtbl {
         iid == &<IMLOperatorTypeInferrer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IWinMLEvaluationContext_Impl: Sized {
     fn BindValue(&self, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::core::Result<()>;
-    fn GetValueByName(&self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<*mut WINML_BINDING_DESC>;
+    fn GetValueByName(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<*mut WINML_BINDING_DESC>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IWinMLEvaluationContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLEvaluationContext_Impl, const OFFSET: isize>() -> IWinMLEvaluationContext_Vtbl {
         unsafe extern "system" fn BindValue<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLEvaluationContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::core::HRESULT {
@@ -594,10 +584,10 @@ impl IWinMLEvaluationContext_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).BindValue(::core::mem::transmute_copy(&pdescriptor)).into()
         }
-        unsafe extern "system" fn GetValueByName<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLEvaluationContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR, pdescriptor: *mut *mut WINML_BINDING_DESC) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValueByName<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLEvaluationContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, pdescriptor: *mut *mut WINML_BINDING_DESC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetValueByName(::core::mem::transmute_copy(&name)) {
+            match (*this).GetValueByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pdescriptor = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -624,7 +614,7 @@ impl IWinMLEvaluationContext_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWinMLModel_Impl: Sized {
     fn GetDescription(&self) -> ::windows::core::Result<*mut WINML_MODEL_DESC>;
-    fn EnumerateMetadata(&self, index: u32, pkey: *mut super::super::super::Foundation::PWSTR, pvalue: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn EnumerateMetadata(&self, index: u32, pkey: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn EnumerateModelInputs(&self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC>;
     fn EnumerateModelOutputs(&self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC>;
 }
@@ -642,7 +632,7 @@ impl IWinMLModel_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumerateMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLModel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pkey: *mut super::super::super::Foundation::PWSTR, pvalue: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerateMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLModel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pkey: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).EnumerateMetadata(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pkey), ::core::mem::transmute_copy(&pvalue)).into()
@@ -681,19 +671,19 @@ impl IWinMLModel_Vtbl {
         iid == &<IWinMLModel as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IWinMLRuntime_Impl: Sized {
-    fn LoadModel(&self, path: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IWinMLModel>;
+    fn LoadModel(&self, path: &::windows::core::PCWSTR) -> ::windows::core::Result<IWinMLModel>;
     fn CreateEvaluationContext(&self, device: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>) -> ::windows::core::Result<IWinMLEvaluationContext>;
     fn EvaluateModel(&self, pcontext: &::core::option::Option<IWinMLEvaluationContext>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IWinMLRuntime_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLRuntime_Impl, const OFFSET: isize>() -> IWinMLRuntime_Vtbl {
-        unsafe extern "system" fn LoadModel<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: super::super::super::Foundation::PWSTR, ppmodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadModel<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::windows::core::PCWSTR, ppmodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).LoadModel(::core::mem::transmute_copy(&path)) {
+            match (*this).LoadModel(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppmodel = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

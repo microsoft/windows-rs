@@ -3,15 +3,15 @@
 extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsHostnameToComputerNameExW(hostname: super::super::Foundation::PWSTR, computername: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn DnsHostnameToComputerNameExW(hostname: ::windows_sys::core::PCWSTR, computername: ::windows_sys::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
     pub fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: *mut FIRMWARE_TABLE_ID, buffersize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows_sys::core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
+    pub fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows_sys::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super::Foundation::BOOL;
@@ -49,12 +49,10 @@ extern "system" {
     pub fn GetSystemCpuSetInformation(information: *mut SYSTEM_CPU_SET_INFORMATION, bufferlength: u32, returnedlength: *mut u32, process: super::super::Foundation::HANDLE, flags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
     pub fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE;
-    #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+    pub fn GetSystemDirectoryA(lpbuffer: ::windows_sys::core::PSTR, usize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+    pub fn GetSystemDirectoryW(lpbuffer: ::windows_sys::core::PWSTR, usize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
     pub fn GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: FIRMWARE_TABLE_ID, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_System_Diagnostics_Debug'*"]
@@ -78,24 +76,18 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME);
-    #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWow64Directory2A(lpbuffer: super::super::Foundation::PSTR, usize: u32, imagefilemachinetype: u16) -> u32;
-    #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWow64Directory2W(lpbuffer: super::super::Foundation::PWSTR, usize: u32, imagefilemachinetype: u16) -> u32;
-    #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWow64DirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemWow64DirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+    pub fn GetSystemWindowsDirectoryA(lpbuffer: ::windows_sys::core::PSTR, usize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+    pub fn GetSystemWindowsDirectoryW(lpbuffer: ::windows_sys::core::PWSTR, usize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+    pub fn GetSystemWow64Directory2A(lpbuffer: ::windows_sys::core::PSTR, usize: u32, imagefilemachinetype: u16) -> u32;
+    #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+    pub fn GetSystemWow64Directory2W(lpbuffer: ::windows_sys::core::PWSTR, usize: u32, imagefilemachinetype: u16) -> u32;
+    #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+    pub fn GetSystemWow64DirectoryA(lpbuffer: ::windows_sys::core::PSTR, usize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+    pub fn GetSystemWow64DirectoryW(lpbuffer: ::windows_sys::core::PWSTR, usize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
     pub fn GetTickCount() -> u32;
     #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
@@ -108,12 +100,10 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+    pub fn GetWindowsDirectoryA(lpbuffer: ::windows_sys::core::PSTR, usize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+    pub fn GetWindowsDirectoryW(lpbuffer: ::windows_sys::core::PWSTR, usize: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
     pub fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS);
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
@@ -125,9 +115,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsWow64GuestMachineSupported(wowguestmachine: u16, machineissupported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: super::super::Foundation::PWSTR, deviceform: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+    pub fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: ::windows_sys::core::PWSTR, deviceform: ::windows_sys::core::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
     pub fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily: *mut DEVICEFAMILYINFOENUM, puldeviceform: *mut DEVICEFAMILYDEVICEFORM);
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
@@ -141,19 +130,19 @@ extern "system" {
     pub fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32;
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameA(lpcomputername: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn SetComputerNameA(lpcomputername: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameEx2W(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn SetComputerNameEx2W(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn SetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn SetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameW(lpcomputername: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn SetComputerNameW(lpcomputername: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
@@ -899,12 +888,10 @@ pub const PRODUCT_UNDEFINED: OS_PRODUCT_TYPE = 0u32;
 pub const PRODUCT_WEB_SERVER: OS_PRODUCT_TYPE = 17u32;
 #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
 pub const PRODUCT_WEB_SERVER_CORE: OS_PRODUCT_TYPE = 29u32;
-#[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PGET_SYSTEM_WOW64_DIRECTORY_A = ::core::option::Option<unsafe extern "system" fn(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32>;
-#[doc = "*Required features: 'Win32_System_SystemInformation', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PGET_SYSTEM_WOW64_DIRECTORY_W = ::core::option::Option<unsafe extern "system" fn(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+pub type PGET_SYSTEM_WOW64_DIRECTORY_A = ::core::option::Option<unsafe extern "system" fn(lpbuffer: ::windows_sys::core::PSTR, usize: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_SystemInformation'*"]
+pub type PGET_SYSTEM_WOW64_DIRECTORY_W = ::core::option::Option<unsafe extern "system" fn(lpbuffer: ::windows_sys::core::PWSTR, usize: u32) -> u32>;
 #[doc = "*Required features: 'Win32_System_SystemInformation'*"]
 pub type PROCESSOR_CACHE_TYPE = i32;
 #[doc = "*Required features: 'Win32_System_SystemInformation'*"]

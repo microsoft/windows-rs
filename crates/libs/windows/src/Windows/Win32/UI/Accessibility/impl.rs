@@ -38,13 +38,13 @@ pub trait IAccPropServices_Impl: Sized {
     fn SetPropServer(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: &::core::option::Option<IAccPropServer>, annoscope: AnnoScope) -> ::windows::core::Result<()>;
     fn ClearProps(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const ::windows::core::GUID, cprops: i32) -> ::windows::core::Result<()>;
     fn SetHwndProp(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &::windows::core::GUID, var: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetHwndPropStr(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &::windows::core::GUID, str: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetHwndPropStr(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &::windows::core::GUID, str: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetHwndPropServer(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: &::core::option::Option<IAccPropServer>, annoscope: AnnoScope) -> ::windows::core::Result<()>;
     fn ClearHwndProps(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32) -> ::windows::core::Result<()>;
     fn ComposeHwndIdentityString(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::Result<()>;
     fn DecomposeHwndIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> ::windows::core::Result<()>;
     fn SetHmenuProp(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &::windows::core::GUID, var: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetHmenuPropStr(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &::windows::core::GUID, str: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetHmenuPropStr(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &::windows::core::GUID, str: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetHmenuPropServer(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: &::core::option::Option<IAccPropServer>, annoscope: AnnoScope) -> ::windows::core::Result<()>;
     fn ClearHmenuProps(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32) -> ::windows::core::Result<()>;
     fn ComposeHmenuIdentityString(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::Result<()>;
@@ -73,10 +73,10 @@ impl IAccPropServices_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetHwndProp(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute(&idprop), ::core::mem::transmute(&var)).into()
         }
-        unsafe extern "system" fn SetHwndPropStr<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: ::windows::core::GUID, str: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHwndPropStr<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: ::windows::core::GUID, str: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetHwndPropStr(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute(&idprop), ::core::mem::transmute_copy(&str)).into()
+            (*this).SetHwndPropStr(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute(&idprop), ::core::mem::transmute(&str)).into()
         }
         unsafe extern "system" fn SetHwndPropServer<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: ::windows::core::RawPtr, annoscope: AnnoScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -103,10 +103,10 @@ impl IAccPropServices_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetHmenuProp(::core::mem::transmute_copy(&hmenu), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute(&idprop), ::core::mem::transmute(&var)).into()
         }
-        unsafe extern "system" fn SetHmenuPropStr<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows::core::GUID, str: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHmenuPropStr<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows::core::GUID, str: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetHmenuPropStr(::core::mem::transmute_copy(&hmenu), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute(&idprop), ::core::mem::transmute_copy(&str)).into()
+            (*this).SetHmenuPropStr(::core::mem::transmute_copy(&hmenu), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute(&idprop), ::core::mem::transmute(&str)).into()
         }
         unsafe extern "system" fn SetHmenuPropServer<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const ::windows::core::GUID, cprops: i32, pserver: ::windows::core::RawPtr, annoscope: AnnoScope) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1036,7 +1036,7 @@ impl IItemContainerProvider_Vtbl {
 pub trait ILegacyIAccessibleProvider_Impl: Sized {
     fn Select(&self, flagsselect: i32) -> ::windows::core::Result<()>;
     fn DoDefaultAction(&self) -> ::windows::core::Result<()>;
-    fn SetValue(&self, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetValue(&self, szvalue: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetIAccessible(&self) -> ::windows::core::Result<IAccessible>;
     fn ChildId(&self) -> ::windows::core::Result<i32>;
     fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -1062,10 +1062,10 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DoDefaultAction().into()
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetValue(::core::mem::transmute_copy(&szvalue)).into()
+            (*this).SetValue(::core::mem::transmute(&szvalue)).into()
         }
         unsafe extern "system" fn GetIAccessible<Identity: ::windows::core::IUnknownImpl, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2195,17 +2195,15 @@ impl ISpreadsheetItemProvider_Vtbl {
         iid == &<ISpreadsheetItemProvider as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISpreadsheetProvider_Impl: Sized {
-    fn GetItemByName(&self, name: super::super::Foundation::PWSTR) -> ::windows::core::Result<IRawElementProviderSimple>;
+    fn GetItemByName(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ISpreadsheetProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetProvider_Impl, const OFFSET: isize>() -> ISpreadsheetProvider_Vtbl {
-        unsafe extern "system" fn GetItemByName<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemByName<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetItemByName(::core::mem::transmute_copy(&name)) {
+            match (*this).GetItemByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pretval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6622,7 +6620,7 @@ impl IUIAutomationItemContainerPattern_Vtbl {
 pub trait IUIAutomationLegacyIAccessiblePattern_Impl: Sized {
     fn Select(&self, flagsselect: i32) -> ::windows::core::Result<()>;
     fn DoDefaultAction(&self) -> ::windows::core::Result<()>;
-    fn SetValue(&self, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetValue(&self, szvalue: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn CurrentChildId(&self) -> ::windows::core::Result<i32>;
     fn CurrentName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CurrentValue(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -6658,10 +6656,10 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DoDefaultAction().into()
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetValue(::core::mem::transmute_copy(&szvalue)).into()
+            (*this).SetValue(::core::mem::transmute(&szvalue)).into()
         }
         unsafe extern "system" fn CurrentChildId<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -7300,8 +7298,8 @@ pub trait IUIAutomationProxyFactoryEntry_Impl: Sized {
     fn AllowSubstringMatch(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CanCheckBaseClass(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn NeedsAdviseEvents(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetClassName(&self, classname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetImageName(&self, imagename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetClassName(&self, classname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn SetImageName(&self, imagename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetAllowSubstringMatch(&self, allowsubstringmatch: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetCanCheckBaseClass(&self, cancheckbaseclass: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetNeedsAdviseEvents(&self, adviseevents: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -7377,15 +7375,15 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClassName<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClassName<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetClassName(::core::mem::transmute_copy(&classname)).into()
+            (*this).SetClassName(::core::mem::transmute(&classname)).into()
         }
-        unsafe extern "system" fn SetImageName<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetImageName<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetImageName(::core::mem::transmute_copy(&imagename)).into()
+            (*this).SetImageName(::core::mem::transmute(&imagename)).into()
         }
         unsafe extern "system" fn SetAllowSubstringMatch<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowsubstringmatch: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -10087,17 +10085,17 @@ impl IUIAutomationWindowPattern_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IValueProvider_Impl: Sized {
-    fn SetValue(&self, val: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetValue(&self, val: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Value(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn IsReadOnly(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IValueProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueProvider_Impl, const OFFSET: isize>() -> IValueProvider_Vtbl {
-        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: IValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: IValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetValue(::core::mem::transmute_copy(&val)).into()
+            (*this).SetValue(::core::mem::transmute(&val)).into()
         }
         unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl, Impl: IValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

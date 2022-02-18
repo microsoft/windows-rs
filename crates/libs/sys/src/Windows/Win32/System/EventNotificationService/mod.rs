@@ -3,10 +3,10 @@
 extern "system" {
     #[doc = "*Required features: 'Win32_System_EventNotificationService', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsDestinationReachableA(lpszdestination: super::super::Foundation::PSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
+    pub fn IsDestinationReachableA(lpszdestination: ::windows_sys::core::PCSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_EventNotificationService', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsDestinationReachableW(lpszdestination: super::super::Foundation::PWSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
+    pub fn IsDestinationReachableW(lpszdestination: ::windows_sys::core::PCWSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_EventNotificationService', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL;

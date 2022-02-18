@@ -733,7 +733,7 @@ pub trait IComponent_Impl: Sized {
     fn Notify(&self, lpdataobject: &::core::option::Option<super::Com::IDataObject>, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn Destroy(&self, cookie: isize) -> ::windows::core::Result<()>;
     fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDataObject>;
-    fn GetResultViewType(&self, cookie: isize, ppviewtype: *mut super::super::Foundation::PWSTR, pviewoptions: *mut i32) -> ::windows::core::Result<()>;
+    fn GetResultViewType(&self, cookie: isize, ppviewtype: *mut ::windows::core::PWSTR, pviewoptions: *mut i32) -> ::windows::core::Result<()>;
     fn GetDisplayInfo(&self, presultdataitem: *mut RESULTDATAITEM) -> ::windows::core::Result<()>;
     fn CompareObjects(&self, lpdataobjecta: &::core::option::Option<super::Com::IDataObject>, lpdataobjectb: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
 }
@@ -766,7 +766,7 @@ impl IComponent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResultViewType<Identity: ::windows::core::IUnknownImpl, Impl: IComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: isize, ppviewtype: *mut super::super::Foundation::PWSTR, pviewoptions: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResultViewType<Identity: ::windows::core::IUnknownImpl, Impl: IComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: isize, ppviewtype: *mut ::windows::core::PWSTR, pviewoptions: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetResultViewType(::core::mem::transmute_copy(&cookie), ::core::mem::transmute_copy(&ppviewtype), ::core::mem::transmute_copy(&pviewoptions)).into()
@@ -944,7 +944,7 @@ pub trait IConsole_Impl: Sized {
     fn QueryScopeImageList(&self) -> ::windows::core::Result<IImageList>;
     fn QueryResultImageList(&self) -> ::windows::core::Result<IImageList>;
     fn UpdateAllViews(&self, lpdataobject: &::core::option::Option<super::Com::IDataObject>, data: super::super::Foundation::LPARAM, hint: isize) -> ::windows::core::Result<()>;
-    fn MessageBox(&self, lpsztext: super::super::Foundation::PWSTR, lpsztitle: super::super::Foundation::PWSTR, fustyle: u32) -> ::windows::core::Result<i32>;
+    fn MessageBox(&self, lpsztext: &::windows::core::PCWSTR, lpsztitle: &::windows::core::PCWSTR, fustyle: u32) -> ::windows::core::Result<i32>;
     fn QueryConsoleVerb(&self) -> ::windows::core::Result<IConsoleVerb>;
     fn SelectScopeItem(&self, hscopeitem: isize) -> ::windows::core::Result<()>;
     fn GetMainWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
@@ -1001,10 +1001,10 @@ impl IConsole_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).UpdateAllViews(::core::mem::transmute(&lpdataobject), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&hint)).into()
         }
-        unsafe extern "system" fn MessageBox<Identity: ::windows::core::IUnknownImpl, Impl: IConsole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpsztext: super::super::Foundation::PWSTR, lpsztitle: super::super::Foundation::PWSTR, fustyle: u32, piretval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MessageBox<Identity: ::windows::core::IUnknownImpl, Impl: IConsole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpsztext: ::windows::core::PCWSTR, lpsztitle: ::windows::core::PCWSTR, fustyle: u32, piretval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).MessageBox(::core::mem::transmute_copy(&lpsztext), ::core::mem::transmute_copy(&lpsztitle), ::core::mem::transmute_copy(&fustyle)) {
+            match (*this).MessageBox(::core::mem::transmute(&lpsztext), ::core::mem::transmute(&lpsztitle), ::core::mem::transmute_copy(&fustyle)) {
                 ::core::result::Result::Ok(ok__) => {
                     *piretval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1067,7 +1067,7 @@ impl IConsole_Vtbl {
 pub trait IConsole2_Impl: Sized + IConsole_Impl {
     fn Expand(&self, hitem: isize, bexpand: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn IsTaskpadViewPreferred(&self) -> ::windows::core::Result<()>;
-    fn SetStatusText(&self, pszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetStatusText(&self, pszstatustext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IConsole2_Vtbl {
@@ -1082,10 +1082,10 @@ impl IConsole2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).IsTaskpadViewPreferred().into()
         }
-        unsafe extern "system" fn SetStatusText<Identity: ::windows::core::IUnknownImpl, Impl: IConsole2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStatusText<Identity: ::windows::core::IUnknownImpl, Impl: IConsole2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszstatustext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetStatusText(::core::mem::transmute_copy(&pszstatustext)).into()
+            (*this).SetStatusText(::core::mem::transmute(&pszstatustext)).into()
         }
         Self {
             base: IConsole_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1311,11 +1311,9 @@ impl IConsoleVerb_Vtbl {
         iid == &<IConsoleVerb as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IContextMenuCallback_Impl: Sized {
     fn AddItem(&self, pitem: *const CONTEXTMENUITEM) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IContextMenuCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContextMenuCallback_Impl, const OFFSET: isize>() -> IContextMenuCallback_Vtbl {
         unsafe extern "system" fn AddItem<Identity: ::windows::core::IUnknownImpl, Impl: IContextMenuCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitem: *const CONTEXTMENUITEM) -> ::windows::core::HRESULT {
@@ -1329,11 +1327,9 @@ impl IContextMenuCallback_Vtbl {
         iid == &<IContextMenuCallback as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IContextMenuCallback2_Impl: Sized {
     fn AddItem(&self, pitem: *const CONTEXTMENUITEM2) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IContextMenuCallback2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContextMenuCallback2_Impl, const OFFSET: isize>() -> IContextMenuCallback2_Vtbl {
         unsafe extern "system" fn AddItem<Identity: ::windows::core::IUnknownImpl, Impl: IContextMenuCallback2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitem: *const CONTEXTMENUITEM2) -> ::windows::core::HRESULT {
@@ -1434,17 +1430,15 @@ impl IControlbar_Vtbl {
         iid == &<IControlbar as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDisplayHelp_Impl: Sized {
-    fn ShowTopic(&self, pszhelptopic: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ShowTopic(&self, pszhelptopic: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IDisplayHelp_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayHelp_Impl, const OFFSET: isize>() -> IDisplayHelp_Vtbl {
-        unsafe extern "system" fn ShowTopic<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayHelp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelptopic: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowTopic<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayHelp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelptopic: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ShowTopic(::core::mem::transmute_copy(&pszhelptopic)).into()
+            (*this).ShowTopic(::core::mem::transmute(&pszhelptopic)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ShowTopic: ShowTopic::<Identity, Impl, OFFSET> }
     }
@@ -1452,14 +1446,12 @@ impl IDisplayHelp_Vtbl {
         iid == &<IDisplayHelp as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnumTASK_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut MMC_TASK, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumTASK>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IEnumTASK_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTASK_Impl, const OFFSET: isize>() -> IEnumTASK_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTASK_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut MMC_TASK, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -1605,11 +1597,11 @@ impl IExtendPropertySheet2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IExtendTaskPad_Impl: Sized {
     fn TaskNotify(&self, pdo: &::core::option::Option<super::Com::IDataObject>, arg: *const super::Com::VARIANT, param2: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn EnumTasks(&self, pdo: &::core::option::Option<super::Com::IDataObject>, sztaskgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<IEnumTASK>;
-    fn GetTitle(&self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetDescriptiveText(&self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetBackground(&self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<MMC_TASK_DISPLAY_OBJECT>;
-    fn GetListPadInfo(&self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<MMC_LISTPAD_INFO>;
+    fn EnumTasks(&self, pdo: &::core::option::Option<super::Com::IDataObject>, sztaskgroup: &::windows::core::PCWSTR) -> ::windows::core::Result<IEnumTASK>;
+    fn GetTitle(&self, pszgroup: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetDescriptiveText(&self, pszgroup: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetBackground(&self, pszgroup: &::windows::core::PCWSTR) -> ::windows::core::Result<MMC_TASK_DISPLAY_OBJECT>;
+    fn GetListPadInfo(&self, pszgroup: &::windows::core::PCWSTR) -> ::windows::core::Result<MMC_LISTPAD_INFO>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IExtendTaskPad_Vtbl {
@@ -1619,10 +1611,10 @@ impl IExtendTaskPad_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).TaskNotify(::core::mem::transmute(&pdo), ::core::mem::transmute_copy(&arg), ::core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn EnumTasks<Identity: ::windows::core::IUnknownImpl, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdo: ::windows::core::RawPtr, sztaskgroup: super::super::Foundation::PWSTR, ppenumtask: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumTasks<Identity: ::windows::core::IUnknownImpl, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdo: ::windows::core::RawPtr, sztaskgroup: ::windows::core::PCWSTR, ppenumtask: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EnumTasks(::core::mem::transmute(&pdo), ::core::mem::transmute_copy(&sztaskgroup)) {
+            match (*this).EnumTasks(::core::mem::transmute(&pdo), ::core::mem::transmute(&sztaskgroup)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppenumtask = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1630,10 +1622,10 @@ impl IExtendTaskPad_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTitle<Identity: ::windows::core::IUnknownImpl, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszgroup: super::super::Foundation::PWSTR, psztitle: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTitle<Identity: ::windows::core::IUnknownImpl, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszgroup: ::windows::core::PCWSTR, psztitle: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetTitle(::core::mem::transmute_copy(&pszgroup)) {
+            match (*this).GetTitle(::core::mem::transmute(&pszgroup)) {
                 ::core::result::Result::Ok(ok__) => {
                     *psztitle = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1641,10 +1633,10 @@ impl IExtendTaskPad_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescriptiveText<Identity: ::windows::core::IUnknownImpl, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszgroup: super::super::Foundation::PWSTR, pszdescriptivetext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescriptiveText<Identity: ::windows::core::IUnknownImpl, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszgroup: ::windows::core::PCWSTR, pszdescriptivetext: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDescriptiveText(::core::mem::transmute_copy(&pszgroup)) {
+            match (*this).GetDescriptiveText(::core::mem::transmute(&pszgroup)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pszdescriptivetext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1652,10 +1644,10 @@ impl IExtendTaskPad_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBackground<Identity: ::windows::core::IUnknownImpl, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszgroup: super::super::Foundation::PWSTR, ptdo: *mut MMC_TASK_DISPLAY_OBJECT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBackground<Identity: ::windows::core::IUnknownImpl, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszgroup: ::windows::core::PCWSTR, ptdo: *mut MMC_TASK_DISPLAY_OBJECT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetBackground(::core::mem::transmute_copy(&pszgroup)) {
+            match (*this).GetBackground(::core::mem::transmute(&pszgroup)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ptdo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1663,10 +1655,10 @@ impl IExtendTaskPad_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetListPadInfo<Identity: ::windows::core::IUnknownImpl, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszgroup: super::super::Foundation::PWSTR, lplistpadinfo: *mut MMC_LISTPAD_INFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetListPadInfo<Identity: ::windows::core::IUnknownImpl, Impl: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszgroup: ::windows::core::PCWSTR, lplistpadinfo: *mut MMC_LISTPAD_INFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetListPadInfo(::core::mem::transmute_copy(&pszgroup)) {
+            match (*this).GetListPadInfo(::core::mem::transmute(&pszgroup)) {
                 ::core::result::Result::Ok(ok__) => {
                     *lplistpadinfo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1706,34 +1698,32 @@ impl IExtendView_Vtbl {
         iid == &<IExtendView as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IHeaderCtrl_Impl: Sized {
-    fn InsertColumn(&self, ncol: i32, title: super::super::Foundation::PWSTR, nformat: i32, nwidth: i32) -> ::windows::core::Result<()>;
+    fn InsertColumn(&self, ncol: i32, title: &::windows::core::PCWSTR, nformat: i32, nwidth: i32) -> ::windows::core::Result<()>;
     fn DeleteColumn(&self, ncol: i32) -> ::windows::core::Result<()>;
-    fn SetColumnText(&self, ncol: i32, title: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetColumnText(&self, ncol: i32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetColumnText(&self, ncol: i32, title: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetColumnText(&self, ncol: i32) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetColumnWidth(&self, ncol: i32, nwidth: i32) -> ::windows::core::Result<()>;
     fn GetColumnWidth(&self, ncol: i32) -> ::windows::core::Result<i32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IHeaderCtrl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHeaderCtrl_Impl, const OFFSET: isize>() -> IHeaderCtrl_Vtbl {
-        unsafe extern "system" fn InsertColumn<Identity: ::windows::core::IUnknownImpl, Impl: IHeaderCtrl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncol: i32, title: super::super::Foundation::PWSTR, nformat: i32, nwidth: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertColumn<Identity: ::windows::core::IUnknownImpl, Impl: IHeaderCtrl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncol: i32, title: ::windows::core::PCWSTR, nformat: i32, nwidth: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).InsertColumn(::core::mem::transmute_copy(&ncol), ::core::mem::transmute_copy(&title), ::core::mem::transmute_copy(&nformat), ::core::mem::transmute_copy(&nwidth)).into()
+            (*this).InsertColumn(::core::mem::transmute_copy(&ncol), ::core::mem::transmute(&title), ::core::mem::transmute_copy(&nformat), ::core::mem::transmute_copy(&nwidth)).into()
         }
         unsafe extern "system" fn DeleteColumn<Identity: ::windows::core::IUnknownImpl, Impl: IHeaderCtrl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncol: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).DeleteColumn(::core::mem::transmute_copy(&ncol)).into()
         }
-        unsafe extern "system" fn SetColumnText<Identity: ::windows::core::IUnknownImpl, Impl: IHeaderCtrl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncol: i32, title: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColumnText<Identity: ::windows::core::IUnknownImpl, Impl: IHeaderCtrl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncol: i32, title: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetColumnText(::core::mem::transmute_copy(&ncol), ::core::mem::transmute_copy(&title)).into()
+            (*this).SetColumnText(::core::mem::transmute_copy(&ncol), ::core::mem::transmute(&title)).into()
         }
-        unsafe extern "system" fn GetColumnText<Identity: ::windows::core::IUnknownImpl, Impl: IHeaderCtrl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncol: i32, ptext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColumnText<Identity: ::windows::core::IUnknownImpl, Impl: IHeaderCtrl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncol: i32, ptext: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetColumnText(::core::mem::transmute_copy(&ncol)) {
@@ -1774,13 +1764,11 @@ impl IHeaderCtrl_Vtbl {
         iid == &<IHeaderCtrl as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IHeaderCtrl2_Impl: Sized + IHeaderCtrl_Impl {
     fn SetChangeTimeOut(&self, utimeout: u32) -> ::windows::core::Result<()>;
     fn SetColumnFilter(&self, ncolumn: u32, dwtype: u32, pfilterdata: *const MMC_FILTERDATA) -> ::windows::core::Result<()>;
     fn GetColumnFilter(&self, ncolumn: u32, pdwtype: *mut u32, pfilterdata: *mut MMC_FILTERDATA) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IHeaderCtrl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHeaderCtrl2_Impl, const OFFSET: isize>() -> IHeaderCtrl2_Vtbl {
         unsafe extern "system" fn SetChangeTimeOut<Identity: ::windows::core::IUnknownImpl, Impl: IHeaderCtrl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, utimeout: u32) -> ::windows::core::HRESULT {
@@ -1853,22 +1841,22 @@ impl IMMCVersionInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMenuButton_Impl: Sized {
-    fn AddButton(&self, idcommand: i32, lpbuttontext: super::super::Foundation::PWSTR, lptooltiptext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetButton(&self, idcommand: i32, lpbuttontext: super::super::Foundation::PWSTR, lptooltiptext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddButton(&self, idcommand: i32, lpbuttontext: &::windows::core::PCWSTR, lptooltiptext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn SetButton(&self, idcommand: i32, lpbuttontext: &::windows::core::PCWSTR, lptooltiptext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMenuButton_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMenuButton_Impl, const OFFSET: isize>() -> IMenuButton_Vtbl {
-        unsafe extern "system" fn AddButton<Identity: ::windows::core::IUnknownImpl, Impl: IMenuButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idcommand: i32, lpbuttontext: super::super::Foundation::PWSTR, lptooltiptext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddButton<Identity: ::windows::core::IUnknownImpl, Impl: IMenuButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idcommand: i32, lpbuttontext: ::windows::core::PCWSTR, lptooltiptext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddButton(::core::mem::transmute_copy(&idcommand), ::core::mem::transmute_copy(&lpbuttontext), ::core::mem::transmute_copy(&lptooltiptext)).into()
+            (*this).AddButton(::core::mem::transmute_copy(&idcommand), ::core::mem::transmute(&lpbuttontext), ::core::mem::transmute(&lptooltiptext)).into()
         }
-        unsafe extern "system" fn SetButton<Identity: ::windows::core::IUnknownImpl, Impl: IMenuButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idcommand: i32, lpbuttontext: super::super::Foundation::PWSTR, lptooltiptext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetButton<Identity: ::windows::core::IUnknownImpl, Impl: IMenuButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idcommand: i32, lpbuttontext: ::windows::core::PCWSTR, lptooltiptext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetButton(::core::mem::transmute_copy(&idcommand), ::core::mem::transmute_copy(&lpbuttontext), ::core::mem::transmute_copy(&lptooltiptext)).into()
+            (*this).SetButton(::core::mem::transmute_copy(&idcommand), ::core::mem::transmute(&lpbuttontext), ::core::mem::transmute(&lptooltiptext)).into()
         }
         unsafe extern "system" fn SetButtonState<Identity: ::windows::core::IUnknownImpl, Impl: IMenuButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1886,25 +1874,23 @@ impl IMenuButton_Vtbl {
         iid == &<IMenuButton as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMessageView_Impl: Sized {
-    fn SetTitleText(&self, psztitletext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetBodyText(&self, pszbodytext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetTitleText(&self, psztitletext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn SetBodyText(&self, pszbodytext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetIcon(&self, id: IconIdentifier) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IMessageView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageView_Impl, const OFFSET: isize>() -> IMessageView_Vtbl {
-        unsafe extern "system" fn SetTitleText<Identity: ::windows::core::IUnknownImpl, Impl: IMessageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztitletext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTitleText<Identity: ::windows::core::IUnknownImpl, Impl: IMessageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztitletext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTitleText(::core::mem::transmute_copy(&psztitletext)).into()
+            (*this).SetTitleText(::core::mem::transmute(&psztitletext)).into()
         }
-        unsafe extern "system" fn SetBodyText<Identity: ::windows::core::IUnknownImpl, Impl: IMessageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszbodytext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBodyText<Identity: ::windows::core::IUnknownImpl, Impl: IMessageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszbodytext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBodyText(::core::mem::transmute_copy(&pszbodytext)).into()
+            (*this).SetBodyText(::core::mem::transmute(&pszbodytext)).into()
         }
         unsafe extern "system" fn SetIcon<Identity: ::windows::core::IUnknownImpl, Impl: IMessageView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: IconIdentifier) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1982,7 +1968,7 @@ impl IPropertySheetCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPropertySheetProvider_Impl: Sized {
-    fn CreatePropertySheet(&self, title: super::super::Foundation::PWSTR, r#type: u8, cookie: isize, pidataobjectm: &::core::option::Option<super::Com::IDataObject>, dwoptions: u32) -> ::windows::core::Result<()>;
+    fn CreatePropertySheet(&self, title: &::windows::core::PCWSTR, r#type: u8, cookie: isize, pidataobjectm: &::core::option::Option<super::Com::IDataObject>, dwoptions: u32) -> ::windows::core::Result<()>;
     fn FindPropertySheet(&self, hitem: isize, lpcomponent: &::core::option::Option<IComponent>, lpdataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
     fn AddPrimaryPages(&self, lpunknown: &::core::option::Option<::windows::core::IUnknown>, bcreatehandle: super::super::Foundation::BOOL, hnotifywindow: super::super::Foundation::HWND, bscopepane: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn AddExtensionPages(&self) -> ::windows::core::Result<()>;
@@ -1991,10 +1977,10 @@ pub trait IPropertySheetProvider_Impl: Sized {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPropertySheetProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySheetProvider_Impl, const OFFSET: isize>() -> IPropertySheetProvider_Vtbl {
-        unsafe extern "system" fn CreatePropertySheet<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySheetProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, title: super::super::Foundation::PWSTR, r#type: u8, cookie: isize, pidataobjectm: ::windows::core::RawPtr, dwoptions: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePropertySheet<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySheetProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, title: ::windows::core::PCWSTR, r#type: u8, cookie: isize, pidataobjectm: ::windows::core::RawPtr, dwoptions: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreatePropertySheet(::core::mem::transmute_copy(&title), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&cookie), ::core::mem::transmute(&pidataobjectm), ::core::mem::transmute_copy(&dwoptions)).into()
+            (*this).CreatePropertySheet(::core::mem::transmute(&title), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&cookie), ::core::mem::transmute(&pidataobjectm), ::core::mem::transmute_copy(&dwoptions)).into()
         }
         unsafe extern "system" fn FindPropertySheet<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySheetProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hitem: isize, lpcomponent: ::windows::core::RawPtr, lpdataobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2089,7 +2075,7 @@ pub trait IResultData_Impl: Sized {
     fn GetViewMode(&self) -> ::windows::core::Result<i32>;
     fn UpdateItem(&self, itemid: isize) -> ::windows::core::Result<()>;
     fn Sort(&self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn SetDescBarText(&self, desctext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetDescBarText(&self, desctext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2172,10 +2158,10 @@ impl IResultData_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Sort(::core::mem::transmute_copy(&ncolumn), ::core::mem::transmute_copy(&dwsortoptions), ::core::mem::transmute_copy(&luserparam)).into()
         }
-        unsafe extern "system" fn SetDescBarText<Identity: ::windows::core::IUnknownImpl, Impl: IResultData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desctext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescBarText<Identity: ::windows::core::IUnknownImpl, Impl: IResultData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desctext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDescBarText(::core::mem::transmute_copy(&desctext)).into()
+            (*this).SetDescBarText(::core::mem::transmute(&desctext)).into()
         }
         unsafe extern "system" fn SetItemCount<Identity: ::windows::core::IUnknownImpl, Impl: IResultData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nitemcount: i32, dwoptions: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2306,18 +2292,18 @@ impl IResultOwnerData_Vtbl {
         iid == &<IResultOwnerData as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ISnapinAbout_Impl: Sized {
-    fn GetSnapinDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetProvider(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetSnapinVersion(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetSnapinDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetProvider(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetSnapinVersion(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetSnapinImage(&self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HICON>;
     fn GetStaticFolderImage(&self, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ISnapinAbout_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinAbout_Impl, const OFFSET: isize>() -> ISnapinAbout_Vtbl {
-        unsafe extern "system" fn GetSnapinDescription<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinAbout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSnapinDescription<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinAbout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetSnapinDescription() {
@@ -2328,7 +2314,7 @@ impl ISnapinAbout_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProvider<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinAbout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProvider<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinAbout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetProvider() {
@@ -2339,7 +2325,7 @@ impl ISnapinAbout_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSnapinVersion<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinAbout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpversion: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSnapinVersion<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinAbout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpversion: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetSnapinVersion() {
@@ -2379,14 +2365,12 @@ impl ISnapinAbout_Vtbl {
         iid == &<ISnapinAbout as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISnapinHelp_Impl: Sized {
-    fn GetHelpTopic(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetHelpTopic(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ISnapinHelp_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinHelp_Impl, const OFFSET: isize>() -> ISnapinHelp_Vtbl {
-        unsafe extern "system" fn GetHelpTopic<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinHelp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpcompiledhelpfile: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHelpTopic<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinHelp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpcompiledhelpfile: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetHelpTopic() {
@@ -2403,14 +2387,12 @@ impl ISnapinHelp_Vtbl {
         iid == &<ISnapinHelp as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISnapinHelp2_Impl: Sized + ISnapinHelp_Impl {
-    fn GetLinkedTopics(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetLinkedTopics(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ISnapinHelp2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinHelp2_Impl, const OFFSET: isize>() -> ISnapinHelp2_Vtbl {
-        unsafe extern "system" fn GetLinkedTopics<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinHelp2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpcompiledhelpfiles: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLinkedTopics<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinHelp2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpcompiledhelpfiles: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetLinkedTopics() {
@@ -2462,17 +2444,15 @@ impl ISnapinProperties_Vtbl {
         iid == &<ISnapinProperties as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ISnapinPropertiesCallback_Impl: Sized {
-    fn AddPropertyName(&self, pszpropname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn AddPropertyName(&self, pszpropname: &::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ISnapinPropertiesCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinPropertiesCallback_Impl, const OFFSET: isize>() -> ISnapinPropertiesCallback_Vtbl {
-        unsafe extern "system" fn AddPropertyName<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinPropertiesCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPropertyName<Identity: ::windows::core::IUnknownImpl, Impl: ISnapinPropertiesCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddPropertyName(::core::mem::transmute_copy(&pszpropname), ::core::mem::transmute_copy(&dwflags)).into()
+            (*this).AddPropertyName(::core::mem::transmute(&pszpropname), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddPropertyName: AddPropertyName::<Identity, Impl, OFFSET> }
     }
@@ -2480,23 +2460,23 @@ impl ISnapinPropertiesCallback_Vtbl {
         iid == &<ISnapinPropertiesCallback as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IStringTable_Impl: Sized {
-    fn AddString(&self, pszadd: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
-    fn GetString(&self, stringid: u32, cchbuffer: u32, lpbuffer: super::super::Foundation::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>;
+    fn AddString(&self, pszadd: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
+    fn GetString(&self, stringid: u32, cchbuffer: u32, lpbuffer: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>;
     fn GetStringLength(&self, stringid: u32) -> ::windows::core::Result<u32>;
     fn DeleteString(&self, stringid: u32) -> ::windows::core::Result<()>;
     fn DeleteAllStrings(&self) -> ::windows::core::Result<()>;
-    fn FindString(&self, pszfind: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
+    fn FindString(&self, pszfind: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
     fn Enumerate(&self) -> ::windows::core::Result<super::Com::IEnumString>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IStringTable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStringTable_Impl, const OFFSET: isize>() -> IStringTable_Vtbl {
-        unsafe extern "system" fn AddString<Identity: ::windows::core::IUnknownImpl, Impl: IStringTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszadd: super::super::Foundation::PWSTR, pstringid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddString<Identity: ::windows::core::IUnknownImpl, Impl: IStringTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszadd: ::windows::core::PCWSTR, pstringid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddString(::core::mem::transmute_copy(&pszadd)) {
+            match (*this).AddString(::core::mem::transmute(&pszadd)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pstringid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2504,7 +2484,7 @@ impl IStringTable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl, Impl: IStringTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stringid: u32, cchbuffer: u32, lpbuffer: super::super::Foundation::PWSTR, pcchout: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl, Impl: IStringTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stringid: u32, cchbuffer: u32, lpbuffer: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetString(::core::mem::transmute_copy(&stringid), ::core::mem::transmute_copy(&cchbuffer), ::core::mem::transmute_copy(&lpbuffer), ::core::mem::transmute_copy(&pcchout)).into()
@@ -2530,10 +2510,10 @@ impl IStringTable_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DeleteAllStrings().into()
         }
-        unsafe extern "system" fn FindString<Identity: ::windows::core::IUnknownImpl, Impl: IStringTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfind: super::super::Foundation::PWSTR, pstringid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindString<Identity: ::windows::core::IUnknownImpl, Impl: IStringTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfind: ::windows::core::PCWSTR, pstringid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).FindString(::core::mem::transmute_copy(&pszfind)) {
+            match (*this).FindString(::core::mem::transmute(&pszfind)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pstringid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

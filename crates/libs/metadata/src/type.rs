@@ -22,6 +22,10 @@ pub enum Type {
     IUnknown,
     IInspectable,
     HRESULT,
+    PSTR,
+    PWSTR,
+    PCSTR,
+    PCWSTR,
     TypeName, // Used for parsing attribute blobs
     GenericParam(&'static str),
     MethodDef(MethodDef),
@@ -139,7 +143,7 @@ impl Type {
     pub fn is_convertible(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.is_convertible(),
-            Self::String | Self::IInspectable | Self::GUID | Self::IUnknown | Self::GenericParam(_) => true,
+            Self::String | Self::IInspectable | Self::GUID | Self::IUnknown | Self::GenericParam(_) | Self::PCSTR | Self::PCWSTR => true,
             Self::WinrtConstRef(kind) => kind.is_convertible(),
             _ => false,
         }
@@ -230,6 +234,8 @@ impl Type {
     pub fn to_const(self) -> Self {
         match self {
             Self::MutPtr((kind, pointers)) => Self::ConstPtr((kind, pointers)),
+            Self::PSTR => Self::PCSTR,
+            Self::PWSTR => Self::PCWSTR,
             _ => self,
         }
     }
@@ -257,7 +263,7 @@ impl Type {
 
     pub fn has_replacement(&self) -> bool {
         match self {
-            Self::HRESULT => true,
+            Self::HRESULT | Self::PCSTR | Self::PCWSTR => true,
             Self::TypeDef(def) => def.is_handle(),
             _ => false,
         }

@@ -218,38 +218,30 @@ impl ::core::fmt::Debug for DOT11EXT_IHV_CONNECTION_PHASE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_Ndis', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis'*"]
 pub struct DOT11EXT_IHV_CONNECTIVITY_PROFILE {
-    pub pszXmlFragmentIhvConnectivity: super::super::Foundation::PWSTR,
+    pub pszXmlFragmentIhvConnectivity: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DOT11EXT_IHV_CONNECTIVITY_PROFILE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DOT11EXT_IHV_CONNECTIVITY_PROFILE").field("pszXmlFragmentIhvConnectivity", &self.pszXmlFragmentIhvConnectivity).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOT11EXT_IHV_CONNECTIVITY_PROFILE>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DOT11EXT_IHV_CONNECTIVITY_PROFILE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -527,7 +519,7 @@ impl ::core::default::Default for DOT11EXT_IHV_PROFILE_PARAMS {
 #[doc = "*Required features: 'Win32_NetworkManagement_Ndis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_IHV_SECURITY_PROFILE {
-    pub pszXmlFragmentIhvSecurity: super::super::Foundation::PWSTR,
+    pub pszXmlFragmentIhvSecurity: ::windows::core::PWSTR,
     pub bUseMSOnex: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -791,40 +783,40 @@ impl ::core::default::Default for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_Ndis', 'Win32_Foundation', 'Win32_NetworkManagement_WiFi'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_Ndis', 'Win32_NetworkManagement_WiFi'*"]
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 pub struct DOT11_ADAPTER {
     pub gAdapterId: ::windows::core::GUID,
-    pub pszDescription: super::super::Foundation::PWSTR,
+    pub pszDescription: ::windows::core::PWSTR,
     pub Dot11CurrentOpMode: super::WiFi::DOT11_CURRENT_OPERATION_MODE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 impl ::core::marker::Copy for DOT11_ADAPTER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 impl ::core::clone::Clone for DOT11_ADAPTER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 impl ::core::fmt::Debug for DOT11_ADAPTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DOT11_ADAPTER").field("gAdapterId", &self.gAdapterId).field("pszDescription", &self.pszDescription).field("Dot11CurrentOpMode", &self.Dot11CurrentOpMode).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 unsafe impl ::windows::core::Abi for DOT11_ADAPTER {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 impl ::core::cmp::PartialEq for DOT11_ADAPTER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOT11_ADAPTER>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 impl ::core::cmp::Eq for DOT11_ADAPTER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
+#[cfg(feature = "Win32_NetworkManagement_WiFi")]
 impl ::core::default::Default for DOT11_ADAPTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNMSGECALLBACK = ::core::option::Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: super::super::Foundation::PWSTR) -> u32>;
+pub type PFNMSGECALLBACK = ::core::option::Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_ASSIGN_SHELL_PROTECTION = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE) -> i32>;
@@ -10,16 +10,16 @@ pub type PWLX_ASSIGN_SHELL_PROTECTION = ::core::option::Option<unsafe extern "sy
 pub type PWLX_CHANGE_PASSWORD_NOTIFY = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32) -> i32>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLX_CHANGE_PASSWORD_NOTIFY_EX = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32, providername: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> i32>;
+pub type PWLX_CHANGE_PASSWORD_NOTIFY_EX = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32, providername: ::windows::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> i32>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation', 'Win32_System_StationsAndDesktops'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 pub type PWLX_CLOSE_USER_DESKTOP = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP, htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation', 'Win32_System_StationsAndDesktops'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
-pub type PWLX_CREATE_USER_DESKTOP = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, flags: u32, pszdesktopname: super::super::Foundation::PWSTR, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
+pub type PWLX_CREATE_USER_DESKTOP = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, flags: u32, pszdesktopname: ::windows::core::PCWSTR, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type PWLX_DIALOG_BOX = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: super::super::Foundation::PWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
+pub type PWLX_DIALOG_BOX = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: ::windows::core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type PWLX_DIALOG_BOX_INDIRECT = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32>;
@@ -28,7 +28,7 @@ pub type PWLX_DIALOG_BOX_INDIRECT = ::core::option::Option<unsafe extern "system
 pub type PWLX_DIALOG_BOX_INDIRECT_PARAM = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type PWLX_DIALOG_BOX_PARAM = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: super::super::Foundation::PWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
+pub type PWLX_DIALOG_BOX_PARAM = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: ::windows::core::PCWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> i32>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_DISCONNECT = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
@@ -40,7 +40,7 @@ pub type PWLX_GET_OPTION = ::core::option::Option<unsafe extern "system" fn(hwlx
 pub type PWLX_GET_SOURCE_DESKTOP = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLX_MESSAGE_BOX = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hwndowner: super::super::Foundation::HWND, lpsztext: super::super::Foundation::PWSTR, lpsztitle: super::super::Foundation::PWSTR, fustyle: u32) -> i32>;
+pub type PWLX_MESSAGE_BOX = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hwndowner: super::super::Foundation::HWND, lpsztext: ::windows::core::PCWSTR, lpsztitle: ::windows::core::PCWSTR, fustyle: u32) -> i32>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_QUERY_CLIENT_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
@@ -52,7 +52,7 @@ pub type PWLX_QUERY_CONSOLESWITCH_CREDENTIALS = ::core::option::Option<unsafe ex
 pub type PWLX_QUERY_IC_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWLX_QUERY_TERMINAL_SERVICES_DATA = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ptsdata: *mut WLX_TERMINAL_SERVICES_DATA, username: super::super::Foundation::PWSTR, domain: super::super::Foundation::PWSTR) -> u32>;
+pub type PWLX_QUERY_TERMINAL_SERVICES_DATA = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ptsdata: *mut WLX_TERMINAL_SERVICES_DATA, username: ::windows::core::PCWSTR, domain: ::windows::core::PCWSTR) -> u32>;
 #[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_QUERY_TS_LOGON_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V2_0) -> super::super::Foundation::BOOL>;
@@ -92,9 +92,9 @@ pub const STATUSMSG_OPTION_SETFOREGROUND: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     pub dwType: u32,
-    pub pszUserName: super::super::Foundation::PWSTR,
-    pub pszDomain: super::super::Foundation::PWSTR,
-    pub pszPassword: super::super::Foundation::PWSTR,
+    pub pszUserName: ::windows::core::PWSTR,
+    pub pszDomain: ::windows::core::PWSTR,
+    pub pszPassword: ::windows::core::PWSTR,
     pub fPromptForPassword: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -134,9 +134,9 @@ impl ::core::default::Default for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     pub dwType: u32,
-    pub pszUserName: super::super::Foundation::PWSTR,
-    pub pszDomain: super::super::Foundation::PWSTR,
-    pub pszPassword: super::super::Foundation::PWSTR,
+    pub pszUserName: ::windows::core::PWSTR,
+    pub pszDomain: ::windows::core::PWSTR,
+    pub pszPassword: ::windows::core::PWSTR,
     pub fPromptForPassword: super::super::Foundation::BOOL,
     pub fDisconnectOnLogonFailure: super::super::Foundation::BOOL,
 }
@@ -182,8 +182,8 @@ pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     pub UserToken: super::super::Foundation::HANDLE,
     pub LogonId: super::super::Foundation::LUID,
     pub Quotas: super::QUOTA_LIMITS,
-    pub UserName: super::super::Foundation::PWSTR,
-    pub Domain: super::super::Foundation::PWSTR,
+    pub UserName: ::windows::core::PWSTR,
+    pub Domain: ::windows::core::PWSTR,
     pub LogonTime: i64,
     pub SmartCardLogon: super::super::Foundation::BOOL,
     pub ProfileLength: u32,
@@ -196,12 +196,12 @@ pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     pub PasswordLastSet: i64,
     pub PasswordCanChange: i64,
     pub PasswordMustChange: i64,
-    pub LogonScript: super::super::Foundation::PWSTR,
-    pub HomeDirectory: super::super::Foundation::PWSTR,
-    pub FullName: super::super::Foundation::PWSTR,
-    pub ProfilePath: super::super::Foundation::PWSTR,
-    pub HomeDirectoryDrive: super::super::Foundation::PWSTR,
-    pub LogonServer: super::super::Foundation::PWSTR,
+    pub LogonScript: ::windows::core::PWSTR,
+    pub HomeDirectory: ::windows::core::PWSTR,
+    pub FullName: ::windows::core::PWSTR,
+    pub ProfilePath: ::windows::core::PWSTR,
+    pub HomeDirectoryDrive: ::windows::core::PWSTR,
+    pub LogonServer: ::windows::core::PWSTR,
     pub UserFlags: u32,
     pub PrivateDataLen: u32,
     pub PrivateData: *mut u8,
@@ -277,41 +277,41 @@ pub const WLX_CREDENTIAL_TYPE_V2_0: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_WinWlx'*"]
 pub const WLX_CURRENT_VERSION: u32 = 65540u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation', 'Win32_System_StationsAndDesktops'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+#[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_System_StationsAndDesktops'*"]
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
 pub struct WLX_DESKTOP {
     pub Size: u32,
     pub Flags: u32,
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
-    pub pszDesktopName: super::super::Foundation::PWSTR,
+    pub pszDesktopName: ::windows::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
 impl ::core::marker::Copy for WLX_DESKTOP {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
 impl ::core::clone::Clone for WLX_DESKTOP {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
 impl ::core::fmt::Debug for WLX_DESKTOP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WLX_DESKTOP").field("Size", &self.Size).field("Flags", &self.Flags).field("hDesktop", &self.hDesktop).field("pszDesktopName", &self.pszDesktopName).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
 unsafe impl ::windows::core::Abi for WLX_DESKTOP {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
 impl ::core::cmp::PartialEq for WLX_DESKTOP {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WLX_DESKTOP>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
 impl ::core::cmp::Eq for WLX_DESKTOP {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
+#[cfg(feature = "Win32_System_StationsAndDesktops")]
 impl ::core::default::Default for WLX_DESKTOP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -724,41 +724,33 @@ pub const WLX_DLG_USER_LOGOFF: u32 = 104u32;
 #[doc = "*Required features: 'Win32_Security_WinWlx'*"]
 pub const WLX_LOGON_OPT_NO_PROFILE: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_WinWlx'*"]
 pub struct WLX_MPR_NOTIFY_INFO {
-    pub pszUserName: super::super::Foundation::PWSTR,
-    pub pszDomain: super::super::Foundation::PWSTR,
-    pub pszPassword: super::super::Foundation::PWSTR,
-    pub pszOldPassword: super::super::Foundation::PWSTR,
+    pub pszUserName: ::windows::core::PWSTR,
+    pub pszDomain: ::windows::core::PWSTR,
+    pub pszPassword: ::windows::core::PWSTR,
+    pub pszOldPassword: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WLX_MPR_NOTIFY_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WLX_MPR_NOTIFY_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WLX_MPR_NOTIFY_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WLX_MPR_NOTIFY_INFO").field("pszUserName", &self.pszUserName).field("pszDomain", &self.pszDomain).field("pszPassword", &self.pszPassword).field("pszOldPassword", &self.pszOldPassword).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WLX_MPR_NOTIFY_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WLX_MPR_NOTIFY_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WLX_MPR_NOTIFY_INFO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLX_MPR_NOTIFY_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WLX_MPR_NOTIFY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -770,9 +762,9 @@ impl ::core::default::Default for WLX_MPR_NOTIFY_INFO {
 pub struct WLX_NOTIFICATION_INFO {
     pub Size: u32,
     pub Flags: u32,
-    pub UserName: super::super::Foundation::PWSTR,
-    pub Domain: super::super::Foundation::PWSTR,
-    pub WindowStation: super::super::Foundation::PWSTR,
+    pub UserName: ::windows::core::PWSTR,
+    pub Domain: ::windows::core::PWSTR,
+    pub WindowStation: ::windows::core::PWSTR,
     pub hToken: super::super::Foundation::HANDLE,
     pub hDesktop: super::super::System::StationsAndDesktops::HDESK,
     pub pStatusCallback: PFNMSGECALLBACK,
@@ -832,82 +824,66 @@ pub const WLX_PROFILE_TYPE_V1_0: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_WinWlx'*"]
 pub const WLX_PROFILE_TYPE_V2_0: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_WinWlx'*"]
 pub struct WLX_PROFILE_V1_0 {
     pub dwType: u32,
-    pub pszProfile: super::super::Foundation::PWSTR,
+    pub pszProfile: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WLX_PROFILE_V1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WLX_PROFILE_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WLX_PROFILE_V1_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WLX_PROFILE_V1_0").field("dwType", &self.dwType).field("pszProfile", &self.pszProfile).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WLX_PROFILE_V1_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WLX_PROFILE_V1_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WLX_PROFILE_V1_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLX_PROFILE_V1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WLX_PROFILE_V1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_WinWlx'*"]
 pub struct WLX_PROFILE_V2_0 {
     pub dwType: u32,
-    pub pszProfile: super::super::Foundation::PWSTR,
-    pub pszPolicy: super::super::Foundation::PWSTR,
-    pub pszNetworkDefaultUserProfile: super::super::Foundation::PWSTR,
-    pub pszServerName: super::super::Foundation::PWSTR,
-    pub pszEnvironment: super::super::Foundation::PWSTR,
+    pub pszProfile: ::windows::core::PWSTR,
+    pub pszPolicy: ::windows::core::PWSTR,
+    pub pszNetworkDefaultUserProfile: ::windows::core::PWSTR,
+    pub pszServerName: ::windows::core::PWSTR,
+    pub pszEnvironment: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WLX_PROFILE_V2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WLX_PROFILE_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WLX_PROFILE_V2_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WLX_PROFILE_V2_0").field("dwType", &self.dwType).field("pszProfile", &self.pszProfile).field("pszPolicy", &self.pszPolicy).field("pszNetworkDefaultUserProfile", &self.pszNetworkDefaultUserProfile).field("pszServerName", &self.pszServerName).field("pszEnvironment", &self.pszEnvironment).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WLX_PROFILE_V2_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WLX_PROFILE_V2_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WLX_PROFILE_V2_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLX_PROFILE_V2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WLX_PROFILE_V2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -966,41 +942,33 @@ pub const WLX_SAS_TYPE_TIMEOUT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_WinWlx'*"]
 pub const WLX_SAS_TYPE_USER_LOGOFF: u32 = 4u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinWlx', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_WinWlx'*"]
 pub struct WLX_SC_NOTIFICATION_INFO {
-    pub pszCard: super::super::Foundation::PWSTR,
-    pub pszReader: super::super::Foundation::PWSTR,
-    pub pszContainer: super::super::Foundation::PWSTR,
-    pub pszCryptoProvider: super::super::Foundation::PWSTR,
+    pub pszCard: ::windows::core::PWSTR,
+    pub pszReader: ::windows::core::PWSTR,
+    pub pszContainer: ::windows::core::PWSTR,
+    pub pszCryptoProvider: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WLX_SC_NOTIFICATION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WLX_SC_NOTIFICATION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WLX_SC_NOTIFICATION_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WLX_SC_NOTIFICATION_INFO").field("pszCard", &self.pszCard).field("pszReader", &self.pszReader).field("pszContainer", &self.pszContainer).field("pszCryptoProvider", &self.pszCryptoProvider).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WLX_SC_NOTIFICATION_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WLX_SC_NOTIFICATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WLX_SC_NOTIFICATION_INFO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WLX_SC_NOTIFICATION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WLX_SC_NOTIFICATION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

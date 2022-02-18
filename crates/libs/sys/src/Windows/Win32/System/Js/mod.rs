@@ -92,9 +92,8 @@ extern "system" {
     pub fn JsGetOwnPropertyNames(object: *const ::core::ffi::c_void, propertynames: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     #[doc = "*Required features: 'Win32_System_Js'*"]
     pub fn JsGetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
-    #[doc = "*Required features: 'Win32_System_Js', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn JsGetPropertyIdFromName(name: super::super::Foundation::PWSTR, propertyid: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    #[doc = "*Required features: 'Win32_System_Js'*"]
+    pub fn JsGetPropertyIdFromName(name: ::windows_sys::core::PCWSTR, propertyid: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     #[doc = "*Required features: 'Win32_System_Js'*"]
     pub fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, name: *mut *mut u16) -> JsErrorCode;
     #[doc = "*Required features: 'Win32_System_Js'*"]
@@ -131,28 +130,22 @@ extern "system" {
     pub fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, isdisabled: *mut bool) -> JsErrorCode;
     #[doc = "*Required features: 'Win32_System_Js'*"]
     pub fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *mut f64) -> JsErrorCode;
-    #[doc = "*Required features: 'Win32_System_Js', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn JsParseScript(script: super::super::Foundation::PWSTR, sourcecontext: usize, sourceurl: super::super::Foundation::PWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
-    #[doc = "*Required features: 'Win32_System_Js', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn JsParseSerializedScript(script: super::super::Foundation::PWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: super::super::Foundation::PWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
-    #[doc = "*Required features: 'Win32_System_Js', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn JsPointerToString(stringvalue: super::super::Foundation::PWSTR, stringlength: usize, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    #[doc = "*Required features: 'Win32_System_Js'*"]
+    pub fn JsParseScript(script: ::windows_sys::core::PCWSTR, sourcecontext: usize, sourceurl: ::windows_sys::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    #[doc = "*Required features: 'Win32_System_Js'*"]
+    pub fn JsParseSerializedScript(script: ::windows_sys::core::PCWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: ::windows_sys::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    #[doc = "*Required features: 'Win32_System_Js'*"]
+    pub fn JsPointerToString(stringvalue: ::windows_sys::core::PCWSTR, stringlength: usize, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     #[doc = "*Required features: 'Win32_System_Js'*"]
     pub fn JsPreventExtension(object: *const ::core::ffi::c_void) -> JsErrorCode;
     #[doc = "*Required features: 'Win32_System_Js'*"]
     pub fn JsRelease(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode;
-    #[doc = "*Required features: 'Win32_System_Js', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn JsRunScript(script: super::super::Foundation::PWSTR, sourcecontext: usize, sourceurl: super::super::Foundation::PWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
-    #[doc = "*Required features: 'Win32_System_Js', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn JsRunSerializedScript(script: super::super::Foundation::PWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: super::super::Foundation::PWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
-    #[doc = "*Required features: 'Win32_System_Js', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn JsSerializeScript(script: super::super::Foundation::PWSTR, buffer: *mut u8, buffersize: *mut u32) -> JsErrorCode;
+    #[doc = "*Required features: 'Win32_System_Js'*"]
+    pub fn JsRunScript(script: ::windows_sys::core::PCWSTR, sourcecontext: usize, sourceurl: ::windows_sys::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    #[doc = "*Required features: 'Win32_System_Js'*"]
+    pub fn JsRunSerializedScript(script: ::windows_sys::core::PCWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: ::windows_sys::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    #[doc = "*Required features: 'Win32_System_Js'*"]
+    pub fn JsSerializeScript(script: ::windows_sys::core::PCWSTR, buffer: *mut u8, buffersize: *mut u32) -> JsErrorCode;
     #[doc = "*Required features: 'Win32_System_Js'*"]
     pub fn JsSetCurrentContext(context: *const ::core::ffi::c_void) -> JsErrorCode;
     #[doc = "*Required features: 'Win32_System_Js'*"]

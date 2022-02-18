@@ -137,9 +137,9 @@ pub struct PSS_HANDLE_ENTRY {
     pub NonPagedPoolCharge: u32,
     pub CreationTime: super::super::super::Foundation::FILETIME,
     pub TypeNameLength: u16,
-    pub TypeName: super::super::super::Foundation::PWSTR,
+    pub TypeName: ::windows_sys::core::PCWSTR,
     pub ObjectNameLength: u16,
-    pub ObjectName: super::super::super::Foundation::PWSTR,
+    pub ObjectName: ::windows_sys::core::PCWSTR,
     pub TypeSpecificInformation: PSS_HANDLE_ENTRY_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -487,8 +487,7 @@ impl ::core::clone::Clone for PSS_VA_CLONE_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting'*"]
 pub struct PSS_VA_SPACE_ENTRY {
     pub BaseAddress: *mut ::core::ffi::c_void,
     pub AllocationBase: *mut ::core::ffi::c_void,
@@ -502,11 +501,9 @@ pub struct PSS_VA_SPACE_ENTRY {
     pub ImageBase: *mut ::core::ffi::c_void,
     pub CheckSum: u32,
     pub MappedFileNameLength: u16,
-    pub MappedFileName: super::super::super::Foundation::PWSTR,
+    pub MappedFileName: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PSS_VA_SPACE_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PSS_VA_SPACE_ENTRY {
     fn clone(&self) -> Self {
         *self

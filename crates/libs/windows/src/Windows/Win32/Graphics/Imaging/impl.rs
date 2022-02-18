@@ -57,16 +57,16 @@ impl IWICBitmapClipper_Vtbl {
 pub trait IWICBitmapCodecInfo_Impl: Sized + IWICComponentInfo_Impl {
     fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetPixelFormats(&self, cformats: u32, pguidpixelformats: *mut ::windows::core::GUID, pcactual: *mut u32) -> ::windows::core::Result<()>;
-    fn GetColorManagementVersion(&self, cchcolormanagementversion: u32, wzcolormanagementversion: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDeviceManufacturer(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDeviceModels(&self, cchdevicemodels: u32, wzdevicemodels: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
-    fn GetMimeTypes(&self, cchmimetypes: u32, wzmimetypes: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
-    fn GetFileExtensions(&self, cchfileextensions: u32, wzfileextensions: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
+    fn GetColorManagementVersion(&self, cchcolormanagementversion: u32, wzcolormanagementversion: &::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDeviceManufacturer(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: &::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDeviceModels(&self, cchdevicemodels: u32, wzdevicemodels: &::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
+    fn GetMimeTypes(&self, cchmimetypes: u32, wzmimetypes: &::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFileExtensions(&self, cchfileextensions: u32, wzfileextensions: &::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
     fn DoesSupportAnimation(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn DoesSupportChromakey(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn DoesSupportLossless(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn DoesSupportMultiframe(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn MatchesMimeType(&self, wzmimetype: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn MatchesMimeType(&self, wzmimetype: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWICBitmapCodecInfo_Vtbl {
@@ -87,30 +87,30 @@ impl IWICBitmapCodecInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPixelFormats(::core::mem::transmute_copy(&cformats), ::core::mem::transmute_copy(&pguidpixelformats), ::core::mem::transmute_copy(&pcactual)).into()
         }
-        unsafe extern "system" fn GetColorManagementVersion<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchcolormanagementversion: u32, wzcolormanagementversion: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColorManagementVersion<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchcolormanagementversion: u32, wzcolormanagementversion: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetColorManagementVersion(::core::mem::transmute_copy(&cchcolormanagementversion), ::core::mem::transmute_copy(&wzcolormanagementversion), ::core::mem::transmute_copy(&pcchactual)).into()
+            (*this).GetColorManagementVersion(::core::mem::transmute_copy(&cchcolormanagementversion), ::core::mem::transmute(&wzcolormanagementversion), ::core::mem::transmute_copy(&pcchactual)).into()
         }
-        unsafe extern "system" fn GetDeviceManufacturer<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchdevicemanufacturer: u32, wzdevicemanufacturer: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceManufacturer<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchdevicemanufacturer: u32, wzdevicemanufacturer: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetDeviceManufacturer(::core::mem::transmute_copy(&cchdevicemanufacturer), ::core::mem::transmute_copy(&wzdevicemanufacturer), ::core::mem::transmute_copy(&pcchactual)).into()
+            (*this).GetDeviceManufacturer(::core::mem::transmute_copy(&cchdevicemanufacturer), ::core::mem::transmute(&wzdevicemanufacturer), ::core::mem::transmute_copy(&pcchactual)).into()
         }
-        unsafe extern "system" fn GetDeviceModels<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchdevicemodels: u32, wzdevicemodels: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceModels<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchdevicemodels: u32, wzdevicemodels: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetDeviceModels(::core::mem::transmute_copy(&cchdevicemodels), ::core::mem::transmute_copy(&wzdevicemodels), ::core::mem::transmute_copy(&pcchactual)).into()
+            (*this).GetDeviceModels(::core::mem::transmute_copy(&cchdevicemodels), ::core::mem::transmute(&wzdevicemodels), ::core::mem::transmute_copy(&pcchactual)).into()
         }
-        unsafe extern "system" fn GetMimeTypes<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchmimetypes: u32, wzmimetypes: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMimeTypes<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchmimetypes: u32, wzmimetypes: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMimeTypes(::core::mem::transmute_copy(&cchmimetypes), ::core::mem::transmute_copy(&wzmimetypes), ::core::mem::transmute_copy(&pcchactual)).into()
+            (*this).GetMimeTypes(::core::mem::transmute_copy(&cchmimetypes), ::core::mem::transmute(&wzmimetypes), ::core::mem::transmute_copy(&pcchactual)).into()
         }
-        unsafe extern "system" fn GetFileExtensions<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchfileextensions: u32, wzfileextensions: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileExtensions<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchfileextensions: u32, wzfileextensions: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetFileExtensions(::core::mem::transmute_copy(&cchfileextensions), ::core::mem::transmute_copy(&wzfileextensions), ::core::mem::transmute_copy(&pcchactual)).into()
+            (*this).GetFileExtensions(::core::mem::transmute_copy(&cchfileextensions), ::core::mem::transmute(&wzfileextensions), ::core::mem::transmute_copy(&pcchactual)).into()
         }
         unsafe extern "system" fn DoesSupportAnimation<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfsupportanimation: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -156,10 +156,10 @@ impl IWICBitmapCodecInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MatchesMimeType<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzmimetype: super::super::Foundation::PWSTR, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MatchesMimeType<Identity: ::windows::core::IUnknownImpl, Impl: IWICBitmapCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzmimetype: ::windows::core::PCWSTR, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).MatchesMimeType(::core::mem::transmute_copy(&wzmimetype)) {
+            match (*this).MatchesMimeType(::core::mem::transmute(&wzmimetype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfmatches = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -845,22 +845,20 @@ impl IWICBitmapSourceTransform_Vtbl {
         iid == &<IWICBitmapSourceTransform as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWICColorContext_Impl: Sized {
-    fn InitializeFromFilename(&self, wzfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn InitializeFromFilename(&self, wzfilename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn InitializeFromMemory(&self, pbbuffer: *const u8, cbbuffersize: u32) -> ::windows::core::Result<()>;
     fn InitializeFromExifColorSpace(&self, value: u32) -> ::windows::core::Result<()>;
     fn GetType(&self) -> ::windows::core::Result<WICColorContextType>;
     fn GetProfileBytes(&self, cbbuffer: u32, pbbuffer: *mut u8, pcbactual: *mut u32) -> ::windows::core::Result<()>;
     fn GetExifColorSpace(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IWICColorContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICColorContext_Impl, const OFFSET: isize>() -> IWICColorContext_Vtbl {
-        unsafe extern "system" fn InitializeFromFilename<Identity: ::windows::core::IUnknownImpl, Impl: IWICColorContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromFilename<Identity: ::windows::core::IUnknownImpl, Impl: IWICColorContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).InitializeFromFilename(::core::mem::transmute_copy(&wzfilename)).into()
+            (*this).InitializeFromFilename(::core::mem::transmute(&wzfilename)).into()
         }
         unsafe extern "system" fn InitializeFromMemory<Identity: ::windows::core::IUnknownImpl, Impl: IWICColorContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbbuffer: *const u8, cbbuffersize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -929,7 +927,7 @@ impl IWICColorTransform_Vtbl {
         iid == &<IWICColorTransform as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICComponentFactory_Impl: Sized + IWICImagingFactory_Impl {
     fn CreateMetadataReader(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<IWICMetadataReader>;
     fn CreateMetadataReaderFromContainer(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<IWICMetadataReader>;
@@ -939,7 +937,7 @@ pub trait IWICComponentFactory_Impl: Sized + IWICImagingFactory_Impl {
     fn CreateQueryWriterFromBlockWriter(&self, piblockwriter: &::core::option::Option<IWICMetadataBlockWriter>) -> ::windows::core::Result<IWICMetadataQueryWriter>;
     fn CreateEncoderPropertyBag(&self, ppropoptions: *const super::super::System::Com::StructuredStorage::PROPBAG2, ccount: u32) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyBag2>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWICComponentFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentFactory_Impl, const OFFSET: isize>() -> IWICComponentFactory_Vtbl {
         unsafe extern "system" fn CreateMetadataReader<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: ::windows::core::RawPtr, ppireader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1034,18 +1032,16 @@ impl IWICComponentFactory_Vtbl {
         iid == &<IWICComponentFactory as ::windows::core::Interface>::IID || iid == &<IWICImagingFactory as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWICComponentInfo_Impl: Sized {
     fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType>;
     fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetSigningStatus(&self) -> ::windows::core::Result<u32>;
-    fn GetAuthor(&self, cchauthor: u32, wzauthor: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
+    fn GetAuthor(&self, cchauthor: u32, wzauthor: &::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
     fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetVersion(&self, cchversion: u32, wzversion: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSpecVersion(&self, cchspecversion: u32, wzspecversion: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
-    fn GetFriendlyName(&self, cchfriendlyname: u32, wzfriendlyname: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
+    fn GetVersion(&self, cchversion: u32, wzversion: &::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSpecVersion(&self, cchspecversion: u32, wzspecversion: &::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFriendlyName(&self, cchfriendlyname: u32, wzfriendlyname: &::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IWICComponentInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentInfo_Impl, const OFFSET: isize>() -> IWICComponentInfo_Vtbl {
         unsafe extern "system" fn GetComponentType<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut WICComponentType) -> ::windows::core::HRESULT {
@@ -1081,10 +1077,10 @@ impl IWICComponentInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAuthor<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchauthor: u32, wzauthor: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAuthor<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchauthor: u32, wzauthor: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetAuthor(::core::mem::transmute_copy(&cchauthor), ::core::mem::transmute_copy(&wzauthor), ::core::mem::transmute_copy(&pcchactual)).into()
+            (*this).GetAuthor(::core::mem::transmute_copy(&cchauthor), ::core::mem::transmute(&wzauthor), ::core::mem::transmute_copy(&pcchactual)).into()
         }
         unsafe extern "system" fn GetVendorGUID<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidvendor: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1097,20 +1093,20 @@ impl IWICComponentInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVersion<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchversion: u32, wzversion: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVersion<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchversion: u32, wzversion: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetVersion(::core::mem::transmute_copy(&cchversion), ::core::mem::transmute_copy(&wzversion), ::core::mem::transmute_copy(&pcchactual)).into()
+            (*this).GetVersion(::core::mem::transmute_copy(&cchversion), ::core::mem::transmute(&wzversion), ::core::mem::transmute_copy(&pcchactual)).into()
         }
-        unsafe extern "system" fn GetSpecVersion<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchspecversion: u32, wzspecversion: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSpecVersion<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchspecversion: u32, wzspecversion: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetSpecVersion(::core::mem::transmute_copy(&cchspecversion), ::core::mem::transmute_copy(&wzspecversion), ::core::mem::transmute_copy(&pcchactual)).into()
+            (*this).GetSpecVersion(::core::mem::transmute_copy(&cchspecversion), ::core::mem::transmute(&wzspecversion), ::core::mem::transmute_copy(&pcchactual)).into()
         }
-        unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchfriendlyname: u32, wzfriendlyname: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IWICComponentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchfriendlyname: u32, wzfriendlyname: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetFriendlyName(::core::mem::transmute_copy(&cchfriendlyname), ::core::mem::transmute_copy(&wzfriendlyname), ::core::mem::transmute_copy(&pcchactual)).into()
+            (*this).GetFriendlyName(::core::mem::transmute_copy(&cchfriendlyname), ::core::mem::transmute(&wzfriendlyname), ::core::mem::transmute_copy(&pcchactual)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -1690,12 +1686,10 @@ impl IWICFormatConverter_Vtbl {
         iid == &<IWICFormatConverter as ::windows::core::Interface>::IID || iid == &<IWICBitmapSource as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWICFormatConverterInfo_Impl: Sized + IWICComponentInfo_Impl {
     fn GetPixelFormats(&self, cformats: u32, ppixelformatguids: *mut ::windows::core::GUID, pcactual: *mut u32) -> ::windows::core::Result<()>;
     fn CreateInstance(&self) -> ::windows::core::Result<IWICFormatConverter>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IWICFormatConverterInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICFormatConverterInfo_Impl, const OFFSET: isize>() -> IWICFormatConverterInfo_Vtbl {
         unsafe extern "system" fn GetPixelFormats<Identity: ::windows::core::IUnknownImpl, Impl: IWICFormatConverterInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cformats: u32, ppixelformatguids: *mut ::windows::core::GUID, pcactual: *mut u32) -> ::windows::core::HRESULT {
@@ -1724,9 +1718,9 @@ impl IWICFormatConverterInfo_Vtbl {
         iid == &<IWICFormatConverterInfo as ::windows::core::Interface>::IID || iid == &<IWICComponentInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICImagingFactory_Impl: Sized {
-    fn CreateDecoderFromFilename(&self, wzfilename: super::super::Foundation::PWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>;
+    fn CreateDecoderFromFilename(&self, wzfilename: &::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>;
     fn CreateDecoderFromStream(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>;
     fn CreateDecoderFromFileHandle(&self, hfile: usize, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>;
     fn CreateComponentInfo(&self, clsidcomponent: *const ::windows::core::GUID) -> ::windows::core::Result<IWICComponentInfo>;
@@ -1752,13 +1746,13 @@ pub trait IWICImagingFactory_Impl: Sized {
     fn CreateQueryWriter(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter>;
     fn CreateQueryWriterFromReader(&self, piqueryreader: &::core::option::Option<IWICMetadataQueryReader>, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWICImagingFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICImagingFactory_Impl, const OFFSET: isize>() -> IWICImagingFactory_Vtbl {
-        unsafe extern "system" fn CreateDecoderFromFilename<Identity: ::windows::core::IUnknownImpl, Impl: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzfilename: super::super::Foundation::PWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions, ppidecoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDecoderFromFilename<Identity: ::windows::core::IUnknownImpl, Impl: IWICImagingFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzfilename: ::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions, ppidecoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateDecoderFromFilename(::core::mem::transmute_copy(&wzfilename), ::core::mem::transmute_copy(&pguidvendor), ::core::mem::transmute_copy(&dwdesiredaccess), ::core::mem::transmute_copy(&metadataoptions)) {
+            match (*this).CreateDecoderFromFilename(::core::mem::transmute(&wzfilename), ::core::mem::transmute_copy(&pguidvendor), ::core::mem::transmute_copy(&dwdesiredaccess), ::core::mem::transmute_copy(&metadataoptions)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppidecoder = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2368,8 +2362,8 @@ impl IWICMetadataBlockWriter_Vtbl {
 pub trait IWICMetadataHandlerInfo_Impl: Sized + IWICComponentInfo_Impl {
     fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetContainerFormats(&self, ccontainerformats: u32, pguidcontainerformats: *mut ::windows::core::GUID, pcchactual: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDeviceManufacturer(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDeviceModels(&self, cchdevicemodels: u32, wzdevicemodels: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDeviceManufacturer(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: &::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDeviceModels(&self, cchdevicemodels: u32, wzdevicemodels: &::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::Result<()>;
     fn DoesRequireFullStream(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn DoesSupportPadding(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn DoesRequireFixedSize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -2393,15 +2387,15 @@ impl IWICMetadataHandlerInfo_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetContainerFormats(::core::mem::transmute_copy(&ccontainerformats), ::core::mem::transmute_copy(&pguidcontainerformats), ::core::mem::transmute_copy(&pcchactual)).into()
         }
-        unsafe extern "system" fn GetDeviceManufacturer<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchdevicemanufacturer: u32, wzdevicemanufacturer: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceManufacturer<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchdevicemanufacturer: u32, wzdevicemanufacturer: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetDeviceManufacturer(::core::mem::transmute_copy(&cchdevicemanufacturer), ::core::mem::transmute_copy(&wzdevicemanufacturer), ::core::mem::transmute_copy(&pcchactual)).into()
+            (*this).GetDeviceManufacturer(::core::mem::transmute_copy(&cchdevicemanufacturer), ::core::mem::transmute(&wzdevicemanufacturer), ::core::mem::transmute_copy(&pcchactual)).into()
         }
-        unsafe extern "system" fn GetDeviceModels<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchdevicemodels: u32, wzdevicemodels: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceModels<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchdevicemodels: u32, wzdevicemodels: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetDeviceModels(::core::mem::transmute_copy(&cchdevicemodels), ::core::mem::transmute_copy(&wzdevicemodels), ::core::mem::transmute_copy(&pcchactual)).into()
+            (*this).GetDeviceModels(::core::mem::transmute_copy(&cchdevicemodels), ::core::mem::transmute(&wzdevicemodels), ::core::mem::transmute_copy(&pcchactual)).into()
         }
         unsafe extern "system" fn DoesRequireFullStream<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataHandlerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfrequiresfullstream: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2454,8 +2448,8 @@ impl IWICMetadataHandlerInfo_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICMetadataQueryReader_Impl: Sized {
     fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetLocation(&self, cchmaxlength: u32, wznamespace: super::super::Foundation::PWSTR, pcchactuallength: *mut u32) -> ::windows::core::Result<()>;
-    fn GetMetadataByName(&self, wzname: super::super::Foundation::PWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetLocation(&self, cchmaxlength: u32, wznamespace: &::windows::core::PWSTR, pcchactuallength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetMetadataByName(&self, wzname: &::windows::core::PCWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetEnumerator(&self) -> ::windows::core::Result<super::super::System::Com::IEnumString>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2472,15 +2466,15 @@ impl IWICMetadataQueryReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLocation<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchmaxlength: u32, wznamespace: super::super::Foundation::PWSTR, pcchactuallength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocation<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchmaxlength: u32, wznamespace: ::windows::core::PWSTR, pcchactuallength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetLocation(::core::mem::transmute_copy(&cchmaxlength), ::core::mem::transmute_copy(&wznamespace), ::core::mem::transmute_copy(&pcchactuallength)).into()
+            (*this).GetLocation(::core::mem::transmute_copy(&cchmaxlength), ::core::mem::transmute(&wznamespace), ::core::mem::transmute_copy(&pcchactuallength)).into()
         }
-        unsafe extern "system" fn GetMetadataByName<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzname: super::super::Foundation::PWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMetadataByName<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzname: ::windows::core::PCWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetMetadataByName(::core::mem::transmute_copy(&wzname), ::core::mem::transmute_copy(&pvarvalue)).into()
+            (*this).GetMetadataByName(::core::mem::transmute(&wzname), ::core::mem::transmute_copy(&pvarvalue)).into()
         }
         unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppienumstring: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2507,21 +2501,21 @@ impl IWICMetadataQueryReader_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICMetadataQueryWriter_Impl: Sized + IWICMetadataQueryReader_Impl {
-    fn SetMetadataByName(&self, wzname: super::super::Foundation::PWSTR, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn RemoveMetadataByName(&self, wzname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetMetadataByName(&self, wzname: &::windows::core::PCWSTR, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn RemoveMetadataByName(&self, wzname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IWICMetadataQueryWriter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryWriter_Impl, const OFFSET: isize>() -> IWICMetadataQueryWriter_Vtbl {
-        unsafe extern "system" fn SetMetadataByName<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzname: super::super::Foundation::PWSTR, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMetadataByName<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzname: ::windows::core::PCWSTR, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetMetadataByName(::core::mem::transmute_copy(&wzname), ::core::mem::transmute_copy(&pvarvalue)).into()
+            (*this).SetMetadataByName(::core::mem::transmute(&wzname), ::core::mem::transmute_copy(&pvarvalue)).into()
         }
-        unsafe extern "system" fn RemoveMetadataByName<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveMetadataByName<Identity: ::windows::core::IUnknownImpl, Impl: IWICMetadataQueryWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveMetadataByName(::core::mem::transmute_copy(&wzname)).into()
+            (*this).RemoveMetadataByName(::core::mem::transmute(&wzname)).into()
         }
         Self {
             base: IWICMetadataQueryReader_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2878,7 +2872,6 @@ impl IWICPersistStream_Vtbl {
         iid == &<IWICPersistStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersistStream as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWICPixelFormatInfo_Impl: Sized + IWICComponentInfo_Impl {
     fn GetFormatGUID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetColorContext(&self) -> ::windows::core::Result<IWICColorContext>;
@@ -2886,7 +2879,6 @@ pub trait IWICPixelFormatInfo_Impl: Sized + IWICComponentInfo_Impl {
     fn GetChannelCount(&self) -> ::windows::core::Result<u32>;
     fn GetChannelMask(&self, uichannelindex: u32, cbmaskbuffer: u32, pbmaskbuffer: *mut u8, pcbactual: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IWICPixelFormatInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWICPixelFormatInfo_Impl, const OFFSET: isize>() -> IWICPixelFormatInfo_Vtbl {
         unsafe extern "system" fn GetFormatGUID<Identity: ::windows::core::IUnknownImpl, Impl: IWICPixelFormatInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -3143,7 +3135,7 @@ impl IWICProgressiveLevelControl_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWICStream_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
     fn InitializeFromIStream(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn InitializeFromFilename(&self, wzfilename: super::super::Foundation::PWSTR, dwdesiredaccess: u32) -> ::windows::core::Result<()>;
+    fn InitializeFromFilename(&self, wzfilename: &::windows::core::PCWSTR, dwdesiredaccess: u32) -> ::windows::core::Result<()>;
     fn InitializeFromMemory(&self, pbbuffer: *const u8, cbbuffersize: u32) -> ::windows::core::Result<()>;
     fn InitializeFromIStreamRegion(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>, uloffset: u64, ulmaxsize: u64) -> ::windows::core::Result<()>;
 }
@@ -3155,10 +3147,10 @@ impl IWICStream_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InitializeFromIStream(::core::mem::transmute(&pistream)).into()
         }
-        unsafe extern "system" fn InitializeFromFilename<Identity: ::windows::core::IUnknownImpl, Impl: IWICStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzfilename: super::super::Foundation::PWSTR, dwdesiredaccess: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromFilename<Identity: ::windows::core::IUnknownImpl, Impl: IWICStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzfilename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).InitializeFromFilename(::core::mem::transmute_copy(&wzfilename), ::core::mem::transmute_copy(&dwdesiredaccess)).into()
+            (*this).InitializeFromFilename(::core::mem::transmute(&wzfilename), ::core::mem::transmute_copy(&dwdesiredaccess)).into()
         }
         unsafe extern "system" fn InitializeFromMemory<Identity: ::windows::core::IUnknownImpl, Impl: IWICStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbbuffer: *const u8, cbbuffersize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

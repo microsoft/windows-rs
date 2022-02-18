@@ -26,9 +26,8 @@ pub const CLSID_D3D12DeviceRemovedExtendedData: ::windows_sys::core::GUID = ::wi
 pub const CLSID_D3D12SDKConfiguration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2094688970, data2: 41022, data3: 18888, data4: [148, 88, 3, 52, 210, 14, 7, 206] };
 pub const CLSID_D3D12Tools: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3816953521, data2: 15500, data3: 18483, data4: [170, 9, 10, 6, 182, 93, 150, 200] };
 pub const D3D12ExperimentalShaderModels: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1995790142, data2: 61754, data3: 16629, data4: [178, 151, 129, 206, 158, 24, 147, 63] };
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type D3D12MessageFunc = ::core::option::Option<unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: super::super::Foundation::PSTR, pcontext: *mut ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
+pub type D3D12MessageFunc = ::core::option::Option<unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: ::windows_sys::core::PCSTR, pcontext: *mut ::core::ffi::c_void)>;
 pub const D3D12MetaCommand: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3342125438, data2: 32887, data3: 18632, data4: [159, 220, 217, 209, 221, 49, 221, 119] };
 pub const D3D12TiledResourceTier4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3385094751, data2: 43034, data3: 20310, data4: [140, 91, 197, 16, 57, 214, 148, 251] };
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -44,13 +43,12 @@ pub const D3D12_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_AUTO_BREADCRUMB_NODE {
     pub pCommandListDebugNameA: *const u8,
-    pub pCommandListDebugNameW: super::super::Foundation::PWSTR,
+    pub pCommandListDebugNameW: ::windows_sys::core::PCWSTR,
     pub pCommandQueueDebugNameA: *const u8,
-    pub pCommandQueueDebugNameW: super::super::Foundation::PWSTR,
+    pub pCommandQueueDebugNameW: ::windows_sys::core::PCWSTR,
     pub pCommandList: ID3D12GraphicsCommandList,
     pub pCommandQueue: ID3D12CommandQueue,
     pub BreadcrumbCount: u32,
@@ -58,22 +56,19 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE {
     pub pCommandHistory: *const D3D12_AUTO_BREADCRUMB_OP,
     pub pNext: *const D3D12_AUTO_BREADCRUMB_NODE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_AUTO_BREADCRUMB_NODE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_AUTO_BREADCRUMB_NODE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_AUTO_BREADCRUMB_NODE1 {
     pub pCommandListDebugNameA: *const u8,
-    pub pCommandListDebugNameW: super::super::Foundation::PWSTR,
+    pub pCommandListDebugNameW: ::windows_sys::core::PCWSTR,
     pub pCommandQueueDebugNameA: *const u8,
-    pub pCommandQueueDebugNameW: super::super::Foundation::PWSTR,
+    pub pCommandQueueDebugNameW: ::windows_sys::core::PCWSTR,
     pub pCommandList: ID3D12GraphicsCommandList,
     pub pCommandQueue: ID3D12CommandQueue,
     pub BreadcrumbCount: u32,
@@ -83,9 +78,7 @@ pub struct D3D12_AUTO_BREADCRUMB_NODE1 {
     pub BreadcrumbContextsCount: u32,
     pub pBreadcrumbContexts: *mut D3D12_DRED_BREADCRUMB_CONTEXT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_AUTO_BREADCRUMB_NODE1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_AUTO_BREADCRUMB_NODE1 {
     fn clone(&self) -> Self {
         *self
@@ -1159,64 +1152,52 @@ pub const D3D12_DESCRIPTOR_RANGE_TYPE_CBV: D3D12_DESCRIPTOR_RANGE_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_DESCRIPTOR_RANGE_TYPE_SAMPLER: D3D12_DESCRIPTOR_RANGE_TYPE = 3i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA {
     pub Flags: D3D12_DRED_FLAGS,
     pub pHeadAutoBreadcrumbNode: *mut D3D12_AUTO_BREADCRUMB_NODE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DEVICE_REMOVED_EXTENDED_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DEVICE_REMOVED_EXTENDED_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {
     pub DeviceRemovedReason: ::windows_sys::core::HRESULT,
     pub AutoBreadcrumbsOutput: D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT,
     pub PageFaultOutput: D3D12_DRED_PAGE_FAULT_OUTPUT,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA2 {
     pub DeviceRemovedReason: ::windows_sys::core::HRESULT,
     pub AutoBreadcrumbsOutput: D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1,
     pub PageFaultOutput: D3D12_DRED_PAGE_FAULT_OUTPUT1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DEVICE_REMOVED_EXTENDED_DATA2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DEVICE_REMOVED_EXTENDED_DATA2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {
     pub DeviceRemovedReason: ::windows_sys::core::HRESULT,
     pub AutoBreadcrumbsOutput: D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1,
     pub PageFaultOutput: D3D12_DRED_PAGE_FAULT_OUTPUT2,
     pub DeviceState: D3D12_DRED_DEVICE_STATE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {
     fn clone(&self) -> Self {
         *self
@@ -1312,35 +1293,29 @@ impl ::core::clone::Clone for D3D12_DRAW_INDEXED_ARGUMENTS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DRED_ALLOCATION_NODE {
     pub ObjectNameA: *const u8,
-    pub ObjectNameW: super::super::Foundation::PWSTR,
+    pub ObjectNameW: ::windows_sys::core::PCWSTR,
     pub AllocationType: D3D12_DRED_ALLOCATION_TYPE,
     pub pNext: *const D3D12_DRED_ALLOCATION_NODE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_ALLOCATION_NODE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DRED_ALLOCATION_NODE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DRED_ALLOCATION_NODE1 {
     pub ObjectNameA: *const u8,
-    pub ObjectNameW: super::super::Foundation::PWSTR,
+    pub ObjectNameW: ::windows_sys::core::PCWSTR,
     pub AllocationType: D3D12_DRED_ALLOCATION_TYPE,
     pub pNext: *const D3D12_DRED_ALLOCATION_NODE1,
     pub pObject: ::windows_sys::core::IUnknown,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_ALLOCATION_NODE1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DRED_ALLOCATION_NODE1 {
     fn clone(&self) -> Self {
         *self
@@ -1407,43 +1382,34 @@ pub const D3D12_DRED_ALLOCATION_TYPE_VIDEO_ENCODER_HEAP: D3D12_DRED_ALLOCATION_T
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_DRED_ALLOCATION_TYPE_INVALID: D3D12_DRED_ALLOCATION_TYPE = -1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {
     pub pHeadAutoBreadcrumbNode: *const D3D12_AUTO_BREADCRUMB_NODE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {
     pub pHeadAutoBreadcrumbNode: *const D3D12_AUTO_BREADCRUMB_NODE1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DRED_BREADCRUMB_CONTEXT {
     pub BreadcrumbIndex: u32,
-    pub pContextString: super::super::Foundation::PWSTR,
+    pub pContextString: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_BREADCRUMB_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DRED_BREADCRUMB_CONTEXT {
     fn clone(&self) -> Self {
         *self
@@ -1480,49 +1446,40 @@ pub type D3D12_DRED_PAGE_FAULT_FLAGS = u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_DRED_PAGE_FAULT_FLAGS_NONE: D3D12_DRED_PAGE_FAULT_FLAGS = 0u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT {
     pub PageFaultVA: u64,
     pub pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE,
     pub pHeadRecentFreedAllocationNode: *const D3D12_DRED_ALLOCATION_NODE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_PAGE_FAULT_OUTPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DRED_PAGE_FAULT_OUTPUT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT1 {
     pub PageFaultVA: u64,
     pub pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
     pub pHeadRecentFreedAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_PAGE_FAULT_OUTPUT1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DRED_PAGE_FAULT_OUTPUT1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT2 {
     pub PageFaultVA: u64,
     pub pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
     pub pHeadRecentFreedAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
     pub PageFaultFlags: D3D12_DRED_PAGE_FAULT_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DRED_PAGE_FAULT_OUTPUT2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DRED_PAGE_FAULT_OUTPUT2 {
     fn clone(&self) -> Self {
         *self
@@ -1627,32 +1584,26 @@ pub const D3D12_DS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_DS_OUTPUT_REGISTER_COUNT: u32 = 32u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DXIL_LIBRARY_DESC {
     pub DXILLibrary: D3D12_SHADER_BYTECODE,
     pub NumExports: u32,
     pub pExports: *mut D3D12_EXPORT_DESC,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DXIL_LIBRARY_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DXIL_LIBRARY_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
-    pub SubobjectToAssociate: super::super::Foundation::PWSTR,
+    pub SubobjectToAssociate: ::windows_sys::core::PCWSTR,
     pub NumExports: u32,
-    pub pExports: *mut super::super::Foundation::PWSTR,
+    pub pExports: *mut ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
     fn clone(&self) -> Self {
         *self
@@ -1665,32 +1616,26 @@ pub const D3D12_ELEMENTS_LAYOUT_ARRAY: D3D12_ELEMENTS_LAYOUT = 0i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_ELEMENTS_LAYOUT_ARRAY_OF_POINTERS: D3D12_ELEMENTS_LAYOUT = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_EXISTING_COLLECTION_DESC {
     pub pExistingCollection: ID3D12StateObject,
     pub NumExports: u32,
     pub pExports: *mut D3D12_EXPORT_DESC,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_EXISTING_COLLECTION_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_EXISTING_COLLECTION_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_EXPORT_DESC {
-    pub Name: super::super::Foundation::PWSTR,
-    pub ExportToRename: super::super::Foundation::PWSTR,
+    pub Name: ::windows_sys::core::PCWSTR,
+    pub ExportToRename: ::windows_sys::core::PCWSTR,
     pub Flags: D3D12_EXPORT_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_EXPORT_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_EXPORT_DESC {
     fn clone(&self) -> Self {
         *self
@@ -2470,7 +2415,7 @@ pub const D3D12_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0f32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub struct D3D12_FUNCTION_DESC {
     pub Version: u32,
-    pub Creator: super::super::Foundation::PSTR,
+    pub Creator: ::windows_sys::core::PCSTR,
     pub Flags: u32,
     pub ConstantBuffers: u32,
     pub BoundResources: u32,
@@ -2497,7 +2442,7 @@ pub struct D3D12_FUNCTION_DESC {
     pub BitwiseInstructionCount: u32,
     pub MinFeatureLevel: super::Direct3D::D3D_FEATURE_LEVEL,
     pub RequiredFeatureFlags: u64,
-    pub Name: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
     pub FunctionParameterCount: i32,
     pub HasReturn: super::super::Foundation::BOOL,
     pub Has10Level9VertexShader: super::super::Foundation::BOOL,
@@ -2796,18 +2741,15 @@ pub const D3D12_HEAP_TYPE_READBACK: D3D12_HEAP_TYPE = 3i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_HEAP_TYPE_CUSTOM: D3D12_HEAP_TYPE = 4i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_HIT_GROUP_DESC {
-    pub HitGroupExport: super::super::Foundation::PWSTR,
+    pub HitGroupExport: ::windows_sys::core::PCWSTR,
     pub Type: D3D12_HIT_GROUP_TYPE,
-    pub AnyHitShaderImport: super::super::Foundation::PWSTR,
-    pub ClosestHitShaderImport: super::super::Foundation::PWSTR,
-    pub IntersectionShaderImport: super::super::Foundation::PWSTR,
+    pub AnyHitShaderImport: ::windows_sys::core::PCWSTR,
+    pub ClosestHitShaderImport: ::windows_sys::core::PCWSTR,
+    pub IntersectionShaderImport: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_HIT_GROUP_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_HIT_GROUP_DESC {
     fn clone(&self) -> Self {
         *self
@@ -3092,10 +3034,10 @@ pub const D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA: D3D12_INPUT_CLASSIFICATION
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_INPUT_CLASSIFICATION_PER_INSTANCE_DATA: D3D12_INPUT_CLASSIFICATION = 1i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_INPUT_ELEMENT_DESC {
-    pub SemanticName: super::super::Foundation::PSTR,
+    pub SemanticName: ::windows_sys::core::PCSTR,
     pub SemanticIndex: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub InputSlot: u32,
@@ -3103,24 +3045,24 @@ pub struct D3D12_INPUT_ELEMENT_DESC {
     pub InputSlotClass: D3D12_INPUT_CLASSIFICATION,
     pub InstanceDataStepRate: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D12_INPUT_ELEMENT_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_INPUT_ELEMENT_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_INPUT_LAYOUT_DESC {
     pub pInputElementDescs: *const D3D12_INPUT_ELEMENT_DESC,
     pub NumElements: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D12_INPUT_LAYOUT_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D12_INPUT_LAYOUT_DESC {
     fn clone(&self) -> Self {
         *self
@@ -3135,16 +3077,13 @@ pub const D3D12_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_LIBRARY_DESC {
-    pub Creator: super::super::Foundation::PSTR,
+    pub Creator: ::windows_sys::core::PCSTR,
     pub Flags: u32,
     pub FunctionCount: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_LIBRARY_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_LIBRARY_DESC {
     fn clone(&self) -> Self {
         *self
@@ -5112,35 +5051,29 @@ pub const D3D12_MESSAGE_SEVERITY_INFO: D3D12_MESSAGE_SEVERITY = 3i32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_MESSAGE_SEVERITY_MESSAGE: D3D12_MESSAGE_SEVERITY = 4i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_META_COMMAND_DESC {
     pub Id: ::windows_sys::core::GUID,
-    pub Name: super::super::Foundation::PWSTR,
+    pub Name: ::windows_sys::core::PCWSTR,
     pub InitializationDirtyState: D3D12_GRAPHICS_STATES,
     pub ExecutionDirtyState: D3D12_GRAPHICS_STATES,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_META_COMMAND_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_META_COMMAND_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_META_COMMAND_PARAMETER_DESC {
-    pub Name: super::super::Foundation::PWSTR,
+    pub Name: ::windows_sys::core::PCWSTR,
     pub Type: D3D12_META_COMMAND_PARAMETER_TYPE,
     pub Flags: D3D12_META_COMMAND_PARAMETER_FLAGS,
     pub RequiredResourceState: D3D12_RESOURCE_STATES,
     pub StructureOffset: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_META_COMMAND_PARAMETER_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_META_COMMAND_PARAMETER_DESC {
     fn clone(&self) -> Self {
         *self
@@ -5255,11 +5188,11 @@ impl ::core::clone::Clone for D3D12_PACKED_MIP_INFO {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_PACKED_TILE: u32 = 4294967295u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D12_PARAMETER_DESC {
-    pub Name: super::super::Foundation::PSTR,
-    pub SemanticName: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
+    pub SemanticName: ::windows_sys::core::PCSTR,
     pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
     pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
     pub Rows: u32,
@@ -5271,9 +5204,9 @@ pub struct D3D12_PARAMETER_DESC {
     pub FirstOutRegister: u32,
     pub FirstOutComponent: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D12_PARAMETER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D12_PARAMETER_DESC {
     fn clone(&self) -> Self {
         *self
@@ -6884,18 +6817,18 @@ impl ::core::clone::Clone for D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D12_SHADER_BUFFER_DESC {
-    pub Name: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
     pub Type: super::Direct3D::D3D_CBUFFER_TYPE,
     pub Variables: u32,
     pub Size: u32,
     pub uFlags: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D12_SHADER_BUFFER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D12_SHADER_BUFFER_DESC {
     fn clone(&self) -> Self {
         *self
@@ -7001,11 +6934,11 @@ pub const D3D12_SHADER_COMPONENT_MAPPING_MASK: u32 = 7u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_SHADER_COMPONENT_MAPPING_SHIFT: u32 = 3u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D12_SHADER_DESC {
     pub Version: u32,
-    pub Creator: super::super::Foundation::PSTR,
+    pub Creator: ::windows_sys::core::PCSTR,
     pub Flags: u32,
     pub ConstantBuffers: u32,
     pub BoundResources: u32,
@@ -7043,9 +6976,9 @@ pub struct D3D12_SHADER_DESC {
     pub cInterlockedInstructions: u32,
     pub cTextureStoreInstructions: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D12_SHADER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D12_SHADER_DESC {
     fn clone(&self) -> Self {
         *self
@@ -7054,10 +6987,10 @@ impl ::core::clone::Clone for D3D12_SHADER_DESC {
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_SHADER_IDENTIFIER_SIZE_IN_BYTES: u32 = 32u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D12_SHADER_INPUT_BIND_DESC {
-    pub Name: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
     pub Type: super::Direct3D::D3D_SHADER_INPUT_TYPE,
     pub BindPoint: u32,
     pub BindCount: u32,
@@ -7068,9 +7001,9 @@ pub struct D3D12_SHADER_INPUT_BIND_DESC {
     pub Space: u32,
     pub uID: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D12_SHADER_INPUT_BIND_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D12_SHADER_INPUT_BIND_DESC {
     fn clone(&self) -> Self {
         *self
@@ -7138,8 +7071,8 @@ impl ::core::clone::Clone for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D12_SHADER_TYPE_DESC {
     pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
     pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
@@ -7148,21 +7081,20 @@ pub struct D3D12_SHADER_TYPE_DESC {
     pub Elements: u32,
     pub Members: u32,
     pub Offset: u32,
-    pub Name: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D12_SHADER_TYPE_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D12_SHADER_TYPE_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_SHADER_VARIABLE_DESC {
-    pub Name: super::super::Foundation::PSTR,
+    pub Name: ::windows_sys::core::PCSTR,
     pub StartOffset: u32,
     pub Size: u32,
     pub uFlags: u32,
@@ -7172,9 +7104,7 @@ pub struct D3D12_SHADER_VARIABLE_DESC {
     pub StartSampler: u32,
     pub SamplerSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_SHADER_VARIABLE_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_SHADER_VARIABLE_DESC {
     fn clone(&self) -> Self {
         *self
@@ -7259,10 +7189,10 @@ pub const D3D12_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Direct3D'*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3D12_SIGNATURE_PARAMETER_DESC {
-    pub SemanticName: super::super::Foundation::PSTR,
+    pub SemanticName: ::windows_sys::core::PCSTR,
     pub SemanticIndex: u32,
     pub Register: u32,
     pub SystemValueType: super::Direct3D::D3D_NAME,
@@ -7272,9 +7202,9 @@ pub struct D3D12_SIGNATURE_PARAMETER_DESC {
     pub Stream: u32,
     pub MinPrecision: super::Direct3D::D3D_MIN_PRECISION,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::marker::Copy for D3D12_SIGNATURE_PARAMETER_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::clone::Clone for D3D12_SIGNATURE_PARAMETER_DESC {
     fn clone(&self) -> Self {
         *self
@@ -7295,19 +7225,16 @@ pub const D3D12_SO_BUFFER_SLOT_COUNT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_SO_DECLARATION_ENTRY {
     pub Stream: u32,
-    pub SemanticName: super::super::Foundation::PSTR,
+    pub SemanticName: ::windows_sys::core::PCSTR,
     pub SemanticIndex: u32,
     pub StartComponent: u8,
     pub ComponentCount: u8,
     pub OutputSlot: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_SO_DECLARATION_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_SO_DECLARATION_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -7526,8 +7453,7 @@ impl ::core::clone::Clone for D3D12_STREAM_OUTPUT_BUFFER_VIEW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_STREAM_OUTPUT_DESC {
     pub pSODeclaration: *const D3D12_SO_DECLARATION_ENTRY,
     pub NumEntries: u32,
@@ -7535,25 +7461,20 @@ pub struct D3D12_STREAM_OUTPUT_DESC {
     pub NumStrides: u32,
     pub RasterizedStream: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_STREAM_OUTPUT_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_STREAM_OUTPUT_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
     pub pSubobjectToAssociate: *const D3D12_STATE_SUBOBJECT,
     pub NumExports: u32,
-    pub pExports: *mut super::super::Foundation::PWSTR,
+    pub pExports: *mut ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
     fn clone(&self) -> Self {
         *self
@@ -8211,32 +8132,26 @@ pub const D3D12_VARIABLE_SHADING_RATE_TIER_1: D3D12_VARIABLE_SHADING_RATE_TIER =
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub const D3D12_VARIABLE_SHADING_RATE_TIER_2: D3D12_VARIABLE_SHADING_RATE_TIER = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub struct D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA {
     pub Version: D3D12_DRED_VERSION,
     pub Anonymous: D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 pub union D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {
     pub Dred_1_0: D3D12_DEVICE_REMOVED_EXTENDED_DATA,
     pub Dred_1_1: D3D12_DEVICE_REMOVED_EXTENDED_DATA1,
     pub Dred_1_2: D3D12_DEVICE_REMOVED_EXTENDED_DATA2,
     pub Dred_1_3: D3D12_DEVICE_REMOVED_EXTENDED_DATA3,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {
     fn clone(&self) -> Self {
         *self

@@ -5,9 +5,9 @@ pub trait IRichEditOle_Impl: Sized {
     fn GetLinkCount(&self) -> i32;
     fn GetObject(&self, iob: i32, lpreobject: *mut REOBJECT, dwflags: RICH_EDIT_GET_OBJECT_FLAGS) -> ::windows::core::Result<()>;
     fn InsertObject(&self, lpreobject: *mut REOBJECT) -> ::windows::core::Result<()>;
-    fn ConvertObject(&self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn ConvertObject(&self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
     fn ActivateAs(&self, rclsid: *const ::windows::core::GUID, rclsidas: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetHostNames(&self, lpstrcontainerapp: super::super::super::Foundation::PSTR, lpstrcontainerobj: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn SetHostNames(&self, lpstrcontainerapp: &::windows::core::PCSTR, lpstrcontainerobj: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
     fn SetLinkAvailable(&self, iob: i32, favailable: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetDvaspect(&self, iob: i32, dvaspect: u32) -> ::windows::core::Result<()>;
     fn HandsOffStorage(&self, iob: i32) -> ::windows::core::Result<()>;
@@ -51,20 +51,20 @@ impl IRichEditOle_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InsertObject(::core::mem::transmute_copy(&lpreobject)).into()
         }
-        unsafe extern "system" fn ConvertObject<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditOle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConvertObject<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditOle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ConvertObject(::core::mem::transmute_copy(&iob), ::core::mem::transmute_copy(&rclsidnew), ::core::mem::transmute_copy(&lpstrusertypenew)).into()
+            (*this).ConvertObject(::core::mem::transmute_copy(&iob), ::core::mem::transmute_copy(&rclsidnew), ::core::mem::transmute(&lpstrusertypenew)).into()
         }
         unsafe extern "system" fn ActivateAs<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditOle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, rclsidas: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).ActivateAs(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&rclsidas)).into()
         }
-        unsafe extern "system" fn SetHostNames<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditOle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpstrcontainerapp: super::super::super::Foundation::PSTR, lpstrcontainerobj: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHostNames<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditOle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpstrcontainerapp: ::windows::core::PCSTR, lpstrcontainerobj: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetHostNames(::core::mem::transmute_copy(&lpstrcontainerapp), ::core::mem::transmute_copy(&lpstrcontainerobj)).into()
+            (*this).SetHostNames(::core::mem::transmute(&lpstrcontainerapp), ::core::mem::transmute(&lpstrcontainerobj)).into()
         }
         unsafe extern "system" fn SetLinkAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditOle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iob: i32, favailable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4865,7 +4865,7 @@ pub trait ITextServices_Impl: Sized {
     fn OnTxUIActivate(&self) -> ::windows::core::Result<()>;
     fn OnTxUIDeactivate(&self) -> ::windows::core::Result<()>;
     fn TxGetText(&self, pbstrtext: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TxSetText(&self, psztext: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn TxSetText(&self, psztext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()>;
     fn TxGetBaseLinePos(&self, param0: *mut i32) -> ::windows::core::Result<()>;
     fn TxGetNaturalSize(&self, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()>;
@@ -4946,10 +4946,10 @@ impl ITextServices_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).TxGetText(::core::mem::transmute_copy(&pbstrtext)).into()
         }
-        unsafe extern "system" fn TxSetText<Identity: ::windows::core::IUnknownImpl, Impl: ITextServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TxSetText<Identity: ::windows::core::IUnknownImpl, Impl: ITextServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).TxSetText(::core::mem::transmute_copy(&psztext)).into()
+            (*this).TxSetText(::core::mem::transmute(&psztext)).into()
         }
         unsafe extern "system" fn TxGetCurTargetX<Identity: ::windows::core::IUnknownImpl, Impl: ITextServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

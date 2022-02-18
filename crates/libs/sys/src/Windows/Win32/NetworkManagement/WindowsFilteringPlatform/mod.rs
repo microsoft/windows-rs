@@ -81,7 +81,7 @@ extern "system" {
     pub fn FwpmEngineGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security', 'Win32_System_Rpc'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
-    pub fn FwpmEngineOpen0(servername: super::super::Foundation::PWSTR, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32;
+    pub fn FwpmEngineOpen0(servername: ::windows_sys::core::PCWSTR, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmEngineSetOption0(enginehandle: super::super::Foundation::HANDLE, option: FWPM_ENGINE_OPTION, newvalue: *const FWP_VALUE0) -> u32;
@@ -129,9 +129,8 @@ extern "system" {
     pub fn FwpmFilterUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
     pub fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void);
-    #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FwpmGetAppIdFromFileName0(filename: super::super::Foundation::PWSTR, appid: *mut *mut FWP_BYTE_BLOB) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
+    pub fn FwpmGetAppIdFromFileName0(filename: ::windows_sys::core::PCWSTR, appid: *mut *mut FWP_BYTE_BLOB) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn FwpmIPsecTunnelAdd0(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT0, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT0, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
@@ -940,8 +939,7 @@ pub const FWPM_APPC_NETWORK_CAPABILITY_INTERNET_PRIVATE_NETWORK: FWPM_APPC_NETWO
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const FWPM_AUTO_WEIGHT_BITS: u32 = 60u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_CALLOUT0 {
     pub calloutKey: ::windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -951,9 +949,7 @@ pub struct FWPM_CALLOUT0 {
     pub applicableLayer: ::windows_sys::core::GUID,
     pub calloutId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_CALLOUT0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_CALLOUT0 {
     fn clone(&self) -> Self {
         *self
@@ -1324,15 +1320,12 @@ impl ::core::clone::Clone for FWPM_CONNECTION_SUBSCRIPTION0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_DISPLAY_DATA0 {
-    pub name: super::super::Foundation::PWSTR,
-    pub description: super::super::Foundation::PWSTR,
+    pub name: ::windows_sys::core::PWSTR,
+    pub description: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_DISPLAY_DATA0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_DISPLAY_DATA0 {
     fn clone(&self) -> Self {
         *self
@@ -1535,8 +1528,7 @@ pub const FWPM_KEYING_MODULE_AUTHIP: ::windows_sys::core::GUID = ::windows_sys::
 pub const FWPM_KEYING_MODULE_IKE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2847668103, data2: 33448, data3: 17851, data4: [164, 0, 93, 126, 89, 82, 199, 169] };
 pub const FWPM_KEYING_MODULE_IKEV2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 68653772, data2: 36615, data3: 16797, data4: [163, 148, 113, 105, 104, 203, 22, 71] };
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_LAYER0 {
     pub layerKey: ::windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -1546,9 +1538,7 @@ pub struct FWPM_LAYER0 {
     pub defaultSubLayerKey: ::windows_sys::core::GUID,
     pub layerId: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_LAYER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_LAYER0 {
     fn clone(&self) -> Self {
         *self
@@ -2356,7 +2346,7 @@ pub struct FWPM_NET_EVENT_HEADER3 {
     pub userId: *mut super::super::Security::SID,
     pub addressFamily: FWP_AF,
     pub packageSid: *mut super::super::Security::SID,
-    pub enterpriseId: super::super::Foundation::PWSTR,
+    pub enterpriseId: ::windows_sys::core::PWSTR,
     pub policyFlags: u64,
     pub effectiveName: FWP_BYTE_BLOB,
 }
@@ -2418,8 +2408,7 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2430,17 +2419,15 @@ pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     pub endCertHash: [u8; 20],
     pub mmId: u64,
     pub qmFilterId: u64,
-    pub localPrincipalNameForAuth: super::super::Foundation::PWSTR,
-    pub remotePrincipalNameForAuth: super::super::Foundation::PWSTR,
+    pub localPrincipalNameForAuth: ::windows_sys::core::PWSTR,
+    pub remotePrincipalNameForAuth: ::windows_sys::core::PWSTR,
     pub numLocalPrincipalGroupSids: u32,
-    pub localPrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub localPrincipalGroupSids: *mut ::windows_sys::core::PWSTR,
     pub numRemotePrincipalGroupSids: u32,
-    pub remotePrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub remotePrincipalGroupSids: *mut ::windows_sys::core::PWSTR,
     pub saTrafficType: IPSEC_TRAFFIC_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     fn clone(&self) -> Self {
         *self
@@ -2471,8 +2458,7 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2484,24 +2470,21 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     pub endCertHash: [u8; 20],
     pub mmId: u64,
     pub mmFilterId: u64,
-    pub localPrincipalNameForAuth: super::super::Foundation::PWSTR,
-    pub remotePrincipalNameForAuth: super::super::Foundation::PWSTR,
+    pub localPrincipalNameForAuth: ::windows_sys::core::PWSTR,
+    pub remotePrincipalNameForAuth: ::windows_sys::core::PWSTR,
     pub numLocalPrincipalGroupSids: u32,
-    pub localPrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub localPrincipalGroupSids: *mut ::windows_sys::core::PWSTR,
     pub numRemotePrincipalGroupSids: u32,
-    pub remotePrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub remotePrincipalGroupSids: *mut ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -2513,17 +2496,15 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     pub endCertHash: [u8; 20],
     pub mmId: u64,
     pub mmFilterId: u64,
-    pub localPrincipalNameForAuth: super::super::Foundation::PWSTR,
-    pub remotePrincipalNameForAuth: super::super::Foundation::PWSTR,
+    pub localPrincipalNameForAuth: ::windows_sys::core::PWSTR,
+    pub remotePrincipalNameForAuth: ::windows_sys::core::PWSTR,
     pub numLocalPrincipalGroupSids: u32,
-    pub localPrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub localPrincipalGroupSids: *mut ::windows_sys::core::PWSTR,
     pub numRemotePrincipalGroupSids: u32,
-    pub remotePrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub remotePrincipalGroupSids: *mut ::windows_sys::core::PWSTR,
     pub providerContextKey: *mut ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     fn clone(&self) -> Self {
         *self
@@ -2755,18 +2736,15 @@ pub const FWPM_NET_EVENT_TYPE_LPM_PACKET_ARRIVAL: FWPM_NET_EVENT_TYPE = 10i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const FWPM_NET_EVENT_TYPE_MAX: FWPM_NET_EVENT_TYPE = 11i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_PROVIDER0 {
     pub providerKey: ::windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
     pub flags: u32,
     pub providerData: FWP_BYTE_BLOB,
-    pub serviceName: super::super::Foundation::PWSTR,
+    pub serviceName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_PROVIDER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_PROVIDER0 {
     fn clone(&self) -> Self {
         *self
@@ -3103,7 +3081,7 @@ pub struct FWPM_SESSION0 {
     pub txnWaitTimeoutInMSec: u32,
     pub processId: u32,
     pub sid: *mut super::super::Security::SID,
-    pub username: super::super::Foundation::PWSTR,
+    pub username: ::windows_sys::core::PWSTR,
     pub kernelMode: super::super::Foundation::BOOL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -3176,8 +3154,7 @@ impl ::core::clone::Clone for FWPM_STATISTICS0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_SUBLAYER0 {
     pub subLayerKey: ::windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -3186,9 +3163,7 @@ pub struct FWPM_SUBLAYER0 {
     pub providerData: FWP_BYTE_BLOB,
     pub weight: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_SUBLAYER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_SUBLAYER0 {
     fn clone(&self) -> Self {
         *self
@@ -3309,7 +3284,7 @@ pub const FWPM_TXN_READ_ONLY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0 {
     pub eventType: FWPM_VSWITCH_EVENT_TYPE,
-    pub vSwitchId: super::super::Foundation::PWSTR,
+    pub vSwitchId: ::windows_sys::core::PWSTR,
     pub Anonymous: FWPM_VSWITCH_EVENT0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3340,7 +3315,7 @@ impl ::core::clone::Clone for FWPM_VSWITCH_EVENT0_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0_0_0 {
     pub numvSwitchFilterExtensions: u32,
-    pub vSwitchFilterExtensions: *mut super::super::Foundation::PWSTR,
+    pub vSwitchFilterExtensions: *mut ::windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_VSWITCH_EVENT0_0_0 {}
@@ -3356,7 +3331,7 @@ impl ::core::clone::Clone for FWPM_VSWITCH_EVENT0_0_0 {
 pub struct FWPM_VSWITCH_EVENT0_0_1 {
     pub inRequiredPosition: super::super::Foundation::BOOL,
     pub numvSwitchFilterExtensions: u32,
-    pub vSwitchFilterExtensions: *mut super::super::Foundation::PWSTR,
+    pub vSwitchFilterExtensions: *mut ::windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_VSWITCH_EVENT0_0_1 {}
@@ -3760,7 +3735,7 @@ pub union FWP_CONDITION_VALUE0_0 {
     pub sd: *mut FWP_BYTE_BLOB,
     pub tokenInformation: *mut FWP_TOKEN_INFORMATION,
     pub tokenAccessInformation: *mut FWP_BYTE_BLOB,
-    pub unicodeString: super::super::Foundation::PWSTR,
+    pub unicodeString: ::windows_sys::core::PWSTR,
     pub byteArray6: *mut FWP_BYTE_ARRAY6,
     pub v4AddrMask: *mut FWP_V4_ADDR_AND_MASK,
     pub v6AddrMask: *mut FWP_V6_ADDR_AND_MASK,
@@ -4007,7 +3982,7 @@ pub union FWP_VALUE0_0 {
     pub sd: *mut FWP_BYTE_BLOB,
     pub tokenInformation: *mut FWP_TOKEN_INFORMATION,
     pub tokenAccessInformation: *mut FWP_BYTE_BLOB,
-    pub unicodeString: super::super::Foundation::PWSTR,
+    pub unicodeString: ::windows_sys::core::PWSTR,
     pub byteArray6: *mut FWP_BYTE_ARRAY6,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -4386,23 +4361,19 @@ pub const IKEEXT_IMPERSONATION_SOCKET_PRINCIPAL: IKEEXT_AUTHENTICATION_IMPERSONA
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const IKEEXT_IMPERSONATION_MAX: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 2i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_AUTHENTICATION_METHOD0 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0,
@@ -4411,32 +4382,26 @@ pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
     pub sslAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0,
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_AUTHENTICATION_METHOD1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD1_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION1,
@@ -4446,32 +4411,26 @@ pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_AUTHENTICATION_METHOD2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD2_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION2,
@@ -4482,9 +4441,7 @@ pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD2_0 {
     fn clone(&self) -> Self {
         *self
@@ -4652,8 +4609,7 @@ impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     pub inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_0,
@@ -4662,131 +4618,105 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     pub flags: IKEEXT_CERT_AUTH,
     pub localCertLocationUrl: FWP_BYTE_BLOB,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     pub inboundEnterpriseStoreArraySize: u32,
     pub inboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     pub inboundRootStoreArraySize: u32,
     pub inboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     pub outboundEnterpriseStoreArraySize: u32,
     pub outboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     pub outboundRootStoreArraySize: u32,
     pub outboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     fn clone(&self) -> Self {
         *self
@@ -4820,8 +4750,7 @@ impl ::core::clone::Clone for IKEEXT_CERTIFICATE_CREDENTIAL1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
     pub certData: FWP_BYTE_BLOB,
     pub certHash: FWP_BYTE_BLOB,
@@ -4829,9 +4758,7 @@ pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
     pub name: *mut IKEEXT_CERT_NAME0,
     pub flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_CRITERIA0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_CRITERIA0 {
     fn clone(&self) -> Self {
         *self
@@ -4886,15 +4813,12 @@ pub const IKEEXT_CERT_CRITERIA_DC: IKEEXT_CERT_CRITERIA_NAME_TYPE = 6i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const IKEEXT_CERT_CRITERIA_NAME_TYPE_MAX: IKEEXT_CERT_CRITERIA_NAME_TYPE = 7i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERT_EKUS0 {
     pub numEku: u32,
-    pub eku: *mut super::super::Foundation::PSTR,
+    pub eku: *mut ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERT_EKUS0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERT_EKUS0 {
     fn clone(&self) -> Self {
         *self
@@ -4923,15 +4847,12 @@ pub const IKEEXT_CERT_FLAG_FOLLOW_RENEWAL_CERTIFICATE: IKEEXT_CERT_FLAGS = 256u3
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const IKEEXT_CERT_HASH_LEN: u32 = 20u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERT_NAME0 {
     pub nameType: IKEEXT_CERT_CRITERIA_NAME_TYPE,
-    pub certName: super::super::Foundation::PWSTR,
+    pub certName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERT_NAME0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERT_NAME0 {
     fn clone(&self) -> Self {
         *self
@@ -5023,186 +4944,150 @@ impl ::core::clone::Clone for IKEEXT_COOKIE_PAIR0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL0 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_CREDENTIAL0_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL0,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL1_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_CREDENTIAL1_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL2_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_CREDENTIAL2_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIALS0 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIALS0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIALS0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIALS1 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIALS1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIALS1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIALS2 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIALS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIALS2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL_PAIR0 {
     pub localCredentials: IKEEXT_CREDENTIAL0,
     pub peerCredentials: IKEEXT_CREDENTIAL0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL_PAIR0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL_PAIR1 {
     pub localCredentials: IKEEXT_CREDENTIAL1,
     pub peerCredentials: IKEEXT_CREDENTIAL1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL_PAIR1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL_PAIR2 {
     pub localCredentials: IKEEXT_CREDENTIAL2,
     pub peerCredentials: IKEEXT_CREDENTIAL2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL_PAIR2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR2 {
     fn clone(&self) -> Self {
         *self
@@ -5246,48 +5131,39 @@ pub const IKEEXT_EAP_FLAG_LOCAL_AUTH_ONLY: IKEEXT_EAP_AUTHENTICATION_FLAGS = 1u3
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const IKEEXT_EAP_FLAG_REMOTE_AUTH_ONLY: IKEEXT_EAP_AUTHENTICATION_FLAGS = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_EM_POLICY0 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_EM_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_EM_POLICY0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_EM_POLICY1 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD1,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_EM_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_EM_POLICY1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_EM_POLICY2 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD2,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_EM_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_EM_POLICY2 {
     fn clone(&self) -> Self {
         *self
@@ -5333,18 +5209,15 @@ pub const IKEEXT_INTEGRITY_SHA_384: IKEEXT_INTEGRITY_TYPE = 3i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const IKEEXT_INTEGRITY_TYPE_MAX: IKEEXT_INTEGRITY_TYPE = 4i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0 {
-    pub keyContainerName: super::super::Foundation::PWSTR,
-    pub cspName: super::super::Foundation::PWSTR,
+    pub keyContainerName: ::windows_sys::core::PWSTR,
+    pub cspName: ::windows_sys::core::PWSTR,
     pub cspType: u32,
     pub cgaModifier: FWP_BYTE_ARRAY16,
     pub cgaCollisionCount: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_IPV6_CGA_AUTHENTICATION0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     fn clone(&self) -> Self {
         *self
@@ -5442,15 +5315,12 @@ impl ::core::clone::Clone for IKEEXT_KERBEROS_AUTHENTICATION0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1 {
     pub flags: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS,
-    pub proxyServer: super::super::Foundation::PWSTR,
+    pub proxyServer: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_KERBEROS_AUTHENTICATION1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_KERBEROS_AUTHENTICATION1 {
     fn clone(&self) -> Self {
         *self
@@ -5523,14 +5393,11 @@ pub const IKEEXT_MM_SA_STATE_COMPLETE: IKEEXT_MM_SA_STATE = 5i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const IKEEXT_MM_SA_STATE_MAX: IKEEXT_MM_SA_STATE = 6i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_NAME_CREDENTIAL0 {
-    pub principalName: super::super::Foundation::PWSTR,
+    pub principalName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_NAME_CREDENTIAL0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_NAME_CREDENTIAL0 {
     fn clone(&self) -> Self {
         *self
@@ -5550,8 +5417,7 @@ impl ::core::clone::Clone for IKEEXT_NTLM_V2_AUTHENTICATION0 {
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_POLICY0 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -5562,17 +5428,14 @@ pub struct IKEEXT_POLICY0 {
     pub flags: IKEEXT_POLICY_FLAG,
     pub maxDynamicFilters: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_POLICY0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_POLICY1 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -5584,17 +5447,14 @@ pub struct IKEEXT_POLICY1 {
     pub maxDynamicFilters: u32,
     pub retransmitDurationSecs: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_POLICY1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_POLICY2 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -5606,9 +5466,7 @@ pub struct IKEEXT_POLICY2 {
     pub maxDynamicFilters: u32,
     pub retransmitDurationSecs: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_POLICY2 {
     fn clone(&self) -> Self {
         *self
@@ -5706,8 +5564,7 @@ pub type IKEEXT_RESERVED_AUTHENTICATION_FLAGS = u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const IKEEXT_RESERVED_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: IKEEXT_RESERVED_AUTHENTICATION_FLAGS = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_SA_DETAILS0 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -5720,31 +5577,25 @@ pub struct IKEEXT_SA_DETAILS0 {
     pub ikePolicyKey: ::windows_sys::core::GUID,
     pub virtualIfTunnelId: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_SA_DETAILS0_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_SA_DETAILS1 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -5758,31 +5609,25 @@ pub struct IKEEXT_SA_DETAILS1 {
     pub virtualIfTunnelId: u64,
     pub correlationKey: FWP_BYTE_BLOB,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_SA_DETAILS1_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_SA_DETAILS2 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -5796,23 +5641,18 @@ pub struct IKEEXT_SA_DETAILS2 {
     pub virtualIfTunnelId: u64,
     pub correlationKey: FWP_BYTE_BLOB,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_SA_DETAILS2_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS2_0 {
     fn clone(&self) -> Self {
         *self
@@ -6316,19 +6156,16 @@ impl ::core::clone::Clone for IPSEC_GETSPI1_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_ID0 {
-    pub mmTargetName: super::super::Foundation::PWSTR,
-    pub emTargetName: super::super::Foundation::PWSTR,
+    pub mmTargetName: ::windows_sys::core::PWSTR,
+    pub emTargetName: ::windows_sys::core::PWSTR,
     pub numTokens: u32,
     pub tokens: *mut IPSEC_TOKEN0,
     pub explicitCredentials: u64,
     pub logonId: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_ID0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_ID0 {
     fn clone(&self) -> Self {
         *self
@@ -6374,17 +6211,14 @@ impl ::core::clone::Clone for IPSEC_KEYMODULE_STATE0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_KEY_MANAGER0 {
     pub keyManagerKey: ::windows_sys::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
     pub flags: u32,
     pub keyDictationTimeoutHint: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_KEY_MANAGER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_KEY_MANAGER0 {
     fn clone(&self) -> Self {
         *self
@@ -6542,8 +6376,7 @@ impl ::core::clone::Clone for IPSEC_SA_AUTH_INFORMATION0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_SA_BUNDLE0 {
     pub flags: IPSEC_SA_BUNDLE_FLAGS,
     pub lifetime: IPSEC_SA_LIFETIME0,
@@ -6560,31 +6393,25 @@ pub struct IPSEC_SA_BUNDLE0 {
     pub mmSaId: u64,
     pub pfsGroup: IPSEC_PFS_GROUP,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_SA_BUNDLE0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_SA_BUNDLE0_0 {
     pub peerV4PrivateAddress: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_SA_BUNDLE0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_SA_BUNDLE1 {
     pub flags: IPSEC_SA_BUNDLE_FLAGS,
     pub lifetime: IPSEC_SA_LIFETIME0,
@@ -6603,23 +6430,18 @@ pub struct IPSEC_SA_BUNDLE1 {
     pub saLookupContext: ::windows_sys::core::GUID,
     pub qmFilterId: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_SA_BUNDLE1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_SA_BUNDLE1_0 {
     pub peerV4PrivateAddress: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_SA_BUNDLE1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE1_0 {
     fn clone(&self) -> Self {
         *self
@@ -7189,8 +7011,7 @@ pub const IPSEC_TRANSFORM_ESP_AUTH_FW: IPSEC_TRANSFORM_TYPE = 5i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const IPSEC_TRANSFORM_TYPE_MAX: IPSEC_TRANSFORM_TYPE = 6i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TRANSPORT_POLICY0 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -7199,17 +7020,14 @@ pub struct IPSEC_TRANSPORT_POLICY0 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TRANSPORT_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TRANSPORT_POLICY0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TRANSPORT_POLICY1 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -7218,17 +7036,14 @@ pub struct IPSEC_TRANSPORT_POLICY1 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TRANSPORT_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TRANSPORT_POLICY1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TRANSPORT_POLICY2 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -7237,9 +7052,7 @@ pub struct IPSEC_TRANSPORT_POLICY2 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TRANSPORT_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TRANSPORT_POLICY2 {
     fn clone(&self) -> Self {
         *self
@@ -7345,58 +7158,48 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS1_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TUNNEL_ENDPOINTS2 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TUNNEL_ENDPOINTS2_0,
     pub Anonymous2: IPSEC_TUNNEL_ENDPOINTS2_1,
     pub localIfLuid: u64,
-    pub remoteFqdn: super::super::Foundation::PWSTR,
+    pub remoteFqdn: ::windows_sys::core::PWSTR,
     pub numAddresses: u32,
     pub remoteAddresses: *mut IPSEC_TUNNEL_ENDPOINT0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_TUNNEL_ENDPOINTS2_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_TUNNEL_ENDPOINTS2_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TUNNEL_POLICY0 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -7405,17 +7208,14 @@ pub struct IPSEC_TUNNEL_POLICY0 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TUNNEL_POLICY1 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -7424,17 +7224,14 @@ pub struct IPSEC_TUNNEL_POLICY1 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TUNNEL_POLICY2 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -7444,17 +7241,14 @@ pub struct IPSEC_TUNNEL_POLICY2 {
     pub emPolicy: *mut IKEEXT_EM_POLICY2,
     pub fwdPathSaLifetime: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TUNNEL_POLICY3_ {
     pub flags: u32,
     pub numIpsecProposals: u32,
@@ -7467,9 +7261,7 @@ pub struct IPSEC_TUNNEL_POLICY3_ {
     pub numTrafficSelectorPolicy: u32,
     pub trafficSelectorPolicies: *mut IPSEC_TRAFFIC_SELECTOR_POLICY0_,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY3_ {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY3_ {
     fn clone(&self) -> Self {
         *self

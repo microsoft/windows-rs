@@ -228,15 +228,13 @@ impl IBackgroundCopyCallback3_Vtbl {
         iid == &<IBackgroundCopyCallback3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyCallback as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyCallback2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyError_Impl: Sized {
     fn GetError(&self, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn GetFile(&self) -> ::windows::core::Result<IBackgroundCopyFile>;
-    fn GetErrorDescription(&self, languageid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetErrorContextDescription(&self, languageid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetProtocol(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetErrorDescription(&self, languageid: u32) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetErrorContextDescription(&self, languageid: u32) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetProtocol(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyError_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyError_Impl, const OFFSET: isize>() -> IBackgroundCopyError_Vtbl {
         unsafe extern "system" fn GetError<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -255,7 +253,7 @@ impl IBackgroundCopyError_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetErrorDescription<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languageid: u32, perrordescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorDescription<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languageid: u32, perrordescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetErrorDescription(::core::mem::transmute_copy(&languageid)) {
@@ -266,7 +264,7 @@ impl IBackgroundCopyError_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetErrorContextDescription<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languageid: u32, pcontextdescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorContextDescription<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languageid: u32, pcontextdescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetErrorContextDescription(::core::mem::transmute_copy(&languageid)) {
@@ -277,7 +275,7 @@ impl IBackgroundCopyError_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProtocol<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotocol: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProtocol<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotocol: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetProtocol() {
@@ -303,14 +301,14 @@ impl IBackgroundCopyError_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile_Impl: Sized {
-    fn GetRemoteName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetLocalName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetRemoteName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn GetLocalName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile_Impl, const OFFSET: isize>() -> IBackgroundCopyFile_Vtbl {
-        unsafe extern "system" fn GetRemoteName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRemoteName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetRemoteName() {
@@ -321,7 +319,7 @@ impl IBackgroundCopyFile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLocalName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocalName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetLocalName() {
@@ -357,7 +355,7 @@ impl IBackgroundCopyFile_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile2_Impl: Sized + IBackgroundCopyFile_Impl {
     fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()>;
-    fn SetRemoteName(&self, val: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetRemoteName(&self, val: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile2_Vtbl {
@@ -367,10 +365,10 @@ impl IBackgroundCopyFile2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetFileRanges(::core::mem::transmute_copy(&rangecount), ::core::mem::transmute_copy(&ranges)).into()
         }
-        unsafe extern "system" fn SetRemoteName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRemoteName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRemoteName(::core::mem::transmute_copy(&val)).into()
+            (*this).SetRemoteName(::core::mem::transmute(&val)).into()
         }
         Self {
             base: IBackgroundCopyFile_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -384,7 +382,7 @@ impl IBackgroundCopyFile2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile3_Impl: Sized + IBackgroundCopyFile_Impl + IBackgroundCopyFile2_Impl {
-    fn GetTemporaryName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetTemporaryName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetValidationState(&self, state: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetValidationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsDownloadedFromPeer(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -392,7 +390,7 @@ pub trait IBackgroundCopyFile3_Impl: Sized + IBackgroundCopyFile_Impl + IBackgro
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile3_Impl, const OFFSET: isize>() -> IBackgroundCopyFile3_Vtbl {
-        unsafe extern "system" fn GetTemporaryName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTemporaryName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilename: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetTemporaryName() {
@@ -699,7 +697,7 @@ impl IBackgroundCopyGroup_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob_Impl: Sized {
     fn AddFileSet(&self, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> ::windows::core::Result<()>;
-    fn AddFile(&self, remoteurl: super::super::Foundation::PWSTR, localname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddFile(&self, remoteurl: &::windows::core::PCWSTR, localname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn EnumFiles(&self) -> ::windows::core::Result<IEnumBackgroundCopyFiles>;
     fn Suspend(&self) -> ::windows::core::Result<()>;
     fn Resume(&self) -> ::windows::core::Result<()>;
@@ -711,11 +709,11 @@ pub trait IBackgroundCopyJob_Impl: Sized {
     fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES>;
     fn GetState(&self) -> ::windows::core::Result<BG_JOB_STATE>;
     fn GetError(&self) -> ::windows::core::Result<IBackgroundCopyError>;
-    fn GetOwner(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetDisplayName(&self, val: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetDescription(&self, val: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetOwner(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetDisplayName(&self, val: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetDescription(&self, val: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetPriority(&self, val: BG_JOB_PRIORITY) -> ::windows::core::Result<()>;
     fn GetPriority(&self) -> ::windows::core::Result<BG_JOB_PRIORITY>;
     fn SetNotifyFlags(&self, val: u32) -> ::windows::core::Result<()>;
@@ -727,8 +725,8 @@ pub trait IBackgroundCopyJob_Impl: Sized {
     fn SetNoProgressTimeout(&self, seconds: u32) -> ::windows::core::Result<()>;
     fn GetNoProgressTimeout(&self) -> ::windows::core::Result<u32>;
     fn GetErrorCount(&self) -> ::windows::core::Result<u32>;
-    fn SetProxySettings(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: super::super::Foundation::PWSTR, proxybypasslist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut super::super::Foundation::PWSTR, pproxybypasslist: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetProxySettings(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: &::windows::core::PCWSTR, proxybypasslist: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn TakeOwnership(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -739,10 +737,10 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AddFileSet(::core::mem::transmute_copy(&cfilecount), ::core::mem::transmute_copy(&pfileset)).into()
         }
-        unsafe extern "system" fn AddFile<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteurl: super::super::Foundation::PWSTR, localname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddFile<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteurl: ::windows::core::PCWSTR, localname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddFile(::core::mem::transmute_copy(&remoteurl), ::core::mem::transmute_copy(&localname)).into()
+            (*this).AddFile(::core::mem::transmute(&remoteurl), ::core::mem::transmute(&localname)).into()
         }
         unsafe extern "system" fn EnumFiles<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -841,7 +839,7 @@ impl IBackgroundCopyJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOwner<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOwner<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetOwner() {
@@ -852,12 +850,12 @@ impl IBackgroundCopyJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDisplayName(::core::mem::transmute_copy(&val)).into()
+            (*this).SetDisplayName(::core::mem::transmute(&val)).into()
         }
-        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetDisplayName() {
@@ -868,12 +866,12 @@ impl IBackgroundCopyJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDescription(::core::mem::transmute_copy(&val)).into()
+            (*this).SetDescription(::core::mem::transmute(&val)).into()
         }
-        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetDescription() {
@@ -975,12 +973,12 @@ impl IBackgroundCopyJob_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxySettings<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, proxyusage: BG_JOB_PROXY_USAGE, proxylist: super::super::Foundation::PWSTR, proxybypasslist: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProxySettings<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, proxyusage: BG_JOB_PROXY_USAGE, proxylist: ::windows::core::PCWSTR, proxybypasslist: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProxySettings(::core::mem::transmute_copy(&proxyusage), ::core::mem::transmute_copy(&proxylist), ::core::mem::transmute_copy(&proxybypasslist)).into()
+            (*this).SetProxySettings(::core::mem::transmute_copy(&proxyusage), ::core::mem::transmute(&proxylist), ::core::mem::transmute(&proxybypasslist)).into()
         }
-        unsafe extern "system" fn GetProxySettings<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut super::super::Foundation::PWSTR, pproxybypasslist: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProxySettings<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetProxySettings(::core::mem::transmute_copy(&pproxyusage), ::core::mem::transmute_copy(&pproxylist), ::core::mem::transmute_copy(&pproxybypasslist)).into()
@@ -1126,24 +1124,24 @@ impl IBackgroundCopyJob1_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob2_Impl: Sized + IBackgroundCopyJob_Impl {
-    fn SetNotifyCmdLine(&self, program: super::super::Foundation::PWSTR, parameters: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetNotifyCmdLine(&self, pprogram: *mut super::super::Foundation::PWSTR, pparameters: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetNotifyCmdLine(&self, program: &::windows::core::PCWSTR, parameters: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetNotifyCmdLine(&self, pprogram: *mut ::windows::core::PWSTR, pparameters: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn GetReplyProgress(&self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> ::windows::core::Result<()>;
     fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows::core::Result<()>;
-    fn SetReplyFileName(&self, replyfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetReplyFileName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetReplyFileName(&self, replyfilename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetReplyFileName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetCredentials(&self, credentials: *const BG_AUTH_CREDENTIALS) -> ::windows::core::Result<()>;
     fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob2_Impl, const OFFSET: isize>() -> IBackgroundCopyJob2_Vtbl {
-        unsafe extern "system" fn SetNotifyCmdLine<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, program: super::super::Foundation::PWSTR, parameters: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNotifyCmdLine<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, program: ::windows::core::PCWSTR, parameters: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetNotifyCmdLine(::core::mem::transmute_copy(&program), ::core::mem::transmute_copy(&parameters)).into()
+            (*this).SetNotifyCmdLine(::core::mem::transmute(&program), ::core::mem::transmute(&parameters)).into()
         }
-        unsafe extern "system" fn GetNotifyCmdLine<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprogram: *mut super::super::Foundation::PWSTR, pparameters: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNotifyCmdLine<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprogram: *mut ::windows::core::PWSTR, pparameters: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetNotifyCmdLine(::core::mem::transmute_copy(&pprogram), ::core::mem::transmute_copy(&pparameters)).into()
@@ -1158,12 +1156,12 @@ impl IBackgroundCopyJob2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetReplyData(::core::mem::transmute_copy(&ppbuffer), ::core::mem::transmute_copy(&plength)).into()
         }
-        unsafe extern "system" fn SetReplyFileName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, replyfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReplyFileName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, replyfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetReplyFileName(::core::mem::transmute_copy(&replyfilename)).into()
+            (*this).SetReplyFileName(::core::mem::transmute(&replyfilename)).into()
         }
-        unsafe extern "system" fn GetReplyFileName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preplyfilename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetReplyFileName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preplyfilename: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetReplyFileName() {
@@ -1202,23 +1200,23 @@ impl IBackgroundCopyJob2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob3_Impl: Sized + IBackgroundCopyJob_Impl + IBackgroundCopyJob2_Impl {
-    fn ReplaceRemotePrefix(&self, oldprefix: super::super::Foundation::PWSTR, newprefix: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddFileWithRanges(&self, remoteurl: super::super::Foundation::PWSTR, localname: super::super::Foundation::PWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
+    fn ReplaceRemotePrefix(&self, oldprefix: &::windows::core::PCWSTR, newprefix: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn AddFileWithRanges(&self, remoteurl: &::windows::core::PCWSTR, localname: &::windows::core::PCWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
     fn SetFileACLFlags(&self, flags: u32) -> ::windows::core::Result<()>;
     fn GetFileACLFlags(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob3_Impl, const OFFSET: isize>() -> IBackgroundCopyJob3_Vtbl {
-        unsafe extern "system" fn ReplaceRemotePrefix<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldprefix: super::super::Foundation::PWSTR, newprefix: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReplaceRemotePrefix<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldprefix: ::windows::core::PCWSTR, newprefix: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ReplaceRemotePrefix(::core::mem::transmute_copy(&oldprefix), ::core::mem::transmute_copy(&newprefix)).into()
+            (*this).ReplaceRemotePrefix(::core::mem::transmute(&oldprefix), ::core::mem::transmute(&newprefix)).into()
         }
-        unsafe extern "system" fn AddFileWithRanges<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteurl: super::super::Foundation::PWSTR, localname: super::super::Foundation::PWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddFileWithRanges<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteurl: ::windows::core::PCWSTR, localname: ::windows::core::PCWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddFileWithRanges(::core::mem::transmute_copy(&remoteurl), ::core::mem::transmute_copy(&localname), ::core::mem::transmute_copy(&rangecount), ::core::mem::transmute_copy(&ranges)).into()
+            (*this).AddFileWithRanges(::core::mem::transmute(&remoteurl), ::core::mem::transmute(&localname), ::core::mem::transmute_copy(&rangecount), ::core::mem::transmute_copy(&ranges)).into()
         }
         unsafe extern "system" fn SetFileACLFlags<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1362,46 +1360,44 @@ impl IBackgroundCopyJob5_Vtbl {
         iid == &<IBackgroundCopyJob5 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJob4 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJobHttpOptions_Impl: Sized {
-    fn SetClientCertificateByID(&self, storelocation: BG_CERT_STORE_LOCATION, storename: super::super::Foundation::PWSTR, pcerthashblob: *const u8) -> ::windows::core::Result<()>;
-    fn SetClientCertificateByName(&self, storelocation: BG_CERT_STORE_LOCATION, storename: super::super::Foundation::PWSTR, subjectname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetClientCertificateByID(&self, storelocation: BG_CERT_STORE_LOCATION, storename: &::windows::core::PCWSTR, pcerthashblob: *const u8) -> ::windows::core::Result<()>;
+    fn SetClientCertificateByName(&self, storelocation: BG_CERT_STORE_LOCATION, storename: &::windows::core::PCWSTR, subjectname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn RemoveClientCertificate(&self) -> ::windows::core::Result<()>;
-    fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut super::super::Foundation::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetCustomHeaders(&self, requestheaders: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetCustomHeaders(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn SetCustomHeaders(&self, requestheaders: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetCustomHeaders(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetSecurityFlags(&self, flags: u32) -> ::windows::core::Result<()>;
     fn GetSecurityFlags(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJobHttpOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>() -> IBackgroundCopyJobHttpOptions_Vtbl {
-        unsafe extern "system" fn SetClientCertificateByID<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: super::super::Foundation::PWSTR, pcerthashblob: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientCertificateByID<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: ::windows::core::PCWSTR, pcerthashblob: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetClientCertificateByID(::core::mem::transmute_copy(&storelocation), ::core::mem::transmute_copy(&storename), ::core::mem::transmute_copy(&pcerthashblob)).into()
+            (*this).SetClientCertificateByID(::core::mem::transmute_copy(&storelocation), ::core::mem::transmute(&storename), ::core::mem::transmute_copy(&pcerthashblob)).into()
         }
-        unsafe extern "system" fn SetClientCertificateByName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: super::super::Foundation::PWSTR, subjectname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientCertificateByName<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: ::windows::core::PCWSTR, subjectname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetClientCertificateByName(::core::mem::transmute_copy(&storelocation), ::core::mem::transmute_copy(&storename), ::core::mem::transmute_copy(&subjectname)).into()
+            (*this).SetClientCertificateByName(::core::mem::transmute_copy(&storelocation), ::core::mem::transmute(&storename), ::core::mem::transmute(&subjectname)).into()
         }
         unsafe extern "system" fn RemoveClientCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).RemoveClientCertificate().into()
         }
-        unsafe extern "system" fn GetClientCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut super::super::Foundation::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetClientCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetClientCertificate(::core::mem::transmute_copy(&pstorelocation), ::core::mem::transmute_copy(&pstorename), ::core::mem::transmute_copy(&ppcerthashblob), ::core::mem::transmute_copy(&psubjectname)).into()
         }
-        unsafe extern "system" fn SetCustomHeaders<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestheaders: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomHeaders<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestheaders: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCustomHeaders(::core::mem::transmute_copy(&requestheaders)).into()
+            (*this).SetCustomHeaders(::core::mem::transmute(&requestheaders)).into()
         }
-        unsafe extern "system" fn GetCustomHeaders<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prequestheaders: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCustomHeaders<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prequestheaders: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetCustomHeaders() {
@@ -1444,20 +1440,18 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJobHttpOptions2_Impl: Sized + IBackgroundCopyJobHttpOptions_Impl {
-    fn SetHttpMethod(&self, method: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetHttpMethod(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetHttpMethod(&self, method: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetHttpMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJobHttpOptions2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions2_Impl, const OFFSET: isize>() -> IBackgroundCopyJobHttpOptions2_Vtbl {
-        unsafe extern "system" fn SetHttpMethod<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHttpMethod<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetHttpMethod(::core::mem::transmute_copy(&method)).into()
+            (*this).SetHttpMethod(::core::mem::transmute(&method)).into()
         }
-        unsafe extern "system" fn GetHttpMethod<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHttpMethod<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetHttpMethod() {
@@ -1478,12 +1472,10 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJobHttpOptions3_Impl: Sized + IBackgroundCopyJobHttpOptions_Impl + IBackgroundCopyJobHttpOptions2_Impl {
     fn SetServerCertificateValidationInterface(&self, certvalidationcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn MakeCustomHeadersWriteOnly(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJobHttpOptions3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions3_Impl, const OFFSET: isize>() -> IBackgroundCopyJobHttpOptions3_Vtbl {
         unsafe extern "system" fn SetServerCertificateValidationInterface<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJobHttpOptions3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certvalidationcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1506,20 +1498,18 @@ impl IBackgroundCopyJobHttpOptions3_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyManager_Impl: Sized {
-    fn CreateJob(&self, displayname: super::super::Foundation::PWSTR, r#type: BG_JOB_TYPE, pjobid: *mut ::windows::core::GUID, ppjob: *mut ::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>;
+    fn CreateJob(&self, displayname: &::windows::core::PCWSTR, r#type: BG_JOB_TYPE, pjobid: *mut ::windows::core::GUID, ppjob: *mut ::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>;
     fn GetJob(&self, jobid: *const ::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob>;
     fn EnumJobs(&self, dwflags: u32) -> ::windows::core::Result<IEnumBackgroundCopyJobs>;
-    fn GetErrorDescription(&self, hresult: ::windows::core::HRESULT, languageid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetErrorDescription(&self, hresult: ::windows::core::HRESULT, languageid: u32) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyManager_Impl, const OFFSET: isize>() -> IBackgroundCopyManager_Vtbl {
-        unsafe extern "system" fn CreateJob<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: super::super::Foundation::PWSTR, r#type: BG_JOB_TYPE, pjobid: *mut ::windows::core::GUID, ppjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateJob<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: ::windows::core::PCWSTR, r#type: BG_JOB_TYPE, pjobid: *mut ::windows::core::GUID, ppjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateJob(::core::mem::transmute_copy(&displayname), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pjobid), ::core::mem::transmute_copy(&ppjob)).into()
+            (*this).CreateJob(::core::mem::transmute(&displayname), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pjobid), ::core::mem::transmute_copy(&ppjob)).into()
         }
         unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, jobid: *const ::windows::core::GUID, ppjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1543,7 +1533,7 @@ impl IBackgroundCopyManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetErrorDescription<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, languageid: u32, perrordescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorDescription<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, languageid: u32, perrordescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetErrorDescription(::core::mem::transmute_copy(&hresult), ::core::mem::transmute_copy(&languageid)) {
@@ -1635,14 +1625,14 @@ impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeer_Impl: Sized {
-    fn GetPeerName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetPeerName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn IsAuthenticated(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsAvailable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBitsPeer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitsPeer_Impl, const OFFSET: isize>() -> IBitsPeer_Vtbl {
-        unsafe extern "system" fn GetPeerName<Identity: ::windows::core::IUnknownImpl, Impl: IBitsPeer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPeerName<Identity: ::windows::core::IUnknownImpl, Impl: IBitsPeer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetPeerName() {
@@ -1686,7 +1676,6 @@ impl IBitsPeer_Vtbl {
         iid == &<IBitsPeer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeerCacheAdministration_Impl: Sized {
     fn GetMaximumCacheSize(&self) -> ::windows::core::Result<u32>;
     fn SetMaximumCacheSize(&self, bytes: u32) -> ::windows::core::Result<()>;
@@ -1698,12 +1687,11 @@ pub trait IBitsPeerCacheAdministration_Impl: Sized {
     fn GetRecord(&self, id: *const ::windows::core::GUID) -> ::windows::core::Result<IBitsPeerCacheRecord>;
     fn ClearRecords(&self) -> ::windows::core::Result<()>;
     fn DeleteRecord(&self, id: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn DeleteUrl(&self, url: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn DeleteUrl(&self, url: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn EnumPeers(&self) -> ::windows::core::Result<IEnumBitsPeers>;
     fn ClearPeers(&self) -> ::windows::core::Result<()>;
     fn DiscoverPeers(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IBitsPeerCacheAdministration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>() -> IBitsPeerCacheAdministration_Vtbl {
         unsafe extern "system" fn GetMaximumCacheSize<Identity: ::windows::core::IUnknownImpl, Impl: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT {
@@ -1786,10 +1774,10 @@ impl IBitsPeerCacheAdministration_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DeleteRecord(::core::mem::transmute_copy(&id)).into()
         }
-        unsafe extern "system" fn DeleteUrl<Identity: ::windows::core::IUnknownImpl, Impl: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteUrl<Identity: ::windows::core::IUnknownImpl, Impl: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteUrl(::core::mem::transmute_copy(&url)).into()
+            (*this).DeleteUrl(::core::mem::transmute(&url)).into()
         }
         unsafe extern "system" fn EnumPeers<Identity: ::windows::core::IUnknownImpl, Impl: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1837,7 +1825,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeerCacheRecord_Impl: Sized {
     fn GetId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetOriginUrl(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetOriginUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetFileSize(&self) -> ::windows::core::Result<u64>;
     fn GetFileModificationTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
     fn GetLastAccessTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
@@ -1858,7 +1846,7 @@ impl IBitsPeerCacheRecord_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOriginUrl<Identity: ::windows::core::IUnknownImpl, Impl: IBitsPeerCacheRecord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOriginUrl<Identity: ::windows::core::IUnknownImpl, Impl: IBitsPeerCacheRecord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetOriginUrl() {
@@ -1927,15 +1915,13 @@ impl IBitsPeerCacheRecord_Vtbl {
         iid == &<IBitsPeerCacheRecord as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IBitsTokenOptions_Impl: Sized {
     fn SetHelperTokenFlags(&self, usageflags: BG_TOKEN) -> ::windows::core::Result<()>;
     fn GetHelperTokenFlags(&self) -> ::windows::core::Result<BG_TOKEN>;
     fn SetHelperToken(&self) -> ::windows::core::Result<()>;
     fn ClearHelperToken(&self) -> ::windows::core::Result<()>;
-    fn GetHelperTokenSid(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetHelperTokenSid(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IBitsTokenOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitsTokenOptions_Impl, const OFFSET: isize>() -> IBitsTokenOptions_Vtbl {
         unsafe extern "system" fn SetHelperTokenFlags<Identity: ::windows::core::IUnknownImpl, Impl: IBitsTokenOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usageflags: BG_TOKEN) -> ::windows::core::HRESULT {
@@ -1964,7 +1950,7 @@ impl IBitsTokenOptions_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ClearHelperToken().into()
         }
-        unsafe extern "system" fn GetHelperTokenSid<Identity: ::windows::core::IUnknownImpl, Impl: IBitsTokenOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHelperTokenSid<Identity: ::windows::core::IUnknownImpl, Impl: IBitsTokenOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetHelperTokenSid() {

@@ -4717,18 +4717,16 @@ impl IWMPMediaCollection2_Vtbl {
         iid == &<IWMPMediaCollection2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWMPMediaCollection as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IWMPMediaPluginRegistrar_Impl: Sized {
-    fn WMPRegisterPlayerPlugin(&self, pwszfriendlyname: super::super::Foundation::PWSTR, pwszdescription: super::super::Foundation::PWSTR, pwszuninstallstring: super::super::Foundation::PWSTR, dwpriority: u32, guidplugintype: &::windows::core::GUID, clsid: &::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn WMPRegisterPlayerPlugin(&self, pwszfriendlyname: &::windows::core::PCWSTR, pwszdescription: &::windows::core::PCWSTR, pwszuninstallstring: &::windows::core::PCWSTR, dwpriority: u32, guidplugintype: &::windows::core::GUID, clsid: &::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn WMPUnRegisterPlayerPlugin(&self, guidplugintype: &::windows::core::GUID, clsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IWMPMediaPluginRegistrar_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMediaPluginRegistrar_Impl, const OFFSET: isize>() -> IWMPMediaPluginRegistrar_Vtbl {
-        unsafe extern "system" fn WMPRegisterPlayerPlugin<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMediaPluginRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfriendlyname: super::super::Foundation::PWSTR, pwszdescription: super::super::Foundation::PWSTR, pwszuninstallstring: super::super::Foundation::PWSTR, dwpriority: u32, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WMPRegisterPlayerPlugin<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMediaPluginRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfriendlyname: ::windows::core::PCWSTR, pwszdescription: ::windows::core::PCWSTR, pwszuninstallstring: ::windows::core::PCWSTR, dwpriority: u32, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WMPRegisterPlayerPlugin(::core::mem::transmute_copy(&pwszfriendlyname), ::core::mem::transmute_copy(&pwszdescription), ::core::mem::transmute_copy(&pwszuninstallstring), ::core::mem::transmute_copy(&dwpriority), ::core::mem::transmute(&guidplugintype), ::core::mem::transmute(&clsid), ::core::mem::transmute_copy(&cmediatypes), ::core::mem::transmute_copy(&pmediatypes)).into()
+            (*this).WMPRegisterPlayerPlugin(::core::mem::transmute(&pwszfriendlyname), ::core::mem::transmute(&pwszdescription), ::core::mem::transmute(&pwszuninstallstring), ::core::mem::transmute_copy(&dwpriority), ::core::mem::transmute(&guidplugintype), ::core::mem::transmute(&clsid), ::core::mem::transmute_copy(&cmediatypes), ::core::mem::transmute_copy(&pmediatypes)).into()
         }
         unsafe extern "system" fn WMPUnRegisterPlayerPlugin<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMediaPluginRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6015,8 +6013,8 @@ pub trait IWMPPluginUI_Impl: Sized {
     fn Create(&self, hwndparent: super::super::Foundation::HWND, phwndwindow: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn Destroy(&self) -> ::windows::core::Result<()>;
     fn DisplayPropertyPage(&self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn GetProperty(&self, pwszname: super::super::Foundation::PWSTR, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetProperty(&self, pwszname: super::super::Foundation::PWSTR, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, pwszname: &::windows::core::PCWSTR, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, pwszname: &::windows::core::PCWSTR, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn TranslateAccelerator(&self, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -6042,15 +6040,15 @@ impl IWMPPluginUI_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DisplayPropertyPage(::core::mem::transmute_copy(&hwndparent)).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: super::super::Foundation::PWSTR, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetProperty(::core::mem::transmute_copy(&pwszname), ::core::mem::transmute_copy(&pvarproperty)).into()
+            (*this).GetProperty(::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&pvarproperty)).into()
         }
-        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: super::super::Foundation::PWSTR, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProperty(::core::mem::transmute_copy(&pwszname), ::core::mem::transmute_copy(&pvarproperty)).into()
+            (*this).SetProperty(::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&pvarproperty)).into()
         }
         unsafe extern "system" fn TranslateAccelerator<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6869,13 +6867,13 @@ impl IWMPWindowMessageSink_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXFeed_Impl: Sized {
     fn Xml(&self, uiitemcount: u32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Rename(&self, pszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Url(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetUrl(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Rename(&self, pszname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn Url(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetUrl(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn LocalId(&self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Path(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Move(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Path(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Move(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Parent(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn LastWriteTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
     fn Delete(&self) -> ::windows::core::Result<()>;
@@ -6887,7 +6885,7 @@ pub trait IXFeed_Impl: Sized {
     fn Interval(&self) -> ::windows::core::Result<u32>;
     fn SetInterval(&self, uiinterval: u32) -> ::windows::core::Result<()>;
     fn LastDownloadTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
-    fn LocalEnclosurePath(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn LocalEnclosurePath(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn Items(&self) -> ::windows::core::Result<IXFeedsEnum>;
     fn GetItem(&self, uiid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn MarkAllItemsRead(&self) -> ::windows::core::Result<()>;
@@ -6897,17 +6895,17 @@ pub trait IXFeed_Impl: Sized {
     fn SetDownloadEnclosuresAutomatically(&self, bdownloadenclosuresautomatically: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn DownloadStatus(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_STATUS>;
     fn LastDownloadError(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_ERROR>;
-    fn Merge(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn DownloadUrl(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Title(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Link(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Image(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Merge(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Title(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Description(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Link(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Image(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn LastBuildDate(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
     fn PubDate(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
     fn Ttl(&self) -> ::windows::core::Result<u32>;
-    fn Language(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Copyright(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Language(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Copyright(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn IsList(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn UnreadItemCount(&self) -> ::windows::core::Result<u32>;
@@ -6927,7 +6925,7 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Name() {
@@ -6938,12 +6936,12 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Rename<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rename<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Rename(::core::mem::transmute_copy(&pszname)).into()
+            (*this).Rename(::core::mem::transmute(&pszname)).into()
         }
-        unsafe extern "system" fn Url<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Url<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Url() {
@@ -6954,10 +6952,10 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUrl<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUrl<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetUrl(::core::mem::transmute_copy(&pszurl)).into()
+            (*this).SetUrl(::core::mem::transmute(&pszurl)).into()
         }
         unsafe extern "system" fn LocalId<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6970,7 +6968,7 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Path() {
@@ -6981,10 +6979,10 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Move<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Move<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Move(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).Move(::core::mem::transmute(&pszpath)).into()
         }
         unsafe extern "system" fn Parent<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -7065,7 +7063,7 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalEnclosurePath<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalEnclosurePath<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).LocalEnclosurePath() {
@@ -7151,12 +7149,12 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Merge<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Merge<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Merge(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&pszurl)).into()
+            (*this).Merge(::core::mem::transmute(&pstream), ::core::mem::transmute(&pszurl)).into()
         }
-        unsafe extern "system" fn DownloadUrl<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadUrl<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).DownloadUrl() {
@@ -7167,7 +7165,7 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsztitle: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsztitle: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Title() {
@@ -7178,7 +7176,7 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszdescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszdescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Description() {
@@ -7189,7 +7187,7 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Link<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszhomepage: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Link<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszhomepage: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Link() {
@@ -7200,7 +7198,7 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Image<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszimageurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Image<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszimageurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Image() {
@@ -7244,7 +7242,7 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Language<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszlanguage: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Language<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszlanguage: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Language() {
@@ -7255,7 +7253,7 @@ impl IXFeed_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Copyright<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszcopyright: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Copyright<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszcopyright: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Copyright() {
@@ -7360,9 +7358,9 @@ impl IXFeed_Vtbl {
 pub trait IXFeed2_Impl: Sized + IXFeed_Impl {
     fn GetItemByEffectiveId(&self, uieffectiveid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn LastItemDownloadTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
-    fn Username(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Password(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetCredentials(&self, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Username(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Password(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetCredentials(&self, pszusername: &::windows::core::PCWSTR, pszpassword: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn ClearCredentials(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -7384,7 +7382,7 @@ impl IXFeed2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Username<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszusername: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Username<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszusername: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Username() {
@@ -7395,7 +7393,7 @@ impl IXFeed2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Password<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpassword: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Password<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpassword: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Password() {
@@ -7406,10 +7404,10 @@ impl IXFeed2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCredentials<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCredentials<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszusername: ::windows::core::PCWSTR, pszpassword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCredentials(::core::mem::transmute_copy(&pszusername), ::core::mem::transmute_copy(&pszpassword)).into()
+            (*this).SetCredentials(::core::mem::transmute(&pszusername), ::core::mem::transmute(&pszpassword)).into()
         }
         unsafe extern "system" fn ClearCredentials<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -7430,26 +7428,24 @@ impl IXFeed2_Vtbl {
         iid == &<IXFeed2 as ::windows::core::Interface>::IID || iid == &<IXFeed as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXFeedEnclosure_Impl: Sized {
-    fn Url(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Type(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Url(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Type(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn Length(&self) -> ::windows::core::Result<u32>;
     fn AsyncDownload(&self) -> ::windows::core::Result<()>;
     fn CancelAsyncDownload(&self) -> ::windows::core::Result<()>;
     fn DownloadStatus(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_STATUS>;
     fn LastDownloadError(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_ERROR>;
-    fn LocalPath(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn LocalPath(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn Parent(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn DownloadUrl(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn DownloadMimeType(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn DownloadMimeType(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn RemoveFile(&self) -> ::windows::core::Result<()>;
-    fn SetFile(&self, pszdownloadurl: super::super::Foundation::PWSTR, pszdownloadfilepath: super::super::Foundation::PWSTR, pszdownloadmimetype: super::super::Foundation::PWSTR, pszenclosurefilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetFile(&self, pszdownloadurl: &::windows::core::PCWSTR, pszdownloadfilepath: &::windows::core::PCWSTR, pszdownloadmimetype: &::windows::core::PCWSTR, pszenclosurefilename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXFeedEnclosure_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>() -> IXFeedEnclosure_Vtbl {
-        unsafe extern "system" fn Url<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Url<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Url() {
@@ -7460,7 +7456,7 @@ impl IXFeedEnclosure_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszmimetype: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszmimetype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Type() {
@@ -7514,7 +7510,7 @@ impl IXFeedEnclosure_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalPath<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalPath<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).LocalPath() {
@@ -7530,7 +7526,7 @@ impl IXFeedEnclosure_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Parent(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn DownloadUrl<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadUrl<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).DownloadUrl() {
@@ -7541,7 +7537,7 @@ impl IXFeedEnclosure_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DownloadMimeType<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszmimetype: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadMimeType<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszmimetype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).DownloadMimeType() {
@@ -7557,10 +7553,10 @@ impl IXFeedEnclosure_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RemoveFile().into()
         }
-        unsafe extern "system" fn SetFile<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdownloadurl: super::super::Foundation::PWSTR, pszdownloadfilepath: super::super::Foundation::PWSTR, pszdownloadmimetype: super::super::Foundation::PWSTR, pszenclosurefilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFile<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdownloadurl: ::windows::core::PCWSTR, pszdownloadfilepath: ::windows::core::PCWSTR, pszdownloadmimetype: ::windows::core::PCWSTR, pszenclosurefilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFile(::core::mem::transmute_copy(&pszdownloadurl), ::core::mem::transmute_copy(&pszdownloadfilepath), ::core::mem::transmute_copy(&pszdownloadmimetype), ::core::mem::transmute_copy(&pszenclosurefilename)).into()
+            (*this).SetFile(::core::mem::transmute(&pszdownloadurl), ::core::mem::transmute(&pszdownloadfilepath), ::core::mem::transmute(&pszdownloadmimetype), ::core::mem::transmute(&pszenclosurefilename)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -7583,18 +7579,16 @@ impl IXFeedEnclosure_Vtbl {
         iid == &<IXFeedEnclosure as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXFeedEvents_Impl: Sized {
     fn Error(&self) -> ::windows::core::Result<()>;
-    fn FeedDeleted(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedRenamed(&self, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedUrlChanged(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedMoved(&self, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedDownloading(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedDownloadCompleted(&self, pszpath: super::super::Foundation::PWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()>;
-    fn FeedItemCountChanged(&self, pszpath: super::super::Foundation::PWSTR, feicfflags: i32) -> ::windows::core::Result<()>;
+    fn FeedDeleted(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedRenamed(&self, pszpath: &::windows::core::PCWSTR, pszoldpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedUrlChanged(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedMoved(&self, pszpath: &::windows::core::PCWSTR, pszoldpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedDownloading(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedDownloadCompleted(&self, pszpath: &::windows::core::PCWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()>;
+    fn FeedItemCountChanged(&self, pszpath: &::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXFeedEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>() -> IXFeedEvents_Vtbl {
         unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7602,40 +7596,40 @@ impl IXFeedEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Error().into()
         }
-        unsafe extern "system" fn FeedDeleted<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedDeleted<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedDeleted(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).FeedDeleted(::core::mem::transmute(&pszpath)).into()
         }
-        unsafe extern "system" fn FeedRenamed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedRenamed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedRenamed(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&pszoldpath)).into()
+            (*this).FeedRenamed(::core::mem::transmute(&pszpath), ::core::mem::transmute(&pszoldpath)).into()
         }
-        unsafe extern "system" fn FeedUrlChanged<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedUrlChanged<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedUrlChanged(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).FeedUrlChanged(::core::mem::transmute(&pszpath)).into()
         }
-        unsafe extern "system" fn FeedMoved<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedMoved<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedMoved(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&pszoldpath)).into()
+            (*this).FeedMoved(::core::mem::transmute(&pszpath), ::core::mem::transmute(&pszoldpath)).into()
         }
-        unsafe extern "system" fn FeedDownloading<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedDownloading<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedDownloading(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).FeedDownloading(::core::mem::transmute(&pszpath)).into()
         }
-        unsafe extern "system" fn FeedDownloadCompleted<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedDownloadCompleted<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedDownloadCompleted(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&fde)).into()
+            (*this).FeedDownloadCompleted(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&fde)).into()
         }
-        unsafe extern "system" fn FeedItemCountChanged<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, feicfflags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedItemCountChanged<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedItemCountChanged(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&feicfflags)).into()
+            (*this).FeedItemCountChanged(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&feicfflags)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -7657,17 +7651,17 @@ impl IXFeedEvents_Vtbl {
 pub trait IXFeedFolder_Impl: Sized {
     fn Feeds(&self) -> ::windows::core::Result<IXFeedsEnum>;
     fn Subfolders(&self) -> ::windows::core::Result<IXFeedsEnum>;
-    fn CreateFeed(&self, pszname: super::super::Foundation::PWSTR, pszurl: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateSubfolder(&self, pszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ExistsFeed(&self, pszname: super::super::Foundation::PWSTR, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn ExistsSubfolder(&self, pszname: super::super::Foundation::PWSTR, pbsubfolderexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetFeed(&self, pszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetSubfolder(&self, pszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateFeed(&self, pszname: &::windows::core::PCWSTR, pszurl: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateSubfolder(&self, pszname: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ExistsFeed(&self, pszname: &::windows::core::PCWSTR, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ExistsSubfolder(&self, pszname: &::windows::core::PCWSTR, pbsubfolderexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetFeed(&self, pszname: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetSubfolder(&self, pszname: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
-    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Rename(&self, pszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Path(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Move(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Rename(&self, pszname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn Path(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Move(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Parent(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn IsRoot(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -7699,42 +7693,42 @@ impl IXFeedFolder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, pszurl: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pszurl: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateFeed(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&pszurl), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            (*this).CreateFeed(::core::mem::transmute(&pszname), ::core::mem::transmute(&pszurl), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn CreateSubfolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSubfolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateSubfolder(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            (*this).CreateSubfolder(::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn ExistsFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExistsFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ExistsFeed(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&pbfeedexists)).into()
+            (*this).ExistsFeed(::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&pbfeedexists)).into()
         }
-        unsafe extern "system" fn ExistsSubfolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, pbsubfolderexists: *const super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExistsSubfolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pbsubfolderexists: *const super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ExistsSubfolder(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&pbsubfolderexists)).into()
+            (*this).ExistsSubfolder(::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&pbsubfolderexists)).into()
         }
-        unsafe extern "system" fn GetFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetFeed(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            (*this).GetFeed(::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn GetSubfolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSubfolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetSubfolder(::core::mem::transmute_copy(&pszname), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            (*this).GetSubfolder(::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Name() {
@@ -7745,12 +7739,12 @@ impl IXFeedFolder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Rename<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Rename<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Rename(::core::mem::transmute_copy(&pszname)).into()
+            (*this).Rename(::core::mem::transmute(&pszname)).into()
         }
-        unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Path() {
@@ -7761,10 +7755,10 @@ impl IXFeedFolder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Move<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Move<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Move(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).Move(::core::mem::transmute(&pszpath)).into()
         }
         unsafe extern "system" fn Parent<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -7835,26 +7829,24 @@ impl IXFeedFolder_Vtbl {
         iid == &<IXFeedFolder as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IXFeedFolderEvents_Impl: Sized {
     fn Error(&self) -> ::windows::core::Result<()>;
-    fn FolderAdded(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FolderDeleted(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FolderRenamed(&self, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FolderMovedFrom(&self, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FolderMovedTo(&self, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FolderItemCountChanged(&self, pszpath: super::super::Foundation::PWSTR, feicfflags: i32) -> ::windows::core::Result<()>;
-    fn FeedAdded(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedDeleted(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedRenamed(&self, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedUrlChanged(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedMovedFrom(&self, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedMovedTo(&self, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedDownloading(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FeedDownloadCompleted(&self, pszpath: super::super::Foundation::PWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()>;
-    fn FeedItemCountChanged(&self, pszpath: super::super::Foundation::PWSTR, feicfflags: i32) -> ::windows::core::Result<()>;
+    fn FolderAdded(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FolderDeleted(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FolderRenamed(&self, pszpath: &::windows::core::PCWSTR, pszoldpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FolderMovedFrom(&self, pszpath: &::windows::core::PCWSTR, pszoldpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FolderMovedTo(&self, pszpath: &::windows::core::PCWSTR, pszoldpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FolderItemCountChanged(&self, pszpath: &::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::Result<()>;
+    fn FeedAdded(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedDeleted(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedRenamed(&self, pszpath: &::windows::core::PCWSTR, pszoldpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedUrlChanged(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedMovedFrom(&self, pszpath: &::windows::core::PCWSTR, pszoldpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedMovedTo(&self, pszpath: &::windows::core::PCWSTR, pszoldpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedDownloading(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn FeedDownloadCompleted(&self, pszpath: &::windows::core::PCWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()>;
+    fn FeedItemCountChanged(&self, pszpath: &::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IXFeedFolderEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>() -> IXFeedFolderEvents_Vtbl {
         unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7862,80 +7854,80 @@ impl IXFeedFolderEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Error().into()
         }
-        unsafe extern "system" fn FolderAdded<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FolderAdded<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FolderAdded(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).FolderAdded(::core::mem::transmute(&pszpath)).into()
         }
-        unsafe extern "system" fn FolderDeleted<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FolderDeleted<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FolderDeleted(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).FolderDeleted(::core::mem::transmute(&pszpath)).into()
         }
-        unsafe extern "system" fn FolderRenamed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FolderRenamed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FolderRenamed(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&pszoldpath)).into()
+            (*this).FolderRenamed(::core::mem::transmute(&pszpath), ::core::mem::transmute(&pszoldpath)).into()
         }
-        unsafe extern "system" fn FolderMovedFrom<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FolderMovedFrom<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FolderMovedFrom(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&pszoldpath)).into()
+            (*this).FolderMovedFrom(::core::mem::transmute(&pszpath), ::core::mem::transmute(&pszoldpath)).into()
         }
-        unsafe extern "system" fn FolderMovedTo<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FolderMovedTo<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FolderMovedTo(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&pszoldpath)).into()
+            (*this).FolderMovedTo(::core::mem::transmute(&pszpath), ::core::mem::transmute(&pszoldpath)).into()
         }
-        unsafe extern "system" fn FolderItemCountChanged<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, feicfflags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FolderItemCountChanged<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FolderItemCountChanged(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&feicfflags)).into()
+            (*this).FolderItemCountChanged(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&feicfflags)).into()
         }
-        unsafe extern "system" fn FeedAdded<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedAdded<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedAdded(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).FeedAdded(::core::mem::transmute(&pszpath)).into()
         }
-        unsafe extern "system" fn FeedDeleted<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedDeleted<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedDeleted(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).FeedDeleted(::core::mem::transmute(&pszpath)).into()
         }
-        unsafe extern "system" fn FeedRenamed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedRenamed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedRenamed(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&pszoldpath)).into()
+            (*this).FeedRenamed(::core::mem::transmute(&pszpath), ::core::mem::transmute(&pszoldpath)).into()
         }
-        unsafe extern "system" fn FeedUrlChanged<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedUrlChanged<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedUrlChanged(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).FeedUrlChanged(::core::mem::transmute(&pszpath)).into()
         }
-        unsafe extern "system" fn FeedMovedFrom<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedMovedFrom<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedMovedFrom(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&pszoldpath)).into()
+            (*this).FeedMovedFrom(::core::mem::transmute(&pszpath), ::core::mem::transmute(&pszoldpath)).into()
         }
-        unsafe extern "system" fn FeedMovedTo<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, pszoldpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedMovedTo<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedMovedTo(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&pszoldpath)).into()
+            (*this).FeedMovedTo(::core::mem::transmute(&pszpath), ::core::mem::transmute(&pszoldpath)).into()
         }
-        unsafe extern "system" fn FeedDownloading<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedDownloading<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedDownloading(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).FeedDownloading(::core::mem::transmute(&pszpath)).into()
         }
-        unsafe extern "system" fn FeedDownloadCompleted<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedDownloadCompleted<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedDownloadCompleted(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&fde)).into()
+            (*this).FeedDownloadCompleted(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&fde)).into()
         }
-        unsafe extern "system" fn FeedItemCountChanged<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, feicfflags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FeedItemCountChanged<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FeedItemCountChanged(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&feicfflags)).into()
+            (*this).FeedItemCountChanged(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&feicfflags)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -7964,20 +7956,20 @@ impl IXFeedFolderEvents_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXFeedItem_Impl: Sized {
     fn Xml(&self, fxif: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn Title(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Link(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Guid(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Title(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Link(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Guid(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Description(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn PubDate(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
-    fn Comments(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Author(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Comments(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn Author(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn Enclosure(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn IsRead(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetIsRead(&self, bisread: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn LocalId(&self) -> ::windows::core::Result<u32>;
     fn Parent(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
-    fn DownloadUrl(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn LastDownloadTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
     fn Modified(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
 }
@@ -7995,7 +7987,7 @@ impl IXFeedItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsztitle: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsztitle: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Title() {
@@ -8006,7 +7998,7 @@ impl IXFeedItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Link<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Link<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Link() {
@@ -8017,7 +8009,7 @@ impl IXFeedItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Guid<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszguid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Guid<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszguid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Guid() {
@@ -8028,7 +8020,7 @@ impl IXFeedItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszdescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszdescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Description() {
@@ -8050,7 +8042,7 @@ impl IXFeedItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Comments<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Comments<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Comments() {
@@ -8061,7 +8053,7 @@ impl IXFeedItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Author<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszauthor: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Author<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszauthor: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).Author() {
@@ -8114,7 +8106,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Delete().into()
         }
-        unsafe extern "system" fn DownloadUrl<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadUrl<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).DownloadUrl() {
@@ -8227,14 +8219,14 @@ impl IXFeedsEnum_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXFeedsManager_Impl: Sized {
     fn RootFolder(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn IsSubscribed(&self, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn ExistsFeed(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetFeed(&self, pszpath: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetFeedByUrl(&self, pszurl: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ExistsFolder(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetFolder(&self, pszpath: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn DeleteFeed(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn DeleteFolder(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn IsSubscribed(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn ExistsFeed(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetFeed(&self, pszpath: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetFeedByUrl(&self, pszurl: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ExistsFolder(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetFolder(&self, pszpath: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn DeleteFeed(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn DeleteFolder(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn BackgroundSync(&self, fbsa: FEEDS_BACKGROUNDSYNC_ACTION) -> ::windows::core::Result<()>;
     fn BackgroundSyncStatus(&self) -> ::windows::core::Result<FEEDS_BACKGROUNDSYNC_STATUS>;
     fn DefaultInterval(&self) -> ::windows::core::Result<u32>;
@@ -8251,10 +8243,10 @@ impl IXFeedsManager_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RootFolder(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn IsSubscribed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pbsubscribed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSubscribed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pbsubscribed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsSubscribed(::core::mem::transmute_copy(&pszurl)) {
+            match (*this).IsSubscribed(::core::mem::transmute(&pszurl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbsubscribed = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8262,10 +8254,10 @@ impl IXFeedsManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExistsFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, pbfeedexists: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExistsFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, pbfeedexists: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ExistsFeed(::core::mem::transmute_copy(&pszpath)) {
+            match (*this).ExistsFeed(::core::mem::transmute(&pszpath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbfeedexists = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8273,20 +8265,20 @@ impl IXFeedsManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetFeed(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            (*this).GetFeed(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn GetFeedByUrl<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFeedByUrl<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetFeedByUrl(::core::mem::transmute_copy(&pszurl), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            (*this).GetFeedByUrl(::core::mem::transmute(&pszurl), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn ExistsFolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, pbfolderexists: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExistsFolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, pbfolderexists: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ExistsFolder(::core::mem::transmute_copy(&pszpath)) {
+            match (*this).ExistsFolder(::core::mem::transmute(&pszpath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbfolderexists = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8294,20 +8286,20 @@ impl IXFeedsManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetFolder(::core::mem::transmute_copy(&pszpath), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            (*this).GetFolder(::core::mem::transmute(&pszpath), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn DeleteFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteFeed<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteFeed(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).DeleteFeed(::core::mem::transmute(&pszpath)).into()
         }
-        unsafe extern "system" fn DeleteFolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteFolder<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteFolder(::core::mem::transmute_copy(&pszpath)).into()
+            (*this).DeleteFolder(::core::mem::transmute(&pszpath)).into()
         }
         unsafe extern "system" fn BackgroundSync<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fbsa: FEEDS_BACKGROUNDSYNC_ACTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

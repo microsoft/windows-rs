@@ -44,18 +44,16 @@ impl IEnumVdsObject_Vtbl {
         iid == &<IEnumVdsObject as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVdsAdmin_Impl: Sized {
-    fn RegisterProvider(&self, providerid: &::windows::core::GUID, providerclsid: &::windows::core::GUID, pwszname: super::super::Foundation::PWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: super::super::Foundation::PWSTR, pwszversion: super::super::Foundation::PWSTR, guidversionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RegisterProvider(&self, providerid: &::windows::core::GUID, providerclsid: &::windows::core::GUID, pwszname: &::windows::core::PCWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: &::windows::core::PCWSTR, pwszversion: &::windows::core::PCWSTR, guidversionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn UnregisterProvider(&self, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IVdsAdmin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAdmin_Impl, const OFFSET: isize>() -> IVdsAdmin_Vtbl {
-        unsafe extern "system" fn RegisterProvider<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, providerclsid: ::windows::core::GUID, pwszname: super::super::Foundation::PWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: super::super::Foundation::PWSTR, pwszversion: super::super::Foundation::PWSTR, guidversionid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterProvider<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, providerclsid: ::windows::core::GUID, pwszname: ::windows::core::PCWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: ::windows::core::PCWSTR, pwszversion: ::windows::core::PCWSTR, guidversionid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterProvider(::core::mem::transmute(&providerid), ::core::mem::transmute(&providerclsid), ::core::mem::transmute_copy(&pwszname), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pwszmachinename), ::core::mem::transmute_copy(&pwszversion), ::core::mem::transmute(&guidversionid)).into()
+            (*this).RegisterProvider(::core::mem::transmute(&providerid), ::core::mem::transmute(&providerclsid), ::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&pwszmachinename), ::core::mem::transmute(&pwszversion), ::core::mem::transmute(&guidversionid)).into()
         }
         unsafe extern "system" fn UnregisterProvider<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -121,7 +119,6 @@ impl IVdsAsync_Vtbl {
         iid == &<IVdsAsync as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVdsController_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_CONTROLLER_PROP>;
     fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
@@ -132,7 +129,6 @@ pub trait IVdsController_Impl: Sized {
     fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IVdsController_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsController_Impl, const OFFSET: isize>() -> IVdsController_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl, Impl: IVdsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> ::windows::core::HRESULT {
@@ -237,7 +233,6 @@ impl IVdsControllerControllerPort_Vtbl {
         iid == &<IVdsControllerControllerPort as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVdsControllerPort_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_PORT_PROP>;
     fn GetController(&self) -> ::windows::core::Result<IVdsController>;
@@ -245,7 +240,6 @@ pub trait IVdsControllerPort_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn SetStatus(&self, status: VDS_PORT_STATUS) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IVdsControllerPort_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsControllerPort_Impl, const OFFSET: isize>() -> IVdsControllerPort_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl, Impl: IVdsControllerPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pportprop: *mut VDS_PORT_PROP) -> ::windows::core::HRESULT {
@@ -372,11 +366,9 @@ impl IVdsDrive_Vtbl {
         iid == &<IVdsDrive as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVdsDrive2_Impl: Sized {
     fn GetProperties2(&self) -> ::windows::core::Result<VDS_DRIVE_PROP2>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IVdsDrive2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsDrive2_Impl, const OFFSET: isize>() -> IVdsDrive2_Vtbl {
         unsafe extern "system" fn GetProperties2<Identity: ::windows::core::IUnknownImpl, Impl: IVdsDrive2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdriveprop2: *mut VDS_DRIVE_PROP2) -> ::windows::core::HRESULT {
@@ -437,15 +429,15 @@ impl IVdsHwProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsHwProviderPrivate_Impl: Sized {
-    fn QueryIfCreatedLun(&self, pwszdevicepath: super::super::Foundation::PWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID>;
+    fn QueryIfCreatedLun(&self, pwszdevicepath: &::windows::core::PCWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsHwProviderPrivate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderPrivate_Impl, const OFFSET: isize>() -> IVdsHwProviderPrivate_Vtbl {
-        unsafe extern "system" fn QueryIfCreatedLun<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderPrivate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicepath: super::super::Foundation::PWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION, plunid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryIfCreatedLun<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderPrivate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicepath: ::windows::core::PCWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION, plunid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).QueryIfCreatedLun(::core::mem::transmute_copy(&pwszdevicepath), ::core::mem::transmute_copy(&pvdsluninformation)) {
+            match (*this).QueryIfCreatedLun(::core::mem::transmute(&pwszdevicepath), ::core::mem::transmute_copy(&pvdsluninformation)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plunid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -481,7 +473,7 @@ impl IVdsHwProviderPrivateMpio_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsHwProviderStoragePools_Impl: Sized {
     fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> ::windows::core::Result<IEnumVdsObject>;
-    fn CreateLunInStoragePool(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: &::windows::core::GUID, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
+    fn CreateLunInStoragePool(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: &::windows::core::GUID, pwszunmaskinglist: &::windows::core::PCWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
     fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: &::windows::core::GUID, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -498,10 +490,10 @@ impl IVdsHwProviderStoragePools_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLunInStoragePool<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: ::windows::core::GUID, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLunInStoragePool<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: ::windows::core::GUID, pwszunmaskinglist: ::windows::core::PCWSTR, phints2: *const VDS_HINTS2, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateLunInStoragePool(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&ullsizeinbytes), ::core::mem::transmute(&storagepoolid), ::core::mem::transmute_copy(&pwszunmaskinglist), ::core::mem::transmute_copy(&phints2)) {
+            match (*this).CreateLunInStoragePool(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&ullsizeinbytes), ::core::mem::transmute(&storagepoolid), ::core::mem::transmute(&pwszunmaskinglist), ::core::mem::transmute_copy(&phints2)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppasync = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -758,10 +750,10 @@ pub trait IVdsIscsiTarget_Impl: Sized {
     fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn CreatePortalGroup(&self) -> ::windows::core::Result<IVdsAsync>;
     fn Delete(&self) -> ::windows::core::Result<IVdsAsync>;
-    fn SetFriendlyName(&self, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetSharedSecret(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RememberInitiatorSharedSecret(&self, pwszinitiatorname: super::super::Foundation::PWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::Result<()>;
-    fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut super::super::Foundation::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::Result<()>;
+    fn SetFriendlyName(&self, pwszfriendlyname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn SetSharedSecret(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn RememberInitiatorSharedSecret(&self, pwszinitiatorname: &::windows::core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::Result<()>;
+    fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut ::windows::core::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsIscsiTarget_Vtbl {
@@ -832,22 +824,22 @@ impl IVdsIscsiTarget_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFriendlyName(::core::mem::transmute_copy(&pwszfriendlyname)).into()
+            (*this).SetFriendlyName(::core::mem::transmute(&pwszfriendlyname)).into()
         }
-        unsafe extern "system" fn SetSharedSecret<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSharedSecret<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSharedSecret(::core::mem::transmute_copy(&ptargetsharedsecret), ::core::mem::transmute_copy(&pwszinitiatorname)).into()
+            (*this).SetSharedSecret(::core::mem::transmute_copy(&ptargetsharedsecret), ::core::mem::transmute(&pwszinitiatorname)).into()
         }
-        unsafe extern "system" fn RememberInitiatorSharedSecret<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszinitiatorname: super::super::Foundation::PWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RememberInitiatorSharedSecret<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszinitiatorname: ::windows::core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RememberInitiatorSharedSecret(::core::mem::transmute_copy(&pwszinitiatorname), ::core::mem::transmute_copy(&pinitiatorsharedsecret)).into()
+            (*this).RememberInitiatorSharedSecret(::core::mem::transmute(&pwszinitiatorname), ::core::mem::transmute_copy(&pinitiatorsharedsecret)).into()
         }
-        unsafe extern "system" fn GetConnectedInitiators<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppwszinitiatorlist: *mut *mut super::super::Foundation::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConnectedInitiators<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppwszinitiatorlist: *mut *mut ::windows::core::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetConnectedInitiators(::core::mem::transmute_copy(&pppwszinitiatorlist), ::core::mem::transmute_copy(&plnumberofinitiators)).into()
@@ -882,7 +874,7 @@ pub trait IVdsLun_Impl: Sized {
     fn AddPlex(&self, lunid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
     fn RemovePlex(&self, plexid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
     fn Recover(&self) -> ::windows::core::Result<IVdsAsync>;
-    fn SetMask(&self, pwszunmaskinglist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetMask(&self, pwszunmaskinglist: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
     fn AssociateControllers(&self, pactivecontrolleridarray: *const ::windows::core::GUID, lnumberofactivecontrollers: i32, pinactivecontrolleridarray: *const ::windows::core::GUID, lnumberofinactivecontrollers: i32) -> ::windows::core::Result<()>;
     fn QueryHints(&self) -> ::windows::core::Result<VDS_HINTS>;
@@ -1003,10 +995,10 @@ impl IVdsLun_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMask<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLun_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszunmaskinglist: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMask<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLun_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszunmaskinglist: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetMask(::core::mem::transmute_copy(&pwszunmaskinglist)).into()
+            (*this).SetMask(::core::mem::transmute(&pwszunmaskinglist)).into()
         }
         unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLun_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1221,17 +1213,15 @@ impl IVdsLunMpio_Vtbl {
         iid == &<IVdsLunMpio as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLunNaming_Impl: Sized {
-    fn SetFriendlyName(&self, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetFriendlyName(&self, pwszfriendlyname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IVdsLunNaming_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunNaming_Impl, const OFFSET: isize>() -> IVdsLunNaming_Vtbl {
-        unsafe extern "system" fn SetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunNaming_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunNaming_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFriendlyName(::core::mem::transmute_copy(&pwszfriendlyname)).into()
+            (*this).SetFriendlyName(::core::mem::transmute(&pwszfriendlyname)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, Impl, OFFSET> }
     }
@@ -1361,11 +1351,9 @@ impl IVdsMaintenance_Vtbl {
         iid == &<IVdsMaintenance as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVdsProvider_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_PROVIDER_PROP>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IVdsProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProvider_Impl, const OFFSET: isize>() -> IVdsProvider_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproviderprop: *mut VDS_PROVIDER_PROP) -> ::windows::core::HRESULT {
@@ -1388,7 +1376,7 @@ impl IVdsProvider_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsProviderPrivate_Impl: Sized {
     fn GetObject(&self, objectid: &::windows::core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn OnLoad(&self, pwszmachinename: super::super::Foundation::PWSTR, pcallbackobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OnLoad(&self, pwszmachinename: &::windows::core::PCWSTR, pcallbackobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn OnUnload(&self, bforceunload: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1405,10 +1393,10 @@ impl IVdsProviderPrivate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnLoad<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProviderPrivate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszmachinename: super::super::Foundation::PWSTR, pcallbackobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnLoad<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProviderPrivate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszmachinename: ::windows::core::PCWSTR, pcallbackobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnLoad(::core::mem::transmute_copy(&pwszmachinename), ::core::mem::transmute(&pcallbackobject)).into()
+            (*this).OnLoad(::core::mem::transmute(&pwszmachinename), ::core::mem::transmute(&pcallbackobject)).into()
         }
         unsafe extern "system" fn OnUnload<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProviderPrivate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bforceunload: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1544,7 +1532,7 @@ pub trait IVdsSubSystem_Impl: Sized {
     fn GetDrive(&self, sbusnumber: i16, sslotnumber: i16) -> ::windows::core::Result<IVdsDrive>;
     fn Reenumerate(&self) -> ::windows::core::Result<()>;
     fn SetControllerStatus(&self, ponlinecontrolleridarray: *const ::windows::core::GUID, lnumberofonlinecontrollers: i32, pofflinecontrolleridarray: *const ::windows::core::GUID, lnumberofofflinecontrollers: i32) -> ::windows::core::Result<()>;
-    fn CreateLun(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints: *const VDS_HINTS) -> ::windows::core::Result<IVdsAsync>;
+    fn CreateLun(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: &::windows::core::PCWSTR, phints: *const VDS_HINTS) -> ::windows::core::Result<IVdsAsync>;
     fn ReplaceDrive(&self, drivetobereplaced: &::windows::core::GUID, replacementdrive: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> ::windows::core::Result<()>;
     fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints: *const VDS_HINTS) -> ::windows::core::Result<u64>;
@@ -1628,10 +1616,10 @@ impl IVdsSubSystem_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetControllerStatus(::core::mem::transmute_copy(&ponlinecontrolleridarray), ::core::mem::transmute_copy(&lnumberofonlinecontrollers), ::core::mem::transmute_copy(&pofflinecontrolleridarray), ::core::mem::transmute_copy(&lnumberofofflinecontrollers)).into()
         }
-        unsafe extern "system" fn CreateLun<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints: *const VDS_HINTS, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLun<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: ::windows::core::PCWSTR, phints: *const VDS_HINTS, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateLun(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&ullsizeinbytes), ::core::mem::transmute_copy(&pdriveidarray), ::core::mem::transmute_copy(&lnumberofdrives), ::core::mem::transmute_copy(&pwszunmaskinglist), ::core::mem::transmute_copy(&phints)) {
+            match (*this).CreateLun(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&ullsizeinbytes), ::core::mem::transmute_copy(&pdriveidarray), ::core::mem::transmute_copy(&lnumberofdrives), ::core::mem::transmute(&pwszunmaskinglist), ::core::mem::transmute_copy(&phints)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppasync = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1684,7 +1672,7 @@ impl IVdsSubSystem_Vtbl {
 pub trait IVdsSubSystem2_Impl: Sized {
     fn GetProperties2(&self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP2>;
     fn GetDrive2(&self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> ::windows::core::Result<IVdsDrive>;
-    fn CreateLun2(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
+    fn CreateLun2(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: &::windows::core::PCWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
     fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1712,10 +1700,10 @@ impl IVdsSubSystem2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLun2<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLun2<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: ::windows::core::PCWSTR, phints2: *const VDS_HINTS2, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateLun2(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&ullsizeinbytes), ::core::mem::transmute_copy(&pdriveidarray), ::core::mem::transmute_copy(&lnumberofdrives), ::core::mem::transmute_copy(&pwszunmaskinglist), ::core::mem::transmute_copy(&phints2)) {
+            match (*this).CreateLun2(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&ullsizeinbytes), ::core::mem::transmute_copy(&pdriveidarray), ::core::mem::transmute_copy(&lnumberofdrives), ::core::mem::transmute(&pwszunmaskinglist), ::core::mem::transmute_copy(&phints2)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppasync = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1768,14 +1756,12 @@ impl IVdsSubSystemInterconnect_Vtbl {
         iid == &<IVdsSubSystemInterconnect as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystemIscsi_Impl: Sized {
     fn QueryTargets(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn QueryPortals(&self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn CreateTarget(&self, pwsziscsiname: super::super::Foundation::PWSTR, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IVdsAsync>;
+    fn CreateTarget(&self, pwsziscsiname: &::windows::core::PCWSTR, pwszfriendlyname: &::windows::core::PCWSTR) -> ::windows::core::Result<IVdsAsync>;
     fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IVdsSubSystemIscsi_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemIscsi_Impl, const OFFSET: isize>() -> IVdsSubSystemIscsi_Vtbl {
         unsafe extern "system" fn QueryTargets<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemIscsi_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1800,10 +1786,10 @@ impl IVdsSubSystemIscsi_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTarget<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemIscsi_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsziscsiname: super::super::Foundation::PWSTR, pwszfriendlyname: super::super::Foundation::PWSTR, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTarget<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemIscsi_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsziscsiname: ::windows::core::PCWSTR, pwszfriendlyname: ::windows::core::PCWSTR, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateTarget(::core::mem::transmute_copy(&pwsziscsiname), ::core::mem::transmute_copy(&pwszfriendlyname)) {
+            match (*this).CreateTarget(::core::mem::transmute(&pwsziscsiname), ::core::mem::transmute(&pwszfriendlyname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppasync = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1828,17 +1814,15 @@ impl IVdsSubSystemIscsi_Vtbl {
         iid == &<IVdsSubSystemIscsi as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystemNaming_Impl: Sized {
-    fn SetFriendlyName(&self, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetFriendlyName(&self, pwszfriendlyname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IVdsSubSystemNaming_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemNaming_Impl, const OFFSET: isize>() -> IVdsSubSystemNaming_Vtbl {
-        unsafe extern "system" fn SetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemNaming_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemNaming_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFriendlyName(::core::mem::transmute_copy(&pwszfriendlyname)).into()
+            (*this).SetFriendlyName(::core::mem::transmute(&pwszfriendlyname)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, Impl, OFFSET> }
     }

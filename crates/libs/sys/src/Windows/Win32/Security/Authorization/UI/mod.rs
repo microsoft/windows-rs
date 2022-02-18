@@ -59,7 +59,7 @@ pub const SI_EDIT_PROPERTIES: SECURITY_INFO_PAGE_FLAGS = 128u32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_OBJECT {
-    pub pwszName: super::super::super::Foundation::PWSTR,
+    pub pwszName: ::windows_sys::core::PWSTR,
     pub pData: *mut ::core::ffi::c_void,
     pub cbData: u32,
     pub pData2: *mut ::core::ffi::c_void,
@@ -88,9 +88,9 @@ pub const SECURITY_OBJECT_ID_SHARE: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct SID_INFO {
     pub pSid: super::super::super::Foundation::PSID,
-    pub pwzCommonName: super::super::super::Foundation::PWSTR,
-    pub pwzClass: super::super::super::Foundation::PWSTR,
-    pub pwzUPN: super::super::super::Foundation::PWSTR,
+    pub pwzCommonName: ::windows_sys::core::PWSTR,
+    pub pwzClass: ::windows_sys::core::PWSTR,
+    pub pwzUPN: ::windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SID_INFO {}
@@ -116,17 +116,14 @@ impl ::core::clone::Clone for SID_INFO_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub struct SI_ACCESS {
     pub pguid: *const ::windows_sys::core::GUID,
     pub mask: u32,
-    pub pszName: super::super::super::Foundation::PWSTR,
+    pub pszName: ::windows_sys::core::PCWSTR,
     pub dwFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SI_ACCESS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SI_ACCESS {
     fn clone(&self) -> Self {
         *self
@@ -147,16 +144,13 @@ pub const SI_EDIT_OWNER: i32 = 1i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_EDIT_PERMS: i32 = 0i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub struct SI_INHERIT_TYPE {
     pub pguid: *const ::windows_sys::core::GUID,
     pub dwFlags: super::super::ACE_FLAGS,
-    pub pszName: super::super::super::Foundation::PWSTR,
+    pub pszName: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SI_INHERIT_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SI_INHERIT_TYPE {
     fn clone(&self) -> Self {
         *self
@@ -174,9 +168,9 @@ pub const SI_OBJECT_GUID: i32 = 65536i32;
 pub struct SI_OBJECT_INFO {
     pub dwFlags: SI_OBJECT_INFO_FLAGS,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub pszServerName: super::super::super::Foundation::PWSTR,
-    pub pszObjectName: super::super::super::Foundation::PWSTR,
-    pub pszPageTitle: super::super::super::Foundation::PWSTR,
+    pub pszServerName: ::windows_sys::core::PWSTR,
+    pub pszObjectName: ::windows_sys::core::PWSTR,
+    pub pszPageTitle: ::windows_sys::core::PWSTR,
     pub guidObjectType: ::windows_sys::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]

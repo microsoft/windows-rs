@@ -23,7 +23,7 @@ extern "system" {
     pub fn WMCreateWriterPushSink(ppsink: *mut IWMWriterPushSink) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WMIsContentProtected(pwszfilename: super::super::Foundation::PWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn WMIsContentProtected(pwszfilename: ::windows_sys::core::PCWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
@@ -859,17 +859,14 @@ pub const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30u32;
 #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WMT_WATERMARK_ENTRY {
     pub wmetType: WMT_WATERMARK_ENTRY_TYPE,
     pub clsid: ::windows_sys::core::GUID,
     pub cbDisplayName: u32,
-    pub pwszDisplayName: super::super::Foundation::PWSTR,
+    pub pwszDisplayName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WMT_WATERMARK_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WMT_WATERMARK_ENTRY {
     fn clone(&self) -> Self {
         *self
@@ -985,17 +982,14 @@ impl ::core::clone::Clone for WM_CLIENT_PROPERTIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_CLIENT_PROPERTIES_EX {
     pub cbSize: u32,
-    pub pwszIPAddress: super::super::Foundation::PWSTR,
-    pub pwszPort: super::super::Foundation::PWSTR,
-    pub pwszDNSName: super::super::Foundation::PWSTR,
+    pub pwszIPAddress: ::windows_sys::core::PCWSTR,
+    pub pwszPort: ::windows_sys::core::PCWSTR,
+    pub pwszDNSName: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WM_CLIENT_PROPERTIES_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WM_CLIENT_PROPERTIES_EX {
     fn clone(&self) -> Self {
         *self
@@ -1090,18 +1084,15 @@ impl ::core::clone::Clone for WM_MEDIA_TYPE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_PICTURE {
-    pub pwszMIMEType: super::super::Foundation::PWSTR,
+    pub pwszMIMEType: ::windows_sys::core::PWSTR,
     pub bPictureType: u8,
-    pub pwszDescription: super::super::Foundation::PWSTR,
+    pub pwszDescription: ::windows_sys::core::PWSTR,
     pub dwDataLen: u32,
     pub pbData: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WM_PICTURE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WM_PICTURE {
     fn clone(&self) -> Self {
         *self
@@ -1132,14 +1123,14 @@ impl ::core::clone::Clone for WM_PORT_NUMBER_RANGE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: u32,
-    pub wszLang: super::super::Foundation::PWSTR,
-    pub wszBrowserUserAgent: super::super::Foundation::PWSTR,
-    pub wszBrowserWebPage: super::super::Foundation::PWSTR,
+    pub wszLang: ::windows_sys::core::PWSTR,
+    pub wszBrowserUserAgent: ::windows_sys::core::PWSTR,
+    pub wszBrowserWebPage: ::windows_sys::core::PWSTR,
     pub qwReserved: u64,
     pub pReserved: *mut super::super::Foundation::LPARAM,
-    pub wszHostExe: super::super::Foundation::PWSTR,
+    pub wszHostExe: ::windows_sys::core::PWSTR,
     pub qwHostVersion: u64,
-    pub wszPlayerUserAgent: super::super::Foundation::PWSTR,
+    pub wszPlayerUserAgent: ::windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WM_READER_CLIENTINFO {}
@@ -1207,18 +1198,15 @@ impl ::core::clone::Clone for WM_STREAM_TYPE_INFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
     pub bContentType: u8,
-    pub pwszContentDescriptor: super::super::Foundation::PWSTR,
+    pub pwszContentDescriptor: ::windows_sys::core::PWSTR,
     pub dwLyricsLen: u32,
     pub pbLyrics: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WM_SYNCHRONISED_LYRICS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WM_SYNCHRONISED_LYRICS {
     fn clone(&self) -> Self {
         *self
@@ -1247,30 +1235,24 @@ pub const WM_SampleExtension_SampleDuration_Size: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_SampleExtension_Timecode_Size: u32 = 14u32;
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_USER_TEXT {
-    pub pwszDescription: super::super::Foundation::PWSTR,
-    pub pwszText: super::super::Foundation::PWSTR,
+    pub pwszDescription: ::windows_sys::core::PWSTR,
+    pub pwszText: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WM_USER_TEXT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WM_USER_TEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_USER_WEB_URL {
-    pub pwszDescription: super::super::Foundation::PWSTR,
-    pub pwszURL: super::super::Foundation::PWSTR,
+    pub pwszDescription: ::windows_sys::core::PWSTR,
+    pub pwszURL: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WM_USER_WEB_URL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WM_USER_WEB_URL {
     fn clone(&self) -> Self {
         *self

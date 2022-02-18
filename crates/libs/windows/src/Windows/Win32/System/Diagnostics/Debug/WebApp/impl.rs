@@ -96,37 +96,37 @@ impl IWebApplicationHost_Vtbl {
         iid == &<IWebApplicationHost as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 pub trait IWebApplicationNavigationEvents_Impl: Sized {
-    fn BeforeNavigate(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR, navigationflags: u32, targetframename: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn NavigateComplete(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn NavigateError(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR, targetframename: super::super::super::super::Foundation::PWSTR, statuscode: u32) -> ::windows::core::Result<()>;
-    fn DocumentComplete(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn BeforeNavigate(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: &::windows::core::PCWSTR, navigationflags: u32, targetframename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn NavigateComplete(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn NavigateError(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: &::windows::core::PCWSTR, targetframename: &::windows::core::PCWSTR, statuscode: u32) -> ::windows::core::Result<()>;
+    fn DocumentComplete(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, url: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn DownloadBegin(&self) -> ::windows::core::Result<()>;
     fn DownloadComplete(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 impl IWebApplicationNavigationEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>() -> IWebApplicationNavigationEvents_Vtbl {
-        unsafe extern "system" fn BeforeNavigate<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR, navigationflags: u32, targetframename: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeforeNavigate<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, navigationflags: u32, targetframename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).BeforeNavigate(::core::mem::transmute(&htmlwindow), ::core::mem::transmute_copy(&url), ::core::mem::transmute_copy(&navigationflags), ::core::mem::transmute_copy(&targetframename)).into()
+            (*this).BeforeNavigate(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url), ::core::mem::transmute_copy(&navigationflags), ::core::mem::transmute(&targetframename)).into()
         }
-        unsafe extern "system" fn NavigateComplete<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NavigateComplete<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NavigateComplete(::core::mem::transmute(&htmlwindow), ::core::mem::transmute_copy(&url)).into()
+            (*this).NavigateComplete(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url)).into()
         }
-        unsafe extern "system" fn NavigateError<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR, targetframename: super::super::super::super::Foundation::PWSTR, statuscode: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NavigateError<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, targetframename: ::windows::core::PCWSTR, statuscode: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NavigateError(::core::mem::transmute(&htmlwindow), ::core::mem::transmute_copy(&url), ::core::mem::transmute_copy(&targetframename), ::core::mem::transmute_copy(&statuscode)).into()
+            (*this).NavigateError(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url), ::core::mem::transmute(&targetframename), ::core::mem::transmute_copy(&statuscode)).into()
         }
-        unsafe extern "system" fn DocumentComplete<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentComplete<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DocumentComplete(::core::mem::transmute(&htmlwindow), ::core::mem::transmute_copy(&url)).into()
+            (*this).DocumentComplete(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url)).into()
         }
         unsafe extern "system" fn DownloadBegin<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -155,7 +155,7 @@ impl IWebApplicationNavigationEvents_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 pub trait IWebApplicationScriptEvents_Impl: Sized {
     fn BeforeScriptExecute(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>) -> ::windows::core::Result<()>;
-    fn ScriptError(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, scripterror: &::core::option::Option<super::IActiveScriptError>, url: super::super::super::super::Foundation::PWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ScriptError(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, scripterror: &::core::option::Option<super::IActiveScriptError>, url: &::windows::core::PCWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 impl IWebApplicationScriptEvents_Vtbl {
@@ -165,10 +165,10 @@ impl IWebApplicationScriptEvents_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).BeforeScriptExecute(::core::mem::transmute(&htmlwindow)).into()
         }
-        unsafe extern "system" fn ScriptError<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, scripterror: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScriptError<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, scripterror: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ScriptError(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&scripterror), ::core::mem::transmute_copy(&url), ::core::mem::transmute_copy(&errorhandled)).into()
+            (*this).ScriptError(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&scripterror), ::core::mem::transmute(&url), ::core::mem::transmute_copy(&errorhandled)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

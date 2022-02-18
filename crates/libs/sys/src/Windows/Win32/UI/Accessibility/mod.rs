@@ -24,10 +24,10 @@ extern "system" {
     pub fn CreateStdAccessibleObject(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: super::super::Foundation::PSTR, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: ::windows_sys::core::PCSTR, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: super::super::Foundation::PWSTR, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: ::windows_sys::core::PCWSTR, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
@@ -36,18 +36,14 @@ extern "system" {
     pub fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32);
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetRoleTextA(lrole: u32, lpszrole: super::super::Foundation::PSTR, cchrolemax: u32) -> u32;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetRoleTextW(lrole: u32, lpszrole: super::super::Foundation::PWSTR, cchrolemax: u32) -> u32;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStateTextA(lstatebit: u32, lpszstate: super::super::Foundation::PSTR, cchstate: u32) -> u32;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStateTextW(lstatebit: u32, lpszstate: super::super::Foundation::PWSTR, cchstate: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub fn GetRoleTextA(lrole: u32, lpszrole: ::windows_sys::core::PSTR, cchrolemax: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub fn GetRoleTextW(lrole: u32, lpszrole: ::windows_sys::core::PWSTR, cchrolemax: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub fn GetStateTextA(lstatebit: u32, lpszstate: ::windows_sys::core::PSTR, cchstate: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub fn GetStateTextW(lstatebit: u32, lpszstate: ::windows_sys::core::PWSTR, cchstate: u32) -> u32;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
@@ -65,9 +61,8 @@ extern "system" {
     pub fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: *mut IAccessible) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LresultFromObject(riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::windows_sys::core::IUnknown) -> super::super::Foundation::LRESULT;
@@ -302,9 +297,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com'*"]
@@ -773,32 +767,26 @@ pub const Grid_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GU
 pub const Grid_RowCount_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 714409407, data2: 49899, data3: 20406, data4: [179, 86, 130, 69, 174, 83, 112, 62] };
 pub const Group_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2907744796, data2: 59592, data3: 18292, data4: [174, 27, 221, 134, 223, 11, 59, 220] };
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct HIGHCONTRASTA {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
-    pub lpszDefaultScheme: super::super::Foundation::PSTR,
+    pub lpszDefaultScheme: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIGHCONTRASTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIGHCONTRASTA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct HIGHCONTRASTW {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
-    pub lpszDefaultScheme: super::super::Foundation::PWSTR,
+    pub lpszDefaultScheme: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIGHCONTRASTW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIGHCONTRASTW {
     fn clone(&self) -> Self {
         *self
@@ -1123,16 +1111,13 @@ impl ::core::clone::Clone for MOUSEKEYS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct MSAAMENUINFO {
     pub dwMSAASignature: u32,
     pub cchWText: u32,
-    pub pszWText: super::super::Foundation::PWSTR,
+    pub pszWText: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MSAAMENUINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MSAAMENUINFO {
     fn clone(&self) -> Self {
         *self
@@ -1469,40 +1454,34 @@ pub const SELFLAG_TAKESELECTION: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub const SELFLAG_VALID: u32 = 31u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct SERIALKEYSA {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
-    pub lpszActivePort: super::super::Foundation::PSTR,
-    pub lpszPort: super::super::Foundation::PSTR,
+    pub lpszActivePort: ::windows_sys::core::PSTR,
+    pub lpszPort: ::windows_sys::core::PSTR,
     pub iBaudRate: u32,
     pub iPortState: u32,
     pub iActive: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERIALKEYSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERIALKEYSA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct SERIALKEYSW {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
-    pub lpszActivePort: super::super::Foundation::PWSTR,
-    pub lpszPort: super::super::Foundation::PWSTR,
+    pub lpszActivePort: ::windows_sys::core::PWSTR,
+    pub lpszPort: ::windows_sys::core::PWSTR,
     pub iBaudRate: u32,
     pub iPortState: u32,
     pub iActive: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERIALKEYSW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SERIALKEYSW {
     fn clone(&self) -> Self {
         *self
@@ -1519,8 +1498,7 @@ pub const SERKF_SERIALKEYSON: SERIALKEYS_FLAGS = 1u32;
 pub const SID_ControlElementProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4101578088, data2: 57940, data3: 19363, data4: [154, 83, 38, 165, 197, 73, 121, 70] };
 pub const SID_IsUIAutomationObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3111115653, data2: 29188, data3: 18212, data4: [132, 43, 199, 5, 157, 237, 185, 208] };
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct SOUNDSENTRYA {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -1532,20 +1510,17 @@ pub struct SOUNDSENTRYA {
     pub iFSGrafEffectColor: u32,
     pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
     pub iWindowsEffectMSec: u32,
-    pub lpszWindowsEffectDLL: super::super::Foundation::PSTR,
+    pub lpszWindowsEffectDLL: ::windows_sys::core::PSTR,
     pub iWindowsEffectOrdinal: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SOUNDSENTRYA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SOUNDSENTRYA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct SOUNDSENTRYW {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -1557,12 +1532,10 @@ pub struct SOUNDSENTRYW {
     pub iFSGrafEffectColor: u32,
     pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
     pub iWindowsEffectMSec: u32,
-    pub lpszWindowsEffectDLL: super::super::Foundation::PWSTR,
+    pub lpszWindowsEffectDLL: ::windows_sys::core::PWSTR,
     pub iWindowsEffectOrdinal: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SOUNDSENTRYW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SOUNDSENTRYW {
     fn clone(&self) -> Self {
         *self
@@ -2785,15 +2758,12 @@ pub const UIA_Window_WindowClosedEventId: i32 = 20017i32;
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub const UIA_Window_WindowOpenedEventId: i32 = 20016i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct UIAutomationEventInfo {
     pub guid: ::windows_sys::core::GUID,
-    pub pProgrammaticName: super::super::Foundation::PWSTR,
+    pub pProgrammaticName: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UIAutomationEventInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UIAutomationEventInfo {
     fn clone(&self) -> Self {
         *self
@@ -2803,12 +2773,12 @@ impl ::core::clone::Clone for UIAutomationEventInfo {
 #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationMethodInfo {
-    pub pProgrammaticName: super::super::Foundation::PWSTR,
+    pub pProgrammaticName: ::windows_sys::core::PCWSTR,
     pub doSetFocus: super::super::Foundation::BOOL,
     pub cInParameters: u32,
     pub cOutParameters: u32,
     pub pParameterTypes: *mut UIAutomationType,
-    pub pParameterNames: *mut super::super::Foundation::PWSTR,
+    pub pParameterNames: *mut ::windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UIAutomationMethodInfo {}
@@ -2835,7 +2805,7 @@ impl ::core::clone::Clone for UIAutomationParameter {
 #[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationPatternInfo {
     pub guid: ::windows_sys::core::GUID,
-    pub pProgrammaticName: super::super::Foundation::PWSTR,
+    pub pProgrammaticName: ::windows_sys::core::PCWSTR,
     pub providerInterfaceId: ::windows_sys::core::GUID,
     pub clientInterfaceId: ::windows_sys::core::GUID,
     pub cProperties: u32,
@@ -2855,16 +2825,13 @@ impl ::core::clone::Clone for UIAutomationPatternInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Accessibility'*"]
 pub struct UIAutomationPropertyInfo {
     pub guid: ::windows_sys::core::GUID,
-    pub pProgrammaticName: super::super::Foundation::PWSTR,
+    pub pProgrammaticName: ::windows_sys::core::PCWSTR,
     pub r#type: UIAutomationType,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for UIAutomationPropertyInfo {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for UIAutomationPropertyInfo {
     fn clone(&self) -> Self {
         *self

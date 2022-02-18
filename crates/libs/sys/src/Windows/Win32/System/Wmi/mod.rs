@@ -2779,7 +2779,7 @@ pub const MofCompiler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { d
 pub struct SWbemAnalysisMatrix {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
-    pub m_pszProperty: super::super::Foundation::PWSTR,
+    pub m_pszProperty: ::windows_sys::core::PCWSTR,
     pub m_uPropertyType: u32,
     pub m_uEntries: u32,
     pub m_pValues: *mut *mut ::core::ffi::c_void,
@@ -2811,25 +2811,22 @@ impl ::core::clone::Clone for SWbemAnalysisMatrixList {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Wmi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,
     pub m_uFeatureMask: u32,
     pub m_pPath: IWbemPath,
-    pub m_pszPath: super::super::Foundation::PWSTR,
-    pub m_pszQueryText: super::super::Foundation::PWSTR,
-    pub m_pszResultClass: super::super::Foundation::PWSTR,
-    pub m_pszAssocClass: super::super::Foundation::PWSTR,
-    pub m_pszRole: super::super::Foundation::PWSTR,
-    pub m_pszResultRole: super::super::Foundation::PWSTR,
-    pub m_pszRequiredQualifier: super::super::Foundation::PWSTR,
-    pub m_pszRequiredAssocQualifier: super::super::Foundation::PWSTR,
+    pub m_pszPath: ::windows_sys::core::PWSTR,
+    pub m_pszQueryText: ::windows_sys::core::PWSTR,
+    pub m_pszResultClass: ::windows_sys::core::PWSTR,
+    pub m_pszAssocClass: ::windows_sys::core::PWSTR,
+    pub m_pszRole: ::windows_sys::core::PWSTR,
+    pub m_pszResultRole: ::windows_sys::core::PWSTR,
+    pub m_pszRequiredQualifier: ::windows_sys::core::PWSTR,
+    pub m_pszRequiredAssocQualifier: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SWbemAssocQueryInf {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SWbemAssocQueryInf {
     fn clone(&self) -> Self {
         *self
@@ -2860,7 +2857,7 @@ pub struct SWbemQueryQualifiedName {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
     pub m_uNameListSize: u32,
-    pub m_ppszNameList: *mut super::super::Foundation::PWSTR,
+    pub m_ppszNameList: *mut ::windows_sys::core::PWSTR,
     pub m_bArraysUsed: super::super::Foundation::BOOL,
     pub m_pbArrayElUsed: *mut super::super::Foundation::BOOL,
     pub m_puArrayIndex: *mut u32,
@@ -2879,7 +2876,7 @@ pub const SWbemRefresher: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
 #[doc = "*Required features: 'Win32_System_Wmi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union SWbemRpnConst {
-    pub m_pszStrVal: super::super::Foundation::PWSTR,
+    pub m_pszStrVal: ::windows_sys::core::PCWSTR,
     pub m_bBoolVal: super::super::Foundation::BOOL,
     pub m_lLongVal: i32,
     pub m_uLongVal: u32,
@@ -2907,15 +2904,15 @@ pub struct SWbemRpnEncodedQuery {
     pub m_uSelectListSize: u32,
     pub m_ppSelectList: *mut *mut SWbemQueryQualifiedName,
     pub m_uFromTargetType: u32,
-    pub m_pszOptionalFromPath: super::super::Foundation::PWSTR,
+    pub m_pszOptionalFromPath: ::windows_sys::core::PCWSTR,
     pub m_uFromListSize: u32,
-    pub m_ppszFromList: *mut super::super::Foundation::PWSTR,
+    pub m_ppszFromList: *mut ::windows_sys::core::PWSTR,
     pub m_uWhereClauseSize: u32,
     pub m_ppRpnWhereClause: *mut *mut SWbemRpnQueryToken,
     pub m_dblWithinPolling: f64,
     pub m_dblWithinWindow: f64,
     pub m_uOrderByListSize: u32,
-    pub m_ppszOrderByList: *mut super::super::Foundation::PWSTR,
+    pub m_ppszOrderByList: *mut ::windows_sys::core::PWSTR,
     pub m_uOrderDirectionEl: *mut u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2940,8 +2937,8 @@ pub struct SWbemRpnQueryToken {
     pub m_Const: SWbemRpnConst,
     pub m_uConst2ApparentType: u32,
     pub m_Const2: SWbemRpnConst,
-    pub m_pszRightFunc: super::super::Foundation::PWSTR,
-    pub m_pszLeftFunc: super::super::Foundation::PWSTR,
+    pub m_pszRightFunc: ::windows_sys::core::PCWSTR,
+    pub m_pszLeftFunc: ::windows_sys::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SWbemRpnQueryToken {}

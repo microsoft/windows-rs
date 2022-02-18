@@ -196,12 +196,10 @@ impl IDirectMusicBuffer_Vtbl {
         iid == &<IDirectMusicBuffer as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDirectMusicCollection_Impl: Sized {
     fn GetInstrument(&self, dwpatch: u32) -> ::windows::core::Result<IDirectMusicInstrument>;
-    fn EnumInstrument(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: super::super::super::Foundation::PWSTR, dwnamelen: u32) -> ::windows::core::Result<()>;
+    fn EnumInstrument(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: &::windows::core::PCWSTR, dwnamelen: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IDirectMusicCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicCollection_Impl, const OFFSET: isize>() -> IDirectMusicCollection_Vtbl {
         unsafe extern "system" fn GetInstrument<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwpatch: u32, ppinstrument: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -215,10 +213,10 @@ impl IDirectMusicCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumInstrument<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pdwpatch: *mut u32, pwszname: super::super::super::Foundation::PWSTR, dwnamelen: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumInstrument<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pdwpatch: *mut u32, pwszname: ::windows::core::PCWSTR, dwnamelen: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EnumInstrument(::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&pdwpatch), ::core::mem::transmute_copy(&pwszname), ::core::mem::transmute_copy(&dwnamelen)).into()
+            (*this).EnumInstrument(::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&pdwpatch), ::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&dwnamelen)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

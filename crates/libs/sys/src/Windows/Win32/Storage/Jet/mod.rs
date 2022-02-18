@@ -69,11 +69,11 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
     pub fn JetCommitTransaction2(sesid: super::StructuredStorage::JET_SESID, grbit: u32, cmsecdurablecommit: u32, pcommitid: *mut JET_COMMIT_ID) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_A, grbit: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_W, grbit: u32) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -92,30 +92,30 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateIndex2A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE_A, cindexcreate: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateIndex2W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE_W, cindexcreate: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateIndex3A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE2_A, cindexcreate: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateIndex3W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE2_W, cindexcreate: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateIndex4A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE3_A, cindexcreate: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateIndex4W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE3_W, cindexcreate: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-    pub fn JetCreateIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32, szkey: super::super::Foundation::PSTR, cbkey: u32, ldensity: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-    pub fn JetCreateIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32, szkey: super::super::Foundation::PWSTR, cbkey: u32, ldensity: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    pub fn JetCreateIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32, szkey: ::windows_sys::core::PCSTR, cbkey: u32, ldensity: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    pub fn JetCreateIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32, szkey: ::windows_sys::core::PCWSTR, cbkey: u32, ldensity: u32) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateInstance2A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, szinstancename: *const i8, szdisplayname: *const i8, grbit: u32) -> i32;
@@ -131,29 +131,29 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateTableColumnIndex2A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_A) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateTableColumnIndex2W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_W) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateTableColumnIndex3A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_A) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateTableColumnIndex3W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_W) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateTableColumnIndex4A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_A) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateTableColumnIndex4W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_W) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateTableColumnIndexA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE_A) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateTableColumnIndexW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE_W) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -221,11 +221,11 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetDupSession(sesid: super::StructuredStorage::JET_SESID, psesid: *mut super::StructuredStorage::JET_SESID) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetEnableMultiInstanceA(psetsysparam: *const JET_SETSYSPARAM_A, csetsysparam: u32, pcsetsucceed: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetEnableMultiInstanceW(psetsysparam: *const JET_SETSYSPARAM_W, csetsysparam: u32, pcsetsucceed: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Jet'*"]
     pub fn JetEndExternalBackup() -> i32;
@@ -247,18 +247,17 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
     pub fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: JET_PFNSTATUS) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: JET_PFNSTATUS) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn JetFreeBuffer(pbbuf: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Storage_Jet'*"]
+    pub fn JetFreeBuffer(pbbuf: ::windows_sys::core::PCSTR) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Jet'*"]
     pub fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
@@ -305,11 +304,11 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetGetIndexInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetGetInstanceInfoA(pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetGetInstanceInfoW(pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -435,17 +434,17 @@ extern "system" {
     pub fn JetOSSnapshotAbort(snapid: JET_OSSNAPID, grbit: u32) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Jet'*"]
     pub fn JetOSSnapshotEnd(snapid: JET_OSSNAPID, grbit: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetOSSnapshotFreezeA(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetOSSnapshotFreezeW(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetOSSnapshotGetFreezeInfoA(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetOSSnapshotGetFreezeInfoW(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Jet'*"]
     pub fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i32;
@@ -495,8 +494,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetOpenTemporaryTable(sesid: super::StructuredStorage::JET_SESID, popentemporarytable: *const JET_OPENTEMPORARYTABLE) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+    #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+    #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetOpenTemporaryTable2(sesid: super::StructuredStorage::JET_SESID, popentemporarytable: *const JET_OPENTEMPORARYTABLE2) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -671,88 +670,70 @@ extern "system" {
     pub fn JetUpdate2(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32, grbit: u32) -> i32;
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct CONVERT_A {
-    pub szOldDll: super::super::Foundation::PSTR,
+    pub szOldDll: ::windows_sys::core::PSTR,
     pub Anonymous: CONVERT_A_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union CONVERT_A_0 {
     pub fFlags: u32,
     pub Anonymous: CONVERT_A_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_A_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct CONVERT_A_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_A_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_A_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct CONVERT_W {
-    pub szOldDll: super::super::Foundation::PWSTR,
+    pub szOldDll: ::windows_sys::core::PWSTR,
     pub Anonymous: CONVERT_W_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union CONVERT_W_0 {
     pub fFlags: u32,
     pub Anonymous: CONVERT_W_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_W_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct CONVERT_W_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_W_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_W_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -920,11 +901,10 @@ impl ::core::clone::Clone for JET_COLUMNBASE_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_COLUMNCREATE_A {
     pub cbStruct: u32,
-    pub szColumnName: super::super::Foundation::PSTR,
+    pub szColumnName: ::windows_sys::core::PSTR,
     pub coltyp: u32,
     pub cbMax: u32,
     pub grbit: u32,
@@ -934,20 +914,17 @@ pub struct JET_COLUMNCREATE_A {
     pub columnid: u32,
     pub err: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_COLUMNCREATE_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_COLUMNCREATE_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_COLUMNCREATE_W {
     pub cbStruct: u32,
-    pub szColumnName: super::super::Foundation::PWSTR,
+    pub szColumnName: ::windows_sys::core::PWSTR,
     pub coltyp: u32,
     pub cbMax: u32,
     pub grbit: u32,
@@ -957,9 +934,7 @@ pub struct JET_COLUMNCREATE_W {
     pub columnid: u32,
     pub err: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_COLUMNCREATE_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_COLUMNCREATE_W {
     fn clone(&self) -> Self {
         *self
@@ -1053,32 +1028,26 @@ impl ::core::clone::Clone for JET_COMMIT_ID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_CONDITIONALCOLUMN_A {
     pub cbStruct: u32,
-    pub szColumnName: super::super::Foundation::PSTR,
+    pub szColumnName: ::windows_sys::core::PSTR,
     pub grbit: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_CONDITIONALCOLUMN_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_CONDITIONALCOLUMN_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_CONDITIONALCOLUMN_W {
     pub cbStruct: u32,
-    pub szColumnName: super::super::Foundation::PWSTR,
+    pub szColumnName: ::windows_sys::core::PWSTR,
     pub grbit: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_CONDITIONALCOLUMN_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_CONDITIONALCOLUMN_W {
     fn clone(&self) -> Self {
         *self
@@ -1514,12 +1483,11 @@ pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = 2i32;
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_IndexCheckingMax: JET_INDEXCHECKING = 3i32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_INDEXCREATE2_A {
     pub cbStruct: u32,
-    pub szIndexName: super::super::Foundation::PSTR,
-    pub szKey: super::super::Foundation::PSTR,
+    pub szIndexName: ::windows_sys::core::PSTR,
+    pub szKey: ::windows_sys::core::PSTR,
     pub cbKey: u32,
     pub grbit: u32,
     pub ulDensity: u32,
@@ -1531,51 +1499,42 @@ pub struct JET_INDEXCREATE2_A {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_INDEXCREATE2_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_A_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_INDEXCREATE2_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_A_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_A_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_INDEXCREATE2_W {
     pub cbStruct: u32,
-    pub szIndexName: super::super::Foundation::PWSTR,
-    pub szKey: super::super::Foundation::PWSTR,
+    pub szIndexName: ::windows_sys::core::PWSTR,
+    pub szKey: ::windows_sys::core::PWSTR,
     pub cbKey: u32,
     pub grbit: u32,
     pub ulDensity: u32,
@@ -1587,51 +1546,42 @@ pub struct JET_INDEXCREATE2_W {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_INDEXCREATE2_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_W_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_INDEXCREATE2_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_W_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_W_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_INDEXCREATE3_A {
     pub cbStruct: u32,
-    pub szIndexName: super::super::Foundation::PSTR,
-    pub szKey: super::super::Foundation::PSTR,
+    pub szIndexName: ::windows_sys::core::PSTR,
+    pub szKey: ::windows_sys::core::PSTR,
     pub cbKey: u32,
     pub grbit: u32,
     pub ulDensity: u32,
@@ -1643,36 +1593,30 @@ pub struct JET_INDEXCREATE3_A {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE3_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_INDEXCREATE3_A_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE3_A_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_INDEXCREATE3_W {
     pub cbStruct: u32,
-    pub szIndexName: super::super::Foundation::PWSTR,
-    pub szKey: super::super::Foundation::PWSTR,
+    pub szIndexName: ::windows_sys::core::PWSTR,
+    pub szKey: ::windows_sys::core::PWSTR,
     pub cbKey: u32,
     pub grbit: u32,
     pub ulDensity: u32,
@@ -1684,36 +1628,30 @@ pub struct JET_INDEXCREATE3_W {
     pub cbKeyMost: u32,
     pub pSpacehints: *mut JET_SPACEHINTS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE3_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_INDEXCREATE3_W_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE3_W_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_INDEXCREATE_A {
     pub cbStruct: u32,
-    pub szIndexName: super::super::Foundation::PSTR,
-    pub szKey: super::super::Foundation::PSTR,
+    pub szIndexName: ::windows_sys::core::PSTR,
+    pub szKey: ::windows_sys::core::PSTR,
     pub cbKey: u32,
     pub grbit: u32,
     pub ulDensity: u32,
@@ -1724,51 +1662,42 @@ pub struct JET_INDEXCREATE_A {
     pub err: i32,
     pub cbKeyMost: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_INDEXCREATE_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_A_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_INDEXCREATE_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_A_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_A_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_INDEXCREATE_W {
     pub cbStruct: u32,
-    pub szIndexName: super::super::Foundation::PWSTR,
-    pub szKey: super::super::Foundation::PWSTR,
+    pub szIndexName: ::windows_sys::core::PWSTR,
+    pub szKey: ::windows_sys::core::PWSTR,
     pub cbKey: u32,
     pub grbit: u32,
     pub ulDensity: u32,
@@ -1779,39 +1708,31 @@ pub struct JET_INDEXCREATE_W {
     pub err: i32,
     pub cbKeyMost: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_INDEXCREATE_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_W_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_INDEXCREATE_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_W_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_W_1 {
     fn clone(&self) -> Self {
         *self
@@ -1925,38 +1846,38 @@ impl ::core::clone::Clone for JET_INDEX_RANGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_INSTANCE_INFO_A {
     pub hInstanceId: super::StructuredStorage::JET_INSTANCE,
-    pub szInstanceName: super::super::Foundation::PSTR,
+    pub szInstanceName: ::windows_sys::core::PSTR,
     pub cDatabases: super::StructuredStorage::JET_API_PTR,
     pub szDatabaseFileName: *mut *mut i8,
     pub szDatabaseDisplayName: *mut *mut i8,
     pub szDatabaseSLVFileName_Obsolete: *mut *mut i8,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_INSTANCE_INFO_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_INSTANCE_INFO_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_INSTANCE_INFO_W {
     pub hInstanceId: super::StructuredStorage::JET_INSTANCE,
-    pub szInstanceName: super::super::Foundation::PWSTR,
+    pub szInstanceName: ::windows_sys::core::PWSTR,
     pub cDatabases: super::StructuredStorage::JET_API_PTR,
     pub szDatabaseFileName: *mut *mut u16,
     pub szDatabaseDisplayName: *mut *mut u16,
     pub szDatabaseSLVFileName_Obsolete: *mut *mut u16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_INSTANCE_INFO_W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_INSTANCE_INFO_W {
     fn clone(&self) -> Self {
         *self
@@ -2188,8 +2109,8 @@ impl ::core::clone::Clone for JET_OPENTEMPORARYTABLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbStruct: u32,
     pub prgcolumndef: *const JET_COLUMNDEF,
@@ -2201,9 +2122,9 @@ pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbVarSegMac: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_OPENTEMPORARYTABLE2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_OPENTEMPORARYTABLE2 {
     fn clone(&self) -> Self {
         *self
@@ -2546,30 +2467,24 @@ impl ::core::clone::Clone for JET_RSTINFO_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_RSTMAP_A {
-    pub szDatabaseName: super::super::Foundation::PSTR,
-    pub szNewDatabaseName: super::super::Foundation::PSTR,
+    pub szDatabaseName: ::windows_sys::core::PSTR,
+    pub szNewDatabaseName: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_RSTMAP_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_RSTMAP_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_RSTMAP_W {
-    pub szDatabaseName: super::super::Foundation::PWSTR,
-    pub szNewDatabaseName: super::super::Foundation::PWSTR,
+    pub szDatabaseName: ::windows_sys::core::PWSTR,
+    pub szNewDatabaseName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_RSTMAP_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_RSTMAP_W {
     fn clone(&self) -> Self {
         *self
@@ -2606,34 +2521,34 @@ impl ::core::clone::Clone for JET_SETINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_SETSYSPARAM_A {
     pub paramid: u32,
     pub lParam: super::StructuredStorage::JET_API_PTR,
-    pub sz: super::super::Foundation::PSTR,
+    pub sz: ::windows_sys::core::PCSTR,
     pub err: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_SETSYSPARAM_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_SETSYSPARAM_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_SETSYSPARAM_W {
     pub paramid: u32,
     pub lParam: super::StructuredStorage::JET_API_PTR,
-    pub sz: super::super::Foundation::PWSTR,
+    pub sz: ::windows_sys::core::PCWSTR,
     pub err: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_SETSYSPARAM_W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_SETSYSPARAM_W {
     fn clone(&self) -> Self {
         *self
@@ -2687,73 +2602,73 @@ impl ::core::clone::Clone for JET_SPACEHINTS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE2_A {
     pub cbStruct: u32,
-    pub szTableName: super::super::Foundation::PSTR,
-    pub szTemplateTableName: super::super::Foundation::PSTR,
+    pub szTableName: ::windows_sys::core::PSTR,
+    pub szTemplateTableName: ::windows_sys::core::PSTR,
     pub ulPages: u32,
     pub ulDensity: u32,
     pub rgcolumncreate: *mut JET_COLUMNCREATE_A,
     pub cColumns: u32,
     pub rgindexcreate: *mut JET_INDEXCREATE_A,
     pub cIndexes: u32,
-    pub szCallback: super::super::Foundation::PSTR,
+    pub szCallback: ::windows_sys::core::PSTR,
     pub cbtyp: u32,
     pub grbit: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_TABLECREATE2_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_TABLECREATE2_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE2_W {
     pub cbStruct: u32,
-    pub szTableName: super::super::Foundation::PWSTR,
-    pub szTemplateTableName: super::super::Foundation::PWSTR,
+    pub szTableName: ::windows_sys::core::PWSTR,
+    pub szTemplateTableName: ::windows_sys::core::PWSTR,
     pub ulPages: u32,
     pub ulDensity: u32,
     pub rgcolumncreate: *mut JET_COLUMNCREATE_W,
     pub cColumns: u32,
     pub rgindexcreate: *mut JET_INDEXCREATE_W,
     pub cIndexes: u32,
-    pub szCallback: super::super::Foundation::PWSTR,
+    pub szCallback: ::windows_sys::core::PWSTR,
     pub cbtyp: u32,
     pub grbit: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_TABLECREATE2_W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_TABLECREATE2_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE3_A {
     pub cbStruct: u32,
-    pub szTableName: super::super::Foundation::PSTR,
-    pub szTemplateTableName: super::super::Foundation::PSTR,
+    pub szTableName: ::windows_sys::core::PSTR,
+    pub szTemplateTableName: ::windows_sys::core::PSTR,
     pub ulPages: u32,
     pub ulDensity: u32,
     pub rgcolumncreate: *mut JET_COLUMNCREATE_A,
     pub cColumns: u32,
     pub rgindexcreate: *mut JET_INDEXCREATE2_A,
     pub cIndexes: u32,
-    pub szCallback: super::super::Foundation::PSTR,
+    pub szCallback: ::windows_sys::core::PSTR,
     pub cbtyp: u32,
     pub grbit: u32,
     pub pSeqSpacehints: *mut JET_SPACEHINTS,
@@ -2762,28 +2677,28 @@ pub struct JET_TABLECREATE3_A {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_TABLECREATE3_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_TABLECREATE3_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE3_W {
     pub cbStruct: u32,
-    pub szTableName: super::super::Foundation::PWSTR,
-    pub szTemplateTableName: super::super::Foundation::PWSTR,
+    pub szTableName: ::windows_sys::core::PWSTR,
+    pub szTemplateTableName: ::windows_sys::core::PWSTR,
     pub ulPages: u32,
     pub ulDensity: u32,
     pub rgcolumncreate: *mut JET_COLUMNCREATE_W,
     pub cColumns: u32,
     pub rgindexcreate: *mut JET_INDEXCREATE2_W,
     pub cIndexes: u32,
-    pub szCallback: super::super::Foundation::PWSTR,
+    pub szCallback: ::windows_sys::core::PWSTR,
     pub cbtyp: u32,
     pub grbit: u32,
     pub pSeqSpacehints: *mut JET_SPACEHINTS,
@@ -2792,28 +2707,28 @@ pub struct JET_TABLECREATE3_W {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_TABLECREATE3_W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_TABLECREATE3_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE4_A {
     pub cbStruct: u32,
-    pub szTableName: super::super::Foundation::PSTR,
-    pub szTemplateTableName: super::super::Foundation::PSTR,
+    pub szTableName: ::windows_sys::core::PSTR,
+    pub szTemplateTableName: ::windows_sys::core::PSTR,
     pub ulPages: u32,
     pub ulDensity: u32,
     pub rgcolumncreate: *mut JET_COLUMNCREATE_A,
     pub cColumns: u32,
     pub rgindexcreate: *mut JET_INDEXCREATE3_A,
     pub cIndexes: u32,
-    pub szCallback: super::super::Foundation::PSTR,
+    pub szCallback: ::windows_sys::core::PSTR,
     pub cbtyp: u32,
     pub grbit: u32,
     pub pSeqSpacehints: *mut JET_SPACEHINTS,
@@ -2822,28 +2737,28 @@ pub struct JET_TABLECREATE4_A {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_TABLECREATE4_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_TABLECREATE4_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE4_W {
     pub cbStruct: u32,
-    pub szTableName: super::super::Foundation::PWSTR,
-    pub szTemplateTableName: super::super::Foundation::PWSTR,
+    pub szTableName: ::windows_sys::core::PWSTR,
+    pub szTemplateTableName: ::windows_sys::core::PWSTR,
     pub ulPages: u32,
     pub ulDensity: u32,
     pub rgcolumncreate: *mut JET_COLUMNCREATE_W,
     pub cColumns: u32,
     pub rgindexcreate: *mut JET_INDEXCREATE3_W,
     pub cIndexes: u32,
-    pub szCallback: super::super::Foundation::PWSTR,
+    pub szCallback: ::windows_sys::core::PWSTR,
     pub cbtyp: u32,
     pub grbit: u32,
     pub pSeqSpacehints: *mut JET_SPACEHINTS,
@@ -2852,21 +2767,21 @@ pub struct JET_TABLECREATE4_W {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_TABLECREATE4_W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_TABLECREATE4_W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE_A {
     pub cbStruct: u32,
-    pub szTableName: super::super::Foundation::PSTR,
-    pub szTemplateTableName: super::super::Foundation::PSTR,
+    pub szTableName: ::windows_sys::core::PSTR,
+    pub szTemplateTableName: ::windows_sys::core::PSTR,
     pub ulPages: u32,
     pub ulDensity: u32,
     pub rgcolumncreate: *mut JET_COLUMNCREATE_A,
@@ -2877,21 +2792,21 @@ pub struct JET_TABLECREATE_A {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_TABLECREATE_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_TABLECREATE_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE_W {
     pub cbStruct: u32,
-    pub szTableName: super::super::Foundation::PWSTR,
-    pub szTemplateTableName: super::super::Foundation::PWSTR,
+    pub szTableName: ::windows_sys::core::PWSTR,
+    pub szTemplateTableName: ::windows_sys::core::PWSTR,
     pub ulPages: u32,
     pub ulDensity: u32,
     pub rgcolumncreate: *mut JET_COLUMNCREATE_W,
@@ -2902,9 +2817,9 @@ pub struct JET_TABLECREATE_W {
     pub tableid: super::StructuredStorage::JET_TABLEID,
     pub cCreated: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::marker::Copy for JET_TABLECREATE_W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::clone::Clone for JET_TABLECREATE_W {
     fn clone(&self) -> Self {
         *self
@@ -3002,49 +2917,40 @@ impl ::core::clone::Clone for JET_UNICODEINDEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_UNICODEINDEX2 {
-    pub szLocaleName: super::super::Foundation::PWSTR,
+    pub szLocaleName: ::windows_sys::core::PWSTR,
     pub dwMapFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_UNICODEINDEX2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_UNICODEINDEX2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_USERDEFINEDDEFAULT_A {
-    pub szCallback: super::super::Foundation::PSTR,
+    pub szCallback: ::windows_sys::core::PSTR,
     pub pbUserData: *mut u8,
     pub cbUserData: u32,
-    pub szDependantColumns: super::super::Foundation::PSTR,
+    pub szDependantColumns: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_USERDEFINEDDEFAULT_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_USERDEFINEDDEFAULT_A {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_USERDEFINEDDEFAULT_W {
-    pub szCallback: super::super::Foundation::PWSTR,
+    pub szCallback: ::windows_sys::core::PWSTR,
     pub pbUserData: *mut u8,
     pub cbUserData: u32,
-    pub szDependantColumns: super::super::Foundation::PWSTR,
+    pub szDependantColumns: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_USERDEFINEDDEFAULT_W {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_USERDEFINEDDEFAULT_W {
     fn clone(&self) -> Self {
         *self

@@ -43,39 +43,31 @@ impl ::core::default::Default for CorrelationId {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub struct CountedString {
     pub length: u16,
-    pub string: super::super::Foundation::PWSTR,
+    pub string: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CountedString {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CountedString {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CountedString {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CountedString").field("length", &self.length).field("string", &self.string).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CountedString {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CountedString {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CountedString>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CountedString {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CountedString {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

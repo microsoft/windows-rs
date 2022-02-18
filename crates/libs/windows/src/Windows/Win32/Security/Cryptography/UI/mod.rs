@@ -90,18 +90,18 @@ pub struct CERT_SELECT_STRUCT_A {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub pTemplateName: super::super::super::Foundation::PSTR,
+    pub pTemplateName: ::windows::core::PCSTR,
     pub dwFlags: CERT_SELECT_STRUCT_FLAGS,
-    pub szTitle: super::super::super::Foundation::PSTR,
+    pub szTitle: ::windows::core::PCSTR,
     pub cCertStore: u32,
     pub arrayCertStore: *mut super::HCERTSTORE,
-    pub szPurposeOid: super::super::super::Foundation::PSTR,
+    pub szPurposeOid: ::windows::core::PCSTR,
     pub cCertContext: u32,
     pub arrayCertContext: *mut *mut super::CERT_CONTEXT,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub pfnHook: PFNCMHOOKPROC,
     pub pfnFilter: PFNCMFILTERPROC,
-    pub szHelpFileName: super::super::super::Foundation::PSTR,
+    pub szHelpFileName: ::windows::core::PCSTR,
     pub dwHelpId: u32,
     pub hprov: usize,
 }
@@ -225,18 +225,18 @@ pub struct CERT_SELECT_STRUCT_W {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub pTemplateName: super::super::super::Foundation::PWSTR,
+    pub pTemplateName: ::windows::core::PCWSTR,
     pub dwFlags: CERT_SELECT_STRUCT_FLAGS,
-    pub szTitle: super::super::super::Foundation::PWSTR,
+    pub szTitle: ::windows::core::PCWSTR,
     pub cCertStore: u32,
     pub arrayCertStore: *mut super::HCERTSTORE,
-    pub szPurposeOid: super::super::super::Foundation::PSTR,
+    pub szPurposeOid: ::windows::core::PCSTR,
     pub cCertContext: u32,
     pub arrayCertContext: *mut *mut super::CERT_CONTEXT,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub pfnHook: PFNCMHOOKPROC,
     pub pfnFilter: PFNCMFILTERPROC,
-    pub szHelpFileName: super::super::super::Foundation::PWSTR,
+    pub szHelpFileName: ::windows::core::PCWSTR,
     pub dwHelpId: u32,
     pub hprov: usize,
 }
@@ -347,7 +347,7 @@ pub struct CERT_VERIFY_CERTIFICATE_TRUST {
     pub dwFlags: u32,
     pub dwIgnoreErr: u32,
     pub pdwErrors: *mut u32,
-    pub pszUsageOid: super::super::super::Foundation::PSTR,
+    pub pszUsageOid: ::windows::core::PSTR,
     pub hprov: usize,
     pub cRootStores: u32,
     pub rghstoreRoots: *mut super::HCERTSTORE,
@@ -422,9 +422,9 @@ pub struct CERT_VIEWPROPERTIES_STRUCT_A {
     pub hwndParent: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub dwFlags: CERT_VIEWPROPERTIES_STRUCT_FLAGS,
-    pub szTitle: super::super::super::Foundation::PSTR,
+    pub szTitle: ::windows::core::PCSTR,
     pub pCertContext: *const super::CERT_CONTEXT,
-    pub arrayPurposes: *mut super::super::super::Foundation::PSTR,
+    pub arrayPurposes: *mut ::windows::core::PSTR,
     pub cArrayPurposes: u32,
     pub cRootStores: u32,
     pub rghstoreRoots: *mut super::HCERTSTORE,
@@ -435,7 +435,7 @@ pub struct CERT_VIEWPROPERTIES_STRUCT_A {
     pub hprov: usize,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub dwPad: u32,
-    pub szHelpFileName: super::super::super::Foundation::PSTR,
+    pub szHelpFileName: ::windows::core::PCSTR,
     pub dwHelpId: u32,
     pub nStartPage: u32,
     pub cArrayPropSheetPages: u32,
@@ -575,9 +575,9 @@ pub struct CERT_VIEWPROPERTIES_STRUCT_W {
     pub hwndParent: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub dwFlags: CERT_VIEWPROPERTIES_STRUCT_FLAGS,
-    pub szTitle: super::super::super::Foundation::PWSTR,
+    pub szTitle: ::windows::core::PCWSTR,
     pub pCertContext: *const super::CERT_CONTEXT,
-    pub arrayPurposes: *mut super::super::super::Foundation::PSTR,
+    pub arrayPurposes: *mut ::windows::core::PSTR,
     pub cArrayPurposes: u32,
     pub cRootStores: u32,
     pub rghstoreRoots: *mut super::HCERTSTORE,
@@ -588,7 +588,7 @@ pub struct CERT_VIEWPROPERTIES_STRUCT_W {
     pub hprov: usize,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub dwPad: u32,
-    pub szHelpFileName: super::super::super::Foundation::PWSTR,
+    pub szHelpFileName: ::windows::core::PCWSTR,
     pub dwHelpId: u32,
     pub nStartPage: u32,
     pub cArrayPropSheetPages: u32,
@@ -650,82 +650,66 @@ impl ::core::default::Default for CERT_VIEWPROPERTIES_STRUCT_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub struct CMFLTR {
     pub dwSize: u32,
     pub cExtensionChecks: u32,
     pub arrayExtensionChecks: *mut CMOID,
     pub dwCheckingFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CMFLTR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMFLTR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CMFLTR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CMFLTR").field("dwSize", &self.dwSize).field("cExtensionChecks", &self.cExtensionChecks).field("arrayExtensionChecks", &self.arrayExtensionChecks).field("dwCheckingFlags", &self.dwCheckingFlags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CMFLTR {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CMFLTR {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CMFLTR>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CMFLTR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMFLTR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub struct CMOID {
-    pub szExtensionOID: super::super::super::Foundation::PSTR,
+    pub szExtensionOID: ::windows::core::PCSTR,
     pub dwTestOperation: u32,
     pub pbTestData: *mut u8,
     pub cbTestData: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CMOID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CMOID {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CMOID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CMOID").field("szExtensionOID", &self.szExtensionOID).field("dwTestOperation", &self.dwTestOperation).field("pbTestData", &self.pbTestData).field("cbTestData", &self.cbTestData).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CMOID {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CMOID {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CMOID>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CMOID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMOID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -760,8 +744,8 @@ pub struct CRYPTUI_CERT_MGR_STRUCT {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
     pub dwFlags: u32,
-    pub pwszTitle: super::super::super::Foundation::PWSTR,
-    pub pszInitUsageOID: super::super::super::Foundation::PSTR,
+    pub pwszTitle: ::windows::core::PCWSTR,
+    pub pszInitUsageOID: ::windows::core::PCSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPTUI_CERT_MGR_STRUCT {}
@@ -946,9 +930,9 @@ pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
     pub dwFlags: CRYPTUI_VIEWCERTIFICATE_FLAGS,
-    pub szTitle: super::super::super::Foundation::PSTR,
+    pub szTitle: ::windows::core::PCSTR,
     pub pCertContext: *const super::CERT_CONTEXT,
-    pub rgszPurposes: *mut super::super::super::Foundation::PSTR,
+    pub rgszPurposes: *mut ::windows::core::PSTR,
     pub cPurposes: u32,
     pub Anonymous: CRYPTUI_VIEWCERTIFICATE_STRUCTA_0,
     pub fpCryptProviderDataTrustedUsage: super::super::super::Foundation::BOOL,
@@ -1028,9 +1012,9 @@ pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTW {
     pub dwSize: u32,
     pub hwndParent: super::super::super::Foundation::HWND,
     pub dwFlags: CRYPTUI_VIEWCERTIFICATE_FLAGS,
-    pub szTitle: super::super::super::Foundation::PWSTR,
+    pub szTitle: ::windows::core::PCWSTR,
     pub pCertContext: *const super::CERT_CONTEXT,
-    pub rgszPurposes: *mut super::super::super::Foundation::PSTR,
+    pub rgszPurposes: *mut ::windows::core::PSTR,
     pub cPurposes: u32,
     pub Anonymous: CRYPTUI_VIEWCERTIFICATE_STRUCTW_0,
     pub fpCryptProviderDataTrustedUsage: super::super::super::Foundation::BOOL,
@@ -1164,110 +1148,88 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     pub dwSize: u32,
     pub pGuidSubject: *mut ::windows::core::GUID,
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
-    pub pwszDisplayName: super::super::super::Foundation::PWSTR,
+    pub pwszDisplayName: ::windows::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO").field("dwSize", &self.dwSize).field("pGuidSubject", &self.pGuidSubject).field("cbBlob", &self.cbBlob).field("pbBlob", &self.pbBlob).field("pwszDisplayName", &self.pwszDisplayName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     pub dwSize: u32,
-    pub pwszSigningCertFileName: super::super::super::Foundation::PWSTR,
+    pub pwszSigningCertFileName: ::windows::core::PWSTR,
     pub dwPvkChoice: CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION,
     pub Anonymous: CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     pub pPvkFileInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO,
     pub pPvkProvInfo: *mut super::CRYPT_KEY_PROV_INFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1308,28 +1270,24 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub dwSize: u32,
     pub dwAttrFlags: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE,
-    pub pwszDescription: super::super::super::Foundation::PWSTR,
-    pub pwszMoreInfoLocation: super::super::super::Foundation::PWSTR,
-    pub pszHashAlg: super::super::super::Foundation::PSTR,
-    pub pwszSigningCertDisplayString: super::super::super::Foundation::PWSTR,
+    pub pwszDescription: ::windows::core::PCWSTR,
+    pub pwszMoreInfoLocation: ::windows::core::PCWSTR,
+    pub pszHashAlg: ::windows::core::PCSTR,
+    pub pwszSigningCertDisplayString: ::windows::core::PCWSTR,
     pub hAdditionalCertStore: super::HCERTSTORE,
     pub psAuthenticated: *mut super::CRYPT_ATTRIBUTES,
     pub psUnauthenticated: *mut super::CRYPT_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO")
@@ -1345,19 +1303,15 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1374,7 +1328,7 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
     pub Anonymous1: CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0,
     pub dwSigningCertChoice: CRYPTUI_WIZ_DIGITAL_SIGN,
     pub Anonymous2: CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1,
-    pub pwszTimestampURL: super::super::super::Foundation::PWSTR,
+    pub pwszTimestampURL: ::windows::core::PCWSTR,
     pub dwAdditionalCertChoice: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE,
     pub pSignExtInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO,
 }
@@ -1408,7 +1362,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
-    pub pwszFileName: super::super::super::Foundation::PWSTR,
+    pub pwszFileName: ::windows::core::PCWSTR,
     pub pSignBlobInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1472,41 +1426,33 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     pub dwSize: u32,
-    pub pwszPvkFileName: super::super::super::Foundation::PWSTR,
-    pub pwszProvName: super::super::super::Foundation::PWSTR,
+    pub pwszPvkFileName: ::windows::core::PWSTR,
+    pub pwszProvName: ::windows::core::PWSTR,
     pub dwProvType: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO").field("dwSize", &self.dwSize).field("pwszPvkFileName", &self.pwszPvkFileName).field("pwszProvName", &self.pwszProvName).field("dwProvType", &self.dwProvType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1645,7 +1591,7 @@ pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub dwExportFormat: CRYPTUI_WIZ_EXPORT_FORMAT,
     pub fExportChain: super::super::super::Foundation::BOOL,
     pub fExportPrivateKeys: super::super::super::Foundation::BOOL,
-    pub pwszPassword: super::super::super::Foundation::PWSTR,
+    pub pwszPassword: ::windows::core::PCWSTR,
     pub fStrongEncryption: super::super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1722,7 +1668,7 @@ pub const CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE: u32 = 5u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_EXPORT_INFO {
     pub dwSize: u32,
-    pub pwszExportFileName: super::super::super::Foundation::PWSTR,
+    pub pwszExportFileName: ::windows::core::PCWSTR,
     pub dwSubjectChoice: CRYPTUI_WIZ_EXPORT_SUBJECT,
     pub Anonymous: CRYPTUI_WIZ_EXPORT_INFO_0,
     pub cStores: u32,
@@ -1905,7 +1851,7 @@ pub struct CRYPTUI_WIZ_IMPORT_SRC_INFO {
     pub dwSubjectChoice: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION,
     pub Anonymous: CRYPTUI_WIZ_IMPORT_SRC_INFO_0,
     pub dwFlags: super::CRYPT_KEY_FLAGS,
-    pub pwszPassword: super::super::super::Foundation::PWSTR,
+    pub pwszPassword: ::windows::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPTUI_WIZ_IMPORT_SRC_INFO {}
@@ -1937,7 +1883,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_IMPORT_SRC_INFO {
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
-    pub pwszFileName: super::super::super::Foundation::PWSTR,
+    pub pwszFileName: ::windows::core::PCWSTR,
     pub pCertContext: *const super::CERT_CONTEXT,
     pub pCTLContext: *mut super::CTL_CONTEXT,
     pub pCRLContext: *mut super::CRL_CONTEXT,
@@ -2108,12 +2054,12 @@ pub unsafe fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT)
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptUIDlgSelectCertificateFromStore<'a, Param0: ::windows::core::IntoParam<'a, super::HCERTSTORE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcertstore: Param0, hwnd: Param1, pwsztitle: Param2, pwszdisplaystring: Param3, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> *mut super::CERT_CONTEXT {
+pub unsafe fn CryptUIDlgSelectCertificateFromStore<'a, Param0: ::windows::core::IntoParam<'a, super::HCERTSTORE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hcertstore: Param0, hwnd: Param1, pwsztitle: Param2, pwszdisplaystring: Param3, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> *mut super::CERT_CONTEXT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptUIDlgSelectCertificateFromStore(hcertstore: super::HCERTSTORE, hwnd: super::super::super::Foundation::HWND, pwsztitle: super::super::super::Foundation::PWSTR, pwszdisplaystring: super::super::super::Foundation::PWSTR, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> *mut super::CERT_CONTEXT;
+            fn CryptUIDlgSelectCertificateFromStore(hcertstore: super::HCERTSTORE, hwnd: super::super::super::Foundation::HWND, pwsztitle: ::windows::core::PCWSTR, pwszdisplaystring: ::windows::core::PCWSTR, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> *mut super::CERT_CONTEXT;
         }
         ::core::mem::transmute(CryptUIDlgSelectCertificateFromStore(hcertstore.into_param().abi(), hwnd.into_param().abi(), pwsztitle.into_param().abi(), pwszdisplaystring.into_param().abi(), ::core::mem::transmute(dwdontusecolumn), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvreserved)))
     }
@@ -2153,12 +2099,12 @@ pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTI
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptUIDlgViewContext<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwcontexttype: u32, pvcontext: *const ::core::ffi::c_void, hwnd: Param2, pwsztitle: Param3, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptUIDlgViewContext<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwcontexttype: u32, pvcontext: *const ::core::ffi::c_void, hwnd: Param2, pwsztitle: Param3, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptUIDlgViewContext(dwcontexttype: u32, pvcontext: *const ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, pwsztitle: super::super::super::Foundation::PWSTR, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+            fn CryptUIDlgViewContext(dwcontexttype: u32, pvcontext: *const ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, pwsztitle: ::windows::core::PCWSTR, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CryptUIDlgViewContext(::core::mem::transmute(dwcontexttype), ::core::mem::transmute(pvcontext), hwnd.into_param().abi(), pwsztitle.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvreserved)))
     }
@@ -2168,12 +2114,12 @@ pub unsafe fn CryptUIDlgViewContext<'a, Param2: ::windows::core::IntoParam<'a, s
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptUIWizDigitalSign<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwflags: u32, hwndparent: Param1, pwszwizardtitle: Param2, pdigitalsigninfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptUIWizDigitalSign<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwflags: u32, hwndparent: Param1, pwszwizardtitle: Param2, pdigitalsigninfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptUIWizDigitalSign(dwflags: u32, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: super::super::super::Foundation::PWSTR, pdigitalsigninfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL;
+            fn CryptUIWizDigitalSign(dwflags: u32, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: ::windows::core::PCWSTR, pdigitalsigninfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CryptUIWizDigitalSign(::core::mem::transmute(dwflags), hwndparent.into_param().abi(), pwszwizardtitle.into_param().abi(), ::core::mem::transmute(pdigitalsigninfo), ::core::mem::transmute(ppsigncontext)))
     }
@@ -2183,12 +2129,12 @@ pub unsafe fn CryptUIWizDigitalSign<'a, Param1: ::windows::core::IntoParam<'a, s
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptUIWizExport<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Param1, pwszwizardtitle: Param2, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptUIWizExport<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Param1, pwszwizardtitle: Param2, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptUIWizExport(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: super::super::super::Foundation::PWSTR, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+            fn CryptUIWizExport(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: ::windows::core::PCWSTR, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CryptUIWizExport(::core::mem::transmute(dwflags), hwndparent.into_param().abi(), pwszwizardtitle.into_param().abi(), ::core::mem::transmute(pexportinfo), ::core::mem::transmute(pvoid)))
     }
@@ -2213,12 +2159,12 @@ pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptUIWizImport<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::HCERTSTORE>>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Param1, pwszwizardtitle: Param2, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: Param4) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptUIWizImport<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, super::HCERTSTORE>>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Param1, pwszwizardtitle: Param2, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: Param4) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptUIWizImport(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: super::super::super::Foundation::PWSTR, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: super::HCERTSTORE) -> super::super::super::Foundation::BOOL;
+            fn CryptUIWizImport(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: ::windows::core::PCWSTR, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: super::HCERTSTORE) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CryptUIWizImport(::core::mem::transmute(dwflags), hwndparent.into_param().abi(), pwszwizardtitle.into_param().abi(), ::core::mem::transmute(pimportsrc), hdestcertstore.into_param().abi()))
     }

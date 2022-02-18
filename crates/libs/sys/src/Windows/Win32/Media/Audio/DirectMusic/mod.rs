@@ -898,40 +898,34 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub DeviceId: ::windows_sys::core::GUID,
-    pub Description: super::super::super::Foundation::PSTR,
-    pub Module: super::super::super::Foundation::PSTR,
-    pub Interface: super::super::super::Foundation::PSTR,
+    pub Description: ::windows_sys::core::PSTR,
+    pub Module: ::windows_sys::core::PSTR,
+    pub Interface: ::windows_sys::core::PSTR,
     pub WaveDeviceId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub DeviceId: ::windows_sys::core::GUID,
-    pub Description: super::super::super::Foundation::PWSTR,
-    pub Module: super::super::super::Foundation::PWSTR,
-    pub Interface: super::super::super::Foundation::PWSTR,
+    pub Description: ::windows_sys::core::PWSTR,
+    pub Module: ::windows_sys::core::PWSTR,
+    pub Interface: ::windows_sys::core::PWSTR,
     pub WaveDeviceId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     fn clone(&self) -> Self {
         *self
@@ -983,32 +977,26 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    pub DeviceName: super::super::super::Foundation::PSTR,
+    pub DeviceName: ::windows_sys::core::PSTR,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub DeviceId: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectMusic'*"]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    pub DeviceName: super::super::super::Foundation::PWSTR,
+    pub DeviceName: ::windows_sys::core::PWSTR,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub DeviceId: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     fn clone(&self) -> Self {
         *self

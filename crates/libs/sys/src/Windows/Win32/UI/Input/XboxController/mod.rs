@@ -4,9 +4,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Input_XboxController', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn XInputEnable(enable: super::super::super::Foundation::BOOL);
-    #[doc = "*Required features: 'Win32_UI_Input_XboxController', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::super::super::Foundation::PWSTR, prendercount: *mut u32, pcapturedeviceid: super::super::super::Foundation::PWSTR, pcapturecount: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
+    pub fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: ::windows_sys::core::PWSTR, prendercount: *mut u32, pcapturedeviceid: ::windows_sys::core::PWSTR, pcapturecount: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
     pub fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
     #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]

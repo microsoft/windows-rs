@@ -831,8 +831,7 @@ impl ::core::fmt::Debug for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const FWPM_AUTO_WEIGHT_BITS: u32 = 60u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_CALLOUT0 {
     pub calloutKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -842,33 +841,26 @@ pub struct FWPM_CALLOUT0 {
     pub applicableLayer: ::windows::core::GUID,
     pub calloutId: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_CALLOUT0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_CALLOUT0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FWPM_CALLOUT0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FWPM_CALLOUT0").field("calloutKey", &self.calloutKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerKey", &self.providerKey).field("providerData", &self.providerData).field("applicableLayer", &self.applicableLayer).field("calloutId", &self.calloutId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FWPM_CALLOUT0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_CALLOUT0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_CALLOUT0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FWPM_CALLOUT0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_CALLOUT0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1472,39 +1464,31 @@ impl ::core::default::Default for FWPM_CONNECTION_SUBSCRIPTION0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_DISPLAY_DATA0 {
-    pub name: super::super::Foundation::PWSTR,
-    pub description: super::super::Foundation::PWSTR,
+    pub name: ::windows::core::PWSTR,
+    pub description: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_DISPLAY_DATA0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_DISPLAY_DATA0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FWPM_DISPLAY_DATA0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FWPM_DISPLAY_DATA0").field("name", &self.name).field("description", &self.description).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FWPM_DISPLAY_DATA0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_DISPLAY_DATA0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_DISPLAY_DATA0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FWPM_DISPLAY_DATA0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_DISPLAY_DATA0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1938,8 +1922,7 @@ pub const FWPM_KEYING_MODULE_AUTHIP: ::windows::core::GUID = ::windows::core::GU
 pub const FWPM_KEYING_MODULE_IKE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9bbf787_82a8_45bb_a400_5d7e5952c7a9);
 pub const FWPM_KEYING_MODULE_IKEV2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x041792cc_8f07_419d_a394_716968cb1647);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_LAYER0 {
     pub layerKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -1949,33 +1932,26 @@ pub struct FWPM_LAYER0 {
     pub defaultSubLayerKey: ::windows::core::GUID,
     pub layerId: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_LAYER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_LAYER0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FWPM_LAYER0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FWPM_LAYER0").field("layerKey", &self.layerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("numFields", &self.numFields).field("field", &self.field).field("defaultSubLayerKey", &self.defaultSubLayerKey).field("layerId", &self.layerId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FWPM_LAYER0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_LAYER0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_LAYER0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FWPM_LAYER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_LAYER0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3495,7 +3471,7 @@ pub struct FWPM_NET_EVENT_HEADER3 {
     pub userId: *mut super::super::Security::SID,
     pub addressFamily: FWP_AF,
     pub packageSid: *mut super::super::Security::SID,
-    pub enterpriseId: super::super::Foundation::PWSTR,
+    pub enterpriseId: ::windows::core::PWSTR,
     pub policyFlags: u64,
     pub effectiveName: FWP_BYTE_BLOB,
 }
@@ -3630,8 +3606,7 @@ impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -3642,23 +3617,20 @@ pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     pub endCertHash: [u8; 20],
     pub mmId: u64,
     pub qmFilterId: u64,
-    pub localPrincipalNameForAuth: super::super::Foundation::PWSTR,
-    pub remotePrincipalNameForAuth: super::super::Foundation::PWSTR,
+    pub localPrincipalNameForAuth: ::windows::core::PWSTR,
+    pub remotePrincipalNameForAuth: ::windows::core::PWSTR,
     pub numLocalPrincipalGroupSids: u32,
-    pub localPrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub localPrincipalGroupSids: *mut ::windows::core::PWSTR,
     pub numRemotePrincipalGroupSids: u32,
-    pub remotePrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub remotePrincipalGroupSids: *mut ::windows::core::PWSTR,
     pub saTrafficType: IPSEC_TRAFFIC_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FWPM_NET_EVENT_IKEEXT_EM_FAILURE1")
@@ -3681,19 +3653,15 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_IKEEXT_EM_FAILURE1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3743,8 +3711,7 @@ impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -3756,22 +3723,19 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     pub endCertHash: [u8; 20],
     pub mmId: u64,
     pub mmFilterId: u64,
-    pub localPrincipalNameForAuth: super::super::Foundation::PWSTR,
-    pub remotePrincipalNameForAuth: super::super::Foundation::PWSTR,
+    pub localPrincipalNameForAuth: ::windows::core::PWSTR,
+    pub remotePrincipalNameForAuth: ::windows::core::PWSTR,
     pub numLocalPrincipalGroupSids: u32,
-    pub localPrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub localPrincipalGroupSids: *mut ::windows::core::PWSTR,
     pub numRemotePrincipalGroupSids: u32,
-    pub remotePrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub remotePrincipalGroupSids: *mut ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FWPM_NET_EVENT_IKEEXT_MM_FAILURE1")
@@ -3794,27 +3758,22 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_IKEEXT_MM_FAILURE1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     pub failureErrorCode: u32,
     pub failurePoint: IPSEC_FAILURE_POINT,
@@ -3826,23 +3785,20 @@ pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     pub endCertHash: [u8; 20],
     pub mmId: u64,
     pub mmFilterId: u64,
-    pub localPrincipalNameForAuth: super::super::Foundation::PWSTR,
-    pub remotePrincipalNameForAuth: super::super::Foundation::PWSTR,
+    pub localPrincipalNameForAuth: ::windows::core::PWSTR,
+    pub remotePrincipalNameForAuth: ::windows::core::PWSTR,
     pub numLocalPrincipalGroupSids: u32,
-    pub localPrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub localPrincipalGroupSids: *mut ::windows::core::PWSTR,
     pub numRemotePrincipalGroupSids: u32,
-    pub remotePrincipalGroupSids: *mut super::super::Foundation::PWSTR,
+    pub remotePrincipalGroupSids: *mut ::windows::core::PWSTR,
     pub providerContextKey: *mut ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_")
@@ -3866,19 +3822,15 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4343,42 +4295,34 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_PROVIDER0 {
     pub providerKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
     pub flags: u32,
     pub providerData: FWP_BYTE_BLOB,
-    pub serviceName: super::super::Foundation::PWSTR,
+    pub serviceName: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_PROVIDER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_PROVIDER0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FWPM_PROVIDER0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FWPM_PROVIDER0").field("providerKey", &self.providerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerData", &self.providerData).field("serviceName", &self.serviceName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FWPM_PROVIDER0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_PROVIDER0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_PROVIDER0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FWPM_PROVIDER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_PROVIDER0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5015,7 +4959,7 @@ pub struct FWPM_SESSION0 {
     pub txnWaitTimeoutInMSec: u32,
     pub processId: u32,
     pub sid: *mut super::super::Security::SID,
-    pub username: super::super::Foundation::PWSTR,
+    pub username: ::windows::core::PWSTR,
     pub kernelMode: super::super::Foundation::BOOL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -5187,8 +5131,7 @@ impl ::core::default::Default for FWPM_STATISTICS0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_SUBLAYER0 {
     pub subLayerKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -5197,33 +5140,26 @@ pub struct FWPM_SUBLAYER0 {
     pub providerData: FWP_BYTE_BLOB,
     pub weight: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_SUBLAYER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_SUBLAYER0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FWPM_SUBLAYER0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FWPM_SUBLAYER0").field("subLayerKey", &self.subLayerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerKey", &self.providerKey).field("providerData", &self.providerData).field("weight", &self.weight).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FWPM_SUBLAYER0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_SUBLAYER0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FWPM_SUBLAYER0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FWPM_SUBLAYER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_SUBLAYER0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5481,7 +5417,7 @@ pub const FWPM_TXN_READ_ONLY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0 {
     pub eventType: FWPM_VSWITCH_EVENT_TYPE,
-    pub vSwitchId: super::super::Foundation::PWSTR,
+    pub vSwitchId: ::windows::core::PWSTR,
     pub Anonymous: FWPM_VSWITCH_EVENT0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5548,7 +5484,7 @@ impl ::core::default::Default for FWPM_VSWITCH_EVENT0_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct FWPM_VSWITCH_EVENT0_0_0 {
     pub numvSwitchFilterExtensions: u32,
-    pub vSwitchFilterExtensions: *mut super::super::Foundation::PWSTR,
+    pub vSwitchFilterExtensions: *mut ::windows::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_VSWITCH_EVENT0_0_0 {}
@@ -5588,7 +5524,7 @@ impl ::core::default::Default for FWPM_VSWITCH_EVENT0_0_0 {
 pub struct FWPM_VSWITCH_EVENT0_0_1 {
     pub inRequiredPosition: super::super::Foundation::BOOL,
     pub numvSwitchFilterExtensions: u32,
-    pub vSwitchFilterExtensions: *mut super::super::Foundation::PWSTR,
+    pub vSwitchFilterExtensions: *mut ::windows::core::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_VSWITCH_EVENT0_0_1 {}
@@ -6173,7 +6109,7 @@ pub union FWP_CONDITION_VALUE0_0 {
     pub sd: *mut FWP_BYTE_BLOB,
     pub tokenInformation: *mut FWP_TOKEN_INFORMATION,
     pub tokenAccessInformation: *mut FWP_BYTE_BLOB,
-    pub unicodeString: super::super::Foundation::PWSTR,
+    pub unicodeString: ::windows::core::PWSTR,
     pub byteArray6: *mut FWP_BYTE_ARRAY6,
     pub v4AddrMask: *mut FWP_V4_ADDR_AND_MASK,
     pub v6AddrMask: *mut FWP_V6_ADDR_AND_MASK,
@@ -6662,7 +6598,7 @@ pub union FWP_VALUE0_0 {
     pub sd: *mut FWP_BYTE_BLOB,
     pub tokenInformation: *mut FWP_TOKEN_INFORMATION,
     pub tokenAccessInformation: *mut FWP_BYTE_BLOB,
-    pub unicodeString: super::super::Foundation::PWSTR,
+    pub unicodeString: ::windows::core::PWSTR,
     pub byteArray6: *mut FWP_BYTE_ARRAY6,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -7115,12 +7051,12 @@ pub unsafe fn FwpmEngineGetSecurityInfo0<'a, Param0: ::windows::core::IntoParam<
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security', 'Win32_System_Rpc'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
 #[inline]
-pub unsafe fn FwpmEngineOpen0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn FwpmEngineOpen0<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmEngineOpen0(servername: super::super::Foundation::PWSTR, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmEngineOpen0(servername: ::windows::core::PCWSTR, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmEngineOpen0(servername.into_param().abi(), ::core::mem::transmute(authnservice), ::core::mem::transmute(authidentity), ::core::mem::transmute(session), ::core::mem::transmute(enginehandle)))
     }
@@ -7366,15 +7302,14 @@ pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 #[inline]
-pub unsafe fn FwpmGetAppIdFromFileName0<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, appid: *mut *mut FWP_BYTE_BLOB) -> u32 {
+pub unsafe fn FwpmGetAppIdFromFileName0<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(filename: Param0, appid: *mut *mut FWP_BYTE_BLOB) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmGetAppIdFromFileName0(filename: super::super::Foundation::PWSTR, appid: *mut *mut FWP_BYTE_BLOB) -> u32;
+            fn FwpmGetAppIdFromFileName0(filename: ::windows::core::PCWSTR, appid: *mut *mut FWP_BYTE_BLOB) -> u32;
         }
         ::core::mem::transmute(FwpmGetAppIdFromFileName0(filename.into_param().abi(), ::core::mem::transmute(appid)))
     }
@@ -9496,41 +9431,33 @@ impl ::core::fmt::Debug for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_AUTHENTICATION_METHOD0 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_AUTHENTICATION_METHOD0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0,
@@ -9539,68 +9466,54 @@ pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
     pub sslAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0,
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_AUTHENTICATION_METHOD0_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_AUTHENTICATION_METHOD1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD1_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_AUTHENTICATION_METHOD1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION1,
@@ -9610,68 +9523,54 @@ pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD1_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD1_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_AUTHENTICATION_METHOD1_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_AUTHENTICATION_METHOD2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD2_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_AUTHENTICATION_METHOD2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION2,
@@ -9682,27 +9581,21 @@ pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_AUTHENTICATION_METHOD2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD2_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_AUTHENTICATION_METHOD2_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_AUTHENTICATION_METHOD2_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_AUTHENTICATION_METHOD2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10051,8 +9944,7 @@ impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     pub inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_0,
@@ -10061,329 +9953,261 @@ pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     pub flags: IKEEXT_CERT_AUTH,
     pub localCertLocationUrl: FWP_BYTE_BLOB,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERTIFICATE_AUTHENTICATION2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERTIFICATE_AUTHENTICATION2_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0").field("inboundRootArraySize", &self.inboundRootArraySize).field("inboundRootCriteria", &self.inboundRootCriteria).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     pub inboundEnterpriseStoreArraySize: u32,
     pub inboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1").field("inboundEnterpriseStoreArraySize", &self.inboundEnterpriseStoreArraySize).field("inboundEnterpriseStoreCriteria", &self.inboundEnterpriseStoreCriteria).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     pub inboundRootStoreArraySize: u32,
     pub inboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2").field("inboundRootStoreArraySize", &self.inboundRootStoreArraySize).field("inboundTrustedRootStoreCriteria", &self.inboundTrustedRootStoreCriteria).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERTIFICATE_AUTHENTICATION2_1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0").field("outboundRootArraySize", &self.outboundRootArraySize).field("outboundRootCriteria", &self.outboundRootCriteria).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     pub outboundEnterpriseStoreArraySize: u32,
     pub outboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1").field("outboundEnterpriseStoreArraySize", &self.outboundEnterpriseStoreArraySize).field("outboundEnterpriseStoreCriteria", &self.outboundEnterpriseStoreCriteria).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     pub outboundRootStoreArraySize: u32,
     pub outboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2").field("outboundRootStoreArraySize", &self.outboundRootStoreArraySize).field("outboundTrustedRootStoreCriteria", &self.outboundTrustedRootStoreCriteria).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10455,8 +10279,7 @@ impl ::core::default::Default for IKEEXT_CERTIFICATE_CREDENTIAL1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
     pub certData: FWP_BYTE_BLOB,
     pub certHash: FWP_BYTE_BLOB,
@@ -10464,33 +10287,26 @@ pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
     pub name: *mut IKEEXT_CERT_NAME0,
     pub flags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERTIFICATE_CRITERIA0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERTIFICATE_CRITERIA0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_CRITERIA0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CERTIFICATE_CRITERIA0").field("certData", &self.certData).field("certHash", &self.certHash).field("eku", &self.eku).field("name", &self.name).field("flags", &self.flags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_CRITERIA0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_CRITERIA0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERTIFICATE_CRITERIA0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERTIFICATE_CRITERIA0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERTIFICATE_CRITERIA0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10636,39 +10452,31 @@ impl ::core::fmt::Debug for IKEEXT_CERT_CRITERIA_NAME_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERT_EKUS0 {
     pub numEku: u32,
-    pub eku: *mut super::super::Foundation::PSTR,
+    pub eku: *mut ::windows::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERT_EKUS0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERT_EKUS0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CERT_EKUS0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CERT_EKUS0").field("numEku", &self.numEku).field("eku", &self.eku).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERT_EKUS0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERT_EKUS0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERT_EKUS0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERT_EKUS0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERT_EKUS0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10746,39 +10554,31 @@ impl ::core::ops::Not for IKEEXT_CERT_FLAGS {
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const IKEEXT_CERT_HASH_LEN: u32 = 20u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CERT_NAME0 {
     pub nameType: IKEEXT_CERT_CRITERIA_NAME_TYPE,
-    pub certName: super::super::Foundation::PWSTR,
+    pub certName: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CERT_NAME0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CERT_NAME0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CERT_NAME0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CERT_NAME0").field("nameType", &self.nameType).field("certName", &self.certName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CERT_NAME0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CERT_NAME0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CERT_NAME0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CERT_NAME0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CERT_NAME0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10986,420 +10786,333 @@ impl ::core::default::Default for IKEEXT_COOKIE_PAIR0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL0 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIAL0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIAL0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIAL0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_CREDENTIAL0_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL0,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIAL0_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIAL0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIAL0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL1_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIAL1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIAL1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIAL1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_CREDENTIAL1_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL1_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL1_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIAL1_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIAL1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIAL1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL2_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIAL2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIAL2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIAL2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_CREDENTIAL2_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL2_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL2_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIAL2_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIAL2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIAL2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIALS0 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIALS0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIALS0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CREDENTIALS0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CREDENTIALS0").field("numCredentials", &self.numCredentials).field("credentials", &self.credentials).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIALS0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIALS0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIALS0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIALS0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIALS0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIALS1 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIALS1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIALS1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CREDENTIALS1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CREDENTIALS1").field("numCredentials", &self.numCredentials).field("credentials", &self.credentials).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIALS1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIALS1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIALS1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIALS1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIALS1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIALS2 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIALS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIALS2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_CREDENTIALS2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_CREDENTIALS2").field("numCredentials", &self.numCredentials).field("credentials", &self.credentials).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIALS2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIALS2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIALS2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIALS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIALS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL_PAIR0 {
     pub localCredentials: IKEEXT_CREDENTIAL0,
     pub peerCredentials: IKEEXT_CREDENTIAL0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL_PAIR0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL_PAIR0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL_PAIR0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIAL_PAIR0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIAL_PAIR0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIAL_PAIR0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL_PAIR1 {
     pub localCredentials: IKEEXT_CREDENTIAL1,
     pub peerCredentials: IKEEXT_CREDENTIAL1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL_PAIR1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL_PAIR1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL_PAIR1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIAL_PAIR1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIAL_PAIR1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIAL_PAIR1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_CREDENTIAL_PAIR2 {
     pub localCredentials: IKEEXT_CREDENTIAL2,
     pub peerCredentials: IKEEXT_CREDENTIAL2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_CREDENTIAL_PAIR2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL_PAIR2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIAL_PAIR2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_CREDENTIAL_PAIR2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_CREDENTIAL_PAIR2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_CREDENTIAL_PAIR2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11532,120 +11245,96 @@ impl ::core::ops::Not for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_EM_POLICY0 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_EM_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_EM_POLICY0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_EM_POLICY0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_EM_POLICY0").field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_EM_POLICY0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_EM_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_EM_POLICY0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_EM_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_EM_POLICY0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_EM_POLICY1 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD1,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_EM_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_EM_POLICY1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_EM_POLICY1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_EM_POLICY1").field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_EM_POLICY1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_EM_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_EM_POLICY1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_EM_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_EM_POLICY1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_EM_POLICY2 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD2,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_EM_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_EM_POLICY2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_EM_POLICY2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_EM_POLICY2").field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_EM_POLICY2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_EM_POLICY2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_EM_POLICY2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_EM_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_EM_POLICY2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11752,42 +11441,34 @@ impl ::core::fmt::Debug for IKEEXT_INTEGRITY_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0 {
-    pub keyContainerName: super::super::Foundation::PWSTR,
-    pub cspName: super::super::Foundation::PWSTR,
+    pub keyContainerName: ::windows::core::PWSTR,
+    pub cspName: ::windows::core::PWSTR,
     pub cspType: u32,
     pub cgaModifier: FWP_BYTE_ARRAY16,
     pub cgaCollisionCount: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_IPV6_CGA_AUTHENTICATION0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_IPV6_CGA_AUTHENTICATION0").field("keyContainerName", &self.keyContainerName).field("cspName", &self.cspName).field("cspType", &self.cspType).field("cgaModifier", &self.cgaModifier).field("cgaCollisionCount", &self.cgaCollisionCount).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_IPV6_CGA_AUTHENTICATION0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_IPV6_CGA_AUTHENTICATION0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12018,39 +11699,31 @@ impl ::core::default::Default for IKEEXT_KERBEROS_AUTHENTICATION0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1 {
     pub flags: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS,
-    pub proxyServer: super::super::Foundation::PWSTR,
+    pub proxyServer: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_KERBEROS_AUTHENTICATION1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_KERBEROS_AUTHENTICATION1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_KERBEROS_AUTHENTICATION1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_KERBEROS_AUTHENTICATION1").field("flags", &self.flags).field("proxyServer", &self.proxyServer).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_KERBEROS_AUTHENTICATION1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_KERBEROS_AUTHENTICATION1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_KERBEROS_AUTHENTICATION1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_KERBEROS_AUTHENTICATION1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_KERBEROS_AUTHENTICATION1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12252,38 +11925,30 @@ impl ::core::fmt::Debug for IKEEXT_MM_SA_STATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_NAME_CREDENTIAL0 {
-    pub principalName: super::super::Foundation::PWSTR,
+    pub principalName: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_NAME_CREDENTIAL0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_NAME_CREDENTIAL0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_NAME_CREDENTIAL0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_NAME_CREDENTIAL0").field("principalName", &self.principalName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_NAME_CREDENTIAL0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_NAME_CREDENTIAL0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_NAME_CREDENTIAL0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_NAME_CREDENTIAL0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_NAME_CREDENTIAL0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12322,8 +11987,7 @@ impl ::core::default::Default for IKEEXT_NTLM_V2_AUTHENTICATION0 {
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_POLICY0 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -12334,41 +11998,33 @@ pub struct IKEEXT_POLICY0 {
     pub flags: IKEEXT_POLICY_FLAG,
     pub maxDynamicFilters: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_POLICY0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_POLICY0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_POLICY0").field("softExpirationTime", &self.softExpirationTime).field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).field("numIkeProposals", &self.numIkeProposals).field("ikeProposals", &self.ikeProposals).field("flags", &self.flags).field("maxDynamicFilters", &self.maxDynamicFilters).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_POLICY0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_POLICY0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_POLICY0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_POLICY1 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -12380,15 +12036,12 @@ pub struct IKEEXT_POLICY1 {
     pub maxDynamicFilters: u32,
     pub retransmitDurationSecs: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_POLICY1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_POLICY1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_POLICY1")
@@ -12404,27 +12057,22 @@ impl ::core::fmt::Debug for IKEEXT_POLICY1 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_POLICY1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_POLICY1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_POLICY1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_POLICY2 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -12436,15 +12084,12 @@ pub struct IKEEXT_POLICY2 {
     pub maxDynamicFilters: u32,
     pub retransmitDurationSecs: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_POLICY2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IKEEXT_POLICY2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IKEEXT_POLICY2")
@@ -12460,19 +12105,15 @@ impl ::core::fmt::Debug for IKEEXT_POLICY2 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_POLICY2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_POLICY2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_POLICY2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_POLICY2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12814,8 +12455,7 @@ impl ::core::ops::Not for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_SA_DETAILS0 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -12828,67 +12468,53 @@ pub struct IKEEXT_SA_DETAILS0 {
     pub ikePolicyKey: ::windows::core::GUID,
     pub virtualIfTunnelId: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_SA_DETAILS0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_SA_DETAILS0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_SA_DETAILS0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_SA_DETAILS0_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_SA_DETAILS0_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_SA_DETAILS0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_SA_DETAILS0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_SA_DETAILS1 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -12902,67 +12528,53 @@ pub struct IKEEXT_SA_DETAILS1 {
     pub virtualIfTunnelId: u64,
     pub correlationKey: FWP_BYTE_BLOB,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_SA_DETAILS1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_SA_DETAILS1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_SA_DETAILS1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_SA_DETAILS1_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS1_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS1_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_SA_DETAILS1_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_SA_DETAILS1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_SA_DETAILS1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IKEEXT_SA_DETAILS2 {
     pub saId: u64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
@@ -12976,59 +12588,46 @@ pub struct IKEEXT_SA_DETAILS2 {
     pub virtualIfTunnelId: u64,
     pub correlationKey: FWP_BYTE_BLOB,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_SA_DETAILS2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_SA_DETAILS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_SA_DETAILS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_SA_DETAILS2_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS2_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IKEEXT_SA_DETAILS2_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IKEEXT_SA_DETAILS2_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IKEEXT_SA_DETAILS2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IKEEXT_SA_DETAILS2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14167,43 +13766,35 @@ impl ::core::default::Default for IPSEC_GETSPI1_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_ID0 {
-    pub mmTargetName: super::super::Foundation::PWSTR,
-    pub emTargetName: super::super::Foundation::PWSTR,
+    pub mmTargetName: ::windows::core::PWSTR,
+    pub emTargetName: ::windows::core::PWSTR,
     pub numTokens: u32,
     pub tokens: *mut IPSEC_TOKEN0,
     pub explicitCredentials: u64,
     pub logonId: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_ID0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_ID0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IPSEC_ID0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IPSEC_ID0").field("mmTargetName", &self.mmTargetName).field("emTargetName", &self.emTargetName).field("numTokens", &self.numTokens).field("tokens", &self.tokens).field("explicitCredentials", &self.explicitCredentials).field("logonId", &self.logonId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_ID0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_ID0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_ID0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_ID0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_ID0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14306,41 +13897,33 @@ impl ::core::default::Default for IPSEC_KEYMODULE_STATE0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_KEY_MANAGER0 {
     pub keyManagerKey: ::windows::core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
     pub flags: u32,
     pub keyDictationTimeoutHint: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_KEY_MANAGER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_KEY_MANAGER0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IPSEC_KEY_MANAGER0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IPSEC_KEY_MANAGER0").field("keyManagerKey", &self.keyManagerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("keyDictationTimeoutHint", &self.keyDictationTimeoutHint).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_KEY_MANAGER0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_KEY_MANAGER0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_KEY_MANAGER0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_KEY_MANAGER0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_KEY_MANAGER0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14677,8 +14260,7 @@ impl ::core::default::Default for IPSEC_SA_AUTH_INFORMATION0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_SA_BUNDLE0 {
     pub flags: IPSEC_SA_BUNDLE_FLAGS,
     pub lifetime: IPSEC_SA_LIFETIME0,
@@ -14695,67 +14277,53 @@ pub struct IPSEC_SA_BUNDLE0 {
     pub mmSaId: u64,
     pub pfsGroup: IPSEC_PFS_GROUP,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_SA_BUNDLE0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_SA_BUNDLE0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_SA_BUNDLE0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_SA_BUNDLE0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_SA_BUNDLE0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_SA_BUNDLE0_0 {
     pub peerV4PrivateAddress: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_SA_BUNDLE0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_SA_BUNDLE0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_SA_BUNDLE0_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_SA_BUNDLE0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_SA_BUNDLE0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_SA_BUNDLE1 {
     pub flags: IPSEC_SA_BUNDLE_FLAGS,
     pub lifetime: IPSEC_SA_LIFETIME0,
@@ -14774,59 +14342,46 @@ pub struct IPSEC_SA_BUNDLE1 {
     pub saLookupContext: ::windows::core::GUID,
     pub qmFilterId: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_SA_BUNDLE1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_SA_BUNDLE1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_SA_BUNDLE1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_SA_BUNDLE1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_SA_BUNDLE1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_SA_BUNDLE1_0 {
     pub peerV4PrivateAddress: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_SA_BUNDLE1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE1_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_SA_BUNDLE1_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_SA_BUNDLE1_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_SA_BUNDLE1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_SA_BUNDLE1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16124,8 +15679,7 @@ impl ::core::fmt::Debug for IPSEC_TRANSFORM_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TRANSPORT_POLICY0 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -16134,41 +15688,33 @@ pub struct IPSEC_TRANSPORT_POLICY0 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TRANSPORT_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TRANSPORT_POLICY0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IPSEC_TRANSPORT_POLICY0").field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("flags", &self.flags).field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TRANSPORT_POLICY0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_TRANSPORT_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TRANSPORT_POLICY0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_TRANSPORT_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_TRANSPORT_POLICY0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TRANSPORT_POLICY1 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -16177,41 +15723,33 @@ pub struct IPSEC_TRANSPORT_POLICY1 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TRANSPORT_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TRANSPORT_POLICY1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IPSEC_TRANSPORT_POLICY1").field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("flags", &self.flags).field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TRANSPORT_POLICY1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_TRANSPORT_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TRANSPORT_POLICY1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_TRANSPORT_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_TRANSPORT_POLICY1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TRANSPORT_POLICY2 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -16220,33 +15758,26 @@ pub struct IPSEC_TRANSPORT_POLICY2 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TRANSPORT_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TRANSPORT_POLICY2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IPSEC_TRANSPORT_POLICY2").field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("flags", &self.flags).field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TRANSPORT_POLICY2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_TRANSPORT_POLICY2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TRANSPORT_POLICY2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_TRANSPORT_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_TRANSPORT_POLICY2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16464,112 +15995,90 @@ impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS1_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TUNNEL_ENDPOINTS2 {
     pub ipVersion: FWP_IP_VERSION,
     pub Anonymous1: IPSEC_TUNNEL_ENDPOINTS2_0,
     pub Anonymous2: IPSEC_TUNNEL_ENDPOINTS2_1,
     pub localIfLuid: u64,
-    pub remoteFqdn: super::super::Foundation::PWSTR,
+    pub remoteFqdn: ::windows::core::PWSTR,
     pub numAddresses: u32,
     pub remoteAddresses: *mut IPSEC_TUNNEL_ENDPOINT0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TUNNEL_ENDPOINTS2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_TUNNEL_ENDPOINTS2_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS2_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS2_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TUNNEL_ENDPOINTS2_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_TUNNEL_ENDPOINTS2_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS2_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TUNNEL_ENDPOINTS2_1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS2_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TUNNEL_POLICY0 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -16578,35 +16087,28 @@ pub struct IPSEC_TUNNEL_POLICY0 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_TUNNEL_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TUNNEL_POLICY0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_TUNNEL_POLICY0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_TUNNEL_POLICY0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TUNNEL_POLICY1 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -16615,35 +16117,28 @@ pub struct IPSEC_TUNNEL_POLICY1 {
     pub saIdleTimeout: IPSEC_SA_IDLE_TIMEOUT0,
     pub emPolicy: *mut IKEEXT_EM_POLICY1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_TUNNEL_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TUNNEL_POLICY1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_TUNNEL_POLICY1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_TUNNEL_POLICY1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TUNNEL_POLICY2 {
     pub flags: IPSEC_POLICY_FLAG,
     pub numIpsecProposals: u32,
@@ -16653,35 +16148,28 @@ pub struct IPSEC_TUNNEL_POLICY2 {
     pub emPolicy: *mut IKEEXT_EM_POLICY2,
     pub fwdPathSaLifetime: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_TUNNEL_POLICY2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TUNNEL_POLICY2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_TUNNEL_POLICY2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_TUNNEL_POLICY2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPSEC_TUNNEL_POLICY3_ {
     pub flags: u32,
     pub numIpsecProposals: u32,
@@ -16694,27 +16182,21 @@ pub struct IPSEC_TUNNEL_POLICY3_ {
     pub numTrafficSelectorPolicy: u32,
     pub trafficSelectorPolicies: *mut IPSEC_TRAFFIC_SELECTOR_POLICY0_,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_POLICY3_ {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY3_ {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY3_ {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IPSEC_TUNNEL_POLICY3_ {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPSEC_TUNNEL_POLICY3_>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IPSEC_TUNNEL_POLICY3_ {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IPSEC_TUNNEL_POLICY3_ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

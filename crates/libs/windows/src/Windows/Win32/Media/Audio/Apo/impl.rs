@@ -258,17 +258,15 @@ impl IAudioProcessingObjectConfiguration_Vtbl {
         iid == &<IAudioProcessingObjectConfiguration as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioProcessingObjectLoggingService_Impl: Sized {
-    fn ApoLog(&self, level: APO_LOG_LEVEL, format: super::super::super::Foundation::PWSTR);
+    fn ApoLog(&self, level: APO_LOG_LEVEL, format: &::windows::core::PCWSTR);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioProcessingObjectLoggingService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioProcessingObjectLoggingService_Impl, const OFFSET: isize>() -> IAudioProcessingObjectLoggingService_Vtbl {
-        unsafe extern "system" fn ApoLog<Identity: ::windows::core::IUnknownImpl, Impl: IAudioProcessingObjectLoggingService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: APO_LOG_LEVEL, format: super::super::super::Foundation::PWSTR) {
+        unsafe extern "system" fn ApoLog<Identity: ::windows::core::IUnknownImpl, Impl: IAudioProcessingObjectLoggingService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: APO_LOG_LEVEL, format: ::windows::core::PCWSTR) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ApoLog(::core::mem::transmute_copy(&level), ::core::mem::transmute_copy(&format))
+            (*this).ApoLog(::core::mem::transmute_copy(&level), ::core::mem::transmute(&format))
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ApoLog: ApoLog::<Identity, Impl, OFFSET> }
     }
@@ -452,13 +450,11 @@ impl IAudioSystemEffects3_Vtbl {
         iid == &<IAudioSystemEffects3 as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects as ::windows::core::Interface>::IID || iid == &<IAudioSystemEffects2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSystemEffectsCustomFormats_Impl: Sized {
     fn GetFormatCount(&self) -> ::windows::core::Result<u32>;
     fn GetFormat(&self, nformat: u32) -> ::windows::core::Result<IAudioMediaType>;
-    fn GetFormatRepresentation(&self, nformat: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetFormatRepresentation(&self, nformat: u32) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IAudioSystemEffectsCustomFormats_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSystemEffectsCustomFormats_Impl, const OFFSET: isize>() -> IAudioSystemEffectsCustomFormats_Vtbl {
         unsafe extern "system" fn GetFormatCount<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSystemEffectsCustomFormats_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcformats: *mut u32) -> ::windows::core::HRESULT {
@@ -483,7 +479,7 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFormatRepresentation<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSystemEffectsCustomFormats_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nformat: u32, ppwstrformatrep: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFormatRepresentation<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSystemEffectsCustomFormats_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nformat: u32, ppwstrformatrep: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetFormatRepresentation(::core::mem::transmute_copy(&nformat)) {

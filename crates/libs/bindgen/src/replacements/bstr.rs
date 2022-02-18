@@ -28,7 +28,7 @@ pub fn gen() -> TokenStream {
 
                 unsafe {
                     SysAllocStringLen(
-                        PWSTR(value.as_ptr()),
+                        ::windows::core::PCWSTR(value.as_ptr()),
                         value.len() as u32,
                     )
                 }

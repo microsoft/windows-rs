@@ -121,18 +121,16 @@ extern "system" {
     pub fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocatebuffer: LPALLOCATEBUFFER, lppproparray: *mut *mut SPropValue) -> i32;
     #[doc = "*Required features: 'Win32_System_AddressBook'*"]
     pub fn ScInitMapiUtil(ulflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ScLocalPathFromUNC(lpszunc: super::super::Foundation::PSTR, lpszlocal: super::super::Foundation::PSTR, cchlocal: u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_AddressBook'*"]
+    pub fn ScLocalPathFromUNC(lpszunc: ::windows_sys::core::PCSTR, lpszlocal: ::windows_sys::core::PCSTR, cchlocal: u32) -> i32;
     #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn ScRelocNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ScUNCFromLocalPath(lpszlocal: super::super::Foundation::PSTR, lpszunc: super::super::Foundation::PSTR, cchunc: u32) -> i32;
+    #[doc = "*Required features: 'Win32_System_AddressBook'*"]
+    pub fn ScUNCFromLocalPath(lpszlocal: ::windows_sys::core::PCSTR, lpszunc: ::windows_sys::core::PCSTR, cchunc: u32) -> i32;
     #[doc = "*Required features: 'Win32_System_AddressBook'*"]
     pub fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8;
     #[doc = "*Required features: 'Win32_System_AddressBook'*"]
@@ -853,9 +851,8 @@ pub type IWABOBJECT_AddRef_METHOD = ::core::option::Option<unsafe extern "system
 pub type IWABOBJECT_AllocateBuffer_METHOD = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub type IWABOBJECT_AllocateMore_METHOD = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_Backup_METHOD = ::core::option::Option<unsafe extern "system" fn(lpfilename: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub type IWABOBJECT_Backup_METHOD = ::core::option::Option<unsafe extern "system" fn(lpfilename: ::windows_sys::core::PCSTR) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_Find_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT>;
@@ -866,12 +863,11 @@ pub type IWABOBJECT_GetLastError_METHOD = ::core::option::Option<unsafe extern "
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_GetMe_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub type IWABOBJECT_Import_METHOD = ::core::option::Option<unsafe extern "system" fn(lpwip: ::windows_sys::core::PCSTR) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_Import_METHOD = ::core::option::Option<unsafe extern "system" fn(lpwip: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_LDAPUrl_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT>;
+pub type IWABOBJECT_LDAPUrl_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: ::windows_sys::core::PCSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub type IWABOBJECT_QueryInterface_METHOD = ::core::option::Option<unsafe extern "system" fn(riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
@@ -879,15 +875,13 @@ pub type IWABOBJECT_Release_METHOD = ::core::option::Option<unsafe extern "syste
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_SetMe_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub type IWABOBJECT_VCardCreate_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: ::windows_sys::core::PCSTR, lpmailuser: IMailUser) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_VCardCreate_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: IMailUser) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_VCardDisplay_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT>;
-#[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_VCardRetrieve_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT>;
+pub type IWABOBJECT_VCardDisplay_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, lpszfilename: ::windows_sys::core::PCSTR) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
+pub type IWABOBJECT_VCardRetrieve_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: ::windows_sys::core::PCSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT>;
 pub type IWABObject = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub type LPALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
@@ -940,31 +934,25 @@ impl ::core::clone::Clone for MAPIERROR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub struct MAPINAMEID {
     pub lpguid: *mut ::windows_sys::core::GUID,
     pub ulKind: u32,
     pub Kind: MAPINAMEID_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MAPINAMEID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MAPINAMEID {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub union MAPINAMEID_0 {
     pub lID: i32,
-    pub lpwstrName: super::super::Foundation::PWSTR,
+    pub lpwstrName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MAPINAMEID_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MAPINAMEID_0 {
     fn clone(&self) -> Self {
         *self
@@ -1319,15 +1307,12 @@ impl ::core::clone::Clone for SGuidArray {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub struct SLPSTRArray {
     pub cValues: u32,
-    pub lppszA: *mut super::super::Foundation::PSTR,
+    pub lppszA: *mut ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SLPSTRArray {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SLPSTRArray {
     fn clone(&self) -> Self {
         *self
@@ -1622,15 +1607,12 @@ impl ::core::clone::Clone for STATUS_OBJECT_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub struct SWStringArray {
     pub cValues: u32,
-    pub lppszW: *mut super::super::Foundation::PWSTR,
+    pub lppszW: *mut ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SWStringArray {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SWStringArray {
     fn clone(&self) -> Self {
         *self
@@ -1721,7 +1703,7 @@ pub struct WABIMPORTPARAM {
     pub lpAdrBook: IAddrBook,
     pub hWnd: super::super::Foundation::HWND,
     pub ulFlags: u32,
-    pub lpszFileName: super::super::Foundation::PSTR,
+    pub lpszFileName: ::windows_sys::core::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WABIMPORTPARAM {}
@@ -1759,7 +1741,7 @@ pub const WAB_LOCAL_CONTAINERS: u32 = 1048576u32;
 pub struct WAB_PARAM {
     pub cbSize: u32,
     pub hwnd: super::super::Foundation::HWND,
-    pub szFileName: super::super::Foundation::PSTR,
+    pub szFileName: ::windows_sys::core::PSTR,
     pub ulFlags: u32,
     pub guidPSExt: ::windows_sys::core::GUID,
 }
@@ -1792,9 +1774,9 @@ pub union _PV {
     pub cur: super::Com::CY,
     pub at: f64,
     pub ft: super::super::Foundation::FILETIME,
-    pub lpszA: super::super::Foundation::PSTR,
+    pub lpszA: ::windows_sys::core::PSTR,
     pub bin: SBinary,
-    pub lpszW: super::super::Foundation::PWSTR,
+    pub lpszW: ::windows_sys::core::PWSTR,
     pub lpguid: *mut ::windows_sys::core::GUID,
     pub li: i64,
     pub MVi: SShortArray,

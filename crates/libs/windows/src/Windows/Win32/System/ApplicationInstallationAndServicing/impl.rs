@@ -1,28 +1,26 @@
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAssemblyCache_Impl: Sized {
-    fn UninstallAssembly(&self, dwflags: u32, pszassemblyname: super::super::Foundation::PWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows::core::Result<()>;
-    fn QueryAssemblyInfo(&self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: super::super::Foundation::PWSTR, pasminfo: *mut ASSEMBLY_INFO) -> ::windows::core::Result<()>;
-    fn CreateAssemblyCacheItem(&self, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, ppasmitem: *mut ::core::option::Option<IAssemblyCacheItem>, pszassemblyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn UninstallAssembly(&self, dwflags: u32, pszassemblyname: &::windows::core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows::core::Result<()>;
+    fn QueryAssemblyInfo(&self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: &::windows::core::PCWSTR, pasminfo: *mut ASSEMBLY_INFO) -> ::windows::core::Result<()>;
+    fn CreateAssemblyCacheItem(&self, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, ppasmitem: *mut ::core::option::Option<IAssemblyCacheItem>, pszassemblyname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Reserved(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn InstallAssembly(&self, dwflags: u32, pszmanifestfilepath: super::super::Foundation::PWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::Result<()>;
+    fn InstallAssembly(&self, dwflags: u32, pszmanifestfilepath: &::windows::core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IAssemblyCache_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>() -> IAssemblyCache_Vtbl {
-        unsafe extern "system" fn UninstallAssembly<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pszassemblyname: super::super::Foundation::PWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UninstallAssembly<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pszassemblyname: ::windows::core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UninstallAssembly(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pszassemblyname), ::core::mem::transmute_copy(&prefdata), ::core::mem::transmute_copy(&puldisposition)).into()
+            (*this).UninstallAssembly(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pszassemblyname), ::core::mem::transmute_copy(&prefdata), ::core::mem::transmute_copy(&puldisposition)).into()
         }
-        unsafe extern "system" fn QueryAssemblyInfo<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: super::super::Foundation::PWSTR, pasminfo: *mut ASSEMBLY_INFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryAssemblyInfo<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: ::windows::core::PCWSTR, pasminfo: *mut ASSEMBLY_INFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).QueryAssemblyInfo(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pszassemblyname), ::core::mem::transmute_copy(&pasminfo)).into()
+            (*this).QueryAssemblyInfo(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pszassemblyname), ::core::mem::transmute_copy(&pasminfo)).into()
         }
-        unsafe extern "system" fn CreateAssemblyCacheItem<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, ppasmitem: *mut ::windows::core::RawPtr, pszassemblyname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAssemblyCacheItem<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, ppasmitem: *mut ::windows::core::RawPtr, pszassemblyname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateAssemblyCacheItem(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pvreserved), ::core::mem::transmute_copy(&ppasmitem), ::core::mem::transmute_copy(&pszassemblyname)).into()
+            (*this).CreateAssemblyCacheItem(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pvreserved), ::core::mem::transmute_copy(&ppasmitem), ::core::mem::transmute(&pszassemblyname)).into()
         }
         unsafe extern "system" fn Reserved<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -35,10 +33,10 @@ impl IAssemblyCache_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InstallAssembly<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pszmanifestfilepath: super::super::Foundation::PWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallAssembly<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pszmanifestfilepath: ::windows::core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).InstallAssembly(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pszmanifestfilepath), ::core::mem::transmute_copy(&prefdata)).into()
+            (*this).InstallAssembly(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pszmanifestfilepath), ::core::mem::transmute_copy(&prefdata)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -53,19 +51,19 @@ impl IAssemblyCache_Vtbl {
         iid == &<IAssemblyCache as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IAssemblyCacheItem_Impl: Sized {
-    fn CreateStream(&self, dwflags: u32, pszstreamname: super::super::Foundation::PWSTR, dwformat: u32, dwformatflags: u32, ppistream: *mut ::core::option::Option<super::Com::IStream>, pulimaxsize: *mut u64) -> ::windows::core::Result<()>;
+    fn CreateStream(&self, dwflags: u32, pszstreamname: &::windows::core::PCWSTR, dwformat: u32, dwformatflags: u32, ppistream: *mut ::core::option::Option<super::Com::IStream>, pulimaxsize: *mut u64) -> ::windows::core::Result<()>;
     fn Commit(&self, dwflags: u32, puldisposition: *mut u32) -> ::windows::core::Result<()>;
     fn AbortItem(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IAssemblyCacheItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCacheItem_Impl, const OFFSET: isize>() -> IAssemblyCacheItem_Vtbl {
-        unsafe extern "system" fn CreateStream<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCacheItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pszstreamname: super::super::Foundation::PWSTR, dwformat: u32, dwformatflags: u32, ppistream: *mut ::windows::core::RawPtr, pulimaxsize: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStream<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCacheItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pszstreamname: ::windows::core::PCWSTR, dwformat: u32, dwformatflags: u32, ppistream: *mut ::windows::core::RawPtr, pulimaxsize: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateStream(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pszstreamname), ::core::mem::transmute_copy(&dwformat), ::core::mem::transmute_copy(&dwformatflags), ::core::mem::transmute_copy(&ppistream), ::core::mem::transmute_copy(&pulimaxsize)).into()
+            (*this).CreateStream(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pszstreamname), ::core::mem::transmute_copy(&dwformat), ::core::mem::transmute_copy(&dwformatflags), ::core::mem::transmute_copy(&ppistream), ::core::mem::transmute_copy(&pulimaxsize)).into()
         }
         unsafe extern "system" fn Commit<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCacheItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, puldisposition: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -88,19 +86,17 @@ impl IAssemblyCacheItem_Vtbl {
         iid == &<IAssemblyCacheItem as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IAssemblyName_Impl: Sized {
     fn SetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, cbproperty: u32) -> ::windows::core::Result<()>;
     fn GetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, pcbproperty: *mut u32) -> ::windows::core::Result<()>;
     fn Finalize(&self) -> ::windows::core::Result<()>;
-    fn GetDisplayName(&self, szdisplayname: super::super::Foundation::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> ::windows::core::Result<()>;
-    fn Reserved(&self, refiid: *const ::windows::core::GUID, punkreserved1: &::core::option::Option<::windows::core::IUnknown>, punkreserved2: &::core::option::Option<::windows::core::IUnknown>, szreserved: super::super::Foundation::PWSTR, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetName(&self, lpcwbuffer: *mut u32, pwzname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetDisplayName(&self, szdisplayname: ::windows::core::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> ::windows::core::Result<()>;
+    fn Reserved(&self, refiid: *const ::windows::core::GUID, punkreserved1: &::core::option::Option<::windows::core::IUnknown>, punkreserved2: &::core::option::Option<::windows::core::IUnknown>, szreserved: &::windows::core::PCWSTR, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetName(&self, lpcwbuffer: *mut u32, pwzname: ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> ::windows::core::Result<()>;
     fn IsEqual(&self, pname: &::core::option::Option<IAssemblyName>, dwcmpflags: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IAssemblyName>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IAssemblyName_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyName_Impl, const OFFSET: isize>() -> IAssemblyName_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, cbproperty: u32) -> ::windows::core::HRESULT {
@@ -118,17 +114,17 @@ impl IAssemblyName_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Finalize().into()
         }
-        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szdisplayname: super::super::Foundation::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szdisplayname: ::windows::core::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDisplayName(::core::mem::transmute_copy(&szdisplayname), ::core::mem::transmute_copy(&pccdisplayname), ::core::mem::transmute_copy(&dwdisplayflags)).into()
         }
-        unsafe extern "system" fn Reserved<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, refiid: *const ::windows::core::GUID, punkreserved1: *mut ::core::ffi::c_void, punkreserved2: *mut ::core::ffi::c_void, szreserved: super::super::Foundation::PWSTR, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reserved<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, refiid: *const ::windows::core::GUID, punkreserved1: *mut ::core::ffi::c_void, punkreserved2: *mut ::core::ffi::c_void, szreserved: ::windows::core::PCWSTR, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Reserved(::core::mem::transmute_copy(&refiid), ::core::mem::transmute(&punkreserved1), ::core::mem::transmute(&punkreserved2), ::core::mem::transmute_copy(&szreserved), ::core::mem::transmute_copy(&llreserved), ::core::mem::transmute_copy(&pvreserved), ::core::mem::transmute_copy(&cbreserved), ::core::mem::transmute_copy(&ppreserved)).into()
+            (*this).Reserved(::core::mem::transmute_copy(&refiid), ::core::mem::transmute(&punkreserved1), ::core::mem::transmute(&punkreserved2), ::core::mem::transmute(&szreserved), ::core::mem::transmute_copy(&llreserved), ::core::mem::transmute_copy(&pvreserved), ::core::mem::transmute_copy(&cbreserved), ::core::mem::transmute_copy(&ppreserved)).into()
         }
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpcwbuffer: *mut u32, pwzname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpcwbuffer: *mut u32, pwzname: ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetName(::core::mem::transmute_copy(&lpcwbuffer), ::core::mem::transmute_copy(&pwzname)).into()
@@ -1630,10 +1626,10 @@ pub trait IPMDeploymentManager_Impl: Sized {
     fn ReindexSQLCEDatabases(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn SetApplicationsNeedMaintenance(&self, requiredmaintenanceoperations: u32) -> ::windows::core::Result<u32>;
     fn UpdateChamberProfile(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn EnterprisePolicyIsApplicationAllowed(&self, productid: &::windows::core::GUID, publishername: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn EnterprisePolicyIsApplicationAllowed(&self, productid: &::windows::core::GUID, publishername: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn BeginUpdateDeployedPackage(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()>;
     fn ReportRestoreCancelled(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn ResolveResourceString(&self, resourcestring: super::super::Foundation::PWSTR, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ResolveResourceString(&self, resourcestring: &::windows::core::PCWSTR, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn UpdateCapabilitiesForModernApps(&self) -> ::windows::core::Result<()>;
     fn ReportDownloadStatusUpdate(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn BeginUninstallWithOptions(&self, productid: &::windows::core::GUID, removaloptions: u32) -> ::windows::core::Result<()>;
@@ -1775,10 +1771,10 @@ impl IPMDeploymentManager_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).UpdateChamberProfile(::core::mem::transmute(&productid)).into()
         }
-        unsafe extern "system" fn EnterprisePolicyIsApplicationAllowed<Identity: ::windows::core::IUnknownImpl, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, publishername: super::super::Foundation::PWSTR, pisallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnterprisePolicyIsApplicationAllowed<Identity: ::windows::core::IUnknownImpl, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, publishername: ::windows::core::PCWSTR, pisallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EnterprisePolicyIsApplicationAllowed(::core::mem::transmute(&productid), ::core::mem::transmute_copy(&publishername)) {
+            match (*this).EnterprisePolicyIsApplicationAllowed(::core::mem::transmute(&productid), ::core::mem::transmute(&publishername)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pisallowed = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1796,10 +1792,10 @@ impl IPMDeploymentManager_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ReportRestoreCancelled(::core::mem::transmute(&productid)).into()
         }
-        unsafe extern "system" fn ResolveResourceString<Identity: ::windows::core::IUnknownImpl, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourcestring: super::super::Foundation::PWSTR, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolveResourceString<Identity: ::windows::core::IUnknownImpl, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourcestring: ::windows::core::PCWSTR, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ResolveResourceString(::core::mem::transmute_copy(&resourcestring), ::core::mem::transmute_copy(&presolvedresourcestring)).into()
+            (*this).ResolveResourceString(::core::mem::transmute(&resourcestring), ::core::mem::transmute_copy(&presolvedresourcestring)).into()
         }
         unsafe extern "system" fn UpdateCapabilitiesForModernApps<Identity: ::windows::core::IUnknownImpl, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1890,7 +1886,7 @@ pub trait IPMEnumerationManager_Impl: Sized {
     fn ApplicationInfo(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<IPMApplicationInfo>;
     fn TileInfo(&self, productid: &::windows::core::GUID, tileid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPMTileInfo>;
     fn TaskInfo(&self, productid: &::windows::core::GUID, taskid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPMTaskInfo>;
-    fn TaskInfoEx(&self, productid: &::windows::core::GUID, taskid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IPMTaskInfo>;
+    fn TaskInfoEx(&self, productid: &::windows::core::GUID, taskid: &::windows::core::PCWSTR) -> ::windows::core::Result<IPMTaskInfo>;
     fn BackgroundServiceAgentInfo(&self, bsaid: u32) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo>;
     fn AllLiveTileJobs(&self) -> ::windows::core::Result<IPMLiveTileJobInfoEnumerator>;
     fn LiveTileJob(&self, productid: &::windows::core::GUID, tileid: &super::super::Foundation::BSTR, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> ::windows::core::Result<IPMLiveTileJobInfo>;
@@ -1966,10 +1962,10 @@ impl IPMEnumerationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TaskInfoEx<Identity: ::windows::core::IUnknownImpl, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, taskid: super::super::Foundation::PWSTR, pptaskinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TaskInfoEx<Identity: ::windows::core::IUnknownImpl, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, taskid: ::windows::core::PCWSTR, pptaskinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).TaskInfoEx(::core::mem::transmute(&productid), ::core::mem::transmute_copy(&taskid)) {
+            match (*this).TaskInfoEx(::core::mem::transmute(&productid), ::core::mem::transmute(&taskid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pptaskinfo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3265,26 +3261,26 @@ impl IPMTilePropertyInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IValidate_Impl: Sized {
-    fn OpenDatabase(&self, szdatabase: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn OpenCUB(&self, szcubfile: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OpenDatabase(&self, szdatabase: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn OpenCUB(&self, szcubfile: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn CloseDatabase(&self) -> ::windows::core::Result<()>;
     fn CloseCUB(&self) -> ::windows::core::Result<()>;
     fn SetDisplay(&self, pdisplayfunction: &LPDISPLAYVAL, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetStatus(&self, pstatusfunction: &LPEVALCOMCALLBACK, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Validate(&self, wzices: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Validate(&self, wzices: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IValidate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValidate_Impl, const OFFSET: isize>() -> IValidate_Vtbl {
-        unsafe extern "system" fn OpenDatabase<Identity: ::windows::core::IUnknownImpl, Impl: IValidate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szdatabase: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenDatabase<Identity: ::windows::core::IUnknownImpl, Impl: IValidate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szdatabase: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OpenDatabase(::core::mem::transmute_copy(&szdatabase)).into()
+            (*this).OpenDatabase(::core::mem::transmute(&szdatabase)).into()
         }
-        unsafe extern "system" fn OpenCUB<Identity: ::windows::core::IUnknownImpl, Impl: IValidate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szcubfile: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenCUB<Identity: ::windows::core::IUnknownImpl, Impl: IValidate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szcubfile: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OpenCUB(::core::mem::transmute_copy(&szcubfile)).into()
+            (*this).OpenCUB(::core::mem::transmute(&szcubfile)).into()
         }
         unsafe extern "system" fn CloseDatabase<Identity: ::windows::core::IUnknownImpl, Impl: IValidate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3306,10 +3302,10 @@ impl IValidate_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetStatus(::core::mem::transmute(&pstatusfunction), ::core::mem::transmute_copy(&pcontext)).into()
         }
-        unsafe extern "system" fn Validate<Identity: ::windows::core::IUnknownImpl, Impl: IValidate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzices: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Validate<Identity: ::windows::core::IUnknownImpl, Impl: IValidate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wzices: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Validate(::core::mem::transmute_copy(&wzices)).into()
+            (*this).Validate(::core::mem::transmute(&wzices)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

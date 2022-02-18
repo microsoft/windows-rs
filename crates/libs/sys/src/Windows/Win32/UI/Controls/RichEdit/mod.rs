@@ -21,9 +21,8 @@ pub const AURL_ENABLEEMAILADDR: u32 = 2u32;
 pub const AURL_ENABLETELNO: u32 = 4u32;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub const AURL_ENABLEURL: u32 = 1u32;
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type AutoCorrectProc = ::core::option::Option<unsafe extern "system" fn(langid: u16, pszbefore: super::super::super::Foundation::PWSTR, pszafter: super::super::super::Foundation::PWSTR, cchafter: i32, pcchreplaced: *mut i32) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub type AutoCorrectProc = ::core::option::Option<unsafe extern "system" fn(langid: u16, pszbefore: ::windows_sys::core::PCWSTR, pszafter: ::windows_sys::core::PCWSTR, cchafter: i32, pcchreplaced: *mut i32) -> i32>;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub struct BIDIOPTIONS {
@@ -490,9 +489,8 @@ impl ::core::clone::Clone for EDITSTREAM {
 }
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub type EDITSTREAMCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwcookie: usize, pbbuff: *mut u8, cb: i32, pcb: *mut i32) -> u32>;
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type EDITWORDBREAKPROCEX = ::core::option::Option<unsafe extern "system" fn(pchtext: super::super::super::Foundation::PSTR, cchtext: i32, bcharset: u8, action: i32) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+pub type EDITWORDBREAKPROCEX = ::core::option::Option<unsafe extern "system" fn(pchtext: ::windows_sys::core::PCSTR, cchtext: i32, bcharset: u8, action: i32) -> i32>;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub const ELLIPSIS_END: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
@@ -814,7 +812,7 @@ impl ::core::clone::Clone for ENLINK {
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
-    pub szControl: super::super::super::Foundation::PSTR,
+    pub szControl: ::windows_sys::core::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENLOWFIRTF {}
@@ -996,62 +994,50 @@ pub const ES_SUNKEN: u32 = 16384u32;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub const ES_VERTICAL: u32 = 4194304u32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
-    pub lpstrText: super::super::super::Foundation::PSTR,
+    pub lpstrText: ::windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FINDTEXTA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FINDTEXTA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
-    pub lpstrText: super::super::super::Foundation::PSTR,
+    pub lpstrText: ::windows_sys::core::PCSTR,
     pub chrgText: CHARRANGE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FINDTEXTEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FINDTEXTEXA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
-    pub lpstrText: super::super::super::Foundation::PWSTR,
+    pub lpstrText: ::windows_sys::core::PCWSTR,
     pub chrgText: CHARRANGE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FINDTEXTEXW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FINDTEXTEXW {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
-    pub lpstrText: super::super::super::Foundation::PWSTR,
+    pub lpstrText: ::windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FINDTEXTW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FINDTEXTW {
     fn clone(&self) -> Self {
         *self
@@ -1111,18 +1097,15 @@ impl ::core::clone::Clone for GETCONTEXTMENUEX {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub struct GETTEXTEX {
     pub cb: u32,
     pub flags: GETTEXTEX_FLAGS,
     pub codepage: u32,
-    pub lpDefaultChar: super::super::super::Foundation::PSTR,
+    pub lpDefaultChar: ::windows_sys::core::PCSTR,
     pub lpUsedDefChar: *mut i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GETTEXTEX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GETTEXTEX {
     fn clone(&self) -> Self {
         *self
@@ -1658,15 +1641,12 @@ pub const PFN_UCROMAN: u32 = 6u32;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub type PShutdownTextServices = ::core::option::Option<unsafe extern "system" fn(ptextservices: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT>;
 #[repr(C, packed(4))]
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub struct PUNCTUATION {
     pub iSize: u32,
-    pub szPunctuation: super::super::super::Foundation::PSTR,
+    pub szPunctuation: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PUNCTUATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PUNCTUATION {
     fn clone(&self) -> Self {
         *self
@@ -1790,19 +1770,19 @@ pub const RICHEDIT_CLASSA: &'static str = "RichEdit20A";
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub const RICHEDIT_CLASSW: &'static str = "RichEdit20W";
 #[repr(C, packed(4))]
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Graphics_Gdi', 'Win32_System_Com'*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: i32,
     pub yHeight: i32,
     pub Ascent: i32,
     pub Type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS,
-    pub pwszAlternateText: super::super::super::Foundation::PWSTR,
+    pub pwszAlternateText: ::windows_sys::core::PCWSTR,
     pub pIStream: super::super::super::System::Com::IStream,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for RICHEDIT_IMAGE_PARAMETERS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for RICHEDIT_IMAGE_PARAMETERS {
     fn clone(&self) -> Self {
         *self
@@ -2077,30 +2057,24 @@ pub const TM_SINGLECODEPAGE: TEXTMODE = 16i32;
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub const TM_MULTICODEPAGE: TEXTMODE = 32i32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
-    pub lpstrText: super::super::super::Foundation::PSTR,
+    pub lpstrText: ::windows_sys::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TEXTRANGEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TEXTRANGEA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,
-    pub lpstrText: super::super::super::Foundation::PWSTR,
+    pub lpstrText: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TEXTRANGEW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TEXTRANGEW {
     fn clone(&self) -> Self {
         *self

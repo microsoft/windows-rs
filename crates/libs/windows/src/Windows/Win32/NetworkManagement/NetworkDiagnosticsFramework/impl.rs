@@ -21,8 +21,8 @@ pub trait INetDiagHelper_Impl: Sized {
     fn Initialize(&self, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
     fn GetDiagnosticsInfo(&self) -> ::windows::core::Result<*mut DiagnosticsInfo>;
     fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
-    fn LowHealth(&self, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
-    fn HighUtilization(&self, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
+    fn LowHealth(&self, pwszinstancedescription: &::windows::core::PCWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
+    fn HighUtilization(&self, pwszinstancedescription: &::windows::core::PCWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
     fn GetLowerHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()>;
     fn GetDownStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()>;
     fn GetHigherHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()>;
@@ -61,15 +61,15 @@ impl INetDiagHelper_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetKeyAttributes(::core::mem::transmute_copy(&pcelt), ::core::mem::transmute_copy(&pprgattributes)).into()
         }
-        unsafe extern "system" fn LowHealth<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LowHealth<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszinstancedescription: ::windows::core::PCWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).LowHealth(::core::mem::transmute_copy(&pwszinstancedescription), ::core::mem::transmute_copy(&ppwszdescription), ::core::mem::transmute_copy(&pdeferredtime), ::core::mem::transmute_copy(&pstatus)).into()
+            (*this).LowHealth(::core::mem::transmute(&pwszinstancedescription), ::core::mem::transmute_copy(&ppwszdescription), ::core::mem::transmute_copy(&pdeferredtime), ::core::mem::transmute_copy(&pstatus)).into()
         }
-        unsafe extern "system" fn HighUtilization<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HighUtilization<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszinstancedescription: ::windows::core::PCWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).HighUtilization(::core::mem::transmute_copy(&pwszinstancedescription), ::core::mem::transmute_copy(&ppwszdescription), ::core::mem::transmute_copy(&pdeferredtime), ::core::mem::transmute_copy(&pstatus)).into()
+            (*this).HighUtilization(::core::mem::transmute(&pwszinstancedescription), ::core::mem::transmute_copy(&ppwszdescription), ::core::mem::transmute_copy(&pdeferredtime), ::core::mem::transmute_copy(&pstatus)).into()
         }
         unsafe extern "system" fn GetLowerHypotheses<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -176,14 +176,14 @@ impl INetDiagHelper_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelperEx_Impl: Sized {
-    fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut super::super::Foundation::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
+    fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut ::windows::core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
     fn SetUtilities(&self, putilities: &::core::option::Option<INetDiagHelperUtilFactory>) -> ::windows::core::Result<()>;
     fn ReproduceFailure(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetDiagHelperEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperEx_Impl, const OFFSET: isize>() -> INetDiagHelperEx_Vtbl {
-        unsafe extern "system" fn ReconfirmLowHealth<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut super::super::Foundation::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReconfirmLowHealth<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut ::windows::core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).ReconfirmLowHealth(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&presults), ::core::mem::transmute_copy(&ppwszupdateddescription), ::core::mem::transmute_copy(&pupdatedstatus)).into()
@@ -209,11 +209,9 @@ impl INetDiagHelperEx_Vtbl {
         iid == &<INetDiagHelperEx as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelperInfo_Impl: Sized {
     fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl INetDiagHelperInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperInfo_Impl, const OFFSET: isize>() -> INetDiagHelperInfo_Vtbl {
         unsafe extern "system" fn GetAttributeInfo<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::HRESULT {

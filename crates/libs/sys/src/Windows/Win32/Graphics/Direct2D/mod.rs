@@ -744,8 +744,8 @@ pub const D2D1_CROSSFADE_PROP_WEIGHT: D2D1_CROSSFADE_PROP = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CROSSFADE_PROP_FORCE_DWORD: D2D1_CROSSFADE_PROP = 4294967295u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     pub shaderBufferWithInputSignature: *const u8,
     pub shaderBufferSize: u32,
@@ -753,9 +753,9 @@ pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     pub elementCount: u32,
     pub stride: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     fn clone(&self) -> Self {
         *self
@@ -1513,18 +1513,18 @@ impl ::core::clone::Clone for D2D1_INPUT_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D2D1_INPUT_ELEMENT_DESC {
-    pub semanticName: super::super::Foundation::PSTR,
+    pub semanticName: ::windows_sys::core::PCSTR,
     pub semanticIndex: u32,
     pub format: super::Dxgi::Common::DXGI_FORMAT,
     pub inputSlot: u32,
     pub alignedByteOffset: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D2D1_INPUT_ELEMENT_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D2D1_INPUT_ELEMENT_DESC {
     fn clone(&self) -> Self {
         *self
@@ -1955,16 +1955,13 @@ pub const D2D1_PROPERTY_MAX_INPUTS: D2D1_PROPERTY = 2147483657u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_FORCE_DWORD: D2D1_PROPERTY = 4294967295u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_PROPERTY_BINDING {
-    pub propertyName: super::super::Foundation::PWSTR,
+    pub propertyName: ::windows_sys::core::PCWSTR,
     pub setFunction: PD2D1_PROPERTY_SET_FUNCTION,
     pub getFunction: PD2D1_PROPERTY_GET_FUNCTION,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D2D1_PROPERTY_BINDING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D2D1_PROPERTY_BINDING {
     fn clone(&self) -> Self {
         *self

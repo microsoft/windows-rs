@@ -403,17 +403,15 @@ impl IEmailAction_Vtbl {
         iid == &<IEmailAction as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IAction as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IEnumWorkItems_Impl: Sized {
-    fn Next(&self, celt: u32, rgpwsznames: *mut *mut super::super::Foundation::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Next(&self, celt: u32, rgpwsznames: *mut *mut ::windows::core::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
     fn Skip(&self, celt: u32) -> ::windows::core::HRESULT;
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumWorkItems>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IEnumWorkItems_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWorkItems_Impl, const OFFSET: isize>() -> IEnumWorkItems_Vtbl {
-        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWorkItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgpwsznames: *mut *mut super::super::Foundation::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWorkItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgpwsznames: *mut *mut ::windows::core::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgpwsznames), ::core::mem::transmute_copy(&pceltfetched))
@@ -1805,7 +1803,7 @@ pub trait IScheduledWorkItem_Impl: Sized {
     fn DeleteTrigger(&self, itrigger: u16) -> ::windows::core::Result<()>;
     fn GetTriggerCount(&self) -> ::windows::core::Result<u16>;
     fn GetTrigger(&self, itrigger: u16) -> ::windows::core::Result<ITaskTrigger>;
-    fn GetTriggerString(&self, itrigger: u16) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetTriggerString(&self, itrigger: u16) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetRunTimes(&self, pstbegin: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u16, rgsttasktimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
     fn GetNextRunTime(&self, pstnextrun: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
     fn SetIdleWait(&self, widleminutes: u16, wdeadlineminutes: u16) -> ::windows::core::Result<()>;
@@ -1816,10 +1814,10 @@ pub trait IScheduledWorkItem_Impl: Sized {
     fn GetMostRecentRunTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
     fn GetStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn GetExitCode(&self) -> ::windows::core::Result<u32>;
-    fn SetComment(&self, pwszcomment: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetComment(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetCreator(&self, pwszcreator: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetCreator(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetComment(&self, pwszcomment: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetComment(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetCreator(&self, pwszcreator: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetCreator(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetWorkItemData(&self, cbdata: u16, rgbdata: *const u8) -> ::windows::core::Result<()>;
     fn GetWorkItemData(&self, pcbdata: *mut u16, prgbdata: *mut *mut u8) -> ::windows::core::Result<()>;
     fn SetErrorRetryCount(&self, wretrycount: u16) -> ::windows::core::Result<()>;
@@ -1828,8 +1826,8 @@ pub trait IScheduledWorkItem_Impl: Sized {
     fn GetErrorRetryInterval(&self) -> ::windows::core::Result<u16>;
     fn SetFlags(&self, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetFlags(&self) -> ::windows::core::Result<u32>;
-    fn SetAccountInformation(&self, pwszaccountname: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetAccountInformation(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetAccountInformation(&self, pwszaccountname: &::windows::core::PCWSTR, pwszpassword: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetAccountInformation(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IScheduledWorkItem_Vtbl {
@@ -1866,7 +1864,7 @@ impl IScheduledWorkItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTriggerString<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itrigger: u16, ppwsztrigger: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTriggerString<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itrigger: u16, ppwsztrigger: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetTriggerString(::core::mem::transmute_copy(&itrigger)) {
@@ -1945,12 +1943,12 @@ impl IScheduledWorkItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetComment<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcomment: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetComment<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcomment: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetComment(::core::mem::transmute_copy(&pwszcomment)).into()
+            (*this).SetComment(::core::mem::transmute(&pwszcomment)).into()
         }
-        unsafe extern "system" fn GetComment<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszcomment: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetComment<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszcomment: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetComment() {
@@ -1961,12 +1959,12 @@ impl IScheduledWorkItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCreator<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcreator: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCreator<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcreator: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCreator(::core::mem::transmute_copy(&pwszcreator)).into()
+            (*this).SetCreator(::core::mem::transmute(&pwszcreator)).into()
         }
-        unsafe extern "system" fn GetCreator<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszcreator: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCreator<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszcreator: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetCreator() {
@@ -2035,12 +2033,12 @@ impl IScheduledWorkItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAccountInformation<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszaccountname: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAccountInformation<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszaccountname: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAccountInformation(::core::mem::transmute_copy(&pwszaccountname), ::core::mem::transmute_copy(&pwszpassword)).into()
+            (*this).SetAccountInformation(::core::mem::transmute(&pwszaccountname), ::core::mem::transmute(&pwszpassword)).into()
         }
-        unsafe extern "system" fn GetAccountInformation<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszaccountname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAccountInformation<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszaccountname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetAccountInformation() {
@@ -2188,12 +2186,12 @@ impl IShowMessageAction_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITask_Impl: Sized + IScheduledWorkItem_Impl {
-    fn SetApplicationName(&self, pwszapplicationname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetApplicationName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetParameters(&self, pwszparameters: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetParameters(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetWorkingDirectory(&self, pwszworkingdirectory: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetWorkingDirectory(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetApplicationName(&self, pwszapplicationname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetApplicationName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetParameters(&self, pwszparameters: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetParameters(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn SetWorkingDirectory(&self, pwszworkingdirectory: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetWorkingDirectory(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetPriority(&self, dwpriority: u32) -> ::windows::core::Result<()>;
     fn GetPriority(&self) -> ::windows::core::Result<u32>;
     fn SetTaskFlags(&self, dwflags: u32) -> ::windows::core::Result<()>;
@@ -2204,12 +2202,12 @@ pub trait ITask_Impl: Sized + IScheduledWorkItem_Impl {
 #[cfg(feature = "Win32_Foundation")]
 impl ITask_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>() -> ITask_Vtbl {
-        unsafe extern "system" fn SetApplicationName<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszapplicationname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetApplicationName<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszapplicationname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetApplicationName(::core::mem::transmute_copy(&pwszapplicationname)).into()
+            (*this).SetApplicationName(::core::mem::transmute(&pwszapplicationname)).into()
         }
-        unsafe extern "system" fn GetApplicationName<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszapplicationname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetApplicationName<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszapplicationname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetApplicationName() {
@@ -2220,12 +2218,12 @@ impl ITask_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParameters<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszparameters: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParameters<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszparameters: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetParameters(::core::mem::transmute_copy(&pwszparameters)).into()
+            (*this).SetParameters(::core::mem::transmute(&pwszparameters)).into()
         }
-        unsafe extern "system" fn GetParameters<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszparameters: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameters<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszparameters: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetParameters() {
@@ -2236,12 +2234,12 @@ impl ITask_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWorkingDirectory<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszworkingdirectory: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWorkingDirectory<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszworkingdirectory: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetWorkingDirectory(::core::mem::transmute_copy(&pwszworkingdirectory)).into()
+            (*this).SetWorkingDirectory(::core::mem::transmute(&pwszworkingdirectory)).into()
         }
-        unsafe extern "system" fn GetWorkingDirectory<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszworkingdirectory: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetWorkingDirectory<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszworkingdirectory: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetWorkingDirectory() {
@@ -2872,26 +2870,24 @@ impl ITaskNamedValuePair_Vtbl {
         iid == &<ITaskNamedValuePair as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITaskScheduler_Impl: Sized {
-    fn SetTargetComputer(&self, pwszcomputer: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetTargetComputer(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetTargetComputer(&self, pwszcomputer: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetTargetComputer(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn Enum(&self) -> ::windows::core::Result<IEnumWorkItems>;
-    fn Activate(&self, pwszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Delete(&self, pwszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn NewWorkItem(&self, pwsztaskname: super::super::Foundation::PWSTR, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn AddWorkItem(&self, pwsztaskname: super::super::Foundation::PWSTR, pworkitem: &::core::option::Option<IScheduledWorkItem>) -> ::windows::core::Result<()>;
-    fn IsOfType(&self, pwszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Activate(&self, pwszname: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Delete(&self, pwszname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn NewWorkItem(&self, pwsztaskname: &::windows::core::PCWSTR, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn AddWorkItem(&self, pwsztaskname: &::windows::core::PCWSTR, pworkitem: &::core::option::Option<IScheduledWorkItem>) -> ::windows::core::Result<()>;
+    fn IsOfType(&self, pwszname: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ITaskScheduler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>() -> ITaskScheduler_Vtbl {
-        unsafe extern "system" fn SetTargetComputer<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcomputer: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTargetComputer<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcomputer: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTargetComputer(::core::mem::transmute_copy(&pwszcomputer)).into()
+            (*this).SetTargetComputer(::core::mem::transmute(&pwszcomputer)).into()
         }
-        unsafe extern "system" fn GetTargetComputer<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszcomputer: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTargetComputer<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszcomputer: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetTargetComputer() {
@@ -2913,10 +2909,10 @@ impl ITaskScheduler_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Activate<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Activate<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Activate(::core::mem::transmute_copy(&pwszname), ::core::mem::transmute_copy(&riid)) {
+            match (*this).Activate(::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppunk = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2924,15 +2920,15 @@ impl ITaskScheduler_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Delete(::core::mem::transmute_copy(&pwszname)).into()
+            (*this).Delete(::core::mem::transmute(&pwszname)).into()
         }
-        unsafe extern "system" fn NewWorkItem<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsztaskname: super::super::Foundation::PWSTR, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NewWorkItem<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsztaskname: ::windows::core::PCWSTR, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).NewWorkItem(::core::mem::transmute_copy(&pwsztaskname), ::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&riid)) {
+            match (*this).NewWorkItem(::core::mem::transmute(&pwsztaskname), ::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppunk = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2940,15 +2936,15 @@ impl ITaskScheduler_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddWorkItem<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsztaskname: super::super::Foundation::PWSTR, pworkitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddWorkItem<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsztaskname: ::windows::core::PCWSTR, pworkitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddWorkItem(::core::mem::transmute_copy(&pwsztaskname), ::core::mem::transmute(&pworkitem)).into()
+            (*this).AddWorkItem(::core::mem::transmute(&pwsztaskname), ::core::mem::transmute(&pworkitem)).into()
         }
-        unsafe extern "system" fn IsOfType<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsOfType<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsOfType(::core::mem::transmute_copy(&pwszname), ::core::mem::transmute_copy(&riid)).into()
+            (*this).IsOfType(::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&riid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -3528,13 +3524,11 @@ impl ITaskSettings3_Vtbl {
         iid == &<ITaskSettings3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITaskSettings as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait ITaskTrigger_Impl: Sized {
     fn SetTrigger(&self, ptrigger: *const TASK_TRIGGER) -> ::windows::core::Result<()>;
     fn GetTrigger(&self) -> ::windows::core::Result<TASK_TRIGGER>;
-    fn GetTriggerString(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetTriggerString(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ITaskTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskTrigger_Impl, const OFFSET: isize>() -> ITaskTrigger_Vtbl {
         unsafe extern "system" fn SetTrigger<Identity: ::windows::core::IUnknownImpl, Impl: ITaskTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptrigger: *const TASK_TRIGGER) -> ::windows::core::HRESULT {
@@ -3553,7 +3547,7 @@ impl ITaskTrigger_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTriggerString<Identity: ::windows::core::IUnknownImpl, Impl: ITaskTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwsztrigger: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTriggerString<Identity: ::windows::core::IUnknownImpl, Impl: ITaskTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwsztrigger: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetTriggerString() {

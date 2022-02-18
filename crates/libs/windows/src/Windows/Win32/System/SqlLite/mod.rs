@@ -2091,15 +2091,14 @@ pub unsafe fn sqlite3_backup_finish(p: *mut sqlite3_backup) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_backup_init<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pdest: *mut sqlite3, zdestname: Param1, psource: *mut sqlite3, zsourcename: Param3) -> *mut sqlite3_backup {
+pub unsafe fn sqlite3_backup_init<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pdest: *mut sqlite3, zdestname: Param1, psource: *mut sqlite3, zsourcename: Param3) -> *mut sqlite3_backup {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_backup_init(pdest: *mut sqlite3, zdestname: super::super::Foundation::PSTR, psource: *mut sqlite3, zsourcename: super::super::Foundation::PSTR) -> *mut sqlite3_backup;
+            fn sqlite3_backup_init(pdest: *mut sqlite3, zdestname: ::windows::core::PCSTR, psource: *mut sqlite3, zsourcename: ::windows::core::PCSTR) -> *mut sqlite3_backup;
         }
         ::core::mem::transmute(sqlite3_backup_init(::core::mem::transmute(pdest), zdestname.into_param().abi(), ::core::mem::transmute(psource), zsourcename.into_param().abi()))
     }
@@ -2246,60 +2245,56 @@ pub unsafe fn sqlite3_bind_parameter_count(param0: *mut sqlite3_stmt) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_bind_parameter_index<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, zname: Param1) -> i32 {
+pub unsafe fn sqlite3_bind_parameter_index<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_stmt, zname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_bind_parameter_index(param0: *mut sqlite3_stmt, zname: super::super::Foundation::PSTR) -> i32;
+            fn sqlite3_bind_parameter_index(param0: *mut sqlite3_stmt, zname: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(sqlite3_bind_parameter_index(::core::mem::transmute(param0), zname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_bind_parameter_name(param0: *mut sqlite3_stmt, param1: i32) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_bind_parameter_name(param0: *mut sqlite3_stmt, param1: i32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_bind_parameter_name(param0: *mut sqlite3_stmt, param1: i32) -> super::super::Foundation::PSTR;
+            fn sqlite3_bind_parameter_name(param0: *mut sqlite3_stmt, param1: i32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_bind_parameter_name(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_bind_pointer<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: *mut ::core::ffi::c_void, param3: Param3, param4: isize) -> i32 {
+pub unsafe fn sqlite3_bind_pointer<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: *mut ::core::ffi::c_void, param3: Param3, param4: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_bind_pointer(param0: *mut sqlite3_stmt, param1: i32, param2: *mut ::core::ffi::c_void, param3: super::super::Foundation::PSTR, param4: isize) -> i32;
+            fn sqlite3_bind_pointer(param0: *mut sqlite3_stmt, param1: i32, param2: *mut ::core::ffi::c_void, param3: ::windows::core::PCSTR, param4: isize) -> i32;
         }
         ::core::mem::transmute(sqlite3_bind_pointer(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi(), ::core::mem::transmute(param4)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_bind_text<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: Param2, param3: i32, param4: isize) -> i32 {
+pub unsafe fn sqlite3_bind_text<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: Param2, param3: i32, param4: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_bind_text(param0: *mut sqlite3_stmt, param1: i32, param2: super::super::Foundation::PSTR, param3: i32, param4: isize) -> i32;
+            fn sqlite3_bind_text(param0: *mut sqlite3_stmt, param1: i32, param2: ::windows::core::PCSTR, param3: i32, param4: isize) -> i32;
         }
         ::core::mem::transmute(sqlite3_bind_text(::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi(), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
     }
@@ -2320,15 +2315,14 @@ pub unsafe fn sqlite3_bind_text16(param0: *mut sqlite3_stmt, param1: i32, param2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_bind_text64<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: Param2, param3: u64, param4: isize, encoding: u8) -> i32 {
+pub unsafe fn sqlite3_bind_text64<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_stmt, param1: i32, param2: Param2, param3: u64, param4: isize, encoding: u8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_bind_text64(param0: *mut sqlite3_stmt, param1: i32, param2: super::super::Foundation::PSTR, param3: u64, param4: isize, encoding: u8) -> i32;
+            fn sqlite3_bind_text64(param0: *mut sqlite3_stmt, param1: i32, param2: ::windows::core::PCSTR, param3: u64, param4: isize, encoding: u8) -> i32;
         }
         ::core::mem::transmute(sqlite3_bind_text64(::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi(), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(encoding)))
     }
@@ -2407,15 +2401,14 @@ pub unsafe fn sqlite3_blob_close(param0: *mut sqlite3_blob) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_blob_open<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zdb: Param1, ztable: Param2, zcolumn: Param3, irow: i64, flags: i32, ppblob: *mut *mut sqlite3_blob) -> i32 {
+pub unsafe fn sqlite3_blob_open<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3, zdb: Param1, ztable: Param2, zcolumn: Param3, irow: i64, flags: i32, ppblob: *mut *mut sqlite3_blob) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_blob_open(param0: *mut sqlite3, zdb: super::super::Foundation::PSTR, ztable: super::super::Foundation::PSTR, zcolumn: super::super::Foundation::PSTR, irow: i64, flags: i32, ppblob: *mut *mut sqlite3_blob) -> i32;
+            fn sqlite3_blob_open(param0: *mut sqlite3, zdb: ::windows::core::PCSTR, ztable: ::windows::core::PCSTR, zcolumn: ::windows::core::PCSTR, irow: i64, flags: i32, ppblob: *mut *mut sqlite3_blob) -> i32;
         }
         ::core::mem::transmute(sqlite3_blob_open(::core::mem::transmute(param0), zdb.into_param().abi(), ztable.into_param().abi(), zcolumn.into_param().abi(), ::core::mem::transmute(irow), ::core::mem::transmute(flags), ::core::mem::transmute(ppblob)))
     }
@@ -2648,15 +2641,14 @@ pub unsafe fn sqlite3_column_count(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_column_database_name(param0: *mut sqlite3_stmt, param1: i32) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_column_database_name(param0: *mut sqlite3_stmt, param1: i32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_column_database_name(param0: *mut sqlite3_stmt, param1: i32) -> super::super::Foundation::PSTR;
+            fn sqlite3_column_database_name(param0: *mut sqlite3_stmt, param1: i32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_column_database_name(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
     }
@@ -2677,15 +2669,14 @@ pub unsafe fn sqlite3_column_database_name16(param0: *mut sqlite3_stmt, param1: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_column_decltype(param0: *mut sqlite3_stmt, param1: i32) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_column_decltype(param0: *mut sqlite3_stmt, param1: i32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_column_decltype(param0: *mut sqlite3_stmt, param1: i32) -> super::super::Foundation::PSTR;
+            fn sqlite3_column_decltype(param0: *mut sqlite3_stmt, param1: i32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_column_decltype(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
     }
@@ -2748,15 +2739,14 @@ pub unsafe fn sqlite3_column_int64(param0: *mut sqlite3_stmt, icol: i32) -> i64 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_column_name(param0: *mut sqlite3_stmt, n: i32) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_column_name(param0: *mut sqlite3_stmt, n: i32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_column_name(param0: *mut sqlite3_stmt, n: i32) -> super::super::Foundation::PSTR;
+            fn sqlite3_column_name(param0: *mut sqlite3_stmt, n: i32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_column_name(::core::mem::transmute(param0), ::core::mem::transmute(n)))
     }
@@ -2777,15 +2767,14 @@ pub unsafe fn sqlite3_column_name16(param0: *mut sqlite3_stmt, n: i32) -> *mut :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_column_origin_name(param0: *mut sqlite3_stmt, param1: i32) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_column_origin_name(param0: *mut sqlite3_stmt, param1: i32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_column_origin_name(param0: *mut sqlite3_stmt, param1: i32) -> super::super::Foundation::PSTR;
+            fn sqlite3_column_origin_name(param0: *mut sqlite3_stmt, param1: i32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_column_origin_name(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
     }
@@ -2806,15 +2795,14 @@ pub unsafe fn sqlite3_column_origin_name16(param0: *mut sqlite3_stmt, param1: i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_column_table_name(param0: *mut sqlite3_stmt, param1: i32) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_column_table_name(param0: *mut sqlite3_stmt, param1: i32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_column_table_name(param0: *mut sqlite3_stmt, param1: i32) -> super::super::Foundation::PSTR;
+            fn sqlite3_column_table_name(param0: *mut sqlite3_stmt, param1: i32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_column_table_name(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
     }
@@ -2905,45 +2893,42 @@ pub unsafe fn sqlite3_commit_hook(param0: *mut sqlite3, param1: isize, param2: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_compileoption_get(n: i32) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_compileoption_get(n: i32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_compileoption_get(n: i32) -> super::super::Foundation::PSTR;
+            fn sqlite3_compileoption_get(n: i32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_compileoption_get(::core::mem::transmute(n)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_compileoption_used<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zoptname: Param0) -> i32 {
+pub unsafe fn sqlite3_compileoption_used<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(zoptname: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_compileoption_used(zoptname: super::super::Foundation::PSTR) -> i32;
+            fn sqlite3_compileoption_used(zoptname: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(sqlite3_compileoption_used(zoptname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_complete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sql: Param0) -> i32 {
+pub unsafe fn sqlite3_complete<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(sql: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_complete(sql: super::super::Foundation::PSTR) -> i32;
+            fn sqlite3_complete(sql: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(sqlite3_complete(sql.into_param().abi()))
     }
@@ -2994,15 +2979,14 @@ pub unsafe fn sqlite3_context_db_handle(param0: *mut sqlite3_context) -> *mut sq
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_create_collation<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zname: Param1, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize) -> i32 {
+pub unsafe fn sqlite3_create_collation<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3, zname: Param1, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_create_collation(param0: *mut sqlite3, zname: super::super::Foundation::PSTR, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize) -> i32;
+            fn sqlite3_create_collation(param0: *mut sqlite3, zname: ::windows::core::PCSTR, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize) -> i32;
         }
         ::core::mem::transmute(sqlite3_create_collation(::core::mem::transmute(param0), zname.into_param().abi(), ::core::mem::transmute(etextrep), ::core::mem::transmute(parg), ::core::mem::transmute(xcompare)))
     }
@@ -3023,45 +3007,42 @@ pub unsafe fn sqlite3_create_collation16(param0: *mut sqlite3, zname: *const ::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_create_collation_v2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zname: Param1, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize, xdestroy: isize) -> i32 {
+pub unsafe fn sqlite3_create_collation_v2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3, zname: Param1, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize, xdestroy: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_create_collation_v2(param0: *mut sqlite3, zname: super::super::Foundation::PSTR, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize, xdestroy: isize) -> i32;
+            fn sqlite3_create_collation_v2(param0: *mut sqlite3, zname: ::windows::core::PCSTR, etextrep: i32, parg: *mut ::core::ffi::c_void, xcompare: isize, xdestroy: isize) -> i32;
         }
         ::core::mem::transmute(sqlite3_create_collation_v2(::core::mem::transmute(param0), zname.into_param().abi(), ::core::mem::transmute(etextrep), ::core::mem::transmute(parg), ::core::mem::transmute(xcompare), ::core::mem::transmute(xdestroy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_create_filename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zdatabase: Param0, zjournal: Param1, zwal: Param2, nparam: i32, azparam: *const *const i8) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_create_filename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(zdatabase: Param0, zjournal: Param1, zwal: Param2, nparam: i32, azparam: *const *const i8) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_create_filename(zdatabase: super::super::Foundation::PSTR, zjournal: super::super::Foundation::PSTR, zwal: super::super::Foundation::PSTR, nparam: i32, azparam: *const *const i8) -> super::super::Foundation::PSTR;
+            fn sqlite3_create_filename(zdatabase: ::windows::core::PCSTR, zjournal: ::windows::core::PCSTR, zwal: ::windows::core::PCSTR, nparam: i32, azparam: *const *const i8) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_create_filename(zdatabase.into_param().abi(), zjournal.into_param().abi(), zwal.into_param().abi(), ::core::mem::transmute(nparam), ::core::mem::transmute(azparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_create_function<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize) -> i32 {
+pub unsafe fn sqlite3_create_function<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_create_function(db: *mut sqlite3, zfunctionname: super::super::Foundation::PSTR, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize) -> i32;
+            fn sqlite3_create_function(db: *mut sqlite3, zfunctionname: ::windows::core::PCSTR, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize) -> i32;
         }
         ::core::mem::transmute(sqlite3_create_function(::core::mem::transmute(db), zfunctionname.into_param().abi(), ::core::mem::transmute(narg), ::core::mem::transmute(etextrep), ::core::mem::transmute(papp), ::core::mem::transmute(xfunc), ::core::mem::transmute(xstep), ::core::mem::transmute(xfinal)))
     }
@@ -3082,60 +3063,56 @@ pub unsafe fn sqlite3_create_function16(db: *mut sqlite3, zfunctionname: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_create_function_v2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize, xdestroy: isize) -> i32 {
+pub unsafe fn sqlite3_create_function_v2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize, xdestroy: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_create_function_v2(db: *mut sqlite3, zfunctionname: super::super::Foundation::PSTR, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize, xdestroy: isize) -> i32;
+            fn sqlite3_create_function_v2(db: *mut sqlite3, zfunctionname: ::windows::core::PCSTR, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xfunc: isize, xstep: isize, xfinal: isize, xdestroy: isize) -> i32;
         }
         ::core::mem::transmute(sqlite3_create_function_v2(::core::mem::transmute(db), zfunctionname.into_param().abi(), ::core::mem::transmute(narg), ::core::mem::transmute(etextrep), ::core::mem::transmute(papp), ::core::mem::transmute(xfunc), ::core::mem::transmute(xstep), ::core::mem::transmute(xfinal), ::core::mem::transmute(xdestroy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_create_module<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zname: Param1, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn sqlite3_create_module<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zname: Param1, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_create_module(db: *mut sqlite3, zname: super::super::Foundation::PSTR, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void) -> i32;
+            fn sqlite3_create_module(db: *mut sqlite3, zname: ::windows::core::PCSTR, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(sqlite3_create_module(::core::mem::transmute(db), zname.into_param().abi(), ::core::mem::transmute(p), ::core::mem::transmute(pclientdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_create_module_v2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zname: Param1, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void, xdestroy: isize) -> i32 {
+pub unsafe fn sqlite3_create_module_v2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zname: Param1, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void, xdestroy: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_create_module_v2(db: *mut sqlite3, zname: super::super::Foundation::PSTR, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void, xdestroy: isize) -> i32;
+            fn sqlite3_create_module_v2(db: *mut sqlite3, zname: ::windows::core::PCSTR, p: *const sqlite3_module, pclientdata: *mut ::core::ffi::c_void, xdestroy: isize) -> i32;
         }
         ::core::mem::transmute(sqlite3_create_module_v2(::core::mem::transmute(db), zname.into_param().abi(), ::core::mem::transmute(p), ::core::mem::transmute(pclientdata), ::core::mem::transmute(xdestroy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_create_window_function<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xstep: isize, xfinal: isize, xvalue: isize, xinverse: isize, xdestroy: isize) -> i32 {
+pub unsafe fn sqlite3_create_window_function<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zfunctionname: Param1, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xstep: isize, xfinal: isize, xvalue: isize, xinverse: isize, xdestroy: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_create_window_function(db: *mut sqlite3, zfunctionname: super::super::Foundation::PSTR, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xstep: isize, xfinal: isize, xvalue: isize, xinverse: isize, xdestroy: isize) -> i32;
+            fn sqlite3_create_window_function(db: *mut sqlite3, zfunctionname: ::windows::core::PCSTR, narg: i32, etextrep: i32, papp: *mut ::core::ffi::c_void, xstep: isize, xfinal: isize, xvalue: isize, xinverse: isize, xdestroy: isize) -> i32;
         }
         ::core::mem::transmute(sqlite3_create_window_function(::core::mem::transmute(db), zfunctionname.into_param().abi(), ::core::mem::transmute(narg), ::core::mem::transmute(etextrep), ::core::mem::transmute(papp), ::core::mem::transmute(xstep), ::core::mem::transmute(xfinal), ::core::mem::transmute(xvalue), ::core::mem::transmute(xinverse), ::core::mem::transmute(xdestroy)))
     }
@@ -3156,15 +3133,14 @@ pub unsafe fn sqlite3_data_count(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_database_file_object<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> *mut sqlite3_file {
+pub unsafe fn sqlite3_database_file_object<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0) -> *mut sqlite3_file {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_database_file_object(param0: super::super::Foundation::PSTR) -> *mut sqlite3_file;
+            fn sqlite3_database_file_object(param0: ::windows::core::PCSTR) -> *mut sqlite3_file;
         }
         ::core::mem::transmute(sqlite3_database_file_object(param0.into_param().abi()))
     }
@@ -3199,15 +3175,14 @@ pub unsafe fn sqlite3_db_config(param0: *mut sqlite3, op: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_db_filename<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdbname: Param1) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_db_filename<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zdbname: Param1) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_db_filename(db: *mut sqlite3, zdbname: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+            fn sqlite3_db_filename(db: *mut sqlite3, zdbname: ::windows::core::PCSTR) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_db_filename(::core::mem::transmute(db), zdbname.into_param().abi()))
     }
@@ -3242,15 +3217,14 @@ pub unsafe fn sqlite3_db_mutex(param0: *mut sqlite3) -> *mut sqlite3_mutex {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_db_readonly<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdbname: Param1) -> i32 {
+pub unsafe fn sqlite3_db_readonly<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zdbname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_db_readonly(db: *mut sqlite3, zdbname: super::super::Foundation::PSTR) -> i32;
+            fn sqlite3_db_readonly(db: *mut sqlite3, zdbname: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(sqlite3_db_readonly(::core::mem::transmute(db), zdbname.into_param().abi()))
     }
@@ -3285,30 +3259,28 @@ pub unsafe fn sqlite3_db_status(param0: *mut sqlite3, op: i32, pcur: *mut i32, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_declare_vtab<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zsql: Param1) -> i32 {
+pub unsafe fn sqlite3_declare_vtab<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3, zsql: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_declare_vtab(param0: *mut sqlite3, zsql: super::super::Foundation::PSTR) -> i32;
+            fn sqlite3_declare_vtab(param0: *mut sqlite3, zsql: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(sqlite3_declare_vtab(::core::mem::transmute(param0), zsql.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_deserialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zschema: Param1, pdata: *mut u8, szdb: i64, szbuf: i64, mflags: u32) -> i32 {
+pub unsafe fn sqlite3_deserialize<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zschema: Param1, pdata: *mut u8, szdb: i64, szbuf: i64, mflags: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_deserialize(db: *mut sqlite3, zschema: super::super::Foundation::PSTR, pdata: *mut u8, szdb: i64, szbuf: i64, mflags: u32) -> i32;
+            fn sqlite3_deserialize(db: *mut sqlite3, zschema: ::windows::core::PCSTR, pdata: *mut u8, szdb: i64, szbuf: i64, mflags: u32) -> i32;
         }
         ::core::mem::transmute(sqlite3_deserialize(::core::mem::transmute(db), zschema.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(szdb), ::core::mem::transmute(szbuf), ::core::mem::transmute(mflags)))
     }
@@ -3373,15 +3345,14 @@ pub unsafe fn sqlite3_errcode(db: *mut sqlite3) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_errmsg(param0: *mut sqlite3) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_errmsg(param0: *mut sqlite3) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_errmsg(param0: *mut sqlite3) -> super::super::Foundation::PSTR;
+            fn sqlite3_errmsg(param0: *mut sqlite3) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_errmsg(::core::mem::transmute(param0)))
     }
@@ -3402,45 +3373,42 @@ pub unsafe fn sqlite3_errmsg16(param0: *mut sqlite3) -> *mut ::core::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_errstr(param0: i32) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_errstr(param0: i32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_errstr(param0: i32) -> super::super::Foundation::PSTR;
+            fn sqlite3_errstr(param0: i32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_errstr(::core::mem::transmute(param0)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_exec<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, sql: Param1, callback: isize, param3: *mut ::core::ffi::c_void, errmsg: *mut *mut i8) -> i32 {
+pub unsafe fn sqlite3_exec<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3, sql: Param1, callback: isize, param3: *mut ::core::ffi::c_void, errmsg: *mut *mut i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_exec(param0: *mut sqlite3, sql: super::super::Foundation::PSTR, callback: isize, param3: *mut ::core::ffi::c_void, errmsg: *mut *mut i8) -> i32;
+            fn sqlite3_exec(param0: *mut sqlite3, sql: ::windows::core::PCSTR, callback: isize, param3: *mut ::core::ffi::c_void, errmsg: *mut *mut i8) -> i32;
         }
         ::core::mem::transmute(sqlite3_exec(::core::mem::transmute(param0), sql.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(param3), ::core::mem::transmute(errmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_expanded_sql(pstmt: *mut sqlite3_stmt) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_expanded_sql(pstmt: *mut sqlite3_stmt) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_expanded_sql(pstmt: *mut sqlite3_stmt) -> super::super::Foundation::PSTR;
+            fn sqlite3_expanded_sql(pstmt: *mut sqlite3_stmt) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_expanded_sql(::core::mem::transmute(pstmt)))
     }
@@ -3519,60 +3487,56 @@ impl ::core::default::Default for sqlite3_file {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_file_control<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zdbname: Param1, op: i32, param3: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn sqlite3_file_control<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3, zdbname: Param1, op: i32, param3: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_file_control(param0: *mut sqlite3, zdbname: super::super::Foundation::PSTR, op: i32, param3: *mut ::core::ffi::c_void) -> i32;
+            fn sqlite3_file_control(param0: *mut sqlite3, zdbname: ::windows::core::PCSTR, op: i32, param3: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(sqlite3_file_control(::core::mem::transmute(param0), zdbname.into_param().abi(), ::core::mem::transmute(op), ::core::mem::transmute(param3)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_filename_database<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_filename_database<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_filename_database(param0: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+            fn sqlite3_filename_database(param0: ::windows::core::PCSTR) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_filename_database(param0.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_filename_journal<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_filename_journal<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_filename_journal(param0: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+            fn sqlite3_filename_journal(param0: ::windows::core::PCSTR) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_filename_journal(param0.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_filename_wal<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_filename_wal<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_filename_wal(param0: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+            fn sqlite3_filename_wal(param0: ::windows::core::PCSTR) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_filename_wal(param0.into_param().abi()))
     }
@@ -3607,15 +3571,14 @@ pub unsafe fn sqlite3_free(param0: *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_free_filename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) {
+pub unsafe fn sqlite3_free_filename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_free_filename(param0: super::super::Foundation::PSTR);
+            fn sqlite3_free_filename(param0: ::windows::core::PCSTR);
         }
         sqlite3_free_filename(param0.into_param().abi())
     }
@@ -3664,15 +3627,14 @@ pub unsafe fn sqlite3_get_auxdata(param0: *mut sqlite3_context, n: i32) -> *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_get_table<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, pazresult: *mut *mut *mut i8, pnrow: *mut i32, pncolumn: *mut i32, pzerrmsg: *mut *mut i8) -> i32 {
+pub unsafe fn sqlite3_get_table<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zsql: Param1, pazresult: *mut *mut *mut i8, pnrow: *mut i32, pncolumn: *mut i32, pzerrmsg: *mut *mut i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_get_table(db: *mut sqlite3, zsql: super::super::Foundation::PSTR, pazresult: *mut *mut *mut i8, pnrow: *mut i32, pncolumn: *mut i32, pzerrmsg: *mut *mut i8) -> i32;
+            fn sqlite3_get_table(db: *mut sqlite3, zsql: ::windows::core::PCSTR, pazresult: *mut *mut *mut i8, pnrow: *mut i32, pncolumn: *mut i32, pzerrmsg: *mut *mut i8) -> i32;
         }
         ::core::mem::transmute(sqlite3_get_table(::core::mem::transmute(db), zsql.into_param().abi(), ::core::mem::transmute(pazresult), ::core::mem::transmute(pnrow), ::core::mem::transmute(pncolumn), ::core::mem::transmute(pzerrmsg)))
     }
@@ -3708,8 +3670,7 @@ pub unsafe fn sqlite3_hard_heap_limit64(n: i64) -> i64 {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct sqlite3_index_info {
     pub nConstraint: i32,
     pub aConstraint: *mut sqlite3_index_info_0,
@@ -3717,7 +3678,7 @@ pub struct sqlite3_index_info {
     pub aOrderBy: *mut sqlite3_index_info_2,
     pub aConstraintUsage: *mut sqlite3_index_info_1,
     pub idxNum: i32,
-    pub idxStr: super::super::Foundation::PSTR,
+    pub idxStr: ::windows::core::PSTR,
     pub needToFreeIdxStr: i32,
     pub orderByConsumed: i32,
     pub estimatedCost: f64,
@@ -3725,15 +3686,12 @@ pub struct sqlite3_index_info {
     pub idxFlags: i32,
     pub colUsed: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_index_info {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_index_info {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for sqlite3_index_info {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("sqlite3_index_info")
@@ -3753,138 +3711,110 @@ impl ::core::fmt::Debug for sqlite3_index_info {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_index_info {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_index_info {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_index_info>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_index_info {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct sqlite3_index_info_0 {
     pub iColumn: i32,
     pub op: u8,
     pub usable: u8,
     pub iTermOffset: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_index_info_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_index_info_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for sqlite3_index_info_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("sqlite3_index_info_0").field("iColumn", &self.iColumn).field("op", &self.op).field("usable", &self.usable).field("iTermOffset", &self.iTermOffset).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_index_info_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_index_info_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_index_info_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_index_info_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct sqlite3_index_info_1 {
     pub argvIndex: i32,
     pub omit: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_index_info_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_index_info_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for sqlite3_index_info_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("sqlite3_index_info_1").field("argvIndex", &self.argvIndex).field("omit", &self.omit).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_index_info_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_index_info_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_index_info_1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_index_info_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct sqlite3_index_info_2 {
     pub iColumn: i32,
     pub desc: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_index_info_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_index_info_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for sqlite3_index_info_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("sqlite3_index_info_2").field("iColumn", &self.iColumn).field("desc", &self.desc).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_index_info_2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_index_info_2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_index_info_2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_index_info_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3986,15 +3916,14 @@ impl ::core::default::Default for sqlite3_io_methods {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_keyword_check<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: i32) -> i32 {
+pub unsafe fn sqlite3_keyword_check<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_keyword_check(param0: super::super::Foundation::PSTR, param1: i32) -> i32;
+            fn sqlite3_keyword_check(param0: ::windows::core::PCSTR, param1: i32) -> i32;
         }
         ::core::mem::transmute(sqlite3_keyword_check(param0.into_param().abi(), ::core::mem::transmute(param1)))
     }
@@ -4043,15 +3972,14 @@ pub unsafe fn sqlite3_last_insert_rowid(param0: *mut sqlite3) -> i64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_libversion() -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_libversion() -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_libversion() -> super::super::Foundation::PSTR;
+            fn sqlite3_libversion() -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_libversion())
     }
@@ -4086,15 +4014,14 @@ pub unsafe fn sqlite3_limit(param0: *mut sqlite3, id: i32, newval: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_load_extension<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zfile: Param1, zproc: Param2, pzerrmsg: *mut *mut i8) -> i32 {
+pub unsafe fn sqlite3_load_extension<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zfile: Param1, zproc: Param2, pzerrmsg: *mut *mut i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_load_extension(db: *mut sqlite3, zfile: super::super::Foundation::PSTR, zproc: super::super::Foundation::PSTR, pzerrmsg: *mut *mut i8) -> i32;
+            fn sqlite3_load_extension(db: *mut sqlite3, zfile: ::windows::core::PCSTR, zproc: ::windows::core::PCSTR, pzerrmsg: *mut *mut i8) -> i32;
         }
         ::core::mem::transmute(sqlite3_load_extension(::core::mem::transmute(db), zfile.into_param().abi(), zproc.into_param().abi(), ::core::mem::transmute(pzerrmsg)))
     }
@@ -4103,15 +4030,14 @@ pub unsafe fn sqlite3_load_extension<'a, Param1: ::windows::core::IntoParam<'a, 
 }
 #[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub type sqlite3_loadext_entry = ::core::option::Option<unsafe extern "system" fn(db: *mut sqlite3, pzerrmsg: *mut *mut i8, pthunk: *const sqlite3_api_routines) -> i32>;
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_log<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ierrcode: i32, zformat: Param1) {
+pub unsafe fn sqlite3_log<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ierrcode: i32, zformat: Param1) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_log(ierrcode: i32, zformat: super::super::Foundation::PSTR);
+            fn sqlite3_log(ierrcode: i32, zformat: ::windows::core::PCSTR);
         }
         sqlite3_log(::core::mem::transmute(ierrcode), zformat.into_param().abi())
     }
@@ -4303,15 +4229,14 @@ impl ::core::default::Default for sqlite3_module {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_mprintf<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_mprintf<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_mprintf(param0: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+            fn sqlite3_mprintf(param0: ::windows::core::PCSTR) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_mprintf(param0.into_param().abi()))
     }
@@ -4456,15 +4381,14 @@ pub unsafe fn sqlite3_next_stmt(pdb: *mut sqlite3, pstmt: *mut sqlite3_stmt) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_open<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, ppdb: *mut *mut sqlite3) -> i32 {
+pub unsafe fn sqlite3_open<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(filename: Param0, ppdb: *mut *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_open(filename: super::super::Foundation::PSTR, ppdb: *mut *mut sqlite3) -> i32;
+            fn sqlite3_open(filename: ::windows::core::PCSTR, ppdb: *mut *mut sqlite3) -> i32;
         }
         ::core::mem::transmute(sqlite3_open(filename.into_param().abi(), ::core::mem::transmute(ppdb)))
     }
@@ -4485,15 +4409,14 @@ pub unsafe fn sqlite3_open16(filename: *const ::core::ffi::c_void, ppdb: *mut *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_open_v2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, ppdb: *mut *mut sqlite3, flags: i32, zvfs: Param3) -> i32 {
+pub unsafe fn sqlite3_open_v2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(filename: Param0, ppdb: *mut *mut sqlite3, flags: i32, zvfs: Param3) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_open_v2(filename: super::super::Foundation::PSTR, ppdb: *mut *mut sqlite3, flags: i32, zvfs: super::super::Foundation::PSTR) -> i32;
+            fn sqlite3_open_v2(filename: ::windows::core::PCSTR, ppdb: *mut *mut sqlite3, flags: i32, zvfs: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(sqlite3_open_v2(filename.into_param().abi(), ::core::mem::transmute(ppdb), ::core::mem::transmute(flags), zvfs.into_param().abi()))
     }
@@ -4528,15 +4451,14 @@ pub unsafe fn sqlite3_os_init() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_overload_function<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zfuncname: Param1, narg: i32) -> i32 {
+pub unsafe fn sqlite3_overload_function<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3, zfuncname: Param1, narg: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_overload_function(param0: *mut sqlite3, zfuncname: super::super::Foundation::PSTR, narg: i32) -> i32;
+            fn sqlite3_overload_function(param0: *mut sqlite3, zfuncname: ::windows::core::PCSTR, narg: i32) -> i32;
         }
         ::core::mem::transmute(sqlite3_overload_function(::core::mem::transmute(param0), zfuncname.into_param().abi(), ::core::mem::transmute(narg)))
     }
@@ -4658,15 +4580,14 @@ impl ::core::default::Default for sqlite3_pcache_page {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_prepare<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
+pub unsafe fn sqlite3_prepare<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_prepare(db: *mut sqlite3, zsql: super::super::Foundation::PSTR, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32;
+            fn sqlite3_prepare(db: *mut sqlite3, zsql: ::windows::core::PCSTR, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32;
         }
         ::core::mem::transmute(sqlite3_prepare(::core::mem::transmute(db), zsql.into_param().abi(), ::core::mem::transmute(nbyte), ::core::mem::transmute(ppstmt), ::core::mem::transmute(pztail)))
     }
@@ -4715,30 +4636,28 @@ pub unsafe fn sqlite3_prepare16_v3(db: *mut sqlite3, zsql: *const ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_prepare_v2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
+pub unsafe fn sqlite3_prepare_v2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_prepare_v2(db: *mut sqlite3, zsql: super::super::Foundation::PSTR, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32;
+            fn sqlite3_prepare_v2(db: *mut sqlite3, zsql: ::windows::core::PCSTR, nbyte: i32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32;
         }
         ::core::mem::transmute(sqlite3_prepare_v2(::core::mem::transmute(db), zsql.into_param().abi(), ::core::mem::transmute(nbyte), ::core::mem::transmute(ppstmt), ::core::mem::transmute(pztail)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_prepare_v3<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, prepflags: u32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
+pub unsafe fn sqlite3_prepare_v3<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zsql: Param1, nbyte: i32, prepflags: u32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_prepare_v3(db: *mut sqlite3, zsql: super::super::Foundation::PSTR, nbyte: i32, prepflags: u32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32;
+            fn sqlite3_prepare_v3(db: *mut sqlite3, zsql: ::windows::core::PCSTR, nbyte: i32, prepflags: u32, ppstmt: *mut *mut sqlite3_stmt, pztail: *const *const i8) -> i32;
         }
         ::core::mem::transmute(sqlite3_prepare_v3(::core::mem::transmute(db), zsql.into_param().abi(), ::core::mem::transmute(nbyte), ::core::mem::transmute(prepflags), ::core::mem::transmute(ppstmt), ::core::mem::transmute(pztail)))
     }
@@ -4899,15 +4818,14 @@ pub unsafe fn sqlite3_result_double(param0: *mut sqlite3_context, param1: f64) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_result_error<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: i32) {
+pub unsafe fn sqlite3_result_error<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_result_error(param0: *mut sqlite3_context, param1: super::super::Foundation::PSTR, param2: i32);
+            fn sqlite3_result_error(param0: *mut sqlite3_context, param1: ::windows::core::PCSTR, param2: i32);
         }
         sqlite3_result_error(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2))
     }
@@ -5012,15 +4930,14 @@ pub unsafe fn sqlite3_result_null(param0: *mut sqlite3_context) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_result_pointer<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: *mut ::core::ffi::c_void, param2: Param2, param3: isize) {
+pub unsafe fn sqlite3_result_pointer<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_context, param1: *mut ::core::ffi::c_void, param2: Param2, param3: isize) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_result_pointer(param0: *mut sqlite3_context, param1: *mut ::core::ffi::c_void, param2: super::super::Foundation::PSTR, param3: isize);
+            fn sqlite3_result_pointer(param0: *mut sqlite3_context, param1: *mut ::core::ffi::c_void, param2: ::windows::core::PCSTR, param3: isize);
         }
         sqlite3_result_pointer(::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into_param().abi(), ::core::mem::transmute(param3))
     }
@@ -5041,15 +4958,14 @@ pub unsafe fn sqlite3_result_subtype(param0: *mut sqlite3_context, param1: u32) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_result_text<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: i32, param3: isize) {
+pub unsafe fn sqlite3_result_text<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: i32, param3: isize) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_result_text(param0: *mut sqlite3_context, param1: super::super::Foundation::PSTR, param2: i32, param3: isize);
+            fn sqlite3_result_text(param0: *mut sqlite3_context, param1: ::windows::core::PCSTR, param2: i32, param3: isize);
         }
         sqlite3_result_text(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3))
     }
@@ -5098,15 +5014,14 @@ pub unsafe fn sqlite3_result_text16le(param0: *mut sqlite3_context, param1: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_result_text64<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: u64, param3: isize, encoding: u8) {
+pub unsafe fn sqlite3_result_text64<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_context, param1: Param1, param2: u64, param3: isize, encoding: u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_result_text64(param0: *mut sqlite3_context, param1: super::super::Foundation::PSTR, param2: u64, param3: isize, encoding: u8);
+            fn sqlite3_result_text64(param0: *mut sqlite3_context, param1: ::windows::core::PCSTR, param2: u64, param3: isize, encoding: u8);
         }
         sqlite3_result_text64(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(encoding))
     }
@@ -5203,30 +5118,28 @@ impl ::core::default::Default for sqlite3_rtree_geometry {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_rtree_geometry_callback<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zgeom: Param1, xgeom: isize, pcontext: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn sqlite3_rtree_geometry_callback<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zgeom: Param1, xgeom: isize, pcontext: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_rtree_geometry_callback(db: *mut sqlite3, zgeom: super::super::Foundation::PSTR, xgeom: isize, pcontext: *mut ::core::ffi::c_void) -> i32;
+            fn sqlite3_rtree_geometry_callback(db: *mut sqlite3, zgeom: ::windows::core::PCSTR, xgeom: isize, pcontext: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(sqlite3_rtree_geometry_callback(::core::mem::transmute(db), zgeom.into_param().abi(), ::core::mem::transmute(xgeom), ::core::mem::transmute(pcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_rtree_query_callback<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zqueryfunc: Param1, xqueryfunc: isize, pcontext: *mut ::core::ffi::c_void, xdestructor: isize) -> i32 {
+pub unsafe fn sqlite3_rtree_query_callback<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zqueryfunc: Param1, xqueryfunc: isize, pcontext: *mut ::core::ffi::c_void, xdestructor: isize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_rtree_query_callback(db: *mut sqlite3, zqueryfunc: super::super::Foundation::PSTR, xqueryfunc: isize, pcontext: *mut ::core::ffi::c_void, xdestructor: isize) -> i32;
+            fn sqlite3_rtree_query_callback(db: *mut sqlite3, zqueryfunc: ::windows::core::PCSTR, xqueryfunc: isize, pcontext: *mut ::core::ffi::c_void, xdestructor: isize) -> i32;
         }
         ::core::mem::transmute(sqlite3_rtree_query_callback(::core::mem::transmute(db), zqueryfunc.into_param().abi(), ::core::mem::transmute(xqueryfunc), ::core::mem::transmute(pcontext), ::core::mem::transmute(xdestructor)))
     }
@@ -5295,15 +5208,14 @@ impl ::core::default::Default for sqlite3_rtree_query_info {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_serialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zschema: Param1, pisize: *mut i64, mflags: u32) -> *mut u8 {
+pub unsafe fn sqlite3_serialize<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zschema: Param1, pisize: *mut i64, mflags: u32) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_serialize(db: *mut sqlite3, zschema: super::super::Foundation::PSTR, pisize: *mut i64, mflags: u32) -> *mut u8;
+            fn sqlite3_serialize(db: *mut sqlite3, zschema: ::windows::core::PCSTR, pisize: *mut i64, mflags: u32) -> *mut u8;
         }
         ::core::mem::transmute(sqlite3_serialize(::core::mem::transmute(db), zschema.into_param().abi(), ::core::mem::transmute(pisize), ::core::mem::transmute(mflags)))
     }
@@ -5410,15 +5322,14 @@ impl ::core::default::Default for sqlite3_snapshot {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_snprintf<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: i32, param1: Param1, param2: Param2) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_snprintf<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: i32, param1: Param1, param2: Param2) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_snprintf(param0: i32, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+            fn sqlite3_snprintf(param0: i32, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_snprintf(::core::mem::transmute(param0), param1.into_param().abi(), param2.into_param().abi()))
     }
@@ -5453,30 +5364,28 @@ pub unsafe fn sqlite3_soft_heap_limit64(n: i64) -> i64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_sourceid() -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_sourceid() -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_sourceid() -> super::super::Foundation::PSTR;
+            fn sqlite3_sourceid() -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_sourceid())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_sql(pstmt: *mut sqlite3_stmt) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_sql(pstmt: *mut sqlite3_stmt) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_sql(pstmt: *mut sqlite3_stmt) -> super::super::Foundation::PSTR;
+            fn sqlite3_sql(pstmt: *mut sqlite3_stmt) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_sql(::core::mem::transmute(pstmt)))
     }
@@ -5585,30 +5494,28 @@ pub unsafe fn sqlite3_stmt_status(param0: *mut sqlite3_stmt, op: i32, resetflg: 
 }
 #[repr(C)]
 pub struct sqlite3_str(pub u8);
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_str_append<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zin: Param1, n: i32) {
+pub unsafe fn sqlite3_str_append<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_str, zin: Param1, n: i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_str_append(param0: *mut sqlite3_str, zin: super::super::Foundation::PSTR, n: i32);
+            fn sqlite3_str_append(param0: *mut sqlite3_str, zin: ::windows::core::PCSTR, n: i32);
         }
         sqlite3_str_append(::core::mem::transmute(param0), zin.into_param().abi(), ::core::mem::transmute(n))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_str_appendall<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zin: Param1) {
+pub unsafe fn sqlite3_str_appendall<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_str, zin: Param1) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_str_appendall(param0: *mut sqlite3_str, zin: super::super::Foundation::PSTR);
+            fn sqlite3_str_appendall(param0: *mut sqlite3_str, zin: ::windows::core::PCSTR);
         }
         sqlite3_str_appendall(::core::mem::transmute(param0), zin.into_param().abi())
     }
@@ -5630,15 +5537,14 @@ pub unsafe fn sqlite3_str_appendchar<'a, Param2: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_str_appendf<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zformat: Param1) {
+pub unsafe fn sqlite3_str_appendf<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_str, zformat: Param1) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_str_appendf(param0: *mut sqlite3_str, zformat: super::super::Foundation::PSTR);
+            fn sqlite3_str_appendf(param0: *mut sqlite3_str, zformat: ::windows::core::PCSTR);
         }
         sqlite3_str_appendf(::core::mem::transmute(param0), zformat.into_param().abi())
     }
@@ -5659,15 +5565,14 @@ pub unsafe fn sqlite3_str_errcode(param0: *mut sqlite3_str) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_str_finish(param0: *mut sqlite3_str) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_str_finish(param0: *mut sqlite3_str) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_str_finish(param0: *mut sqlite3_str) -> super::super::Foundation::PSTR;
+            fn sqlite3_str_finish(param0: *mut sqlite3_str) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_str_finish(::core::mem::transmute(param0)))
     }
@@ -5716,90 +5621,84 @@ pub unsafe fn sqlite3_str_reset(param0: *mut sqlite3_str) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_str_value(param0: *mut sqlite3_str) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_str_value(param0: *mut sqlite3_str) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_str_value(param0: *mut sqlite3_str) -> super::super::Foundation::PSTR;
+            fn sqlite3_str_value(param0: *mut sqlite3_str) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_str_value(::core::mem::transmute(param0)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_str_vappendf<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_str, zformat: Param1, param2: *mut i8) {
+pub unsafe fn sqlite3_str_vappendf<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_str, zformat: Param1, param2: *mut i8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_str_vappendf(param0: *mut sqlite3_str, zformat: super::super::Foundation::PSTR, param2: *mut i8);
+            fn sqlite3_str_vappendf(param0: *mut sqlite3_str, zformat: ::windows::core::PCSTR, param2: *mut i8);
         }
         sqlite3_str_vappendf(::core::mem::transmute(param0), zformat.into_param().abi(), ::core::mem::transmute(param2))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_strglob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zglob: Param0, zstr: Param1) -> i32 {
+pub unsafe fn sqlite3_strglob<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(zglob: Param0, zstr: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_strglob(zglob: super::super::Foundation::PSTR, zstr: super::super::Foundation::PSTR) -> i32;
+            fn sqlite3_strglob(zglob: ::windows::core::PCSTR, zstr: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(sqlite3_strglob(zglob.into_param().abi(), zstr.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_stricmp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> i32 {
+pub unsafe fn sqlite3_stricmp<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_stricmp(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR) -> i32;
+            fn sqlite3_stricmp(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(sqlite3_stricmp(param0.into_param().abi(), param1.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_strlike<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zglob: Param0, zstr: Param1, cesc: u32) -> i32 {
+pub unsafe fn sqlite3_strlike<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(zglob: Param0, zstr: Param1, cesc: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_strlike(zglob: super::super::Foundation::PSTR, zstr: super::super::Foundation::PSTR, cesc: u32) -> i32;
+            fn sqlite3_strlike(zglob: ::windows::core::PCSTR, zstr: ::windows::core::PCSTR, cesc: u32) -> i32;
         }
         ::core::mem::transmute(sqlite3_strlike(zglob.into_param().abi(), zstr.into_param().abi(), ::core::mem::transmute(cesc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_strnicmp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: i32) -> i32 {
+pub unsafe fn sqlite3_strnicmp<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_strnicmp(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: i32) -> i32;
+            fn sqlite3_strnicmp(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: i32) -> i32;
         }
         ::core::mem::transmute(sqlite3_strnicmp(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
     }
@@ -5822,15 +5721,14 @@ pub unsafe fn sqlite3_system_errno(param0: *mut sqlite3) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_table_column_metadata<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdbname: Param1, ztablename: Param2, zcolumnname: Param3, pzdatatype: *const *const i8, pzcollseq: *const *const i8, pnotnull: *mut i32, pprimarykey: *mut i32, pautoinc: *mut i32) -> i32 {
+pub unsafe fn sqlite3_table_column_metadata<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zdbname: Param1, ztablename: Param2, zcolumnname: Param3, pzdatatype: *const *const i8, pzcollseq: *const *const i8, pnotnull: *mut i32, pprimarykey: *mut i32, pautoinc: *mut i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_table_column_metadata(db: *mut sqlite3, zdbname: super::super::Foundation::PSTR, ztablename: super::super::Foundation::PSTR, zcolumnname: super::super::Foundation::PSTR, pzdatatype: *const *const i8, pzcollseq: *const *const i8, pnotnull: *mut i32, pprimarykey: *mut i32, pautoinc: *mut i32) -> i32;
+            fn sqlite3_table_column_metadata(db: *mut sqlite3, zdbname: ::windows::core::PCSTR, ztablename: ::windows::core::PCSTR, zcolumnname: ::windows::core::PCSTR, pzdatatype: *const *const i8, pzcollseq: *const *const i8, pnotnull: *mut i32, pprimarykey: *mut i32, pautoinc: *mut i32) -> i32;
         }
         ::core::mem::transmute(sqlite3_table_column_metadata(::core::mem::transmute(db), zdbname.into_param().abi(), ztablename.into_param().abi(), zcolumnname.into_param().abi(), ::core::mem::transmute(pzdatatype), ::core::mem::transmute(pzcollseq), ::core::mem::transmute(pnotnull), ::core::mem::transmute(pprimarykey), ::core::mem::transmute(pautoinc)))
     }
@@ -5935,15 +5833,14 @@ pub unsafe fn sqlite3_transfer_bindings(param0: *mut sqlite3_stmt, param1: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_txn_state<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3, zschema: Param1) -> i32 {
+pub unsafe fn sqlite3_txn_state<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3, zschema: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_txn_state(param0: *mut sqlite3, zschema: super::super::Foundation::PSTR) -> i32;
+            fn sqlite3_txn_state(param0: *mut sqlite3, zschema: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(sqlite3_txn_state(::core::mem::transmute(param0), zschema.into_param().abi()))
     }
@@ -5964,60 +5861,56 @@ pub unsafe fn sqlite3_update_hook(param0: *mut sqlite3, param1: isize, param2: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_uri_boolean<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zfile: Param0, zparam: Param1, bdefault: i32) -> i32 {
+pub unsafe fn sqlite3_uri_boolean<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(zfile: Param0, zparam: Param1, bdefault: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_uri_boolean(zfile: super::super::Foundation::PSTR, zparam: super::super::Foundation::PSTR, bdefault: i32) -> i32;
+            fn sqlite3_uri_boolean(zfile: ::windows::core::PCSTR, zparam: ::windows::core::PCSTR, bdefault: i32) -> i32;
         }
         ::core::mem::transmute(sqlite3_uri_boolean(zfile.into_param().abi(), zparam.into_param().abi(), ::core::mem::transmute(bdefault)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_uri_int64<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: i64) -> i64 {
+pub unsafe fn sqlite3_uri_int64<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: i64) -> i64 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_uri_int64(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: i64) -> i64;
+            fn sqlite3_uri_int64(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: i64) -> i64;
         }
         ::core::mem::transmute(sqlite3_uri_int64(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_uri_key<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zfilename: Param0, n: i32) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_uri_key<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(zfilename: Param0, n: i32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_uri_key(zfilename: super::super::Foundation::PSTR, n: i32) -> super::super::Foundation::PSTR;
+            fn sqlite3_uri_key(zfilename: ::windows::core::PCSTR, n: i32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_uri_key(zfilename.into_param().abi(), ::core::mem::transmute(n)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_uri_parameter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zfilename: Param0, zparam: Param1) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_uri_parameter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(zfilename: Param0, zparam: Param1) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_uri_parameter(zfilename: super::super::Foundation::PSTR, zparam: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+            fn sqlite3_uri_parameter(zfilename: ::windows::core::PCSTR, zparam: ::windows::core::PCSTR) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_uri_parameter(zfilename.into_param().abi(), zparam.into_param().abi()))
     }
@@ -6194,15 +6087,14 @@ pub unsafe fn sqlite3_value_numeric_type(param0: *mut sqlite3_value) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_value_pointer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut sqlite3_value, param1: Param1) -> *mut ::core::ffi::c_void {
+pub unsafe fn sqlite3_value_pointer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut sqlite3_value, param1: Param1) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_value_pointer(param0: *mut sqlite3_value, param1: super::super::Foundation::PSTR) -> *mut ::core::ffi::c_void;
+            fn sqlite3_value_pointer(param0: *mut sqlite3_value, param1: ::windows::core::PCSTR) -> *mut ::core::ffi::c_void;
         }
         ::core::mem::transmute(sqlite3_value_pointer(::core::mem::transmute(param0), param1.into_param().abi()))
     }
@@ -6294,14 +6186,13 @@ pub unsafe fn sqlite3_value_type(param0: *mut sqlite3_value) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct sqlite3_vfs {
     pub iVersion: i32,
     pub szOsFile: i32,
     pub mxPathname: i32,
     pub pNext: *mut sqlite3_vfs,
-    pub zName: super::super::Foundation::PSTR,
+    pub zName: ::windows::core::PCSTR,
     pub pAppData: *mut ::core::ffi::c_void,
     pub xOpen: isize,
     pub xDelete: isize,
@@ -6320,15 +6211,12 @@ pub struct sqlite3_vfs {
     pub xGetSystemCall: isize,
     pub xNextSystemCall: isize,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_vfs {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_vfs {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for sqlite3_vfs {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("sqlite3_vfs")
@@ -6357,41 +6245,35 @@ impl ::core::fmt::Debug for sqlite3_vfs {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_vfs {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_vfs {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_vfs>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_vfs {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_vfs {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_vfs_find<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(zvfsname: Param0) -> *mut sqlite3_vfs {
+pub unsafe fn sqlite3_vfs_find<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(zvfsname: Param0) -> *mut sqlite3_vfs {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_vfs_find(zvfsname: super::super::Foundation::PSTR) -> *mut sqlite3_vfs;
+            fn sqlite3_vfs_find(zvfsname: ::windows::core::PCSTR) -> *mut sqlite3_vfs;
         }
         ::core::mem::transmute(sqlite3_vfs_find(zvfsname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
 pub unsafe fn sqlite3_vfs_register(param0: *mut sqlite3_vfs, makedflt: i32) -> i32 {
     #[cfg(windows)]
@@ -6405,8 +6287,7 @@ pub unsafe fn sqlite3_vfs_register(param0: *mut sqlite3_vfs, makedflt: i32) -> i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
 pub unsafe fn sqlite3_vfs_unregister(param0: *mut sqlite3_vfs) -> i32 {
     #[cfg(windows)]
@@ -6420,30 +6301,28 @@ pub unsafe fn sqlite3_vfs_unregister(param0: *mut sqlite3_vfs) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_vmprintf<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: *mut i8) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_vmprintf<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: *mut i8) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_vmprintf(param0: super::super::Foundation::PSTR, param1: *mut i8) -> super::super::Foundation::PSTR;
+            fn sqlite3_vmprintf(param0: ::windows::core::PCSTR, param1: *mut i8) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_vmprintf(param0.into_param().abi(), ::core::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_vsnprintf<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: i32, param1: Param1, param2: Param2, param3: *mut i8) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_vsnprintf<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: i32, param1: Param1, param2: Param2, param3: *mut i8) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_vsnprintf(param0: i32, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *mut i8) -> super::super::Foundation::PSTR;
+            fn sqlite3_vsnprintf(param0: i32, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: *mut i8) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_vsnprintf(::core::mem::transmute(param0), param1.into_param().abi(), param2.into_param().abi(), ::core::mem::transmute(param3)))
     }
@@ -6451,54 +6330,45 @@ pub unsafe fn sqlite3_vsnprintf<'a, Param1: ::windows::core::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct sqlite3_vtab {
     pub pModule: *const sqlite3_module,
     pub nRef: i32,
-    pub zErrMsg: super::super::Foundation::PSTR,
+    pub zErrMsg: ::windows::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_vtab {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_vtab {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for sqlite3_vtab {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("sqlite3_vtab").field("pModule", &self.pModule).field("nRef", &self.nRef).field("zErrMsg", &self.zErrMsg).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_vtab {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_vtab {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_vtab>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_vtab {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_vtab {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_vtab_collation(param0: *mut sqlite3_index_info, param1: i32) -> super::super::Foundation::PSTR {
+pub unsafe fn sqlite3_vtab_collation(param0: *mut sqlite3_index_info, param1: i32) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_vtab_collation(param0: *mut sqlite3_index_info, param1: i32) -> super::super::Foundation::PSTR;
+            fn sqlite3_vtab_collation(param0: *mut sqlite3_index_info, param1: i32) -> ::windows::core::PSTR;
         }
         ::core::mem::transmute(sqlite3_vtab_collation(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
     }
@@ -6520,38 +6390,30 @@ pub unsafe fn sqlite3_vtab_config(param0: *mut sqlite3, op: i32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct sqlite3_vtab_cursor {
     pub pVtab: *mut sqlite3_vtab,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_vtab_cursor {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_vtab_cursor {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for sqlite3_vtab_cursor {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("sqlite3_vtab_cursor").field("pVtab", &self.pVtab).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_vtab_cursor {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_vtab_cursor {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_vtab_cursor>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_vtab_cursor {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_vtab_cursor {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6599,30 +6461,28 @@ pub unsafe fn sqlite3_wal_autocheckpoint(db: *mut sqlite3, n: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_wal_checkpoint<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdb: Param1) -> i32 {
+pub unsafe fn sqlite3_wal_checkpoint<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zdb: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_wal_checkpoint(db: *mut sqlite3, zdb: super::super::Foundation::PSTR) -> i32;
+            fn sqlite3_wal_checkpoint(db: *mut sqlite3, zdb: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(sqlite3_wal_checkpoint(::core::mem::transmute(db), zdb.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_wal_checkpoint_v2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(db: *mut sqlite3, zdb: Param1, emode: i32, pnlog: *mut i32, pnckpt: *mut i32) -> i32 {
+pub unsafe fn sqlite3_wal_checkpoint_v2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(db: *mut sqlite3, zdb: Param1, emode: i32, pnlog: *mut i32, pnckpt: *mut i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_wal_checkpoint_v2(db: *mut sqlite3, zdb: super::super::Foundation::PSTR, emode: i32, pnlog: *mut i32, pnckpt: *mut i32) -> i32;
+            fn sqlite3_wal_checkpoint_v2(db: *mut sqlite3, zdb: ::windows::core::PCSTR, emode: i32, pnlog: *mut i32, pnckpt: *mut i32) -> i32;
         }
         ::core::mem::transmute(sqlite3_wal_checkpoint_v2(::core::mem::transmute(db), zdb.into_param().abi(), ::core::mem::transmute(emode), ::core::mem::transmute(pnlog), ::core::mem::transmute(pnckpt)))
     }
@@ -6671,15 +6531,14 @@ pub unsafe fn sqlite3_win32_set_directory16(r#type: u32, zvalue: *const ::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 #[inline]
-pub unsafe fn sqlite3_win32_set_directory8<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(r#type: u32, zvalue: Param1) -> i32 {
+pub unsafe fn sqlite3_win32_set_directory8<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(r#type: u32, zvalue: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sqlite3_win32_set_directory8(r#type: u32, zvalue: super::super::Foundation::PSTR) -> i32;
+            fn sqlite3_win32_set_directory8(r#type: u32, zvalue: ::windows::core::PCSTR) -> i32;
         }
         ::core::mem::transmute(sqlite3_win32_set_directory8(::core::mem::transmute(r#type), zvalue.into_param().abi()))
     }

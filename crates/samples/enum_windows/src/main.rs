@@ -1,5 +1,6 @@
 use windows::{
-    Win32::Foundation::{BOOL, HWND, LPARAM, PWSTR},
+    core::PWSTR,
+    Win32::Foundation::{BOOL, HWND, LPARAM},
     Win32::UI::WindowsAndMessaging::{EnumWindows, GetWindowTextW},
 };
 

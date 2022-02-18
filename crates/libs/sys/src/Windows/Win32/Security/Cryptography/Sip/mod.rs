@@ -30,10 +30,10 @@ extern "system" {
     pub fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSIPRetrieveSubjectGuid(filename: super::super::super::Foundation::PWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL;
+    pub fn CryptSIPRetrieveSubjectGuid(filename: ::windows_sys::core::PCWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename: super::super::super::Foundation::PWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL;
+    pub fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename: ::windows_sys::core::PCWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation', 'Win32_Security_Cryptography_Catalog'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
     pub fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
@@ -86,40 +86,34 @@ impl ::core::clone::Clone for MS_ADDINFO_CATALOGMEMBER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub struct MS_ADDINFO_FLAT {
     pub cbStruct: u32,
     pub pIndirectData: *mut SIP_INDIRECT_DATA,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MS_ADDINFO_FLAT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MS_ADDINFO_FLAT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub struct SIP_ADD_NEWPROVIDER {
     pub cbStruct: u32,
     pub pgSubject: *mut ::windows_sys::core::GUID,
-    pub pwszDLLFileName: super::super::super::Foundation::PWSTR,
-    pub pwszMagicNumber: super::super::super::Foundation::PWSTR,
-    pub pwszIsFunctionName: super::super::super::Foundation::PWSTR,
-    pub pwszGetFuncName: super::super::super::Foundation::PWSTR,
-    pub pwszPutFuncName: super::super::super::Foundation::PWSTR,
-    pub pwszCreateFuncName: super::super::super::Foundation::PWSTR,
-    pub pwszVerifyFuncName: super::super::super::Foundation::PWSTR,
-    pub pwszRemoveFuncName: super::super::super::Foundation::PWSTR,
-    pub pwszIsFunctionNameFmt2: super::super::super::Foundation::PWSTR,
-    pub pwszGetCapFuncName: super::super::super::Foundation::PWSTR,
+    pub pwszDLLFileName: ::windows_sys::core::PWSTR,
+    pub pwszMagicNumber: ::windows_sys::core::PWSTR,
+    pub pwszIsFunctionName: ::windows_sys::core::PWSTR,
+    pub pwszGetFuncName: ::windows_sys::core::PWSTR,
+    pub pwszPutFuncName: ::windows_sys::core::PWSTR,
+    pub pwszCreateFuncName: ::windows_sys::core::PWSTR,
+    pub pwszVerifyFuncName: ::windows_sys::core::PWSTR,
+    pub pwszRemoveFuncName: ::windows_sys::core::PWSTR,
+    pub pwszIsFunctionNameFmt2: ::windows_sys::core::PWSTR,
+    pub pwszGetCapFuncName: ::windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SIP_ADD_NEWPROVIDER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SIP_ADD_NEWPROVIDER {
     fn clone(&self) -> Self {
         *self
@@ -203,16 +197,13 @@ impl ::core::clone::Clone for SIP_DISPATCH_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub struct SIP_INDIRECT_DATA {
     pub Data: super::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,
     pub Digest: super::CRYPTOAPI_BLOB,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SIP_INDIRECT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SIP_INDIRECT_DATA {
     fn clone(&self) -> Self {
         *self
@@ -227,8 +218,8 @@ pub struct SIP_SUBJECTINFO {
     pub cbSize: u32,
     pub pgSubjectType: *mut ::windows_sys::core::GUID,
     pub hFile: super::super::super::Foundation::HANDLE,
-    pub pwsFileName: super::super::super::Foundation::PWSTR,
-    pub pwsDisplayName: super::super::super::Foundation::PWSTR,
+    pub pwsFileName: ::windows_sys::core::PCWSTR,
+    pub pwsDisplayName: ::windows_sys::core::PCWSTR,
     pub dwReserved1: u32,
     pub dwIntVersion: u32,
     pub hProv: usize,
@@ -315,4 +306,4 @@ pub type pCryptSIPVerifyIndirectData = ::core::option::Option<unsafe extern "sys
 pub type pfnIsFileSupported = ::core::option::Option<unsafe extern "system" fn(hfile: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type pfnIsFileSupportedName = ::core::option::Option<unsafe extern "system" fn(pwszfilename: super::super::super::Foundation::PWSTR, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL>;
+pub type pfnIsFileSupportedName = ::core::option::Option<unsafe extern "system" fn(pwszfilename: ::windows_sys::core::PCWSTR, pgsubject: *mut ::windows_sys::core::GUID) -> super::super::super::Foundation::BOOL>;

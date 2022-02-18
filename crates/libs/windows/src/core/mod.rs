@@ -15,6 +15,10 @@ mod inspectable;
 mod interface;
 mod into_param;
 mod param;
+mod pcstr;
+mod pcwstr;
+mod pstr;
+mod pwstr;
 mod ref_count;
 mod runtime_name;
 mod runtime_type;
@@ -50,6 +54,10 @@ pub use interface::*;
 pub use into_param::*;
 #[doc(hidden)]
 pub use param::*;
+pub use pcstr::*;
+pub use pcwstr::*;
+pub use pstr::*;
+pub use pwstr::*;
 #[doc(hidden)]
 pub use ref_count::*;
 #[doc(hidden)]

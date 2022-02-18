@@ -3,12 +3,10 @@
 extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WebSocket'*"]
     pub fn WebSocketAbortHandle(hwebsocket: WEB_SOCKET_HANDLE);
-    #[doc = "*Required features: 'Win32_Networking_WebSocket', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocols: *const super::super::Foundation::PSTR, ulsubprotocolcount: u32, pszextensions: *const super::super::Foundation::PSTR, ulextensioncount: u32, pinitialheaders: *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount: u32, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Networking_WebSocket', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WebSocketBeginServerHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocolselected: super::super::Foundation::PSTR, pszextensionselected: *const super::super::Foundation::PSTR, ulextensionselectedcount: u32, prequestheaders: *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount: u32, presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Networking_WebSocket'*"]
+    pub fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocols: *const ::windows_sys::core::PSTR, ulsubprotocolcount: u32, pszextensions: *const ::windows_sys::core::PSTR, ulextensioncount: u32, pinitialheaders: *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount: u32, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Networking_WebSocket'*"]
+    pub fn WebSocketBeginServerHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocolselected: ::windows_sys::core::PCSTR, pszextensionselected: *const ::windows_sys::core::PSTR, ulextensionselectedcount: u32, prequestheaders: *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount: u32, presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Networking_WebSocket'*"]
     pub fn WebSocketCompleteAction(hwebsocket: WEB_SOCKET_HANDLE, pvactioncontext: *const ::core::ffi::c_void, ulbytestransferred: u32);
     #[doc = "*Required features: 'Win32_Networking_WebSocket'*"]
@@ -17,8 +15,7 @@ extern "system" {
     pub fn WebSocketCreateServerHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32, phwebsocket: *mut WEB_SOCKET_HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Networking_WebSocket'*"]
     pub fn WebSocketDeleteHandle(hwebsocket: WEB_SOCKET_HANDLE);
-    #[doc = "*Required features: 'Win32_Networking_WebSocket', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: 'Win32_Networking_WebSocket'*"]
     pub fn WebSocketEndClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, presponseheaders: *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount: u32, pulselectedextensions: *mut u32, pulselectedextensioncount: *mut u32, pulselectedsubprotocol: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Networking_WebSocket'*"]
     pub fn WebSocketEndServerHandshake(hwebsocket: WEB_SOCKET_HANDLE) -> ::windows_sys::core::HRESULT;
@@ -132,17 +129,14 @@ pub const WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1011i3
 pub const WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1015i32;
 pub type WEB_SOCKET_HANDLE = isize;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WebSocket', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WebSocket'*"]
 pub struct WEB_SOCKET_HTTP_HEADER {
-    pub pcName: super::super::Foundation::PSTR,
+    pub pcName: ::windows_sys::core::PSTR,
     pub ulNameLength: u32,
-    pub pcValue: super::super::Foundation::PSTR,
+    pub pcValue: ::windows_sys::core::PSTR,
     pub ulValueLength: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WEB_SOCKET_HTTP_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WEB_SOCKET_HTTP_HEADER {
     fn clone(&self) -> Self {
         *self

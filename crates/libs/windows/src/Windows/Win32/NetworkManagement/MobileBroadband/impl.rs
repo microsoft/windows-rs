@@ -13,7 +13,7 @@ impl IDummyMBNUCMExt_Vtbl {
 pub trait IMbnConnection_Impl: Sized {
     fn ConnectionID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn InterfaceID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Connect(&self, connectionmode: MBN_CONNECTION_MODE, strprofile: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
+    fn Connect(&self, connectionmode: MBN_CONNECTION_MODE, strprofile: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
     fn Disconnect(&self) -> ::windows::core::Result<u32>;
     fn GetConnectionState(&self, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetVoiceCallState(&self) -> ::windows::core::Result<MBN_VOICE_CALL_STATE>;
@@ -44,10 +44,10 @@ impl IMbnConnection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionmode: MBN_CONNECTION_MODE, strprofile: super::super::Foundation::PWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionmode: MBN_CONNECTION_MODE, strprofile: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Connect(::core::mem::transmute_copy(&connectionmode), ::core::mem::transmute_copy(&strprofile)) {
+            match (*this).Connect(::core::mem::transmute_copy(&connectionmode), ::core::mem::transmute(&strprofile)) {
                 ::core::result::Result::Ok(ok__) => {
                     *requestid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -111,7 +111,7 @@ impl IMbnConnection_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMbnConnectionContext_Impl: Sized {
     fn GetProvisionedContexts(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetProvisionedContext(&self, provisionedcontexts: &MBN_CONTEXT, providerid: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
+    fn SetProvisionedContext(&self, provisionedcontexts: &MBN_CONTEXT, providerid: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMbnConnectionContext_Vtbl {
@@ -127,10 +127,10 @@ impl IMbnConnectionContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProvisionedContext<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provisionedcontexts: ::core::mem::ManuallyDrop<MBN_CONTEXT>, providerid: super::super::Foundation::PWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProvisionedContext<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provisionedcontexts: ::core::mem::ManuallyDrop<MBN_CONTEXT>, providerid: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SetProvisionedContext(::core::mem::transmute(&provisionedcontexts), ::core::mem::transmute_copy(&providerid)) {
+            match (*this).SetProvisionedContext(::core::mem::transmute(&provisionedcontexts), ::core::mem::transmute(&providerid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *requestid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -214,18 +214,18 @@ impl IMbnConnectionEvents_Vtbl {
         iid == &<IMbnConnectionEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnConnectionManager_Impl: Sized {
-    fn GetConnection(&self, connectionid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMbnConnection>;
+    fn GetConnection(&self, connectionid: &::windows::core::PCWSTR) -> ::windows::core::Result<IMbnConnection>;
     fn GetConnections(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnConnectionManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionManager_Impl, const OFFSET: isize>() -> IMbnConnectionManager_Vtbl {
-        unsafe extern "system" fn GetConnection<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: super::super::Foundation::PWSTR, mbnconnection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConnection<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::PCWSTR, mbnconnection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetConnection(::core::mem::transmute_copy(&connectionid)) {
+            match (*this).GetConnection(::core::mem::transmute(&connectionid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *mbnconnection = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -283,7 +283,7 @@ impl IMbnConnectionManagerEvents_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMbnConnectionProfile_Impl: Sized {
     fn GetProfileXmlData(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn UpdateProfile(&self, strprofile: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn UpdateProfile(&self, strprofile: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -300,10 +300,10 @@ impl IMbnConnectionProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UpdateProfile<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprofile: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateProfile<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprofile: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UpdateProfile(::core::mem::transmute_copy(&strprofile)).into()
+            (*this).UpdateProfile(::core::mem::transmute(&strprofile)).into()
         }
         unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -337,13 +337,13 @@ impl IMbnConnectionProfileEvents_Vtbl {
         iid == &<IMbnConnectionProfileEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnConnectionProfileManager_Impl: Sized {
     fn GetConnectionProfiles(&self, mbninterface: &::core::option::Option<IMbnInterface>) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetConnectionProfile(&self, mbninterface: &::core::option::Option<IMbnInterface>, profilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMbnConnectionProfile>;
-    fn CreateConnectionProfile(&self, xmlprofile: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetConnectionProfile(&self, mbninterface: &::core::option::Option<IMbnInterface>, profilename: &::windows::core::PCWSTR) -> ::windows::core::Result<IMbnConnectionProfile>;
+    fn CreateConnectionProfile(&self, xmlprofile: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnConnectionProfileManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionProfileManager_Impl, const OFFSET: isize>() -> IMbnConnectionProfileManager_Vtbl {
         unsafe extern "system" fn GetConnectionProfiles<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionProfileManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mbninterface: ::windows::core::RawPtr, connectionprofiles: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -357,10 +357,10 @@ impl IMbnConnectionProfileManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConnectionProfile<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionProfileManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mbninterface: ::windows::core::RawPtr, profilename: super::super::Foundation::PWSTR, connectionprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConnectionProfile<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionProfileManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mbninterface: ::windows::core::RawPtr, profilename: ::windows::core::PCWSTR, connectionprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetConnectionProfile(::core::mem::transmute(&mbninterface), ::core::mem::transmute_copy(&profilename)) {
+            match (*this).GetConnectionProfile(::core::mem::transmute(&mbninterface), ::core::mem::transmute(&profilename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *connectionprofile = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -368,10 +368,10 @@ impl IMbnConnectionProfileManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateConnectionProfile<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionProfileManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlprofile: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateConnectionProfile<Identity: ::windows::core::IUnknownImpl, Impl: IMbnConnectionProfileManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlprofile: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateConnectionProfile(::core::mem::transmute_copy(&xmlprofile)).into()
+            (*this).CreateConnectionProfile(::core::mem::transmute(&xmlprofile)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -998,18 +998,18 @@ impl IMbnInterfaceEvents_Vtbl {
         iid == &<IMbnInterfaceEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnInterfaceManager_Impl: Sized {
-    fn GetInterface(&self, interfaceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMbnInterface>;
+    fn GetInterface(&self, interfaceid: &::windows::core::PCWSTR) -> ::windows::core::Result<IMbnInterface>;
     fn GetInterfaces(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnInterfaceManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMbnInterfaceManager_Impl, const OFFSET: isize>() -> IMbnInterfaceManager_Vtbl {
-        unsafe extern "system" fn GetInterface<Identity: ::windows::core::IUnknownImpl, Impl: IMbnInterfaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: super::super::Foundation::PWSTR, mbninterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInterface<Identity: ::windows::core::IUnknownImpl, Impl: IMbnInterfaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: ::windows::core::PCWSTR, mbninterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetInterface(::core::mem::transmute_copy(&interfaceid)) {
+            match (*this).GetInterface(::core::mem::transmute(&interfaceid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *mbninterface = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1197,21 +1197,19 @@ impl IMbnMultiCarrierEvents_Vtbl {
         iid == &<IMbnMultiCarrierEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IMbnPin_Impl: Sized {
     fn PinType(&self) -> ::windows::core::Result<MBN_PIN_TYPE>;
     fn PinFormat(&self) -> ::windows::core::Result<MBN_PIN_FORMAT>;
     fn PinLengthMin(&self) -> ::windows::core::Result<u32>;
     fn PinLengthMax(&self) -> ::windows::core::Result<u32>;
     fn PinMode(&self) -> ::windows::core::Result<MBN_PIN_MODE>;
-    fn Enable(&self, pin: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
-    fn Disable(&self, pin: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
-    fn Enter(&self, pin: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
-    fn Change(&self, pin: super::super::Foundation::PWSTR, newpin: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
-    fn Unblock(&self, puk: super::super::Foundation::PWSTR, newpin: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
+    fn Enable(&self, pin: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
+    fn Disable(&self, pin: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
+    fn Enter(&self, pin: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
+    fn Change(&self, pin: &::windows::core::PCWSTR, newpin: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
+    fn Unblock(&self, puk: &::windows::core::PCWSTR, newpin: &::windows::core::PCWSTR) -> ::windows::core::Result<u32>;
     fn GetPinManager(&self) -> ::windows::core::Result<IMbnPinManager>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IMbnPin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>() -> IMbnPin_Vtbl {
         unsafe extern "system" fn PinType<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pintype: *mut MBN_PIN_TYPE) -> ::windows::core::HRESULT {
@@ -1269,10 +1267,10 @@ impl IMbnPin_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Enable<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: super::super::Foundation::PWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enable<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Enable(::core::mem::transmute_copy(&pin)) {
+            match (*this).Enable(::core::mem::transmute(&pin)) {
                 ::core::result::Result::Ok(ok__) => {
                     *requestid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1280,10 +1278,10 @@ impl IMbnPin_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Disable<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: super::super::Foundation::PWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Disable<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Disable(::core::mem::transmute_copy(&pin)) {
+            match (*this).Disable(::core::mem::transmute(&pin)) {
                 ::core::result::Result::Ok(ok__) => {
                     *requestid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1291,10 +1289,10 @@ impl IMbnPin_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Enter<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: super::super::Foundation::PWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enter<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Enter(::core::mem::transmute_copy(&pin)) {
+            match (*this).Enter(::core::mem::transmute(&pin)) {
                 ::core::result::Result::Ok(ok__) => {
                     *requestid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1302,10 +1300,10 @@ impl IMbnPin_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Change<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: super::super::Foundation::PWSTR, newpin: super::super::Foundation::PWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Change<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: ::windows::core::PCWSTR, newpin: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Change(::core::mem::transmute_copy(&pin), ::core::mem::transmute_copy(&newpin)) {
+            match (*this).Change(::core::mem::transmute(&pin), ::core::mem::transmute(&newpin)) {
                 ::core::result::Result::Ok(ok__) => {
                     *requestid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1313,10 +1311,10 @@ impl IMbnPin_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Unblock<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puk: super::super::Foundation::PWSTR, newpin: super::super::Foundation::PWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Unblock<Identity: ::windows::core::IUnknownImpl, Impl: IMbnPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puk: ::windows::core::PCWSTR, newpin: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Unblock(::core::mem::transmute_copy(&puk), ::core::mem::transmute_copy(&newpin)) {
+            match (*this).Unblock(::core::mem::transmute(&puk), ::core::mem::transmute(&newpin)) {
                 ::core::result::Result::Ok(ok__) => {
                     *requestid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1568,7 +1566,7 @@ pub trait IMbnRegistration_Impl: Sized {
     fn GetCurrentDataClass(&self) -> ::windows::core::Result<u32>;
     fn GetRegistrationNetworkError(&self) -> ::windows::core::Result<u32>;
     fn GetPacketAttachNetworkError(&self) -> ::windows::core::Result<u32>;
-    fn SetRegisterMode(&self, registermode: MBN_REGISTER_MODE, providerid: super::super::Foundation::PWSTR, dataclass: u32) -> ::windows::core::Result<u32>;
+    fn SetRegisterMode(&self, registermode: MBN_REGISTER_MODE, providerid: &::windows::core::PCWSTR, dataclass: u32) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMbnRegistration_Vtbl {
@@ -1672,10 +1670,10 @@ impl IMbnRegistration_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRegisterMode<Identity: ::windows::core::IUnknownImpl, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, registermode: MBN_REGISTER_MODE, providerid: super::super::Foundation::PWSTR, dataclass: u32, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRegisterMode<Identity: ::windows::core::IUnknownImpl, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, registermode: MBN_REGISTER_MODE, providerid: ::windows::core::PCWSTR, dataclass: u32, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SetRegisterMode(::core::mem::transmute_copy(&registermode), ::core::mem::transmute_copy(&providerid), ::core::mem::transmute_copy(&dataclass)) {
+            match (*this).SetRegisterMode(::core::mem::transmute_copy(&registermode), ::core::mem::transmute(&providerid), ::core::mem::transmute_copy(&dataclass)) {
                 ::core::result::Result::Ok(ok__) => {
                     *requestid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1837,18 +1835,18 @@ impl IMbnSignalEvents_Vtbl {
         iid == &<IMbnSignalEvents as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSms_Impl: Sized {
     fn GetSmsConfiguration(&self) -> ::windows::core::Result<IMbnSmsConfiguration>;
     fn SetSmsConfiguration(&self, smsconfiguration: &::core::option::Option<IMbnSmsConfiguration>) -> ::windows::core::Result<u32>;
-    fn SmsSendPdu(&self, pdudata: super::super::Foundation::PWSTR, size: u8) -> ::windows::core::Result<u32>;
-    fn SmsSendCdma(&self, address: super::super::Foundation::PWSTR, encoding: MBN_SMS_CDMA_ENCODING, language: MBN_SMS_CDMA_LANG, sizeincharacters: u32, message: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<u32>;
+    fn SmsSendPdu(&self, pdudata: &::windows::core::PCWSTR, size: u8) -> ::windows::core::Result<u32>;
+    fn SmsSendCdma(&self, address: &::windows::core::PCWSTR, encoding: MBN_SMS_CDMA_ENCODING, language: MBN_SMS_CDMA_LANG, sizeincharacters: u32, message: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<u32>;
     fn SmsSendCdmaPdu(&self, message: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<u32>;
     fn SmsRead(&self, smsfilter: *const MBN_SMS_FILTER, smsformat: MBN_SMS_FORMAT) -> ::windows::core::Result<u32>;
     fn SmsDelete(&self, smsfilter: *const MBN_SMS_FILTER) -> ::windows::core::Result<u32>;
     fn GetSmsStatus(&self) -> ::windows::core::Result<MBN_SMS_STATUS_INFO>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMbnSms_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMbnSms_Impl, const OFFSET: isize>() -> IMbnSms_Vtbl {
         unsafe extern "system" fn GetSmsConfiguration<Identity: ::windows::core::IUnknownImpl, Impl: IMbnSms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, smsconfiguration: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1873,10 +1871,10 @@ impl IMbnSms_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SmsSendPdu<Identity: ::windows::core::IUnknownImpl, Impl: IMbnSms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdudata: super::super::Foundation::PWSTR, size: u8, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SmsSendPdu<Identity: ::windows::core::IUnknownImpl, Impl: IMbnSms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdudata: ::windows::core::PCWSTR, size: u8, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SmsSendPdu(::core::mem::transmute_copy(&pdudata), ::core::mem::transmute_copy(&size)) {
+            match (*this).SmsSendPdu(::core::mem::transmute(&pdudata), ::core::mem::transmute_copy(&size)) {
                 ::core::result::Result::Ok(ok__) => {
                     *requestid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1884,10 +1882,10 @@ impl IMbnSms_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SmsSendCdma<Identity: ::windows::core::IUnknownImpl, Impl: IMbnSms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: super::super::Foundation::PWSTR, encoding: MBN_SMS_CDMA_ENCODING, language: MBN_SMS_CDMA_LANG, sizeincharacters: u32, message: *const super::super::System::Com::SAFEARRAY, requestid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SmsSendCdma<Identity: ::windows::core::IUnknownImpl, Impl: IMbnSms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: ::windows::core::PCWSTR, encoding: MBN_SMS_CDMA_ENCODING, language: MBN_SMS_CDMA_LANG, sizeincharacters: u32, message: *const super::super::System::Com::SAFEARRAY, requestid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SmsSendCdma(::core::mem::transmute_copy(&address), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute_copy(&language), ::core::mem::transmute_copy(&sizeincharacters), ::core::mem::transmute_copy(&message)) {
+            match (*this).SmsSendCdma(::core::mem::transmute(&address), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute_copy(&language), ::core::mem::transmute_copy(&sizeincharacters), ::core::mem::transmute_copy(&message)) {
                 ::core::result::Result::Ok(ok__) => {
                     *requestid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1958,7 +1956,7 @@ impl IMbnSms_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMbnSmsConfiguration_Impl: Sized {
     fn ServiceCenterAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceCenterAddress(&self, scaddress: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetServiceCenterAddress(&self, scaddress: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn MaxMessageIndex(&self) -> ::windows::core::Result<u32>;
     fn CdmaShortMsgSize(&self) -> ::windows::core::Result<u32>;
     fn SmsFormat(&self) -> ::windows::core::Result<MBN_SMS_FORMAT>;
@@ -1978,10 +1976,10 @@ impl IMbnSmsConfiguration_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServiceCenterAddress<Identity: ::windows::core::IUnknownImpl, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaddress: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetServiceCenterAddress<Identity: ::windows::core::IUnknownImpl, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaddress: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetServiceCenterAddress(::core::mem::transmute_copy(&scaddress)).into()
+            (*this).SetServiceCenterAddress(::core::mem::transmute(&scaddress)).into()
         }
         unsafe extern "system" fn MaxMessageIndex<Identity: ::windows::core::IUnknownImpl, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

@@ -337,9 +337,9 @@ pub struct PSS_HANDLE_ENTRY {
     pub NonPagedPoolCharge: u32,
     pub CreationTime: super::super::super::Foundation::FILETIME,
     pub TypeNameLength: u16,
-    pub TypeName: super::super::super::Foundation::PWSTR,
+    pub TypeName: ::windows::core::PCWSTR,
     pub ObjectNameLength: u16,
-    pub ObjectName: super::super::super::Foundation::PWSTR,
+    pub ObjectName: ::windows::core::PCWSTR,
     pub TypeSpecificInformation: PSS_HANDLE_ENTRY_0,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1269,8 +1269,7 @@ impl ::core::default::Default for PSS_VA_CLONE_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting'*"]
 pub struct PSS_VA_SPACE_ENTRY {
     pub BaseAddress: *mut ::core::ffi::c_void,
     pub AllocationBase: *mut ::core::ffi::c_void,
@@ -1284,17 +1283,14 @@ pub struct PSS_VA_SPACE_ENTRY {
     pub ImageBase: *mut ::core::ffi::c_void,
     pub CheckSum: u32,
     pub MappedFileNameLength: u16,
-    pub MappedFileName: super::super::super::Foundation::PWSTR,
+    pub MappedFileName: ::windows::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PSS_VA_SPACE_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PSS_VA_SPACE_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PSS_VA_SPACE_ENTRY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PSS_VA_SPACE_ENTRY")
@@ -1314,19 +1310,15 @@ impl ::core::fmt::Debug for PSS_VA_SPACE_ENTRY {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PSS_VA_SPACE_ENTRY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_VA_SPACE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_VA_SPACE_ENTRY>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PSS_VA_SPACE_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PSS_VA_SPACE_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

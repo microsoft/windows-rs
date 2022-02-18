@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAccountingProviderConfig_Impl: Sized {
-    fn Initialize(&self, pszmachinename: super::super::Foundation::PWSTR) -> ::windows::core::Result<usize>;
+    fn Initialize(&self, pszmachinename: &::windows::core::PCWSTR) -> ::windows::core::Result<usize>;
     fn Uninitialize(&self, uconnectionparam: usize) -> ::windows::core::Result<()>;
     fn Configure(&self, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>;
     fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>;
@@ -9,10 +9,10 @@ pub trait IAccountingProviderConfig_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl IAccountingProviderConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccountingProviderConfig_Impl, const OFFSET: isize>() -> IAccountingProviderConfig_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IAccountingProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: super::super::Foundation::PWSTR, puconnectionparam: *mut usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IAccountingProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, puconnectionparam: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Initialize(::core::mem::transmute_copy(&pszmachinename)) {
+            match (*this).Initialize(::core::mem::transmute(&pszmachinename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *puconnectionparam = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -55,7 +55,7 @@ impl IAccountingProviderConfig_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAuthenticationProviderConfig_Impl: Sized {
-    fn Initialize(&self, pszmachinename: super::super::Foundation::PWSTR) -> ::windows::core::Result<usize>;
+    fn Initialize(&self, pszmachinename: &::windows::core::PCWSTR) -> ::windows::core::Result<usize>;
     fn Uninitialize(&self, uconnectionparam: usize) -> ::windows::core::Result<()>;
     fn Configure(&self, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>;
     fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>;
@@ -64,10 +64,10 @@ pub trait IAuthenticationProviderConfig_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl IAuthenticationProviderConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAuthenticationProviderConfig_Impl, const OFFSET: isize>() -> IAuthenticationProviderConfig_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IAuthenticationProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: super::super::Foundation::PWSTR, puconnectionparam: *mut usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IAuthenticationProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, puconnectionparam: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Initialize(::core::mem::transmute_copy(&pszmachinename)) {
+            match (*this).Initialize(::core::mem::transmute(&pszmachinename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *puconnectionparam = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -110,7 +110,7 @@ impl IAuthenticationProviderConfig_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEAPProviderConfig_Impl: Sized {
-    fn Initialize(&self, pszmachinename: super::super::Foundation::PWSTR, dweaptypeid: u32) -> ::windows::core::Result<usize>;
+    fn Initialize(&self, pszmachinename: &::windows::core::PCWSTR, dweaptypeid: u32) -> ::windows::core::Result<usize>;
     fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::Result<()>;
     fn ServerInvokeConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>;
     fn RouterInvokeConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()>;
@@ -119,10 +119,10 @@ pub trait IEAPProviderConfig_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl IEAPProviderConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEAPProviderConfig_Impl, const OFFSET: isize>() -> IEAPProviderConfig_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IEAPProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: super::super::Foundation::PWSTR, dweaptypeid: u32, puconnectionparam: *mut usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IEAPProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, dweaptypeid: u32, puconnectionparam: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Initialize(::core::mem::transmute_copy(&pszmachinename), ::core::mem::transmute_copy(&dweaptypeid)) {
+            match (*this).Initialize(::core::mem::transmute(&pszmachinename), ::core::mem::transmute_copy(&dweaptypeid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *puconnectionparam = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -216,21 +216,21 @@ impl IEAPProviderConfig3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRouterProtocolConfig_Impl: Sized {
-    fn AddProtocol(&self, pszmachinename: super::super::Foundation::PWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: &::core::option::Option<::windows::core::IUnknown>, ureserved1: usize) -> ::windows::core::Result<()>;
-    fn RemoveProtocol(&self, pszmachinename: super::super::Foundation::PWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: &::core::option::Option<::windows::core::IUnknown>, ureserved1: usize) -> ::windows::core::Result<()>;
+    fn AddProtocol(&self, pszmachinename: &::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: &::core::option::Option<::windows::core::IUnknown>, ureserved1: usize) -> ::windows::core::Result<()>;
+    fn RemoveProtocol(&self, pszmachinename: &::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: &::core::option::Option<::windows::core::IUnknown>, ureserved1: usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRouterProtocolConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRouterProtocolConfig_Impl, const OFFSET: isize>() -> IRouterProtocolConfig_Vtbl {
-        unsafe extern "system" fn AddProtocol<Identity: ::windows::core::IUnknownImpl, Impl: IRouterProtocolConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: super::super::Foundation::PWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut ::core::ffi::c_void, ureserved1: usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddProtocol<Identity: ::windows::core::IUnknownImpl, Impl: IRouterProtocolConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut ::core::ffi::c_void, ureserved1: usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddProtocol(::core::mem::transmute_copy(&pszmachinename), ::core::mem::transmute_copy(&dwtransportid), ::core::mem::transmute_copy(&dwprotocolid), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&prouter), ::core::mem::transmute_copy(&ureserved1)).into()
+            (*this).AddProtocol(::core::mem::transmute(&pszmachinename), ::core::mem::transmute_copy(&dwtransportid), ::core::mem::transmute_copy(&dwprotocolid), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&prouter), ::core::mem::transmute_copy(&ureserved1)).into()
         }
-        unsafe extern "system" fn RemoveProtocol<Identity: ::windows::core::IUnknownImpl, Impl: IRouterProtocolConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: super::super::Foundation::PWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut ::core::ffi::c_void, ureserved1: usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveProtocol<Identity: ::windows::core::IUnknownImpl, Impl: IRouterProtocolConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut ::core::ffi::c_void, ureserved1: usize) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveProtocol(::core::mem::transmute_copy(&pszmachinename), ::core::mem::transmute_copy(&dwtransportid), ::core::mem::transmute_copy(&dwprotocolid), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&prouter), ::core::mem::transmute_copy(&ureserved1)).into()
+            (*this).RemoveProtocol(::core::mem::transmute(&pszmachinename), ::core::mem::transmute_copy(&dwtransportid), ::core::mem::transmute_copy(&dwprotocolid), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&prouter), ::core::mem::transmute_copy(&ureserved1)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

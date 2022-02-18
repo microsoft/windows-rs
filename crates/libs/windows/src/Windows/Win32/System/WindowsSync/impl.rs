@@ -1400,29 +1400,27 @@ impl IRecoverableError_Vtbl {
         iid == &<IRecoverableError as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IRecoverableErrorData_Impl: Sized {
-    fn Initialize(&self, pcszitemdisplayname: super::super::Foundation::PWSTR, pcszerrordescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetItemDisplayName(&self, pszitemdisplayname: super::super::Foundation::PWSTR, pcchitemdisplayname: *mut u32) -> ::windows::core::Result<()>;
-    fn GetErrorDescription(&self, pszerrordescription: super::super::Foundation::PWSTR, pccherrordescription: *mut u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pcszitemdisplayname: &::windows::core::PCWSTR, pcszerrordescription: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn GetItemDisplayName(&self, pszitemdisplayname: &::windows::core::PCWSTR, pcchitemdisplayname: *mut u32) -> ::windows::core::Result<()>;
+    fn GetErrorDescription(&self, pszerrordescription: &::windows::core::PCWSTR, pccherrordescription: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IRecoverableErrorData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRecoverableErrorData_Impl, const OFFSET: isize>() -> IRecoverableErrorData_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IRecoverableErrorData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcszitemdisplayname: super::super::Foundation::PWSTR, pcszerrordescription: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IRecoverableErrorData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcszitemdisplayname: ::windows::core::PCWSTR, pcszerrordescription: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Initialize(::core::mem::transmute_copy(&pcszitemdisplayname), ::core::mem::transmute_copy(&pcszerrordescription)).into()
+            (*this).Initialize(::core::mem::transmute(&pcszitemdisplayname), ::core::mem::transmute(&pcszerrordescription)).into()
         }
-        unsafe extern "system" fn GetItemDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IRecoverableErrorData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszitemdisplayname: super::super::Foundation::PWSTR, pcchitemdisplayname: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IRecoverableErrorData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszitemdisplayname: ::windows::core::PCWSTR, pcchitemdisplayname: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetItemDisplayName(::core::mem::transmute_copy(&pszitemdisplayname), ::core::mem::transmute_copy(&pcchitemdisplayname)).into()
+            (*this).GetItemDisplayName(::core::mem::transmute(&pszitemdisplayname), ::core::mem::transmute_copy(&pcchitemdisplayname)).into()
         }
-        unsafe extern "system" fn GetErrorDescription<Identity: ::windows::core::IUnknownImpl, Impl: IRecoverableErrorData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszerrordescription: super::super::Foundation::PWSTR, pccherrordescription: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorDescription<Identity: ::windows::core::IUnknownImpl, Impl: IRecoverableErrorData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszerrordescription: ::windows::core::PCWSTR, pccherrordescription: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetErrorDescription(::core::mem::transmute_copy(&pszerrordescription), ::core::mem::transmute_copy(&pccherrordescription)).into()
+            (*this).GetErrorDescription(::core::mem::transmute(&pszerrordescription), ::core::mem::transmute_copy(&pccherrordescription)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

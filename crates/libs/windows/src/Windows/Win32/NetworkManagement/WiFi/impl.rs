@@ -1,7 +1,6 @@
-#[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocInterface_Impl: Sized {
     fn GetDeviceSignature(&self, psignature: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetFriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetFriendlyName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn IsDot11d(&self, pf11d: *mut u8) -> ::windows::core::Result<()>;
     fn IsAdHocCapable(&self, pfadhoccapable: *mut u8) -> ::windows::core::Result<()>;
     fn IsRadioOn(&self, pfisradioon: *mut u8) -> ::windows::core::Result<()>;
@@ -10,7 +9,6 @@ pub trait IDot11AdHocInterface_Impl: Sized {
     fn GetIEnumDot11AdHocNetworks(&self, pfilterguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks>;
     fn GetStatus(&self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IDot11AdHocInterface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>() -> IDot11AdHocInterface_Vtbl {
         unsafe extern "system" fn GetDeviceSignature<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psignature: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -18,7 +16,7 @@ impl IDot11AdHocInterface_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetDeviceSignature(::core::mem::transmute_copy(&psignature)).into()
         }
-        unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetFriendlyName() {
@@ -117,7 +115,7 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocManager_Impl: Sized {
-    fn CreateNetwork(&self, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: &::core::option::Option<IDot11AdHocInterface>, psecurity: &::core::option::Option<IDot11AdHocSecuritySettings>, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork>;
+    fn CreateNetwork(&self, name: &::windows::core::PCWSTR, password: &::windows::core::PCWSTR, geographicalid: i32, pinterface: &::core::option::Option<IDot11AdHocInterface>, psecurity: &::core::option::Option<IDot11AdHocSecuritySettings>, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork>;
     fn CommitCreatedNetwork(&self, piadhoc: &::core::option::Option<IDot11AdHocNetwork>, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
     fn GetIEnumDot11AdHocNetworks(&self, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks>;
     fn GetIEnumDot11AdHocInterfaces(&self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces>;
@@ -126,10 +124,10 @@ pub trait IDot11AdHocManager_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl IDot11AdHocManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocManager_Impl, const OFFSET: isize>() -> IDot11AdHocManager_Vtbl {
-        unsafe extern "system" fn CreateNetwork<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: ::windows::core::RawPtr, psecurity: ::windows::core::RawPtr, pcontextguid: *const ::windows::core::GUID, piadhoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateNetwork<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, geographicalid: i32, pinterface: ::windows::core::RawPtr, psecurity: ::windows::core::RawPtr, pcontextguid: *const ::windows::core::GUID, piadhoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateNetwork(::core::mem::transmute_copy(&name), ::core::mem::transmute_copy(&password), ::core::mem::transmute_copy(&geographicalid), ::core::mem::transmute(&pinterface), ::core::mem::transmute(&psecurity), ::core::mem::transmute_copy(&pcontextguid)) {
+            match (*this).CreateNetwork(::core::mem::transmute(&name), ::core::mem::transmute(&password), ::core::mem::transmute_copy(&geographicalid), ::core::mem::transmute(&pinterface), ::core::mem::transmute(&psecurity), ::core::mem::transmute_copy(&pcontextguid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *piadhoc = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -231,16 +229,16 @@ impl IDot11AdHocManagerNotificationSink_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocNetwork_Impl: Sized {
     fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
-    fn GetSSID(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetSSID(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn HasProfile(&self, pf11d: *mut u8) -> ::windows::core::Result<()>;
-    fn GetProfileName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetProfileName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn DeleteProfile(&self) -> ::windows::core::Result<()>;
     fn GetSignalQuality(&self, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> ::windows::core::Result<()>;
     fn GetSecuritySetting(&self) -> ::windows::core::Result<IDot11AdHocSecuritySettings>;
     fn GetContextGuid(&self, pcontextguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetSignature(&self, psignature: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetInterface(&self) -> ::windows::core::Result<IDot11AdHocInterface>;
-    fn Connect(&self, passphrase: super::super::Foundation::PWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
+    fn Connect(&self, passphrase: &::windows::core::PCWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
     fn Disconnect(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -251,7 +249,7 @@ impl IDot11AdHocNetwork_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetStatus(::core::mem::transmute_copy(&estatus)).into()
         }
-        unsafe extern "system" fn GetSSID<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszwssid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSSID<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszwssid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetSSID() {
@@ -267,7 +265,7 @@ impl IDot11AdHocNetwork_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).HasProfile(::core::mem::transmute_copy(&pf11d)).into()
         }
-        unsafe extern "system" fn GetProfileName<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszwprofilename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProfileName<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszwprofilename: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             match (*this).GetProfileName() {
@@ -320,10 +318,10 @@ impl IDot11AdHocNetwork_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, passphrase: super::super::Foundation::PWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, passphrase: ::windows::core::PCWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Connect(::core::mem::transmute_copy(&passphrase), ::core::mem::transmute_copy(&geographicalid), ::core::mem::transmute_copy(&fsaveprofile), ::core::mem::transmute_copy(&fmakesavedprofileuserspecific)).into()
+            (*this).Connect(::core::mem::transmute(&passphrase), ::core::mem::transmute_copy(&geographicalid), ::core::mem::transmute_copy(&fsaveprofile), ::core::mem::transmute_copy(&fmakesavedprofileuserspecific)).into()
         }
         unsafe extern "system" fn Disconnect<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

@@ -1,38 +1,30 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct CAT_MEMBERINFO {
-    pub pwszSubjGuid: super::super::Foundation::PWSTR,
+    pub pwszSubjGuid: ::windows::core::PWSTR,
     pub dwCertVersion: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CAT_MEMBERINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CAT_MEMBERINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CAT_MEMBERINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CAT_MEMBERINFO").field("pwszSubjGuid", &self.pwszSubjGuid).field("dwCertVersion", &self.dwCertVersion).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CAT_MEMBERINFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CAT_MEMBERINFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAT_MEMBERINFO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CAT_MEMBERINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CAT_MEMBERINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -71,49 +63,47 @@ impl ::core::default::Default for CAT_MEMBERINFO2 {
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const CAT_MEMBERINFO2_OBJID: &'static str = "1.3.6.1.4.1.311.12.2.3";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const CAT_MEMBERINFO2_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2223i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const CAT_MEMBERINFO2_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2223i32 as _);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const CAT_MEMBERINFO_OBJID: &'static str = "1.3.6.1.4.1.311.12.2.2";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const CAT_MEMBERINFO_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2222i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const CAT_MEMBERINFO_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2222i32 as _);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct CAT_NAMEVALUE {
-    pub pwszTag: super::super::Foundation::PWSTR,
+    pub pwszTag: ::windows::core::PWSTR,
     pub fdwFlags: u32,
     pub Value: super::Cryptography::CRYPTOAPI_BLOB,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for CAT_NAMEVALUE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for CAT_NAMEVALUE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for CAT_NAMEVALUE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CAT_NAMEVALUE").field("pwszTag", &self.pwszTag).field("fdwFlags", &self.fdwFlags).field("Value", &self.Value).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for CAT_NAMEVALUE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for CAT_NAMEVALUE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAT_NAMEVALUE>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for CAT_NAMEVALUE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for CAT_NAMEVALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -121,9 +111,8 @@ impl ::core::default::Default for CAT_NAMEVALUE {
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const CAT_NAMEVALUE_OBJID: &'static str = "1.3.6.1.4.1.311.12.2.1";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const CAT_NAMEVALUE_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2221i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const CAT_NAMEVALUE_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2221i32 as _);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const CCPI_RESULT_ALLOW: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -341,10 +330,10 @@ pub struct CRYPT_PROVIDER_DATA {
     pub pasProvPrivData: *mut CRYPT_PROVIDER_PRIVDATA,
     pub dwSubjectChoice: u32,
     pub Anonymous: CRYPT_PROVIDER_DATA_0,
-    pub pszUsageOID: super::super::Foundation::PSTR,
+    pub pszUsageOID: ::windows::core::PSTR,
     pub fRecallWithState: super::super::Foundation::BOOL,
     pub sftSystemTime: super::super::Foundation::FILETIME,
-    pub pszCTLSignerUsageOID: super::super::Foundation::PSTR,
+    pub pszCTLSignerUsageOID: ::windows::core::PSTR,
     pub dwProvFlags: u32,
     pub dwFinalError: u32,
     pub pRequestUsage: *mut super::Cryptography::CERT_USAGE_MATCH,
@@ -548,42 +537,34 @@ impl ::core::default::Default for CRYPT_PROVIDER_PRIVDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct CRYPT_PROVIDER_REGDEFUSAGE {
     pub cbStruct: u32,
     pub pgActionID: *mut ::windows::core::GUID,
-    pub pwszDllName: super::super::Foundation::PWSTR,
-    pub pwszLoadCallbackDataFunctionName: super::super::Foundation::PSTR,
-    pub pwszFreeCallbackDataFunctionName: super::super::Foundation::PSTR,
+    pub pwszDllName: ::windows::core::PWSTR,
+    pub pwszLoadCallbackDataFunctionName: ::windows::core::PSTR,
+    pub pwszFreeCallbackDataFunctionName: ::windows::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPT_PROVIDER_REGDEFUSAGE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPT_PROVIDER_REGDEFUSAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPT_PROVIDER_REGDEFUSAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CRYPT_PROVIDER_REGDEFUSAGE").field("cbStruct", &self.cbStruct).field("pgActionID", &self.pgActionID).field("pwszDllName", &self.pwszDllName).field("pwszLoadCallbackDataFunctionName", &self.pwszLoadCallbackDataFunctionName).field("pwszFreeCallbackDataFunctionName", &self.pwszFreeCallbackDataFunctionName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_REGDEFUSAGE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_REGDEFUSAGE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVIDER_REGDEFUSAGE>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CRYPT_PROVIDER_REGDEFUSAGE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPT_PROVIDER_REGDEFUSAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -699,28 +680,24 @@ impl ::core::default::Default for CRYPT_PROVIDER_SIGSTATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct CRYPT_PROVUI_DATA {
     pub cbStruct: u32,
     pub dwFinalError: u32,
-    pub pYesButtonText: super::super::Foundation::PWSTR,
-    pub pNoButtonText: super::super::Foundation::PWSTR,
-    pub pMoreInfoButtonText: super::super::Foundation::PWSTR,
-    pub pAdvancedLinkText: super::super::Foundation::PWSTR,
-    pub pCopyActionText: super::super::Foundation::PWSTR,
-    pub pCopyActionTextNoTS: super::super::Foundation::PWSTR,
-    pub pCopyActionTextNotSigned: super::super::Foundation::PWSTR,
+    pub pYesButtonText: ::windows::core::PWSTR,
+    pub pNoButtonText: ::windows::core::PWSTR,
+    pub pMoreInfoButtonText: ::windows::core::PWSTR,
+    pub pAdvancedLinkText: ::windows::core::PWSTR,
+    pub pCopyActionText: ::windows::core::PWSTR,
+    pub pCopyActionTextNoTS: ::windows::core::PWSTR,
+    pub pCopyActionTextNotSigned: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPT_PROVUI_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPT_PROVUI_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPT_PROVUI_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CRYPT_PROVUI_DATA")
@@ -736,19 +713,15 @@ impl ::core::fmt::Debug for CRYPT_PROVUI_DATA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CRYPT_PROVUI_DATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_PROVUI_DATA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVUI_DATA>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CRYPT_PROVUI_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPT_PROVUI_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -798,8 +771,7 @@ impl ::core::default::Default for CRYPT_PROVUI_FUNCS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct CRYPT_REGISTER_ACTIONID {
     pub cbStruct: u32,
     pub sInitProvider: CRYPT_TRUST_REG_ENTRY,
@@ -811,15 +783,12 @@ pub struct CRYPT_REGISTER_ACTIONID {
     pub sTestPolicyProvider: CRYPT_TRUST_REG_ENTRY,
     pub sCleanupProvider: CRYPT_TRUST_REG_ENTRY,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPT_REGISTER_ACTIONID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPT_REGISTER_ACTIONID {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPT_REGISTER_ACTIONID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CRYPT_REGISTER_ACTIONID")
@@ -835,59 +804,47 @@ impl ::core::fmt::Debug for CRYPT_REGISTER_ACTIONID {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CRYPT_REGISTER_ACTIONID {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_REGISTER_ACTIONID {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_REGISTER_ACTIONID>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CRYPT_REGISTER_ACTIONID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPT_REGISTER_ACTIONID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct CRYPT_TRUST_REG_ENTRY {
     pub cbStruct: u32,
-    pub pwszDLLName: super::super::Foundation::PWSTR,
-    pub pwszFunctionName: super::super::Foundation::PWSTR,
+    pub pwszDLLName: ::windows::core::PWSTR,
+    pub pwszFunctionName: ::windows::core::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPT_TRUST_REG_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CRYPT_TRUST_REG_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPT_TRUST_REG_ENTRY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CRYPT_TRUST_REG_ENTRY").field("cbStruct", &self.cbStruct).field("pwszDLLName", &self.pwszDLLName).field("pwszFunctionName", &self.pwszFunctionName).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CRYPT_TRUST_REG_ENTRY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_TRUST_REG_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_TRUST_REG_ENTRY>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CRYPT_TRUST_REG_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPT_TRUST_REG_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1041,9 +998,8 @@ impl ::core::default::Default for INTENT_TO_SEAL_ATTRIBUTE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2010i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2010i32 as _);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const OFFICE_CLEANUPPOLICY_FUNCTION: &'static str = "OfficeCleanupPolicy";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -1082,7 +1038,7 @@ pub unsafe fn OpenPersonalTrustDBDialogEx<'a, Param0: ::windows::core::IntoParam
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_ALLOCANDFILLDEFUSAGE = ::core::option::Option<unsafe extern "system" fn(pszusageoid: super::super::Foundation::PSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL>;
+pub type PFN_ALLOCANDFILLDEFUSAGE = ::core::option::Option<unsafe extern "system" fn(pszusageoid: ::windows::core::PCSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_CPD_ADD_CERT = ::core::option::Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: super::super::Foundation::BOOL, idxcountersigner: u32, pcert2add: *const super::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOL>;
@@ -1101,7 +1057,7 @@ pub type PFN_CPD_MEM_ALLOC = ::core::option::Option<unsafe extern "system" fn(cb
 pub type PFN_CPD_MEM_FREE = ::core::option::Option<unsafe extern "system" fn(pvmem2free: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_FREEDEFUSAGE = ::core::option::Option<unsafe extern "system" fn(pszusageoid: super::super::Foundation::PSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL>;
+pub type PFN_FREEDEFUSAGE = ::core::option::Option<unsafe extern "system" fn(pszusageoid: ::windows::core::PCSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_CERTCHKPOLICY_CALL = ::core::option::Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersignerchain: super::super::Foundation::BOOL, idxcountersigner: u32) -> super::super::Foundation::BOOL>;
@@ -1177,49 +1133,48 @@ impl ::core::default::Default for PROVDATA_SIP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SEALING_SIGNATURE_ATTRIBUTE {
     pub version: u32,
     pub signerIndex: u32,
     pub signatureAlgorithm: super::Cryptography::CRYPT_ALGORITHM_IDENTIFIER,
     pub encryptedDigest: super::Cryptography::CRYPTOAPI_BLOB,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SEALING_SIGNATURE_ATTRIBUTE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for SEALING_SIGNATURE_ATTRIBUTE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for SEALING_SIGNATURE_ATTRIBUTE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SEALING_SIGNATURE_ATTRIBUTE").field("version", &self.version).field("signerIndex", &self.signerIndex).field("signatureAlgorithm", &self.signatureAlgorithm).field("encryptedDigest", &self.encryptedDigest).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for SEALING_SIGNATURE_ATTRIBUTE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SEALING_SIGNATURE_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEALING_SIGNATURE_ATTRIBUTE>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for SEALING_SIGNATURE_ATTRIBUTE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SEALING_SIGNATURE_ATTRIBUTE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2011i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2011i32 as _);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -1260,16 +1215,14 @@ impl ::core::default::Default for SEALING_TIMESTAMP_ATTRIBUTE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2012i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2012i32 as _);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SGNR_TYPE_TIMESTAMP: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_CAB_DATA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.25";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SPC_CAB_DATA_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2008i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SPC_CAB_DATA_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2008i32 as _);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_CERT_EXTENSIONS_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.14";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -1321,14 +1274,13 @@ impl ::core::default::Default for SPC_FINANCIAL_CRITERIA {
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_FINANCIAL_CRITERIA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.27";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SPC_FINANCIAL_CRITERIA_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2002i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SPC_FINANCIAL_CRITERIA_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2002i32 as _);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_GLUE_RDN_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.25";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SPC_IMAGE {
     pub pImageLink: *mut SPC_LINK,
     pub Bitmap: super::Cryptography::CRYPTOAPI_BLOB,
@@ -1336,152 +1288,150 @@ pub struct SPC_IMAGE {
     pub EnhancedMetafile: super::Cryptography::CRYPTOAPI_BLOB,
     pub GifFile: super::Cryptography::CRYPTOAPI_BLOB,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SPC_IMAGE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for SPC_IMAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for SPC_IMAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SPC_IMAGE").field("pImageLink", &self.pImageLink).field("Bitmap", &self.Bitmap).field("Metafile", &self.Metafile).field("EnhancedMetafile", &self.EnhancedMetafile).field("GifFile", &self.GifFile).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for SPC_IMAGE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_IMAGE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_IMAGE>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for SPC_IMAGE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SPC_IMAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SPC_INDIRECT_DATA_CONTENT {
     pub Data: super::Cryptography::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::Cryptography::CRYPT_ALGORITHM_IDENTIFIER,
     pub Digest: super::Cryptography::CRYPTOAPI_BLOB,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SPC_INDIRECT_DATA_CONTENT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for SPC_INDIRECT_DATA_CONTENT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for SPC_INDIRECT_DATA_CONTENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SPC_INDIRECT_DATA_CONTENT").field("Data", &self.Data).field("DigestAlgorithm", &self.DigestAlgorithm).field("Digest", &self.Digest).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for SPC_INDIRECT_DATA_CONTENT {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_INDIRECT_DATA_CONTENT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_INDIRECT_DATA_CONTENT>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for SPC_INDIRECT_DATA_CONTENT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SPC_INDIRECT_DATA_CONTENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SPC_INDIRECT_DATA_CONTENT_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2003i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SPC_INDIRECT_DATA_CONTENT_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2003i32 as _);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_INDIRECT_DATA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.4";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_INDIVIDUAL_SP_KEY_PURPOSE_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.21";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_JAVA_CLASS_DATA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.20";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SPC_JAVA_CLASS_DATA_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2009i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SPC_JAVA_CLASS_DATA_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2009i32 as _);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SPC_LINK {
     pub dwLinkChoice: u32,
     pub Anonymous: SPC_LINK_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SPC_LINK {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for SPC_LINK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for SPC_LINK {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_LINK {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_LINK>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for SPC_LINK {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SPC_LINK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub union SPC_LINK_0 {
-    pub pwszUrl: super::super::Foundation::PWSTR,
+    pub pwszUrl: ::windows::core::PWSTR,
     pub Moniker: SPC_SERIALIZED_OBJECT,
-    pub pwszFile: super::super::Foundation::PWSTR,
+    pub pwszFile: ::windows::core::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SPC_LINK_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for SPC_LINK_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for SPC_LINK_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_LINK_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_LINK_0>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for SPC_LINK_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SPC_LINK_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1489,52 +1439,50 @@ impl ::core::default::Default for SPC_LINK_0 {
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_LINK_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.28";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SPC_LINK_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2005i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SPC_LINK_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2005i32 as _);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_MINIMAL_CRITERIA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.26";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SPC_MINIMAL_CRITERIA_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2001i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SPC_MINIMAL_CRITERIA_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2001i32 as _);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_MONIKER_LINK_CHOICE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_NATURAL_AUTH_PLUGIN_OBJID: &'static str = "1.3.6.1.4.1.311.96.1.1";
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SPC_PE_IMAGE_DATA {
     pub Flags: super::Cryptography::CRYPT_BIT_BLOB,
     pub pFile: *mut SPC_LINK,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SPC_PE_IMAGE_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for SPC_PE_IMAGE_DATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for SPC_PE_IMAGE_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SPC_PE_IMAGE_DATA").field("Flags", &self.Flags).field("pFile", &self.pFile).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for SPC_PE_IMAGE_DATA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_PE_IMAGE_DATA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_PE_IMAGE_DATA>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for SPC_PE_IMAGE_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SPC_PE_IMAGE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1542,9 +1490,8 @@ impl ::core::default::Default for SPC_PE_IMAGE_DATA {
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_PE_IMAGE_DATA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.15";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SPC_PE_IMAGE_DATA_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2004i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SPC_PE_IMAGE_DATA_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2004i32 as _);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_PE_IMAGE_PAGE_HASHES_V1_OBJID: &'static str = "1.3.6.1.4.1.311.2.3.1";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -1630,45 +1577,44 @@ impl ::core::default::Default for SPC_SIGINFO {
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_SIGINFO_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.30";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SPC_SIGINFO_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2130i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SPC_SIGINFO_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2130i32 as _);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SPC_SP_AGENCY_INFO {
     pub pPolicyInformation: *mut SPC_LINK,
-    pub pwszPolicyDisplayText: super::super::Foundation::PWSTR,
+    pub pwszPolicyDisplayText: ::windows::core::PWSTR,
     pub pLogoImage: *mut SPC_IMAGE,
     pub pLogoLink: *mut SPC_LINK,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SPC_SP_AGENCY_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for SPC_SP_AGENCY_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for SPC_SP_AGENCY_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SPC_SP_AGENCY_INFO").field("pPolicyInformation", &self.pPolicyInformation).field("pwszPolicyDisplayText", &self.pwszPolicyDisplayText).field("pLogoImage", &self.pLogoImage).field("pLogoLink", &self.pLogoLink).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for SPC_SP_AGENCY_INFO {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_SP_AGENCY_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_SP_AGENCY_INFO>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for SPC_SP_AGENCY_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SPC_SP_AGENCY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1676,44 +1622,43 @@ impl ::core::default::Default for SPC_SP_AGENCY_INFO {
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_SP_AGENCY_INFO_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.10";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SPC_SP_AGENCY_INFO_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2000i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SPC_SP_AGENCY_INFO_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2000i32 as _);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SPC_SP_OPUS_INFO {
-    pub pwszProgramName: super::super::Foundation::PWSTR,
+    pub pwszProgramName: ::windows::core::PCWSTR,
     pub pMoreInfo: *mut SPC_LINK,
     pub pPublisherInfo: *mut SPC_LINK,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SPC_SP_OPUS_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for SPC_SP_OPUS_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for SPC_SP_OPUS_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SPC_SP_OPUS_INFO").field("pwszProgramName", &self.pwszProgramName).field("pMoreInfo", &self.pMoreInfo).field("pPublisherInfo", &self.pPublisherInfo).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for SPC_SP_OPUS_INFO {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_SP_OPUS_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_SP_OPUS_INFO>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for SPC_SP_OPUS_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SPC_SP_OPUS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1721,43 +1666,34 @@ impl ::core::default::Default for SPC_SP_OPUS_INFO {
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_SP_OPUS_INFO_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.12";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SPC_SP_OPUS_INFO_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2007i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SPC_SP_OPUS_INFO_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2007i32 as _);
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct SPC_STATEMENT_TYPE {
     pub cKeyPurposeId: u32,
-    pub rgpszKeyPurposeId: *mut super::super::Foundation::PSTR,
+    pub rgpszKeyPurposeId: *mut ::windows::core::PSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SPC_STATEMENT_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SPC_STATEMENT_TYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SPC_STATEMENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SPC_STATEMENT_TYPE").field("cKeyPurposeId", &self.cKeyPurposeId).field("rgpszKeyPurposeId", &self.rgpszKeyPurposeId).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SPC_STATEMENT_TYPE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SPC_STATEMENT_TYPE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_STATEMENT_TYPE>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SPC_STATEMENT_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SPC_STATEMENT_TYPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1765,9 +1701,8 @@ impl ::core::default::Default for SPC_STATEMENT_TYPE {
 }
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_STATEMENT_TYPE_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.11";
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
-pub const SPC_STATEMENT_TYPE_STRUCT: super::super::Foundation::PSTR = super::super::Foundation::PSTR(2006i32 as _);
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
+pub const SPC_STATEMENT_TYPE_STRUCT: ::windows::core::PCSTR = ::windows::core::PCSTR(2006i32 as _);
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_STRUCTURED_STORAGE_DATA_OBJID: &'static str = "1.3.6.1.4.1.311.2.1.19";
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
@@ -1851,44 +1786,36 @@ pub const TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: u32 = 19u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_WVTPARAMS: u32 = 0u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct WINTRUST_BLOB_INFO {
     pub cbStruct: u32,
     pub gSubject: ::windows::core::GUID,
-    pub pcwszDisplayName: super::super::Foundation::PWSTR,
+    pub pcwszDisplayName: ::windows::core::PCWSTR,
     pub cbMemObject: u32,
     pub pbMemObject: *mut u8,
     pub cbMemSignedMsg: u32,
     pub pbMemSignedMsg: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINTRUST_BLOB_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINTRUST_BLOB_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WINTRUST_BLOB_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WINTRUST_BLOB_INFO").field("cbStruct", &self.cbStruct).field("gSubject", &self.gSubject).field("pcwszDisplayName", &self.pcwszDisplayName).field("cbMemObject", &self.cbMemObject).field("pbMemObject", &self.pbMemObject).field("cbMemSignedMsg", &self.cbMemSignedMsg).field("pbMemSignedMsg", &self.pbMemSignedMsg).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINTRUST_BLOB_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINTRUST_BLOB_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINTRUST_BLOB_INFO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WINTRUST_BLOB_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINTRUST_BLOB_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1900,9 +1827,9 @@ impl ::core::default::Default for WINTRUST_BLOB_INFO {
 pub struct WINTRUST_CATALOG_INFO {
     pub cbStruct: u32,
     pub dwCatalogVersion: u32,
-    pub pcwszCatalogFilePath: super::super::Foundation::PWSTR,
-    pub pcwszMemberTag: super::super::Foundation::PWSTR,
-    pub pcwszMemberFilePath: super::super::Foundation::PWSTR,
+    pub pcwszCatalogFilePath: ::windows::core::PCWSTR,
+    pub pcwszMemberTag: ::windows::core::PCWSTR,
+    pub pcwszMemberFilePath: ::windows::core::PCWSTR,
     pub hMemberFile: super::super::Foundation::HANDLE,
     pub pbCalculatedFileHash: *mut u8,
     pub cbCalculatedFileHash: u32,
@@ -1957,7 +1884,7 @@ impl ::core::default::Default for WINTRUST_CATALOG_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WINTRUST_CERT_INFO {
     pub cbStruct: u32,
-    pub pcwszDisplayName: super::super::Foundation::PWSTR,
+    pub pcwszDisplayName: ::windows::core::PCWSTR,
     pub psCertContext: *mut super::Cryptography::CERT_CONTEXT,
     pub chStores: u32,
     pub pahStores: *mut super::Cryptography::HCERTSTORE,
@@ -2011,7 +1938,7 @@ pub struct WINTRUST_DATA {
     pub Anonymous: WINTRUST_DATA_0,
     pub dwStateAction: WINTRUST_DATA_STATE_ACTION,
     pub hWVTStateData: super::super::Foundation::HANDLE,
-    pub pwszURLReference: super::super::Foundation::PWSTR,
+    pub pwszURLReference: ::windows::core::PWSTR,
     pub dwProvFlags: WINTRUST_DATA_PROVIDER_FLAGS,
     pub dwUIContext: WINTRUST_DATA_UICONTEXT,
     pub pSignatureSettings: *mut WINTRUST_SIGNATURE_SETTINGS,
@@ -2313,7 +2240,7 @@ impl ::core::fmt::Debug for WINTRUST_DATA_UNION_CHOICE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINTRUST_FILE_INFO {
     pub cbStruct: u32,
-    pub pcwszFilePath: super::super::Foundation::PWSTR,
+    pub pcwszFilePath: ::windows::core::PCWSTR,
     pub hFile: super::super::Foundation::HANDLE,
     pub pgKnownSubject: *mut ::windows::core::GUID,
 }
@@ -2458,50 +2385,50 @@ impl ::core::ops::Not for WINTRUST_POLICY_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct WINTRUST_SGNR_INFO {
     pub cbStruct: u32,
-    pub pcwszDisplayName: super::super::Foundation::PWSTR,
+    pub pcwszDisplayName: ::windows::core::PCWSTR,
     pub psSignerInfo: *mut super::Cryptography::CMSG_SIGNER_INFO,
     pub chStores: u32,
     pub pahStores: *mut super::Cryptography::HCERTSTORE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for WINTRUST_SGNR_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for WINTRUST_SGNR_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for WINTRUST_SGNR_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WINTRUST_SGNR_INFO").field("cbStruct", &self.cbStruct).field("pcwszDisplayName", &self.pcwszDisplayName).field("psSignerInfo", &self.psSignerInfo).field("chStores", &self.chStores).field("pahStores", &self.pahStores).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for WINTRUST_SGNR_INFO {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for WINTRUST_SGNR_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINTRUST_SGNR_INFO>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for WINTRUST_SGNR_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for WINTRUST_SGNR_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct WINTRUST_SIGNATURE_SETTINGS {
     pub cbStruct: u32,
     pub dwIndex: u32,
@@ -2510,33 +2437,33 @@ pub struct WINTRUST_SIGNATURE_SETTINGS {
     pub dwVerifiedSigIndex: u32,
     pub pCryptoPolicy: *mut super::Cryptography::CERT_STRONG_SIGN_PARA,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for WINTRUST_SIGNATURE_SETTINGS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for WINTRUST_SIGNATURE_SETTINGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for WINTRUST_SIGNATURE_SETTINGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WINTRUST_SIGNATURE_SETTINGS").field("cbStruct", &self.cbStruct).field("dwIndex", &self.dwIndex).field("dwFlags", &self.dwFlags).field("cSecondarySigs", &self.cSecondarySigs).field("dwVerifiedSigIndex", &self.dwVerifiedSigIndex).field("pCryptoPolicy", &self.pCryptoPolicy).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for WINTRUST_SIGNATURE_SETTINGS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for WINTRUST_SIGNATURE_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINTRUST_SIGNATURE_SETTINGS>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for WINTRUST_SIGNATURE_SETTINGS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for WINTRUST_SIGNATURE_SETTINGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2729,7 +2656,7 @@ impl ::core::default::Default for WIN_TRUST_ACTDATA_SUBJECT_ONLY {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN_TRUST_SUBJECT_FILE {
     pub hFile: super::super::Foundation::HANDLE,
-    pub lpPath: super::super::Foundation::PWSTR,
+    pub lpPath: ::windows::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WIN_TRUST_SUBJECT_FILE {}
@@ -2768,8 +2695,8 @@ impl ::core::default::Default for WIN_TRUST_SUBJECT_FILE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     pub hFile: super::super::Foundation::HANDLE,
-    pub lpPath: super::super::Foundation::PWSTR,
-    pub lpDisplayName: super::super::Foundation::PWSTR,
+    pub lpPath: ::windows::core::PCWSTR,
+    pub lpDisplayName: ::windows::core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {}
@@ -2830,8 +2757,8 @@ pub const WTCI_USE_LOCAL_MACHINE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_CODE_INTEGRITY_DRIVER_MODE: u32 = 32768u32;
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     pub Anonymous: WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0,
     pub hChainEngine: super::Cryptography::HCERTCHAINENGINE,
@@ -2839,60 +2766,60 @@ pub struct WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     pub dwFlags: u32,
     pub pvReserved: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTD_GENERIC_CHAIN_POLICY_CREATE_INFO>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub union WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::core::Abi for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3194,12 +3121,12 @@ pub unsafe fn WintrustAddActionID(pgactionid: *const ::windows::core::GUID, fdwf
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustAddDefaultForUsage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszusageoid: Param0, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustAddDefaultForUsage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszusageoid: Param0, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustAddDefaultForUsage(pszusageoid: super::super::Foundation::PSTR, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL;
+            fn WintrustAddDefaultForUsage(pszusageoid: ::windows::core::PCSTR, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(WintrustAddDefaultForUsage(pszusageoid.into_param().abi(), ::core::mem::transmute(psdefusage)))
     }
@@ -3209,12 +3136,12 @@ pub unsafe fn WintrustAddDefaultForUsage<'a, Param0: ::windows::core::IntoParam<
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustGetDefaultForUsage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: Param1, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustGetDefaultForUsage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: Param1, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustGetDefaultForUsage(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: super::super::Foundation::PSTR, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL;
+            fn WintrustGetDefaultForUsage(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: ::windows::core::PCSTR, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(WintrustGetDefaultForUsage(::core::mem::transmute(dwaction), pszusageoid.into_param().abi(), ::core::mem::transmute(psusage)))
     }

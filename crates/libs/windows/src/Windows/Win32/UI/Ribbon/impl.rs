@@ -176,11 +176,9 @@ impl IUIContextualUI_Vtbl {
         iid == &<IUIContextualUI as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 pub trait IUIEventLogger_Impl: Sized {
     fn OnUIEvent(&self, peventparams: *const UI_EVENTPARAMS);
 }
-#[cfg(feature = "Win32_Foundation")]
 impl IUIEventLogger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIEventLogger_Impl, const OFFSET: isize>() -> IUIEventLogger_Vtbl {
         unsafe extern "system" fn OnUIEvent<Identity: ::windows::core::IUnknownImpl, Impl: IUIEventLogger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventparams: *const UI_EVENTPARAMS) {
@@ -214,7 +212,7 @@ impl IUIEventingManager_Vtbl {
 pub trait IUIFramework_Impl: Sized {
     fn Initialize(&self, framewnd: super::super::Foundation::HWND, application: &::core::option::Option<IUIApplication>) -> ::windows::core::Result<()>;
     fn Destroy(&self) -> ::windows::core::Result<()>;
-    fn LoadUI(&self, instance: super::super::Foundation::HINSTANCE, resourcename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn LoadUI(&self, instance: super::super::Foundation::HINSTANCE, resourcename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetView(&self, viewid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetUICommandProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn SetUICommandProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -235,10 +233,10 @@ impl IUIFramework_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Destroy().into()
         }
-        unsafe extern "system" fn LoadUI<Identity: ::windows::core::IUnknownImpl, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: super::super::Foundation::HINSTANCE, resourcename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadUI<Identity: ::windows::core::IUnknownImpl, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instance: super::super::Foundation::HINSTANCE, resourcename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).LoadUI(::core::mem::transmute_copy(&instance), ::core::mem::transmute_copy(&resourcename)).into()
+            (*this).LoadUI(::core::mem::transmute_copy(&instance), ::core::mem::transmute(&resourcename)).into()
         }
         unsafe extern "system" fn GetView<Identity: ::windows::core::IUnknownImpl, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
