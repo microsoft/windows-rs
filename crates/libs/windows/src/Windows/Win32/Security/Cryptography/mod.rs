@@ -23543,7 +23543,7 @@ unsafe impl ::windows::core::Abi for HCERTCHAINENGINE {
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-pub struct HCERTSTORE(pub *const ::core::ffi::c_void);
+pub struct HCERTSTORE(pub *mut ::core::ffi::c_void);
 impl HCERTSTORE {
     pub fn is_invalid(&self) -> bool {
         *self == unsafe { ::core::mem::zeroed() }
@@ -23577,7 +23577,7 @@ unsafe impl ::windows::core::Abi for HCERTSTORE {
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-pub struct HCERTSTOREPROV(pub *const ::core::ffi::c_void);
+pub struct HCERTSTOREPROV(pub *mut ::core::ffi::c_void);
 impl HCERTSTOREPROV {
     pub fn is_invalid(&self) -> bool {
         *self == unsafe { ::core::mem::zeroed() }
