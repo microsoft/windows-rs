@@ -96,8 +96,6 @@ fn composition() -> windows::core::Result<()> {
 
     assert!(children.Count()? == 3);
 
-    // TODO: Collection iteration is still crude but at least the underlying collection interfaces are working.
-
     let iterator = children.First()?;
     assert!(iterator.HasCurrent()?);
 

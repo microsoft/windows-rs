@@ -1,5 +1,5 @@
 [package]
-name = "test_weak"
+name = "test_weak_ref"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
@@ -7,6 +7,5 @@ edition = "2018"
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
-    "alloc",
-    "Foundation",
+    "Win32_System_WinRT",
 ]

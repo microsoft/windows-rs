@@ -84,7 +84,6 @@ interface = ["windows-interface"]
 
     // Skip the root Windows tree while writing features
     for tree in trees.iter().skip(1) {
-        // TODO: don't include parent features automatically
         let feature = tree.namespace[root.namespace.len() + 1..].replace('.', "_");
 
         if let Some(pos) = feature.rfind('_') {

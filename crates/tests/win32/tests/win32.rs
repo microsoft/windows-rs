@@ -218,7 +218,6 @@ fn callback() {
     }
 }
 
-// TODO: second parameter should be *const i8
 extern "system" fn callback_a(param0: HWND, param1: PSTR, param2: HANDLE) -> BOOL {
     unsafe {
         assert!(param0.0 == 123);
@@ -241,7 +240,6 @@ extern "system" fn callback_a(param0: HWND, param1: PSTR, param2: HANDLE) -> BOO
     }
 }
 
-// TODO: second parameter should be *const u16
 extern "system" fn callback_w(param0: HWND, param1: PWSTR, param2: HANDLE) -> BOOL {
     unsafe {
         assert!(param0.0 == 123);
