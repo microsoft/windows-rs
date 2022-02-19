@@ -265,11 +265,23 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 
     for (position, param) in params.iter().enumerate() {
         let name = gen_param_name(&param.def);
-        let kind = if param.is_convertible() { format!("Param{}", position).into() } else { gen_default_type(&param.ty, gen) };
+        let kind = if param.is_convertible() { format!("Param{}", position).into() } else { gen_win32_param(param, gen) };
         tokens.combine(&quote! { #name: #kind, });
     }
 
     tokens
+}
+
+fn gen_win32_param(param: &MethodParam, gen:&Gen) -> TokenStream {
+    if let Some(ArrayInfo::Fixed(len)) = param.def.array_info() {
+        let ty = param.ty.deref();
+        let ty = gen_default_type(&ty, gen);
+        let len = Literal::u32_unsuffixed(len as _);
+        // TODO: either & or &mut 
+        quote! { [#ty; #len] }
+    } else {
+        gen_default_type(&param.ty, gen) 
+    }
 }
 
 pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {

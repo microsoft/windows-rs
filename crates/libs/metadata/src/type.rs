@@ -227,6 +227,9 @@ impl Type {
             Self::MutPtr((kind, 1)) => *kind.clone(),
             Self::ConstPtr((kind, pointers)) => Self::ConstPtr((kind.clone(), pointers - 1)),
             Self::MutPtr((kind, pointers)) => Self::MutPtr((kind.clone(), pointers - 1)),
+            Self::PSTR | Self::PCSTR => Self::U8,
+            Self::PWSTR | Self::PCWSTR => Self::U16,
+            // TODO: deref any remaining handle/typedef types that have an underlying pointer type
             _ => unimplemented!(),
         }
     }
