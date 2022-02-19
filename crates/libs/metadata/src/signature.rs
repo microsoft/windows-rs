@@ -88,8 +88,7 @@ impl MethodParam {
 
         let flags = self.def.flags();
 
-        // TODO: NativeArrayInfo indicates an array parameter #479
-        if flags.input() || !flags.output() || self.def.array_info() {
+        if flags.input() || !flags.output() || self.def.array_info().is_some() {
             return false;
         }
 

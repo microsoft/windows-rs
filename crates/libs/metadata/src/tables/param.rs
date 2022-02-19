@@ -28,9 +28,20 @@ impl Param {
         self.has_attribute("ComOutPtrAttribute")
     }
 
-    pub fn array_info(&self) -> bool {
-        // TODO: replace bool return with actual array info from attribute
-        self.has_attribute("NativeArrayInfoAttribute")
+    pub fn array_info(&self) -> Option<ArrayInfo> {
+        for attribute in self.attributes() {
+            if attribute.name() == "NativeArrayInfoAttribute" {
+                for (_, value) in attribute.args() {
+                    match value {
+                        ConstantValue::I16(value) => return Some(ArrayInfo::Relative(value)),
+                        ConstantValue::I32(value) => return Some(ArrayInfo::Fixed(value)),
+                        _ => unimplemented!(),
+                    }
+                }
+            }
+        }
+
+        None
     }
 
     pub fn is_retval(&self) -> bool {
