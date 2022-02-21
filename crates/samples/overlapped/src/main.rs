@@ -5,13 +5,13 @@ fn main() -> Result<()> {
         let mut filename = std::env::current_dir().unwrap();
         filename.push("message.txt");
 
-        let file = CreateFileA(filename.as_path().to_str().unwrap(), FILE_GENERIC_READ, FILE_SHARE_READ, std::ptr::null_mut(), OPEN_EXISTING, FILE_FLAG_OVERLAPPED, None);
+        let file = CreateFileA(filename.as_path().to_str().unwrap(), FILE_GENERIC_READ, FILE_SHARE_READ, std::ptr::null(), OPEN_EXISTING, FILE_FLAG_OVERLAPPED, None);
 
         file.ok()?;
 
         let mut overlapped = OVERLAPPED {
             Anonymous: OVERLAPPED_0 { Anonymous: OVERLAPPED_0_0 { Offset: 9, OffsetHigh: 0 } },
-            hEvent: CreateEventA(std::ptr::null_mut(), true, false, None),
+            hEvent: CreateEventA(std::ptr::null(), true, false, None),
             Internal: 0,
             InternalHigh: 0,
         };

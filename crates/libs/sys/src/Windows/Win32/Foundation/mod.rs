@@ -121,7 +121,7 @@ impl ::core::clone::Clone for APP_LOCAL_DEVICE_ID {
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
 pub type BOOL = i32;
 pub type BOOLEAN = u8;
-pub type BSTR = *const u16;
+pub type BSTR = *mut u16;
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const BT_E_SPURIOUS_ACTIVATION: ::windows_sys::core::HRESULT = -2146958592i32;
 #[doc = "*Required features: 'Win32_Foundation'*"]

@@ -2940,7 +2940,7 @@ pub unsafe fn IsWow64Process2<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-pub struct LPPROC_THREAD_ATTRIBUTE_LIST(pub *const ::core::ffi::c_void);
+pub struct LPPROC_THREAD_ATTRIBUTE_LIST(pub *mut ::core::ffi::c_void);
 impl LPPROC_THREAD_ATTRIBUTE_LIST {
     pub fn is_invalid(&self) -> bool {
         *self == unsafe { ::core::mem::zeroed() }
