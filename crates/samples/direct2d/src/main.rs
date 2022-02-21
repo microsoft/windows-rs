@@ -2,7 +2,7 @@ use windows::{core::*, Foundation::Numerics::*, Win32::Foundation::*, Win32::Gra
 
 fn main() -> Result<()> {
     unsafe {
-        CoInitializeEx(std::ptr::null_mut(), COINIT_MULTITHREADED)?;
+        CoInitializeEx(std::ptr::null(), COINIT_MULTITHREADED)?;
     }
     let mut window = Window::new()?;
     window.run()
