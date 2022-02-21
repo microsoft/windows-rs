@@ -4,7 +4,7 @@ fn main() -> Result<()> {
     let input = std::env::args().nth(1).expect("Expected one command line argument for text to be spell-corrected");
     // Initialize the COM runtime for this thread
     unsafe {
-        CoInitializeEx(std::ptr::null_mut(), COINIT_MULTITHREADED)?;
+        CoInitializeEx(std::ptr::null(), COINIT_MULTITHREADED)?;
     }
 
     // Create ISpellCheckerFactory

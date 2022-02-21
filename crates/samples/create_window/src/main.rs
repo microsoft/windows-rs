@@ -20,7 +20,7 @@ fn main() -> Result<()> {
         let atom = RegisterClassA(&wc);
         debug_assert!(atom != 0);
 
-        CreateWindowExA(Default::default(), window_class, "This is a sample window", WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, std::ptr::null_mut());
+        CreateWindowExA(Default::default(), window_class, "This is a sample window", WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, std::ptr::null());
 
         let mut message = MSG::default();
 

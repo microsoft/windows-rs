@@ -2,7 +2,7 @@ use windows_sys::{Win32::Foundation::*, Win32::Graphics::Gdi::ValidateRect, Win3
 
 fn main() {
     unsafe {
-        let instance = GetModuleHandleA(std::ptr::null_mut());
+        let instance = GetModuleHandleA(std::ptr::null());
         debug_assert!(instance != 0);
 
         let window_class = b"window\0".as_ptr();
@@ -17,13 +17,13 @@ fn main() {
             cbWndExtra: 0,
             hIcon: 0,
             hbrBackground: 0,
-            lpszMenuName: std::ptr::null_mut(),
+            lpszMenuName: std::ptr::null(),
         };
 
         let atom = RegisterClassA(&wc);
         debug_assert!(atom != 0);
 
-        CreateWindowExA(0, window_class, b"This is a sample window\0".as_ptr(), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, instance, std::ptr::null_mut());
+        CreateWindowExA(0, window_class, b"This is a sample window\0".as_ptr(), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, instance, std::ptr::null());
 
         let mut message = std::mem::zeroed();
 

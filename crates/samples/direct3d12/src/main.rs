@@ -281,7 +281,7 @@ mod d3d12_hello_triangle {
 
             let render_targets: [ID3D12Resource; FRAME_COUNT as usize] = array_init::try_array_init(|i: usize| -> Result<ID3D12Resource> {
                 let render_target: ID3D12Resource = unsafe { swap_chain.GetBuffer(i as u32) }?;
-                unsafe { self.device.CreateRenderTargetView(&render_target, std::ptr::null_mut(), &D3D12_CPU_DESCRIPTOR_HANDLE { ptr: rtv_handle.ptr + i * rtv_descriptor_size }) };
+                unsafe { self.device.CreateRenderTargetView(&render_target, std::ptr::null(), &D3D12_CPU_DESCRIPTOR_HANDLE { ptr: rtv_handle.ptr + i * rtv_descriptor_size }) };
                 Ok(render_target)
             })?;
 
@@ -307,7 +307,7 @@ mod d3d12_hello_triangle {
 
             let fence_value = 1;
 
-            let fence_event = unsafe { CreateEventA(std::ptr::null_mut(), false, false, None) };
+            let fence_event = unsafe { CreateEventA(std::ptr::null(), false, false, None) };
 
             self.resources = Some(Resources {
                 command_queue,
@@ -452,10 +452,10 @@ mod d3d12_hello_triangle {
         let shaders_hlsl = shaders_hlsl_path.to_str().unwrap();
 
         let mut vertex_shader = None;
-        let vertex_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null_mut(), None, "VSMain", "vs_5_0", compile_flags, 0, &mut vertex_shader, std::ptr::null_mut()) }.map(|()| vertex_shader.unwrap())?;
+        let vertex_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null(), None, "VSMain", "vs_5_0", compile_flags, 0, &mut vertex_shader, std::ptr::null_mut()) }.map(|()| vertex_shader.unwrap())?;
 
         let mut pixel_shader = None;
-        let pixel_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null_mut(), None, "PSMain", "ps_5_0", compile_flags, 0, &mut pixel_shader, std::ptr::null_mut()) }.map(|()| pixel_shader.unwrap())?;
+        let pixel_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null(), None, "PSMain", "ps_5_0", compile_flags, 0, &mut pixel_shader, std::ptr::null_mut()) }.map(|()| pixel_shader.unwrap())?;
 
         let mut input_element_descs: [D3D12_INPUT_ELEMENT_DESC; 2] = [
             D3D12_INPUT_ELEMENT_DESC {
