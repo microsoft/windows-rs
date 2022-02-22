@@ -272,23 +272,22 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     tokens
 }
 
-fn gen_win32_param(param: &MethodParam, gen:&Gen) -> TokenStream {
+fn gen_win32_param(param: &MethodParam, gen: &Gen) -> TokenStream {
     if let Some(ArrayInfo::Fixed(len)) = param.def.array_info() {
         if len > 0 {
             let ty = param.ty.deref();
             let ty = gen_default_type(&ty, gen);
             let len = Literal::u32_unsuffixed(len as _);
-            
+
             return if param.def.flags().output() {
                 quote! { &mut [#ty; #len] }
-            }
-            else {
+            } else {
                 quote! { &[#ty; #len] }
             };
         }
-    } 
-        
-    gen_default_type(&param.ty, gen) 
+    }
+
+    gen_default_type(&param.ty, gen)
 }
 
 pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
