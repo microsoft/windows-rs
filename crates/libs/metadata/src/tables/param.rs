@@ -33,8 +33,8 @@ impl Param {
             if attribute.name() == "NativeArrayInfoAttribute" {
                 for (_, value) in attribute.args() {
                     match value {
-                        ConstantValue::I16(value) => return Some(ArrayInfo::Relative(value)),
-                        ConstantValue::I32(value) => return Some(ArrayInfo::Fixed(value)),
+                        ConstantValue::I16(value) => return Some(ArrayInfo::Relative(value as _)),
+                        ConstantValue::I32(value) => return Some(ArrayInfo::Fixed(value as _)),
                         _ => unimplemented!(),
                     }
                 }
