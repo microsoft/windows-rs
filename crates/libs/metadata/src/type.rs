@@ -223,8 +223,13 @@ impl Type {
 
     pub fn deref(&self) -> Self {
         match self {
-            Self::ConstPtr((kind, 1)) => *kind.clone(),
-            Self::MutPtr((kind, 1)) => *kind.clone(),
+            Self::ConstPtr((kind, 1)) | Self::MutPtr((kind, 1)) => {
+                if **kind == Self::Void {
+                    Self::U8
+                } else {
+                    *kind.clone()
+                }
+            }
             Self::ConstPtr((kind, pointers)) => Self::ConstPtr((kind.clone(), pointers - 1)),
             Self::MutPtr((kind, pointers)) => Self::MutPtr((kind.clone(), pointers - 1)),
             Self::PSTR | Self::PCSTR => Self::U8,

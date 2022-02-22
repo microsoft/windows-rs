@@ -159,7 +159,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
     match signature.kind() {
         SignatureKind::Query => {
             let leading_params = &signature.params[..signature.params.len() - 2];
-            let args = gen_win32_args(leading_params, gen);
+            let args = gen_win32_args(leading_params);
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
@@ -173,7 +173,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
         }
         SignatureKind::QueryOptional => {
             let leading_params = &signature.params[..signature.params.len() - 2];
-            let args = gen_win32_args(leading_params, gen);
+            let args = gen_win32_args(leading_params);
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
@@ -186,7 +186,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
         }
         SignatureKind::ResultValue => {
             let leading_params = &signature.params[..signature.params.len() - 1];
-            let args = gen_win32_args(leading_params, gen);
+            let args = gen_win32_args(leading_params);
             let params = gen_win32_params(leading_params, gen);
 
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
@@ -204,7 +204,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             }
         }
         SignatureKind::ResultVoid => {
-            let args = gen_win32_args(&signature.params, gen );
+            let args = gen_win32_args(&signature.params);
             let params = gen_win32_params(&signature.params, gen);
 
             quote! {
@@ -216,7 +216,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             }
         }
         SignatureKind::ReturnStruct => {
-            let args = gen_win32_args(&signature.params, gen);
+            let args = gen_win32_args(&signature.params);
             let params = gen_win32_params(&signature.params, gen);
             // TODO: why is this using gen_abi_element_name?
             let return_type = gen_abi_element_name(&signature.return_type.unwrap(), gen);
@@ -232,7 +232,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             }
         }
         SignatureKind::PreserveSig => {
-            let args = gen_win32_args(&signature.params, gen);
+            let args = gen_win32_args(&signature.params);
             let params = gen_win32_params(&signature.params, gen);
             // TODO: why gen_return_sig exists? Don't we always know it will be not ReturnVoid?
             let return_type = gen_return_sig(&signature, gen);
@@ -246,7 +246,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             }
         }
         SignatureKind::ReturnVoid => {
-            let args = gen_win32_args(&signature.params, gen);
+            let args = gen_win32_args(&signature.params);
             let params = gen_win32_params(&signature.params, gen);
 
             quote! {
@@ -263,22 +263,21 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
 pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut tokens = quote! {};
 
-    let mut params: Vec::<(&MethodParam, usize, Option<ArrayInfo>)> = params.iter().enumerate().map(|(position, param)|(param, position, param.def.array_info())).collect();
+    let mut params: Vec<(&MethodParam, usize, Option<ArrayInfo>)> = params.iter().enumerate().map(|(position, param)| (param, position, param.def.array_info())).collect();
 
     for position in 0..params.len() {
-        if let Some(ArrayInfo::Relative(relative)) = params[position].2 {
-            params[relative].2 = params[position].2;
+        if let Some(ArrayInfo::RelativeSize(relative)) = params[position].2 {
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
+            if !params[relative].0.def.flags().output() && position != relative {
+                params[relative].2 = Some(ArrayInfo::RelativePtr(position));
+            } else {
+                params[position].2 = None;
+            }
         }
     }
 
     for (param, position, array_info) in params {
         let name = gen_param_name(&param.def);
-
-        if param.is_convertible() {
-            let kind: TokenStream = format!("Param{}", position).into();
-            tokens.combine(&quote! { #name: #kind, });
-            continue;
-        }
 
         if let Some(ArrayInfo::Fixed(fixed)) = array_info {
             if fixed > 0 && param.def.free_with().is_none() {
@@ -295,74 +294,83 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             }
         }
 
-        // if let Some(ArrayInfo::Relative(relative)) = array_info {
-        //     if relative != position {
-        //         let ty = param.ty.deref();
-        //         let ty = gen_default_type(&ty, gen);
-        //         if param.def.flags().output() {
-        //             tokens.combine(&quote! { #name: &mut [#ty], });
-        //         } else {
-        //             tokens.combine(&quote! { #name: &[#ty], });
-        //         }
-        //     }
-        //     continue;
-        // }
+        if let Some(ArrayInfo::RelativeSize(_)) = array_info {
+            let ty = param.ty.deref();
+            let ty = gen_default_type(&ty, gen);
+            if param.def.flags().output() {
+                tokens.combine(&quote! { #name: &mut [#ty], });
+            } else {
+                tokens.combine(&quote! { #name: &[#ty], });
+            }
+            continue;
+        }
 
-        let kind = gen_default_type(&param.ty, gen) ;
+        if let Some(ArrayInfo::RelativePtr(_)) = array_info {
+            continue;
+        }
+
+        if param.is_convertible() {
+            let kind: TokenStream = format!("Param{}", position).into();
+            tokens.combine(&quote! { #name: #kind, });
+            continue;
+        }
+
+        let kind = gen_default_type(&param.ty, gen);
         tokens.combine(&quote! { #name: #kind, });
     }
 
     tokens
 }
 
-pub fn gen_win32_args(params: &[MethodParam], gen: &Gen) -> TokenStream {
+pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
     let mut tokens = quote! {};
 
-    let mut params: Vec::<(&MethodParam, usize, Option<ArrayInfo>)> = params.iter().enumerate().map(|(position, param)|(param, position, param.def.array_info())).collect();
+    let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params.iter().map(|param| (param, param.def.array_info())).collect();
 
     for position in 0..params.len() {
-        if let Some(ArrayInfo::Relative(relative)) = params[position].2 {
-            params[relative].2 = params[position].2;
+        if let Some(ArrayInfo::RelativeSize(relative)) = params[position].1 {
+            if !params[relative].0.def.flags().output() {
+                params[relative].1 = Some(ArrayInfo::RelativePtr(position));
+            } else {
+                params[position].1 = None;
+            }
         }
     }
 
-    for (param, position, array_info) in params {
+    for (param, array_info) in &params {
         let name = gen_param_name(&param.def);
+
+        if let Some(ArrayInfo::Fixed(fixed)) = array_info {
+            if *fixed > 0 && param.def.free_with().is_none() {
+                if param.def.flags().output() {
+                    tokens.combine(&quote! { ::core::mem::transmute(#name.as_mut_ptr()), });
+                } else {
+                    tokens.combine(&quote! { ::core::mem::transmute(#name.as_ptr()), });
+                }
+                continue;
+            }
+        }
+
+        if let Some(ArrayInfo::RelativeSize(_)) = array_info {
+            if param.def.flags().output() {
+                tokens.combine(&quote! { ::core::mem::transmute(#name.as_mut_ptr()), });
+            } else {
+                tokens.combine(&quote! { ::core::mem::transmute(#name.as_ptr()), });
+            }
+            continue;
+        }
+
+        if let Some(ArrayInfo::RelativePtr(relative)) = array_info {
+            let name = gen_param_name(&params[*relative].0.def);
+            tokens.combine(&quote! { #name.len() as _, });
+            continue;
+        }
 
         if param.is_convertible() {
             tokens.combine(&quote! { #name.into_param().abi(), });
             continue;
         }
 
-        // if let Some(ArrayInfo::Fixed(fixed)) = array_info {
-        //     if fixed > 0 && param.def.free_with().is_none() {
-        //         let ty = param.ty.deref();
-        //         let ty = gen_default_type(&ty, gen);
-        //         let len = Literal::u32_unsuffixed(fixed as _);
-
-        //         if param.def.flags().output() {
-        //             tokens.combine(&quote! { #name: &mut [#ty; #len], });
-        //         } else {
-        //             tokens.combine(&quote! { #name: &[#ty; #len], });
-        //         }
-        //         continue;
-        //     }
-        // }
-
-        // if let Some(ArrayInfo::Relative(relative)) = array_info {
-        //     if relative != position {
-        //         let ty = param.ty.deref();
-        //         let ty = gen_default_type(&ty, gen);
-        //         if param.def.flags().output() {
-        //             tokens.combine(&quote! { #name: &mut [#ty], });
-        //         } else {
-        //             tokens.combine(&quote! { #name: &[#ty], });
-        //         }
-        //     }
-        //     continue;
-        // }
-
-        let kind = gen_default_type(&param.ty, gen) ;
         tokens.combine(&quote! { ::core::mem::transmute(#name), });
     }
 

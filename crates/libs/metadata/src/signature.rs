@@ -97,6 +97,6 @@ impl MethodParam {
     }
 
     pub fn is_convertible(&self) -> bool {
-        self.def.flags().input() && !self.ty.is_winrt_array() && !self.ty.is_pointer() && self.ty.is_convertible()
+        self.def.flags().input() && !self.ty.is_winrt_array() && !self.ty.is_pointer() && self.ty.is_convertible() && self.def.array_info().is_none()
     }
 }
