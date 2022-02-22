@@ -274,7 +274,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 
 fn gen_win32_param(param: &MethodParam, gen: &Gen) -> TokenStream {
     if let Some(ArrayInfo::Fixed(len)) = param.def.array_info() {
-        if len > 0 {
+        if len > 0 && param.def.free_with().is_none() {
             let ty = param.ty.deref();
             let ty = gen_default_type(&ty, gen);
             let len = Literal::u32_unsuffixed(len as _);

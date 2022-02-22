@@ -47,4 +47,18 @@ impl Param {
     pub fn is_retval(&self) -> bool {
         self.has_attribute("RetValAttribute")
     }
+
+    pub fn free_with(&self) -> Option<String> {
+        for attribute in self.attributes() {
+            if attribute.name() == "FreeWithAttribute" {
+                for (_, arg) in attribute.args() {
+                    if let ConstantValue::String(name) = arg {
+                        return Some(name);
+                    }
+                }
+            }
+        }
+
+        None
+    }
 }
