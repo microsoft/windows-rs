@@ -363,7 +363,7 @@ pub unsafe fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::super::TextS
 #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetKeyboardLayoutNameA(pwszklid: ::windows::core::PSTR) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetKeyboardLayoutNameA(pwszklid: &mut [u8; 9]) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -378,7 +378,7 @@ pub unsafe fn GetKeyboardLayoutNameA(pwszklid: ::windows::core::PSTR) -> super::
 #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetKeyboardLayoutNameW(pwszklid: ::windows::core::PWSTR) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetKeyboardLayoutNameW(pwszklid: &mut [u16; 9]) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -393,7 +393,7 @@ pub unsafe fn GetKeyboardLayoutNameW(pwszklid: ::windows::core::PWSTR) -> super:
 #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetKeyboardState(lpkeystate: *mut u8) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetKeyboardState(lpkeystate: &mut [u8; 256]) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1577,7 +1577,7 @@ pub unsafe fn SetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetKeyboardState(lpkeystate: *const u8) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SetKeyboardState(lpkeystate: &[u8; 256]) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1716,7 +1716,7 @@ impl ::core::ops::Not for TRACKMOUSEEVENT_FLAGS {
 }
 #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
 #[inline]
-pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32) -> i32 {
+pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: &[u8; 256], lpchar: *mut u16, uflags: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1731,7 +1731,7 @@ pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpch
 #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_UI_TextServices'*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ToAsciiEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: Param5) -> i32 {
+pub unsafe fn ToAsciiEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(uvirtkey: u32, uscancode: u32, lpkeystate: &[u8; 256], lpchar: *mut u16, uflags: u32, dwhkl: Param5) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1745,7 +1745,7 @@ pub unsafe fn ToAsciiEx<'a, Param5: ::windows::core::IntoParam<'a, super::super:
 }
 #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse'*"]
 #[inline]
-pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32) -> i32 {
+pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1760,7 +1760,7 @@ pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pw
 #[doc = "*Required features: 'Win32_UI_Input_KeyboardAndMouse', 'Win32_UI_TextServices'*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ToUnicodeEx<'a, Param6: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32, dwhkl: Param6) -> i32 {
+pub unsafe fn ToUnicodeEx<'a, Param6: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32, dwhkl: Param6) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

@@ -136,7 +136,7 @@ pub type CS_TYPE_TO_NETCS_ROUTINE = ::core::option::Option<unsafe extern "system
 pub const DCE_C_ERROR_STRING_LEN: u32 = 256u32;
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 #[inline]
-pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS {
+pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: &mut [u8; 256]) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -150,7 +150,7 @@ pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC
 }
 #[doc = "*Required features: 'Win32_System_Rpc'*"]
 #[inline]
-pub unsafe fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RPC_STATUS {
+pub unsafe fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: &mut [u16; 256]) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

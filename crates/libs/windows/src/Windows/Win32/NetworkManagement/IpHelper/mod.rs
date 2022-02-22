@@ -13199,7 +13199,7 @@ impl ::core::default::Default for icmpv6_echo_reply_lh {
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 #[inline]
-pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: ::windows::core::PSTR) -> ::windows::core::PSTR {
+pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: &mut [u8; 256]) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

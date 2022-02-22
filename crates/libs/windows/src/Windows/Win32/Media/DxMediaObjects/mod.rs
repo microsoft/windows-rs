@@ -26,7 +26,7 @@ pub unsafe fn DMOEnum(guidcategory: *const ::windows::core::GUID, dwflags: u32, 
 }
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
 #[inline]
-pub unsafe fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: &mut [u16; 80]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

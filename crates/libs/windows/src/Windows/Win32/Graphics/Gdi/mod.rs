@@ -14802,7 +14802,7 @@ pub unsafe fn PlayMetaFileRecord<'a, Param0: ::windows::core::IntoParam<'a, HDC>
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PlgBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param2: ::windows::core::IntoParam<'a, HDC>, Param7: ::windows::core::IntoParam<'a, HBITMAP>>(hdcdest: Param0, lppoint: *const super::super::Foundation::POINT, hdcsrc: Param2, xsrc: i32, ysrc: i32, width: i32, height: i32, hbmmask: Param7, xmask: i32, ymask: i32) -> super::super::Foundation::BOOL {
+pub unsafe fn PlgBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param2: ::windows::core::IntoParam<'a, HDC>, Param7: ::windows::core::IntoParam<'a, HBITMAP>>(hdcdest: Param0, lppoint: &[super::super::Foundation::POINT; 3], hdcsrc: Param2, xsrc: i32, ysrc: i32, width: i32, height: i32, hbmmask: Param7, xmask: i32, ymask: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

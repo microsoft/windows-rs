@@ -28556,7 +28556,7 @@ pub const prioLow: u32 = 3u32;
 pub const prioNorm: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
-pub unsafe fn tapiGetLocationInfo(lpszcountrycode: ::windows::core::PSTR, lpszcitycode: ::windows::core::PSTR) -> i32 {
+pub unsafe fn tapiGetLocationInfo(lpszcountrycode: &mut [u8; 8], lpszcitycode: &mut [u8; 8]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -28570,7 +28570,7 @@ pub unsafe fn tapiGetLocationInfo(lpszcountrycode: ::windows::core::PSTR, lpszci
 }
 #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
-pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: ::windows::core::PSTR, lpszcitycode: ::windows::core::PSTR) -> i32 {
+pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: &mut [u8; 8], lpszcitycode: &mut [u8; 8]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -28584,7 +28584,7 @@ pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: ::windows::core::PSTR, lpszc
 }
 #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
-pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: ::windows::core::PWSTR, lpszcitycodew: ::windows::core::PWSTR) -> i32 {
+pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: &mut [u16; 8], lpszcitycodew: &mut [u16; 8]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

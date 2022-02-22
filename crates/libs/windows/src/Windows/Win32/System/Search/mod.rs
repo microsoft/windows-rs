@@ -26516,7 +26516,7 @@ pub unsafe fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, comp
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
-pub unsafe fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut ::core::ffi::c_void, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16 {
+pub unsafe fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut ::core::ffi::c_void, sqlstate: &mut [u8; 6], nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -26544,7 +26544,7 @@ pub unsafe fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
-pub unsafe fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, wszsqlstate: *mut u16, pfnativeerror: *mut i32, wszerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16 {
+pub unsafe fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, wszsqlstate: &mut [u16; 6], pfnativeerror: *mut i32, wszerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -27164,7 +27164,7 @@ pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_voi
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
-pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16 {
+pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, sqlstate: &mut [u8; 6], nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -27178,7 +27178,7 @@ pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, r
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
-pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16 {
+pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: &mut [u8; 6], pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -27192,7 +27192,7 @@ pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void,
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
-pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u16, pfnativeerror: *mut i32, szerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16 {
+pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: &mut [u16; 6], pfnativeerror: *mut i32, szerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

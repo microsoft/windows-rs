@@ -1004,7 +1004,7 @@ pub unsafe fn CreateUrlCacheContainerW<'a, Param0: ::windows::core::IntoParam<'a
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: ::windows::core::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: &mut [u8; 260], dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1019,7 +1019,7 @@ pub unsafe fn CreateUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, ::
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: ::windows::core::PWSTR, dwreserved: u32, fpreserveincomingfilename: Param5) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: &mut [u16; 260], dwreserved: u32, fpreserveincomingfilename: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1034,7 +1034,7 @@ pub unsafe fn CreateUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: ::windows::core::PWSTR, dwreserved: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: &mut [u16; 260], dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

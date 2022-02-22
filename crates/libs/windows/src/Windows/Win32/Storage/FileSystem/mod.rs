@@ -7317,7 +7317,7 @@ pub unsafe fn GetEnlistmentRecoveryInformation<'a, Param0: ::windows::core::Into
 }
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
-pub unsafe fn GetExpandedNameA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszsource: Param0, lpszbuffer: ::windows::core::PSTR) -> i32 {
+pub unsafe fn GetExpandedNameA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszsource: Param0, lpszbuffer: &mut [u8; 260]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7331,7 +7331,7 @@ pub unsafe fn GetExpandedNameA<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 }
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
-pub unsafe fn GetExpandedNameW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszsource: Param0, lpszbuffer: ::windows::core::PWSTR) -> i32 {
+pub unsafe fn GetExpandedNameW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszsource: Param0, lpszbuffer: &mut [u16; 260]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8050,7 +8050,7 @@ pub unsafe fn GetTapeStatus<'a, Param0: ::windows::core::IntoParam<'a, super::su
 }
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
-pub unsafe fn GetTempFileNameA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lppathname: Param0, lpprefixstring: Param1, uunique: u32, lptempfilename: ::windows::core::PSTR) -> u32 {
+pub unsafe fn GetTempFileNameA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lppathname: Param0, lpprefixstring: Param1, uunique: u32, lptempfilename: &mut [u8; 260]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8064,7 +8064,7 @@ pub unsafe fn GetTempFileNameA<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 }
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
-pub unsafe fn GetTempFileNameW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lppathname: Param0, lpprefixstring: Param1, uunique: u32, lptempfilename: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn GetTempFileNameW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lppathname: Param0, lpprefixstring: Param1, uunique: u32, lptempfilename: &mut [u16; 260]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

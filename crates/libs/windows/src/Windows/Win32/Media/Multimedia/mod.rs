@@ -18045,7 +18045,7 @@ pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioOpenA(pszfilename: ::windows::core::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
+pub unsafe fn mmioOpenA(pszfilename: &mut [u8; 128], pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18060,7 +18060,7 @@ pub unsafe fn mmioOpenA(pszfilename: ::windows::core::PSTR, pmmioinfo: *mut MMIO
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioOpenW(pszfilename: ::windows::core::PWSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
+pub unsafe fn mmioOpenW(pszfilename: &mut [u16; 128], pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

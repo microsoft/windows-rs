@@ -3287,7 +3287,7 @@ pub unsafe fn WinHttpSetTimeouts(hinternet: *mut ::core::ffi::c_void, nresolveti
 #[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, pwsztime: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, pwsztime: &mut [u16; 62]) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

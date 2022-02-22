@@ -25262,7 +25262,7 @@ impl ID3D12GraphicsCommandList {
         (::windows::core::Interface::vtable(self).RSSetScissorRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
+    pub unsafe fn OMSetBlendFactor(&self, blendfactor: &[f32; 4]) {
         (::windows::core::Interface::vtable(self).OMSetBlendFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -25699,7 +25699,7 @@ impl ID3D12GraphicsCommandList1 {
         (::windows::core::Interface::vtable(self).base.RSSetScissorRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
+    pub unsafe fn OMSetBlendFactor(&self, blendfactor: &[f32; 4]) {
         (::windows::core::Interface::vtable(self).base.OMSetBlendFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -26103,7 +26103,7 @@ impl ID3D12GraphicsCommandList2 {
         (::windows::core::Interface::vtable(self).base.base.RSSetScissorRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
+    pub unsafe fn OMSetBlendFactor(&self, blendfactor: &[f32; 4]) {
         (::windows::core::Interface::vtable(self).base.base.OMSetBlendFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -26523,7 +26523,7 @@ impl ID3D12GraphicsCommandList3 {
         (::windows::core::Interface::vtable(self).base.base.base.RSSetScissorRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
+    pub unsafe fn OMSetBlendFactor(&self, blendfactor: &[f32; 4]) {
         (::windows::core::Interface::vtable(self).base.base.base.OMSetBlendFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -26967,7 +26967,7 @@ impl ID3D12GraphicsCommandList4 {
         (::windows::core::Interface::vtable(self).base.base.base.base.RSSetScissorRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
+    pub unsafe fn OMSetBlendFactor(&self, blendfactor: &[f32; 4]) {
         (::windows::core::Interface::vtable(self).base.base.base.base.OMSetBlendFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -27483,7 +27483,7 @@ impl ID3D12GraphicsCommandList5 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.RSSetScissorRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
+    pub unsafe fn OMSetBlendFactor(&self, blendfactor: &[f32; 4]) {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.OMSetBlendFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -28014,7 +28014,7 @@ impl ID3D12GraphicsCommandList6 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.RSSetScissorRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn OMSetBlendFactor(&self, blendfactor: *const f32) {
+    pub unsafe fn OMSetBlendFactor(&self, blendfactor: &[f32; 4]) {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.OMSetBlendFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(blendfactor))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]

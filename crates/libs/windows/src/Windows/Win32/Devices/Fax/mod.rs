@@ -15287,7 +15287,7 @@ impl IStillImageW {
         (::windows::core::Interface::vtable(self).SetDeviceValue)(::core::mem::transmute_copy(self), pwszdevicename.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-    pub unsafe fn GetSTILaunchInformation(&self, pwszdevicename: ::windows::core::PWSTR, pdweventcode: *mut u32, pwszeventname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSTILaunchInformation(&self, pwszdevicename: &mut [u16; 128], pdweventcode: *mut u32, pwszeventname: &mut [u16; 128]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSTILaunchInformation)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwszdevicename), ::core::mem::transmute(pdweventcode), ::core::mem::transmute(pwszeventname)).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_Fax'*"]

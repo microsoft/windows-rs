@@ -15112,7 +15112,7 @@ impl ID2D1DeviceContext2 {
         (::windows::core::Interface::vtable(self).CreateImageSourceFromWic)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(loadingoptions), ::core::mem::transmute(alphamode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ImageSourceFromWic>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32) -> ::windows::core::Result<ID2D1LookupTable3D> {
+    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: *const u8, datacount: u32, strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
@@ -15786,7 +15786,7 @@ impl ID2D1DeviceContext3 {
         (::windows::core::Interface::vtable(self).base.CreateImageSourceFromWic)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(loadingoptions), ::core::mem::transmute(alphamode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ImageSourceFromWic>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32) -> ::windows::core::Result<ID2D1LookupTable3D> {
+    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: *const u8, datacount: u32, strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
@@ -16462,7 +16462,7 @@ impl ID2D1DeviceContext4 {
         (::windows::core::Interface::vtable(self).base.base.CreateImageSourceFromWic)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(loadingoptions), ::core::mem::transmute(alphamode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ImageSourceFromWic>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32) -> ::windows::core::Result<ID2D1LookupTable3D> {
+    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: *const u8, datacount: u32, strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
@@ -17216,7 +17216,7 @@ impl ID2D1DeviceContext5 {
         (::windows::core::Interface::vtable(self).base.base.base.CreateImageSourceFromWic)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(loadingoptions), ::core::mem::transmute(alphamode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ImageSourceFromWic>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32) -> ::windows::core::Result<ID2D1LookupTable3D> {
+    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: *const u8, datacount: u32, strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
@@ -18000,7 +18000,7 @@ impl ID2D1DeviceContext6 {
         (::windows::core::Interface::vtable(self).base.base.base.base.CreateImageSourceFromWic)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(loadingoptions), ::core::mem::transmute(alphamode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1ImageSourceFromWic>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32) -> ::windows::core::Result<ID2D1LookupTable3D> {
+    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: *const u8, datacount: u32, strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
@@ -19235,7 +19235,7 @@ impl ID2D1EffectContext1 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.IsBufferPrecisionSupported)(::core::mem::transmute_copy(self), ::core::mem::transmute(bufferprecision)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32) -> ::windows::core::Result<ID2D1LookupTable3D> {
+    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: *const u8, datacount: u32, strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
@@ -19416,7 +19416,7 @@ impl ID2D1EffectContext2 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.IsBufferPrecisionSupported)(::core::mem::transmute_copy(self), ::core::mem::transmute(bufferprecision)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32) -> ::windows::core::Result<ID2D1LookupTable3D> {
+    pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: *const u8, datacount: u32, strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents), ::core::mem::transmute(data), ::core::mem::transmute(datacount), ::core::mem::transmute(strides), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }

@@ -2932,7 +2932,7 @@ impl IMSAdminBase2W {
         (::windows::core::Interface::vtable(self).base.DeleteChildKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Iis'*"]
-    pub unsafe fn EnumKeys<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: ::windows::core::PWSTR, dwmdenumobjectindex: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumKeys<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: &mut [u16; 256], dwmdenumobjectindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.EnumKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pszmdname), ::core::mem::transmute(dwmdenumobjectindex)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
@@ -3037,7 +3037,7 @@ impl IMSAdminBase2W {
     }
     #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumBackups(&self, pszmdbackuplocation: ::windows::core::PWSTR, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumBackups(&self, pszmdbackuplocation: &mut [u16; 256], pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.EnumBackups)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszmdbackuplocation), ::core::mem::transmute(pdwmdversion), ::core::mem::transmute(pftmdbackuptime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Iis'*"]
@@ -3075,7 +3075,7 @@ impl IMSAdminBase2W {
     }
     #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumHistory(&self, pszmdhistorylocation: ::windows::core::PWSTR, pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumHistory(&self, pszmdhistorylocation: &mut [u16; 256], pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnumHistory)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszmdhistorylocation), ::core::mem::transmute(pdwmdmajorversion), ::core::mem::transmute(pdwmdminorversion), ::core::mem::transmute(pftmdhistorytime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
 }
@@ -3170,7 +3170,7 @@ impl IMSAdminBase3W {
         (::windows::core::Interface::vtable(self).base.base.DeleteChildKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Iis'*"]
-    pub unsafe fn EnumKeys<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: ::windows::core::PWSTR, dwmdenumobjectindex: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumKeys<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: &mut [u16; 256], dwmdenumobjectindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.EnumKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pszmdname), ::core::mem::transmute(dwmdenumobjectindex)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
@@ -3275,7 +3275,7 @@ impl IMSAdminBase3W {
     }
     #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumBackups(&self, pszmdbackuplocation: ::windows::core::PWSTR, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumBackups(&self, pszmdbackuplocation: &mut [u16; 256], pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.EnumBackups)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszmdbackuplocation), ::core::mem::transmute(pdwmdversion), ::core::mem::transmute(pftmdbackuptime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Iis'*"]
@@ -3313,7 +3313,7 @@ impl IMSAdminBase3W {
     }
     #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumHistory(&self, pszmdhistorylocation: ::windows::core::PWSTR, pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumHistory(&self, pszmdhistorylocation: &mut [u16; 256], pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.EnumHistory)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszmdhistorylocation), ::core::mem::transmute(pdwmdmajorversion), ::core::mem::transmute(pdwmdminorversion), ::core::mem::transmute(pftmdhistorytime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Iis'*"]
@@ -3484,7 +3484,7 @@ impl IMSAdminBaseW {
         (::windows::core::Interface::vtable(self).DeleteChildKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Iis'*"]
-    pub unsafe fn EnumKeys<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: ::windows::core::PWSTR, dwmdenumobjectindex: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumKeys<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, pszmdname: &mut [u16; 256], dwmdenumobjectindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnumKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(pszmdname), ::core::mem::transmute(dwmdenumobjectindex)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
@@ -3589,7 +3589,7 @@ impl IMSAdminBaseW {
     }
     #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumBackups(&self, pszmdbackuplocation: ::windows::core::PWSTR, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumBackups(&self, pszmdbackuplocation: &mut [u16; 256], pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnumBackups)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszmdbackuplocation), ::core::mem::transmute(pdwmdversion), ::core::mem::transmute(pftmdbackuptime), ::core::mem::transmute(dwmdenumindex)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Iis'*"]

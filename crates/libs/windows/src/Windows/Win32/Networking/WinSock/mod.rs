@@ -6490,7 +6490,7 @@ impl ::core::default::Default for RSS_SCALABILITY_INFO {
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
-pub unsafe fn RtlEthernetAddressToStringA(addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48, s: ::windows::core::PSTR) -> ::windows::core::PSTR {
+pub unsafe fn RtlEthernetAddressToStringA(addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48, s: &mut [u8; 18]) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6505,7 +6505,7 @@ pub unsafe fn RtlEthernetAddressToStringA(addr: *const super::super::NetworkMana
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 #[cfg(feature = "Win32_NetworkManagement_WindowsFilteringPlatform")]
 #[inline]
-pub unsafe fn RtlEthernetAddressToStringW(addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48, s: ::windows::core::PWSTR) -> ::windows::core::PWSTR {
+pub unsafe fn RtlEthernetAddressToStringW(addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48, s: &mut [u16; 18]) -> ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6549,7 +6549,7 @@ pub unsafe fn RtlEthernetStringToAddressW<'a, Param0: ::windows::core::IntoParam
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 #[inline]
-pub unsafe fn RtlIpv4AddressToStringA(addr: *const IN_ADDR, s: ::windows::core::PSTR) -> ::windows::core::PSTR {
+pub unsafe fn RtlIpv4AddressToStringA(addr: *const IN_ADDR, s: &mut [u8; 16]) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6591,7 +6591,7 @@ pub unsafe fn RtlIpv4AddressToStringExW(address: *const IN_ADDR, port: u16, addr
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 #[inline]
-pub unsafe fn RtlIpv4AddressToStringW(addr: *const IN_ADDR, s: ::windows::core::PWSTR) -> ::windows::core::PWSTR {
+pub unsafe fn RtlIpv4AddressToStringW(addr: *const IN_ADDR, s: &mut [u16; 16]) -> ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6665,7 +6665,7 @@ pub unsafe fn RtlIpv4StringToAddressW<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 #[inline]
-pub unsafe fn RtlIpv6AddressToStringA(addr: *const IN6_ADDR, s: ::windows::core::PSTR) -> ::windows::core::PSTR {
+pub unsafe fn RtlIpv6AddressToStringA(addr: *const IN6_ADDR, s: &mut [u8; 46]) -> ::windows::core::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6707,7 +6707,7 @@ pub unsafe fn RtlIpv6AddressToStringExW(address: *const IN6_ADDR, scopeid: u32, 
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 #[inline]
-pub unsafe fn RtlIpv6AddressToStringW(addr: *const IN6_ADDR, s: ::windows::core::PWSTR) -> ::windows::core::PWSTR {
+pub unsafe fn RtlIpv6AddressToStringW(addr: *const IN6_ADDR, s: &mut [u16; 46]) -> ::windows::core::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

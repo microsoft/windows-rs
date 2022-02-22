@@ -3247,7 +3247,7 @@ impl IInternetSecurityManager {
         (::windows::core::Interface::vtable(self).MapUrlToZone)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
@@ -3338,7 +3338,7 @@ impl IInternetSecurityManagerEx {
         (::windows::core::Interface::vtable(self).base.MapUrlToZone)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
@@ -3446,7 +3446,7 @@ impl IInternetSecurityManagerEx2 {
         (::windows::core::Interface::vtable(self).base.base.MapUrlToZone)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
@@ -3478,7 +3478,7 @@ impl IInternetSecurityManagerEx2 {
         (::windows::core::Interface::vtable(self).ProcessUrlActionEx2)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pdwoutflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetSecurityIdEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(&self, puri: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSecurityIdEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(&self, puri: Param0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSecurityIdEx2)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]

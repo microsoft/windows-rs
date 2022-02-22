@@ -4709,15 +4709,15 @@ pub struct IDiscRecorder2_Vtbl {
 pub struct IDiscRecorder2Ex(::windows::core::IUnknown);
 impl IDiscRecorder2Ex {
     #[doc = "*Required features: 'Win32_Storage_Imapi'*"]
-    pub unsafe fn SendCommandNoData(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SendCommandNoData(&self, cdb: *const u8, cdbsize: u32, sensebuffer: &mut [u8; 18], timeout: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendCommandNoData)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdb), ::core::mem::transmute(cdbsize), ::core::mem::transmute(sensebuffer), ::core::mem::transmute(timeout)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Imapi'*"]
-    pub unsafe fn SendCommandSendDataToDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *const u8, buffersize: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SendCommandSendDataToDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: &mut [u8; 18], timeout: u32, buffer: *const u8, buffersize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendCommandSendDataToDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdb), ::core::mem::transmute(cdbsize), ::core::mem::transmute(sensebuffer), ::core::mem::transmute(timeout), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Imapi'*"]
-    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: &mut [u8; 18], timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendCommandGetDataFromDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdb), ::core::mem::transmute(cdbsize), ::core::mem::transmute(sensebuffer), ::core::mem::transmute(timeout), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(bufferfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Imapi'*"]

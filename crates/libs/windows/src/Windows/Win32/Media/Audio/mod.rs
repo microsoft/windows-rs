@@ -13230,7 +13230,7 @@ pub unsafe fn midiInUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, H
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 #[inline]
-pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, upatch: u32, pwkya: *const u16, fucache: u32) -> u32 {
+pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, upatch: u32, pwkya: &[u16; 128], fucache: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13244,7 +13244,7 @@ pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 #[inline]
-pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, ubank: u32, pwpa: *const u16, fucache: u32) -> u32 {
+pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, ubank: u32, pwpa: &[u16; 128], fucache: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
