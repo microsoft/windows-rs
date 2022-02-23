@@ -266,16 +266,13 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut params: Vec<(&MethodParam, usize, Option<ArrayInfo>)> = params.iter().enumerate().map(|(position, param)| (param, position, param.def.array_info())).collect();
 
     for position in 0..params.len() {
-        match params[position].2 {
-            Some(ArrayInfo::RelativeLen(relative)) => {
-                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
-                if !params[relative].0.def.flags().output() && position != relative {
-                    params[relative].2 = Some(ArrayInfo::RelativePtr(position));
-                } else {
-                    params[position].2 = None;
-                }
+        if let Some(ArrayInfo::RelativeLen(relative)) = params[position].2 {
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
+            if !params[relative].0.def.flags().output() && position != relative {
+                params[relative].2 = Some(ArrayInfo::RelativePtr(position));
+            } else {
+                params[position].2 = None;
             }
-            _ => {}
         }
     }
 
@@ -297,18 +294,15 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             }
         }
 
-        match array_info {
-            Some(ArrayInfo::RelativeLen(_)) => {
-                let ty = param.ty.deref();
-                let ty = gen_default_type(&ty, gen);
-                if param.def.flags().output() {
-                    tokens.combine(&quote! { #name: &mut [#ty], });
-                } else {
-                    tokens.combine(&quote! { #name: &[#ty], });
-                }
-                continue;
+        if let Some(ArrayInfo::RelativeLen(_)) = array_info {
+            let ty = param.ty.deref();
+            let ty = gen_default_type(&ty, gen);
+            if param.def.flags().output() {
+                tokens.combine(&quote! { #name: &mut [#ty], });
+            } else {
+                tokens.combine(&quote! { #name: &[#ty], });
             }
-            _ => {}
+            continue;
         }
 
         if let Some(ArrayInfo::RelativePtr(_)) = array_info {
@@ -334,16 +328,13 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
     let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params.iter().map(|param| (param, param.def.array_info())).collect();
 
     for position in 0..params.len() {
-        match params[position].1 {
-            Some(ArrayInfo::RelativeLen(relative)) => {
-                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
-                if !params[relative].0.def.flags().output() && position != relative {
-                    params[relative].1 = Some(ArrayInfo::RelativePtr(position));
-                } else {
-                    params[position].1 = None;
-                }
+        if let Some(ArrayInfo::RelativeLen(relative)) = params[position].1 {
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
+            if !params[relative].0.def.flags().output() && position != relative {
+                params[relative].1 = Some(ArrayInfo::RelativePtr(position));
+            } else {
+                params[position].1 = None;
             }
-            _ => {}
         }
     }
 
@@ -361,16 +352,13 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
             }
         }
 
-        match array_info {
-            Some(ArrayInfo::RelativeLen(_)) => {
-                if param.def.flags().output() {
-                    tokens.combine(&quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), });
-                } else {
-                    tokens.combine(&quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), });
-                }
-                continue;
+        if let Some(ArrayInfo::RelativeLen(_)) = array_info {
+            if param.def.flags().output() {
+                tokens.combine(&quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), });
+            } else {
+                tokens.combine(&quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), });
             }
-            _ => {}
+            continue;
         }
 
         if let Some(ArrayInfo::RelativePtr(relative)) = array_info {
