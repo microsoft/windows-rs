@@ -30,7 +30,7 @@ impl Param {
 
     pub(crate) fn array_info(&self) -> Option<ArrayInfo> {
         for attribute in self.attributes() {
-            match attribute.name(){
+            match attribute.name() {
                 "NativeArrayInfoAttribute" => {
                     for (_, value) in attribute.args() {
                         match value {

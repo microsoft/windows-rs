@@ -298,7 +298,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
         }
 
         match array_info {
-            Some(ArrayInfo::RelativeLen(_))  => {
+            Some(ArrayInfo::RelativeLen(_)) => {
                 let ty = param.ty.deref().unwrap();
                 let ty = gen_default_type(&ty, gen);
                 if param.def.flags().output() {
@@ -335,7 +335,7 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
 
     for position in 0..params.len() {
         match params[position].1 {
-            Some(ArrayInfo::RelativeLen(relative))=> {
+            Some(ArrayInfo::RelativeLen(relative)) => {
                 // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
                 if !params[relative].0.def.flags().output() && position != relative {
                     params[relative].1 = Some(ArrayInfo::RelativePtr(position));
@@ -362,7 +362,7 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
         }
 
         match array_info {
-            Some(ArrayInfo::RelativeLen(_))  => {
+            Some(ArrayInfo::RelativeLen(_)) => {
                 if param.def.flags().output() {
                     tokens.combine(&quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), });
                 } else {

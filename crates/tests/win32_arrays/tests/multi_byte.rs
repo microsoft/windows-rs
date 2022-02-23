@@ -1,6 +1,4 @@
-use windows::{
-    Win32::Globalization::*,
-};
+use windows::Win32::Globalization::*;
 
 #[test]
 fn test() {
