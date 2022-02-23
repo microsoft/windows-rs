@@ -10,10 +10,12 @@ features = [
     "alloc",
     "Win32_Foundation",
     "Win32_Graphics_Dxgi",
+    "Win32_Graphics_Gdi",
     "Win32_NetworkManagement_IpHelper",
     "Win32_UI_WindowsAndMessaging",
     "Win32_UI_Input_KeyboardAndMouse",
     "Win32_Storage_FileSystem",
     "Win32_Data_Xml_XmlLite",
     "Win32_System_Com_StructuredStorage",
+    "Win32_UI_ColorSystem",
 ]
