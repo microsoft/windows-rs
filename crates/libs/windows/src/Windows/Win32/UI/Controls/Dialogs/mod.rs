@@ -1260,7 +1260,7 @@ pub unsafe fn GetFileTitleA<'a, Param0: ::windows::core::IntoParam<'a, ::windows
         extern "system" {
             fn GetFileTitleA(param0: ::windows::core::PCSTR, buf: ::windows::core::PSTR, cchsize: u16) -> i16;
         }
-        ::core::mem::transmute(GetFileTitleA(param0.into_param().abi(), ::core::mem::transmute(buf.as_mut_ptr()), buf.len() as _))
+        ::core::mem::transmute(GetFileTitleA(param0.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1274,7 +1274,7 @@ pub unsafe fn GetFileTitleW<'a, Param0: ::windows::core::IntoParam<'a, ::windows
         extern "system" {
             fn GetFileTitleW(param0: ::windows::core::PCWSTR, buf: ::windows::core::PWSTR, cchsize: u16) -> i16;
         }
-        ::core::mem::transmute(GetFileTitleW(param0.into_param().abi(), ::core::mem::transmute(buf.as_mut_ptr()), buf.len() as _))
+        ::core::mem::transmute(GetFileTitleW(param0.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

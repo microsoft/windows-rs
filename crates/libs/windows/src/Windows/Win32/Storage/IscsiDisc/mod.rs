@@ -281,7 +281,7 @@ pub unsafe fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
         extern "system" {
             fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows::core::PCSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
-        ::core::mem::transmute(AddIScsiConnectionA(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(targetportal), ::core::mem::transmute(securityflags), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(key.as_ptr()), ::core::mem::transmute(connectionid)))
+        ::core::mem::transmute(AddIScsiConnectionA(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(targetportal), ::core::mem::transmute(securityflags), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ::core::mem::transmute(connectionid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -295,7 +295,7 @@ pub unsafe fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
         extern "system" {
             fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::core::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: ::windows::core::PCSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
-        ::core::mem::transmute(AddIScsiConnectionW(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(targetportal), ::core::mem::transmute(securityflags), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(key.as_ptr()), ::core::mem::transmute(connectionid)))
+        ::core::mem::transmute(AddIScsiConnectionW(::core::mem::transmute(uniquesessionid), ::core::mem::transmute(reserved), ::core::mem::transmute(initiatorportnumber), ::core::mem::transmute(targetportal), ::core::mem::transmute(securityflags), ::core::mem::transmute(loginoptions), key.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(key)), ::core::mem::transmute(connectionid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2494,7 +2494,7 @@ pub unsafe fn LoginIScsiTargetA<'a, Param0: ::windows::core::IntoParam<'a, ::win
             ::core::mem::transmute(mappings),
             ::core::mem::transmute(loginoptions),
             key.len() as _,
-            ::core::mem::transmute(key.as_ptr()),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(key)),
             ispersistent.into_param().abi(),
             ::core::mem::transmute(uniquesessionid),
             ::core::mem::transmute(uniqueconnectionid),
@@ -2523,7 +2523,7 @@ pub unsafe fn LoginIScsiTargetW<'a, Param0: ::windows::core::IntoParam<'a, ::win
             ::core::mem::transmute(mappings),
             ::core::mem::transmute(loginoptions),
             key.len() as _,
-            ::core::mem::transmute(key.as_ptr()),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(key)),
             ispersistent.into_param().abi(),
             ::core::mem::transmute(uniquesessionid),
             ::core::mem::transmute(uniqueconnectionid),

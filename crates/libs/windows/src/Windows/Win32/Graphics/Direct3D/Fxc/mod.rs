@@ -172,7 +172,7 @@ pub unsafe fn D3DCompressShaders(pshaderdata: &[D3D_SHADER_DATA], uflags: u32) -
             fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32, ppcompresseddata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        D3DCompressShaders(pshaderdata.len() as _, ::core::mem::transmute(pshaderdata.as_ptr()), ::core::mem::transmute(uflags), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
+        D3DCompressShaders(pshaderdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderdata)), ::core::mem::transmute(uflags), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -233,7 +233,7 @@ pub unsafe fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdata
         extern "system" {
             fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut ::windows::core::RawPtr, ptotalshaders: *mut u32) -> ::windows::core::HRESULT;
         }
-        D3DDecompressShaders(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ppshaders.len() as _, ::core::mem::transmute(ustartindex), ::core::mem::transmute(pindices.as_ptr()), ::core::mem::transmute(uflags), ::core::mem::transmute(ppshaders.as_mut_ptr()), ::core::mem::transmute(ptotalshaders)).ok()
+        D3DDecompressShaders(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ppshaders.len() as _, ::core::mem::transmute(ustartindex), ::core::mem::transmute(::windows::core::as_ptr_or_null(pindices)), ::core::mem::transmute(uflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppshaders)), ::core::mem::transmute(ptotalshaders)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -367,7 +367,7 @@ pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void
         extern "system" {
             fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, numinsts: usize, poffsets: *mut usize, ptotalinsts: *mut usize) -> ::windows::core::HRESULT;
         }
-        D3DGetTraceInstructionOffsets(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(flags), ::core::mem::transmute(startinstindex), poffsets.len() as _, ::core::mem::transmute(poffsets.as_mut_ptr()), ::core::mem::transmute(ptotalinsts)).ok()
+        D3DGetTraceInstructionOffsets(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(flags), ::core::mem::transmute(startinstindex), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)), ::core::mem::transmute(ptotalinsts)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

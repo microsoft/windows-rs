@@ -388,7 +388,7 @@ pub unsafe fn AnimatePalette<'a, Param0: ::windows::core::IntoParam<'a, HPALETTE
         extern "system" {
             fn AnimatePalette(hpal: HPALETTE, istartindex: u32, centries: u32, ppe: *const PALETTEENTRY) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AnimatePalette(hpal.into_param().abi(), ::core::mem::transmute(istartindex), ppe.len() as _, ::core::mem::transmute(ppe.as_ptr())))
+        ::core::mem::transmute(AnimatePalette(hpal.into_param().abi(), ::core::mem::transmute(istartindex), ppe.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppe))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2117,7 +2117,7 @@ pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT,
         extern "system" {
             fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT, pc: *const i32, cpoly: i32, imode: CREATE_POLYGON_RGN_MODE) -> HRGN;
         }
-        ::core::mem::transmute(CreatePolyPolygonRgn(::core::mem::transmute(pptl), ::core::mem::transmute(pc.as_ptr()), pc.len() as _, ::core::mem::transmute(imode)))
+        ::core::mem::transmute(CreatePolyPolygonRgn(::core::mem::transmute(pptl), ::core::mem::transmute(::windows::core::as_ptr_or_null(pc)), pc.len() as _, ::core::mem::transmute(imode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2132,7 +2132,7 @@ pub unsafe fn CreatePolygonRgn(pptl: &[super::super::Foundation::POINT], imode: 
         extern "system" {
             fn CreatePolygonRgn(pptl: *const super::super::Foundation::POINT, cpoint: i32, imode: CREATE_POLYGON_RGN_MODE) -> HRGN;
         }
-        ::core::mem::transmute(CreatePolygonRgn(::core::mem::transmute(pptl.as_ptr()), pptl.len() as _, ::core::mem::transmute(imode)))
+        ::core::mem::transmute(CreatePolygonRgn(::core::mem::transmute(::windows::core::as_ptr_or_null(pptl)), pptl.len() as _, ::core::mem::transmute(imode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3697,7 +3697,7 @@ pub unsafe fn DPtoLP<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param
         extern "system" {
             fn DPtoLP(hdc: HDC, lppt: *mut super::super::Foundation::POINT, c: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DPtoLP(hdc.into_param().abi(), ::core::mem::transmute(lppt.as_mut_ptr()), lppt.len() as _))
+        ::core::mem::transmute(DPtoLP(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lppt)), lppt.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4349,7 +4349,7 @@ pub unsafe fn DrawTextA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
         extern "system" {
             fn DrawTextA(hdc: HDC, lpchtext: ::windows::core::PCSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
         }
-        ::core::mem::transmute(DrawTextA(hdc.into_param().abi(), ::core::mem::transmute(lpchtext.as_ptr()), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format)))
+        ::core::mem::transmute(DrawTextA(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4364,7 +4364,7 @@ pub unsafe fn DrawTextExA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
         extern "system" {
             fn DrawTextExA(hdc: HDC, lpchtext: ::windows::core::PSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32;
         }
-        ::core::mem::transmute(DrawTextExA(hdc.into_param().abi(), ::core::mem::transmute(lpchtext.as_mut_ptr()), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format), ::core::mem::transmute(lpdtp)))
+        ::core::mem::transmute(DrawTextExA(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format), ::core::mem::transmute(lpdtp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4379,7 +4379,7 @@ pub unsafe fn DrawTextExW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
         extern "system" {
             fn DrawTextExW(hdc: HDC, lpchtext: ::windows::core::PWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32;
         }
-        ::core::mem::transmute(DrawTextExW(hdc.into_param().abi(), ::core::mem::transmute(lpchtext.as_mut_ptr()), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format), ::core::mem::transmute(lpdtp)))
+        ::core::mem::transmute(DrawTextExW(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format), ::core::mem::transmute(lpdtp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4394,7 +4394,7 @@ pub unsafe fn DrawTextW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
         extern "system" {
             fn DrawTextW(hdc: HDC, lpchtext: ::windows::core::PCWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
         }
-        ::core::mem::transmute(DrawTextW(hdc.into_param().abi(), ::core::mem::transmute(lpchtext.as_ptr()), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format)))
+        ::core::mem::transmute(DrawTextW(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8635,7 +8635,7 @@ pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LO
         extern "system" {
             fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LOGBRUSH, cstyle: u32, pstyle: *const u32) -> HPEN;
         }
-        ::core::mem::transmute(ExtCreatePen(::core::mem::transmute(ipenstyle), ::core::mem::transmute(cwidth), ::core::mem::transmute(plbrush), pstyle.len() as _, ::core::mem::transmute(pstyle.as_ptr())))
+        ::core::mem::transmute(ExtCreatePen(::core::mem::transmute(ipenstyle), ::core::mem::transmute(cwidth), ::core::mem::transmute(plbrush), pstyle.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pstyle))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8694,7 +8694,7 @@ pub unsafe fn ExtTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
         extern "system" {
             fn ExtTextOutA(hdc: HDC, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ExtTextOutA(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring.as_ptr()), lpdx.len() as _, ::core::mem::transmute(lpdx.as_ptr())))
+        ::core::mem::transmute(ExtTextOutA(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpdx.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpdx))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8709,7 +8709,7 @@ pub unsafe fn ExtTextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
         extern "system" {
             fn ExtTextOutW(hdc: HDC, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCWSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ExtTextOutW(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring.as_ptr()), lpdx.len() as _, ::core::mem::transmute(lpdx.as_ptr())))
+        ::core::mem::transmute(ExtTextOutW(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpdx.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpdx))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10018,7 +10018,7 @@ pub unsafe fn GdiGradientFill<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
         extern "system" {
             fn GdiGradientFill(hdc: HDC, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::core::ffi::c_void, ncount: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GdiGradientFill(hdc.into_param().abi(), ::core::mem::transmute(pvertex.as_ptr()), pvertex.len() as _, ::core::mem::transmute(pmesh), ::core::mem::transmute(ncount), ::core::mem::transmute(ulmode)))
+        ::core::mem::transmute(GdiGradientFill(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvertex)), pvertex.len() as _, ::core::mem::transmute(pmesh), ::core::mem::transmute(ncount), ::core::mem::transmute(ulmode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10223,7 +10223,7 @@ pub unsafe fn GetCharABCWidthsI<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
         extern "system" {
             fn GetCharABCWidthsI(hdc: HDC, gifirst: u32, cgi: u32, pgi: *const u16, pabc: *mut ABC) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetCharABCWidthsI(hdc.into_param().abi(), ::core::mem::transmute(gifirst), pabc.len() as _, ::core::mem::transmute(pgi.as_ptr()), ::core::mem::transmute(pabc.as_mut_ptr())))
+        ::core::mem::transmute(GetCharABCWidthsI(hdc.into_param().abi(), ::core::mem::transmute(gifirst), pabc.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pgi)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pabc))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10328,7 +10328,7 @@ pub unsafe fn GetCharWidthI<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
         extern "system" {
             fn GetCharWidthI(hdc: HDC, gifirst: u32, cgi: u32, pgi: *const u16, piwidths: *mut i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetCharWidthI(hdc.into_param().abi(), ::core::mem::transmute(gifirst), piwidths.len() as _, ::core::mem::transmute(pgi.as_ptr()), ::core::mem::transmute(piwidths.as_mut_ptr())))
+        ::core::mem::transmute(GetCharWidthI(hdc.into_param().abi(), ::core::mem::transmute(gifirst), piwidths.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pgi)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(piwidths))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10357,7 +10357,7 @@ pub unsafe fn GetCharacterPlacementA<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn GetCharacterPlacementA(hdc: HDC, lpstring: ::windows::core::PCSTR, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32;
         }
-        ::core::mem::transmute(GetCharacterPlacementA(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, ::core::mem::transmute(nmexextent), ::core::mem::transmute(lpresults), ::core::mem::transmute(dwflags)))
+        ::core::mem::transmute(GetCharacterPlacementA(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(nmexextent), ::core::mem::transmute(lpresults), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10371,7 +10371,7 @@ pub unsafe fn GetCharacterPlacementW<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn GetCharacterPlacementW(hdc: HDC, lpstring: ::windows::core::PCWSTR, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32;
         }
-        ::core::mem::transmute(GetCharacterPlacementW(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, ::core::mem::transmute(nmexextent), ::core::mem::transmute(lpresults), ::core::mem::transmute(dwflags)))
+        ::core::mem::transmute(GetCharacterPlacementW(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(nmexextent), ::core::mem::transmute(lpresults), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10531,7 +10531,7 @@ pub unsafe fn GetDIBColorTable<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
         extern "system" {
             fn GetDIBColorTable(hdc: HDC, istart: u32, centries: u32, prgbq: *mut RGBQUAD) -> u32;
         }
-        ::core::mem::transmute(GetDIBColorTable(hdc.into_param().abi(), ::core::mem::transmute(istart), prgbq.len() as _, ::core::mem::transmute(prgbq.as_mut_ptr())))
+        ::core::mem::transmute(GetDIBColorTable(hdc.into_param().abi(), ::core::mem::transmute(istart), prgbq.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgbq))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10601,7 +10601,7 @@ pub unsafe fn GetEnhMetaFileDescriptionA<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn GetEnhMetaFileDescriptionA(hemf: HENHMETAFILE, cchbuffer: u32, lpdescription: ::windows::core::PSTR) -> u32;
         }
-        ::core::mem::transmute(GetEnhMetaFileDescriptionA(hemf.into_param().abi(), lpdescription.len() as _, ::core::mem::transmute(lpdescription.as_mut_ptr())))
+        ::core::mem::transmute(GetEnhMetaFileDescriptionA(hemf.into_param().abi(), lpdescription.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdescription))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10615,7 +10615,7 @@ pub unsafe fn GetEnhMetaFileDescriptionW<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn GetEnhMetaFileDescriptionW(hemf: HENHMETAFILE, cchbuffer: u32, lpdescription: ::windows::core::PWSTR) -> u32;
         }
-        ::core::mem::transmute(GetEnhMetaFileDescriptionW(hemf.into_param().abi(), lpdescription.len() as _, ::core::mem::transmute(lpdescription.as_mut_ptr())))
+        ::core::mem::transmute(GetEnhMetaFileDescriptionW(hemf.into_param().abi(), lpdescription.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdescription))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10644,7 +10644,7 @@ pub unsafe fn GetEnhMetaFilePaletteEntries<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn GetEnhMetaFilePaletteEntries(hemf: HENHMETAFILE, nnumentries: u32, lppaletteentries: *mut PALETTEENTRY) -> u32;
         }
-        ::core::mem::transmute(GetEnhMetaFilePaletteEntries(hemf.into_param().abi(), lppaletteentries.len() as _, ::core::mem::transmute(lppaletteentries.as_mut_ptr())))
+        ::core::mem::transmute(GetEnhMetaFilePaletteEntries(hemf.into_param().abi(), lppaletteentries.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lppaletteentries))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10714,7 +10714,7 @@ pub unsafe fn GetGlyphIndicesA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
         extern "system" {
             fn GetGlyphIndicesA(hdc: HDC, lpstr: ::windows::core::PCSTR, c: i32, pgi: *mut u16, fl: u32) -> u32;
         }
-        ::core::mem::transmute(GetGlyphIndicesA(hdc.into_param().abi(), ::core::mem::transmute(lpstr.as_ptr()), pgi.len() as _, ::core::mem::transmute(pgi.as_mut_ptr()), ::core::mem::transmute(fl)))
+        ::core::mem::transmute(GetGlyphIndicesA(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstr)), pgi.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pgi)), ::core::mem::transmute(fl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10728,7 +10728,7 @@ pub unsafe fn GetGlyphIndicesW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
         extern "system" {
             fn GetGlyphIndicesW(hdc: HDC, lpstr: ::windows::core::PCWSTR, c: i32, pgi: *mut u16, fl: u32) -> u32;
         }
-        ::core::mem::transmute(GetGlyphIndicesW(hdc.into_param().abi(), ::core::mem::transmute(lpstr.as_ptr()), pgi.len() as _, ::core::mem::transmute(pgi.as_mut_ptr()), ::core::mem::transmute(fl)))
+        ::core::mem::transmute(GetGlyphIndicesW(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstr)), pgi.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pgi)), ::core::mem::transmute(fl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10786,7 +10786,7 @@ pub unsafe fn GetKerningPairsA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
         extern "system" {
             fn GetKerningPairsA(hdc: HDC, npairs: u32, lpkernpair: *mut KERNINGPAIR) -> u32;
         }
-        ::core::mem::transmute(GetKerningPairsA(hdc.into_param().abi(), lpkernpair.len() as _, ::core::mem::transmute(lpkernpair.as_mut_ptr())))
+        ::core::mem::transmute(GetKerningPairsA(hdc.into_param().abi(), lpkernpair.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpkernpair))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10800,7 +10800,7 @@ pub unsafe fn GetKerningPairsW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
         extern "system" {
             fn GetKerningPairsW(hdc: HDC, npairs: u32, lpkernpair: *mut KERNINGPAIR) -> u32;
         }
-        ::core::mem::transmute(GetKerningPairsW(hdc.into_param().abi(), lpkernpair.len() as _, ::core::mem::transmute(lpkernpair.as_mut_ptr())))
+        ::core::mem::transmute(GetKerningPairsW(hdc.into_param().abi(), lpkernpair.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpkernpair))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11043,7 +11043,7 @@ pub unsafe fn GetPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, HPALE
         extern "system" {
             fn GetPaletteEntries(hpal: HPALETTE, istart: u32, centries: u32, ppalentries: *mut PALETTEENTRY) -> u32;
         }
-        ::core::mem::transmute(GetPaletteEntries(hpal.into_param().abi(), ::core::mem::transmute(istart), ppalentries.len() as _, ::core::mem::transmute(ppalentries.as_mut_ptr())))
+        ::core::mem::transmute(GetPaletteEntries(hpal.into_param().abi(), ::core::mem::transmute(istart), ppalentries.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppalentries))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11058,7 +11058,7 @@ pub unsafe fn GetPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Para
         extern "system" {
             fn GetPath(hdc: HDC, apt: *mut super::super::Foundation::POINT, aj: *mut u8, cpt: i32) -> i32;
         }
-        ::core::mem::transmute(GetPath(hdc.into_param().abi(), ::core::mem::transmute(apt.as_mut_ptr()), ::core::mem::transmute(aj.as_mut_ptr()), aj.len() as _))
+        ::core::mem::transmute(GetPath(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(apt)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(aj)), aj.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11215,7 +11215,7 @@ pub unsafe fn GetSystemPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn GetSystemPaletteEntries(hdc: HDC, istart: u32, centries: u32, ppalentries: *mut PALETTEENTRY) -> u32;
         }
-        ::core::mem::transmute(GetSystemPaletteEntries(hdc.into_param().abi(), ::core::mem::transmute(istart), ppalentries.len() as _, ::core::mem::transmute(ppalentries.as_mut_ptr())))
+        ::core::mem::transmute(GetSystemPaletteEntries(hdc.into_param().abi(), ::core::mem::transmute(istart), ppalentries.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppalentries))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11243,7 +11243,7 @@ pub unsafe fn GetTabbedTextExtentA<'a, Param0: ::windows::core::IntoParam<'a, HD
         extern "system" {
             fn GetTabbedTextExtentA(hdc: HDC, lpstring: ::windows::core::PCSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32) -> u32;
         }
-        ::core::mem::transmute(GetTabbedTextExtentA(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(lpntabstoppositions.as_ptr())))
+        ::core::mem::transmute(GetTabbedTextExtentA(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpntabstoppositions))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11257,7 +11257,7 @@ pub unsafe fn GetTabbedTextExtentW<'a, Param0: ::windows::core::IntoParam<'a, HD
         extern "system" {
             fn GetTabbedTextExtentW(hdc: HDC, lpstring: ::windows::core::PCWSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32) -> u32;
         }
-        ::core::mem::transmute(GetTabbedTextExtentW(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(lpntabstoppositions.as_ptr())))
+        ::core::mem::transmute(GetTabbedTextExtentW(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpntabstoppositions))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11314,7 +11314,7 @@ pub unsafe fn GetTextExtentExPointA<'a, Param0: ::windows::core::IntoParam<'a, H
         extern "system" {
             fn GetTextExtentExPointA(hdc: HDC, lpszstring: ::windows::core::PCSTR, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetTextExtentExPointA(hdc.into_param().abi(), ::core::mem::transmute(lpszstring.as_ptr()), lpndx.len() as _, ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx.as_mut_ptr()), ::core::mem::transmute(lpsize)))
+        ::core::mem::transmute(GetTextExtentExPointA(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszstring)), lpndx.len() as _, ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpndx)), ::core::mem::transmute(lpsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11329,7 +11329,7 @@ pub unsafe fn GetTextExtentExPointI<'a, Param0: ::windows::core::IntoParam<'a, H
         extern "system" {
             fn GetTextExtentExPointI(hdc: HDC, lpwszstring: *const u16, cwchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetTextExtentExPointI(hdc.into_param().abi(), ::core::mem::transmute(lpwszstring.as_ptr()), lpndx.len() as _, ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx.as_mut_ptr()), ::core::mem::transmute(lpsize)))
+        ::core::mem::transmute(GetTextExtentExPointI(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpwszstring)), lpndx.len() as _, ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpndx)), ::core::mem::transmute(lpsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11344,7 +11344,7 @@ pub unsafe fn GetTextExtentExPointW<'a, Param0: ::windows::core::IntoParam<'a, H
         extern "system" {
             fn GetTextExtentExPointW(hdc: HDC, lpszstring: ::windows::core::PCWSTR, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetTextExtentExPointW(hdc.into_param().abi(), ::core::mem::transmute(lpszstring.as_ptr()), lpndx.len() as _, ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx.as_mut_ptr()), ::core::mem::transmute(lpsize)))
+        ::core::mem::transmute(GetTextExtentExPointW(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszstring)), lpndx.len() as _, ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpndx)), ::core::mem::transmute(lpsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11359,7 +11359,7 @@ pub unsafe fn GetTextExtentPoint32A<'a, Param0: ::windows::core::IntoParam<'a, H
         extern "system" {
             fn GetTextExtentPoint32A(hdc: HDC, lpstring: ::windows::core::PCSTR, c: i32, psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetTextExtentPoint32A(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, ::core::mem::transmute(psizl)))
+        ::core::mem::transmute(GetTextExtentPoint32A(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(psizl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11374,7 +11374,7 @@ pub unsafe fn GetTextExtentPoint32W<'a, Param0: ::windows::core::IntoParam<'a, H
         extern "system" {
             fn GetTextExtentPoint32W(hdc: HDC, lpstring: ::windows::core::PCWSTR, c: i32, psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetTextExtentPoint32W(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, ::core::mem::transmute(psizl)))
+        ::core::mem::transmute(GetTextExtentPoint32W(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(psizl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11389,7 +11389,7 @@ pub unsafe fn GetTextExtentPointA<'a, Param0: ::windows::core::IntoParam<'a, HDC
         extern "system" {
             fn GetTextExtentPointA(hdc: HDC, lpstring: ::windows::core::PCSTR, c: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetTextExtentPointA(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, ::core::mem::transmute(lpsz)))
+        ::core::mem::transmute(GetTextExtentPointA(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(lpsz)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11404,7 +11404,7 @@ pub unsafe fn GetTextExtentPointI<'a, Param0: ::windows::core::IntoParam<'a, HDC
         extern "system" {
             fn GetTextExtentPointI(hdc: HDC, pgiin: *const u16, cgi: i32, psize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetTextExtentPointI(hdc.into_param().abi(), ::core::mem::transmute(pgiin.as_ptr()), pgiin.len() as _, ::core::mem::transmute(psize)))
+        ::core::mem::transmute(GetTextExtentPointI(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pgiin)), pgiin.len() as _, ::core::mem::transmute(psize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11419,7 +11419,7 @@ pub unsafe fn GetTextExtentPointW<'a, Param0: ::windows::core::IntoParam<'a, HDC
         extern "system" {
             fn GetTextExtentPointW(hdc: HDC, lpstring: ::windows::core::PCWSTR, c: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetTextExtentPointW(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, ::core::mem::transmute(lpsz)))
+        ::core::mem::transmute(GetTextExtentPointW(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(lpsz)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11433,7 +11433,7 @@ pub unsafe fn GetTextFaceA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
         extern "system" {
             fn GetTextFaceA(hdc: HDC, c: i32, lpname: ::windows::core::PSTR) -> i32;
         }
-        ::core::mem::transmute(GetTextFaceA(hdc.into_param().abi(), lpname.len() as _, ::core::mem::transmute(lpname.as_mut_ptr())))
+        ::core::mem::transmute(GetTextFaceA(hdc.into_param().abi(), lpname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpname))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11447,7 +11447,7 @@ pub unsafe fn GetTextFaceW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
         extern "system" {
             fn GetTextFaceW(hdc: HDC, c: i32, lpname: ::windows::core::PWSTR) -> i32;
         }
-        ::core::mem::transmute(GetTextFaceW(hdc.into_param().abi(), lpname.len() as _, ::core::mem::transmute(lpname.as_mut_ptr())))
+        ::core::mem::transmute(GetTextFaceW(hdc.into_param().abi(), lpname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpname))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11656,7 +11656,7 @@ pub unsafe fn GradientFill<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
         extern "system" {
             fn GradientFill(hdc: HDC, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::core::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GradientFill(hdc.into_param().abi(), ::core::mem::transmute(pvertex.as_ptr()), pvertex.len() as _, ::core::mem::transmute(pmesh), ::core::mem::transmute(nmesh), ::core::mem::transmute(ulmode)))
+        ::core::mem::transmute(GradientFill(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvertex)), pvertex.len() as _, ::core::mem::transmute(pmesh), ::core::mem::transmute(nmesh), ::core::mem::transmute(ulmode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12801,7 +12801,7 @@ pub unsafe fn LPtoDP<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param
         extern "system" {
             fn LPtoDP(hdc: HDC, lppt: *mut super::super::Foundation::POINT, c: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(LPtoDP(hdc.into_param().abi(), ::core::mem::transmute(lppt.as_mut_ptr()), lppt.len() as _))
+        ::core::mem::transmute(LPtoDP(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lppt)), lppt.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13328,7 +13328,7 @@ pub unsafe fn MapWindowPoints<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn MapWindowPoints(hwndfrom: super::super::Foundation::HWND, hwndto: super::super::Foundation::HWND, lppoints: *mut super::super::Foundation::POINT, cpoints: u32) -> i32;
         }
-        ::core::mem::transmute(MapWindowPoints(hwndfrom.into_param().abi(), hwndto.into_param().abi(), ::core::mem::transmute(lppoints.as_mut_ptr()), lppoints.len() as _))
+        ::core::mem::transmute(MapWindowPoints(hwndfrom.into_param().abi(), hwndto.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lppoints)), lppoints.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14764,7 +14764,7 @@ pub unsafe fn PlayEnhMetaFileRecord<'a, Param0: ::windows::core::IntoParam<'a, H
         extern "system" {
             fn PlayEnhMetaFileRecord(hdc: HDC, pht: *const HANDLETABLE, pmr: *const ENHMETARECORD, cht: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PlayEnhMetaFileRecord(hdc.into_param().abi(), ::core::mem::transmute(pht.as_ptr()), ::core::mem::transmute(pmr), pht.len() as _))
+        ::core::mem::transmute(PlayEnhMetaFileRecord(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pht)), ::core::mem::transmute(pmr), pht.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14794,7 +14794,7 @@ pub unsafe fn PlayMetaFileRecord<'a, Param0: ::windows::core::IntoParam<'a, HDC>
         extern "system" {
             fn PlayMetaFileRecord(hdc: HDC, lphandletable: *const HANDLETABLE, lpmr: *const METARECORD, noobjs: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PlayMetaFileRecord(hdc.into_param().abi(), ::core::mem::transmute(lphandletable.as_ptr()), ::core::mem::transmute(lpmr), lphandletable.len() as _))
+        ::core::mem::transmute(PlayMetaFileRecord(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lphandletable)), ::core::mem::transmute(lpmr), lphandletable.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14824,7 +14824,7 @@ pub unsafe fn PolyBezier<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
         extern "system" {
             fn PolyBezier(hdc: HDC, apt: *const super::super::Foundation::POINT, cpt: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PolyBezier(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ptr()), apt.len() as _))
+        ::core::mem::transmute(PolyBezier(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(apt)), apt.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14839,7 +14839,7 @@ pub unsafe fn PolyBezierTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
         extern "system" {
             fn PolyBezierTo(hdc: HDC, apt: *const super::super::Foundation::POINT, cpt: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PolyBezierTo(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ptr()), apt.len() as _))
+        ::core::mem::transmute(PolyBezierTo(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(apt)), apt.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14854,7 +14854,7 @@ pub unsafe fn PolyDraw<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
         extern "system" {
             fn PolyDraw(hdc: HDC, apt: *const super::super::Foundation::POINT, aj: *const u8, cpt: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PolyDraw(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ptr()), ::core::mem::transmute(aj.as_ptr()), aj.len() as _))
+        ::core::mem::transmute(PolyDraw(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(apt)), ::core::mem::transmute(::windows::core::as_ptr_or_null(aj)), aj.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14869,7 +14869,7 @@ pub unsafe fn PolyPolygon<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
         extern "system" {
             fn PolyPolygon(hdc: HDC, apt: *const super::super::Foundation::POINT, asz: *const i32, csz: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PolyPolygon(hdc.into_param().abi(), ::core::mem::transmute(apt), ::core::mem::transmute(asz.as_ptr()), asz.len() as _))
+        ::core::mem::transmute(PolyPolygon(hdc.into_param().abi(), ::core::mem::transmute(apt), ::core::mem::transmute(::windows::core::as_ptr_or_null(asz)), asz.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14884,7 +14884,7 @@ pub unsafe fn PolyPolyline<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
         extern "system" {
             fn PolyPolyline(hdc: HDC, apt: *const super::super::Foundation::POINT, asz: *const u32, csz: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PolyPolyline(hdc.into_param().abi(), ::core::mem::transmute(apt), ::core::mem::transmute(asz.as_ptr()), asz.len() as _))
+        ::core::mem::transmute(PolyPolyline(hdc.into_param().abi(), ::core::mem::transmute(apt), ::core::mem::transmute(::windows::core::as_ptr_or_null(asz)), asz.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14899,7 +14899,7 @@ pub unsafe fn PolyTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
         extern "system" {
             fn PolyTextOutA(hdc: HDC, ppt: *const POLYTEXTA, nstrings: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PolyTextOutA(hdc.into_param().abi(), ::core::mem::transmute(ppt.as_ptr()), ppt.len() as _))
+        ::core::mem::transmute(PolyTextOutA(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppt)), ppt.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14914,7 +14914,7 @@ pub unsafe fn PolyTextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
         extern "system" {
             fn PolyTextOutW(hdc: HDC, ppt: *const POLYTEXTW, nstrings: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PolyTextOutW(hdc.into_param().abi(), ::core::mem::transmute(ppt.as_ptr()), ppt.len() as _))
+        ::core::mem::transmute(PolyTextOutW(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppt)), ppt.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14929,7 +14929,7 @@ pub unsafe fn Polygon<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Para
         extern "system" {
             fn Polygon(hdc: HDC, apt: *const super::super::Foundation::POINT, cpt: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(Polygon(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ptr()), apt.len() as _))
+        ::core::mem::transmute(Polygon(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(apt)), apt.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14944,7 +14944,7 @@ pub unsafe fn Polyline<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
         extern "system" {
             fn Polyline(hdc: HDC, apt: *const super::super::Foundation::POINT, cpt: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(Polyline(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ptr()), apt.len() as _))
+        ::core::mem::transmute(Polyline(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(apt)), apt.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14959,7 +14959,7 @@ pub unsafe fn PolylineTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
         extern "system" {
             fn PolylineTo(hdc: HDC, apt: *const super::super::Foundation::POINT, cpt: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PolylineTo(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ptr()), apt.len() as _))
+        ::core::mem::transmute(PolylineTo(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(apt)), apt.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16213,7 +16213,7 @@ pub unsafe fn SetDIBColorTable<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
         extern "system" {
             fn SetDIBColorTable(hdc: HDC, istart: u32, centries: u32, prgbq: *const RGBQUAD) -> u32;
         }
-        ::core::mem::transmute(SetDIBColorTable(hdc.into_param().abi(), ::core::mem::transmute(istart), prgbq.len() as _, ::core::mem::transmute(prgbq.as_ptr())))
+        ::core::mem::transmute(SetDIBColorTable(hdc.into_param().abi(), ::core::mem::transmute(istart), prgbq.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgbq))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16368,7 +16368,7 @@ pub unsafe fn SetPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, HPALE
         extern "system" {
             fn SetPaletteEntries(hpal: HPALETTE, istart: u32, centries: u32, ppalentries: *const PALETTEENTRY) -> u32;
         }
-        ::core::mem::transmute(SetPaletteEntries(hpal.into_param().abi(), ::core::mem::transmute(istart), ppalentries.len() as _, ::core::mem::transmute(ppalentries.as_ptr())))
+        ::core::mem::transmute(SetPaletteEntries(hpal.into_param().abi(), ::core::mem::transmute(istart), ppalentries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppalentries))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17011,7 +17011,7 @@ pub unsafe fn TTCharToUnicode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
         extern "system" {
             fn TTCharToUnicode(hdc: HDC, puccharcodes: *const u8, ulcharcodesize: u32, pusshortcodes: *mut u16, ulshortcodesize: u32, ulflags: u32) -> i32;
         }
-        ::core::mem::transmute(TTCharToUnicode(hdc.into_param().abi(), ::core::mem::transmute(puccharcodes.as_ptr()), puccharcodes.len() as _, ::core::mem::transmute(pusshortcodes.as_mut_ptr()), pusshortcodes.len() as _, ::core::mem::transmute(ulflags)))
+        ::core::mem::transmute(TTCharToUnicode(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(puccharcodes)), puccharcodes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pusshortcodes)), pusshortcodes.len() as _, ::core::mem::transmute(ulflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17145,7 +17145,7 @@ pub unsafe fn TTEmbedFont<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
         extern "system" {
             fn TTEmbedFont(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: ::windows::core::RawPtr, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
         }
-        ::core::mem::transmute(TTEmbedFont(hdc.into_param().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(ulcharset), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len() as _, ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
+        ::core::mem::transmute(TTEmbedFont(hdc.into_param().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(ulcharset), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(puscharcodeset)), puscharcodeset.len() as _, ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17159,7 +17159,7 @@ pub unsafe fn TTEmbedFontEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
         extern "system" {
             fn TTEmbedFontEx(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: ::windows::core::RawPtr, lpvwritestream: *const ::core::ffi::c_void, pulcharcodeset: *const u32, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
         }
-        ::core::mem::transmute(TTEmbedFontEx(hdc.into_param().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(ulcharset), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(pulcharcodeset.as_ptr()), pulcharcodeset.len() as _, ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
+        ::core::mem::transmute(TTEmbedFontEx(hdc.into_param().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(ulcharset), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(pulcharcodeset)), pulcharcodeset.len() as _, ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17183,7 +17183,7 @@ pub unsafe fn TTEmbedFontFromFileA<'a, Param0: ::windows::core::IntoParam<'a, HD
             ::core::mem::transmute(pulstatus),
             ::core::mem::transmute(lpfnwritetostream),
             ::core::mem::transmute(lpvwritestream),
-            ::core::mem::transmute(puscharcodeset.as_ptr()),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(puscharcodeset)),
             puscharcodeset.len() as _,
             ::core::mem::transmute(uslanguage),
             ::core::mem::transmute(pttembedinfo),
@@ -17273,7 +17273,7 @@ pub unsafe fn TTGetNewFontName(phfontreference: *const super::super::Foundation:
         extern "system" {
             fn TTGetNewFontName(phfontreference: *const super::super::Foundation::HANDLE, wzwinfamilyname: ::windows::core::PWSTR, cchmaxwinname: i32, szmacfamilyname: ::windows::core::PSTR, cchmaxmacname: i32) -> i32;
         }
-        ::core::mem::transmute(TTGetNewFontName(::core::mem::transmute(phfontreference), ::core::mem::transmute(wzwinfamilyname.as_mut_ptr()), wzwinfamilyname.len() as _, ::core::mem::transmute(szmacfamilyname.as_mut_ptr()), szmacfamilyname.len() as _))
+        ::core::mem::transmute(TTGetNewFontName(::core::mem::transmute(phfontreference), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wzwinfamilyname)), wzwinfamilyname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szmacfamilyname)), szmacfamilyname.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17603,7 +17603,7 @@ pub unsafe fn TabbedTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hd
         extern "system" {
             fn TabbedTextOutA(hdc: HDC, x: i32, y: i32, lpstring: ::windows::core::PCSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32, ntaborigin: i32) -> i32;
         }
-        ::core::mem::transmute(TabbedTextOutA(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(lpntabstoppositions.as_ptr()), ::core::mem::transmute(ntaborigin)))
+        ::core::mem::transmute(TabbedTextOutA(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpntabstoppositions)), ::core::mem::transmute(ntaborigin)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17617,7 +17617,7 @@ pub unsafe fn TabbedTextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hd
         extern "system" {
             fn TabbedTextOutW(hdc: HDC, x: i32, y: i32, lpstring: ::windows::core::PCWSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32, ntaborigin: i32) -> i32;
         }
-        ::core::mem::transmute(TabbedTextOutW(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(lpntabstoppositions.as_ptr()), ::core::mem::transmute(ntaborigin)))
+        ::core::mem::transmute(TabbedTextOutW(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, lpntabstoppositions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpntabstoppositions)), ::core::mem::transmute(ntaborigin)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17632,7 +17632,7 @@ pub unsafe fn TextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
         extern "system" {
             fn TextOutA(hdc: HDC, x: i32, y: i32, lpstring: ::windows::core::PCSTR, c: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(TextOutA(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _))
+        ::core::mem::transmute(TextOutA(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17647,7 +17647,7 @@ pub unsafe fn TextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
         extern "system" {
             fn TextOutW(hdc: HDC, x: i32, y: i32, lpstring: ::windows::core::PCWSTR, c: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(TextOutW(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _))
+        ::core::mem::transmute(TextOutW(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

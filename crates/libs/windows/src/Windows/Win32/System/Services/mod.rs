@@ -580,7 +580,7 @@ pub unsafe fn GetServiceDirectory<'a, Param0: ::windows::core::IntoParam<'a, SER
         extern "system" {
             fn GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: ::windows::core::PWSTR, cchpathbufferlength: u32, lpcchrequiredbufferlength: *mut u32) -> u32;
         }
-        ::core::mem::transmute(GetServiceDirectory(hservicestatus.into_param().abi(), ::core::mem::transmute(edirectorytype), ::core::mem::transmute(lppathbuffer.as_mut_ptr()), lppathbuffer.len() as _, ::core::mem::transmute(lpcchrequiredbufferlength)))
+        ::core::mem::transmute(GetServiceDirectory(hservicestatus.into_param().abi(), ::core::mem::transmute(edirectorytype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lppathbuffer)), lppathbuffer.len() as _, ::core::mem::transmute(lpcchrequiredbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -670,7 +670,7 @@ pub unsafe fn GetSharedServiceDirectory<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn GetSharedServiceDirectory(servicehandle: super::super::Security::SC_HANDLE, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: ::windows::core::PWSTR, pathbufferlength: u32, requiredbufferlength: *mut u32) -> u32;
         }
-        ::core::mem::transmute(GetSharedServiceDirectory(servicehandle.into_param().abi(), ::core::mem::transmute(directorytype), ::core::mem::transmute(pathbuffer.as_mut_ptr()), pathbuffer.len() as _, ::core::mem::transmute(requiredbufferlength)))
+        ::core::mem::transmute(GetSharedServiceDirectory(servicehandle.into_param().abi(), ::core::mem::transmute(directorytype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pathbuffer)), pathbuffer.len() as _, ::core::mem::transmute(requiredbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3068,7 +3068,7 @@ pub unsafe fn StartServiceA<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn StartServiceA(hservice: super::super::Security::SC_HANDLE, dwnumserviceargs: u32, lpserviceargvectors: *const ::windows::core::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(StartServiceA(hservice.into_param().abi(), lpserviceargvectors.len() as _, ::core::mem::transmute(lpserviceargvectors.as_ptr())))
+        ::core::mem::transmute(StartServiceA(hservice.into_param().abi(), lpserviceargvectors.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpserviceargvectors))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3113,7 +3113,7 @@ pub unsafe fn StartServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn StartServiceW(hservice: super::super::Security::SC_HANDLE, dwnumserviceargs: u32, lpserviceargvectors: *const ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(StartServiceW(hservice.into_param().abi(), lpserviceargvectors.len() as _, ::core::mem::transmute(lpserviceargvectors.as_ptr())))
+        ::core::mem::transmute(StartServiceW(hservice.into_param().abi(), lpserviceargvectors.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpserviceargvectors))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

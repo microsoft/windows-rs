@@ -3134,7 +3134,7 @@ pub struct IAudioAmbisonicsControl(::windows::core::IUnknown);
 impl IAudioAmbisonicsControl {
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn SetData(&self, pambisonicsparams: &[AMBISONICS_PARAMS]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::core::mem::transmute_copy(self), ::core::mem::transmute(pambisonicsparams.as_ptr()), pambisonicsparams.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetData)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pambisonicsparams)), pambisonicsparams.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3304,7 +3304,7 @@ impl IAudioBass {
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetLevelAllChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base.SetLevelAllChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(alevelsdb)), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext)).ok()
     }
 }
 impl ::core::convert::From<IAudioBass> for ::windows::core::IUnknown {
@@ -4526,7 +4526,7 @@ impl IAudioMidrange {
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetLevelAllChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base.SetLevelAllChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(alevelsdb)), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext)).ok()
     }
 }
 impl ::core::convert::From<IAudioMidrange> for ::windows::core::IUnknown {
@@ -5169,7 +5169,7 @@ impl IAudioSessionEvents {
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn OnChannelVolumeChanged(&self, newchannelvolumearray: &[f32], changedchannel: u32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnChannelVolumeChanged)(::core::mem::transmute_copy(self), newchannelvolumearray.len() as _, ::core::mem::transmute(newchannelvolumearray.as_ptr()), ::core::mem::transmute(changedchannel), ::core::mem::transmute(eventcontext)).ok()
+        (::windows::core::Interface::vtable(self).OnChannelVolumeChanged)(::core::mem::transmute_copy(self), newchannelvolumearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(newchannelvolumearray)), ::core::mem::transmute(changedchannel), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn OnGroupingParamChanged(&self, newgroupingparam: *const ::windows::core::GUID, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -5548,11 +5548,11 @@ impl IAudioStreamVolume {
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllVolumes)(::core::mem::transmute_copy(self), pfvolumes.len() as _, ::core::mem::transmute(pfvolumes.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetAllVolumes)(::core::mem::transmute_copy(self), pfvolumes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfvolumes))).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn GetAllVolumes(&self, pfvolumes: &mut [f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAllVolumes)(::core::mem::transmute_copy(self), pfvolumes.len() as _, ::core::mem::transmute(pfvolumes.as_mut_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetAllVolumes)(::core::mem::transmute_copy(self), pfvolumes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfvolumes))).ok()
     }
 }
 impl ::core::convert::From<IAudioStreamVolume> for ::windows::core::IUnknown {
@@ -5792,7 +5792,7 @@ impl IAudioTreble {
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetLevelAllChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base.SetLevelAllChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(alevelsdb)), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext)).ok()
     }
 }
 impl ::core::convert::From<IAudioTreble> for ::windows::core::IUnknown {
@@ -5948,7 +5948,7 @@ impl IAudioVolumeLevel {
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetLevelAllChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base.SetLevelAllChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(alevelsdb)), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext)).ok()
     }
 }
 impl ::core::convert::From<IAudioVolumeLevel> for ::windows::core::IUnknown {
@@ -6036,11 +6036,11 @@ impl IChannelAudioVolume {
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32], eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllVolumes)(::core::mem::transmute_copy(self), pfvolumes.len() as _, ::core::mem::transmute(pfvolumes.as_ptr()), ::core::mem::transmute(eventcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetAllVolumes)(::core::mem::transmute_copy(self), pfvolumes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfvolumes)), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn GetAllVolumes(&self, pfvolumes: &mut [f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAllVolumes)(::core::mem::transmute_copy(self), pfvolumes.len() as _, ::core::mem::transmute(pfvolumes.as_mut_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetAllVolumes)(::core::mem::transmute_copy(self), pfvolumes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfvolumes))).ok()
     }
 }
 impl ::core::convert::From<IChannelAudioVolume> for ::windows::core::IUnknown {
@@ -7176,7 +7176,7 @@ impl IPerChannelDbLevel {
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLevelAllChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetLevelAllChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(alevelsdb)), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext)).ok()
     }
 }
 impl ::core::convert::From<IPerChannelDbLevel> for ::windows::core::IUnknown {
@@ -13083,7 +13083,7 @@ pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
         extern "system" {
             fn midiInGetErrorTextA(mmrerror: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> u32;
         }
-        ::core::mem::transmute(midiInGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext.as_mut_ptr()), psztext.len() as _))
+        ::core::mem::transmute(midiInGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13097,7 +13097,7 @@ pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
         extern "system" {
             fn midiInGetErrorTextW(mmrerror: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> u32;
         }
-        ::core::mem::transmute(midiInGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext.as_mut_ptr()), psztext.len() as _))
+        ::core::mem::transmute(midiInGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13308,7 +13308,7 @@ pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
         extern "system" {
             fn midiOutGetErrorTextA(mmrerror: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> u32;
         }
-        ::core::mem::transmute(midiOutGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext.as_mut_ptr()), psztext.len() as _))
+        ::core::mem::transmute(midiOutGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13322,7 +13322,7 @@ pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
         extern "system" {
             fn midiOutGetErrorTextW(mmrerror: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> u32;
         }
-        ::core::mem::transmute(midiOutGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext.as_mut_ptr()), psztext.len() as _))
+        ::core::mem::transmute(midiOutGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13504,7 +13504,7 @@ pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: &mut [u32], dwcal
         extern "system" {
             fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
         }
-        ::core::mem::transmute(midiStreamOpen(::core::mem::transmute(phms), ::core::mem::transmute(pudeviceid.as_mut_ptr()), pudeviceid.len() as _, ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+        ::core::mem::transmute(midiStreamOpen(::core::mem::transmute(phms), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pudeviceid)), pudeviceid.len() as _, ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13988,7 +13988,7 @@ pub unsafe fn waveInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
         extern "system" {
             fn waveInGetErrorTextA(mmrerror: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> u32;
         }
-        ::core::mem::transmute(waveInGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext.as_mut_ptr()), psztext.len() as _))
+        ::core::mem::transmute(waveInGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14002,7 +14002,7 @@ pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
         extern "system" {
             fn waveInGetErrorTextW(mmrerror: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> u32;
         }
-        ::core::mem::transmute(waveInGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext.as_mut_ptr()), psztext.len() as _))
+        ::core::mem::transmute(waveInGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14213,7 +14213,7 @@ pub unsafe fn waveOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
         extern "system" {
             fn waveOutGetErrorTextA(mmrerror: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> u32;
         }
-        ::core::mem::transmute(waveOutGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext.as_mut_ptr()), psztext.len() as _))
+        ::core::mem::transmute(waveOutGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14227,7 +14227,7 @@ pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
         extern "system" {
             fn waveOutGetErrorTextW(mmrerror: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> u32;
         }
-        ::core::mem::transmute(waveOutGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(psztext.as_mut_ptr()), psztext.len() as _))
+        ::core::mem::transmute(waveOutGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

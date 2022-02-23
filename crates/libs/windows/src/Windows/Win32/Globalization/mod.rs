@@ -842,7 +842,7 @@ pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: &[i8], lps
         extern "system" {
             fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: *const i8, cchcount1: i32, lpstring2: *const i8, cchcount2: i32) -> i32;
         }
-        ::core::mem::transmute(CompareStringA(::core::mem::transmute(locale), ::core::mem::transmute(dwcmpflags), ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _))
+        ::core::mem::transmute(CompareStringA(::core::mem::transmute(locale), ::core::mem::transmute(dwcmpflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -857,7 +857,7 @@ pub unsafe fn CompareStringEx<'a, Param0: ::windows::core::IntoParam<'a, ::windo
         extern "system" {
             fn CompareStringEx(lplocalename: ::windows::core::PCWSTR, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: ::windows::core::PCWSTR, cchcount1: i32, lpstring2: ::windows::core::PCWSTR, cchcount2: i32, lpversioninformation: *mut NLSVERSIONINFO, lpreserved: *mut ::core::ffi::c_void, lparam: super::Foundation::LPARAM) -> i32;
         }
-        ::core::mem::transmute(CompareStringEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwcmpflags), ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _, ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), lparam.into_param().abi()))
+        ::core::mem::transmute(CompareStringEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwcmpflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _, ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -872,7 +872,7 @@ pub unsafe fn CompareStringOrdinal<'a, Param4: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn CompareStringOrdinal(lpstring1: ::windows::core::PCWSTR, cchcount1: i32, lpstring2: ::windows::core::PCWSTR, cchcount2: i32, bignorecase: super::Foundation::BOOL) -> i32;
         }
-        ::core::mem::transmute(CompareStringOrdinal(::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _, bignorecase.into_param().abi()))
+        ::core::mem::transmute(CompareStringOrdinal(::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _, bignorecase.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -886,7 +886,7 @@ pub unsafe fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: &[u16], lp
         extern "system" {
             fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: ::windows::core::PCWSTR, cchcount1: i32, lpstring2: ::windows::core::PCWSTR, cchcount2: i32) -> i32;
         }
-        ::core::mem::transmute(CompareStringW(::core::mem::transmute(locale), ::core::mem::transmute(dwcmpflags), ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _))
+        ::core::mem::transmute(CompareStringW(::core::mem::transmute(locale), ::core::mem::transmute(dwcmpflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring1)), lpstring1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring2)), lpstring2.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1690,7 +1690,7 @@ pub unsafe fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsour
         extern "system" {
             fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: ::windows::core::PCWSTR, cchsource: i32, lpstringvalue: ::windows::core::PCWSTR, cchvalue: i32, pcchfound: *mut i32) -> i32;
         }
-        ::core::mem::transmute(FindNLSString(::core::mem::transmute(locale), ::core::mem::transmute(dwfindnlsstringflags), ::core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len() as _, ::core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound)))
+        ::core::mem::transmute(FindNLSString(::core::mem::transmute(locale), ::core::mem::transmute(dwfindnlsstringflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringsource)), lpstringsource.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringvalue)), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1705,7 +1705,7 @@ pub unsafe fn FindNLSStringEx<'a, Param0: ::windows::core::IntoParam<'a, ::windo
         extern "system" {
             fn FindNLSStringEx(lplocalename: ::windows::core::PCWSTR, dwfindnlsstringflags: u32, lpstringsource: ::windows::core::PCWSTR, cchsource: i32, lpstringvalue: ::windows::core::PCWSTR, cchvalue: i32, pcchfound: *mut i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
         }
-        ::core::mem::transmute(FindNLSStringEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwfindnlsstringflags), ::core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len() as _, ::core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound), ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), sorthandle.into_param().abi()))
+        ::core::mem::transmute(FindNLSStringEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwfindnlsstringflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringsource)), lpstringsource.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringvalue)), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound), ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), sorthandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1720,7 +1720,7 @@ pub unsafe fn FindStringOrdinal<'a, Param5: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn FindStringOrdinal(dwfindstringordinalflags: u32, lpstringsource: ::windows::core::PCWSTR, cchsource: i32, lpstringvalue: ::windows::core::PCWSTR, cchvalue: i32, bignorecase: super::Foundation::BOOL) -> i32;
         }
-        ::core::mem::transmute(FindStringOrdinal(::core::mem::transmute(dwfindstringordinalflags), ::core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len() as _, ::core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len() as _, bignorecase.into_param().abi()))
+        ::core::mem::transmute(FindStringOrdinal(::core::mem::transmute(dwfindstringordinalflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringsource)), lpstringsource.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstringvalue)), lpstringvalue.len() as _, bignorecase.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1734,7 +1734,7 @@ pub unsafe fn FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: &[u8], lp
         extern "system" {
             fn FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpdeststr: ::windows::core::PSTR, cchdest: i32) -> i32;
         }
-        ::core::mem::transmute(FoldStringA(::core::mem::transmute(dwmapflags), ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_mut_ptr()), lpdeststr.len() as _))
+        ::core::mem::transmute(FoldStringA(::core::mem::transmute(dwmapflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdeststr)), lpdeststr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1748,7 +1748,7 @@ pub unsafe fn FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: &[u16], l
         extern "system" {
             fn FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32) -> i32;
         }
-        ::core::mem::transmute(FoldStringW(::core::mem::transmute(dwmapflags), ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_mut_ptr()), lpdeststr.len() as _))
+        ::core::mem::transmute(FoldStringW(::core::mem::transmute(dwmapflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdeststr)), lpdeststr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1862,7 +1862,7 @@ pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcalda
         extern "system" {
             fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::windows::core::PSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
         }
-        ::core::mem::transmute(GetCalendarInfoA(::core::mem::transmute(locale), ::core::mem::transmute(calendar), ::core::mem::transmute(caltype), ::core::mem::transmute(lpcaldata.as_mut_ptr()), lpcaldata.len() as _, ::core::mem::transmute(lpvalue)))
+        ::core::mem::transmute(GetCalendarInfoA(::core::mem::transmute(locale), ::core::mem::transmute(calendar), ::core::mem::transmute(caltype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcaldata)), lpcaldata.len() as _, ::core::mem::transmute(lpvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1876,7 +1876,7 @@ pub unsafe fn GetCalendarInfoEx<'a, Param0: ::windows::core::IntoParam<'a, ::win
         extern "system" {
             fn GetCalendarInfoEx(lplocalename: ::windows::core::PCWSTR, calendar: u32, lpreserved: ::windows::core::PCWSTR, caltype: u32, lpcaldata: ::windows::core::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
         }
-        ::core::mem::transmute(GetCalendarInfoEx(lplocalename.into_param().abi(), ::core::mem::transmute(calendar), lpreserved.into_param().abi(), ::core::mem::transmute(caltype), ::core::mem::transmute(lpcaldata.as_mut_ptr()), lpcaldata.len() as _, ::core::mem::transmute(lpvalue)))
+        ::core::mem::transmute(GetCalendarInfoEx(lplocalename.into_param().abi(), ::core::mem::transmute(calendar), lpreserved.into_param().abi(), ::core::mem::transmute(caltype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcaldata)), lpcaldata.len() as _, ::core::mem::transmute(lpvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1890,7 +1890,7 @@ pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcalda
         extern "system" {
             fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::windows::core::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
         }
-        ::core::mem::transmute(GetCalendarInfoW(::core::mem::transmute(locale), ::core::mem::transmute(calendar), ::core::mem::transmute(caltype), ::core::mem::transmute(lpcaldata.as_mut_ptr()), lpcaldata.len() as _, ::core::mem::transmute(lpvalue)))
+        ::core::mem::transmute(GetCalendarInfoW(::core::mem::transmute(locale), ::core::mem::transmute(calendar), ::core::mem::transmute(caltype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcaldata)), lpcaldata.len() as _, ::core::mem::transmute(lpvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1904,7 +1904,7 @@ pub unsafe fn GetCurrencyFormatA<'a, Param2: ::windows::core::IntoParam<'a, ::wi
         extern "system" {
             fn GetCurrencyFormatA(locale: u32, dwflags: u32, lpvalue: ::windows::core::PCSTR, lpformat: *const CURRENCYFMTA, lpcurrencystr: ::windows::core::PSTR, cchcurrency: i32) -> i32;
         }
-        ::core::mem::transmute(GetCurrencyFormatA(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcurrencystr.as_mut_ptr()), lpcurrencystr.len() as _))
+        ::core::mem::transmute(GetCurrencyFormatA(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcurrencystr)), lpcurrencystr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1918,7 +1918,7 @@ pub unsafe fn GetCurrencyFormatEx<'a, Param0: ::windows::core::IntoParam<'a, ::w
         extern "system" {
             fn GetCurrencyFormatEx(lplocalename: ::windows::core::PCWSTR, dwflags: u32, lpvalue: ::windows::core::PCWSTR, lpformat: *const CURRENCYFMTW, lpcurrencystr: ::windows::core::PWSTR, cchcurrency: i32) -> i32;
         }
-        ::core::mem::transmute(GetCurrencyFormatEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcurrencystr.as_mut_ptr()), lpcurrencystr.len() as _))
+        ::core::mem::transmute(GetCurrencyFormatEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcurrencystr)), lpcurrencystr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1932,7 +1932,7 @@ pub unsafe fn GetCurrencyFormatW<'a, Param2: ::windows::core::IntoParam<'a, ::wi
         extern "system" {
             fn GetCurrencyFormatW(locale: u32, dwflags: u32, lpvalue: ::windows::core::PCWSTR, lpformat: *const CURRENCYFMTW, lpcurrencystr: ::windows::core::PWSTR, cchcurrency: i32) -> i32;
         }
-        ::core::mem::transmute(GetCurrencyFormatW(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcurrencystr.as_mut_ptr()), lpcurrencystr.len() as _))
+        ::core::mem::transmute(GetCurrencyFormatW(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcurrencystr)), lpcurrencystr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1947,7 +1947,7 @@ pub unsafe fn GetDateFormatA<'a, Param3: ::windows::core::IntoParam<'a, ::window
         extern "system" {
             fn GetDateFormatA(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCSTR, lpdatestr: ::windows::core::PSTR, cchdate: i32) -> i32;
         }
-        ::core::mem::transmute(GetDateFormatA(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpdate), lpformat.into_param().abi(), ::core::mem::transmute(lpdatestr.as_mut_ptr()), lpdatestr.len() as _))
+        ::core::mem::transmute(GetDateFormatA(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpdate), lpformat.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdatestr)), lpdatestr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1962,7 +1962,7 @@ pub unsafe fn GetDateFormatEx<'a, Param0: ::windows::core::IntoParam<'a, ::windo
         extern "system" {
             fn GetDateFormatEx(lplocalename: ::windows::core::PCWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCWSTR, lpdatestr: ::windows::core::PWSTR, cchdate: i32, lpcalendar: ::windows::core::PCWSTR) -> i32;
         }
-        ::core::mem::transmute(GetDateFormatEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpdate), lpformat.into_param().abi(), ::core::mem::transmute(lpdatestr.as_mut_ptr()), lpdatestr.len() as _, lpcalendar.into_param().abi()))
+        ::core::mem::transmute(GetDateFormatEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpdate), lpformat.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdatestr)), lpdatestr.len() as _, lpcalendar.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1977,7 +1977,7 @@ pub unsafe fn GetDateFormatW<'a, Param3: ::windows::core::IntoParam<'a, ::window
         extern "system" {
             fn GetDateFormatW(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCWSTR, lpdatestr: ::windows::core::PWSTR, cchdate: i32) -> i32;
         }
-        ::core::mem::transmute(GetDateFormatW(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpdate), lpformat.into_param().abi(), ::core::mem::transmute(lpdatestr.as_mut_ptr()), lpdatestr.len() as _))
+        ::core::mem::transmute(GetDateFormatW(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpdate), lpformat.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdatestr)), lpdatestr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2007,7 +2007,7 @@ pub unsafe fn GetDurationFormat<'a, Param4: ::windows::core::IntoParam<'a, ::win
         extern "system" {
             fn GetDurationFormat(locale: u32, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: ::windows::core::PCWSTR, lpdurationstr: ::windows::core::PWSTR, cchduration: i32) -> i32;
         }
-        ::core::mem::transmute(GetDurationFormat(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpduration), ::core::mem::transmute(ullduration), lpformat.into_param().abi(), ::core::mem::transmute(lpdurationstr.as_mut_ptr()), lpdurationstr.len() as _))
+        ::core::mem::transmute(GetDurationFormat(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpduration), ::core::mem::transmute(ullduration), lpformat.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdurationstr)), lpdurationstr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2022,7 +2022,7 @@ pub unsafe fn GetDurationFormatEx<'a, Param0: ::windows::core::IntoParam<'a, ::w
         extern "system" {
             fn GetDurationFormatEx(lplocalename: ::windows::core::PCWSTR, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: ::windows::core::PCWSTR, lpdurationstr: ::windows::core::PWSTR, cchduration: i32) -> i32;
         }
-        ::core::mem::transmute(GetDurationFormatEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpduration), ::core::mem::transmute(ullduration), lpformat.into_param().abi(), ::core::mem::transmute(lpdurationstr.as_mut_ptr()), lpdurationstr.len() as _))
+        ::core::mem::transmute(GetDurationFormatEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpduration), ::core::mem::transmute(ullduration), lpformat.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdurationstr)), lpdurationstr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2066,7 +2066,7 @@ pub unsafe fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: &mut [u8], lan
         extern "system" {
             fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: ::windows::core::PSTR, cchdata: i32, langid: u16) -> i32;
         }
-        ::core::mem::transmute(GetGeoInfoA(::core::mem::transmute(location), ::core::mem::transmute(geotype), ::core::mem::transmute(lpgeodata.as_mut_ptr()), lpgeodata.len() as _, ::core::mem::transmute(langid)))
+        ::core::mem::transmute(GetGeoInfoA(::core::mem::transmute(location), ::core::mem::transmute(geotype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpgeodata)), lpgeodata.len() as _, ::core::mem::transmute(langid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2080,7 +2080,7 @@ pub unsafe fn GetGeoInfoEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows:
         extern "system" {
             fn GetGeoInfoEx(location: ::windows::core::PCWSTR, geotype: u32, geodata: ::windows::core::PWSTR, geodatacount: i32) -> i32;
         }
-        ::core::mem::transmute(GetGeoInfoEx(location.into_param().abi(), ::core::mem::transmute(geotype), ::core::mem::transmute(geodata.as_mut_ptr()), geodata.len() as _))
+        ::core::mem::transmute(GetGeoInfoEx(location.into_param().abi(), ::core::mem::transmute(geotype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(geodata)), geodata.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2094,7 +2094,7 @@ pub unsafe fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: &mut [u16], la
         extern "system" {
             fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: ::windows::core::PWSTR, cchdata: i32, langid: u16) -> i32;
         }
-        ::core::mem::transmute(GetGeoInfoW(::core::mem::transmute(location), ::core::mem::transmute(geotype), ::core::mem::transmute(lpgeodata.as_mut_ptr()), lpgeodata.len() as _, ::core::mem::transmute(langid)))
+        ::core::mem::transmute(GetGeoInfoW(::core::mem::transmute(location), ::core::mem::transmute(geotype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpgeodata)), lpgeodata.len() as _, ::core::mem::transmute(langid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2108,7 +2108,7 @@ pub unsafe fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: &mut [u8]) -> i
         extern "system" {
             fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: ::windows::core::PSTR, cchdata: i32) -> i32;
         }
-        ::core::mem::transmute(GetLocaleInfoA(::core::mem::transmute(locale), ::core::mem::transmute(lctype), ::core::mem::transmute(lplcdata.as_mut_ptr()), lplcdata.len() as _))
+        ::core::mem::transmute(GetLocaleInfoA(::core::mem::transmute(locale), ::core::mem::transmute(lctype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplcdata)), lplcdata.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2122,7 +2122,7 @@ pub unsafe fn GetLocaleInfoEx<'a, Param0: ::windows::core::IntoParam<'a, ::windo
         extern "system" {
             fn GetLocaleInfoEx(lplocalename: ::windows::core::PCWSTR, lctype: u32, lplcdata: ::windows::core::PWSTR, cchdata: i32) -> i32;
         }
-        ::core::mem::transmute(GetLocaleInfoEx(lplocalename.into_param().abi(), ::core::mem::transmute(lctype), ::core::mem::transmute(lplcdata.as_mut_ptr()), lplcdata.len() as _))
+        ::core::mem::transmute(GetLocaleInfoEx(lplocalename.into_param().abi(), ::core::mem::transmute(lctype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplcdata)), lplcdata.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2136,7 +2136,7 @@ pub unsafe fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: &mut [u16]) -> 
         extern "system" {
             fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: ::windows::core::PWSTR, cchdata: i32) -> i32;
         }
-        ::core::mem::transmute(GetLocaleInfoW(::core::mem::transmute(locale), ::core::mem::transmute(lctype), ::core::mem::transmute(lplcdata.as_mut_ptr()), lplcdata.len() as _))
+        ::core::mem::transmute(GetLocaleInfoW(::core::mem::transmute(locale), ::core::mem::transmute(lctype), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplcdata)), lplcdata.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2180,7 +2180,7 @@ pub unsafe fn GetNumberFormatA<'a, Param2: ::windows::core::IntoParam<'a, ::wind
         extern "system" {
             fn GetNumberFormatA(locale: u32, dwflags: u32, lpvalue: ::windows::core::PCSTR, lpformat: *const NUMBERFMTA, lpnumberstr: ::windows::core::PSTR, cchnumber: i32) -> i32;
         }
-        ::core::mem::transmute(GetNumberFormatA(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpnumberstr.as_mut_ptr()), lpnumberstr.len() as _))
+        ::core::mem::transmute(GetNumberFormatA(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnumberstr)), lpnumberstr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2194,7 +2194,7 @@ pub unsafe fn GetNumberFormatEx<'a, Param0: ::windows::core::IntoParam<'a, ::win
         extern "system" {
             fn GetNumberFormatEx(lplocalename: ::windows::core::PCWSTR, dwflags: u32, lpvalue: ::windows::core::PCWSTR, lpformat: *const NUMBERFMTW, lpnumberstr: ::windows::core::PWSTR, cchnumber: i32) -> i32;
         }
-        ::core::mem::transmute(GetNumberFormatEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpnumberstr.as_mut_ptr()), lpnumberstr.len() as _))
+        ::core::mem::transmute(GetNumberFormatEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnumberstr)), lpnumberstr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2208,7 +2208,7 @@ pub unsafe fn GetNumberFormatW<'a, Param2: ::windows::core::IntoParam<'a, ::wind
         extern "system" {
             fn GetNumberFormatW(locale: u32, dwflags: u32, lpvalue: ::windows::core::PCWSTR, lpformat: *const NUMBERFMTW, lpnumberstr: ::windows::core::PWSTR, cchnumber: i32) -> i32;
         }
-        ::core::mem::transmute(GetNumberFormatW(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpnumberstr.as_mut_ptr()), lpnumberstr.len() as _))
+        ::core::mem::transmute(GetNumberFormatW(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), lpvalue.into_param().abi(), ::core::mem::transmute(lpformat), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnumberstr)), lpnumberstr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2251,7 +2251,7 @@ pub unsafe fn GetStringScripts<'a, Param1: ::windows::core::IntoParam<'a, ::wind
         extern "system" {
             fn GetStringScripts(dwflags: u32, lpstring: ::windows::core::PCWSTR, cchstring: i32, lpscripts: ::windows::core::PWSTR, cchscripts: i32) -> i32;
         }
-        ::core::mem::transmute(GetStringScripts(::core::mem::transmute(dwflags), lpstring.into_param().abi(), ::core::mem::transmute(cchstring), ::core::mem::transmute(lpscripts.as_mut_ptr()), lpscripts.len() as _))
+        ::core::mem::transmute(GetStringScripts(::core::mem::transmute(dwflags), lpstring.into_param().abi(), ::core::mem::transmute(cchstring), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpscripts)), lpscripts.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2266,7 +2266,7 @@ pub unsafe fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: &[u8], lpch
         extern "system" {
             fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetStringTypeA(::core::mem::transmute(locale), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpchartype)))
+        ::core::mem::transmute(GetStringTypeA(::core::mem::transmute(locale), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpchartype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2281,7 +2281,7 @@ pub unsafe fn GetStringTypeExA(locale: u32, dwinfotype: u32, lpsrcstr: &[u8], lp
         extern "system" {
             fn GetStringTypeExA(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetStringTypeExA(::core::mem::transmute(locale), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(lpsrcstr.as_ptr()), lpchartype.len() as _, ::core::mem::transmute(lpchartype.as_mut_ptr())))
+        ::core::mem::transmute(GetStringTypeExA(::core::mem::transmute(locale), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpchartype.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchartype))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2296,7 +2296,7 @@ pub unsafe fn GetStringTypeExW(locale: u32, dwinfotype: u32, lpsrcstr: &[u16], l
         extern "system" {
             fn GetStringTypeExW(locale: u32, dwinfotype: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetStringTypeExW(::core::mem::transmute(locale), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(lpsrcstr.as_ptr()), lpchartype.len() as _, ::core::mem::transmute(lpchartype.as_mut_ptr())))
+        ::core::mem::transmute(GetStringTypeExW(::core::mem::transmute(locale), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpchartype.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchartype))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2311,7 +2311,7 @@ pub unsafe fn GetStringTypeW(dwinfotype: u32, lpsrcstr: &[u16], lpchartype: *mut
         extern "system" {
             fn GetStringTypeW(dwinfotype: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetStringTypeW(::core::mem::transmute(dwinfotype), ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpchartype)))
+        ::core::mem::transmute(GetStringTypeW(::core::mem::transmute(dwinfotype), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpchartype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2353,7 +2353,7 @@ pub unsafe fn GetSystemDefaultLocaleName(lplocalename: &mut [u16]) -> i32 {
         extern "system" {
             fn GetSystemDefaultLocaleName(lplocalename: ::windows::core::PWSTR, cchlocalename: i32) -> i32;
         }
-        ::core::mem::transmute(GetSystemDefaultLocaleName(::core::mem::transmute(lplocalename.as_mut_ptr()), lplocalename.len() as _))
+        ::core::mem::transmute(GetSystemDefaultLocaleName(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplocalename)), lplocalename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2470,7 +2470,7 @@ pub unsafe fn GetTimeFormatA<'a, Param3: ::windows::core::IntoParam<'a, ::window
         extern "system" {
             fn GetTimeFormatA(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCSTR, lptimestr: ::windows::core::PSTR, cchtime: i32) -> i32;
         }
-        ::core::mem::transmute(GetTimeFormatA(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), ::core::mem::transmute(lptime), lpformat.into_param().abi(), ::core::mem::transmute(lptimestr.as_mut_ptr()), lptimestr.len() as _))
+        ::core::mem::transmute(GetTimeFormatA(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), ::core::mem::transmute(lptime), lpformat.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptimestr)), lptimestr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2485,7 +2485,7 @@ pub unsafe fn GetTimeFormatEx<'a, Param0: ::windows::core::IntoParam<'a, ::windo
         extern "system" {
             fn GetTimeFormatEx(lplocalename: ::windows::core::PCWSTR, dwflags: TIME_FORMAT_FLAGS, lptime: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCWSTR, lptimestr: ::windows::core::PWSTR, cchtime: i32) -> i32;
         }
-        ::core::mem::transmute(GetTimeFormatEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lptime), lpformat.into_param().abi(), ::core::mem::transmute(lptimestr.as_mut_ptr()), lptimestr.len() as _))
+        ::core::mem::transmute(GetTimeFormatEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lptime), lpformat.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptimestr)), lptimestr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2500,7 +2500,7 @@ pub unsafe fn GetTimeFormatW<'a, Param3: ::windows::core::IntoParam<'a, ::window
         extern "system" {
             fn GetTimeFormatW(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: ::windows::core::PCWSTR, lptimestr: ::windows::core::PWSTR, cchtime: i32) -> i32;
         }
-        ::core::mem::transmute(GetTimeFormatW(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), ::core::mem::transmute(lptime), lpformat.into_param().abi(), ::core::mem::transmute(lptimestr.as_mut_ptr()), lptimestr.len() as _))
+        ::core::mem::transmute(GetTimeFormatW(::core::mem::transmute(locale), ::core::mem::transmute(dwflags), ::core::mem::transmute(lptime), lpformat.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptimestr)), lptimestr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2529,7 +2529,7 @@ pub unsafe fn GetUserDefaultGeoName(geoname: &mut [u16]) -> i32 {
         extern "system" {
             fn GetUserDefaultGeoName(geoname: ::windows::core::PWSTR, geonamecount: i32) -> i32;
         }
-        ::core::mem::transmute(GetUserDefaultGeoName(::core::mem::transmute(geoname.as_mut_ptr()), geoname.len() as _))
+        ::core::mem::transmute(GetUserDefaultGeoName(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(geoname)), geoname.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2571,7 +2571,7 @@ pub unsafe fn GetUserDefaultLocaleName(lplocalename: &mut [u16]) -> i32 {
         extern "system" {
             fn GetUserDefaultLocaleName(lplocalename: ::windows::core::PWSTR, cchlocalename: i32) -> i32;
         }
-        ::core::mem::transmute(GetUserDefaultLocaleName(::core::mem::transmute(lplocalename.as_mut_ptr()), lplocalename.len() as _))
+        ::core::mem::transmute(GetUserDefaultLocaleName(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplocalename)), lplocalename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3095,7 +3095,7 @@ impl IMLangCodePages {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: *mut u32, pcchcodepages: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStrCodePages)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _, ::core::mem::transmute(dwprioritycodepages), ::core::mem::transmute(pdwcodepages), ::core::mem::transmute(pcchcodepages)).ok()
+        (::windows::core::Interface::vtable(self).GetStrCodePages)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(dwprioritycodepages), ::core::mem::transmute(pdwcodepages), ::core::mem::transmute(pcchcodepages)).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn CodePageToCodePages(&self, ucodepage: u32) -> ::windows::core::Result<u32> {
@@ -3256,7 +3256,7 @@ impl IMLangFontLink {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: *mut u32, pcchcodepages: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetStrCodePages)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _, ::core::mem::transmute(dwprioritycodepages), ::core::mem::transmute(pdwcodepages), ::core::mem::transmute(pcchcodepages)).ok()
+        (::windows::core::Interface::vtable(self).base.GetStrCodePages)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(dwprioritycodepages), ::core::mem::transmute(pdwcodepages), ::core::mem::transmute(pcchcodepages)).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn CodePageToCodePages(&self, ucodepage: u32) -> ::windows::core::Result<u32> {
@@ -3379,7 +3379,7 @@ impl IMLangFontLink2 {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: *mut u32, pcchcodepages: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetStrCodePages)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _, ::core::mem::transmute(dwprioritycodepages), ::core::mem::transmute(pdwcodepages), ::core::mem::transmute(pcchcodepages)).ok()
+        (::windows::core::Interface::vtable(self).base.GetStrCodePages)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(dwprioritycodepages), ::core::mem::transmute(pdwcodepages), ::core::mem::transmute(pcchcodepages)).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn CodePageToCodePages(&self, ucodepage: u32) -> ::windows::core::Result<u32> {
@@ -3522,11 +3522,11 @@ impl IMLangLineBreakConsole {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn BreakLineW(&self, locale: u32, pszsrc: &[u16], cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BreakLineW)(::core::mem::transmute_copy(self), ::core::mem::transmute(locale), ::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _, ::core::mem::transmute(cmaxcolumns), ::core::mem::transmute(pcchline), ::core::mem::transmute(pcchskip)).ok()
+        (::windows::core::Interface::vtable(self).BreakLineW)(::core::mem::transmute_copy(self), ::core::mem::transmute(locale), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(cmaxcolumns), ::core::mem::transmute(pcchline), ::core::mem::transmute(pcchskip)).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn BreakLineA(&self, locale: u32, ucodepage: u32, pszsrc: &[u8], cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BreakLineA)(::core::mem::transmute_copy(self), ::core::mem::transmute(locale), ::core::mem::transmute(ucodepage), ::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _, ::core::mem::transmute(cmaxcolumns), ::core::mem::transmute(pcchline), ::core::mem::transmute(pcchskip)).ok()
+        (::windows::core::Interface::vtable(self).BreakLineA)(::core::mem::transmute_copy(self), ::core::mem::transmute(locale), ::core::mem::transmute(ucodepage), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(cmaxcolumns), ::core::mem::transmute(pcchline), ::core::mem::transmute(pcchskip)).ok()
     }
 }
 impl ::core::convert::From<IMLangLineBreakConsole> for ::windows::core::IUnknown {
@@ -3676,7 +3676,7 @@ impl IMLangStringAStr {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &[u8], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldestpos), ::core::mem::transmute(ldestlen), ::core::mem::transmute(ucodepage), ::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
+        (::windows::core::Interface::vtable(self).SetAStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldestpos), ::core::mem::transmute(ldestlen), ::core::mem::transmute(ucodepage), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn SetStrBufA<'a, Param3: ::windows::core::IntoParam<'a, IMLangStringBufA>>(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: Param3, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
@@ -3684,7 +3684,7 @@ impl IMLangStringAStr {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *mut u32, pszdest: &mut [u8], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen), ::core::mem::transmute(ucodepagein), ::core::mem::transmute(pucodepageout), ::core::mem::transmute(pszdest.as_mut_ptr()), pszdest.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
+        (::windows::core::Interface::vtable(self).GetAStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen), ::core::mem::transmute(ucodepagein), ::core::mem::transmute(pucodepageout), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszdest)), pszdest.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: *mut u32, ppdestbuf: *mut ::core::option::Option<IMLangStringBufA>, pldestlen: *mut i32) -> ::windows::core::Result<()> {
@@ -3696,7 +3696,7 @@ impl IMLangStringAStr {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn UnlockAStr(&self, pszsrc: &[u8], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnlockAStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
+        (::windows::core::Interface::vtable(self).UnlockAStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: u32) -> ::windows::core::Result<()> {
@@ -3960,7 +3960,7 @@ impl IMLangStringWStr {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &[u16], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldestpos), ::core::mem::transmute(ldestlen), ::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
+        (::windows::core::Interface::vtable(self).SetWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldestpos), ::core::mem::transmute(ldestlen), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn SetStrBufW<'a, Param2: ::windows::core::IntoParam<'a, IMLangStringBufW>>(&self, ldestpos: i32, ldestlen: i32, psrcbuf: Param2, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
@@ -3968,7 +3968,7 @@ impl IMLangStringWStr {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: &mut [u16], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen), ::core::mem::transmute(pszdest.as_mut_ptr()), pszdest.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
+        (::windows::core::Interface::vtable(self).GetWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsrcpos), ::core::mem::transmute(lsrclen), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszdest)), pszdest.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn GetStrBufW(&self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: *mut ::core::option::Option<IMLangStringBufW>, pldestlen: *mut i32) -> ::windows::core::Result<()> {
@@ -3980,7 +3980,7 @@ impl IMLangStringWStr {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn UnlockWStr(&self, pszsrc: &[u16], pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnlockWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszsrc.as_ptr()), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
+        (::windows::core::Interface::vtable(self).UnlockWStr)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszsrc)), pszsrc.len() as _, ::core::mem::transmute(pcchactual), ::core::mem::transmute(plactuallen)).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: u32) -> ::windows::core::Result<()> {
@@ -4315,7 +4315,7 @@ impl IMultiLanguage2 {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn GetCodePageDescription(&self, uicodepage: u32, lcid: u32, lpwidecharstr: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCodePageDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(uicodepage), ::core::mem::transmute(lcid), ::core::mem::transmute(lpwidecharstr.as_mut_ptr()), lpwidecharstr.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetCodePageDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(uicodepage), ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpwidecharstr)), lpwidecharstr.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn IsCodePageInstallable(&self, uicodepage: u32) -> ::windows::core::Result<()> {
@@ -4539,7 +4539,7 @@ impl IMultiLanguage3 {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn GetCodePageDescription(&self, uicodepage: u32, lcid: u32, lpwidecharstr: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetCodePageDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(uicodepage), ::core::mem::transmute(lcid), ::core::mem::transmute(lpwidecharstr.as_mut_ptr()), lpwidecharstr.len() as _).ok()
+        (::windows::core::Interface::vtable(self).base.GetCodePageDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(uicodepage), ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpwidecharstr)), lpwidecharstr.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn IsCodePageInstallable(&self, uicodepage: u32) -> ::windows::core::Result<()> {
@@ -4566,12 +4566,12 @@ impl IMultiLanguage3 {
     }
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub unsafe fn DetectOutboundCodePage<'a, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwflags: u32, lpwidecharstr: &[u16], puipreferredcodepages: &[u32], puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DetectOutboundCodePage)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len() as _, ::core::mem::transmute(puipreferredcodepages.as_ptr()), puipreferredcodepages.len() as _, ::core::mem::transmute(puidetectedcodepages), ::core::mem::transmute(pndetectedcodepages), lpspecialchar.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DetectOutboundCodePage)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpwidecharstr)), lpwidecharstr.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puipreferredcodepages)), puipreferredcodepages.len() as _, ::core::mem::transmute(puidetectedcodepages), ::core::mem::transmute(pndetectedcodepages), lpspecialchar.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectOutboundCodePageInIStream<'a, Param1: ::windows::core::IntoParam<'a, super::System::Com::IStream>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwflags: u32, pstrin: Param1, puipreferredcodepages: &[u32], puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DetectOutboundCodePageInIStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pstrin.into_param().abi(), ::core::mem::transmute(puipreferredcodepages.as_ptr()), puipreferredcodepages.len() as _, ::core::mem::transmute(puidetectedcodepages), ::core::mem::transmute(pndetectedcodepages), lpspecialchar.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DetectOutboundCodePageInIStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pstrin.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(puipreferredcodepages)), puipreferredcodepages.len() as _, ::core::mem::transmute(puidetectedcodepages), ::core::mem::transmute(pndetectedcodepages), lpspecialchar.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IMultiLanguage3> for ::windows::core::IUnknown {
@@ -5581,7 +5581,7 @@ pub unsafe fn IdnToAscii(dwflags: u32, lpunicodecharstr: &[u16], lpasciicharstr:
         extern "system" {
             fn IdnToAscii(dwflags: u32, lpunicodecharstr: ::windows::core::PCWSTR, cchunicodechar: i32, lpasciicharstr: ::windows::core::PWSTR, cchasciichar: i32) -> i32;
         }
-        ::core::mem::transmute(IdnToAscii(::core::mem::transmute(dwflags), ::core::mem::transmute(lpunicodecharstr.as_ptr()), lpunicodecharstr.len() as _, ::core::mem::transmute(lpasciicharstr.as_mut_ptr()), lpasciicharstr.len() as _))
+        ::core::mem::transmute(IdnToAscii(::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpunicodecharstr)), lpunicodecharstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpasciicharstr)), lpasciicharstr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5595,7 +5595,7 @@ pub unsafe fn IdnToNameprepUnicode(dwflags: u32, lpunicodecharstr: &[u16], lpnam
         extern "system" {
             fn IdnToNameprepUnicode(dwflags: u32, lpunicodecharstr: ::windows::core::PCWSTR, cchunicodechar: i32, lpnameprepcharstr: ::windows::core::PWSTR, cchnameprepchar: i32) -> i32;
         }
-        ::core::mem::transmute(IdnToNameprepUnicode(::core::mem::transmute(dwflags), ::core::mem::transmute(lpunicodecharstr.as_ptr()), lpunicodecharstr.len() as _, ::core::mem::transmute(lpnameprepcharstr.as_mut_ptr()), lpnameprepcharstr.len() as _))
+        ::core::mem::transmute(IdnToNameprepUnicode(::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpunicodecharstr)), lpunicodecharstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnameprepcharstr)), lpnameprepcharstr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5609,7 +5609,7 @@ pub unsafe fn IdnToUnicode(dwflags: u32, lpasciicharstr: &[u16], lpunicodecharst
         extern "system" {
             fn IdnToUnicode(dwflags: u32, lpasciicharstr: ::windows::core::PCWSTR, cchasciichar: i32, lpunicodecharstr: ::windows::core::PWSTR, cchunicodechar: i32) -> i32;
         }
-        ::core::mem::transmute(IdnToUnicode(::core::mem::transmute(dwflags), ::core::mem::transmute(lpasciicharstr.as_ptr()), lpasciicharstr.len() as _, ::core::mem::transmute(lpunicodecharstr.as_mut_ptr()), lpunicodecharstr.len() as _))
+        ::core::mem::transmute(IdnToUnicode(::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpasciicharstr)), lpasciicharstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpunicodecharstr)), lpunicodecharstr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5654,7 +5654,7 @@ pub unsafe fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformati
         extern "system" {
             fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: ::windows::core::PCWSTR, cchstr: i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(IsNLSDefinedString(::core::mem::transmute(function), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _))
+        ::core::mem::transmute(IsNLSDefinedString(::core::mem::transmute(function), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5669,7 +5669,7 @@ pub unsafe fn IsNormalizedString(normform: NORM_FORM, lpstring: &[u16]) -> super
         extern "system" {
             fn IsNormalizedString(normform: NORM_FORM, lpstring: ::windows::core::PCWSTR, cwlength: i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(IsNormalizedString(::core::mem::transmute(normform), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _))
+        ::core::mem::transmute(IsNormalizedString(::core::mem::transmute(normform), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5798,7 +5798,7 @@ pub unsafe fn LCIDToLocaleName(locale: u32, lpname: &mut [u16], dwflags: u32) ->
         extern "system" {
             fn LCIDToLocaleName(locale: u32, lpname: ::windows::core::PWSTR, cchname: i32, dwflags: u32) -> i32;
         }
-        ::core::mem::transmute(LCIDToLocaleName(::core::mem::transmute(locale), ::core::mem::transmute(lpname.as_mut_ptr()), lpname.len() as _, ::core::mem::transmute(dwflags)))
+        ::core::mem::transmute(LCIDToLocaleName(::core::mem::transmute(locale), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpname)), lpname.len() as _, ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5842,7 +5842,7 @@ pub unsafe fn LCMapStringA(locale: u32, dwmapflags: u32, lpsrcstr: &[u8], lpdest
         extern "system" {
             fn LCMapStringA(locale: u32, dwmapflags: u32, lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpdeststr: ::windows::core::PSTR, cchdest: i32) -> i32;
         }
-        ::core::mem::transmute(LCMapStringA(::core::mem::transmute(locale), ::core::mem::transmute(dwmapflags), ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr), ::core::mem::transmute(cchdest)))
+        ::core::mem::transmute(LCMapStringA(::core::mem::transmute(locale), ::core::mem::transmute(dwmapflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr), ::core::mem::transmute(cchdest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5857,7 +5857,7 @@ pub unsafe fn LCMapStringEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows
         extern "system" {
             fn LCMapStringEx(lplocalename: ::windows::core::PCWSTR, dwmapflags: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
         }
-        ::core::mem::transmute(LCMapStringEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwmapflags), ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_mut_ptr()), lpdeststr.len() as _, ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), sorthandle.into_param().abi()))
+        ::core::mem::transmute(LCMapStringEx(lplocalename.into_param().abi(), ::core::mem::transmute(dwmapflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdeststr)), lpdeststr.len() as _, ::core::mem::transmute(lpversioninformation), ::core::mem::transmute(lpreserved), sorthandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5871,7 +5871,7 @@ pub unsafe fn LCMapStringW(locale: u32, dwmapflags: u32, lpsrcstr: &[u16], lpdes
         extern "system" {
             fn LCMapStringW(locale: u32, dwmapflags: u32, lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32) -> i32;
         }
-        ::core::mem::transmute(LCMapStringW(::core::mem::transmute(locale), ::core::mem::transmute(dwmapflags), ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr), ::core::mem::transmute(cchdest)))
+        ::core::mem::transmute(LCMapStringW(::core::mem::transmute(locale), ::core::mem::transmute(dwmapflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr), ::core::mem::transmute(cchdest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6997,7 +6997,7 @@ pub unsafe fn MappingRecognizeText(pserviceinfo: *const MAPPING_SERVICE_INFO, ps
         extern "system" {
             fn MappingRecognizeText(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: ::windows::core::PCWSTR, dwlength: u32, dwindex: u32, poptions: *const MAPPING_OPTIONS, pbag: *mut MAPPING_PROPERTY_BAG) -> ::windows::core::HRESULT;
         }
-        MappingRecognizeText(::core::mem::transmute(pserviceinfo), ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, ::core::mem::transmute(dwindex), ::core::mem::transmute(poptions), ::core::mem::transmute(pbag)).ok()
+        MappingRecognizeText(::core::mem::transmute(pserviceinfo), ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, ::core::mem::transmute(dwindex), ::core::mem::transmute(poptions), ::core::mem::transmute(pbag)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7011,7 +7011,7 @@ pub unsafe fn MultiByteToWideChar(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHA
         extern "system" {
             fn MultiByteToWideChar(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: ::windows::core::PCSTR, cbmultibyte: i32, lpwidecharstr: ::windows::core::PWSTR, cchwidechar: i32) -> i32;
         }
-        ::core::mem::transmute(MultiByteToWideChar(::core::mem::transmute(codepage), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpmultibytestr.as_ptr()), lpmultibytestr.len() as _, ::core::mem::transmute(lpwidecharstr.as_mut_ptr()), lpwidecharstr.len() as _))
+        ::core::mem::transmute(MultiByteToWideChar(::core::mem::transmute(codepage), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpmultibytestr)), lpmultibytestr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpwidecharstr)), lpwidecharstr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7282,7 +7282,7 @@ pub unsafe fn NormalizeString(normform: NORM_FORM, lpsrcstring: &[u16], lpdststr
         extern "system" {
             fn NormalizeString(normform: NORM_FORM, lpsrcstring: ::windows::core::PCWSTR, cwsrclength: i32, lpdststring: ::windows::core::PWSTR, cwdstlength: i32) -> i32;
         }
-        ::core::mem::transmute(NormalizeString(::core::mem::transmute(normform), ::core::mem::transmute(lpsrcstring.as_ptr()), lpsrcstring.len() as _, ::core::mem::transmute(lpdststring.as_mut_ptr()), lpdststring.len() as _))
+        ::core::mem::transmute(NormalizeString(::core::mem::transmute(normform), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstring)), lpsrcstring.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdststring)), lpdststring.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7349,7 +7349,7 @@ pub unsafe fn ResolveLocaleName<'a, Param0: ::windows::core::IntoParam<'a, ::win
         extern "system" {
             fn ResolveLocaleName(lpnametoresolve: ::windows::core::PCWSTR, lplocalename: ::windows::core::PWSTR, cchlocalename: i32) -> i32;
         }
-        ::core::mem::transmute(ResolveLocaleName(lpnametoresolve.into_param().abi(), ::core::mem::transmute(lplocalename.as_mut_ptr()), lplocalename.len() as _))
+        ::core::mem::transmute(ResolveLocaleName(lpnametoresolve.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lplocalename)), lplocalename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8140,7 +8140,7 @@ pub unsafe fn ScriptApplyLogicalWidth(pidx: &[i32], pwlogclust: &[u16], psva: &[
         extern "system" {
             fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: *mut super::Graphics::Gdi::ABC, pijustify: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptApplyLogicalWidth(::core::mem::transmute(pidx.as_ptr()), pwlogclust.len() as _, piadvance.len() as _, ::core::mem::transmute(pwlogclust.as_ptr()), ::core::mem::transmute(psva.as_ptr()), ::core::mem::transmute(piadvance.as_ptr()), ::core::mem::transmute(psa), ::core::mem::transmute(pabc), ::core::mem::transmute(pijustify)).ok()
+        ScriptApplyLogicalWidth(::core::mem::transmute(::windows::core::as_ptr_or_null(pidx)), pwlogclust.len() as _, piadvance.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwlogclust)), ::core::mem::transmute(::windows::core::as_ptr_or_null(psva)), ::core::mem::transmute(::windows::core::as_ptr_or_null(piadvance)), ::core::mem::transmute(psa), ::core::mem::transmute(pabc), ::core::mem::transmute(pijustify)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8155,7 +8155,7 @@ pub unsafe fn ScriptBreak(pwcchars: &[u16], psa: *const SCRIPT_ANALYSIS) -> ::wi
             fn ScriptBreak(pwcchars: ::windows::core::PCWSTR, cchars: i32, psa: *const SCRIPT_ANALYSIS, psla: *mut SCRIPT_LOGATTR) -> ::windows::core::HRESULT;
         }
         let mut result__: SCRIPT_LOGATTR = ::core::mem::zeroed();
-        ScriptBreak(::core::mem::transmute(pwcchars.as_ptr()), pwcchars.len() as _, ::core::mem::transmute(psa), ::core::mem::transmute(&mut result__)).from_abi::<SCRIPT_LOGATTR>(result__)
+        ScriptBreak(::core::mem::transmute(::windows::core::as_ptr_or_null(pwcchars)), pwcchars.len() as _, ::core::mem::transmute(psa), ::core::mem::transmute(&mut result__)).from_abi::<SCRIPT_LOGATTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8170,7 +8170,7 @@ pub unsafe fn ScriptCPtoX<'a, Param1: ::windows::core::IntoParam<'a, super::Foun
         extern "system" {
             fn ScriptCPtoX(icp: i32, ftrailing: super::Foundation::BOOL, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptCPtoX(::core::mem::transmute(icp), ftrailing.into_param().abi(), pwlogclust.len() as _, piadvance.len() as _, ::core::mem::transmute(pwlogclust.as_ptr()), ::core::mem::transmute(psva.as_ptr()), ::core::mem::transmute(piadvance.as_ptr()), ::core::mem::transmute(psa), ::core::mem::transmute(pix)).ok()
+        ScriptCPtoX(::core::mem::transmute(icp), ftrailing.into_param().abi(), pwlogclust.len() as _, piadvance.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwlogclust)), ::core::mem::transmute(::windows::core::as_ptr_or_null(psva)), ::core::mem::transmute(::windows::core::as_ptr_or_null(piadvance)), ::core::mem::transmute(psa), ::core::mem::transmute(pix)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8214,7 +8214,7 @@ pub unsafe fn ScriptGetCMap<'a, Param0: ::windows::core::IntoParam<'a, super::Gr
         extern "system" {
             fn ScriptGetCMap(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwcinchars: ::windows::core::PCWSTR, cchars: i32, dwflags: u32, pwoutglyphs: *mut u16) -> ::windows::core::HRESULT;
         }
-        ScriptGetCMap(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(pwcinchars.as_ptr()), pwoutglyphs.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(pwoutglyphs.as_mut_ptr())).ok()
+        ScriptGetCMap(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcinchars)), pwoutglyphs.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwoutglyphs))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8229,7 +8229,7 @@ pub unsafe fn ScriptGetFontAlternateGlyphs<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn ScriptGetFontAlternateGlyphs(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, cmaxalternates: i32, palternateglyphs: *mut u16, pcalternates: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptGetFontAlternateGlyphs(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(psa), ::core::mem::transmute(tagscript), ::core::mem::transmute(taglangsys), ::core::mem::transmute(tagfeature), ::core::mem::transmute(wglyphid), palternateglyphs.len() as _, ::core::mem::transmute(palternateglyphs.as_mut_ptr()), ::core::mem::transmute(pcalternates)).ok()
+        ScriptGetFontAlternateGlyphs(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(psa), ::core::mem::transmute(tagscript), ::core::mem::transmute(taglangsys), ::core::mem::transmute(tagfeature), ::core::mem::transmute(wglyphid), palternateglyphs.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(palternateglyphs)), ::core::mem::transmute(pcalternates)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8244,7 +8244,7 @@ pub unsafe fn ScriptGetFontFeatureTags<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn ScriptGetFontFeatureTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, cmaxtags: i32, pfeaturetags: *mut u32, pctags: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptGetFontFeatureTags(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(psa), ::core::mem::transmute(tagscript), ::core::mem::transmute(taglangsys), pfeaturetags.len() as _, ::core::mem::transmute(pfeaturetags.as_mut_ptr()), ::core::mem::transmute(pctags)).ok()
+        ScriptGetFontFeatureTags(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(psa), ::core::mem::transmute(tagscript), ::core::mem::transmute(taglangsys), pfeaturetags.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfeaturetags)), ::core::mem::transmute(pctags)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8259,7 +8259,7 @@ pub unsafe fn ScriptGetFontLanguageTags<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn ScriptGetFontLanguageTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, cmaxtags: i32, plangsystags: *mut u32, pctags: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptGetFontLanguageTags(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(psa), ::core::mem::transmute(tagscript), plangsystags.len() as _, ::core::mem::transmute(plangsystags.as_mut_ptr()), ::core::mem::transmute(pctags)).ok()
+        ScriptGetFontLanguageTags(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(psa), ::core::mem::transmute(tagscript), plangsystags.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(plangsystags)), ::core::mem::transmute(pctags)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8289,7 +8289,7 @@ pub unsafe fn ScriptGetFontScriptTags<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn ScriptGetFontScriptTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, cmaxtags: i32, pscripttags: *mut u32, pctags: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptGetFontScriptTags(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(psa), pscripttags.len() as _, ::core::mem::transmute(pscripttags.as_mut_ptr()), ::core::mem::transmute(pctags)).ok()
+        ScriptGetFontScriptTags(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(psa), pscripttags.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pscripttags)), ::core::mem::transmute(pctags)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8318,7 +8318,7 @@ pub unsafe fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, piglyphwidth: 
         extern "system" {
             fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> ::windows::core::HRESULT;
         }
-        ScriptGetLogicalWidths(::core::mem::transmute(psa), pidx.len() as _, psva.len() as _, ::core::mem::transmute(piglyphwidth.as_ptr()), ::core::mem::transmute(pwlogclust.as_ptr()), ::core::mem::transmute(psva.as_ptr()), ::core::mem::transmute(pidx.as_ptr())).ok()
+        ScriptGetLogicalWidths(::core::mem::transmute(psa), pidx.len() as _, psva.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(piglyphwidth)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwlogclust)), ::core::mem::transmute(::windows::core::as_ptr_or_null(psva)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pidx))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8346,7 +8346,7 @@ pub unsafe fn ScriptIsComplex(pwcinchars: &[u16], dwflags: SCRIPT_IS_COMPLEX_FLA
         extern "system" {
             fn ScriptIsComplex(pwcinchars: ::windows::core::PCWSTR, cinchars: i32, dwflags: SCRIPT_IS_COMPLEX_FLAGS) -> ::windows::core::HRESULT;
         }
-        ScriptIsComplex(::core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len() as _, ::core::mem::transmute(dwflags)).ok()
+        ScriptIsComplex(::core::mem::transmute(::windows::core::as_ptr_or_null(pwcinchars)), pwcinchars.len() as _, ::core::mem::transmute(dwflags)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8360,7 +8360,7 @@ pub unsafe fn ScriptItemize(pwcinchars: &[u16], pscontrol: *const SCRIPT_CONTROL
         extern "system" {
             fn ScriptItemize(pwcinchars: ::windows::core::PCWSTR, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptItemize(::core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len() as _, pitems.len() as _, ::core::mem::transmute(pscontrol), ::core::mem::transmute(psstate), ::core::mem::transmute(pitems.as_mut_ptr()), ::core::mem::transmute(pcitems)).ok()
+        ScriptItemize(::core::mem::transmute(::windows::core::as_ptr_or_null(pwcinchars)), pwcinchars.len() as _, pitems.len() as _, ::core::mem::transmute(pscontrol), ::core::mem::transmute(psstate), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pitems)), ::core::mem::transmute(pcitems)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8374,7 +8374,7 @@ pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], pscontrol: *const SCRIPT
         extern "system" {
             fn ScriptItemizeOpenType(pwcinchars: ::windows::core::PCWSTR, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pscripttags: *mut u32, pcitems: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptItemizeOpenType(::core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len() as _, pscripttags.len() as _, ::core::mem::transmute(pscontrol), ::core::mem::transmute(psstate), ::core::mem::transmute(pitems.as_mut_ptr()), ::core::mem::transmute(pscripttags.as_mut_ptr()), ::core::mem::transmute(pcitems)).ok()
+        ScriptItemizeOpenType(::core::mem::transmute(::windows::core::as_ptr_or_null(pwcinchars)), pwcinchars.len() as _, pscripttags.len() as _, ::core::mem::transmute(pscontrol), ::core::mem::transmute(psstate), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pitems)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pscripttags)), ::core::mem::transmute(pcitems)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8389,7 +8389,7 @@ pub unsafe fn ScriptJustify(psva: &[SCRIPT_VISATTR], piadvance: &[i32], idx: i32
             fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> ::windows::core::HRESULT;
         }
         let mut result__: i32 = ::core::mem::zeroed();
-        ScriptJustify(::core::mem::transmute(psva.as_ptr()), ::core::mem::transmute(piadvance.as_ptr()), piadvance.len() as _, ::core::mem::transmute(idx), ::core::mem::transmute(iminkashida), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        ScriptJustify(::core::mem::transmute(::windows::core::as_ptr_or_null(psva)), ::core::mem::transmute(::windows::core::as_ptr_or_null(piadvance)), piadvance.len() as _, ::core::mem::transmute(idx), ::core::mem::transmute(iminkashida), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8403,7 +8403,7 @@ pub unsafe fn ScriptLayout(pblevel: &[u8], pivisualtological: *mut i32, pilogica
         extern "system" {
             fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: *mut i32, pilogicaltovisual: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptLayout(pblevel.len() as _, ::core::mem::transmute(pblevel.as_ptr()), ::core::mem::transmute(pivisualtological), ::core::mem::transmute(pilogicaltovisual)).ok()
+        ScriptLayout(pblevel.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pblevel)), ::core::mem::transmute(pivisualtological), ::core::mem::transmute(pilogicaltovisual)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8418,7 +8418,7 @@ pub unsafe fn ScriptPlace<'a, Param0: ::windows::core::IntoParam<'a, super::Grap
         extern "system" {
             fn ScriptPlace(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::HRESULT;
         }
-        ScriptPlace(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(pwglyphs.as_ptr()), psva.len() as _, ::core::mem::transmute(psva.as_ptr()), ::core::mem::transmute(psa), ::core::mem::transmute(piadvance), ::core::mem::transmute(pgoffset), ::core::mem::transmute(pabc)).ok()
+        ScriptPlace(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwglyphs)), psva.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psva)), ::core::mem::transmute(psa), ::core::mem::transmute(piadvance), ::core::mem::transmute(pgoffset), ::core::mem::transmute(pabc)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8439,15 +8439,15 @@ pub unsafe fn ScriptPlaceOpenType<'a, Param0: ::windows::core::IntoParam<'a, sup
             ::core::mem::transmute(psa),
             ::core::mem::transmute(tagscript),
             ::core::mem::transmute(taglangsys),
-            ::core::mem::transmute(rcrangechars.as_ptr()),
-            ::core::mem::transmute(rprangeproperties.as_ptr()),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(rcrangechars)),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(rprangeproperties)),
             rprangeproperties.len() as _,
-            ::core::mem::transmute(pwcchars.as_ptr()),
-            ::core::mem::transmute(pwlogclust.as_ptr()),
-            ::core::mem::transmute(pcharprops.as_ptr()),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcchars)),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pwlogclust)),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pcharprops)),
             pcharprops.len() as _,
-            ::core::mem::transmute(pwglyphs.as_ptr()),
-            ::core::mem::transmute(pglyphprops.as_ptr()),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pwglyphs)),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pglyphprops)),
             pglyphprops.len() as _,
             ::core::mem::transmute(piadvance),
             ::core::mem::transmute(pgoffset),
@@ -8498,7 +8498,7 @@ pub unsafe fn ScriptShape<'a, Param0: ::windows::core::IntoParam<'a, super::Grap
         extern "system" {
             fn ScriptShape(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwcchars: ::windows::core::PCWSTR, cchars: i32, cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptShape(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(pwcchars.as_ptr()), pwcchars.len() as _, psva.len() as _, ::core::mem::transmute(psa), ::core::mem::transmute(pwoutglyphs.as_mut_ptr()), ::core::mem::transmute(pwlogclust), ::core::mem::transmute(psva.as_mut_ptr()), ::core::mem::transmute(pcglyphs)).ok()
+        ScriptShape(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcchars)), pwcchars.len() as _, psva.len() as _, ::core::mem::transmute(psa), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwoutglyphs)), ::core::mem::transmute(pwlogclust), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psva)), ::core::mem::transmute(pcglyphs)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8519,16 +8519,16 @@ pub unsafe fn ScriptShapeOpenType<'a, Param0: ::windows::core::IntoParam<'a, sup
             ::core::mem::transmute(psa),
             ::core::mem::transmute(tagscript),
             ::core::mem::transmute(taglangsys),
-            ::core::mem::transmute(rcrangechars.as_ptr()),
-            ::core::mem::transmute(rprangeproperties.as_ptr()),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(rcrangechars)),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(rprangeproperties)),
             rprangeproperties.len() as _,
-            ::core::mem::transmute(pwcchars.as_ptr()),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcchars)),
             pwcchars.len() as _,
             poutglyphprops.len() as _,
             ::core::mem::transmute(pwlogclust),
             ::core::mem::transmute(pcharprops),
-            ::core::mem::transmute(pwoutglyphs.as_mut_ptr()),
-            ::core::mem::transmute(poutglyphprops.as_mut_ptr()),
+            ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwoutglyphs)),
+            ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poutglyphprops)),
             ::core::mem::transmute(pcglyphs),
         )
         .ok()
@@ -8546,7 +8546,7 @@ pub unsafe fn ScriptStringAnalyse<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn ScriptStringAnalyse(hdc: super::Graphics::Gdi::HDC, pstring: *const ::core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pidx: *const i32, ptabdef: *const SCRIPT_TABDEF, pbinclass: *const u8, pssa: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        ScriptStringAnalyse(hdc.into_param().abi(), ::core::mem::transmute(pstring), pidx.len() as _, ::core::mem::transmute(cglyphs), ::core::mem::transmute(icharset), ::core::mem::transmute(dwflags), ::core::mem::transmute(ireqwidth), ::core::mem::transmute(pscontrol), ::core::mem::transmute(psstate), ::core::mem::transmute(pidx.as_ptr()), ::core::mem::transmute(ptabdef), ::core::mem::transmute(pbinclass), ::core::mem::transmute(pssa)).ok()
+        ScriptStringAnalyse(hdc.into_param().abi(), ::core::mem::transmute(pstring), pidx.len() as _, ::core::mem::transmute(cglyphs), ::core::mem::transmute(icharset), ::core::mem::transmute(dwflags), ::core::mem::transmute(ireqwidth), ::core::mem::transmute(pscontrol), ::core::mem::transmute(psstate), ::core::mem::transmute(::windows::core::as_ptr_or_null(pidx)), ::core::mem::transmute(ptabdef), ::core::mem::transmute(pbinclass), ::core::mem::transmute(pssa)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8720,7 +8720,23 @@ pub unsafe fn ScriptTextOut<'a, Param0: ::windows::core::IntoParam<'a, super::Gr
         extern "system" {
             fn ScriptTextOut(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: *const super::Foundation::RECT, psa: *const SCRIPT_ANALYSIS, pwcreserved: ::windows::core::PCWSTR, ireserved: i32, pwglyphs: *const u16, cglyphs: i32, piadvance: *const i32, pijustify: *const i32, pgoffset: *const GOFFSET) -> ::windows::core::HRESULT;
         }
-        ScriptTextOut(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(fuoptions), ::core::mem::transmute(lprc), ::core::mem::transmute(psa), pwcreserved.into_param().abi(), ::core::mem::transmute(ireserved), ::core::mem::transmute(pwglyphs.as_ptr()), pgoffset.len() as _, ::core::mem::transmute(piadvance.as_ptr()), ::core::mem::transmute(pijustify.as_ptr()), ::core::mem::transmute(pgoffset.as_ptr())).ok()
+        ScriptTextOut(
+            hdc.into_param().abi(),
+            ::core::mem::transmute(psc),
+            ::core::mem::transmute(x),
+            ::core::mem::transmute(y),
+            ::core::mem::transmute(fuoptions),
+            ::core::mem::transmute(lprc),
+            ::core::mem::transmute(psa),
+            pwcreserved.into_param().abi(),
+            ::core::mem::transmute(ireserved),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pwglyphs)),
+            pgoffset.len() as _,
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(piadvance)),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pijustify)),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pgoffset)),
+        )
+        .ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8734,7 +8750,7 @@ pub unsafe fn ScriptXtoCP(ix: i32, pwlogclust: &[u16], psva: &[SCRIPT_VISATTR], 
         extern "system" {
             fn ScriptXtoCP(ix: i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> ::windows::core::HRESULT;
         }
-        ScriptXtoCP(::core::mem::transmute(ix), pwlogclust.len() as _, piadvance.len() as _, ::core::mem::transmute(pwlogclust.as_ptr()), ::core::mem::transmute(psva.as_ptr()), ::core::mem::transmute(piadvance.as_ptr()), ::core::mem::transmute(psa), ::core::mem::transmute(picp), ::core::mem::transmute(pitrailing)).ok()
+        ScriptXtoCP(::core::mem::transmute(ix), pwlogclust.len() as _, piadvance.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwlogclust)), ::core::mem::transmute(::windows::core::as_ptr_or_null(psva)), ::core::mem::transmute(::windows::core::as_ptr_or_null(piadvance)), ::core::mem::transmute(psa), ::core::mem::transmute(picp), ::core::mem::transmute(pitrailing)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17660,7 +17676,7 @@ pub unsafe fn WideCharToMultiByte<'a, Param6: ::windows::core::IntoParam<'a, ::w
         extern "system" {
             fn WideCharToMultiByte(codepage: u32, dwflags: u32, lpwidecharstr: ::windows::core::PCWSTR, cchwidechar: i32, lpmultibytestr: ::windows::core::PSTR, cbmultibyte: i32, lpdefaultchar: ::windows::core::PCSTR, lpuseddefaultchar: *mut i32) -> i32;
         }
-        ::core::mem::transmute(WideCharToMultiByte(::core::mem::transmute(codepage), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len() as _, ::core::mem::transmute(lpmultibytestr), ::core::mem::transmute(cbmultibyte), lpdefaultchar.into_param().abi(), ::core::mem::transmute(lpuseddefaultchar)))
+        ::core::mem::transmute(WideCharToMultiByte(::core::mem::transmute(codepage), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpwidecharstr)), lpwidecharstr.len() as _, ::core::mem::transmute(lpmultibytestr), ::core::mem::transmute(cbmultibyte), lpdefaultchar.into_param().abi(), ::core::mem::transmute(lpuseddefaultchar)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17786,7 +17802,7 @@ pub unsafe fn lstrcpynA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::co
         extern "system" {
             fn lstrcpynA(lpstring1: ::windows::core::PSTR, lpstring2: ::windows::core::PCSTR, imaxlength: i32) -> ::windows::core::PSTR;
         }
-        ::core::mem::transmute(lstrcpynA(::core::mem::transmute(lpstring1.as_mut_ptr()), lpstring2.into_param().abi(), lpstring1.len() as _))
+        ::core::mem::transmute(lstrcpynA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring1)), lpstring2.into_param().abi(), lpstring1.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17800,7 +17816,7 @@ pub unsafe fn lstrcpynW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::co
         extern "system" {
             fn lstrcpynW(lpstring1: ::windows::core::PWSTR, lpstring2: ::windows::core::PCWSTR, imaxlength: i32) -> ::windows::core::PWSTR;
         }
-        ::core::mem::transmute(lstrcpynW(::core::mem::transmute(lpstring1.as_mut_ptr()), lpstring2.into_param().abi(), lpstring1.len() as _))
+        ::core::mem::transmute(lstrcpynW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring1)), lpstring2.into_param().abi(), lpstring1.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

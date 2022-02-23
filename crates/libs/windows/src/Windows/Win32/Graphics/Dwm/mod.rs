@@ -879,7 +879,7 @@ pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, pdwpointerid: &[u32], ppoints: 
         extern "system" {
             fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::HRESULT;
         }
-        DwmRenderGesture(::core::mem::transmute(gt), ppoints.len() as _, ::core::mem::transmute(pdwpointerid.as_ptr()), ::core::mem::transmute(ppoints.as_ptr())).ok()
+        DwmRenderGesture(::core::mem::transmute(gt), ppoints.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pdwpointerid)), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppoints))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

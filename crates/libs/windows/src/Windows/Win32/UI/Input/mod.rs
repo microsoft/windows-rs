@@ -23,7 +23,7 @@ pub unsafe fn DefRawInputProc(parawinput: &[*const RAWINPUT], cbsizeheader: u32)
         extern "system" {
             fn DefRawInputProc(parawinput: *const *const RAWINPUT, ninput: i32, cbsizeheader: u32) -> super::super::Foundation::LRESULT;
         }
-        ::core::mem::transmute(DefRawInputProc(::core::mem::transmute(parawinput.as_ptr()), parawinput.len() as _, ::core::mem::transmute(cbsizeheader)))
+        ::core::mem::transmute(DefRawInputProc(::core::mem::transmute(::windows::core::as_ptr_or_null(parawinput)), parawinput.len() as _, ::core::mem::transmute(cbsizeheader)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -936,7 +936,7 @@ pub unsafe fn RegisterRawInputDevices(prawinputdevices: &[RAWINPUTDEVICE], cbsiz
         extern "system" {
             fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(RegisterRawInputDevices(::core::mem::transmute(prawinputdevices.as_ptr()), prawinputdevices.len() as _, ::core::mem::transmute(cbsize)))
+        ::core::mem::transmute(RegisterRawInputDevices(::core::mem::transmute(::windows::core::as_ptr_or_null(prawinputdevices)), prawinputdevices.len() as _, ::core::mem::transmute(cbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

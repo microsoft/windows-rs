@@ -51,7 +51,7 @@ pub unsafe fn DRMAcquireIssuanceLicenseTemplate<'a, Param5: ::windows::core::Int
         extern "system" {
             fn DRMAcquireIssuanceLicenseTemplate(hclient: u32, uflags: u32, pvreserved: *mut ::core::ffi::c_void, ctemplates: u32, pwsztemplateids: *const ::windows::core::PWSTR, wszurl: ::windows::core::PCWSTR, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        DRMAcquireIssuanceLicenseTemplate(::core::mem::transmute(hclient), ::core::mem::transmute(uflags), ::core::mem::transmute(pvreserved), pwsztemplateids.len() as _, ::core::mem::transmute(pwsztemplateids.as_ptr()), wszurl.into_param().abi(), ::core::mem::transmute(pvcontext)).ok()
+        DRMAcquireIssuanceLicenseTemplate(::core::mem::transmute(hclient), ::core::mem::transmute(uflags), ::core::mem::transmute(pvreserved), pwsztemplateids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwsztemplateids)), wszurl.into_param().abi(), ::core::mem::transmute(pvcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -294,7 +294,7 @@ pub unsafe fn DRMConstructCertificateChain(rgwszcertificates: &[::windows::core:
         extern "system" {
             fn DRMConstructCertificateChain(ccertificates: u32, rgwszcertificates: *const ::windows::core::PWSTR, pcchain: *mut u32, wszchain: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        DRMConstructCertificateChain(rgwszcertificates.len() as _, ::core::mem::transmute(rgwszcertificates.as_ptr()), ::core::mem::transmute(pcchain), ::core::mem::transmute(wszchain)).ok()
+        DRMConstructCertificateChain(rgwszcertificates.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgwszcertificates)), ::core::mem::transmute(pcchain), ::core::mem::transmute(wszchain)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -408,7 +408,7 @@ pub unsafe fn DRMCreateRight<'a, Param0: ::windows::core::IntoParam<'a, ::window
         extern "system" {
             fn DRMCreateRight(wszrightname: ::windows::core::PCWSTR, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: *const ::windows::core::PWSTR, pwszextendedinfovalue: *const ::windows::core::PWSTR, phright: *mut u32) -> ::windows::core::HRESULT;
         }
-        DRMCreateRight(wszrightname.into_param().abi(), ::core::mem::transmute(pstfrom), ::core::mem::transmute(pstuntil), pwszextendedinfovalue.len() as _, ::core::mem::transmute(pwszextendedinfoname.as_ptr()), ::core::mem::transmute(pwszextendedinfovalue.as_ptr()), ::core::mem::transmute(phright)).ok()
+        DRMCreateRight(wszrightname.into_param().abi(), ::core::mem::transmute(pstfrom), ::core::mem::transmute(pstuntil), pwszextendedinfovalue.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszextendedinfoname)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszextendedinfovalue)), ::core::mem::transmute(phright)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

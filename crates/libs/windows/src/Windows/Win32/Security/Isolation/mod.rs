@@ -10,7 +10,7 @@ pub unsafe fn CreateAppContainerProfile<'a, Param0: ::windows::core::IntoParam<'
             fn CreateAppContainerProfile(pszappcontainername: ::windows::core::PCWSTR, pszdisplayname: ::windows::core::PCWSTR, pszdescription: ::windows::core::PCWSTR, pcapabilities: *const super::SID_AND_ATTRIBUTES, dwcapabilitycount: u32, ppsidappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
         }
         let mut result__: super::super::Foundation::PSID = ::core::mem::zeroed();
-        CreateAppContainerProfile(pszappcontainername.into_param().abi(), pszdisplayname.into_param().abi(), pszdescription.into_param().abi(), ::core::mem::transmute(pcapabilities.as_ptr()), pcapabilities.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PSID>(result__)
+        CreateAppContainerProfile(pszappcontainername.into_param().abi(), pszdisplayname.into_param().abi(), pszdescription.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcapabilities)), pcapabilities.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PSID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -86,7 +86,7 @@ pub unsafe fn GetAppContainerNamedObjectPath<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn GetAppContainerNamedObjectPath(token: super::super::Foundation::HANDLE, appcontainersid: super::super::Foundation::PSID, objectpathlength: u32, objectpath: ::windows::core::PWSTR, returnlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetAppContainerNamedObjectPath(token.into_param().abi(), appcontainersid.into_param().abi(), objectpath.len() as _, ::core::mem::transmute(objectpath.as_mut_ptr()), ::core::mem::transmute(returnlength)))
+        ::core::mem::transmute(GetAppContainerNamedObjectPath(token.into_param().abi(), appcontainersid.into_param().abi(), objectpath.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(objectpath)), ::core::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

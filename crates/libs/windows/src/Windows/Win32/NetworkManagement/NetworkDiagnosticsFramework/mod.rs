@@ -358,7 +358,7 @@ impl INetDiagExtensibleHelper {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResolveAttributes(&self, rgkeyattributes: &[HELPER_ATTRIBUTE], pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResolveAttributes)(::core::mem::transmute_copy(self), rgkeyattributes.len() as _, ::core::mem::transmute(rgkeyattributes.as_ptr()), ::core::mem::transmute(pcelt), ::core::mem::transmute(prgmatchvalues)).ok()
+        (::windows::core::Interface::vtable(self).ResolveAttributes)(::core::mem::transmute_copy(self), rgkeyattributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgkeyattributes)), ::core::mem::transmute(pcelt), ::core::mem::transmute(prgmatchvalues)).ok()
     }
 }
 impl ::core::convert::From<INetDiagExtensibleHelper> for ::windows::core::IUnknown {
@@ -417,7 +417,7 @@ impl INetDiagHelper {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize(&self, rgattributes: &[HELPER_ATTRIBUTE]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), rgattributes.len() as _, ::core::mem::transmute(rgattributes.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), rgattributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgattributes))).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
     pub unsafe fn GetDiagnosticsInfo(&self) -> ::windows::core::Result<*mut DiagnosticsInfo> {
@@ -600,7 +600,7 @@ impl INetDiagHelperEx {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReconfirmLowHealth(&self, presults: &[HypothesisResult], ppwszupdateddescription: *mut ::windows::core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReconfirmLowHealth)(::core::mem::transmute_copy(self), presults.len() as _, ::core::mem::transmute(presults.as_ptr()), ::core::mem::transmute(ppwszupdateddescription), ::core::mem::transmute(pupdatedstatus)).ok()
+        (::windows::core::Interface::vtable(self).ReconfirmLowHealth)(::core::mem::transmute_copy(self), presults.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(presults)), ::core::mem::transmute(ppwszupdateddescription), ::core::mem::transmute(pupdatedstatus)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
     pub unsafe fn SetUtilities<'a, Param0: ::windows::core::IntoParam<'a, INetDiagHelperUtilFactory>>(&self, putilities: Param0) -> ::windows::core::Result<()> {
@@ -919,7 +919,7 @@ pub unsafe fn NdfCreateIncident<'a, Param0: ::windows::core::IntoParam<'a, ::win
         extern "system" {
             fn NdfCreateIncident(helperclassname: ::windows::core::PCWSTR, celt: u32, attributes: *const HELPER_ATTRIBUTE, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        NdfCreateIncident(helperclassname.into_param().abi(), attributes.len() as _, ::core::mem::transmute(attributes.as_ptr()), ::core::mem::transmute(handle)).ok()
+        NdfCreateIncident(helperclassname.into_param().abi(), attributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(attributes)), ::core::mem::transmute(handle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

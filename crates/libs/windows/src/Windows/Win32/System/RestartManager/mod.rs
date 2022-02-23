@@ -459,7 +459,7 @@ pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: &[::window
         extern "system" {
             fn RmRegisterResources(dwsessionhandle: u32, nfiles: u32, rgsfilenames: *const ::windows::core::PWSTR, napplications: u32, rgapplications: *const RM_UNIQUE_PROCESS, nservices: u32, rgsservicenames: *const ::windows::core::PWSTR) -> u32;
         }
-        ::core::mem::transmute(RmRegisterResources(::core::mem::transmute(dwsessionhandle), rgsfilenames.len() as _, ::core::mem::transmute(rgsfilenames.as_ptr()), rgapplications.len() as _, ::core::mem::transmute(rgapplications.as_ptr()), rgsservicenames.len() as _, ::core::mem::transmute(rgsservicenames.as_ptr())))
+        ::core::mem::transmute(RmRegisterResources(::core::mem::transmute(dwsessionhandle), rgsfilenames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsfilenames)), rgapplications.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgapplications)), rgsservicenames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsservicenames))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

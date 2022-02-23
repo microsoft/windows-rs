@@ -237,7 +237,7 @@ pub unsafe fn AVIBuildFilterA<'a, Param2: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn AVIBuildFilterA(lpszfilter: ::windows::core::PSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        AVIBuildFilterA(::core::mem::transmute(lpszfilter.as_mut_ptr()), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
+        AVIBuildFilterA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilter)), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -252,7 +252,7 @@ pub unsafe fn AVIBuildFilterW<'a, Param2: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn AVIBuildFilterW(lpszfilter: ::windows::core::PWSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        AVIBuildFilterW(::core::mem::transmute(lpszfilter.as_mut_ptr()), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
+        AVIBuildFilterW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilter)), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -704,7 +704,7 @@ pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFil
         extern "system" {
             fn AVIMakeFileFromStreams(ppfile: *mut ::windows::core::RawPtr, nstreams: i32, papstreams: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        AVIMakeFileFromStreams(::core::mem::transmute(ppfile), papstreams.len() as _, ::core::mem::transmute(papstreams.as_ptr())).ok()
+        AVIMakeFileFromStreams(::core::mem::transmute(ppfile), papstreams.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(papstreams))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -921,7 +921,7 @@ pub unsafe fn AVISaveOptions<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
         }
-        ::core::mem::transmute(AVISaveOptions(hwnd.into_param().abi(), ::core::mem::transmute(uiflags), plpoptions.len() as _, ::core::mem::transmute(ppavi.as_ptr()), ::core::mem::transmute(plpoptions.as_mut_ptr())))
+        ::core::mem::transmute(AVISaveOptions(hwnd.into_param().abi(), ::core::mem::transmute(uiflags), plpoptions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppavi)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(plpoptions))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -935,7 +935,7 @@ pub unsafe fn AVISaveOptionsFree(plpoptions: &[*const AVICOMPRESSOPTIONS]) -> ::
         extern "system" {
             fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
-        AVISaveOptionsFree(plpoptions.len() as _, ::core::mem::transmute(plpoptions.as_ptr())).ok()
+        AVISaveOptionsFree(plpoptions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpoptions))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -950,7 +950,7 @@ pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::co
         extern "system" {
             fn AVISaveVA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
-        AVISaveVA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), plpoptions.len() as _, ::core::mem::transmute(ppavi.as_ptr()), ::core::mem::transmute(plpoptions.as_ptr())).ok()
+        AVISaveVA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), plpoptions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppavi)), ::core::mem::transmute(::windows::core::as_ptr_or_null(plpoptions))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -965,7 +965,7 @@ pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::co
         extern "system" {
             fn AVISaveVW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
-        AVISaveVW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), plpoptions.len() as _, ::core::mem::transmute(ppavi.as_ptr()), ::core::mem::transmute(plpoptions.as_ptr())).ok()
+        AVISaveVW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), plpoptions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppavi)), ::core::mem::transmute(::windows::core::as_ptr_or_null(plpoptions))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2599,7 +2599,7 @@ pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, lppe: &[super::super
         extern "system" {
             fn DrawDibChangePalette(hdd: isize, istart: i32, ilen: i32, lppe: *const super::super::Graphics::Gdi::PALETTEENTRY) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DrawDibChangePalette(::core::mem::transmute(hdd), ::core::mem::transmute(istart), lppe.len() as _, ::core::mem::transmute(lppe.as_ptr())))
+        ::core::mem::transmute(DrawDibChangePalette(::core::mem::transmute(hdd), ::core::mem::transmute(istart), lppe.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lppe))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17403,7 +17403,7 @@ pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], l
         extern "system" {
             fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: ::windows::core::PSTR, cbname: i32, lpszver: ::windows::core::PSTR, cbver: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(capGetDriverDescriptionA(::core::mem::transmute(wdriverindex), ::core::mem::transmute(lpszname.as_mut_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_mut_ptr()), lpszver.len() as _))
+        ::core::mem::transmute(capGetDriverDescriptionA(::core::mem::transmute(wdriverindex), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszname)), lpszname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszver)), lpszver.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17418,7 +17418,7 @@ pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], 
         extern "system" {
             fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: ::windows::core::PWSTR, cbname: i32, lpszver: ::windows::core::PWSTR, cbver: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(capGetDriverDescriptionW(::core::mem::transmute(wdriverindex), ::core::mem::transmute(lpszname.as_mut_ptr()), lpszname.len() as _, ::core::mem::transmute(lpszver.as_mut_ptr()), lpszver.len() as _))
+        ::core::mem::transmute(capGetDriverDescriptionW(::core::mem::transmute(wdriverindex), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszname)), lpszname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszver)), lpszver.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17689,7 +17689,7 @@ pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: &mut [u8]) -> super::supe
         extern "system" {
             fn mciGetErrorStringA(mcierr: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(mciGetErrorStringA(::core::mem::transmute(mcierr), ::core::mem::transmute(psztext.as_mut_ptr()), psztext.len() as _))
+        ::core::mem::transmute(mciGetErrorStringA(::core::mem::transmute(mcierr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17704,7 +17704,7 @@ pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: &mut [u16]) -> super::sup
         extern "system" {
             fn mciGetErrorStringW(mcierr: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(mciGetErrorStringW(::core::mem::transmute(mcierr), ::core::mem::transmute(psztext.as_mut_ptr()), psztext.len() as _))
+        ::core::mem::transmute(mciGetErrorStringW(::core::mem::transmute(mcierr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17776,7 +17776,7 @@ pub unsafe fn mciSendStringA<'a, Param0: ::windows::core::IntoParam<'a, ::window
         extern "system" {
             fn mciSendStringA(lpstrcommand: ::windows::core::PCSTR, lpstrreturnstring: ::windows::core::PSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
         }
-        ::core::mem::transmute(mciSendStringA(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring.as_mut_ptr()), lpstrreturnstring.len() as _, hwndcallback.into_param().abi()))
+        ::core::mem::transmute(mciSendStringA(lpstrcommand.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstrreturnstring)), lpstrreturnstring.len() as _, hwndcallback.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17791,7 +17791,7 @@ pub unsafe fn mciSendStringW<'a, Param0: ::windows::core::IntoParam<'a, ::window
         extern "system" {
             fn mciSendStringW(lpstrcommand: ::windows::core::PCWSTR, lpstrreturnstring: ::windows::core::PWSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
         }
-        ::core::mem::transmute(mciSendStringW(lpstrcommand.into_param().abi(), ::core::mem::transmute(lpstrreturnstring.as_mut_ptr()), lpstrreturnstring.len() as _, hwndcallback.into_param().abi()))
+        ::core::mem::transmute(mciSendStringW(lpstrcommand.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstrreturnstring)), lpstrreturnstring.len() as _, hwndcallback.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18154,7 +18154,7 @@ pub unsafe fn mmioSetBuffer<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(h
         extern "system" {
             fn mmioSetBuffer(hmmio: HMMIO, pchbuffer: ::windows::core::PSTR, cchbuffer: i32, fubuffer: u32) -> u32;
         }
-        ::core::mem::transmute(mmioSetBuffer(hmmio.into_param().abi(), ::core::mem::transmute(pchbuffer.as_mut_ptr()), pchbuffer.len() as _, ::core::mem::transmute(fubuffer)))
+        ::core::mem::transmute(mmioSetBuffer(hmmio.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchbuffer)), pchbuffer.len() as _, ::core::mem::transmute(fubuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -4252,7 +4252,7 @@ pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<'a, Param0: ::windows::core::I
         extern "system" {
             fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl: ::windows::core::PCWSTR, pselectioncontext: *const u8, dwselectioncontextlength: u32, dwexplicitinterfaceindex: u32, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32;
         }
-        ::core::mem::transmute(DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.into_param().abi(), ::core::mem::transmute(pselectioncontext.as_ptr()), pselectioncontext.len() as _, ::core::mem::transmute(dwexplicitinterfaceindex), ::core::mem::transmute(pproxyinfoex)))
+        ::core::mem::transmute(DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pselectioncontext)), pselectioncontext.len() as _, ::core::mem::transmute(dwexplicitinterfaceindex), ::core::mem::transmute(pproxyinfoex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4771,7 +4771,7 @@ pub unsafe fn DnsServiceConstructInstance<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn DnsServiceConstructInstance(pservicename: ::windows::core::PCWSTR, phostname: ::windows::core::PCWSTR, pip4: *const u32, pip6: *const IP6_ADDRESS, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const ::windows::core::PWSTR, values: *const ::windows::core::PWSTR) -> *mut DNS_SERVICE_INSTANCE;
         }
-        ::core::mem::transmute(DnsServiceConstructInstance(pservicename.into_param().abi(), phostname.into_param().abi(), ::core::mem::transmute(pip4), ::core::mem::transmute(pip6), ::core::mem::transmute(wport), ::core::mem::transmute(wpriority), ::core::mem::transmute(wweight), values.len() as _, ::core::mem::transmute(keys.as_ptr()), ::core::mem::transmute(values.as_ptr())))
+        ::core::mem::transmute(DnsServiceConstructInstance(pservicename.into_param().abi(), phostname.into_param().abi(), ::core::mem::transmute(pip4), ::core::mem::transmute(pip6), ::core::mem::transmute(wport), ::core::mem::transmute(wpriority), ::core::mem::transmute(wweight), values.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(keys)), ::core::mem::transmute(::windows::core::as_ptr_or_null(values))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4886,7 +4886,7 @@ pub unsafe fn DnsSetApplicationSettings(pservers: &[DNS_CUSTOM_SERVER], psetting
         extern "system" {
             fn DnsSetApplicationSettings(cservers: u32, pservers: *const DNS_CUSTOM_SERVER, psettings: *const DNS_APPLICATION_SETTINGS) -> u32;
         }
-        ::core::mem::transmute(DnsSetApplicationSettings(pservers.len() as _, ::core::mem::transmute(pservers.as_ptr()), ::core::mem::transmute(psettings)))
+        ::core::mem::transmute(DnsSetApplicationSettings(pservers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pservers)), ::core::mem::transmute(psettings)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

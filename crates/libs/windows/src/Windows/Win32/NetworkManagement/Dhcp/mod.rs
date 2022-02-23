@@ -7897,7 +7897,7 @@ pub unsafe fn DhcpServerQueryDnsRegCredentials<'a, Param0: ::windows::core::Into
         extern "system" {
             fn DhcpServerQueryDnsRegCredentials(serveripaddress: ::windows::core::PCWSTR, unamesize: u32, uname: ::windows::core::PWSTR, domainsize: u32, domain: ::windows::core::PWSTR) -> u32;
         }
-        ::core::mem::transmute(DhcpServerQueryDnsRegCredentials(serveripaddress.into_param().abi(), uname.len() as _, ::core::mem::transmute(uname.as_mut_ptr()), domain.len() as _, ::core::mem::transmute(domain.as_mut_ptr())))
+        ::core::mem::transmute(DhcpServerQueryDnsRegCredentials(serveripaddress.into_param().abi(), uname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(uname)), domain.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(domain))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

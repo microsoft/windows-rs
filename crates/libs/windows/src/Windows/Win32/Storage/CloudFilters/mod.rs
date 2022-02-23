@@ -4369,7 +4369,7 @@ pub unsafe fn CfCreatePlaceholders<'a, Param0: ::windows::core::IntoParam<'a, ::
         extern "system" {
             fn CfCreatePlaceholders(basedirectorypath: ::windows::core::PCWSTR, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::core::HRESULT;
         }
-        CfCreatePlaceholders(basedirectorypath.into_param().abi(), ::core::mem::transmute(placeholderarray.as_mut_ptr()), placeholderarray.len() as _, ::core::mem::transmute(createflags), ::core::mem::transmute(entriesprocessed)).ok()
+        CfCreatePlaceholders(basedirectorypath.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(placeholderarray)), placeholderarray.len() as _, ::core::mem::transmute(createflags), ::core::mem::transmute(entriesprocessed)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4814,7 +4814,7 @@ pub unsafe fn CfUpdatePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
-        CfUpdatePlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(fsmetadata), ::core::mem::transmute(fileidentity), ::core::mem::transmute(fileidentitylength), ::core::mem::transmute(dehydraterangearray.as_ptr()), dehydraterangearray.len() as _, ::core::mem::transmute(updateflags), ::core::mem::transmute(updateusn), ::core::mem::transmute(overlapped)).ok()
+        CfUpdatePlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(fsmetadata), ::core::mem::transmute(fileidentity), ::core::mem::transmute(fileidentitylength), ::core::mem::transmute(::windows::core::as_ptr_or_null(dehydraterangearray)), dehydraterangearray.len() as _, ::core::mem::transmute(updateflags), ::core::mem::transmute(updateusn), ::core::mem::transmute(overlapped)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

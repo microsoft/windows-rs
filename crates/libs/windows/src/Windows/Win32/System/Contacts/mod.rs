@@ -303,11 +303,11 @@ pub struct IContact(::windows::core::IUnknown);
 impl IContact {
     #[doc = "*Required features: 'Win32_System_Contacts'*"]
     pub unsafe fn GetContactID(&self, pszcontactid: &mut [u16], pdwcchcontactidrequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetContactID)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszcontactid.as_mut_ptr()), pszcontactid.len() as _, ::core::mem::transmute(pdwcchcontactidrequired)).ok()
+        (::windows::core::Interface::vtable(self).GetContactID)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszcontactid)), pszcontactid.len() as _, ::core::mem::transmute(pdwcchcontactidrequired)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Contacts'*"]
     pub unsafe fn GetPath(&self, pszpath: &mut [u16], pdwcchpathrequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len() as _, ::core::mem::transmute(pdwcchpathrequired)).ok()
+        (::windows::core::Interface::vtable(self).GetPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszpath)), pszpath.len() as _, ::core::mem::transmute(pdwcchpathrequired)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Contacts'*"]
     pub unsafe fn CommitChanges(&self, dwcommitflags: u32) -> ::windows::core::Result<()> {
@@ -1742,7 +1742,7 @@ pub struct IContactProperties(::windows::core::IUnknown);
 impl IContactProperties {
     #[doc = "*Required features: 'Win32_System_Contacts'*"]
     pub unsafe fn GetString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpropertyname: Param0, dwflags: u32, pszvalue: &mut [u16], pdwcchpropertyvaluerequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetString)(::core::mem::transmute_copy(self), pszpropertyname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszvalue.as_mut_ptr()), pszvalue.len() as _, ::core::mem::transmute(pdwcchpropertyvaluerequired)).ok()
+        (::windows::core::Interface::vtable(self).GetString)(::core::mem::transmute_copy(self), pszpropertyname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszvalue)), pszvalue.len() as _, ::core::mem::transmute(pdwcchpropertyvaluerequired)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Contacts', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1752,11 +1752,11 @@ impl IContactProperties {
     #[doc = "*Required features: 'Win32_System_Contacts', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBinary<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpropertyname: Param0, dwflags: u32, pszcontenttype: &mut [u16], pdwcchcontenttyperequired: *mut u32, ppstream: *mut ::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBinary)(::core::mem::transmute_copy(self), pszpropertyname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszcontenttype.as_mut_ptr()), pszcontenttype.len() as _, ::core::mem::transmute(pdwcchcontenttyperequired), ::core::mem::transmute(ppstream)).ok()
+        (::windows::core::Interface::vtable(self).GetBinary)(::core::mem::transmute_copy(self), pszpropertyname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszcontenttype)), pszcontenttype.len() as _, ::core::mem::transmute(pdwcchcontenttyperequired), ::core::mem::transmute(ppstream)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Contacts'*"]
     pub unsafe fn GetLabels<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszarrayelementname: Param0, dwflags: u32, pszlabels: &mut [u16], pdwcchlabelsrequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLabels)(::core::mem::transmute_copy(self), pszarrayelementname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pszlabels.as_mut_ptr()), pszlabels.len() as _, ::core::mem::transmute(pdwcchlabelsrequired)).ok()
+        (::windows::core::Interface::vtable(self).GetLabels)(::core::mem::transmute_copy(self), pszarrayelementname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszlabels)), pszlabels.len() as _, ::core::mem::transmute(pdwcchlabelsrequired)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Contacts'*"]
     pub unsafe fn SetString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpropertyname: Param0, dwflags: u32, pszvalue: Param2) -> ::windows::core::Result<()> {
@@ -1774,12 +1774,12 @@ impl IContactProperties {
     }
     #[doc = "*Required features: 'Win32_System_Contacts'*"]
     pub unsafe fn SetLabels<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszarrayelementname: Param0, dwflags: u32, ppszlabels: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabels)(::core::mem::transmute_copy(self), pszarrayelementname.into_param().abi(), ::core::mem::transmute(dwflags), ppszlabels.len() as _, ::core::mem::transmute(ppszlabels.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetLabels)(::core::mem::transmute_copy(self), pszarrayelementname.into_param().abi(), ::core::mem::transmute(dwflags), ppszlabels.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppszlabels))).ok()
     }
     #[doc = "*Required features: 'Win32_System_Contacts', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateArrayNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszarrayname: Param0, dwflags: u32, fappend: Param2, psznewarrayelementname: &mut [u16], pdwcchnewarrayelementnamerequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateArrayNode)(::core::mem::transmute_copy(self), pszarrayname.into_param().abi(), ::core::mem::transmute(dwflags), fappend.into_param().abi(), ::core::mem::transmute(psznewarrayelementname.as_mut_ptr()), psznewarrayelementname.len() as _, ::core::mem::transmute(pdwcchnewarrayelementnamerequired)).ok()
+        (::windows::core::Interface::vtable(self).CreateArrayNode)(::core::mem::transmute_copy(self), pszarrayname.into_param().abi(), ::core::mem::transmute(dwflags), fappend.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psznewarrayelementname)), psznewarrayelementname.len() as _, ::core::mem::transmute(pdwcchnewarrayelementnamerequired)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Contacts'*"]
     pub unsafe fn DeleteProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpropertyname: Param0, dwflags: u32) -> ::windows::core::Result<()> {
@@ -1796,7 +1796,7 @@ impl IContactProperties {
     #[doc = "*Required features: 'Win32_System_Contacts', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyCollection<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pppropertycollection: *mut ::core::option::Option<IContactPropertyCollection>, dwflags: u32, pszmultivaluename: Param2, ppszlabels: &[::windows::core::PWSTR], fanylabelmatches: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppropertycollection), ::core::mem::transmute(dwflags), pszmultivaluename.into_param().abi(), ppszlabels.len() as _, ::core::mem::transmute(ppszlabels.as_ptr()), fanylabelmatches.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetPropertyCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(pppropertycollection), ::core::mem::transmute(dwflags), pszmultivaluename.into_param().abi(), ppszlabels.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppszlabels)), fanylabelmatches.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IContactProperties> for ::windows::core::IUnknown {
@@ -1889,7 +1889,7 @@ impl IContactPropertyCollection {
     }
     #[doc = "*Required features: 'Win32_System_Contacts'*"]
     pub unsafe fn GetPropertyName(&self, pszpropertyname: &mut [u16], pdwcchpropertynamerequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszpropertyname.as_mut_ptr()), pszpropertyname.len() as _, ::core::mem::transmute(pdwcchpropertynamerequired)).ok()
+        (::windows::core::Interface::vtable(self).GetPropertyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszpropertyname)), pszpropertyname.len() as _, ::core::mem::transmute(pdwcchpropertynamerequired)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Contacts'*"]
     pub unsafe fn GetPropertyType(&self, pdwtype: *mut u32) -> ::windows::core::Result<()> {
@@ -1906,7 +1906,7 @@ impl IContactPropertyCollection {
     }
     #[doc = "*Required features: 'Win32_System_Contacts'*"]
     pub unsafe fn GetPropertyArrayElementID(&self, pszarrayelementid: &mut [u16], pdwccharrayelementidrequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyArrayElementID)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszarrayelementid.as_mut_ptr()), pszarrayelementid.len() as _, ::core::mem::transmute(pdwccharrayelementidrequired)).ok()
+        (::windows::core::Interface::vtable(self).GetPropertyArrayElementID)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszarrayelementid)), pszarrayelementid.len() as _, ::core::mem::transmute(pdwccharrayelementidrequired)).ok()
     }
 }
 impl ::core::convert::From<IContactPropertyCollection> for ::windows::core::IUnknown {

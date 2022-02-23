@@ -446,7 +446,7 @@ pub unsafe fn GetDllDirectoryA(lpbuffer: &mut [u8]) -> u32 {
         extern "system" {
             fn GetDllDirectoryA(nbufferlength: u32, lpbuffer: ::windows::core::PSTR) -> u32;
         }
-        ::core::mem::transmute(GetDllDirectoryA(lpbuffer.len() as _, ::core::mem::transmute(lpbuffer.as_mut_ptr())))
+        ::core::mem::transmute(GetDllDirectoryA(lpbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -460,7 +460,7 @@ pub unsafe fn GetDllDirectoryW(lpbuffer: &mut [u16]) -> u32 {
         extern "system" {
             fn GetDllDirectoryW(nbufferlength: u32, lpbuffer: ::windows::core::PWSTR) -> u32;
         }
-        ::core::mem::transmute(GetDllDirectoryW(lpbuffer.len() as _, ::core::mem::transmute(lpbuffer.as_mut_ptr())))
+        ::core::mem::transmute(GetDllDirectoryW(lpbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -475,7 +475,7 @@ pub unsafe fn GetModuleFileNameA<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn GetModuleFileNameA(hmodule: super::super::Foundation::HINSTANCE, lpfilename: ::windows::core::PSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(GetModuleFileNameA(hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_mut_ptr()), lpfilename.len() as _))
+        ::core::mem::transmute(GetModuleFileNameA(hmodule.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -490,7 +490,7 @@ pub unsafe fn GetModuleFileNameW<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn GetModuleFileNameW(hmodule: super::super::Foundation::HINSTANCE, lpfilename: ::windows::core::PWSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(GetModuleFileNameW(hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_mut_ptr()), lpfilename.len() as _))
+        ::core::mem::transmute(GetModuleFileNameW(hmodule.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

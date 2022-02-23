@@ -2691,7 +2691,7 @@ pub unsafe fn WinHttpAddRequestHeaders(hrequest: *mut ::core::ffi::c_void, lpszh
         extern "system" {
             fn WinHttpAddRequestHeaders(hrequest: *mut ::core::ffi::c_void, lpszheaders: ::windows::core::PCWSTR, dwheaderslength: u32, dwmodifiers: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WinHttpAddRequestHeaders(::core::mem::transmute(hrequest), ::core::mem::transmute(lpszheaders.as_ptr()), lpszheaders.len() as _, ::core::mem::transmute(dwmodifiers)))
+        ::core::mem::transmute(WinHttpAddRequestHeaders(::core::mem::transmute(hrequest), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszheaders)), lpszheaders.len() as _, ::core::mem::transmute(dwmodifiers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2705,7 +2705,7 @@ pub unsafe fn WinHttpAddRequestHeadersEx(hrequest: *mut ::core::ffi::c_void, dwm
         extern "system" {
             fn WinHttpAddRequestHeadersEx(hrequest: *mut ::core::ffi::c_void, dwmodifiers: u32, ullflags: u64, ullextra: u64, cheaders: u32, pheaders: *const WINHTTP_EXTENDED_HEADER) -> u32;
         }
-        ::core::mem::transmute(WinHttpAddRequestHeadersEx(::core::mem::transmute(hrequest), ::core::mem::transmute(dwmodifiers), ::core::mem::transmute(ullflags), ::core::mem::transmute(ullextra), pheaders.len() as _, ::core::mem::transmute(pheaders.as_ptr())))
+        ::core::mem::transmute(WinHttpAddRequestHeadersEx(::core::mem::transmute(hrequest), ::core::mem::transmute(dwmodifiers), ::core::mem::transmute(ullflags), ::core::mem::transmute(ullextra), pheaders.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pheaders))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2764,7 +2764,7 @@ pub unsafe fn WinHttpCrackUrl(pwszurl: &[u16], dwflags: u32, lpurlcomponents: *m
         extern "system" {
             fn WinHttpCrackUrl(pwszurl: ::windows::core::PCWSTR, dwurllength: u32, dwflags: u32, lpurlcomponents: *mut URL_COMPONENTS) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WinHttpCrackUrl(::core::mem::transmute(pwszurl.as_ptr()), pwszurl.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(lpurlcomponents)))
+        ::core::mem::transmute(WinHttpCrackUrl(::core::mem::transmute(::windows::core::as_ptr_or_null(pwszurl)), pwszurl.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(lpurlcomponents)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3190,7 +3190,7 @@ pub unsafe fn WinHttpSendRequest(hrequest: *mut ::core::ffi::c_void, lpszheaders
         extern "system" {
             fn WinHttpSendRequest(hrequest: *mut ::core::ffi::c_void, lpszheaders: ::windows::core::PCWSTR, dwheaderslength: u32, lpoptional: *const ::core::ffi::c_void, dwoptionallength: u32, dwtotallength: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WinHttpSendRequest(::core::mem::transmute(hrequest), ::core::mem::transmute(lpszheaders.as_ptr()), lpszheaders.len() as _, ::core::mem::transmute(lpoptional), ::core::mem::transmute(dwoptionallength), ::core::mem::transmute(dwtotallength), ::core::mem::transmute(dwcontext)))
+        ::core::mem::transmute(WinHttpSendRequest(::core::mem::transmute(hrequest), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszheaders)), lpszheaders.len() as _, ::core::mem::transmute(lpoptional), ::core::mem::transmute(dwoptionallength), ::core::mem::transmute(dwtotallength), ::core::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3235,7 +3235,7 @@ pub unsafe fn WinHttpSetOption(hinternet: *const ::core::ffi::c_void, dwoption: 
         extern "system" {
             fn WinHttpSetOption(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WinHttpSetOption(::core::mem::transmute(hinternet), ::core::mem::transmute(dwoption), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _))
+        ::core::mem::transmute(WinHttpSetOption(::core::mem::transmute(hinternet), ::core::mem::transmute(dwoption), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3379,7 +3379,7 @@ pub unsafe fn WinHttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, ebuff
         extern "system" {
             fn WinHttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, ebuffertype: WINHTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> u32;
         }
-        ::core::mem::transmute(WinHttpWebSocketSend(::core::mem::transmute(hwebsocket), ::core::mem::transmute(ebuffertype), ::core::mem::transmute(pvbuffer.as_ptr()), pvbuffer.len() as _))
+        ::core::mem::transmute(WinHttpWebSocketSend(::core::mem::transmute(hwebsocket), ::core::mem::transmute(ebuffertype), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvbuffer)), pvbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

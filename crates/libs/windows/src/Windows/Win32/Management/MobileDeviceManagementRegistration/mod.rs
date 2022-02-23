@@ -91,7 +91,7 @@ pub unsafe fn GetManagementAppHyperlink(pszhyperlink: &mut [u16]) -> ::windows::
         extern "system" {
             fn GetManagementAppHyperlink(cchhyperlink: u32, pszhyperlink: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        GetManagementAppHyperlink(pszhyperlink.len() as _, ::core::mem::transmute(pszhyperlink.as_mut_ptr())).ok()
+        GetManagementAppHyperlink(pszhyperlink.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszhyperlink))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -106,7 +106,7 @@ pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagemen
         extern "system" {
             fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL, cchupn: u32, pszupn: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        IsDeviceRegisteredWithManagement(::core::mem::transmute(pfisdeviceregisteredwithmanagement), pszupn.len() as _, ::core::mem::transmute(pszupn.as_mut_ptr())).ok()
+        IsDeviceRegisteredWithManagement(::core::mem::transmute(pfisdeviceregisteredwithmanagement), pszupn.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszupn))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

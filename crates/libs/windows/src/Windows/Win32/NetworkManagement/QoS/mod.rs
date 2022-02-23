@@ -4646,7 +4646,7 @@ pub unsafe fn TcGetFlowNameA<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn TcGetFlowNameA(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: ::windows::core::PSTR) -> u32;
         }
-        ::core::mem::transmute(TcGetFlowNameA(flowhandle.into_param().abi(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_mut_ptr())))
+        ::core::mem::transmute(TcGetFlowNameA(flowhandle.into_param().abi(), pflowname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pflowname))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4661,7 +4661,7 @@ pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn TcGetFlowNameW(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: ::windows::core::PWSTR) -> u32;
         }
-        ::core::mem::transmute(TcGetFlowNameW(flowhandle.into_param().abi(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_mut_ptr())))
+        ::core::mem::transmute(TcGetFlowNameW(flowhandle.into_param().abi(), pflowname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pflowname))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

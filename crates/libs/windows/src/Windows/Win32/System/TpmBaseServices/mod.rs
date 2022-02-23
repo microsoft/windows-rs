@@ -24,7 +24,7 @@ pub unsafe fn GetDeviceIDString(pszwindowsaik: &mut [u16], pcchresult: *mut u32,
         extern "system" {
             fn GetDeviceIDString(pszwindowsaik: ::windows::core::PWSTR, cchwindowsaik: u32, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        GetDeviceIDString(::core::mem::transmute(pszwindowsaik.as_mut_ptr()), pszwindowsaik.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
+        GetDeviceIDString(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszwindowsaik)), pszwindowsaik.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -789,7 +789,7 @@ pub unsafe fn GetSystemDirectoryA(lpbuffer: &mut [u8]) -> u32 {
         extern "system" {
             fn GetSystemDirectoryA(lpbuffer: ::windows::core::PSTR, usize: u32) -> u32;
         }
-        ::core::mem::transmute(GetSystemDirectoryA(::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
+        ::core::mem::transmute(GetSystemDirectoryA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -803,7 +803,7 @@ pub unsafe fn GetSystemDirectoryW(lpbuffer: &mut [u16]) -> u32 {
         extern "system" {
             fn GetSystemDirectoryW(lpbuffer: ::windows::core::PWSTR, usize: u32) -> u32;
         }
-        ::core::mem::transmute(GetSystemDirectoryW(::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
+        ::core::mem::transmute(GetSystemDirectoryW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -936,7 +936,7 @@ pub unsafe fn GetSystemWindowsDirectoryA(lpbuffer: &mut [u8]) -> u32 {
         extern "system" {
             fn GetSystemWindowsDirectoryA(lpbuffer: ::windows::core::PSTR, usize: u32) -> u32;
         }
-        ::core::mem::transmute(GetSystemWindowsDirectoryA(::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
+        ::core::mem::transmute(GetSystemWindowsDirectoryA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -950,7 +950,7 @@ pub unsafe fn GetSystemWindowsDirectoryW(lpbuffer: &mut [u16]) -> u32 {
         extern "system" {
             fn GetSystemWindowsDirectoryW(lpbuffer: ::windows::core::PWSTR, usize: u32) -> u32;
         }
-        ::core::mem::transmute(GetSystemWindowsDirectoryW(::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
+        ::core::mem::transmute(GetSystemWindowsDirectoryW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -964,7 +964,7 @@ pub unsafe fn GetSystemWow64Directory2A(lpbuffer: &mut [u8], imagefilemachinetyp
         extern "system" {
             fn GetSystemWow64Directory2A(lpbuffer: ::windows::core::PSTR, usize: u32, imagefilemachinetype: u16) -> u32;
         }
-        ::core::mem::transmute(GetSystemWow64Directory2A(::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _, ::core::mem::transmute(imagefilemachinetype)))
+        ::core::mem::transmute(GetSystemWow64Directory2A(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(imagefilemachinetype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -978,7 +978,7 @@ pub unsafe fn GetSystemWow64Directory2W(lpbuffer: &mut [u16], imagefilemachinety
         extern "system" {
             fn GetSystemWow64Directory2W(lpbuffer: ::windows::core::PWSTR, usize: u32, imagefilemachinetype: u16) -> u32;
         }
-        ::core::mem::transmute(GetSystemWow64Directory2W(::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _, ::core::mem::transmute(imagefilemachinetype)))
+        ::core::mem::transmute(GetSystemWow64Directory2W(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(imagefilemachinetype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -992,7 +992,7 @@ pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: &mut [u8]) -> u32 {
         extern "system" {
             fn GetSystemWow64DirectoryA(lpbuffer: ::windows::core::PSTR, usize: u32) -> u32;
         }
-        ::core::mem::transmute(GetSystemWow64DirectoryA(::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
+        ::core::mem::transmute(GetSystemWow64DirectoryA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1006,7 +1006,7 @@ pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: &mut [u16]) -> u32 {
         extern "system" {
             fn GetSystemWow64DirectoryW(lpbuffer: ::windows::core::PWSTR, usize: u32) -> u32;
         }
-        ::core::mem::transmute(GetSystemWow64DirectoryW(::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
+        ::core::mem::transmute(GetSystemWow64DirectoryW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1092,7 +1092,7 @@ pub unsafe fn GetWindowsDirectoryA(lpbuffer: &mut [u8]) -> u32 {
         extern "system" {
             fn GetWindowsDirectoryA(lpbuffer: ::windows::core::PSTR, usize: u32) -> u32;
         }
-        ::core::mem::transmute(GetWindowsDirectoryA(::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
+        ::core::mem::transmute(GetWindowsDirectoryA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1106,7 +1106,7 @@ pub unsafe fn GetWindowsDirectoryW(lpbuffer: &mut [u16]) -> u32 {
         extern "system" {
             fn GetWindowsDirectoryW(lpbuffer: ::windows::core::PWSTR, usize: u32) -> u32;
         }
-        ::core::mem::transmute(GetWindowsDirectoryW(::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
+        ::core::mem::transmute(GetWindowsDirectoryW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

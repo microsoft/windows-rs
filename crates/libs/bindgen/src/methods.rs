@@ -354,9 +354,9 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
 
         if let Some(ArrayInfo::RelativeSize(_)) = array_info {
             if param.def.flags().output() {
-                tokens.combine(&quote! { ::core::mem::transmute(#name.as_mut_ptr()), });
+                tokens.combine(&quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), });
             } else {
-                tokens.combine(&quote! { ::core::mem::transmute(#name.as_ptr()), });
+                tokens.combine(&quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), });
             }
             continue;
         }

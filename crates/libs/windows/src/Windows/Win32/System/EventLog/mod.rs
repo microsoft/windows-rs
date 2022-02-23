@@ -1422,7 +1422,7 @@ pub unsafe fn EvtCreateRenderContext(valuepaths: &[::windows::core::PWSTR], flag
         extern "system" {
             fn EvtCreateRenderContext(valuepathscount: u32, valuepaths: *const ::windows::core::PWSTR, flags: u32) -> isize;
         }
-        ::core::mem::transmute(EvtCreateRenderContext(valuepaths.len() as _, ::core::mem::transmute(valuepaths.as_ptr()), ::core::mem::transmute(flags)))
+        ::core::mem::transmute(EvtCreateRenderContext(valuepaths.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(valuepaths)), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1452,7 +1452,7 @@ pub unsafe fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid
         extern "system" {
             fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid: u32, valuecount: u32, values: *const EVT_VARIANT, flags: u32, buffersize: u32, buffer: ::windows::core::PWSTR, bufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EvtFormatMessage(::core::mem::transmute(publishermetadata), ::core::mem::transmute(event), ::core::mem::transmute(messageid), values.len() as _, ::core::mem::transmute(values.as_ptr()), ::core::mem::transmute(flags), buffer.len() as _, ::core::mem::transmute(buffer.as_mut_ptr()), ::core::mem::transmute(bufferused)))
+        ::core::mem::transmute(EvtFormatMessage(::core::mem::transmute(publishermetadata), ::core::mem::transmute(event), ::core::mem::transmute(messageid), values.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(values)), ::core::mem::transmute(flags), buffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), ::core::mem::transmute(bufferused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1511,7 +1511,7 @@ pub unsafe fn EvtGetExtendedStatus(buffer: &mut [u16], bufferused: *mut u32) -> 
         extern "system" {
             fn EvtGetExtendedStatus(buffersize: u32, buffer: ::windows::core::PWSTR, bufferused: *mut u32) -> u32;
         }
-        ::core::mem::transmute(EvtGetExtendedStatus(buffer.len() as _, ::core::mem::transmute(buffer.as_mut_ptr()), ::core::mem::transmute(bufferused)))
+        ::core::mem::transmute(EvtGetExtendedStatus(buffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), ::core::mem::transmute(bufferused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1601,7 +1601,7 @@ pub unsafe fn EvtNext(resultset: isize, events: &mut [isize], timeout: u32, flag
         extern "system" {
             fn EvtNext(resultset: isize, eventssize: u32, events: *mut isize, timeout: u32, flags: u32, returned: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EvtNext(::core::mem::transmute(resultset), events.len() as _, ::core::mem::transmute(events.as_mut_ptr()), ::core::mem::transmute(timeout), ::core::mem::transmute(flags), ::core::mem::transmute(returned)))
+        ::core::mem::transmute(EvtNext(::core::mem::transmute(resultset), events.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(events)), ::core::mem::transmute(timeout), ::core::mem::transmute(flags), ::core::mem::transmute(returned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1616,7 +1616,7 @@ pub unsafe fn EvtNextChannelPath(channelenum: isize, channelpathbuffer: &mut [u1
         extern "system" {
             fn EvtNextChannelPath(channelenum: isize, channelpathbuffersize: u32, channelpathbuffer: ::windows::core::PWSTR, channelpathbufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EvtNextChannelPath(::core::mem::transmute(channelenum), channelpathbuffer.len() as _, ::core::mem::transmute(channelpathbuffer.as_mut_ptr()), ::core::mem::transmute(channelpathbufferused)))
+        ::core::mem::transmute(EvtNextChannelPath(::core::mem::transmute(channelenum), channelpathbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(channelpathbuffer)), ::core::mem::transmute(channelpathbufferused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1645,7 +1645,7 @@ pub unsafe fn EvtNextPublisherId(publisherenum: isize, publisheridbuffer: &mut [
         extern "system" {
             fn EvtNextPublisherId(publisherenum: isize, publisheridbuffersize: u32, publisheridbuffer: ::windows::core::PWSTR, publisheridbufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EvtNextPublisherId(::core::mem::transmute(publisherenum), publisheridbuffer.len() as _, ::core::mem::transmute(publisheridbuffer.as_mut_ptr()), ::core::mem::transmute(publisheridbufferused)))
+        ::core::mem::transmute(EvtNextPublisherId(::core::mem::transmute(publisherenum), publisheridbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(publisheridbuffer)), ::core::mem::transmute(publisheridbufferused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2098,7 +2098,7 @@ pub unsafe fn ReportEventA<'a, Param0: ::windows::core::IntoParam<'a, EventSourc
         extern "system" {
             fn ReportEventA(heventlog: EventSourceHandle, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const ::windows::core::PSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReportEventA(heventlog.into_param().abi(), ::core::mem::transmute(wtype), ::core::mem::transmute(wcategory), ::core::mem::transmute(dweventid), lpusersid.into_param().abi(), lpstrings.len() as _, ::core::mem::transmute(dwdatasize), ::core::mem::transmute(lpstrings.as_ptr()), ::core::mem::transmute(lprawdata)))
+        ::core::mem::transmute(ReportEventA(heventlog.into_param().abi(), ::core::mem::transmute(wtype), ::core::mem::transmute(wcategory), ::core::mem::transmute(dweventid), lpusersid.into_param().abi(), lpstrings.len() as _, ::core::mem::transmute(dwdatasize), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstrings)), ::core::mem::transmute(lprawdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2113,7 +2113,7 @@ pub unsafe fn ReportEventW<'a, Param0: ::windows::core::IntoParam<'a, EventSourc
         extern "system" {
             fn ReportEventW(heventlog: EventSourceHandle, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const ::windows::core::PWSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReportEventW(heventlog.into_param().abi(), ::core::mem::transmute(wtype), ::core::mem::transmute(wcategory), ::core::mem::transmute(dweventid), lpusersid.into_param().abi(), lpstrings.len() as _, ::core::mem::transmute(dwdatasize), ::core::mem::transmute(lpstrings.as_ptr()), ::core::mem::transmute(lprawdata)))
+        ::core::mem::transmute(ReportEventW(heventlog.into_param().abi(), ::core::mem::transmute(wtype), ::core::mem::transmute(wcategory), ::core::mem::transmute(dweventid), lpusersid.into_param().abi(), lpstrings.len() as _, ::core::mem::transmute(dwdatasize), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstrings)), ::core::mem::transmute(lprawdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

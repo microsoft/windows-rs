@@ -2900,7 +2900,7 @@ pub unsafe fn DlgDirSelectComboBoxExA<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn DlgDirSelectComboBoxExA(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DlgDirSelectComboBoxExA(hwnddlg.into_param().abi(), ::core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len() as _, ::core::mem::transmute(idcombobox)))
+        ::core::mem::transmute(DlgDirSelectComboBoxExA(hwnddlg.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(idcombobox)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2915,7 +2915,7 @@ pub unsafe fn DlgDirSelectComboBoxExW<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn DlgDirSelectComboBoxExW(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PWSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DlgDirSelectComboBoxExW(hwnddlg.into_param().abi(), ::core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len() as _, ::core::mem::transmute(idcombobox)))
+        ::core::mem::transmute(DlgDirSelectComboBoxExW(hwnddlg.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(idcombobox)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2930,7 +2930,7 @@ pub unsafe fn DlgDirSelectExA<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn DlgDirSelectExA(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DlgDirSelectExA(hwnddlg.into_param().abi(), ::core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len() as _, ::core::mem::transmute(idlistbox)))
+        ::core::mem::transmute(DlgDirSelectExA(hwnddlg.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(idlistbox)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2945,7 +2945,7 @@ pub unsafe fn DlgDirSelectExW<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn DlgDirSelectExW(hwnddlg: super::super::Foundation::HWND, lpstring: ::windows::core::PWSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DlgDirSelectExW(hwnddlg.into_param().abi(), ::core::mem::transmute(lpstring.as_mut_ptr()), lpstring.len() as _, ::core::mem::transmute(idlistbox)))
+        ::core::mem::transmute(DlgDirSelectExW(hwnddlg.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(idlistbox)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2975,7 +2975,7 @@ pub unsafe fn DrawShadowText<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn DrawShadowText(hdc: super::super::Graphics::Gdi::HDC, psztext: ::windows::core::PCWSTR, cch: u32, prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: u32, crshadow: u32, ixoffset: i32, iyoffset: i32) -> i32;
         }
-        ::core::mem::transmute(DrawShadowText(hdc.into_param().abi(), ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, ::core::mem::transmute(prc), ::core::mem::transmute(dwflags), ::core::mem::transmute(crtext), ::core::mem::transmute(crshadow), ::core::mem::transmute(ixoffset), ::core::mem::transmute(iyoffset)))
+        ::core::mem::transmute(DrawShadowText(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, ::core::mem::transmute(prc), ::core::mem::transmute(dwflags), ::core::mem::transmute(crtext), ::core::mem::transmute(crshadow), ::core::mem::transmute(ixoffset), ::core::mem::transmute(iyoffset)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3111,7 +3111,7 @@ pub unsafe fn DrawThemeText<'a, Param1: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn DrawThemeText(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchtext: i32, dwtextflags: u32, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
-        DrawThemeText(::core::mem::transmute(htheme), hdc.into_param().abi(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, ::core::mem::transmute(dwtextflags), ::core::mem::transmute(dwtextflags2), ::core::mem::transmute(prect)).ok()
+        DrawThemeText(::core::mem::transmute(htheme), hdc.into_param().abi(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, ::core::mem::transmute(dwtextflags), ::core::mem::transmute(dwtextflags2), ::core::mem::transmute(prect)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3126,7 +3126,7 @@ pub unsafe fn DrawThemeTextEx<'a, Param1: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn DrawThemeTextEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchtext: i32, dwtextflags: u32, prect: *mut super::super::Foundation::RECT, poptions: *const DTTOPTS) -> ::windows::core::HRESULT;
         }
-        DrawThemeTextEx(::core::mem::transmute(htheme), hdc.into_param().abi(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, ::core::mem::transmute(dwtextflags), ::core::mem::transmute(prect), ::core::mem::transmute(poptions)).ok()
+        DrawThemeTextEx(::core::mem::transmute(htheme), hdc.into_param().abi(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, ::core::mem::transmute(dwtextflags), ::core::mem::transmute(prect), ::core::mem::transmute(poptions)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3567,7 +3567,7 @@ pub unsafe fn EvaluateProximityToPolygon(controlpolygon: &[super::super::Foundat
         extern "system" {
             fn EvaluateProximityToPolygon(numvertices: u32, controlpolygon: *const super::super::Foundation::POINT, phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EvaluateProximityToPolygon(controlpolygon.len() as _, ::core::mem::transmute(controlpolygon.as_ptr()), ::core::mem::transmute(phittestinginput), ::core::mem::transmute(pproximityeval)))
+        ::core::mem::transmute(EvaluateProximityToPolygon(controlpolygon.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(controlpolygon)), ::core::mem::transmute(phittestinginput), ::core::mem::transmute(pproximityeval)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4124,7 +4124,7 @@ pub unsafe fn GetCurrentThemeName(pszthemefilename: &mut [u16], pszcolorbuff: &m
         extern "system" {
             fn GetCurrentThemeName(pszthemefilename: ::windows::core::PWSTR, cchmaxnamechars: i32, pszcolorbuff: ::windows::core::PWSTR, cchmaxcolorchars: i32, pszsizebuff: ::windows::core::PWSTR, cchmaxsizechars: i32) -> ::windows::core::HRESULT;
         }
-        GetCurrentThemeName(::core::mem::transmute(pszthemefilename.as_mut_ptr()), pszthemefilename.len() as _, ::core::mem::transmute(pszcolorbuff.as_mut_ptr()), pszcolorbuff.len() as _, ::core::mem::transmute(pszsizebuff.as_mut_ptr()), pszsizebuff.len() as _).ok()
+        GetCurrentThemeName(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszthemefilename)), pszthemefilename.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszcolorbuff)), pszcolorbuff.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszsizebuff)), pszsizebuff.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4319,7 +4319,7 @@ pub unsafe fn GetThemeDocumentationProperty<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn GetThemeDocumentationProperty(pszthemename: ::windows::core::PCWSTR, pszpropertyname: ::windows::core::PCWSTR, pszvaluebuff: ::windows::core::PWSTR, cchmaxvalchars: i32) -> ::windows::core::HRESULT;
         }
-        GetThemeDocumentationProperty(pszthemename.into_param().abi(), pszpropertyname.into_param().abi(), ::core::mem::transmute(pszvaluebuff.as_mut_ptr()), pszvaluebuff.len() as _).ok()
+        GetThemeDocumentationProperty(pszthemename.into_param().abi(), pszpropertyname.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszvaluebuff)), pszvaluebuff.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4348,7 +4348,7 @@ pub unsafe fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, iprop
         extern "system" {
             fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszthemefilename: ::windows::core::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::HRESULT;
         }
-        GetThemeFilename(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(pszthemefilename.as_mut_ptr()), pszthemefilename.len() as _).ok()
+        GetThemeFilename(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszthemefilename)), pszthemefilename.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4518,7 +4518,7 @@ pub unsafe fn GetThemeString(htheme: isize, ipartid: i32, istateid: i32, ipropid
         extern "system" {
             fn GetThemeString(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: ::windows::core::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::HRESULT;
         }
-        GetThemeString(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(pszbuff.as_mut_ptr()), pszbuff.len() as _).ok()
+        GetThemeString(::core::mem::transmute(htheme), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(ipropid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuff)), pszbuff.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4621,7 +4621,7 @@ pub unsafe fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_
         extern "system" {
             fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: ::windows::core::PWSTR, cchmaxstringchars: i32) -> ::windows::core::HRESULT;
         }
-        GetThemeSysString(::core::mem::transmute(htheme), ::core::mem::transmute(istringid), ::core::mem::transmute(pszstringbuff.as_mut_ptr()), pszstringbuff.len() as _).ok()
+        GetThemeSysString(::core::mem::transmute(htheme), ::core::mem::transmute(istringid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszstringbuff)), pszstringbuff.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4637,7 +4637,7 @@ pub unsafe fn GetThemeTextExtent<'a, Param1: ::windows::core::IntoParam<'a, supe
             fn GetThemeTextExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchcharcount: i32, dwtextflags: u32, pboundingrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
         let mut result__: super::super::Foundation::RECT = ::core::mem::zeroed();
-        GetThemeTextExtent(::core::mem::transmute(htheme), hdc.into_param().abi(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, ::core::mem::transmute(dwtextflags), ::core::mem::transmute(pboundingrect), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECT>(result__)
+        GetThemeTextExtent(::core::mem::transmute(htheme), hdc.into_param().abi(), ::core::mem::transmute(ipartid), ::core::mem::transmute(istateid), ::core::mem::transmute(::windows::core::as_ptr_or_null(psztext)), psztext.len() as _, ::core::mem::transmute(dwtextflags), ::core::mem::transmute(pboundingrect), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

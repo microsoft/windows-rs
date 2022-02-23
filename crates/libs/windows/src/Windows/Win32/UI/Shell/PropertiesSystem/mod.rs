@@ -9,7 +9,7 @@ pub unsafe fn ClearPropVariantArray(rgpropvar: &mut [super::super::super::System
         extern "system" {
             fn ClearPropVariantArray(rgpropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, cvars: u32);
         }
-        ClearPropVariantArray(::core::mem::transmute(rgpropvar.as_mut_ptr()), rgpropvar.len() as _)
+        ClearPropVariantArray(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpropvar)), rgpropvar.len() as _)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -24,7 +24,7 @@ pub unsafe fn ClearVariantArray(pvars: &mut [super::super::super::System::Com::V
         extern "system" {
             fn ClearVariantArray(pvars: *mut super::super::super::System::Com::VARIANT, cvars: u32);
         }
-        ClearVariantArray(::core::mem::transmute(pvars.as_mut_ptr()), pvars.len() as _)
+        ClearVariantArray(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvars)), pvars.len() as _)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2555,7 +2555,7 @@ impl IPropertySystem {
     #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn FormatForDisplay(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FormatForDisplay)(::core::mem::transmute_copy(self), ::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(pdff), ::core::mem::transmute(psztext.as_mut_ptr()), psztext.len() as _).ok()
+        (::windows::core::Interface::vtable(self).FormatForDisplay)(::core::mem::transmute_copy(self), ::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(pdff), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2701,15 +2701,15 @@ impl IPropertyUI {
     }
     #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
     pub unsafe fn GetCannonicalName(&self, fmtid: *const ::windows::core::GUID, pid: u32, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCannonicalName)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(pwsztext.as_mut_ptr()), pwsztext.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetCannonicalName)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
     pub unsafe fn GetDisplayName(&self, fmtid: *const ::windows::core::GUID, pid: u32, flags: PROPERTYUI_NAME_FLAGS, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(flags), ::core::mem::transmute(pwsztext.as_mut_ptr()), pwsztext.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetDisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(flags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
     pub unsafe fn GetPropertyDescription(&self, fmtid: *const ::windows::core::GUID, pid: u32, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(pwsztext.as_mut_ptr()), pwsztext.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetPropertyDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
     pub unsafe fn GetDefaultWidth(&self, fmtid: *const ::windows::core::GUID, pid: u32) -> ::windows::core::Result<u32> {
@@ -2724,11 +2724,11 @@ impl IPropertyUI {
     #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn FormatForDisplay(&self, fmtid: *const ::windows::core::GUID, pid: u32, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FormatForDisplay)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(ppropvar), ::core::mem::transmute(puiff), ::core::mem::transmute(pwsztext.as_mut_ptr()), pwsztext.len() as _).ok()
+        (::windows::core::Interface::vtable(self).FormatForDisplay)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(ppropvar), ::core::mem::transmute(puiff), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
     pub unsafe fn GetHelpInfo(&self, fmtid: *const ::windows::core::GUID, pid: u32, pwszhelpfile: &mut [u16], puhelpid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetHelpInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(pwszhelpfile.as_mut_ptr()), pwszhelpfile.len() as _, ::core::mem::transmute(puhelpid)).ok()
+        (::windows::core::Interface::vtable(self).GetHelpInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszhelpfile)), pwszhelpfile.len() as _, ::core::mem::transmute(puhelpid)).ok()
     }
 }
 impl ::core::convert::From<IPropertyUI> for ::windows::core::IUnknown {
@@ -2800,7 +2800,7 @@ pub unsafe fn InitPropVariantFromBooleanVector(prgf: &[super::super::super::Foun
             fn InitPropVariantFromBooleanVector(prgf: *const super::super::super::Foundation::BOOL, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        InitPropVariantFromBooleanVector(::core::mem::transmute(prgf.as_ptr()), prgf.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        InitPropVariantFromBooleanVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2848,7 +2848,7 @@ pub unsafe fn InitPropVariantFromDoubleVector(prgn: &[f64]) -> ::windows::core::
             fn InitPropVariantFromDoubleVector(prgn: *const f64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        InitPropVariantFromDoubleVector(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        InitPropVariantFromDoubleVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2880,7 +2880,7 @@ pub unsafe fn InitPropVariantFromFileTimeVector(prgft: &[super::super::super::Fo
             fn InitPropVariantFromFileTimeVector(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        InitPropVariantFromFileTimeVector(::core::mem::transmute(prgft.as_ptr()), prgft.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        InitPropVariantFromFileTimeVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgft)), prgft.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2912,7 +2912,7 @@ pub unsafe fn InitPropVariantFromInt16Vector(prgn: &[i16]) -> ::windows::core::R
             fn InitPropVariantFromInt16Vector(prgn: *const i16, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        InitPropVariantFromInt16Vector(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        InitPropVariantFromInt16Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2928,7 +2928,7 @@ pub unsafe fn InitPropVariantFromInt32Vector(prgn: &[i32]) -> ::windows::core::R
             fn InitPropVariantFromInt32Vector(prgn: *const i32, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        InitPropVariantFromInt32Vector(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        InitPropVariantFromInt32Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2944,7 +2944,7 @@ pub unsafe fn InitPropVariantFromInt64Vector(prgn: &[i64]) -> ::windows::core::R
             fn InitPropVariantFromInt64Vector(prgn: *const i64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        InitPropVariantFromInt64Vector(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        InitPropVariantFromInt64Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3023,7 +3023,7 @@ pub unsafe fn InitPropVariantFromStringVector(prgsz: &[::windows::core::PWSTR]) 
             fn InitPropVariantFromStringVector(prgsz: *const ::windows::core::PWSTR, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        InitPropVariantFromStringVector(::core::mem::transmute(prgsz.as_ptr()), prgsz.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        InitPropVariantFromStringVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3039,7 +3039,7 @@ pub unsafe fn InitPropVariantFromUInt16Vector(prgn: &[u16]) -> ::windows::core::
             fn InitPropVariantFromUInt16Vector(prgn: *const u16, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        InitPropVariantFromUInt16Vector(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        InitPropVariantFromUInt16Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3055,7 +3055,7 @@ pub unsafe fn InitPropVariantFromUInt32Vector(prgn: &[u32]) -> ::windows::core::
             fn InitPropVariantFromUInt32Vector(prgn: *const u32, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        InitPropVariantFromUInt32Vector(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        InitPropVariantFromUInt32Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3071,7 +3071,7 @@ pub unsafe fn InitPropVariantFromUInt64Vector(prgn: &[u64]) -> ::windows::core::
             fn InitPropVariantFromUInt64Vector(prgn: *const u64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        InitPropVariantFromUInt64Vector(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        InitPropVariantFromUInt64Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3103,7 +3103,7 @@ pub unsafe fn InitVariantFromBooleanArray(prgf: &[super::super::super::Foundatio
             fn InitVariantFromBooleanArray(prgf: *const super::super::super::Foundation::BOOL, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        InitVariantFromBooleanArray(::core::mem::transmute(prgf.as_ptr()), prgf.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        InitVariantFromBooleanArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3135,7 +3135,7 @@ pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> ::windows::core::Resul
             fn InitVariantFromDoubleArray(prgn: *const f64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        InitVariantFromDoubleArray(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        InitVariantFromDoubleArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3167,7 +3167,7 @@ pub unsafe fn InitVariantFromFileTimeArray(prgft: &[super::super::super::Foundat
             fn InitVariantFromFileTimeArray(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        InitVariantFromFileTimeArray(::core::mem::transmute(prgft.as_ptr()), prgft.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        InitVariantFromFileTimeArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgft)), prgft.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3199,7 +3199,7 @@ pub unsafe fn InitVariantFromInt16Array(prgn: &[i16]) -> ::windows::core::Result
             fn InitVariantFromInt16Array(prgn: *const i16, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        InitVariantFromInt16Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        InitVariantFromInt16Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3215,7 +3215,7 @@ pub unsafe fn InitVariantFromInt32Array(prgn: &[i32]) -> ::windows::core::Result
             fn InitVariantFromInt32Array(prgn: *const i32, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        InitVariantFromInt32Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        InitVariantFromInt32Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3231,7 +3231,7 @@ pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> ::windows::core::Result
             fn InitVariantFromInt64Array(prgn: *const i64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        InitVariantFromInt64Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        InitVariantFromInt64Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3279,7 +3279,7 @@ pub unsafe fn InitVariantFromStringArray(prgsz: &[::windows::core::PWSTR]) -> ::
             fn InitVariantFromStringArray(prgsz: *const ::windows::core::PWSTR, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        InitVariantFromStringArray(::core::mem::transmute(prgsz.as_ptr()), prgsz.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        InitVariantFromStringArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3295,7 +3295,7 @@ pub unsafe fn InitVariantFromUInt16Array(prgn: &[u16]) -> ::windows::core::Resul
             fn InitVariantFromUInt16Array(prgn: *const u16, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        InitVariantFromUInt16Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        InitVariantFromUInt16Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3311,7 +3311,7 @@ pub unsafe fn InitVariantFromUInt32Array(prgn: &[u32]) -> ::windows::core::Resul
             fn InitVariantFromUInt32Array(prgn: *const u32, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        InitVariantFromUInt32Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        InitVariantFromUInt32Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3327,7 +3327,7 @@ pub unsafe fn InitVariantFromUInt64Array(prgn: &[u64]) -> ::windows::core::Resul
             fn InitVariantFromUInt64Array(prgn: *const u64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        InitVariantFromUInt64Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        InitVariantFromUInt64Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4617,7 +4617,7 @@ pub unsafe fn PSCreateDelayedMultiplexPropertyStore<'a, Param1: ::windows::core:
         extern "system" {
             fn PSCreateDelayedMultiplexPropertyStore(flags: GETPROPERTYSTOREFLAGS, pdpsf: ::windows::core::RawPtr, rgstoreids: *const u32, cstores: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        PSCreateDelayedMultiplexPropertyStore(::core::mem::transmute(flags), pdpsf.into_param().abi(), ::core::mem::transmute(rgstoreids.as_ptr()), rgstoreids.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        PSCreateDelayedMultiplexPropertyStore(::core::mem::transmute(flags), pdpsf.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgstoreids)), rgstoreids.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4645,7 +4645,7 @@ pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[::core::option::Op
         extern "system" {
             fn PSCreateMultiplexPropertyStore(prgpunkstores: *const *mut ::core::ffi::c_void, cstores: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        PSCreateMultiplexPropertyStore(::core::mem::transmute(prgpunkstores.as_ptr()), prgpunkstores.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        PSCreateMultiplexPropertyStore(::core::mem::transmute(::windows::core::as_ptr_or_null(prgpunkstores)), prgpunkstores.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4660,7 +4660,7 @@ pub unsafe fn PSCreatePropertyChangeArray(rgpropkey: &[PROPERTYKEY], rgflags: &[
         extern "system" {
             fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, cchanges: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        PSCreatePropertyChangeArray(::core::mem::transmute(rgpropkey.as_ptr()), ::core::mem::transmute(rgflags.as_ptr()), ::core::mem::transmute(rgpropvar.as_ptr()), rgpropvar.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        PSCreatePropertyChangeArray(::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropkey)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgflags)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropvar)), rgpropvar.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4733,7 +4733,7 @@ pub unsafe fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const su
         extern "system" {
             fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: ::windows::core::PWSTR, cchtext: u32) -> ::windows::core::HRESULT;
         }
-        PSFormatForDisplay(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), ::core::mem::transmute(pdfflags), ::core::mem::transmute(pwsztext.as_mut_ptr()), pwsztext.len() as _).ok()
+        PSFormatForDisplay(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), ::core::mem::transmute(pdfflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5165,7 +5165,7 @@ pub unsafe fn PSPropertyBag_ReadStr<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn PSPropertyBag_ReadStr(propbag: ::windows::core::RawPtr, propname: ::windows::core::PCWSTR, value: ::windows::core::PWSTR, charactercount: i32) -> ::windows::core::HRESULT;
         }
-        PSPropertyBag_ReadStr(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value.as_mut_ptr()), value.len() as _).ok()
+        PSPropertyBag_ReadStr(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(value)), value.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5540,7 +5540,7 @@ pub unsafe fn PSStringFromPropertyKey(pkey: *const PROPERTYKEY, psz: &mut [u16])
         extern "system" {
             fn PSStringFromPropertyKey(pkey: *const PROPERTYKEY, psz: ::windows::core::PWSTR, cch: u32) -> ::windows::core::HRESULT;
         }
-        PSStringFromPropertyKey(::core::mem::transmute(pkey), ::core::mem::transmute(psz.as_mut_ptr()), psz.len() as _).ok()
+        PSStringFromPropertyKey(::core::mem::transmute(pkey), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5921,7 +5921,7 @@ pub unsafe fn PropVariantToBooleanVector(propvar: *const super::super::super::Sy
         extern "system" {
             fn PropVariantToBooleanVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgf: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        PropVariantToBooleanVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgf.as_mut_ptr()), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
+        PropVariantToBooleanVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5997,7 +5997,7 @@ pub unsafe fn PropVariantToDoubleVector(propvar: *const super::super::super::Sys
         extern "system" {
             fn PropVariantToDoubleVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        PropVariantToDoubleVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        PropVariantToDoubleVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6058,7 +6058,7 @@ pub unsafe fn PropVariantToFileTimeVector(propvar: *const super::super::super::S
         extern "system" {
             fn PropVariantToFileTimeVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgft: *mut super::super::super::Foundation::FILETIME, crgft: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        PropVariantToFileTimeVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgft.as_mut_ptr()), prgft.len() as _, ::core::mem::transmute(pcelem)).ok()
+        PropVariantToFileTimeVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgft)), prgft.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6120,7 +6120,7 @@ pub unsafe fn PropVariantToInt16Vector(propvar: *const super::super::super::Syst
         extern "system" {
             fn PropVariantToInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        PropVariantToInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        PropVariantToInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6181,7 +6181,7 @@ pub unsafe fn PropVariantToInt32Vector(propvar: *const super::super::super::Syst
         extern "system" {
             fn PropVariantToInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        PropVariantToInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        PropVariantToInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6242,7 +6242,7 @@ pub unsafe fn PropVariantToInt64Vector(propvar: *const super::super::super::Syst
         extern "system" {
             fn PropVariantToInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        PropVariantToInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        PropVariantToInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6303,7 +6303,7 @@ pub unsafe fn PropVariantToString(propvar: *const super::super::super::System::C
         extern "system" {
             fn PropVariantToString(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, psz: ::windows::core::PWSTR, cch: u32) -> ::windows::core::HRESULT;
         }
-        PropVariantToString(::core::mem::transmute(propvar), ::core::mem::transmute(psz.as_mut_ptr()), psz.len() as _).ok()
+        PropVariantToString(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6334,7 +6334,7 @@ pub unsafe fn PropVariantToStringVector(propvar: *const super::super::super::Sys
         extern "system" {
             fn PropVariantToStringVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgsz: *mut ::windows::core::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        PropVariantToStringVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgsz.as_mut_ptr()), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
+        PropVariantToStringVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6395,7 +6395,7 @@ pub unsafe fn PropVariantToUInt16Vector(propvar: *const super::super::super::Sys
         extern "system" {
             fn PropVariantToUInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        PropVariantToUInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        PropVariantToUInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6456,7 +6456,7 @@ pub unsafe fn PropVariantToUInt32Vector(propvar: *const super::super::super::Sys
         extern "system" {
             fn PropVariantToUInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        PropVariantToUInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        PropVariantToUInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6517,7 +6517,7 @@ pub unsafe fn PropVariantToUInt64Vector(propvar: *const super::super::super::Sys
         extern "system" {
             fn PropVariantToUInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        PropVariantToUInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        PropVariantToUInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6671,7 +6671,7 @@ pub unsafe fn SHPropStgReadMultiple<'a, Param0: ::windows::core::IntoParam<'a, s
             fn SHPropStgReadMultiple(pps: ::windows::core::RawPtr, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        SHPropStgReadMultiple(pps.into_param().abi(), ::core::mem::transmute(ucodepage), rgpspec.len() as _, ::core::mem::transmute(rgpspec.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        SHPropStgReadMultiple(pps.into_param().abi(), ::core::mem::transmute(ucodepage), rgpspec.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6686,7 +6686,7 @@ pub unsafe fn SHPropStgWriteMultiple<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn SHPropStgWriteMultiple(pps: ::windows::core::RawPtr, pucodepage: *mut u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::HRESULT;
         }
-        SHPropStgWriteMultiple(pps.into_param().abi(), ::core::mem::transmute(pucodepage), rgvar.len() as _, ::core::mem::transmute(rgpspec.as_ptr()), ::core::mem::transmute(rgvar.as_mut_ptr()), ::core::mem::transmute(propidnamefirst)).ok()
+        SHPropStgWriteMultiple(pps.into_param().abi(), ::core::mem::transmute(pucodepage), rgvar.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgvar)), ::core::mem::transmute(propidnamefirst)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7039,7 +7039,7 @@ pub unsafe fn VariantToBooleanArray(var: *const super::super::super::System::Com
         extern "system" {
             fn VariantToBooleanArray(var: *const super::super::super::System::Com::VARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        VariantToBooleanArray(::core::mem::transmute(var), ::core::mem::transmute(prgf.as_mut_ptr()), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
+        VariantToBooleanArray(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7130,7 +7130,7 @@ pub unsafe fn VariantToDoubleArray(var: *const super::super::super::System::Com:
         extern "system" {
             fn VariantToDoubleArray(var: *const super::super::super::System::Com::VARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        VariantToDoubleArray(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        VariantToDoubleArray(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7223,7 +7223,7 @@ pub unsafe fn VariantToInt16Array(var: *const super::super::super::System::Com::
         extern "system" {
             fn VariantToInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        VariantToInt16Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        VariantToInt16Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7284,7 +7284,7 @@ pub unsafe fn VariantToInt32Array(var: *const super::super::super::System::Com::
         extern "system" {
             fn VariantToInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        VariantToInt32Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        VariantToInt32Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7345,7 +7345,7 @@ pub unsafe fn VariantToInt64Array(var: *const super::super::super::System::Com::
         extern "system" {
             fn VariantToInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        VariantToInt64Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        VariantToInt64Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7422,7 +7422,7 @@ pub unsafe fn VariantToString(varin: *const super::super::super::System::Com::VA
         extern "system" {
             fn VariantToString(varin: *const super::super::super::System::Com::VARIANT, pszbuf: ::windows::core::PWSTR, cchbuf: u32) -> ::windows::core::HRESULT;
         }
-        VariantToString(::core::mem::transmute(varin), ::core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len() as _).ok()
+        VariantToString(::core::mem::transmute(varin), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuf)), pszbuf.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7453,7 +7453,7 @@ pub unsafe fn VariantToStringArray(var: *const super::super::super::System::Com:
         extern "system" {
             fn VariantToStringArray(var: *const super::super::super::System::Com::VARIANT, prgsz: *mut ::windows::core::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        VariantToStringArray(::core::mem::transmute(var), ::core::mem::transmute(prgsz.as_mut_ptr()), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
+        VariantToStringArray(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7514,7 +7514,7 @@ pub unsafe fn VariantToUInt16Array(var: *const super::super::super::System::Com:
         extern "system" {
             fn VariantToUInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        VariantToUInt16Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        VariantToUInt16Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7575,7 +7575,7 @@ pub unsafe fn VariantToUInt32Array(var: *const super::super::super::System::Com:
         extern "system" {
             fn VariantToUInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        VariantToUInt32Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        VariantToUInt32Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7636,7 +7636,7 @@ pub unsafe fn VariantToUInt64Array(var: *const super::super::super::System::Com:
         extern "system" {
             fn VariantToUInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
-        VariantToUInt64Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_mut_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+        VariantToUInt64Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

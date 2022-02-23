@@ -1102,7 +1102,7 @@ pub struct IApoAuxiliaryInputConfiguration(::windows::core::IUnknown);
 impl IApoAuxiliaryInputConfiguration {
     #[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
     pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, pbydata: &[u8], pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddAuxiliaryInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputid), pbydata.len() as _, ::core::mem::transmute(pbydata.as_ptr()), ::core::mem::transmute(pinputconnection)).ok()
+        (::windows::core::Interface::vtable(self).AddAuxiliaryInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputid), pbydata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbydata)), ::core::mem::transmute(pinputconnection)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
     pub unsafe fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> ::windows::core::Result<()> {
@@ -1369,7 +1369,7 @@ impl IAudioProcessingObject {
     }
     #[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
     pub unsafe fn Initialize(&self, pbydata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pbydata.len() as _, ::core::mem::transmute(pbydata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pbydata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbydata))).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
     pub unsafe fn IsInputFormatSupported<'a, Param0: ::windows::core::IntoParam<'a, IAudioMediaType>, Param1: ::windows::core::IntoParam<'a, IAudioMediaType>>(&self, poppositeformat: Param0, prequestedinputformat: Param1) -> ::windows::core::Result<IAudioMediaType> {

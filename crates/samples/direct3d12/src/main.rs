@@ -346,7 +346,7 @@ mod d3d12_hello_triangle {
 
                 // Execute the command list.
                 let command_list = ID3D12CommandList::from(&resources.command_list);
-                unsafe { resources.command_queue.ExecuteCommandLists(1, &Some(command_list)) };
+                unsafe { resources.command_queue.ExecuteCommandLists(&[Some(command_list)]) };
 
                 // Present the frame.
                 unsafe { resources.swap_chain.Present(1, 0) }.ok().unwrap();
@@ -376,13 +376,13 @@ mod d3d12_hello_triangle {
         // Set necessary state.
         unsafe {
             command_list.SetGraphicsRootSignature(&resources.root_signature);
-            command_list.RSSetViewports(1, &resources.viewport);
-            command_list.RSSetScissorRects(1, &resources.scissor_rect);
+            command_list.RSSetViewports(&[resources.viewport]);
+            command_list.RSSetScissorRects(&[resources.scissor_rect]);
         }
 
         // Indicate that the back buffer will be used as a render target.
         let barrier = transition_barrier(&resources.render_targets[resources.frame_index as usize], D3D12_RESOURCE_STATE_PRESENT, D3D12_RESOURCE_STATE_RENDER_TARGET);
-        unsafe { command_list.ResourceBarrier(1, &barrier) };
+        unsafe { command_list.ResourceBarrier(&[barrier]) };
 
         let rtv_handle = D3D12_CPU_DESCRIPTOR_HANDLE { ptr: unsafe { resources.rtv_heap.GetCPUDescriptorHandleForHeapStart() }.ptr + resources.frame_index as usize * resources.rtv_descriptor_size };
 
@@ -390,13 +390,13 @@ mod d3d12_hello_triangle {
 
         // Record commands.
         unsafe {
-            command_list.ClearRenderTargetView(rtv_handle, [0.0, 0.2, 0.4, 1.0].as_ptr(), 0, std::ptr::null());
+            command_list.ClearRenderTargetView(rtv_handle, [0.0, 0.2, 0.4, 1.0].as_ptr(), &[]);
             command_list.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-            command_list.IASetVertexBuffers(0, 1, &resources.vbv);
+            command_list.IASetVertexBuffers(0, &[resources.vbv]);
             command_list.DrawInstanced(3, 1, 0, 0);
 
             // Indicate that the back buffer will now be used to present.
-            command_list.ResourceBarrier(1, &transition_barrier(&resources.render_targets[resources.frame_index as usize], D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT));
+            command_list.ResourceBarrier(&[transition_barrier(&resources.render_targets[resources.frame_index as usize], D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT)]);
         }
 
         unsafe { command_list.Close() }
@@ -440,7 +440,7 @@ mod d3d12_hello_triangle {
 
         let signature = unsafe { D3D12SerializeRootSignature(&desc, D3D_ROOT_SIGNATURE_VERSION_1, &mut signature, std::ptr::null_mut()) }.map(|()| signature.unwrap())?;
 
-        unsafe { device.CreateRootSignature(0, signature.GetBufferPointer(), signature.GetBufferSize()) }
+        unsafe { device.CreateRootSignature(0, &std::slice::from_raw_parts(signature.GetBufferPointer() as _, signature.GetBufferSize())) }
     }
 
     fn create_pipeline_state(device: &ID3D12Device, root_signature: &ID3D12RootSignature) -> Result<ID3D12PipelineState> {

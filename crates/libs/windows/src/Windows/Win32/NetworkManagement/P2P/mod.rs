@@ -5007,7 +5007,7 @@ pub unsafe fn PeerCollabRegisterEvent<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn PeerCollabRegisterEvent(hevent: super::super::Foundation::HANDLE, ceventregistration: u32, peventregistrations: *const PEER_COLLAB_EVENT_REGISTRATION, phpeerevent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        PeerCollabRegisterEvent(hevent.into_param().abi(), peventregistrations.len() as _, ::core::mem::transmute(peventregistrations.as_ptr()), ::core::mem::transmute(phpeerevent)).ok()
+        PeerCollabRegisterEvent(hevent.into_param().abi(), peventregistrations.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(peventregistrations)), ::core::mem::transmute(phpeerevent)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6026,7 +6026,7 @@ pub unsafe fn PeerGraphOpen<'a, Param0: ::windows::core::IntoParam<'a, ::windows
         extern "system" {
             fn PeerGraphOpen(pwzgraphid: ::windows::core::PCWSTR, pwzpeerid: ::windows::core::PCWSTR, pwzdatabasename: ::windows::core::PCWSTR, psecurityinterface: *const PEER_SECURITY_INTERFACE, crecordtypesyncprecedence: u32, precordtypesyncprecedence: *const ::windows::core::GUID, phgraph: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        PeerGraphOpen(pwzgraphid.into_param().abi(), pwzpeerid.into_param().abi(), pwzdatabasename.into_param().abi(), ::core::mem::transmute(psecurityinterface), precordtypesyncprecedence.len() as _, ::core::mem::transmute(precordtypesyncprecedence.as_ptr()), ::core::mem::transmute(phgraph)).ok()
+        PeerGraphOpen(pwzgraphid.into_param().abi(), pwzpeerid.into_param().abi(), pwzdatabasename.into_param().abi(), ::core::mem::transmute(psecurityinterface), precordtypesyncprecedence.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(precordtypesyncprecedence)), ::core::mem::transmute(phgraph)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6073,7 +6073,7 @@ pub unsafe fn PeerGraphRegisterEvent<'a, Param1: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn PeerGraphRegisterEvent(hgraph: *const ::core::ffi::c_void, hevent: super::super::Foundation::HANDLE, ceventregistrations: u32, peventregistrations: *const PEER_GRAPH_EVENT_REGISTRATION, phpeerevent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        PeerGraphRegisterEvent(::core::mem::transmute(hgraph), hevent.into_param().abi(), peventregistrations.len() as _, ::core::mem::transmute(peventregistrations.as_ptr()), ::core::mem::transmute(phpeerevent)).ok()
+        PeerGraphRegisterEvent(::core::mem::transmute(hgraph), hevent.into_param().abi(), peventregistrations.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(peventregistrations)), ::core::mem::transmute(phpeerevent)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6232,7 +6232,7 @@ pub unsafe fn PeerGraphValidateDeferredRecords(hgraph: *const ::core::ffi::c_voi
         extern "system" {
             fn PeerGraphValidateDeferredRecords(hgraph: *const ::core::ffi::c_void, crecordids: u32, precordids: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
-        PeerGraphValidateDeferredRecords(::core::mem::transmute(hgraph), precordids.len() as _, ::core::mem::transmute(precordids.as_ptr())).ok()
+        PeerGraphValidateDeferredRecords(::core::mem::transmute(hgraph), precordids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(precordids))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6305,7 +6305,7 @@ pub unsafe fn PeerGroupConnectByAddress(hgroup: *const ::core::ffi::c_void, padd
         extern "system" {
             fn PeerGroupConnectByAddress(hgroup: *const ::core::ffi::c_void, caddresses: u32, paddresses: *const PEER_ADDRESS) -> ::windows::core::HRESULT;
         }
-        PeerGroupConnectByAddress(::core::mem::transmute(hgroup), paddresses.len() as _, ::core::mem::transmute(paddresses.as_ptr())).ok()
+        PeerGroupConnectByAddress(::core::mem::transmute(hgroup), paddresses.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(paddresses))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6335,7 +6335,7 @@ pub unsafe fn PeerGroupCreateInvitation<'a, Param1: ::windows::core::IntoParam<'
             fn PeerGroupCreateInvitation(hgroup: *const ::core::ffi::c_void, pwzidentityinfo: ::windows::core::PCWSTR, pftexpiration: *const super::super::Foundation::FILETIME, croles: u32, proles: *const ::windows::core::GUID, ppwzinvitation: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        PeerGroupCreateInvitation(::core::mem::transmute(hgroup), pwzidentityinfo.into_param().abi(), ::core::mem::transmute(pftexpiration), proles.len() as _, ::core::mem::transmute(proles.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        PeerGroupCreateInvitation(::core::mem::transmute(hgroup), pwzidentityinfo.into_param().abi(), ::core::mem::transmute(pftexpiration), proles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(proles)), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6660,7 +6660,7 @@ pub unsafe fn PeerGroupRegisterEvent<'a, Param1: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn PeerGroupRegisterEvent(hgroup: *const ::core::ffi::c_void, hevent: super::super::Foundation::HANDLE, ceventregistration: u32, peventregistrations: *const PEER_GROUP_EVENT_REGISTRATION, phpeerevent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        PeerGroupRegisterEvent(::core::mem::transmute(hgroup), hevent.into_param().abi(), peventregistrations.len() as _, ::core::mem::transmute(peventregistrations.as_ptr()), ::core::mem::transmute(phpeerevent)).ok()
+        PeerGroupRegisterEvent(::core::mem::transmute(hgroup), hevent.into_param().abi(), peventregistrations.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(peventregistrations)), ::core::mem::transmute(phpeerevent)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -7683,11 +7683,11 @@ pub struct ID3D10Device(::windows::core::IUnknown);
 impl ID3D10Device {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSSetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).VSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_ptr()))
+        (::windows::core::Interface::vtable(self).VSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSSetShaderResources(&self, startslot: u32, ppshaderresourceviews: &[::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).PSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_ptr()))
+        (::windows::core::Interface::vtable(self).PSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSSetShader<'a, Param0: ::windows::core::IntoParam<'a, ID3D10PixelShader>>(&self, ppixelshader: Param0) {
@@ -7695,7 +7695,7 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSSetSamplers(&self, startslot: u32, ppsamplers: &[::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).PSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_ptr()))
+        (::windows::core::Interface::vtable(self).PSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSSetShader<'a, Param0: ::windows::core::IntoParam<'a, ID3D10VertexShader>>(&self, pvertexshader: Param0) {
@@ -7711,7 +7711,7 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSSetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).PSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_ptr()))
+        (::windows::core::Interface::vtable(self).PSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn IASetInputLayout<'a, Param0: ::windows::core::IntoParam<'a, ID3D10InputLayout>>(&self, pinputlayout: Param0) {
@@ -7719,7 +7719,7 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &[::core::option::Option<ID3D10Buffer>], pstrides: &[u32], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(ppvertexbuffers.as_ptr()), ::core::mem::transmute(pstrides.as_ptr()), ::core::mem::transmute(poffsets.as_ptr()))
+        (::windows::core::Interface::vtable(self).IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7736,7 +7736,7 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSSetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).GSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_ptr()))
+        (::windows::core::Interface::vtable(self).GSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSSetShader<'a, Param0: ::windows::core::IntoParam<'a, ID3D10GeometryShader>>(&self, pshader: Param0) {
@@ -7749,11 +7749,11 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSSetShaderResources(&self, startslot: u32, ppshaderresourceviews: &[::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).VSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_ptr()))
+        (::windows::core::Interface::vtable(self).VSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSSetSamplers(&self, startslot: u32, ppsamplers: &[::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).VSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_ptr()))
+        (::windows::core::Interface::vtable(self).VSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7762,15 +7762,15 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSSetShaderResources(&self, startslot: u32, ppshaderresourceviews: &[::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).GSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_ptr()))
+        (::windows::core::Interface::vtable(self).GSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSSetSamplers(&self, startslot: u32, ppsamplers: &[::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).GSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_ptr()))
+        (::windows::core::Interface::vtable(self).GSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn OMSetRenderTargets<'a, Param2: ::windows::core::IntoParam<'a, ID3D10DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D10RenderTargetView>], pdepthstencilview: Param2) {
-        (::windows::core::Interface::vtable(self).OMSetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(pprendertargetviews.as_ptr()), pdepthstencilview.into_param().abi())
+        (::windows::core::Interface::vtable(self).OMSetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn OMSetBlendState<'a, Param0: ::windows::core::IntoParam<'a, ID3D10BlendState>>(&self, pblendstate: Param0, blendfactor: *const f32, samplemask: u32) {
@@ -7782,7 +7782,7 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn SOSetTargets(&self, ppsotargets: &[::core::option::Option<ID3D10Buffer>], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).SOSetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(ppsotargets.as_ptr()), ::core::mem::transmute(poffsets.as_ptr()))
+        (::windows::core::Interface::vtable(self).SOSetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn DrawAuto(&self) {
@@ -7794,12 +7794,12 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn RSSetViewports(&self, pviewports: &[D3D10_VIEWPORT]) {
-        (::windows::core::Interface::vtable(self).RSSetViewports)(::core::mem::transmute_copy(self), pviewports.len() as _, ::core::mem::transmute(pviewports.as_ptr()))
+        (::windows::core::Interface::vtable(self).RSSetViewports)(::core::mem::transmute_copy(self), pviewports.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pviewports)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RSSetScissorRects(&self, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Interface::vtable(self).RSSetScissorRects)(::core::mem::transmute_copy(self), prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+        (::windows::core::Interface::vtable(self).RSSetScissorRects)(::core::mem::transmute_copy(self), prects.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prects)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn CopySubresourceRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D10Resource>, Param5: ::windows::core::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D10_BOX) {
@@ -7832,11 +7832,11 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).VSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).VSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: &mut [::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).PSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).PSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSGetShader(&self, pppixelshader: *mut ::core::option::Option<ID3D10PixelShader>) {
@@ -7844,7 +7844,7 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSGetSamplers(&self, startslot: u32, ppsamplers: &mut [::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).PSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).PSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSGetShader(&self, ppvertexshader: *mut ::core::option::Option<ID3D10VertexShader>) {
@@ -7852,7 +7852,7 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).PSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).PSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn IAGetInputLayout(&self, ppinputlayout: *mut ::core::option::Option<ID3D10InputLayout>) {
@@ -7860,7 +7860,7 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &mut [::core::option::Option<ID3D10Buffer>], pstrides: &mut [u32], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(ppvertexbuffers.as_mut_ptr()), ::core::mem::transmute(pstrides.as_mut_ptr()), ::core::mem::transmute(poffsets.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7869,7 +7869,7 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).GSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).GSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSGetShader(&self, ppgeometryshader: *mut ::core::option::Option<ID3D10GeometryShader>) {
@@ -7882,11 +7882,11 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: &mut [::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).VSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).VSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSGetSamplers(&self, startslot: u32, ppsamplers: &mut [::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).VSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).VSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7895,15 +7895,15 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: &mut [::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).GSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).GSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSGetSamplers(&self, startslot: u32, ppsamplers: &mut [::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).GSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).GSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn OMGetRenderTargets(&self, pprendertargetviews: &mut [::core::option::Option<ID3D10RenderTargetView>], ppdepthstencilview: *mut ::core::option::Option<ID3D10DepthStencilView>) {
-        (::windows::core::Interface::vtable(self).OMGetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(pprendertargetviews.as_mut_ptr()), ::core::mem::transmute(ppdepthstencilview))
+        (::windows::core::Interface::vtable(self).OMGetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pprendertargetviews)), ::core::mem::transmute(ppdepthstencilview))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn OMGetBlendState(&self, ppblendstate: *mut ::core::option::Option<ID3D10BlendState>, blendfactor: *mut f32, psamplemask: *mut u32) {
@@ -7915,7 +7915,7 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn SOGetTargets(&self, ppsotargets: &mut [::core::option::Option<ID3D10Buffer>], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).SOGetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(ppsotargets.as_mut_ptr()), ::core::mem::transmute(poffsets.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).SOGetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn RSGetState(&self, pprasterizerstate: *mut ::core::option::Option<ID3D10RasterizerState>) {
@@ -8007,27 +8007,27 @@ impl ID3D10Device {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateInputLayout(&self, pinputelementdescs: &[D3D10_INPUT_ELEMENT_DESC], pshaderbytecodewithinputsignature: &[u8]) -> ::windows::core::Result<ID3D10InputLayout> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateInputLayout)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputelementdescs.as_ptr()), pinputelementdescs.len() as _, ::core::mem::transmute(pshaderbytecodewithinputsignature.as_ptr()), pshaderbytecodewithinputsignature.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10InputLayout>(result__)
+        (::windows::core::Interface::vtable(self).CreateInputLayout)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputelementdescs)), pinputelementdescs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderbytecodewithinputsignature)), pshaderbytecodewithinputsignature.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10InputLayout>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn CreateVertexShader(&self, pshaderbytecode: &[u8]) -> ::windows::core::Result<ID3D10VertexShader> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateVertexShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10VertexShader>(result__)
+        (::windows::core::Interface::vtable(self).CreateVertexShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderbytecode)), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10VertexShader>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn CreateGeometryShader(&self, pshaderbytecode: &[u8]) -> ::windows::core::Result<ID3D10GeometryShader> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGeometryShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10GeometryShader>(result__)
+        (::windows::core::Interface::vtable(self).CreateGeometryShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderbytecode)), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10GeometryShader>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn CreateGeometryShaderWithStreamOutput(&self, pshaderbytecode: &[u8], psodeclaration: &[D3D10_SO_DECLARATION_ENTRY], outputstreamstride: u32) -> ::windows::core::Result<ID3D10GeometryShader> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGeometryShaderWithStreamOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, ::core::mem::transmute(psodeclaration.as_ptr()), psodeclaration.len() as _, ::core::mem::transmute(outputstreamstride), ::core::mem::transmute(&mut result__)).from_abi::<ID3D10GeometryShader>(result__)
+        (::windows::core::Interface::vtable(self).CreateGeometryShaderWithStreamOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderbytecode)), pshaderbytecode.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psodeclaration)), psodeclaration.len() as _, ::core::mem::transmute(outputstreamstride), ::core::mem::transmute(&mut result__)).from_abi::<ID3D10GeometryShader>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn CreatePixelShader(&self, pshaderbytecode: &[u8]) -> ::windows::core::Result<ID3D10PixelShader> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePixelShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10PixelShader>(result__)
+        (::windows::core::Interface::vtable(self).CreatePixelShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderbytecode)), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10PixelShader>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8317,11 +8317,11 @@ pub struct ID3D10Device1(::windows::core::IUnknown);
 impl ID3D10Device1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSSetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).base.VSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.VSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSSetShaderResources(&self, startslot: u32, ppshaderresourceviews: &[::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).base.PSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.PSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSSetShader<'a, Param0: ::windows::core::IntoParam<'a, ID3D10PixelShader>>(&self, ppixelshader: Param0) {
@@ -8329,7 +8329,7 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSSetSamplers(&self, startslot: u32, ppsamplers: &[::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).base.PSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.PSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSSetShader<'a, Param0: ::windows::core::IntoParam<'a, ID3D10VertexShader>>(&self, pvertexshader: Param0) {
@@ -8345,7 +8345,7 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSSetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).base.PSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.PSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn IASetInputLayout<'a, Param0: ::windows::core::IntoParam<'a, ID3D10InputLayout>>(&self, pinputlayout: Param0) {
@@ -8353,7 +8353,7 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &[::core::option::Option<ID3D10Buffer>], pstrides: &[u32], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(ppvertexbuffers.as_ptr()), ::core::mem::transmute(pstrides.as_ptr()), ::core::mem::transmute(poffsets.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8370,7 +8370,7 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSSetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).base.GSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.GSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSSetShader<'a, Param0: ::windows::core::IntoParam<'a, ID3D10GeometryShader>>(&self, pshader: Param0) {
@@ -8383,11 +8383,11 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSSetShaderResources(&self, startslot: u32, ppshaderresourceviews: &[::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).base.VSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.VSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSSetSamplers(&self, startslot: u32, ppsamplers: &[::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).base.VSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.VSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8396,15 +8396,15 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSSetShaderResources(&self, startslot: u32, ppshaderresourceviews: &[::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).base.GSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.GSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSSetSamplers(&self, startslot: u32, ppsamplers: &[::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).base.GSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.GSSetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn OMSetRenderTargets<'a, Param2: ::windows::core::IntoParam<'a, ID3D10DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D10RenderTargetView>], pdepthstencilview: Param2) {
-        (::windows::core::Interface::vtable(self).base.OMSetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(pprendertargetviews.as_ptr()), pdepthstencilview.into_param().abi())
+        (::windows::core::Interface::vtable(self).base.OMSetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn OMSetBlendState<'a, Param0: ::windows::core::IntoParam<'a, ID3D10BlendState>>(&self, pblendstate: Param0, blendfactor: *const f32, samplemask: u32) {
@@ -8416,7 +8416,7 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn SOSetTargets(&self, ppsotargets: &[::core::option::Option<ID3D10Buffer>], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.SOSetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(ppsotargets.as_ptr()), ::core::mem::transmute(poffsets.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.SOSetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn DrawAuto(&self) {
@@ -8428,12 +8428,12 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn RSSetViewports(&self, pviewports: &[D3D10_VIEWPORT]) {
-        (::windows::core::Interface::vtable(self).base.RSSetViewports)(::core::mem::transmute_copy(self), pviewports.len() as _, ::core::mem::transmute(pviewports.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.RSSetViewports)(::core::mem::transmute_copy(self), pviewports.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pviewports)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RSSetScissorRects(&self, prects: &[super::super::Foundation::RECT]) {
-        (::windows::core::Interface::vtable(self).base.RSSetScissorRects)(::core::mem::transmute_copy(self), prects.len() as _, ::core::mem::transmute(prects.as_ptr()))
+        (::windows::core::Interface::vtable(self).base.RSSetScissorRects)(::core::mem::transmute_copy(self), prects.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prects)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn CopySubresourceRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D10Resource>, Param5: ::windows::core::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D10_BOX) {
@@ -8466,11 +8466,11 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).base.VSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).base.VSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: &mut [::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).base.PSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).base.PSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSGetShader(&self, pppixelshader: *mut ::core::option::Option<ID3D10PixelShader>) {
@@ -8478,7 +8478,7 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSGetSamplers(&self, startslot: u32, ppsamplers: &mut [::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).base.PSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).base.PSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSGetShader(&self, ppvertexshader: *mut ::core::option::Option<ID3D10VertexShader>) {
@@ -8486,7 +8486,7 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn PSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).base.PSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).base.PSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn IAGetInputLayout(&self, ppinputlayout: *mut ::core::option::Option<ID3D10InputLayout>) {
@@ -8494,7 +8494,7 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &mut [::core::option::Option<ID3D10Buffer>], pstrides: &mut [u32], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(ppvertexbuffers.as_mut_ptr()), ::core::mem::transmute(pstrides.as_mut_ptr()), ::core::mem::transmute(poffsets.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8503,7 +8503,7 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D10Buffer>]) {
-        (::windows::core::Interface::vtable(self).base.GSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(ppconstantbuffers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).base.GSGetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppconstantbuffers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSGetShader(&self, ppgeometryshader: *mut ::core::option::Option<ID3D10GeometryShader>) {
@@ -8516,11 +8516,11 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: &mut [::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).base.VSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).base.VSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn VSGetSamplers(&self, startslot: u32, ppsamplers: &mut [::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).base.VSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).base.VSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8529,15 +8529,15 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: &mut [::core::option::Option<ID3D10ShaderResourceView>]) {
-        (::windows::core::Interface::vtable(self).base.GSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(ppshaderresourceviews.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).base.GSGetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GSGetSamplers(&self, startslot: u32, ppsamplers: &mut [::core::option::Option<ID3D10SamplerState>]) {
-        (::windows::core::Interface::vtable(self).base.GSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(ppsamplers.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).base.GSGetSamplers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppsamplers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsamplers)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn OMGetRenderTargets(&self, pprendertargetviews: &mut [::core::option::Option<ID3D10RenderTargetView>], ppdepthstencilview: *mut ::core::option::Option<ID3D10DepthStencilView>) {
-        (::windows::core::Interface::vtable(self).base.OMGetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(pprendertargetviews.as_mut_ptr()), ::core::mem::transmute(ppdepthstencilview))
+        (::windows::core::Interface::vtable(self).base.OMGetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pprendertargetviews)), ::core::mem::transmute(ppdepthstencilview))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn OMGetBlendState(&self, ppblendstate: *mut ::core::option::Option<ID3D10BlendState>, blendfactor: *mut f32, psamplemask: *mut u32) {
@@ -8549,7 +8549,7 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn SOGetTargets(&self, ppsotargets: &mut [::core::option::Option<ID3D10Buffer>], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.SOGetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(ppsotargets.as_mut_ptr()), ::core::mem::transmute(poffsets.as_mut_ptr()))
+        (::windows::core::Interface::vtable(self).base.SOGetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn RSGetState(&self, pprasterizerstate: *mut ::core::option::Option<ID3D10RasterizerState>) {
@@ -8641,27 +8641,27 @@ impl ID3D10Device1 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateInputLayout(&self, pinputelementdescs: &[D3D10_INPUT_ELEMENT_DESC], pshaderbytecodewithinputsignature: &[u8]) -> ::windows::core::Result<ID3D10InputLayout> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateInputLayout)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputelementdescs.as_ptr()), pinputelementdescs.len() as _, ::core::mem::transmute(pshaderbytecodewithinputsignature.as_ptr()), pshaderbytecodewithinputsignature.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10InputLayout>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateInputLayout)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputelementdescs)), pinputelementdescs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderbytecodewithinputsignature)), pshaderbytecodewithinputsignature.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10InputLayout>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn CreateVertexShader(&self, pshaderbytecode: &[u8]) -> ::windows::core::Result<ID3D10VertexShader> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateVertexShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10VertexShader>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateVertexShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderbytecode)), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10VertexShader>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn CreateGeometryShader(&self, pshaderbytecode: &[u8]) -> ::windows::core::Result<ID3D10GeometryShader> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateGeometryShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10GeometryShader>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateGeometryShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderbytecode)), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10GeometryShader>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn CreateGeometryShaderWithStreamOutput(&self, pshaderbytecode: &[u8], psodeclaration: &[D3D10_SO_DECLARATION_ENTRY], outputstreamstride: u32) -> ::windows::core::Result<ID3D10GeometryShader> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateGeometryShaderWithStreamOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, ::core::mem::transmute(psodeclaration.as_ptr()), psodeclaration.len() as _, ::core::mem::transmute(outputstreamstride), ::core::mem::transmute(&mut result__)).from_abi::<ID3D10GeometryShader>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateGeometryShaderWithStreamOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderbytecode)), pshaderbytecode.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psodeclaration)), psodeclaration.len() as _, ::core::mem::transmute(outputstreamstride), ::core::mem::transmute(&mut result__)).from_abi::<ID3D10GeometryShader>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn CreatePixelShader(&self, pshaderbytecode: &[u8]) -> ::windows::core::Result<ID3D10PixelShader> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreatePixelShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10PixelShader>(result__)
+        (::windows::core::Interface::vtable(self).base.CreatePixelShader)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderbytecode)), pshaderbytecode.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ID3D10PixelShader>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9658,11 +9658,11 @@ impl ID3D10EffectDepthStencilViewVariable {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn SetDepthStencilArray(&self, ppresources: &[::core::option::Option<ID3D10DepthStencilView>], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDepthStencilArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(offset), ppresources.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetDepthStencilArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(offset), ppresources.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GetDepthStencilArray(&self, ppresources: &mut [::core::option::Option<ID3D10DepthStencilView>], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDepthStencilArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_mut_ptr()), ::core::mem::transmute(offset), ppresources.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetDepthStencilArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppresources)), ::core::mem::transmute(offset), ppresources.len() as _).ok()
     }
 }
 impl ::core::convert::From<ID3D10EffectDepthStencilViewVariable> for ID3D10EffectVariable {
@@ -10325,11 +10325,11 @@ impl ID3D10EffectRenderTargetViewVariable {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn SetRenderTargetArray(&self, ppresources: &[::core::option::Option<ID3D10RenderTargetView>], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRenderTargetArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(offset), ppresources.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetRenderTargetArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(offset), ppresources.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GetRenderTargetArray(&self, ppresources: &mut [::core::option::Option<ID3D10RenderTargetView>], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRenderTargetArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_mut_ptr()), ::core::mem::transmute(offset), ppresources.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetRenderTargetArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppresources)), ::core::mem::transmute(offset), ppresources.len() as _).ok()
     }
 }
 impl ::core::convert::From<ID3D10EffectRenderTargetViewVariable> for ID3D10EffectVariable {
@@ -10662,11 +10662,11 @@ impl ID3D10EffectScalarVariable {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn SetFloatArray(&self, pdata: &[f32], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFloatArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata.as_ptr()), ::core::mem::transmute(offset), pdata.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetFloatArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), ::core::mem::transmute(offset), pdata.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GetFloatArray(&self, pdata: &mut [f32], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFloatArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata.as_mut_ptr()), ::core::mem::transmute(offset), pdata.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetFloatArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdata)), ::core::mem::transmute(offset), pdata.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn SetInt(&self, value: i32) -> ::windows::core::Result<()> {
@@ -10679,11 +10679,11 @@ impl ID3D10EffectScalarVariable {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn SetIntArray(&self, pdata: &[i32], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIntArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata.as_ptr()), ::core::mem::transmute(offset), pdata.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetIntArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), ::core::mem::transmute(offset), pdata.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GetIntArray(&self, pdata: &mut [i32], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIntArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata.as_mut_ptr()), ::core::mem::transmute(offset), pdata.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetIntArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdata)), ::core::mem::transmute(offset), pdata.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10699,12 +10699,12 @@ impl ID3D10EffectScalarVariable {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBoolArray(&self, pdata: &[super::super::Foundation::BOOL], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBoolArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata.as_ptr()), ::core::mem::transmute(offset), pdata.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetBoolArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdata)), ::core::mem::transmute(offset), pdata.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBoolArray(&self, pdata: &mut [super::super::Foundation::BOOL], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBoolArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata.as_mut_ptr()), ::core::mem::transmute(offset), pdata.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetBoolArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdata)), ::core::mem::transmute(offset), pdata.len() as _).ok()
     }
 }
 impl ::core::convert::From<ID3D10EffectScalarVariable> for ID3D10EffectVariable {
@@ -10893,11 +10893,11 @@ impl ID3D10EffectShaderResourceVariable {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn SetResourceArray(&self, ppresources: &[::core::option::Option<ID3D10ShaderResourceView>], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetResourceArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(offset), ppresources.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetResourceArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(offset), ppresources.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GetResourceArray(&self, ppresources: &mut [::core::option::Option<ID3D10ShaderResourceView>], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResourceArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_mut_ptr()), ::core::mem::transmute(offset), ppresources.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetResourceArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppresources)), ::core::mem::transmute(offset), ppresources.len() as _).ok()
     }
 }
 impl ::core::convert::From<ID3D10EffectShaderResourceVariable> for ID3D10EffectVariable {
@@ -11262,7 +11262,7 @@ impl ID3D10EffectStringVariable {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn GetStringArray(&self, ppstrings: &mut [::windows::core::PSTR], offset: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStringArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppstrings.as_mut_ptr()), ::core::mem::transmute(offset), ppstrings.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetStringArray)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppstrings)), ::core::mem::transmute(offset), ppstrings.len() as _).ok()
     }
 }
 impl ::core::convert::From<ID3D10EffectStringVariable> for ID3D10EffectVariable {

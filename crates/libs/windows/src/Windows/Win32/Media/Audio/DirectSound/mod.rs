@@ -2437,11 +2437,11 @@ impl IDirectSoundBuffer8 {
     }
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
     pub unsafe fn SetFX(&self, pdsfxdesc: &[DSEFFECTDESC], pdwresultcodes: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFX)(::core::mem::transmute_copy(self), pdwresultcodes.len() as _, ::core::mem::transmute(pdsfxdesc.as_ptr()), ::core::mem::transmute(pdwresultcodes.as_mut_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetFX)(::core::mem::transmute_copy(self), pdwresultcodes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pdsfxdesc)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwresultcodes))).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
     pub unsafe fn AcquireResources(&self, dwflags: u32, pdwresultcodes: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AcquireResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pdwresultcodes.len() as _, ::core::mem::transmute(pdwresultcodes.as_mut_ptr())).ok()
+        (::windows::core::Interface::vtable(self).AcquireResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pdwresultcodes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwresultcodes))).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
     pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -2727,7 +2727,7 @@ impl IDirectSoundCaptureBuffer8 {
     }
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
     pub unsafe fn GetFXStatus(&self, pdwfxstatus: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFXStatus)(::core::mem::transmute_copy(self), pdwfxstatus.len() as _, ::core::mem::transmute(pdwfxstatus.as_mut_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetFXStatus)(::core::mem::transmute_copy(self), pdwfxstatus.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwfxstatus))).ok()
     }
 }
 impl ::core::convert::From<IDirectSoundCaptureBuffer8> for ::windows::core::IUnknown {
@@ -3588,7 +3588,7 @@ impl IDirectSoundNotify {
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotificationPositions(&self, pcpositionnotifies: &[DSBPOSITIONNOTIFY]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotificationPositions)(::core::mem::transmute_copy(self), pcpositionnotifies.len() as _, ::core::mem::transmute(pcpositionnotifies.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetNotificationPositions)(::core::mem::transmute_copy(self), pcpositionnotifies.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcpositionnotifies))).ok()
     }
 }
 impl ::core::convert::From<IDirectSoundNotify> for ::windows::core::IUnknown {

@@ -309,7 +309,7 @@ pub unsafe fn ExpandEnvironmentStringsA<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn ExpandEnvironmentStringsA(lpsrc: ::windows::core::PCSTR, lpdst: ::windows::core::PSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(ExpandEnvironmentStringsA(lpsrc.into_param().abi(), ::core::mem::transmute(lpdst.as_mut_ptr()), lpdst.len() as _))
+        ::core::mem::transmute(ExpandEnvironmentStringsA(lpsrc.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdst)), lpdst.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -324,7 +324,7 @@ pub unsafe fn ExpandEnvironmentStringsForUserA<'a, Param0: ::windows::core::Into
         extern "system" {
             fn ExpandEnvironmentStringsForUserA(htoken: super::super::Foundation::HANDLE, lpsrc: ::windows::core::PCSTR, lpdest: ::windows::core::PSTR, dwsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ExpandEnvironmentStringsForUserA(htoken.into_param().abi(), lpsrc.into_param().abi(), ::core::mem::transmute(lpdest.as_mut_ptr()), lpdest.len() as _))
+        ::core::mem::transmute(ExpandEnvironmentStringsForUserA(htoken.into_param().abi(), lpsrc.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdest)), lpdest.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -339,7 +339,7 @@ pub unsafe fn ExpandEnvironmentStringsForUserW<'a, Param0: ::windows::core::Into
         extern "system" {
             fn ExpandEnvironmentStringsForUserW(htoken: super::super::Foundation::HANDLE, lpsrc: ::windows::core::PCWSTR, lpdest: ::windows::core::PWSTR, dwsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ExpandEnvironmentStringsForUserW(htoken.into_param().abi(), lpsrc.into_param().abi(), ::core::mem::transmute(lpdest.as_mut_ptr()), lpdest.len() as _))
+        ::core::mem::transmute(ExpandEnvironmentStringsForUserW(htoken.into_param().abi(), lpsrc.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdest)), lpdest.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -353,7 +353,7 @@ pub unsafe fn ExpandEnvironmentStringsW<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn ExpandEnvironmentStringsW(lpsrc: ::windows::core::PCWSTR, lpdst: ::windows::core::PWSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(ExpandEnvironmentStringsW(lpsrc.into_param().abi(), ::core::mem::transmute(lpdst.as_mut_ptr()), lpdst.len() as _))
+        ::core::mem::transmute(ExpandEnvironmentStringsW(lpsrc.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdst)), lpdst.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -425,7 +425,7 @@ pub unsafe fn GetCurrentDirectoryA(lpbuffer: &mut [u8]) -> u32 {
         extern "system" {
             fn GetCurrentDirectoryA(nbufferlength: u32, lpbuffer: ::windows::core::PSTR) -> u32;
         }
-        ::core::mem::transmute(GetCurrentDirectoryA(lpbuffer.len() as _, ::core::mem::transmute(lpbuffer.as_mut_ptr())))
+        ::core::mem::transmute(GetCurrentDirectoryA(lpbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -439,7 +439,7 @@ pub unsafe fn GetCurrentDirectoryW(lpbuffer: &mut [u16]) -> u32 {
         extern "system" {
             fn GetCurrentDirectoryW(nbufferlength: u32, lpbuffer: ::windows::core::PWSTR) -> u32;
         }
-        ::core::mem::transmute(GetCurrentDirectoryW(lpbuffer.len() as _, ::core::mem::transmute(lpbuffer.as_mut_ptr())))
+        ::core::mem::transmute(GetCurrentDirectoryW(lpbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -481,7 +481,7 @@ pub unsafe fn GetEnvironmentVariableA<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn GetEnvironmentVariableA(lpname: ::windows::core::PCSTR, lpbuffer: ::windows::core::PSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(GetEnvironmentVariableA(lpname.into_param().abi(), ::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
+        ::core::mem::transmute(GetEnvironmentVariableA(lpname.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -495,7 +495,7 @@ pub unsafe fn GetEnvironmentVariableW<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn GetEnvironmentVariableW(lpname: ::windows::core::PCWSTR, lpbuffer: ::windows::core::PWSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(GetEnvironmentVariableW(lpname.into_param().abi(), ::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
+        ::core::mem::transmute(GetEnvironmentVariableW(lpname.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

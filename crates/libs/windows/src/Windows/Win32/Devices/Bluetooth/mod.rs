@@ -1787,7 +1787,7 @@ pub unsafe fn BluetoothAuthenticateDevice<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn BluetoothAuthenticateDevice(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, pbtbi: *mut BLUETOOTH_DEVICE_INFO, pszpasskey: ::windows::core::PCWSTR, ulpasskeylength: u32) -> u32;
         }
-        ::core::mem::transmute(BluetoothAuthenticateDevice(hwndparent.into_param().abi(), hradio.into_param().abi(), ::core::mem::transmute(pbtbi), ::core::mem::transmute(pszpasskey.as_ptr()), pszpasskey.len() as _))
+        ::core::mem::transmute(BluetoothAuthenticateDevice(hwndparent.into_param().abi(), hradio.into_param().abi(), ::core::mem::transmute(pbtbi), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszpasskey)), pszpasskey.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1817,7 +1817,7 @@ pub unsafe fn BluetoothAuthenticateMultipleDevices<'a, Param0: ::windows::core::
         extern "system" {
             fn BluetoothAuthenticateMultipleDevices(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, cdevices: u32, rgbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32;
         }
-        ::core::mem::transmute(BluetoothAuthenticateMultipleDevices(hwndparent.into_param().abi(), hradio.into_param().abi(), rgbtdi.len() as _, ::core::mem::transmute(rgbtdi.as_mut_ptr())))
+        ::core::mem::transmute(BluetoothAuthenticateMultipleDevices(hwndparent.into_param().abi(), hradio.into_param().abi(), rgbtdi.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgbtdi))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
