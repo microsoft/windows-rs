@@ -40,7 +40,7 @@ fn clone() {
     assert!(a.is_empty());
     assert!(a.len() == 0);
 
-    let a: BSTR = unsafe { SysAllocStringLen("", 0) };
+    let a: BSTR = unsafe { SysAllocStringLen(&[]) };
     assert!(a.is_empty());
     assert!(a.len() == 0);
 }
