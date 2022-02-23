@@ -13915,8 +13915,8 @@ impl IDWriteGlyphRunAnalysis {
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectWrite', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateAlphaTexture(&self, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *const super::super::Foundation::RECT, alphavalues: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateAlphaTexture)(::core::mem::transmute_copy(self), ::core::mem::transmute(texturetype), ::core::mem::transmute(texturebounds), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(alphavalues)), alphavalues.len() as _).ok()
+    pub unsafe fn CreateAlphaTexture(&self, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *const super::super::Foundation::RECT, alphavalues: *mut u8, buffersize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateAlphaTexture)(::core::mem::transmute_copy(self), ::core::mem::transmute(texturetype), ::core::mem::transmute(texturebounds), ::core::mem::transmute(alphavalues), ::core::mem::transmute(buffersize)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
     pub unsafe fn GetAlphaBlendParams<'a, Param0: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, renderingparams: Param0, blendgamma: *mut f32, blendenhancedcontrast: *mut f32, blendcleartypelevel: *mut f32) -> ::windows::core::Result<()> {

@@ -2562,42 +2562,42 @@ pub unsafe fn ldap_err2stringW(err: u32) -> ::windows::core::PWSTR {
 }
 #[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_escape_filter_element(sourcefilterelement: &[u8], destfilterelement: &mut [u8]) -> u32 {
+pub unsafe fn ldap_escape_filter_element<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(sourcefilterelement: Param0, sourcelength: u32, destfilterelement: ::windows::core::PSTR, destlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ldap_escape_filter_element(sourcefilterelement: ::windows::core::PCSTR, sourcelength: u32, destfilterelement: ::windows::core::PSTR, destlength: u32) -> u32;
         }
-        ::core::mem::transmute(ldap_escape_filter_element(::core::mem::transmute(::windows::core::as_ptr_or_null(sourcefilterelement)), sourcefilterelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(destfilterelement)), destfilterelement.len() as _))
+        ::core::mem::transmute(ldap_escape_filter_element(sourcefilterelement.into_param().abi(), ::core::mem::transmute(sourcelength), ::core::mem::transmute(destfilterelement), ::core::mem::transmute(destlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_escape_filter_elementA(sourcefilterelement: &[u8], destfilterelement: &mut [u8]) -> u32 {
+pub unsafe fn ldap_escape_filter_elementA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(sourcefilterelement: Param0, sourcelength: u32, destfilterelement: ::windows::core::PSTR, destlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ldap_escape_filter_elementA(sourcefilterelement: ::windows::core::PCSTR, sourcelength: u32, destfilterelement: ::windows::core::PSTR, destlength: u32) -> u32;
         }
-        ::core::mem::transmute(ldap_escape_filter_elementA(::core::mem::transmute(::windows::core::as_ptr_or_null(sourcefilterelement)), sourcefilterelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(destfilterelement)), destfilterelement.len() as _))
+        ::core::mem::transmute(ldap_escape_filter_elementA(sourcefilterelement.into_param().abi(), ::core::mem::transmute(sourcelength), ::core::mem::transmute(destfilterelement), ::core::mem::transmute(destlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn ldap_escape_filter_elementW(sourcefilterelement: &[u8], destfilterelement: ::windows::core::PWSTR, destlength: u32) -> u32 {
+pub unsafe fn ldap_escape_filter_elementW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(sourcefilterelement: Param0, sourcelength: u32, destfilterelement: ::windows::core::PWSTR, destlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ldap_escape_filter_elementW(sourcefilterelement: ::windows::core::PCSTR, sourcelength: u32, destfilterelement: ::windows::core::PWSTR, destlength: u32) -> u32;
         }
-        ::core::mem::transmute(ldap_escape_filter_elementW(::core::mem::transmute(::windows::core::as_ptr_or_null(sourcefilterelement)), sourcefilterelement.len() as _, ::core::mem::transmute(destfilterelement), ::core::mem::transmute(destlength)))
+        ::core::mem::transmute(ldap_escape_filter_elementW(sourcefilterelement.into_param().abi(), ::core::mem::transmute(sourcelength), ::core::mem::transmute(destfilterelement), ::core::mem::transmute(destlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -274,14 +274,14 @@ pub unsafe fn EndPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::G
 #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn Escape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, iescape: i32, pvin: &[u8], pvout: *mut ::core::ffi::c_void) -> i32 {
+pub unsafe fn Escape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hdc: Param0, iescape: i32, cjin: i32, pvin: Param3, pvout: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn Escape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjin: i32, pvin: ::windows::core::PCSTR, pvout: *mut ::core::ffi::c_void) -> i32;
         }
-        ::core::mem::transmute(Escape(hdc.into_param().abi(), ::core::mem::transmute(iescape), pvin.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pvin)), ::core::mem::transmute(pvout)))
+        ::core::mem::transmute(Escape(hdc.into_param().abi(), ::core::mem::transmute(iescape), ::core::mem::transmute(cjin), pvin.into_param().abi(), ::core::mem::transmute(pvout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -289,14 +289,14 @@ pub unsafe fn Escape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Gr
 #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ExtEscape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, iescape: i32, lpindata: &[u8], lpoutdata: &mut [u8]) -> i32 {
+pub unsafe fn ExtEscape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hdc: Param0, iescape: i32, cjinput: i32, lpindata: Param3, cjoutput: i32, lpoutdata: ::windows::core::PSTR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjinput: i32, lpindata: ::windows::core::PCSTR, cjoutput: i32, lpoutdata: ::windows::core::PSTR) -> i32;
         }
-        ::core::mem::transmute(ExtEscape(hdc.into_param().abi(), ::core::mem::transmute(iescape), lpindata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpindata)), lpoutdata.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpoutdata))))
+        ::core::mem::transmute(ExtEscape(hdc.into_param().abi(), ::core::mem::transmute(iescape), ::core::mem::transmute(cjinput), lpindata.into_param().abi(), ::core::mem::transmute(cjoutput), ::core::mem::transmute(lpoutdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

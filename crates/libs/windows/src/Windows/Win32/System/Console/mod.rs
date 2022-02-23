@@ -959,14 +959,14 @@ pub unsafe fn GetConsoleCP() -> u32 {
 }
 #[doc = "*Required features: 'Win32_System_Console'*"]
 #[inline]
-pub unsafe fn GetConsoleCommandHistoryA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(commands: &mut [u8], exename: Param2) -> u32 {
+pub unsafe fn GetConsoleCommandHistoryA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(commands: ::windows::core::PSTR, commandbufferlength: u32, exename: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetConsoleCommandHistoryA(commands: ::windows::core::PSTR, commandbufferlength: u32, exename: ::windows::core::PCSTR) -> u32;
         }
-        ::core::mem::transmute(GetConsoleCommandHistoryA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(commands)), commands.len() as _, exename.into_param().abi()))
+        ::core::mem::transmute(GetConsoleCommandHistoryA(::core::mem::transmute(commands), ::core::mem::transmute(commandbufferlength), exename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -15491,8 +15491,9 @@ impl ID3D11AuthenticatedChannel {
         (::windows::core::Interface::vtable(self).GetCertificateSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetCertificate(&self, pcertificate: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCertificate)(::core::mem::transmute_copy(self), pcertificate.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pcertificate))).ok()
+    pub unsafe fn GetCertificate(&self, certificatesize: u32) -> ::windows::core::Result<u8> {
+        let mut result__: u8 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(certificatesize), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16443,8 +16444,9 @@ impl ID3D11CryptoSession {
         (::windows::core::Interface::vtable(self).GetCertificateSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetCertificate(&self, pcertificate: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCertificate)(::core::mem::transmute_copy(self), pcertificate.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pcertificate))).ok()
+    pub unsafe fn GetCertificate(&self, certificatesize: u32) -> ::windows::core::Result<u8> {
+        let mut result__: u8 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(certificatesize), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

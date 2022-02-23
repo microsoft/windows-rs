@@ -18204,14 +18204,14 @@ pub unsafe fn mmioStringToFOURCCW<'a, Param0: ::windows::core::IntoParam<'a, ::w
 }
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 #[inline]
-pub unsafe fn mmioWrite<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pch: &[u8]) -> i32 {
+pub unsafe fn mmioWrite<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hmmio: Param0, pch: Param1, cch: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmioWrite(hmmio: HMMIO, pch: ::windows::core::PCSTR, cch: i32) -> i32;
         }
-        ::core::mem::transmute(mmioWrite(hmmio.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pch)), pch.len() as _))
+        ::core::mem::transmute(mmioWrite(hmmio.into_param().abi(), pch.into_param().abi(), ::core::mem::transmute(cch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -408,14 +408,14 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
 }
 #[doc = "*Required features: 'Win32_System_RestartManager'*"]
 #[inline]
-pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: &mut [u8], cbfilterbufneeded: *mut u32) -> u32 {
+pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: *mut u8, cbfilterbuf: u32, cbfilterbufneeded: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: *mut u8, cbfilterbuf: u32, cbfilterbufneeded: *mut u32) -> u32;
         }
-        ::core::mem::transmute(RmGetFilterList(::core::mem::transmute(dwsessionhandle), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbfilterbuf)), pbfilterbuf.len() as _, ::core::mem::transmute(cbfilterbufneeded)))
+        ::core::mem::transmute(RmGetFilterList(::core::mem::transmute(dwsessionhandle), ::core::mem::transmute(pbfilterbuf), ::core::mem::transmute(cbfilterbuf), ::core::mem::transmute(cbfilterbufneeded)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

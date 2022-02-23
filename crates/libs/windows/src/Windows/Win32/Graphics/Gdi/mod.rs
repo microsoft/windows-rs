@@ -4267,14 +4267,14 @@ pub unsafe fn DrawEdge<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
-pub unsafe fn DrawEscape<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, iescape: i32, lpin: &[u8]) -> i32 {
+pub unsafe fn DrawEscape<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hdc: Param0, iescape: i32, cjin: i32, lpin: Param3) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DrawEscape(hdc: HDC, iescape: i32, cjin: i32, lpin: ::windows::core::PCSTR) -> i32;
         }
-        ::core::mem::transmute(DrawEscape(hdc.into_param().abi(), ::core::mem::transmute(iescape), lpin.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpin))))
+        ::core::mem::transmute(DrawEscape(hdc.into_param().abi(), ::core::mem::transmute(iescape), ::core::mem::transmute(cjin), lpin.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9967,14 +9967,14 @@ pub unsafe fn GdiAlphaBlend<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Par
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GdiComment<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpdata: &[u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn GdiComment<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, nsize: u32, lpdata: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GdiComment(hdc: HDC, nsize: u32, lpdata: *const u8) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GdiComment(hdc.into_param().abi(), lpdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpdata))))
+        ::core::mem::transmute(GdiComment(hdc.into_param().abi(), ::core::mem::transmute(nsize), ::core::mem::transmute(lpdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10580,14 +10580,14 @@ pub unsafe fn GetEnhMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, ::windo
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
-pub unsafe fn GetEnhMetaFileBits<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>>(hemf: Param0, lpdata: &mut [u8]) -> u32 {
+pub unsafe fn GetEnhMetaFileBits<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>>(hemf: Param0, nsize: u32, lpdata: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetEnhMetaFileBits(hemf: HENHMETAFILE, nsize: u32, lpdata: *mut u8) -> u32;
         }
-        ::core::mem::transmute(GetEnhMetaFileBits(hemf.into_param().abi(), lpdata.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdata))))
+        ::core::mem::transmute(GetEnhMetaFileBits(hemf.into_param().abi(), ::core::mem::transmute(nsize), ::core::mem::transmute(lpdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11544,14 +11544,14 @@ pub unsafe fn GetViewportOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
-pub unsafe fn GetWinMetaFileBits<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>, Param4: ::windows::core::IntoParam<'a, HDC>>(hemf: Param0, pdata16: &mut [u8], imapmode: i32, hdcref: Param4) -> u32 {
+pub unsafe fn GetWinMetaFileBits<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>, Param4: ::windows::core::IntoParam<'a, HDC>>(hemf: Param0, cbdata16: u32, pdata16: *mut u8, imapmode: i32, hdcref: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetWinMetaFileBits(hemf: HENHMETAFILE, cbdata16: u32, pdata16: *mut u8, imapmode: i32, hdcref: HDC) -> u32;
         }
-        ::core::mem::transmute(GetWinMetaFileBits(hemf.into_param().abi(), pdata16.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdata16)), ::core::mem::transmute(imapmode), hdcref.into_param().abi()))
+        ::core::mem::transmute(GetWinMetaFileBits(hemf.into_param().abi(), ::core::mem::transmute(cbdata16), ::core::mem::transmute(pdata16), ::core::mem::transmute(imapmode), hdcref.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16248,14 +16248,14 @@ pub unsafe fn SetDIBitsToDevice<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
-pub unsafe fn SetEnhMetaFileBits(pb: &[u8]) -> HENHMETAFILE {
+pub unsafe fn SetEnhMetaFileBits(nsize: u32, pb: *const u8) -> HENHMETAFILE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetEnhMetaFileBits(nsize: u32, pb: *const u8) -> HENHMETAFILE;
         }
-        ::core::mem::transmute(SetEnhMetaFileBits(pb.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pb))))
+        ::core::mem::transmute(SetEnhMetaFileBits(::core::mem::transmute(nsize), ::core::mem::transmute(pb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16318,14 +16318,14 @@ pub unsafe fn SetMapperFlags<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hd
 }
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
-pub unsafe fn SetMetaFileBitsEx(lpdata: &[u8]) -> HMETAFILE {
+pub unsafe fn SetMetaFileBitsEx(cbbuffer: u32, lpdata: *const u8) -> HMETAFILE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetMetaFileBitsEx(cbbuffer: u32, lpdata: *const u8) -> HMETAFILE;
         }
-        ::core::mem::transmute(SetMetaFileBitsEx(lpdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpdata))))
+        ::core::mem::transmute(SetMetaFileBitsEx(::core::mem::transmute(cbbuffer), ::core::mem::transmute(lpdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

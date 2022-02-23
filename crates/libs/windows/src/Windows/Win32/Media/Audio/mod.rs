@@ -7772,12 +7772,12 @@ pub struct ISpatialAudioMetadataItems_Vtbl {
 pub struct ISpatialAudioMetadataItemsBuffer(::windows::core::IUnknown);
 impl ISpatialAudioMetadataItemsBuffer {
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
-    pub unsafe fn AttachToBuffer(&self, buffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachToBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), buffer.len() as _).ok()
+    pub unsafe fn AttachToBuffer(&self, buffer: *mut u8, bufferlength: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AttachToBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
-    pub unsafe fn AttachToPopulatedBuffer(&self, buffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachToPopulatedBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), buffer.len() as _).ok()
+    pub unsafe fn AttachToPopulatedBuffer(&self, buffer: *mut u8, bufferlength: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AttachToPopulatedBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub unsafe fn DetachBuffer(&self) -> ::windows::core::Result<()> {

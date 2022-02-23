@@ -8398,14 +8398,14 @@ pub unsafe fn _hread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, lbytes: i32
 }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[inline]
-pub unsafe fn _hwrite(hfile: i32, lpbuffer: &[u8]) -> i32 {
+pub unsafe fn _hwrite<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hfile: i32, lpbuffer: Param1, lbytes: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn _hwrite(hfile: i32, lpbuffer: ::windows::core::PCSTR, lbytes: i32) -> i32;
         }
-        ::core::mem::transmute(_hwrite(::core::mem::transmute(hfile), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
+        ::core::mem::transmute(_hwrite(::core::mem::transmute(hfile), lpbuffer.into_param().abi(), ::core::mem::transmute(lbytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8482,14 +8482,14 @@ pub unsafe fn _lread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, ubytes: u32
 }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[inline]
-pub unsafe fn _lwrite(hfile: i32, lpbuffer: &[u8]) -> u32 {
+pub unsafe fn _lwrite<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hfile: i32, lpbuffer: Param1, ubytes: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn _lwrite(hfile: i32, lpbuffer: ::windows::core::PCSTR, ubytes: u32) -> u32;
         }
-        ::core::mem::transmute(_lwrite(::core::mem::transmute(hfile), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
+        ::core::mem::transmute(_lwrite(::core::mem::transmute(hfile), lpbuffer.into_param().abi(), ::core::mem::transmute(ubytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

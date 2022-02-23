@@ -40,14 +40,14 @@ impl Param {
                         }
                     }
                 }
-                "MemorySizeAttribute" => {
-                    for (_, value) in attribute.args() {
-                        match value {
-                            ConstantValue::I16(value) => return Some(ArrayInfo::RelativeSize(value as _)),
-                            _ => unimplemented!(),
-                        }
-                    }
-                }
+                // "MemorySizeAttribute" => {
+                //     for (_, value) in attribute.args() {
+                //         match value {
+                //             ConstantValue::I16(value) => return Some(ArrayInfo::RelativeSize(value as _)),
+                //             _ => unimplemented!(),
+                //         }
+                //     }
+                // }
                 _ => {}
             }
         }
