@@ -2094,14 +2094,14 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {
 #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u32, pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: &[u8], pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u32, pfncallback: ::windows::core::RawPtr, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(BluetoothSdpEnumAttributes(::core::mem::transmute(psdpstream), ::core::mem::transmute(cbstreamsize), ::core::mem::transmute(pfncallback), ::core::mem::transmute(pvparam)))
+        ::core::mem::transmute(BluetoothSdpEnumAttributes(::core::mem::transmute(::windows::core::as_ptr_or_null(psdpstream)), psdpstream.len() as _, ::core::mem::transmute(pfncallback), ::core::mem::transmute(pvparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2109,14 +2109,14 @@ pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: *const u8, cbstreamsize: u3
 #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothSdpGetAttributeValue(precordstream: *const u8, cbrecordlength: u32, usattributeid: u16, pattributedata: *mut SDP_ELEMENT_DATA) -> u32 {
+pub unsafe fn BluetoothSdpGetAttributeValue(precordstream: &[u8], usattributeid: u16, pattributedata: *mut SDP_ELEMENT_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn BluetoothSdpGetAttributeValue(precordstream: *const u8, cbrecordlength: u32, usattributeid: u16, pattributedata: *mut SDP_ELEMENT_DATA) -> u32;
         }
-        ::core::mem::transmute(BluetoothSdpGetAttributeValue(::core::mem::transmute(precordstream), ::core::mem::transmute(cbrecordlength), ::core::mem::transmute(usattributeid), ::core::mem::transmute(pattributedata)))
+        ::core::mem::transmute(BluetoothSdpGetAttributeValue(::core::mem::transmute(::windows::core::as_ptr_or_null(precordstream)), precordstream.len() as _, ::core::mem::transmute(usattributeid), ::core::mem::transmute(pattributedata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2124,14 +2124,14 @@ pub unsafe fn BluetoothSdpGetAttributeValue(precordstream: *const u8, cbrecordle
 #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothSdpGetContainerElementData(pcontainerstream: *const u8, cbcontainerlength: u32, pelement: *mut isize, pdata: *mut SDP_ELEMENT_DATA) -> u32 {
+pub unsafe fn BluetoothSdpGetContainerElementData(pcontainerstream: &[u8], pelement: *mut isize, pdata: *mut SDP_ELEMENT_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn BluetoothSdpGetContainerElementData(pcontainerstream: *const u8, cbcontainerlength: u32, pelement: *mut isize, pdata: *mut SDP_ELEMENT_DATA) -> u32;
         }
-        ::core::mem::transmute(BluetoothSdpGetContainerElementData(::core::mem::transmute(pcontainerstream), ::core::mem::transmute(cbcontainerlength), ::core::mem::transmute(pelement), ::core::mem::transmute(pdata)))
+        ::core::mem::transmute(BluetoothSdpGetContainerElementData(::core::mem::transmute(::windows::core::as_ptr_or_null(pcontainerstream)), pcontainerstream.len() as _, ::core::mem::transmute(pelement), ::core::mem::transmute(pdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2139,28 +2139,28 @@ pub unsafe fn BluetoothSdpGetContainerElementData(pcontainerstream: *const u8, c
 #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothSdpGetElementData(psdpstream: *const u8, cbsdpstreamlength: u32, pdata: *mut SDP_ELEMENT_DATA) -> u32 {
+pub unsafe fn BluetoothSdpGetElementData(psdpstream: &[u8], pdata: *mut SDP_ELEMENT_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn BluetoothSdpGetElementData(psdpstream: *const u8, cbsdpstreamlength: u32, pdata: *mut SDP_ELEMENT_DATA) -> u32;
         }
-        ::core::mem::transmute(BluetoothSdpGetElementData(::core::mem::transmute(psdpstream), ::core::mem::transmute(cbsdpstreamlength), ::core::mem::transmute(pdata)))
+        ::core::mem::transmute(BluetoothSdpGetElementData(::core::mem::transmute(::windows::core::as_ptr_or_null(psdpstream)), psdpstream.len() as _, ::core::mem::transmute(pdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 #[inline]
-pub unsafe fn BluetoothSdpGetString(precordstream: *const u8, cbrecordlength: u32, pstringdata: *const SDP_STRING_TYPE_DATA, usstringoffset: u16, pszstring: ::windows::core::PWSTR, pcchstringlength: *mut u32) -> u32 {
+pub unsafe fn BluetoothSdpGetString(precordstream: &[u8], pstringdata: *const SDP_STRING_TYPE_DATA, usstringoffset: u16, pszstring: ::windows::core::PWSTR, pcchstringlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn BluetoothSdpGetString(precordstream: *const u8, cbrecordlength: u32, pstringdata: *const SDP_STRING_TYPE_DATA, usstringoffset: u16, pszstring: ::windows::core::PWSTR, pcchstringlength: *mut u32) -> u32;
         }
-        ::core::mem::transmute(BluetoothSdpGetString(::core::mem::transmute(precordstream), ::core::mem::transmute(cbrecordlength), ::core::mem::transmute(pstringdata), ::core::mem::transmute(usstringoffset), ::core::mem::transmute(pszstring), ::core::mem::transmute(pcchstringlength)))
+        ::core::mem::transmute(BluetoothSdpGetString(::core::mem::transmute(::windows::core::as_ptr_or_null(precordstream)), precordstream.len() as _, ::core::mem::transmute(pstringdata), ::core::mem::transmute(usstringoffset), ::core::mem::transmute(pszstring), ::core::mem::transmute(pcchstringlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

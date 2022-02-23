@@ -221,20 +221,20 @@ impl Type {
         }
     }
 
-    pub fn deref(&self) -> Self {
+    pub fn deref(&self) -> Option<Self> {
         match self {
             Self::ConstPtr((kind, 1)) | Self::MutPtr((kind, 1)) => {
                 if **kind == Self::Void {
-                    Self::U8
+                    Some(Self::U8)
                 } else {
-                    *kind.clone()
+                    Some(*kind.clone())
                 }
             }
-            Self::ConstPtr((kind, pointers)) => Self::ConstPtr((kind.clone(), pointers - 1)),
-            Self::MutPtr((kind, pointers)) => Self::MutPtr((kind.clone(), pointers - 1)),
-            Self::PSTR | Self::PCSTR => Self::U8,
-            Self::PWSTR | Self::PCWSTR => Self::U16,
-            _ => unimplemented!(),
+            Self::ConstPtr((kind, pointers)) => Some(Self::ConstPtr((kind.clone(), pointers - 1))),
+            Self::MutPtr((kind, pointers)) => Some(Self::MutPtr((kind.clone(), pointers - 1))),
+            Self::PSTR | Self::PCSTR => Some(Self::U8),
+            Self::PWSTR | Self::PCWSTR => Some(Self::U16),
+            _ => None,
         }
     }
 

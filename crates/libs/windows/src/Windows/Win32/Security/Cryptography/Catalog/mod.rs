@@ -438,14 +438,14 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle2<'a, Param1: ::windows::core::
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
 #[inline]
-pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: *const u8, cbhash: u32, dwflags: u32, phprevcatinfo: *mut isize) -> isize {
+pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: &[u8], dwflags: u32, phprevcatinfo: *mut isize) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: *const u8, cbhash: u32, dwflags: u32, phprevcatinfo: *mut isize) -> isize;
         }
-        ::core::mem::transmute(CryptCATAdminEnumCatalogFromHash(::core::mem::transmute(hcatadmin), ::core::mem::transmute(pbhash), ::core::mem::transmute(cbhash), ::core::mem::transmute(dwflags), ::core::mem::transmute(phprevcatinfo)))
+        ::core::mem::transmute(CryptCATAdminEnumCatalogFromHash(::core::mem::transmute(hcatadmin), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbhash)), pbhash.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(phprevcatinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

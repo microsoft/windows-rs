@@ -18,4 +18,6 @@ features = [
     "Win32_Data_Xml_XmlLite",
     "Win32_System_Com_StructuredStorage",
     "Win32_UI_ColorSystem",
+    "Win32_Globalization",
+    "Win32_UI_Shell",
 ]

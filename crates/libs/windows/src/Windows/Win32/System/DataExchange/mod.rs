@@ -892,14 +892,14 @@ pub unsafe fn DdeAccessData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn DdeAddData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>>(hdata: Param0, psrc: *const u8, cb: u32, cboff: u32) -> HDDEDATA {
+pub unsafe fn DdeAddData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>>(hdata: Param0, psrc: &[u8], cboff: u32) -> HDDEDATA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeAddData(hdata: HDDEDATA, psrc: *const u8, cb: u32, cboff: u32) -> HDDEDATA;
         }
-        ::core::mem::transmute(DdeAddData(hdata.into_param().abi(), ::core::mem::transmute(psrc), ::core::mem::transmute(cb), ::core::mem::transmute(cboff)))
+        ::core::mem::transmute(DdeAddData(hdata.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psrc)), psrc.len() as _, ::core::mem::transmute(cboff)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -964,14 +964,14 @@ pub unsafe fn DdeConnectList<'a, Param1: ::windows::core::IntoParam<'a, HSZ>, Pa
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn DdeCreateDataHandle<'a, Param4: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: Param4, wfmt: u32, afcmd: u32) -> HDDEDATA {
+pub unsafe fn DdeCreateDataHandle<'a, Param4: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, psrc: &[u8], cboff: u32, hszitem: Param4, wfmt: u32, afcmd: u32) -> HDDEDATA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeCreateDataHandle(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: HSZ, wfmt: u32, afcmd: u32) -> HDDEDATA;
         }
-        ::core::mem::transmute(DdeCreateDataHandle(::core::mem::transmute(idinst), ::core::mem::transmute(psrc), ::core::mem::transmute(cb), ::core::mem::transmute(cboff), hszitem.into_param().abi(), ::core::mem::transmute(wfmt), ::core::mem::transmute(afcmd)))
+        ::core::mem::transmute(DdeCreateDataHandle(::core::mem::transmute(idinst), ::core::mem::transmute(::windows::core::as_ptr_or_null(psrc)), psrc.len() as _, ::core::mem::transmute(cboff), hszitem.into_param().abi(), ::core::mem::transmute(wfmt), ::core::mem::transmute(afcmd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1081,14 +1081,14 @@ pub unsafe fn DdeFreeStringHandle<'a, Param1: ::windows::core::IntoParam<'a, HSZ
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn DdeGetData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>>(hdata: Param0, pdst: *mut u8, cbmax: u32, cboff: u32) -> u32 {
+pub unsafe fn DdeGetData<'a, Param0: ::windows::core::IntoParam<'a, HDDEDATA>>(hdata: Param0, pdst: &mut [u8], cboff: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeGetData(hdata: HDDEDATA, pdst: *mut u8, cbmax: u32, cboff: u32) -> u32;
         }
-        ::core::mem::transmute(DdeGetData(hdata.into_param().abi(), ::core::mem::transmute(pdst), ::core::mem::transmute(cbmax), ::core::mem::transmute(cboff)))
+        ::core::mem::transmute(DdeGetData(hdata.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdst)), pdst.len() as _, ::core::mem::transmute(cboff)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2424,14 +2424,14 @@ pub unsafe fn SetClipboardViewer<'a, Param0: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetWinMetaFileBits<'a, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(nsize: u32, lpmeta16data: *const u8, hdcref: Param2, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE {
+pub unsafe fn SetWinMetaFileBits<'a, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(lpmeta16data: &[u8], hdcref: Param2, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
         }
-        ::core::mem::transmute(SetWinMetaFileBits(::core::mem::transmute(nsize), ::core::mem::transmute(lpmeta16data), hdcref.into_param().abi(), ::core::mem::transmute(lpmfp)))
+        ::core::mem::transmute(SetWinMetaFileBits(lpmeta16data.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpmeta16data)), hdcref.into_param().abi(), ::core::mem::transmute(lpmfp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

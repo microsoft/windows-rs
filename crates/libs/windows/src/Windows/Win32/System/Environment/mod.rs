@@ -245,15 +245,14 @@ pub unsafe fn EnclaveGetAttestationReport(enclavedata: *const u8, report: *mut :
 }
 #[doc = "*Required features: 'Win32_System_Environment'*"]
 #[inline]
-pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32) -> ::windows::core::Result<ENCLAVE_INFORMATION> {
+pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32, enclaveinformation: *mut ENCLAVE_INFORMATION) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EnclaveGetEnclaveInformation(informationsize: u32, enclaveinformation: *mut ENCLAVE_INFORMATION) -> ::windows::core::HRESULT;
         }
-        let mut result__: ENCLAVE_INFORMATION = ::core::mem::zeroed();
-        EnclaveGetEnclaveInformation(::core::mem::transmute(informationsize), ::core::mem::transmute(&mut result__)).from_abi::<ENCLAVE_INFORMATION>(result__)
+        EnclaveGetEnclaveInformation(::core::mem::transmute(informationsize), ::core::mem::transmute(enclaveinformation)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

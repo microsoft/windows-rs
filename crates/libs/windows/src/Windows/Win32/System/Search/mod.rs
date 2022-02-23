@@ -15098,8 +15098,8 @@ pub struct IRowsetAsynch_Vtbl {
 pub struct IRowsetBookmark(::windows::core::IUnknown);
 impl IRowsetBookmark {
     #[doc = "*Required features: 'Win32_System_Search'*"]
-    pub unsafe fn PositionOnBookmark(&self, hchapter: usize, cbbookmark: usize, pbookmark: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PositionOnBookmark)(::core::mem::transmute_copy(self), ::core::mem::transmute(hchapter), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pbookmark)).ok()
+    pub unsafe fn PositionOnBookmark(&self, hchapter: usize, pbookmark: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PositionOnBookmark)(::core::mem::transmute_copy(self), ::core::mem::transmute(hchapter), pbookmark.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbookmark))).ok()
     }
 }
 impl ::core::convert::From<IRowsetBookmark> for ::windows::core::IUnknown {

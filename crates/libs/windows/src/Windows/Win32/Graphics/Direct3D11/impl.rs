@@ -17,7 +17,7 @@ impl ID3D11Asynchronous_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11AuthenticatedChannel_Impl: Sized + ID3D11DeviceChild_Impl {
     fn GetCertificateSize(&self) -> ::windows::core::Result<u32>;
-    fn GetCertificate(&self, certificatesize: u32) -> ::windows::core::Result<u8>;
+    fn GetCertificate(&self, certificatesize: u32, pcertificate: *mut u8) -> ::windows::core::Result<()>;
     fn GetChannelHandle(&self, pchannelhandle: *mut super::super::Foundation::HANDLE);
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -37,13 +37,7 @@ impl ID3D11AuthenticatedChannel_Vtbl {
         unsafe extern "system" fn GetCertificate<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11AuthenticatedChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificatesize: u32, pcertificate: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCertificate(::core::mem::transmute_copy(&certificatesize)) {
-                ::core::result::Result::Ok(ok__) => {
-                    *pcertificate = ::core::mem::transmute(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            (*this).GetCertificate(::core::mem::transmute_copy(&certificatesize), ::core::mem::transmute_copy(&pcertificate)).into()
         }
         unsafe extern "system" fn GetChannelHandle<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11AuthenticatedChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchannelhandle: *mut super::super::Foundation::HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -239,7 +233,7 @@ pub trait ID3D11CryptoSession_Impl: Sized + ID3D11DeviceChild_Impl {
     fn GetCryptoType(&self, pcryptotype: *mut ::windows::core::GUID);
     fn GetDecoderProfile(&self, pdecoderprofile: *mut ::windows::core::GUID);
     fn GetCertificateSize(&self) -> ::windows::core::Result<u32>;
-    fn GetCertificate(&self, certificatesize: u32) -> ::windows::core::Result<u8>;
+    fn GetCertificate(&self, certificatesize: u32, pcertificate: *mut u8) -> ::windows::core::Result<()>;
     fn GetCryptoSessionHandle(&self, pcryptosessionhandle: *mut super::super::Foundation::HANDLE);
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -269,13 +263,7 @@ impl ID3D11CryptoSession_Vtbl {
         unsafe extern "system" fn GetCertificate<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11CryptoSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificatesize: u32, pcertificate: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCertificate(::core::mem::transmute_copy(&certificatesize)) {
-                ::core::result::Result::Ok(ok__) => {
-                    *pcertificate = ::core::mem::transmute(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            (*this).GetCertificate(::core::mem::transmute_copy(&certificatesize), ::core::mem::transmute_copy(&pcertificate)).into()
         }
         unsafe extern "system" fn GetCryptoSessionHandle<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11CryptoSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcryptosessionhandle: *mut super::super::Foundation::HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

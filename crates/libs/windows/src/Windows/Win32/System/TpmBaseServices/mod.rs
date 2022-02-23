@@ -2,14 +2,14 @@
 #[doc = "*Required features: 'Win32_System_TpmBaseServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+pub unsafe fn GetDeviceID(pbwindowsaik: &mut [u8], pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        GetDeviceID(::core::mem::transmute(pbwindowsaik), ::core::mem::transmute(cbwindowsaik), ::core::mem::transmute(pcbresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
+        GetDeviceID(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbwindowsaik)), pbwindowsaik.len() as _, ::core::mem::transmute(pcbresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -380,14 +380,14 @@ pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: *mut u8, pcboutput: *m
 }
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 #[inline]
-pub unsafe fn Tbsi_Physical_Presence_Command(hcontext: *const ::core::ffi::c_void, pabinput: *const u8, cbinput: u32, paboutput: *mut u8, pcboutput: *mut u32) -> u32 {
+pub unsafe fn Tbsi_Physical_Presence_Command(hcontext: *const ::core::ffi::c_void, pabinput: &[u8], paboutput: *mut u8, pcboutput: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn Tbsi_Physical_Presence_Command(hcontext: *const ::core::ffi::c_void, pabinput: *const u8, cbinput: u32, paboutput: *mut u8, pcboutput: *mut u32) -> u32;
         }
-        ::core::mem::transmute(Tbsi_Physical_Presence_Command(::core::mem::transmute(hcontext), ::core::mem::transmute(pabinput), ::core::mem::transmute(cbinput), ::core::mem::transmute(paboutput), ::core::mem::transmute(pcboutput)))
+        ::core::mem::transmute(Tbsi_Physical_Presence_Command(::core::mem::transmute(hcontext), ::core::mem::transmute(::windows::core::as_ptr_or_null(pabinput)), pabinput.len() as _, ::core::mem::transmute(paboutput), ::core::mem::transmute(pcboutput)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -436,14 +436,14 @@ pub unsafe fn Tbsip_Context_Close(hcontext: *const ::core::ffi::c_void) -> u32 {
 }
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 #[inline]
-pub unsafe fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32 {
+pub unsafe fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: &[u8], pabresult: *mut u8, pcbresult: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32;
         }
-        ::core::mem::transmute(Tbsip_Submit_Command(::core::mem::transmute(hcontext), ::core::mem::transmute(locality), ::core::mem::transmute(priority), ::core::mem::transmute(pabcommand), ::core::mem::transmute(cbcommand), ::core::mem::transmute(pabresult), ::core::mem::transmute(pcbresult)))
+        ::core::mem::transmute(Tbsip_Submit_Command(::core::mem::transmute(hcontext), ::core::mem::transmute(locality), ::core::mem::transmute(priority), ::core::mem::transmute(::windows::core::as_ptr_or_null(pabcommand)), pabcommand.len() as _, ::core::mem::transmute(pabresult), ::core::mem::transmute(pcbresult)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

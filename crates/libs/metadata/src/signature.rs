@@ -97,6 +97,20 @@ impl MethodParam {
     }
 
     pub fn is_convertible(&self) -> bool {
-        self.def.flags().input() && !self.ty.is_winrt_array() && !self.ty.is_pointer() && self.ty.is_convertible() && self.def.array_info().is_none()
+        self.def.flags().input() && !self.ty.is_winrt_array() && !self.ty.is_pointer() && self.ty.is_convertible() && self.array_info().is_none()
+    }
+
+    pub fn array_info(&self) -> Option<ArrayInfo> {
+        let info = self.def.array_info();
+
+        if let Some(ArrayInfo::RelativeSize(len)) = info {
+            if self.ty.is_void() || self.ty.deref() != Some(Type::U8) {
+                return None;
+            } else {
+                return Some(ArrayInfo::RelativeLen(len));
+            }
+        }
+
+        info
     }
 }

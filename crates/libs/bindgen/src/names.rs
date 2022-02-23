@@ -198,7 +198,7 @@ pub fn gen_element_name(def: &Type, gen: &Gen) -> TokenStream {
         Type::WinrtArray(kind) => gen_element_name(kind, gen),
         Type::WinrtArrayRef(kind) => gen_element_name(kind, gen),
         Type::WinrtConstRef(kind) => gen_element_name(kind, gen),
-        Type::TypeName => unimplemented!(),
+        Type::TypeName => quote!{ TODODODOD }
     }
 }
 

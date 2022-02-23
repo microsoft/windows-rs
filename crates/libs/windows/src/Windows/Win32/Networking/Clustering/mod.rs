@@ -19579,14 +19579,14 @@ pub unsafe fn MoveClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *const 
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 #[inline]
-pub unsafe fn MoveClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE, dwmoveflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32 {
+pub unsafe fn MoveClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE, dwmoveflags: u32, lpinbuffer: &[u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn MoveClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE, dwmoveflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32;
         }
-        ::core::mem::transmute(MoveClusterGroupEx(::core::mem::transmute(hgroup), ::core::mem::transmute(hdestinationnode), ::core::mem::transmute(dwmoveflags), ::core::mem::transmute(lpinbuffer), ::core::mem::transmute(cbinbuffersize)))
+        ::core::mem::transmute(MoveClusterGroupEx(::core::mem::transmute(hgroup), ::core::mem::transmute(hdestinationnode), ::core::mem::transmute(dwmoveflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpinbuffer)), lpinbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19731,14 +19731,14 @@ pub unsafe fn OfflineClusterGroup(hgroup: *const _HGROUP) -> u32 {
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 #[inline]
-pub unsafe fn OfflineClusterGroupEx(hgroup: *const _HGROUP, dwofflineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32 {
+pub unsafe fn OfflineClusterGroupEx(hgroup: *const _HGROUP, dwofflineflags: u32, lpinbuffer: &[u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn OfflineClusterGroupEx(hgroup: *const _HGROUP, dwofflineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32;
         }
-        ::core::mem::transmute(OfflineClusterGroupEx(::core::mem::transmute(hgroup), ::core::mem::transmute(dwofflineflags), ::core::mem::transmute(lpinbuffer), ::core::mem::transmute(cbinbuffersize)))
+        ::core::mem::transmute(OfflineClusterGroupEx(::core::mem::transmute(hgroup), ::core::mem::transmute(dwofflineflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpinbuffer)), lpinbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19759,14 +19759,14 @@ pub unsafe fn OfflineClusterResource(hresource: *const _HRESOURCE) -> u32 {
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 #[inline]
-pub unsafe fn OfflineClusterResourceEx(hresource: *const _HRESOURCE, dwofflineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32 {
+pub unsafe fn OfflineClusterResourceEx(hresource: *const _HRESOURCE, dwofflineflags: u32, lpinbuffer: &[u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn OfflineClusterResourceEx(hresource: *const _HRESOURCE, dwofflineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32;
         }
-        ::core::mem::transmute(OfflineClusterResourceEx(::core::mem::transmute(hresource), ::core::mem::transmute(dwofflineflags), ::core::mem::transmute(lpinbuffer), ::core::mem::transmute(cbinbuffersize)))
+        ::core::mem::transmute(OfflineClusterResourceEx(::core::mem::transmute(hresource), ::core::mem::transmute(dwofflineflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpinbuffer)), lpinbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19787,14 +19787,14 @@ pub unsafe fn OnlineClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *cons
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 #[inline]
-pub unsafe fn OnlineClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE, dwonlineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32 {
+pub unsafe fn OnlineClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE, dwonlineflags: u32, lpinbuffer: &[u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn OnlineClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE, dwonlineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32;
         }
-        ::core::mem::transmute(OnlineClusterGroupEx(::core::mem::transmute(hgroup), ::core::mem::transmute(hdestinationnode), ::core::mem::transmute(dwonlineflags), ::core::mem::transmute(lpinbuffer), ::core::mem::transmute(cbinbuffersize)))
+        ::core::mem::transmute(OnlineClusterGroupEx(::core::mem::transmute(hgroup), ::core::mem::transmute(hdestinationnode), ::core::mem::transmute(dwonlineflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpinbuffer)), lpinbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19815,14 +19815,14 @@ pub unsafe fn OnlineClusterResource(hresource: *const _HRESOURCE) -> u32 {
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 #[inline]
-pub unsafe fn OnlineClusterResourceEx(hresource: *const _HRESOURCE, dwonlineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32 {
+pub unsafe fn OnlineClusterResourceEx(hresource: *const _HRESOURCE, dwonlineflags: u32, lpinbuffer: &[u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn OnlineClusterResourceEx(hresource: *const _HRESOURCE, dwonlineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32;
         }
-        ::core::mem::transmute(OnlineClusterResourceEx(::core::mem::transmute(hresource), ::core::mem::transmute(dwonlineflags), ::core::mem::transmute(lpinbuffer), ::core::mem::transmute(cbinbuffersize)))
+        ::core::mem::transmute(OnlineClusterResourceEx(::core::mem::transmute(hresource), ::core::mem::transmute(dwonlineflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpinbuffer)), lpinbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22156,14 +22156,14 @@ pub unsafe fn ResUtilGetAllProperties<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 #[inline]
-pub unsafe fn ResUtilGetBinaryProperty(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: *const u8, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
+pub unsafe fn ResUtilGetBinaryProperty(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: &[u8], pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ResUtilGetBinaryProperty(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: *const u8, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
         }
-        ::core::mem::transmute(ResUtilGetBinaryProperty(::core::mem::transmute(ppboutvalue), ::core::mem::transmute(pcboutvaluesize), ::core::mem::transmute(pvaluestruct), ::core::mem::transmute(pboldvalue), ::core::mem::transmute(cboldvaluesize), ::core::mem::transmute(pppropertylist), ::core::mem::transmute(pcbpropertylistsize)))
+        ::core::mem::transmute(ResUtilGetBinaryProperty(::core::mem::transmute(ppboutvalue), ::core::mem::transmute(pcboutvaluesize), ::core::mem::transmute(pvaluestruct), ::core::mem::transmute(::windows::core::as_ptr_or_null(pboldvalue)), pboldvalue.len() as _, ::core::mem::transmute(pppropertylist), ::core::mem::transmute(pcbpropertylistsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22798,14 +22798,14 @@ pub unsafe fn ResUtilResourcesEqual(hself: *mut _HRESOURCE, hresource: *mut _HRE
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_System_Registry'*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilSetBinaryValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, pbnewvalue: *const u8, cbnewvaluesize: u32, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32 {
+pub unsafe fn ResUtilSetBinaryValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, pbnewvalue: &[u8], ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetBinaryValue(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows::core::PCWSTR, pbnewvalue: *const u8, cbnewvaluesize: u32, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32;
         }
-        ::core::mem::transmute(ResUtilSetBinaryValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), ::core::mem::transmute(pbnewvalue), ::core::mem::transmute(cbnewvaluesize), ::core::mem::transmute(ppboutvalue), ::core::mem::transmute(pcboutvaluesize)))
+        ::core::mem::transmute(ResUtilSetBinaryValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbnewvalue)), pbnewvalue.len() as _, ::core::mem::transmute(ppboutvalue), ::core::mem::transmute(pcboutvaluesize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23022,14 +23022,14 @@ pub unsafe fn ResUtilSetUnknownProperties<'a, Param0: ::windows::core::IntoParam
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_System_Registry'*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilSetValueEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hkeyclusterkey: Param0, valuename: Param1, valuetype: u32, valuedata: *const u8, valuesize: u32, flags: u32) -> u32 {
+pub unsafe fn ResUtilSetValueEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hkeyclusterkey: Param0, valuename: Param1, valuetype: u32, valuedata: &[u8], flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ResUtilSetValueEx(hkeyclusterkey: super::super::System::Registry::HKEY, valuename: ::windows::core::PCWSTR, valuetype: u32, valuedata: *const u8, valuesize: u32, flags: u32) -> u32;
         }
-        ::core::mem::transmute(ResUtilSetValueEx(hkeyclusterkey.into_param().abi(), valuename.into_param().abi(), ::core::mem::transmute(valuetype), ::core::mem::transmute(valuedata), ::core::mem::transmute(valuesize), ::core::mem::transmute(flags)))
+        ::core::mem::transmute(ResUtilSetValueEx(hkeyclusterkey.into_param().abi(), valuename.into_param().abi(), ::core::mem::transmute(valuetype), ::core::mem::transmute(::windows::core::as_ptr_or_null(valuedata)), valuedata.len() as _, ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
