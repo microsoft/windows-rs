@@ -189,7 +189,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let args = gen_win32_args(leading_params);
             let params = gen_win32_params(leading_params, gen);
 
-            let return_type = signature.params[signature.params.len() - 1].ty.deref().unwrap();
+            let return_type = signature.params[signature.params.len() - 1].ty.deref();
             let return_type_tokens = gen_element_name(&return_type, gen);
             let abi_return_type_tokens = gen_abi_element_name(&return_type, gen);
 
@@ -263,7 +263,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
 pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut tokens = quote! {};
 
-    let mut params: Vec<(&MethodParam, usize, Option<ArrayInfo>)> = params.iter().enumerate().map(|(position, param)| (param, position, param.array_info())).collect();
+    let mut params: Vec<(&MethodParam, usize, Option<ArrayInfo>)> = params.iter().enumerate().map(|(position, param)| (param, position, param.def.array_info())).collect();
 
     for position in 0..params.len() {
         match params[position].2 {
@@ -284,7 +284,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 
         if let Some(ArrayInfo::Fixed(fixed)) = array_info {
             if fixed > 0 && param.def.free_with().is_none() {
-                let ty = param.ty.deref().unwrap();
+                let ty = param.ty.deref();
                 let ty = gen_default_type(&ty, gen);
                 let len = Literal::u32_unsuffixed(fixed as _);
 
@@ -299,7 +299,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 
         match array_info {
             Some(ArrayInfo::RelativeLen(_)) => {
-                let ty = param.ty.deref().unwrap();
+                let ty = param.ty.deref();
                 let ty = gen_default_type(&ty, gen);
                 if param.def.flags().output() {
                     tokens.combine(&quote! { #name: &mut [#ty], });
@@ -331,7 +331,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
     let mut tokens = quote! {};
 
-    let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params.iter().map(|param| (param, param.array_info())).collect();
+    let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params.iter().map(|param| (param, param.def.array_info())).collect();
 
     for position in 0..params.len() {
         match params[position].1 {

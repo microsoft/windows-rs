@@ -475,7 +475,7 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
             SignatureKind::ReturnVoid => quote! {},
             SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
             SignatureKind::ResultValue => {
-                let return_type = signature.params[signature.params.len() - 1].ty.deref().unwrap();
+                let return_type = signature.params[signature.params.len() - 1].ty.deref();
                 let return_type = gen_element_name(&return_type, gen);
 
                 quote! { -> ::windows::core::Result<#return_type> }

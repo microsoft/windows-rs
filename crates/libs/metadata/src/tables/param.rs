@@ -28,27 +28,16 @@ impl Param {
         self.has_attribute("ComOutPtrAttribute")
     }
 
-    pub(crate) fn array_info(&self) -> Option<ArrayInfo> {
+    pub fn array_info(&self) -> Option<ArrayInfo> {
         for attribute in self.attributes() {
-            match attribute.name() {
-                "NativeArrayInfoAttribute" => {
-                    for (_, value) in attribute.args() {
-                        match value {
-                            ConstantValue::I16(value) => return Some(ArrayInfo::RelativeLen(value as _)),
-                            ConstantValue::I32(value) => return Some(ArrayInfo::Fixed(value as _)),
-                            _ => unimplemented!(),
-                        }
+            if attribute.name() == "NativeArrayInfoAttribute" {
+                for (_, value) in attribute.args() {
+                    match value {
+                        ConstantValue::I16(value) => return Some(ArrayInfo::RelativeLen(value as _)),
+                        ConstantValue::I32(value) => return Some(ArrayInfo::Fixed(value as _)),
+                        _ => unimplemented!(),
                     }
                 }
-                // "MemorySizeAttribute" => {
-                //     for (_, value) in attribute.args() {
-                //         match value {
-                //             ConstantValue::I16(value) => return Some(ArrayInfo::RelativeSize(value as _)),
-                //             _ => unimplemented!(),
-                //         }
-                //     }
-                // }
-                _ => {}
             }
         }
 

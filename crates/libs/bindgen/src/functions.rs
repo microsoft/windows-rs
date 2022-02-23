@@ -157,7 +157,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let leading_params = &signature.params[..signature.params.len() - 1];
             let args = gen_win32_args(leading_params);
             let params = gen_win32_params(leading_params, gen);
-            let return_type = signature.params[signature.params.len() - 1].ty.deref().unwrap();
+            let return_type = signature.params[signature.params.len() - 1].ty.deref();
             let return_type_tokens = gen_element_name(&return_type, gen);
             let abi_return_type_tokens = gen_abi_element_name(&return_type, gen);
 
