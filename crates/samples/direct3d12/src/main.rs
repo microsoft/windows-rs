@@ -440,7 +440,7 @@ mod d3d12_hello_triangle {
 
         let signature = unsafe { D3D12SerializeRootSignature(&desc, D3D_ROOT_SIGNATURE_VERSION_1, &mut signature, std::ptr::null_mut()) }.map(|()| signature.unwrap())?;
 
-        unsafe { device.CreateRootSignature(0, &std::slice::from_raw_parts(signature.GetBufferPointer() as _, signature.GetBufferSize())) }
+        unsafe { device.CreateRootSignature(0, std::slice::from_raw_parts(signature.GetBufferPointer() as _, signature.GetBufferSize())) }
     }
 
     fn create_pipeline_state(device: &ID3D12Device, root_signature: &ID3D12RootSignature) -> Result<ID3D12PipelineState> {
