@@ -1435,7 +1435,7 @@ pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
         extern "system" {
             fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> BSTR;
         }
-        ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(strin.as_ptr()), strin.len() as _))
+        ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
