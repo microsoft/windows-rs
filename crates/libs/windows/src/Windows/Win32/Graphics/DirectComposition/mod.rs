@@ -582,14 +582,14 @@ impl ::core::default::Default for DCompositionInkTrailPoint {
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DCompositionWaitForCompositorClock(count: u32, handles: *const super::super::Foundation::HANDLE, timeoutinms: u32) -> u32 {
+pub unsafe fn DCompositionWaitForCompositorClock(handles: &[super::super::Foundation::HANDLE], timeoutinms: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DCompositionWaitForCompositorClock(count: u32, handles: *const super::super::Foundation::HANDLE, timeoutinms: u32) -> u32;
         }
-        ::core::mem::transmute(DCompositionWaitForCompositorClock(::core::mem::transmute(count), ::core::mem::transmute(handles), ::core::mem::transmute(timeoutinms)))
+        ::core::mem::transmute(DCompositionWaitForCompositorClock(handles.len() as _, ::core::mem::transmute(handles.as_ptr()), ::core::mem::transmute(timeoutinms)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1510,14 +1510,14 @@ pub struct IDCompositionCompositeEffect_Vtbl {
 pub struct IDCompositionDelegatedInkTrail(::windows::core::IUnknown);
 impl IDCompositionDelegatedInkTrail {
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn AddTrailPoints(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32) -> ::windows::core::Result<u32> {
+    pub unsafe fn AddTrailPoints(&self, inkpoints: &[DCompositionInkTrailPoint]) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AddTrailPoints)(::core::mem::transmute_copy(self), ::core::mem::transmute(inkpoints), ::core::mem::transmute(inkpointscount), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).AddTrailPoints)(::core::mem::transmute_copy(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn AddTrailPointsWithPrediction(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32, predictedinkpoints: *const DCompositionInkTrailPoint, predictedinkpointscount: u32) -> ::windows::core::Result<u32> {
+    pub unsafe fn AddTrailPointsWithPrediction(&self, inkpoints: &[DCompositionInkTrailPoint], predictedinkpoints: &[DCompositionInkTrailPoint]) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AddTrailPointsWithPrediction)(::core::mem::transmute_copy(self), ::core::mem::transmute(inkpoints), ::core::mem::transmute(inkpointscount), ::core::mem::transmute(predictedinkpoints), ::core::mem::transmute(predictedinkpointscount), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).AddTrailPointsWithPrediction)(::core::mem::transmute_copy(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, ::core::mem::transmute(predictedinkpoints.as_ptr()), predictedinkpoints.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn RemoveTrailPoints(&self, generationid: u32) -> ::windows::core::Result<()> {
@@ -1647,9 +1647,9 @@ impl IDCompositionDesktopDevice {
         (::windows::core::Interface::vtable(self).base.CreateMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionMatrixTransform>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateTransformGroup(&self, transforms: *const ::core::option::Option<IDCompositionTransform>, elements: u32) -> ::windows::core::Result<IDCompositionTransform> {
+    pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateTransformGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateTransformGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
@@ -1672,9 +1672,9 @@ impl IDCompositionDesktopDevice {
         (::windows::core::Interface::vtable(self).base.CreateMatrixTransform3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionMatrixTransform3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: *const ::core::option::Option<IDCompositionTransform3D>, elements: u32) -> ::windows::core::Result<IDCompositionTransform3D> {
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateTransform3DGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms3d), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform3D>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateTransform3DGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
@@ -1866,9 +1866,9 @@ impl IDCompositionDevice {
         (::windows::core::Interface::vtable(self).CreateMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionMatrixTransform>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateTransformGroup(&self, transforms: *const ::core::option::Option<IDCompositionTransform>, elements: u32) -> ::windows::core::Result<IDCompositionTransform> {
+    pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTransformGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform>(result__)
+        (::windows::core::Interface::vtable(self).CreateTransformGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
@@ -1891,9 +1891,9 @@ impl IDCompositionDevice {
         (::windows::core::Interface::vtable(self).CreateMatrixTransform3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionMatrixTransform3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: *const ::core::option::Option<IDCompositionTransform3D>, elements: u32) -> ::windows::core::Result<IDCompositionTransform3D> {
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTransform3DGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms3d), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform3D>(result__)
+        (::windows::core::Interface::vtable(self).CreateTransform3DGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
@@ -2073,9 +2073,9 @@ impl IDCompositionDevice2 {
         (::windows::core::Interface::vtable(self).CreateMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionMatrixTransform>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateTransformGroup(&self, transforms: *const ::core::option::Option<IDCompositionTransform>, elements: u32) -> ::windows::core::Result<IDCompositionTransform> {
+    pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTransformGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform>(result__)
+        (::windows::core::Interface::vtable(self).CreateTransformGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
@@ -2098,9 +2098,9 @@ impl IDCompositionDevice2 {
         (::windows::core::Interface::vtable(self).CreateMatrixTransform3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionMatrixTransform3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: *const ::core::option::Option<IDCompositionTransform3D>, elements: u32) -> ::windows::core::Result<IDCompositionTransform3D> {
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTransform3DGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms3d), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform3D>(result__)
+        (::windows::core::Interface::vtable(self).CreateTransform3DGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
@@ -2259,9 +2259,9 @@ impl IDCompositionDevice3 {
         (::windows::core::Interface::vtable(self).base.CreateMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionMatrixTransform>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateTransformGroup(&self, transforms: *const ::core::option::Option<IDCompositionTransform>, elements: u32) -> ::windows::core::Result<IDCompositionTransform> {
+    pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateTransformGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateTransformGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
@@ -2284,9 +2284,9 @@ impl IDCompositionDevice3 {
         (::windows::core::Interface::vtable(self).base.CreateMatrixTransform3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionMatrixTransform3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: *const ::core::option::Option<IDCompositionTransform3D>, elements: u32) -> ::windows::core::Result<IDCompositionTransform3D> {
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateTransform3DGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms3d), ::core::mem::transmute(elements), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform3D>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateTransform3DGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTransform3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
@@ -4811,20 +4811,20 @@ impl IDCompositionTableTransferEffect {
         (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetRedTable(&self, tablevalues: *const f32, count: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRedTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablevalues), ::core::mem::transmute(count)).ok()
+    pub unsafe fn SetRedTable(&self, tablevalues: &[f32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRedTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetGreenTable(&self, tablevalues: *const f32, count: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGreenTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablevalues), ::core::mem::transmute(count)).ok()
+    pub unsafe fn SetGreenTable(&self, tablevalues: &[f32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGreenTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetBlueTable(&self, tablevalues: *const f32, count: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBlueTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablevalues), ::core::mem::transmute(count)).ok()
+    pub unsafe fn SetBlueTable(&self, tablevalues: &[f32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBlueTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetAlphaTable(&self, tablevalues: *const f32, count: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAlphaTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablevalues), ::core::mem::transmute(count)).ok()
+    pub unsafe fn SetAlphaTable(&self, tablevalues: &[f32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAlphaTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablevalues.as_ptr()), tablevalues.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5645,8 +5645,8 @@ impl IDCompositionVirtualSurface {
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Trim(&self, rectangles: *const super::super::Foundation::RECT, count: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Trim)(::core::mem::transmute_copy(self), ::core::mem::transmute(rectangles), ::core::mem::transmute(count)).ok()
+    pub unsafe fn Trim(&self, rectangles: &[super::super::Foundation::RECT]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Trim)(::core::mem::transmute_copy(self), ::core::mem::transmute(rectangles.as_ptr()), rectangles.len() as _).ok()
     }
 }
 impl ::core::convert::From<IDCompositionVirtualSurface> for ::windows::core::IUnknown {

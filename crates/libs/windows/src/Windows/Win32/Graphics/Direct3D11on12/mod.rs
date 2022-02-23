@@ -2,14 +2,14 @@
 #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Direct3D11'*"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
-pub unsafe fn D3D11On12CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pdevice: Param0, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const ::core::option::Option<::windows::core::IUnknown>, numqueues: u32, nodemask: u32, ppdevice: *mut ::core::option::Option<super::Direct3D11::ID3D11Device>, ppimmediatecontext: *mut ::core::option::Option<super::Direct3D11::ID3D11DeviceContext>, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::Result<()> {
+pub unsafe fn D3D11On12CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pdevice: Param0, flags: u32, pfeaturelevels: &[super::Direct3D::D3D_FEATURE_LEVEL], ppcommandqueues: &[::core::option::Option<::windows::core::IUnknown>], nodemask: u32, ppdevice: *mut ::core::option::Option<super::Direct3D11::ID3D11Device>, ppimmediatecontext: *mut ::core::option::Option<super::Direct3D11::ID3D11DeviceContext>, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn D3D11On12CreateDevice(pdevice: *mut ::core::ffi::c_void, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const *mut ::core::ffi::c_void, numqueues: u32, nodemask: u32, ppdevice: *mut ::windows::core::RawPtr, ppimmediatecontext: *mut ::windows::core::RawPtr, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::HRESULT;
         }
-        D3D11On12CreateDevice(pdevice.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(ppcommandqueues), ::core::mem::transmute(numqueues), ::core::mem::transmute(nodemask), ::core::mem::transmute(ppdevice), ::core::mem::transmute(ppimmediatecontext), ::core::mem::transmute(pchosenfeaturelevel)).ok()
+        D3D11On12CreateDevice(pdevice.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels.as_ptr()), pfeaturelevels.len() as _, ::core::mem::transmute(ppcommandqueues.as_ptr()), ppcommandqueues.len() as _, ::core::mem::transmute(nodemask), ::core::mem::transmute(ppdevice), ::core::mem::transmute(ppimmediatecontext), ::core::mem::transmute(pchosenfeaturelevel)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -58,13 +58,13 @@ impl ID3D11On12Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12', 'Win32_Graphics_Direct3D11'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub unsafe fn ReleaseWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        (::windows::core::Interface::vtable(self).ReleaseWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources))
+    pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
+        (::windows::core::Interface::vtable(self).ReleaseWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ppresources.len() as _)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12', 'Win32_Graphics_Direct3D11'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub unsafe fn AcquireWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        (::windows::core::Interface::vtable(self).AcquireWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources))
+    pub unsafe fn AcquireWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
+        (::windows::core::Interface::vtable(self).AcquireWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ppresources.len() as _)
     }
 }
 impl ::core::convert::From<ID3D11On12Device> for ::windows::core::IUnknown {
@@ -135,13 +135,13 @@ impl ID3D11On12Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12', 'Win32_Graphics_Direct3D11'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub unsafe fn ReleaseWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        (::windows::core::Interface::vtable(self).base.ReleaseWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources))
+    pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
+        (::windows::core::Interface::vtable(self).base.ReleaseWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ppresources.len() as _)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12', 'Win32_Graphics_Direct3D11'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub unsafe fn AcquireWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        (::windows::core::Interface::vtable(self).base.AcquireWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources))
+    pub unsafe fn AcquireWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
+        (::windows::core::Interface::vtable(self).base.AcquireWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ppresources.len() as _)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12'*"]
     pub unsafe fn GetD3D12Device<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -226,13 +226,13 @@ impl ID3D11On12Device2 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12', 'Win32_Graphics_Direct3D11'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub unsafe fn ReleaseWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        (::windows::core::Interface::vtable(self).base.base.ReleaseWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources))
+    pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
+        (::windows::core::Interface::vtable(self).base.base.ReleaseWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ppresources.len() as _)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12', 'Win32_Graphics_Direct3D11'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub unsafe fn AcquireWrappedResources(&self, ppresources: *const ::core::option::Option<super::Direct3D11::ID3D11Resource>, numresources: u32) {
-        (::windows::core::Interface::vtable(self).base.base.AcquireWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(numresources))
+    pub unsafe fn AcquireWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
+        (::windows::core::Interface::vtable(self).base.base.AcquireWrappedResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ppresources.len() as _)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12'*"]
     pub unsafe fn GetD3D12Device<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -247,8 +247,8 @@ impl ID3D11On12Device2 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11on12', 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
-    pub unsafe fn ReturnUnderlyingResource<'a, Param0: ::windows::core::IntoParam<'a, super::Direct3D11::ID3D11Resource>>(&self, presource11: Param0, numsync: u32, psignalvalues: *const u64, ppfences: *const ::core::option::Option<super::Direct3D12::ID3D12Fence>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReturnUnderlyingResource)(::core::mem::transmute_copy(self), presource11.into_param().abi(), ::core::mem::transmute(numsync), ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
+    pub unsafe fn ReturnUnderlyingResource<'a, Param0: ::windows::core::IntoParam<'a, super::Direct3D11::ID3D11Resource>>(&self, presource11: Param0, psignalvalues: &[u64], ppfences: &[::core::option::Option<super::Direct3D12::ID3D12Fence>]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReturnUnderlyingResource)(::core::mem::transmute_copy(self), presource11.into_param().abi(), ppfences.len() as _, ::core::mem::transmute(psignalvalues.as_ptr()), ::core::mem::transmute(ppfences.as_ptr())).ok()
     }
 }
 impl ::core::convert::From<ID3D11On12Device2> for ::windows::core::IUnknown {

@@ -1053,28 +1053,28 @@ pub unsafe fn LdapMapErrorToWin32(ldaperror: u32) -> u32 {
 }
 #[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn LdapUTF8ToUnicode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpsrcstr: Param0, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32) -> i32 {
+pub unsafe fn LdapUTF8ToUnicode(lpsrcstr: &[u8], lpdeststr: &mut [u16]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LdapUTF8ToUnicode(lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32) -> i32;
         }
-        ::core::mem::transmute(LdapUTF8ToUnicode(lpsrcstr.into_param().abi(), ::core::mem::transmute(cchsrc), ::core::mem::transmute(lpdeststr), ::core::mem::transmute(cchdest)))
+        ::core::mem::transmute(LdapUTF8ToUnicode(::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_mut_ptr()), lpdeststr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 #[inline]
-pub unsafe fn LdapUnicodeToUTF8<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpsrcstr: Param0, cchsrc: i32, lpdeststr: ::windows::core::PSTR, cchdest: i32) -> i32 {
+pub unsafe fn LdapUnicodeToUTF8(lpsrcstr: &[u16], lpdeststr: &mut [u8]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LdapUnicodeToUTF8(lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpdeststr: ::windows::core::PSTR, cchdest: i32) -> i32;
         }
-        ::core::mem::transmute(LdapUnicodeToUTF8(lpsrcstr.into_param().abi(), ::core::mem::transmute(cchsrc), ::core::mem::transmute(lpdeststr), ::core::mem::transmute(cchdest)))
+        ::core::mem::transmute(LdapUnicodeToUTF8(::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_mut_ptr()), lpdeststr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

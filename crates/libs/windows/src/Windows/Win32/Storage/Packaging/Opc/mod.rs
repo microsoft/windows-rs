@@ -1865,9 +1865,9 @@ pub struct IOpcSignatureCustomObjectEnumerator_Vtbl {
 pub struct IOpcSignatureCustomObjectSet(::windows::core::IUnknown);
 impl IOpcSignatureCustomObjectSet {
     #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-    pub unsafe fn Create(&self, xmlmarkup: *const u8, count: u32) -> ::windows::core::Result<IOpcSignatureCustomObject> {
+    pub unsafe fn Create(&self, xmlmarkup: &[u8]) -> ::windows::core::Result<IOpcSignatureCustomObject> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlmarkup), ::core::mem::transmute(count), ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureCustomObject>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), ::core::mem::transmute(xmlmarkup.as_ptr()), xmlmarkup.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IOpcSignatureCustomObject>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
     pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, IOpcSignatureCustomObject>>(&self, customobject: Param0) -> ::windows::core::Result<()> {

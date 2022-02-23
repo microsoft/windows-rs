@@ -3002,14 +3002,14 @@ impl ::core::default::Default for GROUP_USERS_INFO_1 {
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 #[inline]
-pub unsafe fn GetNetScheduleAccountInformation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszservername: Param0, ccaccount: u32, wszaccount: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn GetNetScheduleAccountInformation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszservername: Param0, wszaccount: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetNetScheduleAccountInformation(pwszservername: ::windows::core::PCWSTR, ccaccount: u32, wszaccount: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        GetNetScheduleAccountInformation(pwszservername.into_param().abi(), ::core::mem::transmute(ccaccount), ::core::mem::transmute(wszaccount)).ok()
+        GetNetScheduleAccountInformation(pwszservername.into_param().abi(), wszaccount.len() as _, ::core::mem::transmute(wszaccount.as_mut_ptr())).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3086,8 +3086,8 @@ impl ::core::default::Default for HLOG {
 pub struct IEnumNetCfgBindingInterface(::windows::core::IUnknown);
 impl IEnumNetCfgBindingInterface {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<INetCfgBindingInterface>], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_mut_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -3157,8 +3157,8 @@ pub struct IEnumNetCfgBindingInterface_Vtbl {
 pub struct IEnumNetCfgBindingPath(::windows::core::IUnknown);
 impl IEnumNetCfgBindingPath {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<INetCfgBindingPath>], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_mut_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -3228,8 +3228,8 @@ pub struct IEnumNetCfgBindingPath_Vtbl {
 pub struct IEnumNetCfgComponent(::windows::core::IUnknown);
 impl IEnumNetCfgComponent {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgComponent>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<INetCfgComponent>], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_mut_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -4428,71 +4428,6 @@ pub struct INetCfgComponentSysPrep_Vtbl {
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 #[repr(transparent)]
-pub struct INetCfgComponentUpperEdge(::windows::core::IUnknown);
-impl INetCfgComponentUpperEdge {
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
-    pub unsafe fn GetInterfaceIdsForAdapter<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetInterfaceIdsForAdapter)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(pdwnuminterfaces), ::core::mem::transmute(ppguidinterfaceids)).ok()
-    }
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
-    pub unsafe fn AddInterfacesToAdapter<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, dwnuminterfaces: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddInterfacesToAdapter)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(dwnuminterfaces)).ok()
-    }
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
-    pub unsafe fn RemoveInterfacesFromAdapter<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveInterfacesFromAdapter)(::core::mem::transmute_copy(self), padapter.into_param().abi(), ::core::mem::transmute(dwnuminterfaces), ::core::mem::transmute(pguidinterfaceids)).ok()
-    }
-}
-impl ::core::convert::From<INetCfgComponentUpperEdge> for ::windows::core::IUnknown {
-    fn from(value: INetCfgComponentUpperEdge) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetCfgComponentUpperEdge> for ::windows::core::IUnknown {
-    fn from(value: &INetCfgComponentUpperEdge) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgComponentUpperEdge {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgComponentUpperEdge {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::clone::Clone for INetCfgComponentUpperEdge {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for INetCfgComponentUpperEdge {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetCfgComponentUpperEdge {}
-impl ::core::fmt::Debug for INetCfgComponentUpperEdge {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetCfgComponentUpperEdge").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for INetCfgComponentUpperEdge {
-    type Vtable = INetCfgComponentUpperEdge_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e4_bea1_11d0_9298_00c04fc99dcf);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct INetCfgComponentUpperEdge_Vtbl {
-    pub base: ::windows::core::IUnknownVtbl,
-    pub GetInterfaceIdsForAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padapter: ::windows::core::RawPtr, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub AddInterfacesToAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padapter: ::windows::core::RawPtr, dwnuminterfaces: u32) -> ::windows::core::HRESULT,
-    pub RemoveInterfacesFromAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padapter: ::windows::core::RawPtr, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
-#[repr(transparent)]
 pub struct INetCfgLock(::windows::core::IUnknown);
 impl INetCfgLock {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
@@ -5285,56 +5220,56 @@ pub const LOWER_GET_HINT_MASK: u32 = 65280u32;
 pub const LOWER_HINT_MASK: u32 = 255u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 #[inline]
-pub unsafe fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PSTR, dwerrorcode: u32) {
+pub unsafe fn LogErrorA(dwmessageid: u32, plpwssubstrings: &[::windows::core::PSTR], dwerrorcode: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PSTR, dwerrorcode: u32);
         }
-        LogErrorA(::core::mem::transmute(dwmessageid), ::core::mem::transmute(cnumberofsubstrings), ::core::mem::transmute(plpwssubstrings), ::core::mem::transmute(dwerrorcode))
+        LogErrorA(::core::mem::transmute(dwmessageid), plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()), ::core::mem::transmute(dwerrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 #[inline]
-pub unsafe fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR, dwerrorcode: u32) {
+pub unsafe fn LogErrorW(dwmessageid: u32, plpwssubstrings: &[::windows::core::PWSTR], dwerrorcode: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR, dwerrorcode: u32);
         }
-        LogErrorW(::core::mem::transmute(dwmessageid), ::core::mem::transmute(cnumberofsubstrings), ::core::mem::transmute(plpwssubstrings), ::core::mem::transmute(dwerrorcode))
+        LogErrorW(::core::mem::transmute(dwmessageid), plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()), ::core::mem::transmute(dwerrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 #[inline]
-pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PSTR) {
+pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::windows::core::PSTR]) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PSTR);
         }
-        LogEventA(::core::mem::transmute(weventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(cnumberofsubstrings), ::core::mem::transmute(plpwssubstrings))
+        LogEventA(::core::mem::transmute(weventtype), ::core::mem::transmute(dwmessageid), plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 #[inline]
-pub unsafe fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR) {
+pub unsafe fn LogEventW(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::windows::core::PWSTR]) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR);
         }
-        LogEventW(::core::mem::transmute(weventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(cnumberofsubstrings), ::core::mem::transmute(plpwssubstrings))
+        LogEventW(::core::mem::transmute(weventtype), ::core::mem::transmute(dwmessageid), plpwssubstrings.len() as _, ::core::mem::transmute(plpwssubstrings.as_ptr()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9722,14 +9657,14 @@ pub unsafe fn NetServiceGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::win
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
 #[inline]
-pub unsafe fn NetServiceInstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, service: Param1, argc: u32, argv: *const ::windows::core::PWSTR, bufptr: *mut *mut u8) -> u32 {
+pub unsafe fn NetServiceInstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, service: Param1, argv: &[::windows::core::PWSTR], bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn NetServiceInstall(servername: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, argc: u32, argv: *const ::windows::core::PWSTR, bufptr: *mut *mut u8) -> u32;
         }
-        ::core::mem::transmute(NetServiceInstall(servername.into_param().abi(), service.into_param().abi(), ::core::mem::transmute(argc), ::core::mem::transmute(argv), ::core::mem::transmute(bufptr)))
+        ::core::mem::transmute(NetServiceInstall(servername.into_param().abi(), service.into_param().abi(), argv.len() as _, ::core::mem::transmute(argv.as_ptr()), ::core::mem::transmute(bufptr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11001,14 +10936,14 @@ pub unsafe fn RouterLogDeregisterW<'a, Param0: ::windows::core::IntoParam<'a, su
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32) {
+pub unsafe fn RouterLogEventA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PSTR], dwerrorcode: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32);
         }
-        RouterLogEventA(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwerrorcode))
+        RouterLogEventA(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), ::core::mem::transmute(dwerrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11016,14 +10951,14 @@ pub unsafe fn RouterLogEventA<'a, Param0: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8) {
+pub unsafe fn RouterLogEventDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PSTR], dwdatabytes: u32, lpdatabytes: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
         }
-        RouterLogEventDataA(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwdatabytes), ::core::mem::transmute(lpdatabytes))
+        RouterLogEventDataA(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), ::core::mem::transmute(dwdatabytes), ::core::mem::transmute(lpdatabytes))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11031,14 +10966,14 @@ pub unsafe fn RouterLogEventDataA<'a, Param0: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8) {
+pub unsafe fn RouterLogEventDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PWSTR], dwdatabytes: u32, lpdatabytes: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
         }
-        RouterLogEventDataW(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwdatabytes), ::core::mem::transmute(lpdatabytes))
+        RouterLogEventDataW(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), ::core::mem::transmute(dwdatabytes), ::core::mem::transmute(lpdatabytes))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11076,14 +11011,14 @@ pub unsafe fn RouterLogEventExW<'a, Param0: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32, dwerrorindex: u32) {
+pub unsafe fn RouterLogEventStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PSTR], dwerrorcode: u32, dwerrorindex: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32, dwerrorindex: u32);
         }
-        RouterLogEventStringA(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwerrorindex))
+        RouterLogEventStringA(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwerrorindex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11091,14 +11026,14 @@ pub unsafe fn RouterLogEventStringA<'a, Param0: ::windows::core::IntoParam<'a, s
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32, dwerrorindex: u32) {
+pub unsafe fn RouterLogEventStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PWSTR], dwerrorcode: u32, dwerrorindex: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32, dwerrorindex: u32);
         }
-        RouterLogEventStringW(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwerrorindex))
+        RouterLogEventStringW(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwerrorindex))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11136,14 +11071,14 @@ pub unsafe fn RouterLogEventValistExW<'a, Param0: ::windows::core::IntoParam<'a,
 #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RouterLogEventW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32) {
+pub unsafe fn RouterLogEventW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[::windows::core::PWSTR], dwerrorcode: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32);
         }
-        RouterLogEventW(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwsubstringcount), ::core::mem::transmute(plpszsubstringarray), ::core::mem::transmute(dwerrorcode))
+        RouterLogEventW(hloghandle.into_param().abi(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(plpszsubstringarray.as_ptr()), ::core::mem::transmute(dwerrorcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

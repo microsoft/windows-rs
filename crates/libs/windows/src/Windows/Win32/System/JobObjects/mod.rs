@@ -47,14 +47,14 @@ pub unsafe fn CreateJobObjectW<'a, Param1: ::windows::core::IntoParam<'a, ::wind
 #[doc = "*Required features: 'Win32_System_JobObjects', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateJobSet(numjob: u32, userjobset: *const JOB_SET_ARRAY, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateJobSet(userjobset: &[JOB_SET_ARRAY], flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateJobSet(numjob: u32, userjobset: *const JOB_SET_ARRAY, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateJobSet(::core::mem::transmute(numjob), ::core::mem::transmute(userjobset), ::core::mem::transmute(flags)))
+        ::core::mem::transmute(CreateJobSet(userjobset.len() as _, ::core::mem::transmute(userjobset.as_ptr()), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

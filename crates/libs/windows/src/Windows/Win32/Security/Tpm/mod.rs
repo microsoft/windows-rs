@@ -5,19 +5,19 @@ pub struct ITpmVirtualSmartCardManager(::windows::core::IUnknown);
 impl ITpmVirtualSmartCardManager {
     #[doc = "*Required features: 'Win32_Security_Tpm', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: Param10, pstatuscallback: Param11, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], fgenerate: Param10, pstatuscallback: Param11, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateVirtualSmartCard)(
             ::core::mem::transmute_copy(self),
             pszfriendlyname.into_param().abi(),
             ::core::mem::transmute(badminalgid),
-            ::core::mem::transmute(pbadminkey),
-            ::core::mem::transmute(cbadminkey),
-            ::core::mem::transmute(pbadminkcv),
-            ::core::mem::transmute(cbadminkcv),
-            ::core::mem::transmute(pbpuk),
-            ::core::mem::transmute(cbpuk),
-            ::core::mem::transmute(pbpin),
-            ::core::mem::transmute(cbpin),
+            ::core::mem::transmute(pbadminkey.as_ptr()),
+            pbadminkey.len() as _,
+            ::core::mem::transmute(pbadminkcv.as_ptr()),
+            pbadminkcv.len() as _,
+            ::core::mem::transmute(pbpuk.as_ptr()),
+            pbpuk.len() as _,
+            ::core::mem::transmute(pbpin.as_ptr()),
+            pbpin.len() as _,
             fgenerate.into_param().abi(),
             pstatuscallback.into_param().abi(),
             ::core::mem::transmute(ppszinstanceid),
@@ -91,19 +91,19 @@ pub struct ITpmVirtualSmartCardManager2(::windows::core::IUnknown);
 impl ITpmVirtualSmartCardManager2 {
     #[doc = "*Required features: 'Win32_Security_Tpm', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: Param10, pstatuscallback: Param11, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], fgenerate: Param10, pstatuscallback: Param11, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.CreateVirtualSmartCard)(
             ::core::mem::transmute_copy(self),
             pszfriendlyname.into_param().abi(),
             ::core::mem::transmute(badminalgid),
-            ::core::mem::transmute(pbadminkey),
-            ::core::mem::transmute(cbadminkey),
-            ::core::mem::transmute(pbadminkcv),
-            ::core::mem::transmute(cbadminkcv),
-            ::core::mem::transmute(pbpuk),
-            ::core::mem::transmute(cbpuk),
-            ::core::mem::transmute(pbpin),
-            ::core::mem::transmute(cbpin),
+            ::core::mem::transmute(pbadminkey.as_ptr()),
+            pbadminkey.len() as _,
+            ::core::mem::transmute(pbadminkcv.as_ptr()),
+            pbadminkcv.len() as _,
+            ::core::mem::transmute(pbpuk.as_ptr()),
+            pbpuk.len() as _,
+            ::core::mem::transmute(pbpin.as_ptr()),
+            pbpin.len() as _,
             fgenerate.into_param().abi(),
             pstatuscallback.into_param().abi(),
             ::core::mem::transmute(ppszinstanceid),
@@ -119,21 +119,21 @@ impl ITpmVirtualSmartCardManager2 {
     }
     #[doc = "*Required features: 'Win32_Security_Tpm', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCardWithPinPolicy<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param12: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param13: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, fgenerate: Param12, pstatuscallback: Param13, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVirtualSmartCardWithPinPolicy<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param12: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param13: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], pbpinpolicy: &[u8], fgenerate: Param12, pstatuscallback: Param13, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateVirtualSmartCardWithPinPolicy)(
             ::core::mem::transmute_copy(self),
             pszfriendlyname.into_param().abi(),
             ::core::mem::transmute(badminalgid),
-            ::core::mem::transmute(pbadminkey),
-            ::core::mem::transmute(cbadminkey),
-            ::core::mem::transmute(pbadminkcv),
-            ::core::mem::transmute(cbadminkcv),
-            ::core::mem::transmute(pbpuk),
-            ::core::mem::transmute(cbpuk),
-            ::core::mem::transmute(pbpin),
-            ::core::mem::transmute(cbpin),
-            ::core::mem::transmute(pbpinpolicy),
-            ::core::mem::transmute(cbpinpolicy),
+            ::core::mem::transmute(pbadminkey.as_ptr()),
+            pbadminkey.len() as _,
+            ::core::mem::transmute(pbadminkcv.as_ptr()),
+            pbadminkcv.len() as _,
+            ::core::mem::transmute(pbpuk.as_ptr()),
+            pbpuk.len() as _,
+            ::core::mem::transmute(pbpin.as_ptr()),
+            pbpin.len() as _,
+            ::core::mem::transmute(pbpinpolicy.as_ptr()),
+            pbpinpolicy.len() as _,
             fgenerate.into_param().abi(),
             pstatuscallback.into_param().abi(),
             ::core::mem::transmute(ppszinstanceid),
@@ -217,19 +217,19 @@ pub struct ITpmVirtualSmartCardManager3(::windows::core::IUnknown);
 impl ITpmVirtualSmartCardManager3 {
     #[doc = "*Required features: 'Win32_Security_Tpm', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: Param10, pstatuscallback: Param11, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVirtualSmartCard<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param11: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], fgenerate: Param10, pstatuscallback: Param11, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.CreateVirtualSmartCard)(
             ::core::mem::transmute_copy(self),
             pszfriendlyname.into_param().abi(),
             ::core::mem::transmute(badminalgid),
-            ::core::mem::transmute(pbadminkey),
-            ::core::mem::transmute(cbadminkey),
-            ::core::mem::transmute(pbadminkcv),
-            ::core::mem::transmute(cbadminkcv),
-            ::core::mem::transmute(pbpuk),
-            ::core::mem::transmute(cbpuk),
-            ::core::mem::transmute(pbpin),
-            ::core::mem::transmute(cbpin),
+            ::core::mem::transmute(pbadminkey.as_ptr()),
+            pbadminkey.len() as _,
+            ::core::mem::transmute(pbadminkcv.as_ptr()),
+            pbadminkcv.len() as _,
+            ::core::mem::transmute(pbpuk.as_ptr()),
+            pbpuk.len() as _,
+            ::core::mem::transmute(pbpin.as_ptr()),
+            pbpin.len() as _,
             fgenerate.into_param().abi(),
             pstatuscallback.into_param().abi(),
             ::core::mem::transmute(ppszinstanceid),
@@ -245,21 +245,21 @@ impl ITpmVirtualSmartCardManager3 {
     }
     #[doc = "*Required features: 'Win32_Security_Tpm', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCardWithPinPolicy<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param12: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param13: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, fgenerate: Param12, pstatuscallback: Param13, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVirtualSmartCardWithPinPolicy<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param12: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param13: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], pbpinpolicy: &[u8], fgenerate: Param12, pstatuscallback: Param13, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.CreateVirtualSmartCardWithPinPolicy)(
             ::core::mem::transmute_copy(self),
             pszfriendlyname.into_param().abi(),
             ::core::mem::transmute(badminalgid),
-            ::core::mem::transmute(pbadminkey),
-            ::core::mem::transmute(cbadminkey),
-            ::core::mem::transmute(pbadminkcv),
-            ::core::mem::transmute(cbadminkcv),
-            ::core::mem::transmute(pbpuk),
-            ::core::mem::transmute(cbpuk),
-            ::core::mem::transmute(pbpin),
-            ::core::mem::transmute(cbpin),
-            ::core::mem::transmute(pbpinpolicy),
-            ::core::mem::transmute(cbpinpolicy),
+            ::core::mem::transmute(pbadminkey.as_ptr()),
+            pbadminkey.len() as _,
+            ::core::mem::transmute(pbadminkcv.as_ptr()),
+            pbadminkcv.len() as _,
+            ::core::mem::transmute(pbpuk.as_ptr()),
+            pbpuk.len() as _,
+            ::core::mem::transmute(pbpin.as_ptr()),
+            pbpin.len() as _,
+            ::core::mem::transmute(pbpinpolicy.as_ptr()),
+            pbpinpolicy.len() as _,
             fgenerate.into_param().abi(),
             pstatuscallback.into_param().abi(),
             ::core::mem::transmute(ppszinstanceid),
@@ -269,22 +269,22 @@ impl ITpmVirtualSmartCardManager3 {
     }
     #[doc = "*Required features: 'Win32_Security_Tpm', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVirtualSmartCardWithAttestation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param13: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param14: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, attestationtype: TPMVSC_ATTESTATION_TYPE, fgenerate: Param13, pstatuscallback: Param14) -> ::windows::core::Result<::windows::core::PWSTR> {
+    pub unsafe fn CreateVirtualSmartCardWithAttestation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param13: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param14: ::windows::core::IntoParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>(&self, pszfriendlyname: Param0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], pbpinpolicy: &[u8], attestationtype: TPMVSC_ATTESTATION_TYPE, fgenerate: Param13, pstatuscallback: Param14) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateVirtualSmartCardWithAttestation)(
             ::core::mem::transmute_copy(self),
             pszfriendlyname.into_param().abi(),
             ::core::mem::transmute(badminalgid),
-            ::core::mem::transmute(pbadminkey),
-            ::core::mem::transmute(cbadminkey),
-            ::core::mem::transmute(pbadminkcv),
-            ::core::mem::transmute(cbadminkcv),
-            ::core::mem::transmute(pbpuk),
-            ::core::mem::transmute(cbpuk),
-            ::core::mem::transmute(pbpin),
-            ::core::mem::transmute(cbpin),
-            ::core::mem::transmute(pbpinpolicy),
-            ::core::mem::transmute(cbpinpolicy),
+            ::core::mem::transmute(pbadminkey.as_ptr()),
+            pbadminkey.len() as _,
+            ::core::mem::transmute(pbadminkcv.as_ptr()),
+            pbadminkcv.len() as _,
+            ::core::mem::transmute(pbpuk.as_ptr()),
+            pbpuk.len() as _,
+            ::core::mem::transmute(pbpin.as_ptr()),
+            pbpin.len() as _,
+            ::core::mem::transmute(pbpinpolicy.as_ptr()),
+            pbpinpolicy.len() as _,
             ::core::mem::transmute(attestationtype),
             fgenerate.into_param().abi(),
             pstatuscallback.into_param().abi(),

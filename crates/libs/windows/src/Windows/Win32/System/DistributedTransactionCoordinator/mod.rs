@@ -207,12 +207,12 @@ pub unsafe fn DtcGetTransactionManagerExW<'a, Param0: ::windows::core::IntoParam
 pub struct IDtcLuConfigure(::windows::core::IUnknown);
 impl IDtcLuConfigure {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Add(&self, puclupair: *const u8, cblupair: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), ::core::mem::transmute(puclupair), ::core::mem::transmute(cblupair)).ok()
+    pub unsafe fn Add(&self, puclupair: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Delete(&self, puclupair: *const u8, cblupair: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self), ::core::mem::transmute(puclupair), ::core::mem::transmute(cblupair)).ok()
+    pub unsafe fn Delete(&self, puclupair: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _).ok()
     }
 }
 impl ::core::convert::From<IDtcLuConfigure> for ::windows::core::IUnknown {
@@ -316,9 +316,9 @@ pub struct IDtcLuRecovery_Vtbl {
 pub struct IDtcLuRecoveryFactory(::windows::core::IUnknown);
 impl IDtcLuRecoveryFactory {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Create(&self, puclupair: *const u8, cblupair: u32) -> ::windows::core::Result<IDtcLuRecovery> {
+    pub unsafe fn Create(&self, puclupair: &[u8]) -> ::windows::core::Result<IDtcLuRecovery> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), ::core::mem::transmute(puclupair), ::core::mem::transmute(cblupair), ::core::mem::transmute(&mut result__)).from_abi::<IDtcLuRecovery>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IDtcLuRecovery>(result__)
     }
 }
 impl ::core::convert::From<IDtcLuRecoveryFactory> for ::windows::core::IUnknown {
@@ -2175,8 +2175,8 @@ pub struct IKernelTransaction_Vtbl {
 pub struct ILastResourceManager(::windows::core::IUnknown);
 impl ILastResourceManager {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn TransactionCommitted(&self, pprepinfo: *const u8, cbprepinfo: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TransactionCommitted)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo)).ok()
+    pub unsafe fn TransactionCommitted(&self, pprepinfo: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TransactionCommitted)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn RecoveryDone(&self) -> ::windows::core::Result<()> {
@@ -2300,8 +2300,8 @@ impl IPrepareInfo2 {
         (::windows::core::Interface::vtable(self).GetPrepareInfoSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn GetPrepareInfo(&self, cbprepareinfo: u32, pprepinfo: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrepareInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbprepareinfo), ::core::mem::transmute(pprepinfo)).ok()
+    pub unsafe fn GetPrepareInfo(&self, pprepinfo: &mut [u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPrepareInfo)(::core::mem::transmute_copy(self), pprepinfo.len() as _, ::core::mem::transmute(pprepinfo.as_mut_ptr())).ok()
     }
 }
 impl ::core::convert::From<IPrepareInfo2> for ::windows::core::IUnknown {
@@ -2424,9 +2424,9 @@ impl IResourceManager {
         (::windows::core::Interface::vtable(self).Enlist)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(ppenlist)).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Reenlist(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+    pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__: XACTSTAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Reenlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).Reenlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
@@ -2495,9 +2495,9 @@ impl IResourceManager2 {
         (::windows::core::Interface::vtable(self).base.Enlist)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(ppenlist)).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Reenlist(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+    pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__: XACTSTAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.Reenlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).base.Reenlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
@@ -2737,9 +2737,9 @@ impl IResourceManagerRejoinable {
         (::windows::core::Interface::vtable(self).base.base.Enlist)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(ppenlist)).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Reenlist(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+    pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__: XACTSTAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.Reenlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).base.base.Reenlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
@@ -2761,9 +2761,9 @@ impl IResourceManagerRejoinable {
         (::windows::core::Interface::vtable(self).base.Reenlist2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pxid), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Rejoin(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+    pub unsafe fn Rejoin(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__: XACTSTAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Rejoin)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).Rejoin)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
     }
 }
 impl ::core::convert::From<IResourceManagerRejoinable> for ::windows::core::IUnknown {
@@ -3661,8 +3661,8 @@ impl ITransactionExport {
         (::windows::core::Interface::vtable(self).Export)(::core::mem::transmute_copy(self), punktransaction.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn GetTransactionCookie<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punktransaction: Param0, cbtransactioncookie: u32, rgbtransactioncookie: *mut u8, pcbused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTransactionCookie)(::core::mem::transmute_copy(self), punktransaction.into_param().abi(), ::core::mem::transmute(cbtransactioncookie), ::core::mem::transmute(rgbtransactioncookie), ::core::mem::transmute(pcbused)).ok()
+    pub unsafe fn GetTransactionCookie<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punktransaction: Param0, rgbtransactioncookie: &mut [u8], pcbused: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTransactionCookie)(::core::mem::transmute_copy(self), punktransaction.into_param().abi(), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_mut_ptr()), ::core::mem::transmute(pcbused)).ok()
     }
 }
 impl ::core::convert::From<ITransactionExport> for ::windows::core::IUnknown {
@@ -3722,9 +3722,9 @@ impl ITransactionExportFactory {
         (::windows::core::Interface::vtable(self).GetRemoteClassId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Create(&self, cbwhereabouts: u32, rgbwhereabouts: *const u8) -> ::windows::core::Result<ITransactionExport> {
+    pub unsafe fn Create(&self, rgbwhereabouts: &[u8]) -> ::windows::core::Result<ITransactionExport> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbwhereabouts), ::core::mem::transmute(rgbwhereabouts), ::core::mem::transmute(&mut result__)).from_abi::<ITransactionExport>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<ITransactionExport>(result__)
     }
 }
 impl ::core::convert::From<ITransactionExportFactory> for ::windows::core::IUnknown {
@@ -3779,9 +3779,9 @@ pub struct ITransactionExportFactory_Vtbl {
 pub struct ITransactionImport(::windows::core::IUnknown);
 impl ITransactionImport {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Import<T: ::windows::core::Interface>(&self, cbtransactioncookie: u32, rgbtransactioncookie: *const u8) -> ::windows::core::Result<T> {
+    pub unsafe fn Import<T: ::windows::core::Interface>(&self, rgbtransactioncookie: &[u8]) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).Import)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbtransactioncookie), ::core::mem::transmute(rgbtransactioncookie), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).Import)(::core::mem::transmute_copy(self), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_ptr()), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<ITransactionImport> for ::windows::core::IUnknown {
@@ -3840,8 +3840,8 @@ impl ITransactionImportWhereabouts {
         (::windows::core::Interface::vtable(self).GetWhereaboutsSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn GetWhereabouts(&self, cbwhereabouts: u32, rgbwhereabouts: *mut u8, pcbused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetWhereabouts)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbwhereabouts), ::core::mem::transmute(rgbwhereabouts), ::core::mem::transmute(pcbused)).ok()
+    pub unsafe fn GetWhereabouts(&self, rgbwhereabouts: &mut [u8], pcbused: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetWhereabouts)(::core::mem::transmute_copy(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_mut_ptr()), ::core::mem::transmute(pcbused)).ok()
     }
 }
 impl ::core::convert::From<ITransactionImportWhereabouts> for ::windows::core::IUnknown {
@@ -4345,9 +4345,9 @@ pub struct ITransactionPhase0NotifyAsync_Vtbl {
 pub struct ITransactionReceiver(::windows::core::IUnknown);
 impl ITransactionReceiver {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn UnmarshalPropagationToken(&self, cbtoken: u32, rgbtoken: *const u8) -> ::windows::core::Result<ITransaction> {
+    pub unsafe fn UnmarshalPropagationToken(&self, rgbtoken: &[u8]) -> ::windows::core::Result<ITransaction> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UnmarshalPropagationToken)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbtoken), ::core::mem::transmute(rgbtoken), ::core::mem::transmute(&mut result__)).from_abi::<ITransaction>(result__)
+        (::windows::core::Interface::vtable(self).UnmarshalPropagationToken)(::core::mem::transmute_copy(self), rgbtoken.len() as _, ::core::mem::transmute(rgbtoken.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<ITransaction>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn GetReturnTokenSize(&self) -> ::windows::core::Result<u32> {
@@ -4355,8 +4355,8 @@ impl ITransactionReceiver {
         (::windows::core::Interface::vtable(self).GetReturnTokenSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn MarshalReturnToken(&self, cbreturntoken: u32, rgbreturntoken: *mut u8, pcbused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MarshalReturnToken)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbreturntoken), ::core::mem::transmute(rgbreturntoken), ::core::mem::transmute(pcbused)).ok()
+    pub unsafe fn MarshalReturnToken(&self, rgbreturntoken: &mut [u8], pcbused: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MarshalReturnToken)(::core::mem::transmute_copy(self), rgbreturntoken.len() as _, ::core::mem::transmute(rgbreturntoken.as_mut_ptr()), ::core::mem::transmute(pcbused)).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -4638,12 +4638,12 @@ impl ITransactionTransmitter {
         (::windows::core::Interface::vtable(self).GetPropagationTokenSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn MarshalPropagationToken(&self, cbtoken: u32, rgbtoken: *mut u8, pcbused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MarshalPropagationToken)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbtoken), ::core::mem::transmute(rgbtoken), ::core::mem::transmute(pcbused)).ok()
+    pub unsafe fn MarshalPropagationToken(&self, rgbtoken: &mut [u8], pcbused: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MarshalPropagationToken)(::core::mem::transmute_copy(self), rgbtoken.len() as _, ::core::mem::transmute(rgbtoken.as_mut_ptr()), ::core::mem::transmute(pcbused)).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn UnmarshalReturnToken(&self, cbreturntoken: u32, rgbreturntoken: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnmarshalReturnToken)(::core::mem::transmute_copy(self), ::core::mem::transmute(cbreturntoken), ::core::mem::transmute(rgbreturntoken)).ok()
+    pub unsafe fn UnmarshalReturnToken(&self, rgbreturntoken: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnmarshalReturnToken)(::core::mem::transmute_copy(self), rgbreturntoken.len() as _, ::core::mem::transmute(rgbreturntoken.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {

@@ -167,8 +167,7 @@ impl IEffectivePermission2 {
         psid: Param0,
         pdevicesid: Param1,
         pszservername: Param2,
-        psecurityobjects: *mut SECURITY_OBJECT,
-        dwsecurityobjectcount: u32,
+        psecurityobjects: &mut [SECURITY_OBJECT],
         pusergroups: *const super::super::TOKEN_GROUPS,
         pauthzusergroupsoperations: *const super::AUTHZ_SID_OPERATION,
         pdevicegroups: *const super::super::TOKEN_GROUPS,
@@ -177,15 +176,15 @@ impl IEffectivePermission2 {
         pauthzuserclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
         pauthzdeviceclaims: *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION,
         pauthzdeviceclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
-        peffpermresultlists: *mut EFFPERM_RESULT_LIST,
+        peffpermresultlists: &mut [EFFPERM_RESULT_LIST],
     ) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
             ::core::mem::transmute_copy(self),
             psid.into_param().abi(),
             pdevicesid.into_param().abi(),
             pszservername.into_param().abi(),
-            ::core::mem::transmute(psecurityobjects),
-            ::core::mem::transmute(dwsecurityobjectcount),
+            ::core::mem::transmute(psecurityobjects.as_mut_ptr()),
+            peffpermresultlists.len() as _,
             ::core::mem::transmute(pusergroups),
             ::core::mem::transmute(pauthzusergroupsoperations),
             ::core::mem::transmute(pdevicegroups),
@@ -194,7 +193,7 @@ impl IEffectivePermission2 {
             ::core::mem::transmute(pauthzuserclaimsoperations),
             ::core::mem::transmute(pauthzdeviceclaims),
             ::core::mem::transmute(pauthzdeviceclaimsoperations),
-            ::core::mem::transmute(peffpermresultlists),
+            ::core::mem::transmute(peffpermresultlists.as_mut_ptr()),
         )
         .ok()
     }

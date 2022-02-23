@@ -1301,12 +1301,12 @@ impl ID2D1SimplifiedGeometrySink {
         (::windows::core::Interface::vtable(self).BeginFigure)(::core::mem::transmute_copy(self), startpoint.into_param().abi(), ::core::mem::transmute(figurebegin))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
-    pub unsafe fn AddLines(&self, points: *const D2D_POINT_2F, pointscount: u32) {
-        (::windows::core::Interface::vtable(self).AddLines)(::core::mem::transmute_copy(self), ::core::mem::transmute(points), ::core::mem::transmute(pointscount))
+    pub unsafe fn AddLines(&self, points: &[D2D_POINT_2F]) {
+        (::windows::core::Interface::vtable(self).AddLines)(::core::mem::transmute_copy(self), ::core::mem::transmute(points.as_ptr()), points.len() as _)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
-    pub unsafe fn AddBeziers(&self, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32) {
-        (::windows::core::Interface::vtable(self).AddBeziers)(::core::mem::transmute_copy(self), ::core::mem::transmute(beziers), ::core::mem::transmute(bezierscount))
+    pub unsafe fn AddBeziers(&self, beziers: &[D2D1_BEZIER_SEGMENT]) {
+        (::windows::core::Interface::vtable(self).AddBeziers)(::core::mem::transmute_copy(self), ::core::mem::transmute(beziers.as_ptr()), beziers.len() as _)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {

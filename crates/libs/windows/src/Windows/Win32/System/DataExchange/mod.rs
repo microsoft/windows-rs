@@ -1225,28 +1225,28 @@ pub unsafe fn DdeQueryNextServer<'a, Param0: ::windows::core::IntoParam<'a, HCON
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn DdeQueryStringA<'a, Param1: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1, psz: ::windows::core::PSTR, cchmax: u32, icodepage: i32) -> u32 {
+pub unsafe fn DdeQueryStringA<'a, Param1: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1, psz: &mut [u8], icodepage: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeQueryStringA(idinst: u32, hsz: HSZ, psz: ::windows::core::PSTR, cchmax: u32, icodepage: i32) -> u32;
         }
-        ::core::mem::transmute(DdeQueryStringA(::core::mem::transmute(idinst), hsz.into_param().abi(), ::core::mem::transmute(psz), ::core::mem::transmute(cchmax), ::core::mem::transmute(icodepage)))
+        ::core::mem::transmute(DdeQueryStringA(::core::mem::transmute(idinst), hsz.into_param().abi(), ::core::mem::transmute(psz.as_mut_ptr()), psz.len() as _, ::core::mem::transmute(icodepage)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn DdeQueryStringW<'a, Param1: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1, psz: ::windows::core::PWSTR, cchmax: u32, icodepage: i32) -> u32 {
+pub unsafe fn DdeQueryStringW<'a, Param1: ::windows::core::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1, psz: &mut [u16], icodepage: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeQueryStringW(idinst: u32, hsz: HSZ, psz: ::windows::core::PWSTR, cchmax: u32, icodepage: i32) -> u32;
         }
-        ::core::mem::transmute(DdeQueryStringW(::core::mem::transmute(idinst), hsz.into_param().abi(), ::core::mem::transmute(psz), ::core::mem::transmute(cchmax), ::core::mem::transmute(icodepage)))
+        ::core::mem::transmute(DdeQueryStringW(::core::mem::transmute(idinst), hsz.into_param().abi(), ::core::mem::transmute(psz.as_mut_ptr()), psz.len() as _, ::core::mem::transmute(icodepage)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1413,28 +1413,28 @@ pub unsafe fn FreeDDElParam<'a, Param1: ::windows::core::IntoParam<'a, super::su
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: ::windows::core::PSTR, nsize: i32) -> u32 {
+pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetAtomNameA(natom: u16, lpbuffer: ::windows::core::PSTR, nsize: i32) -> u32;
         }
-        ::core::mem::transmute(GetAtomNameA(::core::mem::transmute(natom), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
+        ::core::mem::transmute(GetAtomNameA(::core::mem::transmute(natom), ::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: ::windows::core::PWSTR, nsize: i32) -> u32 {
+pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetAtomNameW(natom: u16, lpbuffer: ::windows::core::PWSTR, nsize: i32) -> u32;
         }
-        ::core::mem::transmute(GetAtomNameW(::core::mem::transmute(natom), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
+        ::core::mem::transmute(GetAtomNameW(::core::mem::transmute(natom), ::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1456,28 +1456,28 @@ pub unsafe fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: ::windows::core::PSTR, cchmaxcount: i32) -> i32 {
+pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: &mut [u8]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetClipboardFormatNameA(format: u32, lpszformatname: ::windows::core::PSTR, cchmaxcount: i32) -> i32;
         }
-        ::core::mem::transmute(GetClipboardFormatNameA(::core::mem::transmute(format), ::core::mem::transmute(lpszformatname), ::core::mem::transmute(cchmaxcount)))
+        ::core::mem::transmute(GetClipboardFormatNameA(::core::mem::transmute(format), ::core::mem::transmute(lpszformatname.as_mut_ptr()), lpszformatname.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: ::windows::core::PWSTR, cchmaxcount: i32) -> i32 {
+pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: &mut [u16]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetClipboardFormatNameW(format: u32, lpszformatname: ::windows::core::PWSTR, cchmaxcount: i32) -> i32;
         }
-        ::core::mem::transmute(GetClipboardFormatNameW(::core::mem::transmute(format), ::core::mem::transmute(lpszformatname), ::core::mem::transmute(cchmaxcount)))
+        ::core::mem::transmute(GetClipboardFormatNameW(::core::mem::transmute(format), ::core::mem::transmute(lpszformatname.as_mut_ptr()), lpszformatname.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1543,14 +1543,14 @@ pub unsafe fn GetOpenClipboardWindow() -> super::super::Foundation::HWND {
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cformats: i32) -> i32 {
+pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: &[u32]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cformats: i32) -> i32;
         }
-        ::core::mem::transmute(GetPriorityClipboardFormat(::core::mem::transmute(paformatprioritylist), ::core::mem::transmute(cformats)))
+        ::core::mem::transmute(GetPriorityClipboardFormat(::core::mem::transmute(paformatprioritylist.as_ptr()), paformatprioritylist.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1558,14 +1558,14 @@ pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cform
 #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: &mut [u32], pcformatsout: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetUpdatedClipboardFormats(::core::mem::transmute(lpuiformats), ::core::mem::transmute(cformats), ::core::mem::transmute(pcformatsout)))
+        ::core::mem::transmute(GetUpdatedClipboardFormats(::core::mem::transmute(lpuiformats.as_mut_ptr()), lpuiformats.len() as _, ::core::mem::transmute(pcformatsout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1670,28 +1670,28 @@ pub unsafe fn GlobalFindAtomW<'a, Param0: ::windows::core::IntoParam<'a, ::windo
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: ::windows::core::PSTR, nsize: i32) -> u32 {
+pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GlobalGetAtomNameA(natom: u16, lpbuffer: ::windows::core::PSTR, nsize: i32) -> u32;
         }
-        ::core::mem::transmute(GlobalGetAtomNameA(::core::mem::transmute(natom), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
+        ::core::mem::transmute(GlobalGetAtomNameA(::core::mem::transmute(natom), ::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 #[inline]
-pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: ::windows::core::PWSTR, nsize: i32) -> u32 {
+pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GlobalGetAtomNameW(natom: u16, lpbuffer: ::windows::core::PWSTR, nsize: i32) -> u32;
         }
-        ::core::mem::transmute(GlobalGetAtomNameW(::core::mem::transmute(natom), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
+        ::core::mem::transmute(GlobalGetAtomNameW(::core::mem::transmute(natom), ::core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

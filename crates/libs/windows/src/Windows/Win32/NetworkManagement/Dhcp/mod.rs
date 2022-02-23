@@ -7890,14 +7890,14 @@ pub unsafe fn DhcpServerQueryAttributes<'a, Param0: ::windows::core::IntoParam<'
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 #[inline]
-pub unsafe fn DhcpServerQueryDnsRegCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(serveripaddress: Param0, unamesize: u32, uname: ::windows::core::PWSTR, domainsize: u32, domain: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DhcpServerQueryDnsRegCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(serveripaddress: Param0, uname: &mut [u16], domain: &mut [u16]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DhcpServerQueryDnsRegCredentials(serveripaddress: ::windows::core::PCWSTR, unamesize: u32, uname: ::windows::core::PWSTR, domainsize: u32, domain: ::windows::core::PWSTR) -> u32;
         }
-        ::core::mem::transmute(DhcpServerQueryDnsRegCredentials(serveripaddress.into_param().abi(), ::core::mem::transmute(unamesize), ::core::mem::transmute(uname), ::core::mem::transmute(domainsize), ::core::mem::transmute(domain)))
+        ::core::mem::transmute(DhcpServerQueryDnsRegCredentials(serveripaddress.into_param().abi(), uname.len() as _, ::core::mem::transmute(uname.as_mut_ptr()), domain.len() as _, ::core::mem::transmute(domain.as_mut_ptr())))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

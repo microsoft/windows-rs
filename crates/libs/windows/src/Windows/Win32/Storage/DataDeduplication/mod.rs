@@ -508,8 +508,8 @@ pub struct IDedupBackupSupport(::windows::core::IUnknown);
 impl IDedupBackupSupport {
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RestoreFiles<'a, Param2: ::windows::core::IntoParam<'a, IDedupReadFileCallback>>(&self, numberoffiles: u32, filefullpaths: *const super::super::Foundation::BSTR, store: Param2, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestoreFiles)(::core::mem::transmute_copy(self), ::core::mem::transmute(numberoffiles), ::core::mem::transmute(filefullpaths), store.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(fileresults)).ok()
+    pub unsafe fn RestoreFiles<'a, Param2: ::windows::core::IntoParam<'a, IDedupReadFileCallback>>(&self, filefullpaths: &[super::super::Foundation::BSTR], store: Param2, flags: u32, fileresults: &mut [::windows::core::HRESULT]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RestoreFiles)(::core::mem::transmute_copy(self), fileresults.len() as _, ::core::mem::transmute(filefullpaths.as_ptr()), store.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(fileresults.as_mut_ptr())).ok()
     }
 }
 impl ::core::convert::From<IDedupBackupSupport> for ::windows::core::IUnknown {
@@ -645,38 +645,38 @@ impl IDedupDataPort {
         (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatus), ::core::mem::transmute(pdataheadroommb)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-    pub unsafe fn LookupChunks(&self, count: u32, phashes: *const DedupHash) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn LookupChunks(&self, phashes: &[DedupHash]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LookupChunks)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(phashes), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).LookupChunks)(::core::mem::transmute_copy(self), phashes.len() as _, ::core::mem::transmute(phashes.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-    pub unsafe fn InsertChunks(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdata: *const u8) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn InsertChunks(&self, pchunkmetadata: &[DedupChunk], pchunkdata: &[u8]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InsertChunks)(::core::mem::transmute_copy(self), ::core::mem::transmute(chunkcount), ::core::mem::transmute(pchunkmetadata), ::core::mem::transmute(databytecount), ::core::mem::transmute(pchunkdata), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).InsertChunks)(::core::mem::transmute_copy(self), pchunkmetadata.len() as _, ::core::mem::transmute(pchunkmetadata.as_ptr()), pchunkdata.len() as _, ::core::mem::transmute(pchunkdata.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InsertChunksWithStream<'a, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: Param3) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn InsertChunksWithStream<'a, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pchunkmetadata: &[DedupChunk], databytecount: u32, pchunkdatastream: Param3) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InsertChunksWithStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(chunkcount), ::core::mem::transmute(pchunkmetadata), ::core::mem::transmute(databytecount), pchunkdatastream.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).InsertChunksWithStream)(::core::mem::transmute_copy(self), pchunkmetadata.len() as _, ::core::mem::transmute(pchunkmetadata.as_ptr()), ::core::mem::transmute(databytecount), pchunkdatastream.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CommitStreams(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentries: *const DedupStreamEntry) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn CommitStreams(&self, pstreams: &[DedupStream], pentries: &[DedupStreamEntry]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CommitStreams)(::core::mem::transmute_copy(self), ::core::mem::transmute(streamcount), ::core::mem::transmute(pstreams), ::core::mem::transmute(entrycount), ::core::mem::transmute(pentries), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).CommitStreams)(::core::mem::transmute_copy(self), pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), pentries.len() as _, ::core::mem::transmute(pentries.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CommitStreamsWithStream<'a, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: Param3) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn CommitStreamsWithStream<'a, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstreams: &[DedupStream], entrycount: u32, pentriesstream: Param3) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CommitStreamsWithStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(streamcount), ::core::mem::transmute(pstreams), ::core::mem::transmute(entrycount), pentriesstream.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).CommitStreamsWithStream)(::core::mem::transmute_copy(self), pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), ::core::mem::transmute(entrycount), pentriesstream.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStreams(&self, streamcount: u32, pstreampaths: *const super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetStreams(&self, pstreampaths: &[super::super::Foundation::BSTR]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetStreams)(::core::mem::transmute_copy(self), ::core::mem::transmute(streamcount), ::core::mem::transmute(pstreampaths), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetStreams)(::core::mem::transmute_copy(self), pstreampaths.len() as _, ::core::mem::transmute(pstreampaths.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -684,9 +684,9 @@ impl IDedupDataPort {
         (::windows::core::Interface::vtable(self).GetStreamsResults)(::core::mem::transmute_copy(self), requestid.into_param().abi(), ::core::mem::transmute(maxwaitms), ::core::mem::transmute(streamentryindex), ::core::mem::transmute(pstreamcount), ::core::mem::transmute(ppstreams), ::core::mem::transmute(pentrycount), ::core::mem::transmute(ppentries), ::core::mem::transmute(pstatus), ::core::mem::transmute(ppitemresults)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-    pub unsafe fn GetChunks(&self, count: u32, phashes: *const DedupHash) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn GetChunks(&self, phashes: &[DedupHash]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetChunks)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(phashes), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetChunks)(::core::mem::transmute_copy(self), phashes.len() as _, ::core::mem::transmute(phashes.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
     pub unsafe fn GetChunksResults<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, requestid: Param0, maxwaitms: u32, chunkindex: u32, pchunkcount: *mut u32, ppchunkmetadata: *mut *mut DedupChunk, pdatabytecount: *mut u32, ppchunkdata: *mut *mut u8, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -854,12 +854,12 @@ pub struct IDedupDataPortManager_Vtbl {
 pub struct IDedupIterateChunksHash32(::windows::core::IUnknown);
 impl IDedupIterateChunksHash32 {
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-    pub unsafe fn PushBuffer(&self, pbuffer: *const u8, ulbufferlength: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PushBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbuffer), ::core::mem::transmute(ulbufferlength)).ok()
+    pub unsafe fn PushBuffer(&self, pbuffer: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PushBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-    pub unsafe fn Next(&self, ulmaxchunks: u32, parrchunks: *mut DEDUP_CHUNK_INFO_HASH32, pulfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulmaxchunks), ::core::mem::transmute(parrchunks), ::core::mem::transmute(pulfetched)).ok()
+    pub unsafe fn Next(&self, parrchunks: &mut [DEDUP_CHUNK_INFO_HASH32], pulfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), parrchunks.len() as _, ::core::mem::transmute(parrchunks.as_mut_ptr()), ::core::mem::transmute(pulfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
     pub unsafe fn Drain(&self) -> ::windows::core::Result<()> {
@@ -925,18 +925,18 @@ pub struct IDedupReadFileCallback(::windows::core::IUnknown);
 impl IDedupReadFileCallback {
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReadBackupFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filefullpath: Param0, fileoffset: i64, sizetoread: u32, filebuffer: *mut u8, returnedsize: *mut u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadBackupFile)(::core::mem::transmute_copy(self), filefullpath.into_param().abi(), ::core::mem::transmute(fileoffset), ::core::mem::transmute(sizetoread), ::core::mem::transmute(filebuffer), ::core::mem::transmute(returnedsize), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn ReadBackupFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filefullpath: Param0, fileoffset: i64, filebuffer: &mut [u8], returnedsize: *mut u32, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadBackupFile)(::core::mem::transmute_copy(self), filefullpath.into_param().abi(), ::core::mem::transmute(fileoffset), filebuffer.len() as _, ::core::mem::transmute(filebuffer.as_mut_ptr()), ::core::mem::transmute(returnedsize), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OrderContainersRestore(&self, numberofcontainers: u32, containerpaths: *const super::super::Foundation::BSTR, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OrderContainersRestore)(::core::mem::transmute_copy(self), ::core::mem::transmute(numberofcontainers), ::core::mem::transmute(containerpaths), ::core::mem::transmute(readplanentries), ::core::mem::transmute(readplan)).ok()
+    pub unsafe fn OrderContainersRestore(&self, containerpaths: &[super::super::Foundation::BSTR], readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OrderContainersRestore)(::core::mem::transmute_copy(self), containerpaths.len() as _, ::core::mem::transmute(containerpaths.as_ptr()), ::core::mem::transmute(readplanentries), ::core::mem::transmute(readplan)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PreviewContainerRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filefullpath: Param0, numberofreads: u32, readoffsets: *const DDP_FILE_EXTENT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PreviewContainerRead)(::core::mem::transmute_copy(self), filefullpath.into_param().abi(), ::core::mem::transmute(numberofreads), ::core::mem::transmute(readoffsets)).ok()
+    pub unsafe fn PreviewContainerRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filefullpath: Param0, readoffsets: &[DDP_FILE_EXTENT]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PreviewContainerRead)(::core::mem::transmute_copy(self), filefullpath.into_param().abi(), readoffsets.len() as _, ::core::mem::transmute(readoffsets.as_ptr())).ok()
     }
 }
 impl ::core::convert::From<IDedupReadFileCallback> for ::windows::core::IUnknown {

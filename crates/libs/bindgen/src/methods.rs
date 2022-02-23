@@ -329,7 +329,8 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
 
     for position in 0..params.len() {
         if let Some(ArrayInfo::RelativeSize(relative)) = params[position].1 {
-            if !params[relative].0.def.flags().output() {
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
+            if !params[relative].0.def.flags().output() && position != relative {
                 params[relative].1 = Some(ArrayInfo::RelativePtr(position));
             } else {
                 params[position].1 = None;

@@ -452,14 +452,14 @@ pub unsafe fn RmJoinSession<'a, Param1: ::windows::core::IntoParam<'a, ::windows
 #[doc = "*Required features: 'Win32_System_RestartManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RmRegisterResources(dwsessionhandle: u32, nfiles: u32, rgsfilenames: *const ::windows::core::PWSTR, napplications: u32, rgapplications: *const RM_UNIQUE_PROCESS, nservices: u32, rgsservicenames: *const ::windows::core::PWSTR) -> u32 {
+pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: &[::windows::core::PWSTR], rgapplications: &[RM_UNIQUE_PROCESS], rgsservicenames: &[::windows::core::PWSTR]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RmRegisterResources(dwsessionhandle: u32, nfiles: u32, rgsfilenames: *const ::windows::core::PWSTR, napplications: u32, rgapplications: *const RM_UNIQUE_PROCESS, nservices: u32, rgsservicenames: *const ::windows::core::PWSTR) -> u32;
         }
-        ::core::mem::transmute(RmRegisterResources(::core::mem::transmute(dwsessionhandle), ::core::mem::transmute(nfiles), ::core::mem::transmute(rgsfilenames), ::core::mem::transmute(napplications), ::core::mem::transmute(rgapplications), ::core::mem::transmute(nservices), ::core::mem::transmute(rgsservicenames)))
+        ::core::mem::transmute(RmRegisterResources(::core::mem::transmute(dwsessionhandle), rgsfilenames.len() as _, ::core::mem::transmute(rgsfilenames.as_ptr()), rgapplications.len() as _, ::core::mem::transmute(rgapplications.as_ptr()), rgsservicenames.len() as _, ::core::mem::transmute(rgsservicenames.as_ptr())))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

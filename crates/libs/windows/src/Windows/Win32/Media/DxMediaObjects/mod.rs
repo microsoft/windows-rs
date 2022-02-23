@@ -33,7 +33,7 @@ pub unsafe fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: &mut [u
         extern "system" {
             fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        DMOGetName(::core::mem::transmute(clsiddmo), ::core::mem::transmute(szname)).ok()
+        DMOGetName(::core::mem::transmute(clsiddmo), ::core::mem::transmute(szname.as_mut_ptr())).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -403,8 +403,8 @@ pub struct IDMOVideoOutputOptimizations_Vtbl {
 pub struct IEnumDMO(::windows::core::IUnknown);
 impl IEnumDMO {
     #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-    pub unsafe fn Next(&self, citemstofetch: u32, pclsid: *mut ::windows::core::GUID, names: *mut ::windows::core::PWSTR, pcitemsfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(citemstofetch), ::core::mem::transmute(pclsid), ::core::mem::transmute(names), ::core::mem::transmute(pcitemsfetched)).ok()
+    pub unsafe fn Next(&self, pclsid: &mut [::windows::core::GUID], names: &mut [::windows::core::PWSTR], pcitemsfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), names.len() as _, ::core::mem::transmute(pclsid.as_mut_ptr()), ::core::mem::transmute(names.as_mut_ptr()), ::core::mem::transmute(pcitemsfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
     pub unsafe fn Skip(&self, citemstoskip: u32) -> ::windows::core::Result<()> {
@@ -630,8 +630,8 @@ impl IMediaObject {
         (::windows::core::Interface::vtable(self).ProcessInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputstreamindex), pbuffer.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(rttimestamp), ::core::mem::transmute(rttimelength)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-    pub unsafe fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(coutputbuffercount), ::core::mem::transmute(poutputbuffers), ::core::mem::transmute(pdwstatus)).ok()
+    pub unsafe fn ProcessOutput(&self, dwflags: u32, poutputbuffers: &mut [DMO_OUTPUT_DATA_BUFFER], pdwstatus: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProcessOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), poutputbuffers.len() as _, ::core::mem::transmute(poutputbuffers.as_mut_ptr()), ::core::mem::transmute(pdwstatus)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
     pub unsafe fn Lock(&self, block: i32) -> ::windows::core::Result<()> {

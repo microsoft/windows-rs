@@ -1081,8 +1081,8 @@ impl IVirtualSurfaceImageSourceNative {
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUpdateRects(&self, updates: *mut super::super::super::Foundation::RECT, count: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetUpdateRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(updates), ::core::mem::transmute(count)).ok()
+    pub unsafe fn GetUpdateRects(&self, updates: &mut [super::super::super::Foundation::RECT]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetUpdateRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(updates.as_mut_ptr()), updates.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -1731,8 +1731,8 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
 pub struct IVssEnumMgmtObject(::windows::core::IUnknown);
 impl IVssEnumMgmtObject {
     #[doc = "*Required features: 'Win32_Storage_Vss'*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut VSS_MGMT_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [VSS_MGMT_OBJECT_PROP], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_mut_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Vss'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -1801,8 +1801,8 @@ pub struct IVssEnumMgmtObject_Vtbl {
 pub struct IVssEnumObject(::windows::core::IUnknown);
 impl IVssEnumObject {
     #[doc = "*Required features: 'Win32_Storage_Vss'*"]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [VSS_OBJECT_PROP], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_mut_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Vss'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -2054,8 +2054,8 @@ pub struct IVssHardwareSnapshotProvider(::windows::core::IUnknown);
 impl IVssHardwareSnapshotProvider {
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
-    pub unsafe fn AreLunsSupported(&self, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AreLunsSupported)(::core::mem::transmute_copy(self), ::core::mem::transmute(lluncount), ::core::mem::transmute(lcontext), ::core::mem::transmute(rgwszdevices), ::core::mem::transmute(pluninformation), ::core::mem::transmute(pbissupported)).ok()
+    pub unsafe fn AreLunsSupported(&self, lcontext: i32, rgwszdevices: &[*const u16], pluninformation: &mut [super::VirtualDiskService::VDS_LUN_INFORMATION], pbissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AreLunsSupported)(::core::mem::transmute_copy(self), pluninformation.len() as _, ::core::mem::transmute(lcontext), ::core::mem::transmute(rgwszdevices.as_ptr()), ::core::mem::transmute(pluninformation.as_mut_ptr()), ::core::mem::transmute(pbissupported)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
@@ -2064,18 +2064,18 @@ impl IVssHardwareSnapshotProvider {
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
-    pub unsafe fn BeginPrepareSnapshot<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, snapshotsetid: Param0, snapshotid: Param1, lcontext: i32, lluncount: i32, rgdevicenames: *const *const u16, rgluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginPrepareSnapshot)(::core::mem::transmute_copy(self), snapshotsetid.into_param().abi(), snapshotid.into_param().abi(), ::core::mem::transmute(lcontext), ::core::mem::transmute(lluncount), ::core::mem::transmute(rgdevicenames), ::core::mem::transmute(rgluninformation)).ok()
+    pub unsafe fn BeginPrepareSnapshot<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, snapshotsetid: Param0, snapshotid: Param1, lcontext: i32, rgdevicenames: &[*const u16], rgluninformation: &mut [super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BeginPrepareSnapshot)(::core::mem::transmute_copy(self), snapshotsetid.into_param().abi(), snapshotid.into_param().abi(), ::core::mem::transmute(lcontext), rgluninformation.len() as _, ::core::mem::transmute(rgdevicenames.as_ptr()), ::core::mem::transmute(rgluninformation.as_mut_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
-    pub unsafe fn GetTargetLuns(&self, lluncount: i32, rgdevicenames: *const *const u16, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, rgdestinationluns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTargetLuns)(::core::mem::transmute_copy(self), ::core::mem::transmute(lluncount), ::core::mem::transmute(rgdevicenames), ::core::mem::transmute(rgsourceluns), ::core::mem::transmute(rgdestinationluns)).ok()
+    pub unsafe fn GetTargetLuns(&self, rgdevicenames: &[*const u16], rgsourceluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION], rgdestinationluns: &mut [super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTargetLuns)(::core::mem::transmute_copy(self), rgdestinationluns.len() as _, ::core::mem::transmute(rgdevicenames.as_ptr()), ::core::mem::transmute(rgsourceluns.as_ptr()), ::core::mem::transmute(rgdestinationluns.as_mut_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
-    pub unsafe fn LocateLuns(&self, lluncount: i32, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LocateLuns)(::core::mem::transmute_copy(self), ::core::mem::transmute(lluncount), ::core::mem::transmute(rgsourceluns)).ok()
+    pub unsafe fn LocateLuns(&self, rgsourceluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LocateLuns)(::core::mem::transmute_copy(self), rgsourceluns.len() as _, ::core::mem::transmute(rgsourceluns.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
@@ -2158,8 +2158,8 @@ pub struct IVssHardwareSnapshotProviderEx(::windows::core::IUnknown);
 impl IVssHardwareSnapshotProviderEx {
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
-    pub unsafe fn AreLunsSupported(&self, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.AreLunsSupported)(::core::mem::transmute_copy(self), ::core::mem::transmute(lluncount), ::core::mem::transmute(lcontext), ::core::mem::transmute(rgwszdevices), ::core::mem::transmute(pluninformation), ::core::mem::transmute(pbissupported)).ok()
+    pub unsafe fn AreLunsSupported(&self, lcontext: i32, rgwszdevices: &[*const u16], pluninformation: &mut [super::VirtualDiskService::VDS_LUN_INFORMATION], pbissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.AreLunsSupported)(::core::mem::transmute_copy(self), pluninformation.len() as _, ::core::mem::transmute(lcontext), ::core::mem::transmute(rgwszdevices.as_ptr()), ::core::mem::transmute(pluninformation.as_mut_ptr()), ::core::mem::transmute(pbissupported)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
@@ -2168,18 +2168,18 @@ impl IVssHardwareSnapshotProviderEx {
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
-    pub unsafe fn BeginPrepareSnapshot<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, snapshotsetid: Param0, snapshotid: Param1, lcontext: i32, lluncount: i32, rgdevicenames: *const *const u16, rgluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.BeginPrepareSnapshot)(::core::mem::transmute_copy(self), snapshotsetid.into_param().abi(), snapshotid.into_param().abi(), ::core::mem::transmute(lcontext), ::core::mem::transmute(lluncount), ::core::mem::transmute(rgdevicenames), ::core::mem::transmute(rgluninformation)).ok()
+    pub unsafe fn BeginPrepareSnapshot<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, snapshotsetid: Param0, snapshotid: Param1, lcontext: i32, rgdevicenames: &[*const u16], rgluninformation: &mut [super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.BeginPrepareSnapshot)(::core::mem::transmute_copy(self), snapshotsetid.into_param().abi(), snapshotid.into_param().abi(), ::core::mem::transmute(lcontext), rgluninformation.len() as _, ::core::mem::transmute(rgdevicenames.as_ptr()), ::core::mem::transmute(rgluninformation.as_mut_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
-    pub unsafe fn GetTargetLuns(&self, lluncount: i32, rgdevicenames: *const *const u16, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, rgdestinationluns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetTargetLuns)(::core::mem::transmute_copy(self), ::core::mem::transmute(lluncount), ::core::mem::transmute(rgdevicenames), ::core::mem::transmute(rgsourceluns), ::core::mem::transmute(rgdestinationluns)).ok()
+    pub unsafe fn GetTargetLuns(&self, rgdevicenames: &[*const u16], rgsourceluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION], rgdestinationluns: &mut [super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetTargetLuns)(::core::mem::transmute_copy(self), rgdestinationluns.len() as _, ::core::mem::transmute(rgdevicenames.as_ptr()), ::core::mem::transmute(rgsourceluns.as_ptr()), ::core::mem::transmute(rgdestinationluns.as_mut_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
-    pub unsafe fn LocateLuns(&self, lluncount: i32, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.LocateLuns)(::core::mem::transmute_copy(self), ::core::mem::transmute(lluncount), ::core::mem::transmute(rgsourceluns)).ok()
+    pub unsafe fn LocateLuns(&self, rgsourceluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.LocateLuns)(::core::mem::transmute_copy(self), rgsourceluns.len() as _, ::core::mem::transmute(rgsourceluns.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
@@ -2193,19 +2193,19 @@ impl IVssHardwareSnapshotProviderEx {
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
-    pub unsafe fn OnLunStateChange(&self, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnLunStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(psnapshotluns), ::core::mem::transmute(poriginalluns), ::core::mem::transmute(dwcount), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn OnLunStateChange(&self, psnapshotluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION], poriginalluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION], dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnLunStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(psnapshotluns.as_ptr()), ::core::mem::transmute(poriginalluns.as_ptr()), poriginalluns.len() as _, ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
-    pub unsafe fn ResyncLuns(&self, psourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, ptargetluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows::core::Result<IVssAsync> {
+    pub unsafe fn ResyncLuns(&self, psourceluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION], ptargetluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows::core::Result<IVssAsync> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ResyncLuns)(::core::mem::transmute_copy(self), ::core::mem::transmute(psourceluns), ::core::mem::transmute(ptargetluns), ::core::mem::transmute(dwcount), ::core::mem::transmute(&mut result__)).from_abi::<IVssAsync>(result__)
+        (::windows::core::Interface::vtable(self).ResyncLuns)(::core::mem::transmute_copy(self), ::core::mem::transmute(psourceluns.as_ptr()), ::core::mem::transmute(ptargetluns.as_ptr()), ptargetluns.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IVssAsync>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_Vss', 'Win32_Foundation', 'Win32_Storage_VirtualDiskService'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
-    pub unsafe fn OnReuseLuns(&self, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnReuseLuns)(::core::mem::transmute_copy(self), ::core::mem::transmute(psnapshotluns), ::core::mem::transmute(poriginalluns), ::core::mem::transmute(dwcount)).ok()
+    pub unsafe fn OnReuseLuns(&self, psnapshotluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION], poriginalluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnReuseLuns)(::core::mem::transmute_copy(self), ::core::mem::transmute(psnapshotluns.as_ptr()), ::core::mem::transmute(poriginalluns.as_ptr()), poriginalluns.len() as _).ok()
     }
 }
 impl ::core::convert::From<IVssHardwareSnapshotProviderEx> for ::windows::core::IUnknown {

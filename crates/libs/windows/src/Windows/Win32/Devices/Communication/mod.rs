@@ -732,14 +732,14 @@ pub unsafe fn GetCommModemStatus<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[doc = "*Required features: 'Win32_Devices_Communication'*"]
 #[inline]
-pub unsafe fn GetCommPorts(lpportnumbers: *mut u32, uportnumberscount: u32, puportnumbersfound: *mut u32) -> u32 {
+pub unsafe fn GetCommPorts(lpportnumbers: &mut [u32], puportnumbersfound: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetCommPorts(lpportnumbers: *mut u32, uportnumberscount: u32, puportnumbersfound: *mut u32) -> u32;
         }
-        ::core::mem::transmute(GetCommPorts(::core::mem::transmute(lpportnumbers), ::core::mem::transmute(uportnumberscount), ::core::mem::transmute(puportnumbersfound)))
+        ::core::mem::transmute(GetCommPorts(::core::mem::transmute(lpportnumbers.as_mut_ptr()), lpportnumbers.len() as _, ::core::mem::transmute(puportnumbersfound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
