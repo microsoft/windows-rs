@@ -1621,14 +1621,14 @@ pub unsafe fn MapUserPhysicalPages(virtualaddress: *const ::core::ffi::c_void, p
 #[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MapUserPhysicalPagesScatter(virtualaddresses: &[*const ::core::ffi::c_void], pagearray: &[usize]) -> super::super::Foundation::BOOL {
+pub unsafe fn MapUserPhysicalPagesScatter(virtualaddresses: *const *const ::core::ffi::c_void, numberofpages: usize, pagearray: *const usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn MapUserPhysicalPagesScatter(virtualaddresses: *const *const ::core::ffi::c_void, numberofpages: usize, pagearray: *const usize) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(MapUserPhysicalPagesScatter(::core::mem::transmute(::windows::core::as_ptr_or_null(virtualaddresses)), pagearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pagearray))))
+        ::core::mem::transmute(MapUserPhysicalPagesScatter(::core::mem::transmute(virtualaddresses), ::core::mem::transmute(numberofpages), ::core::mem::transmute(pagearray)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

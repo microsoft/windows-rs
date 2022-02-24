@@ -7718,8 +7718,8 @@ impl ID3D10Device {
         (::windows::core::Interface::vtable(self).IASetInputLayout)(::core::mem::transmute_copy(self), pinputlayout.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
-    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &[::core::option::Option<ID3D10Buffer>], pstrides: &[u32], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D10Buffer>, pstrides: *const u32, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7781,8 +7781,8 @@ impl ID3D10Device {
         (::windows::core::Interface::vtable(self).OMSetDepthStencilState)(::core::mem::transmute_copy(self), pdepthstencilstate.into_param().abi(), ::core::mem::transmute(stencilref))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
-    pub unsafe fn SOSetTargets(&self, ppsotargets: &[::core::option::Option<ID3D10Buffer>], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).SOSetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D10Buffer>, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).SOSetTargets)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppsotargets), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn DrawAuto(&self) {
@@ -7859,8 +7859,8 @@ impl ID3D10Device {
         (::windows::core::Interface::vtable(self).IAGetInputLayout)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppinputlayout))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
-    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &mut [::core::option::Option<ID3D10Buffer>], pstrides: &mut [u32], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
+    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D10Buffer>, pstrides: *mut u32, poffsets: *mut u32) {
+        (::windows::core::Interface::vtable(self).IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7914,8 +7914,8 @@ impl ID3D10Device {
         (::windows::core::Interface::vtable(self).OMGetDepthStencilState)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdepthstencilstate), ::core::mem::transmute(pstencilref))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
-    pub unsafe fn SOGetTargets(&self, ppsotargets: &mut [::core::option::Option<ID3D10Buffer>], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).SOGetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
+    pub unsafe fn SOGetTargets(&self, numbuffers: u32, ppsotargets: *mut ::core::option::Option<ID3D10Buffer>, poffsets: *mut u32) {
+        (::windows::core::Interface::vtable(self).SOGetTargets)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppsotargets), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn RSGetState(&self, pprasterizerstate: *mut ::core::option::Option<ID3D10RasterizerState>) {
@@ -8352,8 +8352,8 @@ impl ID3D10Device1 {
         (::windows::core::Interface::vtable(self).base.IASetInputLayout)(::core::mem::transmute_copy(self), pinputlayout.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
-    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &[::core::option::Option<ID3D10Buffer>], pstrides: &[u32], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D10Buffer>, pstrides: *const u32, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8415,8 +8415,8 @@ impl ID3D10Device1 {
         (::windows::core::Interface::vtable(self).base.OMSetDepthStencilState)(::core::mem::transmute_copy(self), pdepthstencilstate.into_param().abi(), ::core::mem::transmute(stencilref))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
-    pub unsafe fn SOSetTargets(&self, ppsotargets: &[::core::option::Option<ID3D10Buffer>], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.SOSetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D10Buffer>, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).base.SOSetTargets)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppsotargets), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn DrawAuto(&self) {
@@ -8493,8 +8493,8 @@ impl ID3D10Device1 {
         (::windows::core::Interface::vtable(self).base.IAGetInputLayout)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppinputlayout))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
-    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &mut [::core::option::Option<ID3D10Buffer>], pstrides: &mut [u32], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
+    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D10Buffer>, pstrides: *mut u32, poffsets: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8548,8 +8548,8 @@ impl ID3D10Device1 {
         (::windows::core::Interface::vtable(self).base.OMGetDepthStencilState)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdepthstencilstate), ::core::mem::transmute(pstencilref))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
-    pub unsafe fn SOGetTargets(&self, ppsotargets: &mut [::core::option::Option<ID3D10Buffer>], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.SOGetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
+    pub unsafe fn SOGetTargets(&self, numbuffers: u32, ppsotargets: *mut ::core::option::Option<ID3D10Buffer>, poffsets: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.SOGetTargets)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppsotargets), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub unsafe fn RSGetState(&self, pprasterizerstate: *mut ::core::option::Option<ID3D10RasterizerState>) {

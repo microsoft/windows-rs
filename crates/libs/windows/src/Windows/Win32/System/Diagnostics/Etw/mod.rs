@@ -6680,14 +6680,14 @@ impl ::core::default::Default for TRACE_VERSION_INFO {
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhAggregatePayloadFilters(payloadfilterptrs: &[*const ::core::ffi::c_void], eventmatchallflags: &[super::super::super::Foundation::BOOLEAN], eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
+pub unsafe fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const ::core::ffi::c_void, eventmatchallflags: *const super::super::super::Foundation::BOOLEAN, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const ::core::ffi::c_void, eventmatchallflags: *const super::super::super::Foundation::BOOLEAN, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(TdhAggregatePayloadFilters(eventmatchallflags.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(payloadfilterptrs)), ::core::mem::transmute(::windows::core::as_ptr_or_null(eventmatchallflags)), ::core::mem::transmute(eventfilterdescriptor)))
+        ::core::mem::transmute(TdhAggregatePayloadFilters(::core::mem::transmute(payloadfiltercount), ::core::mem::transmute(payloadfilterptrs), ::core::mem::transmute(eventmatchallflags), ::core::mem::transmute(eventfilterdescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

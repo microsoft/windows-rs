@@ -8081,28 +8081,28 @@ pub unsafe fn DsGetSiteNameW<'a, Param0: ::windows::core::IntoParam<'a, ::window
 }
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 #[inline]
-pub unsafe fn DsGetSpnA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(servicetype: DS_SPN_NAME_TYPE, serviceclass: Param1, servicename: Param2, instanceport: u16, pinstancenames: &[::windows::core::PSTR], pinstanceports: &[u16], pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PSTR) -> u32 {
+pub unsafe fn DsGetSpnA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(servicetype: DS_SPN_NAME_TYPE, serviceclass: Param1, servicename: Param2, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DsGetSpnA(servicetype: DS_SPN_NAME_TYPE, serviceclass: ::windows::core::PCSTR, servicename: ::windows::core::PCSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PSTR) -> u32;
         }
-        ::core::mem::transmute(DsGetSpnA(::core::mem::transmute(servicetype), serviceclass.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(instanceport), pinstanceports.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinstancenames)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pinstanceports)), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
+        ::core::mem::transmute(DsGetSpnA(::core::mem::transmute(servicetype), serviceclass.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(instanceport), ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 #[inline]
-pub unsafe fn DsGetSpnW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servicetype: DS_SPN_NAME_TYPE, serviceclass: Param1, servicename: Param2, instanceport: u16, pinstancenames: &[::windows::core::PWSTR], pinstanceports: &[u16], pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DsGetSpnW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servicetype: DS_SPN_NAME_TYPE, serviceclass: Param1, servicename: Param2, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DsGetSpnW(servicetype: DS_SPN_NAME_TYPE, serviceclass: ::windows::core::PCWSTR, servicename: ::windows::core::PCWSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PWSTR) -> u32;
         }
-        ::core::mem::transmute(DsGetSpnW(::core::mem::transmute(servicetype), serviceclass.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(instanceport), pinstanceports.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinstancenames)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pinstanceports)), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
+        ::core::mem::transmute(DsGetSpnW(::core::mem::transmute(servicetype), serviceclass.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(instanceport), ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

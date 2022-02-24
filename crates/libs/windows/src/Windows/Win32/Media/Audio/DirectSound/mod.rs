@@ -2436,8 +2436,8 @@ impl IDirectSoundBuffer8 {
         (::windows::core::Interface::vtable(self).base.Restore)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
-    pub unsafe fn SetFX(&self, pdsfxdesc: &[DSEFFECTDESC], pdwresultcodes: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFX)(::core::mem::transmute_copy(self), pdwresultcodes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pdsfxdesc)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwresultcodes))).ok()
+    pub unsafe fn SetFX(&self, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFX)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweffectscount), ::core::mem::transmute(pdsfxdesc), ::core::mem::transmute(pdwresultcodes)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
     pub unsafe fn AcquireResources(&self, dwflags: u32, pdwresultcodes: &mut [u32]) -> ::windows::core::Result<()> {

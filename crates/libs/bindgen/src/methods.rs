@@ -262,15 +262,21 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
 
 fn prep_win32_params(params: &[MethodParam]) -> Vec<(&MethodParam, Option<ArrayInfo>)> {
     let mut has_array_info = false;
-    let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params.iter().map(|param| {
-        let array_info = param.def.array_info();
-        has_array_info |= array_info.is_some();
-        (param, array_info)
-    }).collect();
 
-    if has_array_info{
+    let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params
+        .iter()
+        .map(|param| {
+            let array_info = param.def.array_info();
+            has_array_info |= array_info.is_some();
+            (param, array_info)
+        })
+        .collect();
+
+    if has_array_info {
         for position in 0..params.len() {
+            // Point len params back to the corresponding ptr params.
             if let Some(ArrayInfo::RelativeLen(relative)) = params[position].1 {
+                // The len params must be input only.
                 // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
                 if !params[relative].0.def.flags().output() && position != relative {
                     params[relative].1 = Some(ArrayInfo::RelativePtr(position));
@@ -282,19 +288,19 @@ fn prep_win32_params(params: &[MethodParam]) -> Vec<(&MethodParam, Option<ArrayI
 
         let mut sets = BTreeMap::<usize, Vec<usize>>::new();
 
-        for position in 0..params.len() {
-            if let Some(ArrayInfo::RelativeLen(relative)) = params[position].1 {
+        // Finds sets of ptr params pointing at the same len param.
+        for (position, param) in params.iter().enumerate() {
+            if let Some(ArrayInfo::RelativeLen(relative)) = param.1 {
                 sets.entry(relative).or_default().push(position);
             }
         }
 
+        // Remove any sets that have optional ptr params.
         for (len, ptrs) in sets {
-            if ptrs.len() > 1 {
-                if ptrs.iter().any(|ptr|params[*ptr].0.def.flags().optional()) {
-                    params[len].1 = None;
-                    for ptr in ptrs {
-                        params[ptr].1 = None;
-                    }
+            if ptrs.len() > 1 && ptrs.iter().any(|ptr| params[*ptr].0.def.flags().optional()) {
+                params[len].1 = None;
+                for ptr in ptrs {
+                    params[ptr].1 = None;
                 }
             }
         }

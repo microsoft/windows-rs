@@ -22355,14 +22355,14 @@ pub unsafe fn CryptSignHashW<'a, Param2: ::windows::core::IntoParam<'a, ::window
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptSignMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(psignpara: *const CRYPT_SIGN_MESSAGE_PARA, fdetachedsignature: Param1, rgpbtobesigned: &[*const u8], rgcbtobesigned: &[u32], pbsignedblob: *mut u8, pcbsignedblob: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CryptSignMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(psignpara: *const CRYPT_SIGN_MESSAGE_PARA, fdetachedsignature: Param1, ctobesigned: u32, rgpbtobesigned: *const *const u8, rgcbtobesigned: *const u32, pbsignedblob: *mut u8, pcbsignedblob: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CryptSignMessage(psignpara: *const CRYPT_SIGN_MESSAGE_PARA, fdetachedsignature: super::super::Foundation::BOOL, ctobesigned: u32, rgpbtobesigned: *const *const u8, rgcbtobesigned: *const u32, pbsignedblob: *mut u8, pcbsignedblob: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CryptSignMessage(::core::mem::transmute(psignpara), fdetachedsignature.into_param().abi(), rgcbtobesigned.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpbtobesigned)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcbtobesigned)), ::core::mem::transmute(pbsignedblob), ::core::mem::transmute(pcbsignedblob)))
+        ::core::mem::transmute(CryptSignMessage(::core::mem::transmute(psignpara), fdetachedsignature.into_param().abi(), ::core::mem::transmute(ctobesigned), ::core::mem::transmute(rgpbtobesigned), ::core::mem::transmute(rgcbtobesigned), ::core::mem::transmute(pbsignedblob), ::core::mem::transmute(pcbsignedblob)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

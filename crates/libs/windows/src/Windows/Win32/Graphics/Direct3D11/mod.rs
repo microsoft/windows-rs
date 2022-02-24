@@ -19407,8 +19407,8 @@ impl ID3D11DeviceContext {
         (::windows::core::Interface::vtable(self).IASetInputLayout)(::core::mem::transmute_copy(self), pinputlayout.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &[::core::option::Option<ID3D11Buffer>], pstrides: &[u32], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D11Buffer>, pstrides: *const u32, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -19474,8 +19474,8 @@ impl ID3D11DeviceContext {
         (::windows::core::Interface::vtable(self).OMSetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<'a, Param2: ::windows::core::IntoParam<'a, ID3D11DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D11RenderTargetView>], pdepthstencilview: Param2, uavstartslot: u32, ppunorderedaccessviews: &[::core::option::Option<ID3D11UnorderedAccessView>], puavinitialcounts: &[u32]) {
-        (::windows::core::Interface::vtable(self).OMSetRenderTargetsAndUnorderedAccessViews)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi(), ::core::mem::transmute(uavstartslot), puavinitialcounts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunorderedaccessviews)), ::core::mem::transmute(::windows::core::as_ptr_or_null(puavinitialcounts)))
+    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<'a, Param2: ::windows::core::IntoParam<'a, ID3D11DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D11RenderTargetView>], pdepthstencilview: Param2, uavstartslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32) {
+        (::windows::core::Interface::vtable(self).OMSetRenderTargetsAndUnorderedAccessViews)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi(), ::core::mem::transmute(uavstartslot), ::core::mem::transmute(numuavs), ::core::mem::transmute(ppunorderedaccessviews), ::core::mem::transmute(puavinitialcounts))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn OMSetBlendState<'a, Param0: ::windows::core::IntoParam<'a, ID3D11BlendState>>(&self, pblendstate: Param0, blendfactor: *const f32, samplemask: u32) {
@@ -19486,8 +19486,8 @@ impl ID3D11DeviceContext {
         (::windows::core::Interface::vtable(self).OMSetDepthStencilState)(::core::mem::transmute_copy(self), pdepthstencilstate.into_param().abi(), ::core::mem::transmute(stencilref))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SOSetTargets(&self, ppsotargets: &[::core::option::Option<ID3D11Buffer>], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).SOSetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D11Buffer>, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).SOSetTargets)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppsotargets), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn DrawAuto(&self) {
@@ -19613,8 +19613,8 @@ impl ID3D11DeviceContext {
         (::windows::core::Interface::vtable(self).CSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetUnorderedAccessViews(&self, startslot: u32, ppunorderedaccessviews: &[::core::option::Option<ID3D11UnorderedAccessView>], puavinitialcounts: &[u32]) {
-        (::windows::core::Interface::vtable(self).CSSetUnorderedAccessViews)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), puavinitialcounts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunorderedaccessviews)), ::core::mem::transmute(::windows::core::as_ptr_or_null(puavinitialcounts)))
+    pub unsafe fn CSSetUnorderedAccessViews(&self, startslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32) {
+        (::windows::core::Interface::vtable(self).CSSetUnorderedAccessViews)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numuavs), ::core::mem::transmute(ppunorderedaccessviews), ::core::mem::transmute(puavinitialcounts))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn CSSetShader<'a, Param0: ::windows::core::IntoParam<'a, ID3D11ComputeShader>>(&self, pcomputeshader: Param0, ppclassinstances: &[::core::option::Option<ID3D11ClassInstance>]) {
@@ -19657,8 +19657,8 @@ impl ID3D11DeviceContext {
         (::windows::core::Interface::vtable(self).IAGetInputLayout)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppinputlayout))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &mut [::core::option::Option<ID3D11Buffer>], pstrides: &mut [u32], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
+    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D11Buffer>, pstrides: *mut u32, poffsets: *mut u32) {
+        (::windows::core::Interface::vtable(self).IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -20079,8 +20079,8 @@ impl ID3D11DeviceContext1 {
         (::windows::core::Interface::vtable(self).base.IASetInputLayout)(::core::mem::transmute_copy(self), pinputlayout.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &[::core::option::Option<ID3D11Buffer>], pstrides: &[u32], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D11Buffer>, pstrides: *const u32, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -20146,8 +20146,8 @@ impl ID3D11DeviceContext1 {
         (::windows::core::Interface::vtable(self).base.OMSetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<'a, Param2: ::windows::core::IntoParam<'a, ID3D11DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D11RenderTargetView>], pdepthstencilview: Param2, uavstartslot: u32, ppunorderedaccessviews: &[::core::option::Option<ID3D11UnorderedAccessView>], puavinitialcounts: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.OMSetRenderTargetsAndUnorderedAccessViews)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi(), ::core::mem::transmute(uavstartslot), puavinitialcounts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunorderedaccessviews)), ::core::mem::transmute(::windows::core::as_ptr_or_null(puavinitialcounts)))
+    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<'a, Param2: ::windows::core::IntoParam<'a, ID3D11DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D11RenderTargetView>], pdepthstencilview: Param2, uavstartslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32) {
+        (::windows::core::Interface::vtable(self).base.OMSetRenderTargetsAndUnorderedAccessViews)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi(), ::core::mem::transmute(uavstartslot), ::core::mem::transmute(numuavs), ::core::mem::transmute(ppunorderedaccessviews), ::core::mem::transmute(puavinitialcounts))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn OMSetBlendState<'a, Param0: ::windows::core::IntoParam<'a, ID3D11BlendState>>(&self, pblendstate: Param0, blendfactor: *const f32, samplemask: u32) {
@@ -20158,8 +20158,8 @@ impl ID3D11DeviceContext1 {
         (::windows::core::Interface::vtable(self).base.OMSetDepthStencilState)(::core::mem::transmute_copy(self), pdepthstencilstate.into_param().abi(), ::core::mem::transmute(stencilref))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SOSetTargets(&self, ppsotargets: &[::core::option::Option<ID3D11Buffer>], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.SOSetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D11Buffer>, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).base.SOSetTargets)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppsotargets), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn DrawAuto(&self) {
@@ -20285,8 +20285,8 @@ impl ID3D11DeviceContext1 {
         (::windows::core::Interface::vtable(self).base.CSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetUnorderedAccessViews(&self, startslot: u32, ppunorderedaccessviews: &[::core::option::Option<ID3D11UnorderedAccessView>], puavinitialcounts: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.CSSetUnorderedAccessViews)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), puavinitialcounts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunorderedaccessviews)), ::core::mem::transmute(::windows::core::as_ptr_or_null(puavinitialcounts)))
+    pub unsafe fn CSSetUnorderedAccessViews(&self, startslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32) {
+        (::windows::core::Interface::vtable(self).base.CSSetUnorderedAccessViews)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numuavs), ::core::mem::transmute(ppunorderedaccessviews), ::core::mem::transmute(puavinitialcounts))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn CSSetShader<'a, Param0: ::windows::core::IntoParam<'a, ID3D11ComputeShader>>(&self, pcomputeshader: Param0, ppclassinstances: &[::core::option::Option<ID3D11ClassInstance>]) {
@@ -20329,8 +20329,8 @@ impl ID3D11DeviceContext1 {
         (::windows::core::Interface::vtable(self).base.IAGetInputLayout)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppinputlayout))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &mut [::core::option::Option<ID3D11Buffer>], pstrides: &mut [u32], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
+    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D11Buffer>, pstrides: *mut u32, poffsets: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -20495,52 +20495,52 @@ impl ID3D11DeviceContext1 {
         (::windows::core::Interface::vtable(self).DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
@@ -20733,8 +20733,8 @@ impl ID3D11DeviceContext2 {
         (::windows::core::Interface::vtable(self).base.base.IASetInputLayout)(::core::mem::transmute_copy(self), pinputlayout.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &[::core::option::Option<ID3D11Buffer>], pstrides: &[u32], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D11Buffer>, pstrides: *const u32, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -20800,8 +20800,8 @@ impl ID3D11DeviceContext2 {
         (::windows::core::Interface::vtable(self).base.base.OMSetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<'a, Param2: ::windows::core::IntoParam<'a, ID3D11DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D11RenderTargetView>], pdepthstencilview: Param2, uavstartslot: u32, ppunorderedaccessviews: &[::core::option::Option<ID3D11UnorderedAccessView>], puavinitialcounts: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.OMSetRenderTargetsAndUnorderedAccessViews)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi(), ::core::mem::transmute(uavstartslot), puavinitialcounts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunorderedaccessviews)), ::core::mem::transmute(::windows::core::as_ptr_or_null(puavinitialcounts)))
+    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<'a, Param2: ::windows::core::IntoParam<'a, ID3D11DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D11RenderTargetView>], pdepthstencilview: Param2, uavstartslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.OMSetRenderTargetsAndUnorderedAccessViews)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi(), ::core::mem::transmute(uavstartslot), ::core::mem::transmute(numuavs), ::core::mem::transmute(ppunorderedaccessviews), ::core::mem::transmute(puavinitialcounts))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn OMSetBlendState<'a, Param0: ::windows::core::IntoParam<'a, ID3D11BlendState>>(&self, pblendstate: Param0, blendfactor: *const f32, samplemask: u32) {
@@ -20812,8 +20812,8 @@ impl ID3D11DeviceContext2 {
         (::windows::core::Interface::vtable(self).base.base.OMSetDepthStencilState)(::core::mem::transmute_copy(self), pdepthstencilstate.into_param().abi(), ::core::mem::transmute(stencilref))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SOSetTargets(&self, ppsotargets: &[::core::option::Option<ID3D11Buffer>], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.SOSetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D11Buffer>, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.SOSetTargets)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppsotargets), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn DrawAuto(&self) {
@@ -20939,8 +20939,8 @@ impl ID3D11DeviceContext2 {
         (::windows::core::Interface::vtable(self).base.base.CSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetUnorderedAccessViews(&self, startslot: u32, ppunorderedaccessviews: &[::core::option::Option<ID3D11UnorderedAccessView>], puavinitialcounts: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.CSSetUnorderedAccessViews)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), puavinitialcounts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunorderedaccessviews)), ::core::mem::transmute(::windows::core::as_ptr_or_null(puavinitialcounts)))
+    pub unsafe fn CSSetUnorderedAccessViews(&self, startslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.CSSetUnorderedAccessViews)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numuavs), ::core::mem::transmute(ppunorderedaccessviews), ::core::mem::transmute(puavinitialcounts))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn CSSetShader<'a, Param0: ::windows::core::IntoParam<'a, ID3D11ComputeShader>>(&self, pcomputeshader: Param0, ppclassinstances: &[::core::option::Option<ID3D11ClassInstance>]) {
@@ -20983,8 +20983,8 @@ impl ID3D11DeviceContext2 {
         (::windows::core::Interface::vtable(self).base.base.IAGetInputLayout)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppinputlayout))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &mut [::core::option::Option<ID3D11Buffer>], pstrides: &mut [u32], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
+    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D11Buffer>, pstrides: *mut u32, poffsets: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -21149,52 +21149,52 @@ impl ID3D11DeviceContext2 {
         (::windows::core::Interface::vtable(self).base.DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
@@ -21212,21 +21212,8 @@ impl ID3D11DeviceContext2 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, ptiledresourceregionstartcoordinates: &[D3D11_TILED_RESOURCE_COORDINATE], ptiledresourceregionsizes: &[D3D11_TILE_REGION_SIZE], ptilepool: Param4, prangeflags: &[u32], ptilepoolstartoffsets: &[u32], prangetilecounts: &[u32], flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateTileMappings)(
-            ::core::mem::transmute_copy(self),
-            ptiledresource.into_param().abi(),
-            ptiledresourceregionsizes.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(ptiledresourceregionstartcoordinates)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(ptiledresourceregionsizes)),
-            ptilepool.into_param().abi(),
-            prangetilecounts.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(prangeflags)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(ptilepoolstartoffsets)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(prangetilecounts)),
-            ::core::mem::transmute(flags),
-        )
-        .ok()
+    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: Param4, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdateTileMappings)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(numtiledresourceregions), ::core::mem::transmute(ptiledresourceregionstartcoordinates), ::core::mem::transmute(ptiledresourceregionsizes), ptilepool.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(ptilepoolstartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21465,8 +21452,8 @@ impl ID3D11DeviceContext3 {
         (::windows::core::Interface::vtable(self).base.base.base.IASetInputLayout)(::core::mem::transmute_copy(self), pinputlayout.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &[::core::option::Option<ID3D11Buffer>], pstrides: &[u32], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D11Buffer>, pstrides: *const u32, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -21532,8 +21519,8 @@ impl ID3D11DeviceContext3 {
         (::windows::core::Interface::vtable(self).base.base.base.OMSetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<'a, Param2: ::windows::core::IntoParam<'a, ID3D11DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D11RenderTargetView>], pdepthstencilview: Param2, uavstartslot: u32, ppunorderedaccessviews: &[::core::option::Option<ID3D11UnorderedAccessView>], puavinitialcounts: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.OMSetRenderTargetsAndUnorderedAccessViews)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi(), ::core::mem::transmute(uavstartslot), puavinitialcounts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunorderedaccessviews)), ::core::mem::transmute(::windows::core::as_ptr_or_null(puavinitialcounts)))
+    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<'a, Param2: ::windows::core::IntoParam<'a, ID3D11DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D11RenderTargetView>], pdepthstencilview: Param2, uavstartslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.OMSetRenderTargetsAndUnorderedAccessViews)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi(), ::core::mem::transmute(uavstartslot), ::core::mem::transmute(numuavs), ::core::mem::transmute(ppunorderedaccessviews), ::core::mem::transmute(puavinitialcounts))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn OMSetBlendState<'a, Param0: ::windows::core::IntoParam<'a, ID3D11BlendState>>(&self, pblendstate: Param0, blendfactor: *const f32, samplemask: u32) {
@@ -21544,8 +21531,8 @@ impl ID3D11DeviceContext3 {
         (::windows::core::Interface::vtable(self).base.base.base.OMSetDepthStencilState)(::core::mem::transmute_copy(self), pdepthstencilstate.into_param().abi(), ::core::mem::transmute(stencilref))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SOSetTargets(&self, ppsotargets: &[::core::option::Option<ID3D11Buffer>], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.SOSetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D11Buffer>, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.SOSetTargets)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppsotargets), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn DrawAuto(&self) {
@@ -21671,8 +21658,8 @@ impl ID3D11DeviceContext3 {
         (::windows::core::Interface::vtable(self).base.base.base.CSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetUnorderedAccessViews(&self, startslot: u32, ppunorderedaccessviews: &[::core::option::Option<ID3D11UnorderedAccessView>], puavinitialcounts: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.CSSetUnorderedAccessViews)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), puavinitialcounts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunorderedaccessviews)), ::core::mem::transmute(::windows::core::as_ptr_or_null(puavinitialcounts)))
+    pub unsafe fn CSSetUnorderedAccessViews(&self, startslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.CSSetUnorderedAccessViews)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numuavs), ::core::mem::transmute(ppunorderedaccessviews), ::core::mem::transmute(puavinitialcounts))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn CSSetShader<'a, Param0: ::windows::core::IntoParam<'a, ID3D11ComputeShader>>(&self, pcomputeshader: Param0, ppclassinstances: &[::core::option::Option<ID3D11ClassInstance>]) {
@@ -21715,8 +21702,8 @@ impl ID3D11DeviceContext3 {
         (::windows::core::Interface::vtable(self).base.base.base.IAGetInputLayout)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppinputlayout))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &mut [::core::option::Option<ID3D11Buffer>], pstrides: &mut [u32], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
+    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D11Buffer>, pstrides: *mut u32, poffsets: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -21881,52 +21868,52 @@ impl ID3D11DeviceContext3 {
         (::windows::core::Interface::vtable(self).base.base.DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
@@ -21944,21 +21931,8 @@ impl ID3D11DeviceContext3 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, ptiledresourceregionstartcoordinates: &[D3D11_TILED_RESOURCE_COORDINATE], ptiledresourceregionsizes: &[D3D11_TILE_REGION_SIZE], ptilepool: Param4, prangeflags: &[u32], ptilepoolstartoffsets: &[u32], prangetilecounts: &[u32], flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.UpdateTileMappings)(
-            ::core::mem::transmute_copy(self),
-            ptiledresource.into_param().abi(),
-            ptiledresourceregionsizes.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(ptiledresourceregionstartcoordinates)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(ptiledresourceregionsizes)),
-            ptilepool.into_param().abi(),
-            prangetilecounts.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(prangeflags)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(ptilepoolstartoffsets)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(prangetilecounts)),
-            ::core::mem::transmute(flags),
-        )
-        .ok()
+    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: Param4, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.UpdateTileMappings)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(numtiledresourceregions), ::core::mem::transmute(ptiledresourceregionstartcoordinates), ::core::mem::transmute(ptiledresourceregionsizes), ptilepool.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(ptilepoolstartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22219,8 +22193,8 @@ impl ID3D11DeviceContext4 {
         (::windows::core::Interface::vtable(self).base.base.base.base.IASetInputLayout)(::core::mem::transmute_copy(self), pinputlayout.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &[::core::option::Option<ID3D11Buffer>], pstrides: &[u32], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D11Buffer>, pstrides: *const u32, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.IASetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -22286,8 +22260,8 @@ impl ID3D11DeviceContext4 {
         (::windows::core::Interface::vtable(self).base.base.base.base.OMSetRenderTargets)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<'a, Param2: ::windows::core::IntoParam<'a, ID3D11DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D11RenderTargetView>], pdepthstencilview: Param2, uavstartslot: u32, ppunorderedaccessviews: &[::core::option::Option<ID3D11UnorderedAccessView>], puavinitialcounts: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.OMSetRenderTargetsAndUnorderedAccessViews)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi(), ::core::mem::transmute(uavstartslot), puavinitialcounts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunorderedaccessviews)), ::core::mem::transmute(::windows::core::as_ptr_or_null(puavinitialcounts)))
+    pub unsafe fn OMSetRenderTargetsAndUnorderedAccessViews<'a, Param2: ::windows::core::IntoParam<'a, ID3D11DepthStencilView>>(&self, pprendertargetviews: &[::core::option::Option<ID3D11RenderTargetView>], pdepthstencilview: Param2, uavstartslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.OMSetRenderTargetsAndUnorderedAccessViews)(::core::mem::transmute_copy(self), pprendertargetviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pprendertargetviews)), pdepthstencilview.into_param().abi(), ::core::mem::transmute(uavstartslot), ::core::mem::transmute(numuavs), ::core::mem::transmute(ppunorderedaccessviews), ::core::mem::transmute(puavinitialcounts))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn OMSetBlendState<'a, Param0: ::windows::core::IntoParam<'a, ID3D11BlendState>>(&self, pblendstate: Param0, blendfactor: *const f32, samplemask: u32) {
@@ -22298,8 +22272,8 @@ impl ID3D11DeviceContext4 {
         (::windows::core::Interface::vtable(self).base.base.base.base.OMSetDepthStencilState)(::core::mem::transmute_copy(self), pdepthstencilstate.into_param().abi(), ::core::mem::transmute(stencilref))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SOSetTargets(&self, ppsotargets: &[::core::option::Option<ID3D11Buffer>], poffsets: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.SOSetTargets)(::core::mem::transmute_copy(self), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppsotargets)), ::core::mem::transmute(::windows::core::as_ptr_or_null(poffsets)))
+    pub unsafe fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D11Buffer>, poffsets: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SOSetTargets)(::core::mem::transmute_copy(self), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppsotargets), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn DrawAuto(&self) {
@@ -22425,8 +22399,8 @@ impl ID3D11DeviceContext4 {
         (::windows::core::Interface::vtable(self).base.base.base.base.CSSetShaderResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ppshaderresourceviews.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppshaderresourceviews)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetUnorderedAccessViews(&self, startslot: u32, ppunorderedaccessviews: &[::core::option::Option<ID3D11UnorderedAccessView>], puavinitialcounts: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.CSSetUnorderedAccessViews)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), puavinitialcounts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunorderedaccessviews)), ::core::mem::transmute(::windows::core::as_ptr_or_null(puavinitialcounts)))
+    pub unsafe fn CSSetUnorderedAccessViews(&self, startslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.CSSetUnorderedAccessViews)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numuavs), ::core::mem::transmute(ppunorderedaccessviews), ::core::mem::transmute(puavinitialcounts))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn CSSetShader<'a, Param0: ::windows::core::IntoParam<'a, ID3D11ComputeShader>>(&self, pcomputeshader: Param0, ppclassinstances: &[::core::option::Option<ID3D11ClassInstance>]) {
@@ -22469,8 +22443,8 @@ impl ID3D11DeviceContext4 {
         (::windows::core::Interface::vtable(self).base.base.base.base.IAGetInputLayout)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppinputlayout))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, ppvertexbuffers: &mut [::core::option::Option<ID3D11Buffer>], pstrides: &mut [u32], poffsets: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppvertexbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstrides)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)))
+    pub unsafe fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D11Buffer>, pstrides: *mut u32, poffsets: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.IAGetVertexBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppvertexbuffers), ::core::mem::transmute(pstrides), ::core::mem::transmute(poffsets))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -22635,52 +22609,52 @@ impl ID3D11DeviceContext4 {
         (::windows::core::Interface::vtable(self).base.base.base.DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &[::core::option::Option<ID3D11Buffer>], pfirstconstant: &[u32], pnumconstants: &[u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnumconstants)))
+    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D11Buffer>], pfirstconstant: &mut [u32], pnumconstants: &mut [u32]) {
-        (::windows::core::Interface::vtable(self).base.base.base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), pnumconstants.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppconstantbuffers)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pfirstconstant)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnumconstants)))
+    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
@@ -22698,21 +22672,8 @@ impl ID3D11DeviceContext4 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, ptiledresourceregionstartcoordinates: &[D3D11_TILED_RESOURCE_COORDINATE], ptiledresourceregionsizes: &[D3D11_TILE_REGION_SIZE], ptilepool: Param4, prangeflags: &[u32], ptilepoolstartoffsets: &[u32], prangetilecounts: &[u32], flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.UpdateTileMappings)(
-            ::core::mem::transmute_copy(self),
-            ptiledresource.into_param().abi(),
-            ptiledresourceregionsizes.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(ptiledresourceregionstartcoordinates)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(ptiledresourceregionsizes)),
-            ptilepool.into_param().abi(),
-            prangetilecounts.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(prangeflags)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(ptilepoolstartoffsets)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(prangetilecounts)),
-            ::core::mem::transmute(flags),
-        )
-        .ok()
+    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: Param4, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.UpdateTileMappings)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(numtiledresourceregions), ::core::mem::transmute(ptiledresourceregionstartcoordinates), ::core::mem::transmute(ptiledresourceregionsizes), ptilepool.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(ptilepoolstartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29498,8 +29459,8 @@ impl ID3D11VideoContext3 {
         (::windows::core::Interface::vtable(self).base.VideoProcessorGetStreamHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(ptype), ::core::mem::transmute(size), ::core::mem::transmute(pmetadata))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DecoderBeginFrame1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>, Param1: ::windows::core::IntoParam<'a, ID3D11VideoDecoderOutputView>>(&self, pdecoder: Param0, pview: Param1, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, phistogramoffsets: &[u32], pphistogrambuffers: &[::core::option::Option<ID3D11Buffer>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DecoderBeginFrame1)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), pview.into_param().abi(), ::core::mem::transmute(contentkeysize), ::core::mem::transmute(pcontentkey), pphistogrambuffers.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(phistogramoffsets)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pphistogrambuffers))).ok()
+    pub unsafe fn DecoderBeginFrame1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>, Param1: ::windows::core::IntoParam<'a, ID3D11VideoDecoderOutputView>>(&self, pdecoder: Param0, pview: Param1, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, numcomponenthistograms: u32, phistogramoffsets: *const u32, pphistogrambuffers: *const ::core::option::Option<ID3D11Buffer>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DecoderBeginFrame1)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), pview.into_param().abi(), ::core::mem::transmute(contentkeysize), ::core::mem::transmute(pcontentkey), ::core::mem::transmute(numcomponenthistograms), ::core::mem::transmute(phistogramoffsets), ::core::mem::transmute(pphistogrambuffers)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn SubmitDecoderBuffers2<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, pbufferdesc: &[D3D11_VIDEO_DECODER_BUFFER_DESC2]) -> ::windows::core::Result<()> {

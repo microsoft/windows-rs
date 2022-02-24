@@ -8426,7 +8426,7 @@ pub unsafe fn ScriptPlace<'a, Param0: ::windows::core::IntoParam<'a, super::Grap
 #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptPlaceOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: &[i32], rprangeproperties: &[*const textrange_properties], pwcchars: &[u16], pwlogclust: &[u16], pcharprops: &[script_charprop], pwglyphs: &[u16], pglyphprops: &[script_glyphprop], piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptPlaceOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: &[u16], pwlogclust: &[u16], pcharprops: &[script_charprop], pwglyphs: &[u16], pglyphprops: &[script_glyphprop], piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8439,9 +8439,9 @@ pub unsafe fn ScriptPlaceOpenType<'a, Param0: ::windows::core::IntoParam<'a, sup
             ::core::mem::transmute(psa),
             ::core::mem::transmute(tagscript),
             ::core::mem::transmute(taglangsys),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(rcrangechars)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(rprangeproperties)),
-            rprangeproperties.len() as _,
+            ::core::mem::transmute(rcrangechars),
+            ::core::mem::transmute(rprangeproperties),
+            ::core::mem::transmute(cranges),
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcchars)),
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pwlogclust)),
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pcharprops)),
@@ -8506,7 +8506,7 @@ pub unsafe fn ScriptShape<'a, Param0: ::windows::core::IntoParam<'a, super::Grap
 #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptShapeOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: &[i32], rprangeproperties: &[*const textrange_properties], pwcchars: &[u16], pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: &mut [u16], poutglyphprops: &mut [script_glyphprop], pcglyphs: *mut i32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptShapeOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: &[u16], pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: &mut [u16], poutglyphprops: &mut [script_glyphprop], pcglyphs: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8519,9 +8519,9 @@ pub unsafe fn ScriptShapeOpenType<'a, Param0: ::windows::core::IntoParam<'a, sup
             ::core::mem::transmute(psa),
             ::core::mem::transmute(tagscript),
             ::core::mem::transmute(taglangsys),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(rcrangechars)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(rprangeproperties)),
-            rprangeproperties.len() as _,
+            ::core::mem::transmute(rcrangechars),
+            ::core::mem::transmute(rprangeproperties),
+            ::core::mem::transmute(cranges),
             ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcchars)),
             pwcchars.len() as _,
             poutglyphprops.len() as _,
@@ -8713,30 +8713,14 @@ pub unsafe fn ScriptSubstituteSingleGlyph<'a, Param0: ::windows::core::IntoParam
 #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ScriptTextOut<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: *const super::Foundation::RECT, psa: *const SCRIPT_ANALYSIS, pwcreserved: Param7, ireserved: i32, pwglyphs: &[u16], piadvance: &[i32], pijustify: &[i32], pgoffset: &[GOFFSET]) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptTextOut<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: *const super::Foundation::RECT, psa: *const SCRIPT_ANALYSIS, pwcreserved: Param7, ireserved: i32, pwglyphs: *const u16, cglyphs: i32, piadvance: *const i32, pijustify: *const i32, pgoffset: *const GOFFSET) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ScriptTextOut(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: *const super::Foundation::RECT, psa: *const SCRIPT_ANALYSIS, pwcreserved: ::windows::core::PCWSTR, ireserved: i32, pwglyphs: *const u16, cglyphs: i32, piadvance: *const i32, pijustify: *const i32, pgoffset: *const GOFFSET) -> ::windows::core::HRESULT;
         }
-        ScriptTextOut(
-            hdc.into_param().abi(),
-            ::core::mem::transmute(psc),
-            ::core::mem::transmute(x),
-            ::core::mem::transmute(y),
-            ::core::mem::transmute(fuoptions),
-            ::core::mem::transmute(lprc),
-            ::core::mem::transmute(psa),
-            pwcreserved.into_param().abi(),
-            ::core::mem::transmute(ireserved),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pwglyphs)),
-            pgoffset.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(piadvance)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pijustify)),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(pgoffset)),
-        )
-        .ok()
+        ScriptTextOut(hdc.into_param().abi(), ::core::mem::transmute(psc), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(fuoptions), ::core::mem::transmute(lprc), ::core::mem::transmute(psa), pwcreserved.into_param().abi(), ::core::mem::transmute(ireserved), ::core::mem::transmute(pwglyphs), ::core::mem::transmute(cglyphs), ::core::mem::transmute(piadvance), ::core::mem::transmute(pijustify), ::core::mem::transmute(pgoffset)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
