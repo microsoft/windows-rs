@@ -1,5 +1,6 @@
 use super::*;
 
+/// A pointer to a null-terminated string of 8-bit Windows (ANSI) characters.
 #[repr(transparent)]
 pub struct PSTR(pub *mut u8);
 impl PSTR {

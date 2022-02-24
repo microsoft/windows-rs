@@ -20,6 +20,7 @@ impl IInspectable {
     }
 }
 
+#[doc(hidden)]
 #[repr(C)]
 pub struct IInspectableVtbl {
     pub base: IUnknownVtbl,

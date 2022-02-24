@@ -1,7 +1,7 @@
 use super::*;
 use bindings::*;
 
-/// A primitive error code value returned by most COM functions.
+/// An error code value returned by most COM functions.
 #[repr(transparent)]
 #[derive(Copy, Clone, Default, Debug, Eq, PartialEq)]
 #[must_use]

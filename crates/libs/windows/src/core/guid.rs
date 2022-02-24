@@ -3,7 +3,7 @@
 use super::*;
 use bindings::*;
 
-/// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
+/// A globally unique identifier ([GUID](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid))
 /// used to identify COM and WinRT interfaces.
 #[repr(C)]
 // TODO: write these out

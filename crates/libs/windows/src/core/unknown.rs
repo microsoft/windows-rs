@@ -57,6 +57,7 @@ impl core::fmt::Debug for IUnknown {
     }
 }
 
+#[doc(hidden)]
 pub trait IUnknownImpl {
     fn get_impl(&mut self) -> RawPtr;
 
