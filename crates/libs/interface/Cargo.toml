@@ -1,6 +1,6 @@
 [package]
 name = "windows-interface"
-version = "0.32.0"
+version = "0.33.0"
 edition = "2018"
 authors = ["Microsoft"]
 license = "MIT OR Apache-2.0"

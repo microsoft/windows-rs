@@ -5,4 +5,4 @@ edition = "2018"
 publish = false
 
 [dependencies]
-metadata = { package = "windows-metadata", path = "../../libs/metadata", version = "0.32.0" }
+metadata = { package = "windows-metadata", path = "../../libs/metadata", version = "0.33.0" }
