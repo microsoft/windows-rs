@@ -260,30 +260,36 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
     }
 }
 
-pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
-    let mut tokens = quote! {};
-
-    let mut params: Vec<(&MethodParam, usize, Option<ArrayInfo>)> = params.iter().enumerate().map(|(position, param)| (param, position, param.def.array_info())).collect();
+fn prep_win32_params(params: &[MethodParam]) -> Vec<(&MethodParam, Option<ArrayInfo>)> {
+    let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params.iter().map(|param| (param, param.def.array_info())).collect();
 
     for position in 0..params.len() {
-        if let Some(ArrayInfo::RelativeLen(relative)) = params[position].2 {
+        if let Some(ArrayInfo::RelativeLen(relative)) = params[position].1 {
             // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
             if !params[relative].0.def.flags().output() && position != relative {
-                params[relative].2 = Some(ArrayInfo::RelativePtr(position));
+                params[relative].1 = Some(ArrayInfo::RelativePtr(position));
             } else {
-                params[position].2 = None;
+                params[position].1 = None;
             }
         }
     }
 
-    for (param, position, array_info) in params {
+    // TODO: if there are any shared relative params and if any are optional then strip off array_info.
+
+    params
+}
+
+pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
+    let mut tokens = quote! {};
+
+    for (position, (param, array_info)) in prep_win32_params(params).iter().enumerate() {
         let name = gen_param_name(&param.def);
 
         if let Some(ArrayInfo::Fixed(fixed)) = array_info {
-            if fixed > 0 && param.def.free_with().is_none() {
+            if *fixed > 0 && param.def.free_with().is_none() {
                 let ty = param.ty.deref();
                 let ty = gen_default_type(&ty, gen);
-                let len = Literal::u32_unsuffixed(fixed as _);
+                let len = Literal::u32_unsuffixed(*fixed as _);
 
                 if param.def.flags().output() {
                     tokens.combine(&quote! { #name: &mut [#ty; #len], });
@@ -325,24 +331,11 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
     let mut tokens = quote! {};
 
-    let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params.iter().map(|param| (param, param.def.array_info())).collect();
-
-    for position in 0..params.len() {
-        if let Some(ArrayInfo::RelativeLen(relative)) = params[position].1 {
-            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
-            if !params[relative].0.def.flags().output() && position != relative {
-                params[relative].1 = Some(ArrayInfo::RelativePtr(position));
-            } else {
-                params[position].1 = None;
-            }
-        }
-    }
-
-    for (param, array_info) in &params {
+    for (param, array_info) in prep_win32_params(params) {
         let name = gen_param_name(&param.def);
 
         if let Some(ArrayInfo::Fixed(fixed)) = array_info {
-            if *fixed > 0 && param.def.free_with().is_none() {
+            if fixed > 0 && param.def.free_with().is_none() {
                 if param.def.flags().output() {
                     tokens.combine(&quote! { ::core::mem::transmute(#name.as_mut_ptr()), });
                 } else {
@@ -362,7 +355,7 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
         }
 
         if let Some(ArrayInfo::RelativePtr(relative)) = array_info {
-            let name = gen_param_name(&params[*relative].0.def);
+            let name = gen_param_name(&params[relative].def);
             tokens.combine(&quote! { #name.len() as _, });
             continue;
         }
