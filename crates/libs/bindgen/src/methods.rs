@@ -261,20 +261,44 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
 }
 
 fn prep_win32_params(params: &[MethodParam]) -> Vec<(&MethodParam, Option<ArrayInfo>)> {
-    let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params.iter().map(|param| (param, param.def.array_info())).collect();
+    let mut has_array_info = false;
+    let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params.iter().map(|param| {
+        let array_info = param.def.array_info();
+        has_array_info |= array_info.is_some();
+        (param, array_info)
+    }).collect();
 
-    for position in 0..params.len() {
-        if let Some(ArrayInfo::RelativeLen(relative)) = params[position].1 {
-            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
-            if !params[relative].0.def.flags().output() && position != relative {
-                params[relative].1 = Some(ArrayInfo::RelativePtr(position));
-            } else {
-                params[position].1 = None;
+    if has_array_info{
+        for position in 0..params.len() {
+            if let Some(ArrayInfo::RelativeLen(relative)) = params[position].1 {
+                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
+                if !params[relative].0.def.flags().output() && position != relative {
+                    params[relative].1 = Some(ArrayInfo::RelativePtr(position));
+                } else {
+                    params[position].1 = None;
+                }
+            }
+        }
+
+        let mut sets = BTreeMap::<usize, Vec<usize>>::new();
+
+        for position in 0..params.len() {
+            if let Some(ArrayInfo::RelativeLen(relative)) = params[position].1 {
+                sets.entry(relative).or_default().push(position);
+            }
+        }
+
+        for (len, ptrs) in sets {
+            if ptrs.len() > 1 {
+                if ptrs.iter().any(|ptr|params[*ptr].0.def.flags().optional()) {
+                    params[len].1 = None;
+                    for ptr in ptrs {
+                        params[ptr].1 = None;
+                    }
+                }
             }
         }
     }
-
-    // TODO: if there are any shared relative params and if any are optional then strip off array_info.
 
     params
 }
