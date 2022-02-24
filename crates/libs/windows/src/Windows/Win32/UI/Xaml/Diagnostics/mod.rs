@@ -177,8 +177,8 @@ impl ::core::default::Default for EnumType {
 pub struct IBitmapData(::windows::core::IUnknown);
 impl IBitmapData {
     #[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
-    pub unsafe fn CopyBytesTo(&self, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut u8, numberofbytescopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyBytesTo)(::core::mem::transmute_copy(self), ::core::mem::transmute(sourceoffsetinbytes), ::core::mem::transmute(maxbytestocopy), ::core::mem::transmute(pvbytes), ::core::mem::transmute(numberofbytescopied)).ok()
+    pub unsafe fn CopyBytesTo(&self, sourceoffsetinbytes: u32, pvbytes: &mut [u8], numberofbytescopied: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyBytesTo)(::core::mem::transmute_copy(self), ::core::mem::transmute(sourceoffsetinbytes), pvbytes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvbytes)), ::core::mem::transmute(numberofbytescopied)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
     pub unsafe fn GetStride(&self) -> ::windows::core::Result<u32> {

@@ -422,9 +422,9 @@ pub struct IDXCoreAdapter_Vtbl {
 pub struct IDXCoreAdapterFactory(::windows::core::IUnknown);
 impl IDXCoreAdapterFactory {
     #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-    pub unsafe fn CreateAdapterList<T: ::windows::core::Interface>(&self, numattributes: u32, filterattributes: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateAdapterList<T: ::windows::core::Interface>(&self, filterattributes: &[::windows::core::GUID]) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateAdapterList)(::core::mem::transmute_copy(self), ::core::mem::transmute(numattributes), ::core::mem::transmute(filterattributes), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateAdapterList)(::core::mem::transmute_copy(self), filterattributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(filterattributes)), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DXCore', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -522,8 +522,8 @@ impl IDXCoreAdapterList {
         (::windows::core::Interface::vtable(self).GetFactory)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-    pub unsafe fn Sort(&self, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Sort)(::core::mem::transmute_copy(self), ::core::mem::transmute(numpreferences), ::core::mem::transmute(preferences)).ok()
+    pub unsafe fn Sort(&self, preferences: &[DXCoreAdapterPreference]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Sort)(::core::mem::transmute_copy(self), preferences.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(preferences))).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
     pub unsafe fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool {

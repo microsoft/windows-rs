@@ -49,6 +49,11 @@ impl TypeReader {
                     continue;
                 }
 
+                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/814
+                if def.name() == "INetCfgComponentUpperEdge" {
+                    continue;
+                }
+
                 let extends = def.extends();
 
                 if extends == TypeName::Attribute {

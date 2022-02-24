@@ -88,8 +88,7 @@ impl MethodParam {
 
         let flags = self.def.flags();
 
-        // TODO: NativeArrayInfo indicates an array parameter #479
-        if flags.input() || !flags.output() || self.def.array_info() {
+        if flags.input() || !flags.output() || self.def.array_info().is_some() {
             return false;
         }
 
@@ -98,6 +97,6 @@ impl MethodParam {
     }
 
     pub fn is_convertible(&self) -> bool {
-        self.def.flags().input() && !self.ty.is_winrt_array() && !self.ty.is_pointer() && self.ty.is_convertible()
+        self.def.flags().input() && !self.ty.is_winrt_array() && !self.ty.is_pointer() && self.ty.is_convertible() && self.def.array_info().is_none()
     }
 }

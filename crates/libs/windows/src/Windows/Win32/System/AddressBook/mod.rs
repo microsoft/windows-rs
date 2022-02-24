@@ -2937,8 +2937,8 @@ impl IMAPIStatus {
         (::windows::core::Interface::vtable(self).ChangePassword)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpoldpass), ::core::mem::transmute(lpnewpass), ::core::mem::transmute(ulflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_AddressBook'*"]
-    pub unsafe fn FlushQueues(&self, uluiparam: usize, cbtargettransport: u32, lptargettransport: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FlushQueues)(::core::mem::transmute_copy(self), ::core::mem::transmute(uluiparam), ::core::mem::transmute(cbtargettransport), ::core::mem::transmute(lptargettransport), ::core::mem::transmute(ulflags)).ok()
+    pub unsafe fn FlushQueues(&self, uluiparam: usize, lptargettransport: &[ENTRYID], ulflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FlushQueues)(::core::mem::transmute_copy(self), ::core::mem::transmute(uluiparam), lptargettransport.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lptargettransport)), ::core::mem::transmute(ulflags)).ok()
     }
 }
 impl ::core::convert::From<IMAPIStatus> for ::windows::core::IUnknown {
@@ -4051,9 +4051,9 @@ impl IProviderAdmin {
     }
     #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateProvider(&self, lpszprovider: *const i8, cvalues: u32, lpprops: *const SPropValue, uluiparam: usize, ulflags: u32) -> ::windows::core::Result<MAPIUID> {
+    pub unsafe fn CreateProvider(&self, lpszprovider: *const i8, lpprops: &[SPropValue], uluiparam: usize, ulflags: u32) -> ::windows::core::Result<MAPIUID> {
         let mut result__: MAPIUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpszprovider), ::core::mem::transmute(cvalues), ::core::mem::transmute(lpprops), ::core::mem::transmute(uluiparam), ::core::mem::transmute(ulflags), ::core::mem::transmute(&mut result__)).from_abi::<MAPIUID>(result__)
+        (::windows::core::Interface::vtable(self).CreateProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpszprovider), lpprops.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprops)), ::core::mem::transmute(uluiparam), ::core::mem::transmute(ulflags), ::core::mem::transmute(&mut result__)).from_abi::<MAPIUID>(result__)
     }
     #[doc = "*Required features: 'Win32_System_AddressBook'*"]
     pub unsafe fn DeleteProvider(&self, lpuid: *const MAPIUID) -> ::windows::core::Result<()> {
@@ -6495,14 +6495,14 @@ pub unsafe fn ScInitMapiUtil(ulflags: u32) -> i32 {
 }
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 #[inline]
-pub unsafe fn ScLocalPathFromUNC<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszunc: Param0, lpszlocal: Param1, cchlocal: u32) -> i32 {
+pub unsafe fn ScLocalPathFromUNC<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszunc: Param0, lpszlocal: &[u8]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ScLocalPathFromUNC(lpszunc: ::windows::core::PCSTR, lpszlocal: ::windows::core::PCSTR, cchlocal: u32) -> i32;
         }
-        ::core::mem::transmute(ScLocalPathFromUNC(lpszunc.into_param().abi(), lpszlocal.into_param().abi(), ::core::mem::transmute(cchlocal)))
+        ::core::mem::transmute(ScLocalPathFromUNC(lpszunc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszlocal)), lpszlocal.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6539,14 +6539,14 @@ pub unsafe fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseol
 }
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 #[inline]
-pub unsafe fn ScUNCFromLocalPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszlocal: Param0, lpszunc: Param1, cchunc: u32) -> i32 {
+pub unsafe fn ScUNCFromLocalPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszlocal: Param0, lpszunc: &[u8]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ScUNCFromLocalPath(lpszlocal: ::windows::core::PCSTR, lpszunc: ::windows::core::PCSTR, cchunc: u32) -> i32;
         }
-        ::core::mem::transmute(ScUNCFromLocalPath(lpszlocal.into_param().abi(), lpszunc.into_param().abi(), ::core::mem::transmute(cchunc)))
+        ::core::mem::transmute(ScUNCFromLocalPath(lpszlocal.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpszunc)), lpszunc.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

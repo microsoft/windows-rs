@@ -16,14 +16,14 @@ pub mod XboxController;
 #[doc = "*Required features: 'Win32_UI_Input', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DefRawInputProc(parawinput: *const *const RAWINPUT, ninput: i32, cbsizeheader: u32) -> super::super::Foundation::LRESULT {
+pub unsafe fn DefRawInputProc(parawinput: &[*const RAWINPUT], cbsizeheader: u32) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DefRawInputProc(parawinput: *const *const RAWINPUT, ninput: i32, cbsizeheader: u32) -> super::super::Foundation::LRESULT;
         }
-        ::core::mem::transmute(DefRawInputProc(::core::mem::transmute(parawinput), ::core::mem::transmute(ninput), ::core::mem::transmute(cbsizeheader)))
+        ::core::mem::transmute(DefRawInputProc(::core::mem::transmute(::windows::core::as_ptr_or_null(parawinput)), parawinput.len() as _, ::core::mem::transmute(cbsizeheader)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -929,14 +929,14 @@ impl ::core::fmt::Debug for RID_DEVICE_INFO_TYPE {
 #[doc = "*Required features: 'Win32_UI_Input', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn RegisterRawInputDevices(prawinputdevices: &[RAWINPUTDEVICE], cbsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(RegisterRawInputDevices(::core::mem::transmute(prawinputdevices), ::core::mem::transmute(uinumdevices), ::core::mem::transmute(cbsize)))
+        ::core::mem::transmute(RegisterRawInputDevices(::core::mem::transmute(::windows::core::as_ptr_or_null(prawinputdevices)), prawinputdevices.len() as _, ::core::mem::transmute(cbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

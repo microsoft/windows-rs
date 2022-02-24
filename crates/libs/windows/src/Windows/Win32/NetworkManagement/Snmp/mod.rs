@@ -894,14 +894,14 @@ pub unsafe fn SnmpEncodeMsg(session: isize, srcentity: isize, dstentity: isize, 
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 #[inline]
-pub unsafe fn SnmpEntityToStr(entity: isize, size: u32, string: ::windows::core::PSTR) -> u32 {
+pub unsafe fn SnmpEntityToStr(entity: isize, string: &mut [u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SnmpEntityToStr(entity: isize, size: u32, string: ::windows::core::PSTR) -> u32;
         }
-        ::core::mem::transmute(SnmpEntityToStr(::core::mem::transmute(entity), ::core::mem::transmute(size), ::core::mem::transmute(string)))
+        ::core::mem::transmute(SnmpEntityToStr(::core::mem::transmute(entity), string.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(string))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1281,14 +1281,14 @@ pub unsafe fn SnmpOidCopy(srcoid: *mut smiOID, dstoid: *mut smiOID) -> u32 {
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 #[inline]
-pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, size: u32, string: ::windows::core::PSTR) -> u32 {
+pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, string: &mut [u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SnmpOidToStr(srcoid: *const smiOID, size: u32, string: ::windows::core::PSTR) -> u32;
         }
-        ::core::mem::transmute(SnmpOidToStr(::core::mem::transmute(srcoid), ::core::mem::transmute(size), ::core::mem::transmute(string)))
+        ::core::mem::transmute(SnmpOidToStr(::core::mem::transmute(srcoid), string.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(string))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

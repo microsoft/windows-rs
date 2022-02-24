@@ -741,14 +741,14 @@ pub unsafe fn FilterFindNext<'a, Param0: ::windows::core::IntoParam<'a, super::s
 }
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
 #[inline]
-pub unsafe fn FilterGetDosName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpvolumename: Param0, lpdosname: ::windows::core::PWSTR, dwdosnamebuffersize: u32) -> ::windows::core::Result<()> {
+pub unsafe fn FilterGetDosName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpvolumename: Param0, lpdosname: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn FilterGetDosName(lpvolumename: ::windows::core::PCWSTR, lpdosname: ::windows::core::PWSTR, dwdosnamebuffersize: u32) -> ::windows::core::HRESULT;
         }
-        FilterGetDosName(lpvolumename.into_param().abi(), ::core::mem::transmute(lpdosname), ::core::mem::transmute(dwdosnamebuffersize)).ok()
+        FilterGetDosName(lpvolumename.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdosname)), lpdosname.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

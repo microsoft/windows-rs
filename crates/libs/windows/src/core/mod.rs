@@ -101,3 +101,21 @@ extern "C" {
 
 #[doc(hidden)]
 pub extern crate alloc;
+
+#[doc(hidden)]
+pub fn as_ptr_or_null<T>(value: &[T]) -> *const T {
+    if value.is_empty() {
+        core::ptr::null()
+    } else {
+        value.as_ptr()
+    }
+}
+
+#[doc(hidden)]
+pub fn as_mut_ptr_or_null<T>(value: &mut [T]) -> *mut T {
+    if value.is_empty() {
+        core::ptr::null_mut()
+    } else {
+        value.as_mut_ptr()
+    }
+}

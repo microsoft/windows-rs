@@ -68,6 +68,7 @@ impl Attribute {
             let name = values.read_str().to_string();
             let arg = match arg_type {
                 0x02 => ConstantValue::Bool(values.read_u8() != 0),
+                0x06 => ConstantValue::I16(values.read_i16()),
                 0x08 => ConstantValue::I32(values.read_i32()),
                 0x09 => ConstantValue::U32(values.read_u32()),
                 0x0E => ConstantValue::String(values.read_str().to_string()),

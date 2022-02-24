@@ -1,3 +1,4 @@
+mod array_info;
 mod async_kind;
 mod blob;
 mod cfg;
@@ -19,6 +20,7 @@ mod type_reader;
 mod type_tree;
 mod workspace;
 
+pub use array_info::*;
 pub use async_kind::*;
 pub use blob::*;
 pub use cfg::*;

@@ -159,7 +159,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
     match signature.kind() {
         SignatureKind::Query => {
             let leading_params = &signature.params[..signature.params.len() - 2];
-            let args = leading_params.iter().map(gen_win32_abi_arg);
+            let args = gen_win32_args(leading_params);
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
@@ -167,26 +167,26 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
                 #features
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params) -> ::windows::core::Result<T> {
                     let mut result__ = ::core::option::Option::None;
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                 }
             }
         }
         SignatureKind::QueryOptional => {
             let leading_params = &signature.params[..signature.params.len() - 2];
-            let args = leading_params.iter().map(gen_win32_abi_arg);
+            let args = gen_win32_args(leading_params);
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
                 #doc
                 #features
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
             }
         }
         SignatureKind::ResultValue => {
             let leading_params = &signature.params[..signature.params.len() - 1];
-            let args = leading_params.iter().map(gen_win32_abi_arg);
+            let args = gen_win32_args(leading_params);
             let params = gen_win32_params(leading_params, gen);
 
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
@@ -198,26 +198,26 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
                     let mut result__: #abi_return_type_tokens = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)* ::core::mem::transmute(&mut result__))
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args ::core::mem::transmute(&mut result__))
                     .from_abi::<#return_type_tokens>(result__ )
                 }
             }
         }
         SignatureKind::ResultVoid => {
+            let args = gen_win32_args(&signature.params);
             let params = gen_win32_params(&signature.params, gen);
-            let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
                 #doc
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<()> {
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)*).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args).ok()
                 }
             }
         }
         SignatureKind::ReturnStruct => {
+            let args = gen_win32_args(&signature.params);
             let params = gen_win32_params(&signature.params, gen);
-            let args = signature.params.iter().map(gen_win32_abi_arg);
             // TODO: why is this using gen_abi_element_name?
             let return_type = gen_abi_element_name(&signature.return_type.unwrap(), gen);
 
@@ -226,14 +226,14 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
                     let mut result__: #return_type = :: core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), &mut result__, #args);
                     result__
                 }
             }
         }
         SignatureKind::PreserveSig => {
+            let args = gen_win32_args(&signature.params);
             let params = gen_win32_params(&signature.params, gen);
-            let args = signature.params.iter().map(gen_win32_abi_arg);
             // TODO: why gen_return_sig exists? Don't we always know it will be not ReturnVoid?
             let return_type = gen_return_sig(&signature, gen);
 
@@ -241,32 +241,161 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
                 #doc
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) #return_type {
-                    ::core::mem::transmute((::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)*))
+                    ::core::mem::transmute((::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args))
                 }
             }
         }
         SignatureKind::ReturnVoid => {
+            let args = gen_win32_args(&signature.params);
             let params = gen_win32_params(&signature.params, gen);
-            let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
                 #doc
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) {
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)*)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args)
                 }
             }
         }
     }
 }
 
+fn prep_win32_params(params: &[MethodParam]) -> Vec<(&MethodParam, Option<ArrayInfo>)> {
+    let mut has_array_info = false;
+
+    let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params
+        .iter()
+        .map(|param| {
+            let array_info = param.def.array_info();
+            has_array_info |= array_info.is_some();
+            (param, array_info)
+        })
+        .collect();
+
+    if has_array_info {
+        for position in 0..params.len() {
+            // Point len params back to the corresponding ptr params.
+            if let Some(ArrayInfo::RelativeLen(relative)) = params[position].1 {
+                // The len params must be input only.
+                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
+                if !params[relative].0.def.flags().output() && position != relative {
+                    params[relative].1 = Some(ArrayInfo::RelativePtr(position));
+                } else {
+                    params[position].1 = None;
+                }
+            }
+        }
+
+        let mut sets = BTreeMap::<usize, Vec<usize>>::new();
+
+        // Finds sets of ptr params pointing at the same len param.
+        for (position, param) in params.iter().enumerate() {
+            if let Some(ArrayInfo::RelativeLen(relative)) = param.1 {
+                sets.entry(relative).or_default().push(position);
+            }
+        }
+
+        // Remove any sets that have optional ptr params.
+        for (len, ptrs) in sets {
+            if ptrs.len() > 1 && ptrs.iter().any(|ptr| params[*ptr].0.def.flags().optional()) {
+                params[len].1 = None;
+                for ptr in ptrs {
+                    params[ptr].1 = None;
+                }
+            }
+        }
+    }
+
+    params
+}
+
 pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut tokens = quote! {};
 
-    for (position, param) in params.iter().enumerate() {
+    for (position, (param, array_info)) in prep_win32_params(params).iter().enumerate() {
         let name = gen_param_name(&param.def);
-        let kind = if param.is_convertible() { format!("Param{}", position).into() } else { gen_default_type(&param.ty, gen) };
+
+        if let Some(ArrayInfo::Fixed(fixed)) = array_info {
+            if *fixed > 0 && param.def.free_with().is_none() {
+                let ty = param.ty.deref();
+                let ty = gen_default_type(&ty, gen);
+                let len = Literal::u32_unsuffixed(*fixed as _);
+
+                if param.def.flags().output() {
+                    tokens.combine(&quote! { #name: &mut [#ty; #len], });
+                } else {
+                    tokens.combine(&quote! { #name: &[#ty; #len], });
+                }
+                continue;
+            }
+        }
+
+        if let Some(ArrayInfo::RelativeLen(_)) = array_info {
+            let ty = param.ty.deref();
+            let ty = gen_default_type(&ty, gen);
+            if param.def.flags().output() {
+                tokens.combine(&quote! { #name: &mut [#ty], });
+            } else {
+                tokens.combine(&quote! { #name: &[#ty], });
+            }
+            continue;
+        }
+
+        if let Some(ArrayInfo::RelativePtr(_)) = array_info {
+            continue;
+        }
+
+        if param.is_convertible() {
+            let kind: TokenStream = format!("Param{}", position).into();
+            tokens.combine(&quote! { #name: #kind, });
+            continue;
+        }
+
+        let kind = gen_default_type(&param.ty, gen);
         tokens.combine(&quote! { #name: #kind, });
+    }
+
+    tokens
+}
+
+pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
+    let mut tokens = quote! {};
+
+    for (param, array_info) in prep_win32_params(params) {
+        let name = gen_param_name(&param.def);
+
+        if let Some(ArrayInfo::Fixed(fixed)) = array_info {
+            if fixed > 0 && param.def.free_with().is_none() {
+                if param.def.flags().output() {
+                    tokens.combine(&quote! { ::core::mem::transmute(#name.as_mut_ptr()), });
+                } else {
+                    tokens.combine(&quote! { ::core::mem::transmute(#name.as_ptr()), });
+                }
+                continue;
+            }
+        }
+
+        if let Some(ArrayInfo::RelativeLen(_)) = array_info {
+            if param.def.flags().output() {
+                tokens.combine(&quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), });
+            } else {
+                tokens.combine(&quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), });
+            }
+            continue;
+        }
+
+        if let Some(ArrayInfo::RelativePtr(relative)) = array_info {
+            let name = gen_param_name(&params[relative].def);
+            tokens.combine(&quote! { #name.len() as _, });
+            continue;
+        }
+
+        if param.is_convertible() {
+            tokens.combine(&quote! { #name.into_param().abi(), });
+            continue;
+        }
+
+        tokens.combine(&quote! { ::core::mem::transmute(#name), });
     }
 
     tokens
@@ -299,16 +428,6 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     }
 
     result
-}
-
-pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
-    let name = gen_param_name(&param.def);
-
-    if param.is_convertible() {
-        quote! { #name.into_param().abi() }
-    } else {
-        quote! { ::core::mem::transmute(#name) }
-    }
 }
 
 pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {

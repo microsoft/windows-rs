@@ -844,8 +844,8 @@ impl IAudioMeterInformation {
         (::windows::core::Interface::vtable(self).GetMeteringChannelCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
-    pub unsafe fn GetChannelsPeakValues(&self, u32channelcount: u32, afpeakvalues: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetChannelsPeakValues)(::core::mem::transmute_copy(self), ::core::mem::transmute(u32channelcount), ::core::mem::transmute(afpeakvalues)).ok()
+    pub unsafe fn GetChannelsPeakValues(&self, afpeakvalues: &mut [f32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetChannelsPeakValues)(::core::mem::transmute_copy(self), afpeakvalues.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(afpeakvalues))).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
     pub unsafe fn QueryHardwareSupport(&self) -> ::windows::core::Result<u32> {

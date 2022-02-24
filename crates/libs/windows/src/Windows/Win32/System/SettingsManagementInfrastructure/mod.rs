@@ -433,8 +433,8 @@ impl ISettingsItem {
         (::windows::core::Interface::vtable(self).GetValueRaw)(::core::mem::transmute_copy(self), ::core::mem::transmute(data), ::core::mem::transmute(datasize)).ok()
     }
     #[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
-    pub unsafe fn SetValueRaw(&self, datatype: i32, data: *const u8, datasize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValueRaw)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatype), ::core::mem::transmute(data), ::core::mem::transmute(datasize)).ok()
+    pub unsafe fn SetValueRaw(&self, datatype: i32, data: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValueRaw)(::core::mem::transmute_copy(self), ::core::mem::transmute(datatype), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

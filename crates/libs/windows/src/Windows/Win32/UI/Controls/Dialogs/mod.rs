@@ -1253,28 +1253,28 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
 }
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 #[inline]
-pub unsafe fn GetFileTitleA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, buf: ::windows::core::PSTR, cchsize: u16) -> i16 {
+pub unsafe fn GetFileTitleA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, buf: &mut [u8]) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetFileTitleA(param0: ::windows::core::PCSTR, buf: ::windows::core::PSTR, cchsize: u16) -> i16;
         }
-        ::core::mem::transmute(GetFileTitleA(param0.into_param().abi(), ::core::mem::transmute(buf), ::core::mem::transmute(cchsize)))
+        ::core::mem::transmute(GetFileTitleA(param0.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 #[inline]
-pub unsafe fn GetFileTitleW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, buf: ::windows::core::PWSTR, cchsize: u16) -> i16 {
+pub unsafe fn GetFileTitleW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, buf: &mut [u16]) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetFileTitleW(param0: ::windows::core::PCWSTR, buf: ::windows::core::PWSTR, cchsize: u16) -> i16;
         }
-        ::core::mem::transmute(GetFileTitleW(param0.into_param().abi(), ::core::mem::transmute(buf), ::core::mem::transmute(cchsize)))
+        ::core::mem::transmute(GetFileTitleW(param0.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buf)), buf.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

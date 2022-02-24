@@ -54,17 +54,17 @@ fn main() -> Result<()> {
                 // Loop through the suggestions
                 loop {
                     // Get the next suggestion breaking if the call to `Next` failed
-                    let mut suggestion = PWSTR::default();
+                    let mut suggestion = [PWSTR::default()];
                     unsafe {
-                        let _ = suggestions.Next(1, &mut suggestion, std::ptr::null_mut());
+                        let _ = suggestions.Next(&mut suggestion, std::ptr::null_mut());
                     }
-                    if suggestion.0.is_null() {
+                    if suggestion[0].0.is_null() {
                         break;
                     }
 
-                    println!("Maybe replace: {} with {}", substring, unsafe { read_to_string(suggestion) });
+                    println!("Maybe replace: {} with {}", substring, unsafe { read_to_string(suggestion[0]) });
 
-                    unsafe { CoTaskMemFree(suggestion.0 as *mut _) };
+                    unsafe { CoTaskMemFree(suggestion[0].0 as *mut _) };
                 }
             }
             _ => {}

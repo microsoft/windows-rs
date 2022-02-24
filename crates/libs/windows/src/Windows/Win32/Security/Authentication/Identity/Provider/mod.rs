@@ -130,8 +130,8 @@ pub struct AsyncIAssociatedIdentityProvider_Vtbl {
 pub struct AsyncIConnectedIdentityProvider(::windows::core::IUnknown);
 impl AsyncIConnectedIdentityProvider {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-    pub unsafe fn Begin_ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_ConnectIdentity)(::core::mem::transmute_copy(self), ::core::mem::transmute(authbuffer), ::core::mem::transmute(authbuffersize)).ok()
+    pub unsafe fn Begin_ConnectIdentity(&self, authbuffer: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_ConnectIdentity)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(authbuffer)), authbuffer.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
     pub unsafe fn Finish_ConnectIdentity(&self) -> ::windows::core::Result<()> {
@@ -304,8 +304,8 @@ pub struct AsyncIIdentityAdvise_Vtbl {
 pub struct AsyncIIdentityAuthentication(::windows::core::IUnknown);
 impl AsyncIIdentityAuthentication {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-    pub unsafe fn Begin_SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_SetIdentityCredential)(::core::mem::transmute_copy(self), ::core::mem::transmute(credbuffer), ::core::mem::transmute(credbufferlength)).ok()
+    pub unsafe fn Begin_SetIdentityCredential(&self, credbuffer: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_SetIdentityCredential)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(credbuffer)), credbuffer.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
     pub unsafe fn Finish_SetIdentityCredential(&self) -> ::windows::core::Result<()> {
@@ -313,8 +313,8 @@ impl AsyncIIdentityAuthentication {
     }
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider', 'Win32_UI_Shell_PropertiesSystem'*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn Begin_ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_ValidateIdentityCredential)(::core::mem::transmute_copy(self), ::core::mem::transmute(credbuffer), ::core::mem::transmute(credbufferlength), ::core::mem::transmute(ppidentityproperties)).ok()
+    pub unsafe fn Begin_ValidateIdentityCredential(&self, credbuffer: &[u8], ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_ValidateIdentityCredential)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(credbuffer)), credbuffer.len() as _, ::core::mem::transmute(ppidentityproperties)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider', 'Win32_UI_Shell_PropertiesSystem'*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -819,8 +819,8 @@ pub struct IAssociatedIdentityProvider_Vtbl {
 pub struct IConnectedIdentityProvider(::windows::core::IUnknown);
 impl IConnectedIdentityProvider {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-    pub unsafe fn ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectIdentity)(::core::mem::transmute_copy(self), ::core::mem::transmute(authbuffer), ::core::mem::transmute(authbuffersize)).ok()
+    pub unsafe fn ConnectIdentity(&self, authbuffer: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConnectIdentity)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(authbuffer)), authbuffer.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
     pub unsafe fn DisconnectIdentity(&self) -> ::windows::core::Result<()> {
@@ -1031,13 +1031,13 @@ pub struct IIdentityAdvise_Vtbl {
 pub struct IIdentityAuthentication(::windows::core::IUnknown);
 impl IIdentityAuthentication {
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-    pub unsafe fn SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIdentityCredential)(::core::mem::transmute_copy(self), ::core::mem::transmute(credbuffer), ::core::mem::transmute(credbufferlength)).ok()
+    pub unsafe fn SetIdentityCredential(&self, credbuffer: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIdentityCredential)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(credbuffer)), credbuffer.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider', 'Win32_UI_Shell_PropertiesSystem'*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ValidateIdentityCredential)(::core::mem::transmute_copy(self), ::core::mem::transmute(credbuffer), ::core::mem::transmute(credbufferlength), ::core::mem::transmute(ppidentityproperties)).ok()
+    pub unsafe fn ValidateIdentityCredential(&self, credbuffer: &[u8], ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ValidateIdentityCredential)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(credbuffer)), credbuffer.len() as _, ::core::mem::transmute(ppidentityproperties)).ok()
     }
 }
 impl ::core::convert::From<IIdentityAuthentication> for ::windows::core::IUnknown {
@@ -1226,8 +1226,8 @@ impl IIdentityStore {
         (::windows::core::Interface::vtable(self).AddToCache)(::core::mem::transmute_copy(self), lpszuniqueid.into_param().abi(), ::core::mem::transmute(providerguid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-    pub unsafe fn ConvertToSid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, lpszuniqueid: Param0, providerguid: *const ::windows::core::GUID, cbsid: u16, psid: *mut u8, pcbrequiredsid: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConvertToSid)(::core::mem::transmute_copy(self), lpszuniqueid.into_param().abi(), ::core::mem::transmute(providerguid), ::core::mem::transmute(cbsid), ::core::mem::transmute(psid), ::core::mem::transmute(pcbrequiredsid)).ok()
+    pub unsafe fn ConvertToSid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, lpszuniqueid: Param0, providerguid: *const ::windows::core::GUID, psid: &mut [u8], pcbrequiredsid: *mut u16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConvertToSid)(::core::mem::transmute_copy(self), lpszuniqueid.into_param().abi(), ::core::mem::transmute(providerguid), psid.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psid)), ::core::mem::transmute(pcbrequiredsid)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]

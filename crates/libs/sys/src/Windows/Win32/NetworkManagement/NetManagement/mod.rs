@@ -2454,7 +2454,6 @@ pub type INetCfgComponentNotifyGlobal = *mut ::core::ffi::c_void;
 pub type INetCfgComponentPropertyUi = *mut ::core::ffi::c_void;
 pub type INetCfgComponentSetup = *mut ::core::ffi::c_void;
 pub type INetCfgComponentSysPrep = *mut ::core::ffi::c_void;
-pub type INetCfgComponentUpperEdge = *mut ::core::ffi::c_void;
 pub type INetCfgLock = *mut ::core::ffi::c_void;
 pub type INetCfgPnpReconfigCallback = *mut ::core::ffi::c_void;
 pub type INetCfgSysPrep = *mut ::core::ffi::c_void;

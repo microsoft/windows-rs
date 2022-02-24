@@ -28,12 +28,37 @@ impl Param {
         self.has_attribute("ComOutPtrAttribute")
     }
 
-    pub fn array_info(&self) -> bool {
-        // TODO: replace bool return with actual array info from attribute
-        self.has_attribute("NativeArrayInfoAttribute")
+    pub fn array_info(&self) -> Option<ArrayInfo> {
+        for attribute in self.attributes() {
+            if attribute.name() == "NativeArrayInfoAttribute" {
+                for (_, value) in attribute.args() {
+                    match value {
+                        ConstantValue::I16(value) => return Some(ArrayInfo::RelativeLen(value as _)),
+                        ConstantValue::I32(value) => return Some(ArrayInfo::Fixed(value as _)),
+                        _ => unimplemented!(),
+                    }
+                }
+            }
+        }
+
+        None
     }
 
     pub fn is_retval(&self) -> bool {
         self.has_attribute("RetValAttribute")
+    }
+
+    pub fn free_with(&self) -> Option<String> {
+        for attribute in self.attributes() {
+            if attribute.name() == "FreeWithAttribute" {
+                for (_, arg) in attribute.args() {
+                    if let ConstantValue::String(name) = arg {
+                        return Some(name);
+                    }
+                }
+            }
+        }
+
+        None
     }
 }
