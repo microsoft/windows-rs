@@ -1,5 +1,6 @@
 use super::*;
 
+/// A pointer to a null-terminated string of 16-bit Unicode characters.
 #[repr(transparent)]
 pub struct PWSTR(pub *mut u16);
 impl PWSTR {

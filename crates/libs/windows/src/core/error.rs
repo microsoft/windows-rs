@@ -1,7 +1,7 @@
 use super::*;
 use bindings::*;
 
-/// A WinRT error object consists of both an error code as well as detailed error information for debugging.
+/// An error object consists of both an error code as well as detailed error information for debugging.
 #[derive(Clone, PartialEq)]
 pub struct Error {
     code: HRESULT,

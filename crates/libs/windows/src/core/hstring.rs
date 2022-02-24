@@ -1,9 +1,7 @@
 use super::*;
 
-// TODO: move to HSTRING generated code?
-
-/// A WinRT string, sometimes called an [HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring),
-/// is reference-counted and logically immutable. It should only be used for communicating with WinRT APIs.
+/// A WinRT string ([HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring)),
+/// is reference-counted and immutable.
 #[repr(transparent)]
 pub struct HSTRING(*mut Header);
 
