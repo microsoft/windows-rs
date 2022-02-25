@@ -9022,7 +9022,7 @@ impl IXpsSignature {
     }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn SetSignatureXml(&self, signaturexml: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignatureXml)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(signaturexml)), signaturexml.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetSignatureXml)(::core::mem::transmute_copy(self), ::core::mem::transmute(signaturexml.as_ptr()), signaturexml.len() as _).ok()
     }
 }
 impl ::core::convert::From<IXpsSignature> for ::windows::core::IUnknown {

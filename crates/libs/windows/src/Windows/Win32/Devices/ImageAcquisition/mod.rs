@@ -1634,7 +1634,7 @@ impl IWiaItem {
     }
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Diagnostic)(::core::mem::transmute_copy(self), pbuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbuffer))).ok()
+        (::windows::core::Interface::vtable(self).Diagnostic)(::core::mem::transmute_copy(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
 impl ::core::convert::From<IWiaItem> for ::windows::core::IUnknown {
@@ -1796,7 +1796,7 @@ impl IWiaItem2 {
     }
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Diagnostic)(::core::mem::transmute_copy(self), pbuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbuffer))).ok()
+        (::windows::core::Interface::vtable(self).Diagnostic)(::core::mem::transmute_copy(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
 impl ::core::convert::From<IWiaItem2> for ::windows::core::IUnknown {
@@ -1887,7 +1887,7 @@ impl IWiaItemExtras {
     }
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
     pub unsafe fn Escape(&self, dwescapecode: u32, lpindata: &[u8], poutdata: *mut u8, dwoutdatasize: u32, pdwactualdatasize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Escape)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwescapecode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpindata)), lpindata.len() as _, ::core::mem::transmute(poutdata), ::core::mem::transmute(dwoutdatasize), ::core::mem::transmute(pdwactualdatasize)).ok()
+        (::windows::core::Interface::vtable(self).Escape)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwescapecode), ::core::mem::transmute(lpindata.as_ptr()), lpindata.len() as _, ::core::mem::transmute(poutdata), ::core::mem::transmute(dwoutdatasize), ::core::mem::transmute(pdwactualdatasize)).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
     pub unsafe fn CancelPendingIO(&self) -> ::windows::core::Result<()> {
@@ -2519,8 +2519,8 @@ pub struct IWiaPropertyStorage(::windows::core::IUnknown);
 impl IWiaPropertyStorage {
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn ReadMultiple(&self, rgpspec: &[super::super::System::Com::StructuredStorage::PROPSPEC], rgpropvar: &mut [super::super::System::Com::StructuredStorage::PROPVARIANT]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadMultiple)(::core::mem::transmute_copy(self), rgpropvar.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpropvar))).ok()
+    pub unsafe fn ReadMultiple<'a, const PARAM0: usize>(&self, rgpspec: &[super::super::System::Com::StructuredStorage::PROPSPEC; PARAM0], rgpropvar: &mut [super::super::System::Com::StructuredStorage::PROPVARIANT; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadMultiple)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(rgpspec.as_ptr()), ::core::mem::transmute(rgpropvar.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2530,19 +2530,19 @@ impl IWiaPropertyStorage {
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn DeleteMultiple(&self, rgpspec: &[super::super::System::Com::StructuredStorage::PROPSPEC]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteMultiple)(::core::mem::transmute_copy(self), rgpspec.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec))).ok()
+        (::windows::core::Interface::vtable(self).DeleteMultiple)(::core::mem::transmute_copy(self), rgpspec.len() as _, ::core::mem::transmute(rgpspec.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
-    pub unsafe fn ReadPropertyNames(&self, rgpropid: &[u32], rglpwstrname: &mut [::windows::core::PWSTR]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadPropertyNames)(::core::mem::transmute_copy(self), rglpwstrname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropid)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rglpwstrname))).ok()
+    pub unsafe fn ReadPropertyNames<'a, const PARAM0: usize>(&self, rgpropid: &[u32; PARAM0], rglpwstrname: &mut [::windows::core::PWSTR; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadPropertyNames)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(rgpropid.as_ptr()), ::core::mem::transmute(rglpwstrname.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
-    pub unsafe fn WritePropertyNames(&self, rgpropid: &[u32], rglpwstrname: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WritePropertyNames)(::core::mem::transmute_copy(self), rglpwstrname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropid)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rglpwstrname))).ok()
+    pub unsafe fn WritePropertyNames<'a, const PARAM0: usize>(&self, rgpropid: &[u32; PARAM0], rglpwstrname: &[::windows::core::PWSTR; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WritePropertyNames)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(rgpropid.as_ptr()), ::core::mem::transmute(rglpwstrname.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
     pub unsafe fn DeletePropertyNames(&self, rgpropid: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeletePropertyNames)(::core::mem::transmute_copy(self), rgpropid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropid))).ok()
+        (::windows::core::Interface::vtable(self).DeletePropertyNames)(::core::mem::transmute_copy(self), rgpropid.len() as _, ::core::mem::transmute(rgpropid.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
     pub unsafe fn Commit(&self, grfcommitflags: u32) -> ::windows::core::Result<()> {
@@ -2575,8 +2575,8 @@ impl IWiaPropertyStorage {
     }
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetPropertyAttributes(&self, rgpspec: &[super::super::System::Com::StructuredStorage::PROPSPEC], rgflags: &mut [u32], rgpropvar: &mut [super::super::System::Com::StructuredStorage::PROPVARIANT]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyAttributes)(::core::mem::transmute_copy(self), rgpropvar.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgflags)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpropvar))).ok()
+    pub unsafe fn GetPropertyAttributes<'a, const PARAM0: usize>(&self, rgpspec: &[super::super::System::Com::StructuredStorage::PROPSPEC; PARAM0], rgflags: &mut [u32; PARAM0], rgpropvar: &mut [super::super::System::Com::StructuredStorage::PROPVARIANT; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPropertyAttributes)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(rgpspec.as_ptr()), ::core::mem::transmute(rgflags.as_ptr()), ::core::mem::transmute(rgpropvar.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {

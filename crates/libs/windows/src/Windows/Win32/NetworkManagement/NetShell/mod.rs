@@ -540,14 +540,14 @@ pub type PNS_OSVERSIONCHECK = ::core::option::Option<unsafe extern "system" fn(c
 #[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PreprocessCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, ppwcarguments: &mut [::windows::core::PWSTR], dwcurrentindex: u32, ptttags: &mut [TAG_TYPE], dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32 {
+pub unsafe fn PreprocessCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, ppwcarguments: &mut [::windows::core::PWSTR], dwcurrentindex: u32, ptttags: ::core::option::Option<&mut [TAG_TYPE]>, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut ::windows::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32;
         }
-        ::core::mem::transmute(PreprocessCommand(hmodule.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppwcarguments)), ::core::mem::transmute(dwcurrentindex), ppwcarguments.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptttags)), ptttags.len() as _, ::core::mem::transmute(dwminargs), ::core::mem::transmute(dwmaxargs), ::core::mem::transmute(pdwtagtype)))
+        ::core::mem::transmute(PreprocessCommand(hmodule.into_param().abi(), ::core::mem::transmute(ppwcarguments.as_ptr()), ::core::mem::transmute(dwcurrentindex), ppwcarguments.len() as _, ::core::mem::transmute(ptttags.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ptttags.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(dwminargs), ::core::mem::transmute(dwmaxargs), ::core::mem::transmute(pdwtagtype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

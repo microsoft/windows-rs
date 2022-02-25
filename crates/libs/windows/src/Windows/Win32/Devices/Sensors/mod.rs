@@ -558,8 +558,8 @@ impl ISensor {
         (::windows::core::Interface::vtable(self).GetEventInterest)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppvalues), ::core::mem::transmute(pcount)).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-    pub unsafe fn SetEventInterest(&self, pvalues: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventInterest)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvalues)), pvalues.len() as _).ok()
+    pub unsafe fn SetEventInterest(&self, pvalues: ::core::option::Option<&[::windows::core::GUID]>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventInterest)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvalues.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), pvalues.as_ref().map_or(0, |value| value.len()) as _).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
     pub unsafe fn SetEventSink<'a, Param0: ::windows::core::IntoParam<'a, ISensorEvents>>(&self, pevents: Param0) -> ::windows::core::Result<()> {
@@ -1028,7 +1028,7 @@ pub unsafe fn InitPropVariantFromCLSIDArray(members: &[::windows::core::GUID]) -
             fn InitPropVariantFromCLSIDArray(members: *const ::windows::core::GUID, size: u32, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
-        InitPropVariantFromCLSIDArray(::core::mem::transmute(::windows::core::as_ptr_or_null(members)), members.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        InitPropVariantFromCLSIDArray(::core::mem::transmute(members.as_ptr()), members.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1074,7 +1074,7 @@ pub unsafe fn IsGUIDPresentInList(guidarray: &[::windows::core::GUID], guidelem:
         extern "system" {
             fn IsGUIDPresentInList(guidarray: *const ::windows::core::GUID, arraylength: u32, guidelem: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN;
         }
-        ::core::mem::transmute(IsGUIDPresentInList(::core::mem::transmute(::windows::core::as_ptr_or_null(guidarray)), guidarray.len() as _, ::core::mem::transmute(guidelem)))
+        ::core::mem::transmute(IsGUIDPresentInList(::core::mem::transmute(guidarray.as_ptr()), guidarray.len() as _, ::core::mem::transmute(guidelem)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -1063,7 +1063,7 @@ pub unsafe fn HdvReadGuestMemory(requestor: *const ::core::ffi::c_void, guestphy
         extern "system" {
             fn HdvReadGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, buffer: *mut u8) -> ::windows::core::HRESULT;
         }
-        HdvReadGuestMemory(::core::mem::transmute(requestor), ::core::mem::transmute(guestphysicaladdress), buffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer))).ok()
+        HdvReadGuestMemory(::core::mem::transmute(requestor), ::core::mem::transmute(guestphysicaladdress), buffer.len() as _, ::core::mem::transmute(buffer.as_ptr())).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1120,7 +1120,7 @@ pub unsafe fn HdvWriteGuestMemory(requestor: *const ::core::ffi::c_void, guestph
         extern "system" {
             fn HdvWriteGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, buffer: *const u8) -> ::windows::core::HRESULT;
         }
-        HdvWriteGuestMemory(::core::mem::transmute(requestor), ::core::mem::transmute(guestphysicaladdress), buffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(buffer))).ok()
+        HdvWriteGuestMemory(::core::mem::transmute(requestor), ::core::mem::transmute(guestphysicaladdress), buffer.len() as _, ::core::mem::transmute(buffer.as_ptr())).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8232,7 +8232,7 @@ pub unsafe fn WHvAdviseGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_P
         extern "system" {
             fn WHvAdviseGpaRange(partition: WHV_PARTITION_HANDLE, gparanges: *const WHV_MEMORY_RANGE_ENTRY, gparangescount: u32, advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const ::core::ffi::c_void, advicebuffersizeinbytes: u32) -> ::windows::core::HRESULT;
         }
-        WHvAdviseGpaRange(partition.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(gparanges)), gparanges.len() as _, ::core::mem::transmute(advice), ::core::mem::transmute(advicebuffer), ::core::mem::transmute(advicebuffersizeinbytes)).ok()
+        WHvAdviseGpaRange(partition.into_param().abi(), ::core::mem::transmute(gparanges.as_ptr()), gparanges.len() as _, ::core::mem::transmute(advice), ::core::mem::transmute(advicebuffer), ::core::mem::transmute(advicebuffersizeinbytes)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8240,7 +8240,7 @@ pub unsafe fn WHvAdviseGpaRange<'a, Param0: ::windows::core::IntoParam<'a, WHV_P
 #[doc = "*Required features: 'Win32_System_Hypervisor', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: &[u8]) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: ::core::option::Option<&[u8]>) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8248,7 +8248,7 @@ pub unsafe fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, 
             fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: *const ::core::ffi::c_void, resourcedescriptorsizeinbytes: u32, vpciresource: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
         let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
-        WHvAllocateVpciResource(::core::mem::transmute(providerid), ::core::mem::transmute(flags), ::core::mem::transmute(::windows::core::as_ptr_or_null(resourcedescriptor)), resourcedescriptor.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
+        WHvAllocateVpciResource(::core::mem::transmute(providerid), ::core::mem::transmute(flags), ::core::mem::transmute(resourcedescriptor.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), resourcedescriptor.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8363,7 +8363,7 @@ pub unsafe fn WHvCreateVirtualProcessor2<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn WHvCreateVirtualProcessor2(partition: WHV_PARTITION_HANDLE, vpindex: u32, properties: *const WHV_VIRTUAL_PROCESSOR_PROPERTY, propertycount: u32) -> ::windows::core::HRESULT;
         }
-        WHvCreateVirtualProcessor2(partition.into_param().abi(), ::core::mem::transmute(vpindex), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _).ok()
+        WHvCreateVirtualProcessor2(partition.into_param().abi(), ::core::mem::transmute(vpindex), ::core::mem::transmute(properties.as_ptr()), properties.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8534,7 +8534,7 @@ pub unsafe fn WHvGetInterruptTargetVpSet<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn WHvGetInterruptTargetVpSet(partition: WHV_PARTITION_HANDLE, destination: u64, destinationmode: WHV_INTERRUPT_DESTINATION_MODE, targetvps: *mut u32, vpcount: u32, targetvpcount: *mut u32) -> ::windows::core::HRESULT;
         }
-        WHvGetInterruptTargetVpSet(partition.into_param().abi(), ::core::mem::transmute(destination), ::core::mem::transmute(destinationmode), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targetvps)), targetvps.len() as _, ::core::mem::transmute(targetvpcount)).ok()
+        WHvGetInterruptTargetVpSet(partition.into_param().abi(), ::core::mem::transmute(destination), ::core::mem::transmute(destinationmode), ::core::mem::transmute(targetvps.as_ptr()), targetvps.len() as _, ::core::mem::transmute(targetvpcount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8626,14 +8626,14 @@ pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<'a, Param0: ::wind
 }
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, registernames: &[WHV_REGISTER_NAME], registervalues: &mut [WHV_REGISTER_VALUE]) -> ::windows::core::Result<()> {
+pub unsafe fn WHvGetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, const PARAM3: usize>(partition: Param0, vpindex: u32, registernames: &[WHV_REGISTER_NAME; PARAM3], registervalues: &mut [WHV_REGISTER_VALUE; PARAM3]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WHvGetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::HRESULT;
         }
-        WHvGetVirtualProcessorRegisters(partition.into_param().abi(), ::core::mem::transmute(vpindex), ::core::mem::transmute(::windows::core::as_ptr_or_null(registernames)), registervalues.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(registervalues))).ok()
+        WHvGetVirtualProcessorRegisters(partition.into_param().abi(), ::core::mem::transmute(vpindex), ::core::mem::transmute(registernames.as_ptr()), PARAM3 as _, ::core::mem::transmute(registervalues.as_ptr())).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8978,14 +8978,14 @@ pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<'a, Param0: ::wind
 }
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 #[inline]
-pub unsafe fn WHvSetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, vpindex: u32, registernames: &[WHV_REGISTER_NAME], registervalues: &[WHV_REGISTER_VALUE]) -> ::windows::core::Result<()> {
+pub unsafe fn WHvSetVirtualProcessorRegisters<'a, Param0: ::windows::core::IntoParam<'a, WHV_PARTITION_HANDLE>, const PARAM3: usize>(partition: Param0, vpindex: u32, registernames: &[WHV_REGISTER_NAME; PARAM3], registervalues: &[WHV_REGISTER_VALUE; PARAM3]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WHvSetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::HRESULT;
         }
-        WHvSetVirtualProcessorRegisters(partition.into_param().abi(), ::core::mem::transmute(vpindex), ::core::mem::transmute(::windows::core::as_ptr_or_null(registernames)), registervalues.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(registervalues))).ok()
+        WHvSetVirtualProcessorRegisters(partition.into_param().abi(), ::core::mem::transmute(vpindex), ::core::mem::transmute(registernames.as_ptr()), PARAM3 as _, ::core::mem::transmute(registervalues.as_ptr())).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

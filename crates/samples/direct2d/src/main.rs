@@ -415,7 +415,7 @@ fn create_factory() -> Result<ID2D1Factory1> {
 fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {
     let props = D2D1_STROKE_STYLE_PROPERTIES { startCap: D2D1_CAP_STYLE_ROUND, endCap: D2D1_CAP_STYLE_TRIANGLE, ..Default::default() };
 
-    unsafe { factory.CreateStrokeStyle(&props, &[]) }
+    unsafe { factory.CreateStrokeStyle(&props, None) }
 }
 
 fn create_transition() -> Result<IUIAnimationTransition> {
@@ -434,7 +434,7 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
 
     let mut device = None;
 
-    unsafe { D3D11CreateDevice(None, drive_type, HINSTANCE::default(), flags, &[], D3D11_SDK_VERSION, &mut device, std::ptr::null_mut(), &mut None).map(|()| device.unwrap()) }
+    unsafe { D3D11CreateDevice(None, drive_type, HINSTANCE::default(), flags, None, D3D11_SDK_VERSION, &mut device, std::ptr::null_mut(), &mut None).map(|()| device.unwrap()) }
 }
 
 fn create_device() -> Result<ID3D11Device> {

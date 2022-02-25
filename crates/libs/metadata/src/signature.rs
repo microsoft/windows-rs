@@ -11,6 +11,7 @@ pub struct Signature {
 pub struct MethodParam {
     pub def: Param,
     pub ty: Type,
+    pub array_info: Option<ArrayInfo>,
 }
 
 impl Signature {

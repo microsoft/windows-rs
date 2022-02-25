@@ -104,7 +104,7 @@ impl MethodDef {
         let mut return_param = None;
         let preserve_sig = self.preserve_sig();
 
-        let params = params
+        let mut params: Vec::<MethodParam> = params
             .filter_map(|def| {
                 if def.sequence() == 0 {
                     return_param = Some(def);
@@ -112,10 +112,28 @@ impl MethodDef {
                 } else {
                     let ty = reader.type_from_blob(&mut blob, None, generics).expect("MethodDef");
                     let ty = if !def.flags().output() { ty.to_const() } else { ty };
-                    Some(MethodParam { def, ty })
+                    let array_info = def.array_info();
+                    Some(MethodParam { def, ty, array_info })
                 }
             })
             .collect();
+                
+        for position in 0..params.len() {
+            // Point len params back to the corresponding ptr params.
+            if let Some(ArrayInfo::RelativeLen(relative)) = params[position].array_info {
+                // The len params must be input only.
+                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
+                if !params[relative].def.flags().output() && position != relative {
+                    if params[relative].array_info.is_none() {
+                        params[relative].array_info = Some(ArrayInfo::RelativePtr(Some(position)));
+                    } else {
+                        params[relative].array_info = Some(ArrayInfo::RelativePtr(None));
+                    }
+                } else {
+                    params[position].array_info = None;
+                }
+            }
+        }
 
         Signature { params, return_type, return_param, preserve_sig }
     }

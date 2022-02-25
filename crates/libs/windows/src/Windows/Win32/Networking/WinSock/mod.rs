@@ -1558,7 +1558,7 @@ pub unsafe fn GetHostNameW(name: &mut [u16]) -> i32 {
         extern "system" {
             fn GetHostNameW(name: ::windows::core::PWSTR, namelen: i32) -> i32;
         }
-        ::core::mem::transmute(GetHostNameW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(name)), name.len() as _))
+        ::core::mem::transmute(GetHostNameW(::core::mem::transmute(name.as_ptr()), name.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1594,14 +1594,14 @@ pub unsafe fn GetNameByTypeW(lpservicetype: *const ::windows::core::GUID, lpserv
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: &mut [u16], pservicebuffer: &mut [u16], flags: i32) -> i32 {
+pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: ::core::option::Option<&mut [u16]>, pservicebuffer: ::core::option::Option<&mut [u16]>, flags: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: ::windows::core::PWSTR, nodebuffersize: u32, pservicebuffer: ::windows::core::PWSTR, servicebuffersize: u32, flags: i32) -> i32;
         }
-        ::core::mem::transmute(GetNameInfoW(::core::mem::transmute(psockaddr), ::core::mem::transmute(sockaddrlength), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnodebuffer)), pnodebuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pservicebuffer)), pservicebuffer.len() as _, ::core::mem::transmute(flags)))
+        ::core::mem::transmute(GetNameInfoW(::core::mem::transmute(psockaddr), ::core::mem::transmute(sockaddrlength), ::core::mem::transmute(pnodebuffer.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), pnodebuffer.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(pservicebuffer.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), pservicebuffer.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3037,7 +3037,7 @@ pub unsafe fn InetNtopW(family: i32, paddr: *const ::core::ffi::c_void, pstringb
         extern "system" {
             fn InetNtopW(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: ::windows::core::PWSTR, stringbufsize: usize) -> ::windows::core::PWSTR;
         }
-        ::core::mem::transmute(InetNtopW(::core::mem::transmute(family), ::core::mem::transmute(paddr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstringbuf)), pstringbuf.len() as _))
+        ::core::mem::transmute(InetNtopW(::core::mem::transmute(family), ::core::mem::transmute(paddr), ::core::mem::transmute(pstringbuf.as_ptr()), pstringbuf.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5552,14 +5552,22 @@ pub const PVD_CONFIG: u32 = 12289u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ProcessSocketNotifications<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(completionport: Param0, registrationinfos: &mut [SOCK_NOTIFY_REGISTRATION], timeoutms: u32, completionportentries: &mut [super::super::System::IO::OVERLAPPED_ENTRY], receivedentrycount: *mut u32) -> u32 {
+pub unsafe fn ProcessSocketNotifications<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(completionport: Param0, registrationinfos: ::core::option::Option<&mut [SOCK_NOTIFY_REGISTRATION]>, timeoutms: u32, completionportentries: ::core::option::Option<&mut [super::super::System::IO::OVERLAPPED_ENTRY]>, receivedentrycount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ProcessSocketNotifications(completionport: super::super::Foundation::HANDLE, registrationcount: u32, registrationinfos: *mut SOCK_NOTIFY_REGISTRATION, timeoutms: u32, completioncount: u32, completionportentries: *mut super::super::System::IO::OVERLAPPED_ENTRY, receivedentrycount: *mut u32) -> u32;
         }
-        ::core::mem::transmute(ProcessSocketNotifications(completionport.into_param().abi(), registrationinfos.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(registrationinfos)), ::core::mem::transmute(timeoutms), completionportentries.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(completionportentries)), ::core::mem::transmute(receivedentrycount)))
+        ::core::mem::transmute(ProcessSocketNotifications(
+            completionport.into_param().abi(),
+            registrationinfos.as_ref().map_or(0, |value| value.len()) as _,
+            ::core::mem::transmute(registrationinfos.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
+            ::core::mem::transmute(timeoutms),
+            completionportentries.as_ref().map_or(0, |value| value.len()) as _,
+            ::core::mem::transmute(completionportentries.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
+            ::core::mem::transmute(receivedentrycount),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11947,7 +11955,7 @@ pub unsafe fn WSARecv<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Par
         extern "system" {
             fn WSARecv(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(WSARecv(s.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffers)), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytesrecvd), ::core::mem::transmute(lpflags), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
+        ::core::mem::transmute(WSARecv(s.into_param().abi(), ::core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytesrecvd), ::core::mem::transmute(lpflags), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11990,7 +11998,7 @@ pub unsafe fn WSARecvFrom<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s:
         extern "system" {
             fn WSARecvFrom(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpfrom: *mut SOCKADDR, lpfromlen: *mut i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(WSARecvFrom(s.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffers)), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytesrecvd), ::core::mem::transmute(lpflags), ::core::mem::transmute(lpfrom), ::core::mem::transmute(lpfromlen), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
+        ::core::mem::transmute(WSARecvFrom(s.into_param().abi(), ::core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytesrecvd), ::core::mem::transmute(lpflags), ::core::mem::transmute(lpfrom), ::core::mem::transmute(lpfromlen), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12158,7 +12166,7 @@ pub unsafe fn WSASend<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Par
         extern "system" {
             fn WSASend(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(WSASend(s.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffers)), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytessent), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
+        ::core::mem::transmute(WSASend(s.into_param().abi(), ::core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytessent), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12202,7 +12210,7 @@ pub unsafe fn WSASendTo<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: P
         extern "system" {
             fn WSASendTo(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpto: *const SOCKADDR, itolen: i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> i32;
         }
-        ::core::mem::transmute(WSASendTo(s.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffers)), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytessent), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpto), ::core::mem::transmute(itolen), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
+        ::core::mem::transmute(WSASendTo(s.into_param().abi(), ::core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len() as _, ::core::mem::transmute(lpnumberofbytessent), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpto), ::core::mem::transmute(itolen), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12493,7 +12501,7 @@ pub unsafe fn WSAWaitForMultipleEvents<'a, Param2: ::windows::core::IntoParam<'a
         extern "system" {
             fn WSAWaitForMultipleEvents(cevents: u32, lphevents: *const super::super::Foundation::HANDLE, fwaitall: super::super::Foundation::BOOL, dwtimeout: u32, falertable: super::super::Foundation::BOOL) -> u32;
         }
-        ::core::mem::transmute(WSAWaitForMultipleEvents(lphevents.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lphevents)), fwaitall.into_param().abi(), ::core::mem::transmute(dwtimeout), falertable.into_param().abi()))
+        ::core::mem::transmute(WSAWaitForMultipleEvents(lphevents.len() as _, ::core::mem::transmute(lphevents.as_ptr()), fwaitall.into_param().abi(), ::core::mem::transmute(dwtimeout), falertable.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12926,14 +12934,14 @@ pub unsafe fn WSCEnumProtocols32(lpiprotocols: *const i32, lpprotocolbuffer: *mu
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 #[inline]
-pub unsafe fn WSCGetApplicationCategory(path: &[u16], extra: &[u16], ppermittedlspcategories: *mut u32, lperrno: *mut i32) -> i32 {
+pub unsafe fn WSCGetApplicationCategory(path: &[u16], extra: ::core::option::Option<&[u16]>, ppermittedlspcategories: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WSCGetApplicationCategory(path: ::windows::core::PCWSTR, pathlength: u32, extra: ::windows::core::PCWSTR, extralength: u32, ppermittedlspcategories: *mut u32, lperrno: *mut i32) -> i32;
         }
-        ::core::mem::transmute(WSCGetApplicationCategory(::core::mem::transmute(::windows::core::as_ptr_or_null(path)), path.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(extra)), extra.len() as _, ::core::mem::transmute(ppermittedlspcategories), ::core::mem::transmute(lperrno)))
+        ::core::mem::transmute(WSCGetApplicationCategory(::core::mem::transmute(path.as_ptr()), path.len() as _, ::core::mem::transmute(extra.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), extra.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(ppermittedlspcategories), ::core::mem::transmute(lperrno)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13065,7 +13073,7 @@ pub unsafe fn WSCInstallProvider<'a, Param1: ::windows::core::IntoParam<'a, ::wi
         extern "system" {
             fn WSCInstallProvider(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
         }
-        ::core::mem::transmute(WSCInstallProvider(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
+        ::core::mem::transmute(WSCInstallProvider(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13080,7 +13088,7 @@ pub unsafe fn WSCInstallProvider64_32<'a, Param1: ::windows::core::IntoParam<'a,
         extern "system" {
             fn WSCInstallProvider64_32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
         }
-        ::core::mem::transmute(WSCInstallProvider64_32(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
+        ::core::mem::transmute(WSCInstallProvider64_32(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13095,21 +13103,21 @@ pub unsafe fn WSCInstallProviderAndChains64_32<'a, Param1: ::windows::core::Into
         extern "system" {
             fn WSCInstallProviderAndChains64_32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpszproviderdllpath32: ::windows::core::PCWSTR, lpszlspname: ::windows::core::PCWSTR, dwserviceflags: u32, lpprotocolinfolist: *mut WSAPROTOCOL_INFOW, dwnumberofentries: u32, lpdwcatalogentryid: *mut u32, lperrno: *mut i32) -> i32;
         }
-        ::core::mem::transmute(WSCInstallProviderAndChains64_32(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into_param().abi(), lpszproviderdllpath32.into_param().abi(), lpszlspname.into_param().abi(), ::core::mem::transmute(dwserviceflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lpdwcatalogentryid), ::core::mem::transmute(lperrno)))
+        ::core::mem::transmute(WSCInstallProviderAndChains64_32(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into_param().abi(), lpszproviderdllpath32.into_param().abi(), lpszlspname.into_param().abi(), ::core::mem::transmute(dwserviceflags), ::core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len() as _, ::core::mem::transmute(lpdwcatalogentryid), ::core::mem::transmute(lperrno)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 #[inline]
-pub unsafe fn WSCSetApplicationCategory(path: &[u16], extra: &[u16], permittedlspcategories: u32, pprevpermlspcat: *mut u32, lperrno: *mut i32) -> i32 {
+pub unsafe fn WSCSetApplicationCategory(path: &[u16], extra: ::core::option::Option<&[u16]>, permittedlspcategories: u32, pprevpermlspcat: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WSCSetApplicationCategory(path: ::windows::core::PCWSTR, pathlength: u32, extra: ::windows::core::PCWSTR, extralength: u32, permittedlspcategories: u32, pprevpermlspcat: *mut u32, lperrno: *mut i32) -> i32;
         }
-        ::core::mem::transmute(WSCSetApplicationCategory(::core::mem::transmute(::windows::core::as_ptr_or_null(path)), path.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(extra)), extra.len() as _, ::core::mem::transmute(permittedlspcategories), ::core::mem::transmute(pprevpermlspcat), ::core::mem::transmute(lperrno)))
+        ::core::mem::transmute(WSCSetApplicationCategory(::core::mem::transmute(path.as_ptr()), path.len() as _, ::core::mem::transmute(extra.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), extra.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(permittedlspcategories), ::core::mem::transmute(pprevpermlspcat), ::core::mem::transmute(lperrno)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13181,7 +13189,7 @@ pub unsafe fn WSCUpdateProvider<'a, Param1: ::windows::core::IntoParam<'a, ::win
         extern "system" {
             fn WSCUpdateProvider(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
         }
-        ::core::mem::transmute(WSCUpdateProvider(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
+        ::core::mem::transmute(WSCUpdateProvider(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13196,7 +13204,7 @@ pub unsafe fn WSCUpdateProvider32<'a, Param1: ::windows::core::IntoParam<'a, ::w
         extern "system" {
             fn WSCUpdateProvider32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: ::windows::core::PCWSTR, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32;
         }
-        ::core::mem::transmute(WSCUpdateProvider32(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpprotocolinfolist)), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
+        ::core::mem::transmute(WSCUpdateProvider32(::core::mem::transmute(lpproviderid), lpszproviderdllpath.into_param().abi(), ::core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len() as _, ::core::mem::transmute(lperrno)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14446,14 +14454,14 @@ pub unsafe fn gethostname(name: ::windows::core::PSTR, namelen: i32) -> i32 {
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: &mut [u8], pservicebuffer: &mut [u8], flags: i32) -> i32 {
+pub unsafe fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: ::core::option::Option<&mut [u8]>, pservicebuffer: ::core::option::Option<&mut [u8]>, flags: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: ::windows::core::PSTR, nodebuffersize: u32, pservicebuffer: ::windows::core::PSTR, servicebuffersize: u32, flags: i32) -> i32;
         }
-        ::core::mem::transmute(getnameinfo(::core::mem::transmute(psockaddr), ::core::mem::transmute(sockaddrlength), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pnodebuffer)), pnodebuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pservicebuffer)), pservicebuffer.len() as _, ::core::mem::transmute(flags)))
+        ::core::mem::transmute(getnameinfo(::core::mem::transmute(psockaddr), ::core::mem::transmute(sockaddrlength), ::core::mem::transmute(pnodebuffer.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), pnodebuffer.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(pservicebuffer.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), pservicebuffer.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14683,7 +14691,7 @@ pub unsafe fn inet_ntop(family: i32, paddr: *const ::core::ffi::c_void, pstringb
         extern "system" {
             fn inet_ntop(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: ::windows::core::PSTR, stringbufsize: usize) -> ::windows::core::PSTR;
         }
-        ::core::mem::transmute(inet_ntop(::core::mem::transmute(family), ::core::mem::transmute(paddr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pstringbuf)), pstringbuf.len() as _))
+        ::core::mem::transmute(inet_ntop(::core::mem::transmute(family), ::core::mem::transmute(paddr), ::core::mem::transmute(pstringbuf.as_ptr()), pstringbuf.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

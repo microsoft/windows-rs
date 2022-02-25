@@ -901,7 +901,7 @@ pub unsafe fn SnmpEntityToStr(entity: isize, string: &mut [u8]) -> u32 {
         extern "system" {
             fn SnmpEntityToStr(entity: isize, size: u32, string: ::windows::core::PSTR) -> u32;
         }
-        ::core::mem::transmute(SnmpEntityToStr(::core::mem::transmute(entity), string.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(string))))
+        ::core::mem::transmute(SnmpEntityToStr(::core::mem::transmute(entity), string.len() as _, ::core::mem::transmute(string.as_ptr())))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1288,7 +1288,7 @@ pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, string: &mut [u8]) -> u32 {
         extern "system" {
             fn SnmpOidToStr(srcoid: *const smiOID, size: u32, string: ::windows::core::PSTR) -> u32;
         }
-        ::core::mem::transmute(SnmpOidToStr(::core::mem::transmute(srcoid), string.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(string))))
+        ::core::mem::transmute(SnmpOidToStr(::core::mem::transmute(srcoid), string.len() as _, ::core::mem::transmute(string.as_ptr())))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

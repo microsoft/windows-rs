@@ -812,7 +812,7 @@ pub unsafe fn GetConsoleAliasA<'a, Param0: ::windows::core::IntoParam<'a, ::wind
         extern "system" {
             fn GetConsoleAliasA(source: ::windows::core::PCSTR, targetbuffer: ::windows::core::PSTR, targetbufferlength: u32, exename: ::windows::core::PCSTR) -> u32;
         }
-        ::core::mem::transmute(GetConsoleAliasA(source.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targetbuffer)), targetbuffer.len() as _, exename.into_param().abi()))
+        ::core::mem::transmute(GetConsoleAliasA(source.into_param().abi(), ::core::mem::transmute(targetbuffer.as_ptr()), targetbuffer.len() as _, exename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -826,7 +826,7 @@ pub unsafe fn GetConsoleAliasExesA(exenamebuffer: &mut [u8]) -> u32 {
         extern "system" {
             fn GetConsoleAliasExesA(exenamebuffer: ::windows::core::PSTR, exenamebufferlength: u32) -> u32;
         }
-        ::core::mem::transmute(GetConsoleAliasExesA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(exenamebuffer)), exenamebuffer.len() as _))
+        ::core::mem::transmute(GetConsoleAliasExesA(::core::mem::transmute(exenamebuffer.as_ptr()), exenamebuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -868,7 +868,7 @@ pub unsafe fn GetConsoleAliasExesW(exenamebuffer: &mut [u16]) -> u32 {
         extern "system" {
             fn GetConsoleAliasExesW(exenamebuffer: ::windows::core::PWSTR, exenamebufferlength: u32) -> u32;
         }
-        ::core::mem::transmute(GetConsoleAliasExesW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(exenamebuffer)), exenamebuffer.len() as _))
+        ::core::mem::transmute(GetConsoleAliasExesW(::core::mem::transmute(exenamebuffer.as_ptr()), exenamebuffer.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -882,7 +882,7 @@ pub unsafe fn GetConsoleAliasW<'a, Param0: ::windows::core::IntoParam<'a, ::wind
         extern "system" {
             fn GetConsoleAliasW(source: ::windows::core::PCWSTR, targetbuffer: ::windows::core::PWSTR, targetbufferlength: u32, exename: ::windows::core::PCWSTR) -> u32;
         }
-        ::core::mem::transmute(GetConsoleAliasW(source.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targetbuffer)), targetbuffer.len() as _, exename.into_param().abi()))
+        ::core::mem::transmute(GetConsoleAliasW(source.into_param().abi(), ::core::mem::transmute(targetbuffer.as_ptr()), targetbuffer.len() as _, exename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -896,7 +896,7 @@ pub unsafe fn GetConsoleAliasesA<'a, Param2: ::windows::core::IntoParam<'a, ::wi
         extern "system" {
             fn GetConsoleAliasesA(aliasbuffer: ::windows::core::PSTR, aliasbufferlength: u32, exename: ::windows::core::PCSTR) -> u32;
         }
-        ::core::mem::transmute(GetConsoleAliasesA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(aliasbuffer)), aliasbuffer.len() as _, exename.into_param().abi()))
+        ::core::mem::transmute(GetConsoleAliasesA(::core::mem::transmute(aliasbuffer.as_ptr()), aliasbuffer.len() as _, exename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -938,7 +938,7 @@ pub unsafe fn GetConsoleAliasesW<'a, Param2: ::windows::core::IntoParam<'a, ::wi
         extern "system" {
             fn GetConsoleAliasesW(aliasbuffer: ::windows::core::PWSTR, aliasbufferlength: u32, exename: ::windows::core::PCWSTR) -> u32;
         }
-        ::core::mem::transmute(GetConsoleAliasesW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(aliasbuffer)), aliasbuffer.len() as _, exename.into_param().abi()))
+        ::core::mem::transmute(GetConsoleAliasesW(::core::mem::transmute(aliasbuffer.as_ptr()), aliasbuffer.len() as _, exename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1097,7 +1097,7 @@ pub unsafe fn GetConsoleOriginalTitleA(lpconsoletitle: &mut [u8]) -> u32 {
         extern "system" {
             fn GetConsoleOriginalTitleA(lpconsoletitle: ::windows::core::PSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(GetConsoleOriginalTitleA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _))
+        ::core::mem::transmute(GetConsoleOriginalTitleA(::core::mem::transmute(lpconsoletitle.as_ptr()), lpconsoletitle.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1111,7 +1111,7 @@ pub unsafe fn GetConsoleOriginalTitleW(lpconsoletitle: &mut [u16]) -> u32 {
         extern "system" {
             fn GetConsoleOriginalTitleW(lpconsoletitle: ::windows::core::PWSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(GetConsoleOriginalTitleW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _))
+        ::core::mem::transmute(GetConsoleOriginalTitleW(::core::mem::transmute(lpconsoletitle.as_ptr()), lpconsoletitle.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1139,7 +1139,7 @@ pub unsafe fn GetConsoleProcessList(lpdwprocesslist: &mut [u32]) -> u32 {
         extern "system" {
             fn GetConsoleProcessList(lpdwprocesslist: *mut u32, dwprocesscount: u32) -> u32;
         }
-        ::core::mem::transmute(GetConsoleProcessList(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdwprocesslist)), lpdwprocesslist.len() as _))
+        ::core::mem::transmute(GetConsoleProcessList(::core::mem::transmute(lpdwprocesslist.as_ptr()), lpdwprocesslist.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1198,7 +1198,7 @@ pub unsafe fn GetConsoleTitleA(lpconsoletitle: &mut [u8]) -> u32 {
         extern "system" {
             fn GetConsoleTitleA(lpconsoletitle: ::windows::core::PSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(GetConsoleTitleA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _))
+        ::core::mem::transmute(GetConsoleTitleA(::core::mem::transmute(lpconsoletitle.as_ptr()), lpconsoletitle.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1212,7 +1212,7 @@ pub unsafe fn GetConsoleTitleW(lpconsoletitle: &mut [u16]) -> u32 {
         extern "system" {
             fn GetConsoleTitleW(lpconsoletitle: ::windows::core::PWSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(GetConsoleTitleW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpconsoletitle)), lpconsoletitle.len() as _))
+        ::core::mem::transmute(GetConsoleTitleW(::core::mem::transmute(lpconsoletitle.as_ptr()), lpconsoletitle.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1607,7 +1607,7 @@ pub unsafe fn PeekConsoleInputA<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn PeekConsoleInputA(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PeekConsoleInputA(hconsoleinput.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
+        ::core::mem::transmute(PeekConsoleInputA(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1622,7 +1622,7 @@ pub unsafe fn PeekConsoleInputW<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn PeekConsoleInputW(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PeekConsoleInputW(hconsoleinput.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
+        ::core::mem::transmute(PeekConsoleInputW(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1658,7 +1658,7 @@ pub unsafe fn ReadConsoleInputA<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn ReadConsoleInputA(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReadConsoleInputA(hconsoleinput.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
+        ::core::mem::transmute(ReadConsoleInputA(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1673,7 +1673,7 @@ pub unsafe fn ReadConsoleInputW<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn ReadConsoleInputW(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *mut INPUT_RECORD, nlength: u32, lpnumberofeventsread: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReadConsoleInputW(hconsoleinput.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
+        ::core::mem::transmute(ReadConsoleInputW(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventsread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1703,7 +1703,7 @@ pub unsafe fn ReadConsoleOutputAttribute<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn ReadConsoleOutputAttribute(hconsoleoutput: super::super::Foundation::HANDLE, lpattribute: *mut u16, nlength: u32, dwreadcoord: COORD, lpnumberofattrsread: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReadConsoleOutputAttribute(hconsoleoutput.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpattribute)), lpattribute.len() as _, dwreadcoord.into_param().abi(), ::core::mem::transmute(lpnumberofattrsread)))
+        ::core::mem::transmute(ReadConsoleOutputAttribute(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpattribute.as_ptr()), lpattribute.len() as _, dwreadcoord.into_param().abi(), ::core::mem::transmute(lpnumberofattrsread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1718,7 +1718,7 @@ pub unsafe fn ReadConsoleOutputCharacterA<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn ReadConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows::core::PSTR, nlength: u32, dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReadConsoleOutputCharacterA(hconsoleoutput.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcharacter)), lpcharacter.len() as _, dwreadcoord.into_param().abi(), ::core::mem::transmute(lpnumberofcharsread)))
+        ::core::mem::transmute(ReadConsoleOutputCharacterA(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, dwreadcoord.into_param().abi(), ::core::mem::transmute(lpnumberofcharsread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1733,7 +1733,7 @@ pub unsafe fn ReadConsoleOutputCharacterW<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn ReadConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows::core::PWSTR, nlength: u32, dwreadcoord: COORD, lpnumberofcharsread: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReadConsoleOutputCharacterW(hconsoleoutput.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcharacter)), lpcharacter.len() as _, dwreadcoord.into_param().abi(), ::core::mem::transmute(lpnumberofcharsread)))
+        ::core::mem::transmute(ReadConsoleOutputCharacterW(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, dwreadcoord.into_param().abi(), ::core::mem::transmute(lpnumberofcharsread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2220,7 +2220,7 @@ pub unsafe fn WriteConsoleA<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn WriteConsoleA(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofcharstowrite: u32, lpnumberofcharswritten: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WriteConsoleA(hconsoleoutput.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten), ::core::mem::transmute(lpreserved)))
+        ::core::mem::transmute(WriteConsoleA(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2235,7 +2235,7 @@ pub unsafe fn WriteConsoleInputA<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn WriteConsoleInputA(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *const INPUT_RECORD, nlength: u32, lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WriteConsoleInputA(hconsoleinput.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventswritten)))
+        ::core::mem::transmute(WriteConsoleInputA(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventswritten)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2250,7 +2250,7 @@ pub unsafe fn WriteConsoleInputW<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn WriteConsoleInputW(hconsoleinput: super::super::Foundation::HANDLE, lpbuffer: *const INPUT_RECORD, nlength: u32, lpnumberofeventswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WriteConsoleInputW(hconsoleinput.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventswritten)))
+        ::core::mem::transmute(WriteConsoleInputW(hconsoleinput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofeventswritten)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2280,7 +2280,7 @@ pub unsafe fn WriteConsoleOutputAttribute<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn WriteConsoleOutputAttribute(hconsoleoutput: super::super::Foundation::HANDLE, lpattribute: *const u16, nlength: u32, dwwritecoord: COORD, lpnumberofattrswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WriteConsoleOutputAttribute(hconsoleoutput.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpattribute)), lpattribute.len() as _, dwwritecoord.into_param().abi(), ::core::mem::transmute(lpnumberofattrswritten)))
+        ::core::mem::transmute(WriteConsoleOutputAttribute(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpattribute.as_ptr()), lpattribute.len() as _, dwwritecoord.into_param().abi(), ::core::mem::transmute(lpnumberofattrswritten)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2295,7 +2295,7 @@ pub unsafe fn WriteConsoleOutputCharacterA<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn WriteConsoleOutputCharacterA(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows::core::PCSTR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WriteConsoleOutputCharacterA(hconsoleoutput.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpcharacter)), lpcharacter.len() as _, dwwritecoord.into_param().abi(), ::core::mem::transmute(lpnumberofcharswritten)))
+        ::core::mem::transmute(WriteConsoleOutputCharacterA(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, dwwritecoord.into_param().abi(), ::core::mem::transmute(lpnumberofcharswritten)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2310,7 +2310,7 @@ pub unsafe fn WriteConsoleOutputCharacterW<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn WriteConsoleOutputCharacterW(hconsoleoutput: super::super::Foundation::HANDLE, lpcharacter: ::windows::core::PCWSTR, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WriteConsoleOutputCharacterW(hconsoleoutput.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpcharacter)), lpcharacter.len() as _, dwwritecoord.into_param().abi(), ::core::mem::transmute(lpnumberofcharswritten)))
+        ::core::mem::transmute(WriteConsoleOutputCharacterW(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len() as _, dwwritecoord.into_param().abi(), ::core::mem::transmute(lpnumberofcharswritten)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2340,7 +2340,7 @@ pub unsafe fn WriteConsoleW<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn WriteConsoleW(hconsoleoutput: super::super::Foundation::HANDLE, lpbuffer: *const ::core::ffi::c_void, nnumberofcharstowrite: u32, lpnumberofcharswritten: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WriteConsoleW(hconsoleoutput.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten), ::core::mem::transmute(lpreserved)))
+        ::core::mem::transmute(WriteConsoleW(hconsoleoutput.into_param().abi(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofcharswritten), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

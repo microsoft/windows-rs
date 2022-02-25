@@ -1237,7 +1237,7 @@ pub unsafe fn CredGetSessionTypes(maximumpersist: &mut [u32]) -> super::super::F
         extern "system" {
             fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CredGetSessionTypes(maximumpersist.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(maximumpersist))))
+        ::core::mem::transmute(CredGetSessionTypes(maximumpersist.len() as _, ::core::mem::transmute(maximumpersist.as_ptr())))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1402,7 +1402,7 @@ pub unsafe fn CredProtectA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn CredProtectA(fasself: super::super::Foundation::BOOL, pszcredentials: ::windows::core::PCSTR, cchcredentials: u32, pszprotectedcredentials: ::windows::core::PSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CredProtectA(fasself.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszcredentials)), pszcredentials.len() as _, ::core::mem::transmute(pszprotectedcredentials), ::core::mem::transmute(pcchmaxchars), ::core::mem::transmute(protectiontype)))
+        ::core::mem::transmute(CredProtectA(fasself.into_param().abi(), ::core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len() as _, ::core::mem::transmute(pszprotectedcredentials), ::core::mem::transmute(pcchmaxchars), ::core::mem::transmute(protectiontype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1417,7 +1417,7 @@ pub unsafe fn CredProtectW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn CredProtectW(fasself: super::super::Foundation::BOOL, pszcredentials: ::windows::core::PCWSTR, cchcredentials: u32, pszprotectedcredentials: ::windows::core::PWSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CredProtectW(fasself.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszcredentials)), pszcredentials.len() as _, ::core::mem::transmute(pszprotectedcredentials), ::core::mem::transmute(pcchmaxchars), ::core::mem::transmute(protectiontype)))
+        ::core::mem::transmute(CredProtectW(fasself.into_param().abi(), ::core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len() as _, ::core::mem::transmute(pszprotectedcredentials), ::core::mem::transmute(pcchmaxchars), ::core::mem::transmute(protectiontype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1522,7 +1522,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsA<'a, Param0: ::windows::core::In
         extern "system" {
             fn CredUICmdLinePromptForCredentialsA(psztargetname: ::windows::core::PCSTR, pcontext: *mut SecHandle, dwautherror: u32, username: ::windows::core::PSTR, uluserbuffersize: u32, pszpassword: ::windows::core::PSTR, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
-        ::core::mem::transmute(CredUICmdLinePromptForCredentialsA(psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(username)), username.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszpassword)), pszpassword.len() as _, ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
+        ::core::mem::transmute(CredUICmdLinePromptForCredentialsA(psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), ::core::mem::transmute(username.as_ptr()), username.len() as _, ::core::mem::transmute(pszpassword.as_ptr()), pszpassword.len() as _, ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1537,7 +1537,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsW<'a, Param0: ::windows::core::In
         extern "system" {
             fn CredUICmdLinePromptForCredentialsW(psztargetname: ::windows::core::PCWSTR, pcontext: *mut SecHandle, dwautherror: u32, username: ::windows::core::PWSTR, uluserbuffersize: u32, pszpassword: ::windows::core::PWSTR, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
-        ::core::mem::transmute(CredUICmdLinePromptForCredentialsW(psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(username)), username.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszpassword)), pszpassword.len() as _, ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
+        ::core::mem::transmute(CredUICmdLinePromptForCredentialsW(psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), ::core::mem::transmute(username.as_ptr()), username.len() as _, ::core::mem::transmute(pszpassword.as_ptr()), pszpassword.len() as _, ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1581,7 +1581,7 @@ pub unsafe fn CredUIParseUserNameA<'a, Param0: ::windows::core::IntoParam<'a, ::
         extern "system" {
             fn CredUIParseUserNameA(username: ::windows::core::PCSTR, user: ::windows::core::PSTR, userbuffersize: u32, domain: ::windows::core::PSTR, domainbuffersize: u32) -> u32;
         }
-        ::core::mem::transmute(CredUIParseUserNameA(username.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(user)), user.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(domain)), domain.len() as _))
+        ::core::mem::transmute(CredUIParseUserNameA(username.into_param().abi(), ::core::mem::transmute(user.as_ptr()), user.len() as _, ::core::mem::transmute(domain.as_ptr()), domain.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1595,7 +1595,7 @@ pub unsafe fn CredUIParseUserNameW<'a, Param0: ::windows::core::IntoParam<'a, ::
         extern "system" {
             fn CredUIParseUserNameW(username: ::windows::core::PCWSTR, user: ::windows::core::PWSTR, userbuffersize: u32, domain: ::windows::core::PWSTR, domainbuffersize: u32) -> u32;
         }
-        ::core::mem::transmute(CredUIParseUserNameW(username.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(user)), user.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(domain)), domain.len() as _))
+        ::core::mem::transmute(CredUIParseUserNameW(username.into_param().abi(), ::core::mem::transmute(user.as_ptr()), user.len() as _, ::core::mem::transmute(domain.as_ptr()), domain.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1610,7 +1610,7 @@ pub unsafe fn CredUIPromptForCredentialsA<'a, Param1: ::windows::core::IntoParam
         extern "system" {
             fn CredUIPromptForCredentialsA(puiinfo: *const CREDUI_INFOA, psztargetname: ::windows::core::PCSTR, pcontext: *mut SecHandle, dwautherror: u32, pszusername: ::windows::core::PSTR, ulusernamebuffersize: u32, pszpassword: ::windows::core::PSTR, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
-        ::core::mem::transmute(CredUIPromptForCredentialsA(::core::mem::transmute(puiinfo), psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszusername)), pszusername.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszpassword)), pszpassword.len() as _, ::core::mem::transmute(save), ::core::mem::transmute(dwflags)))
+        ::core::mem::transmute(CredUIPromptForCredentialsA(::core::mem::transmute(puiinfo), psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), ::core::mem::transmute(pszusername.as_ptr()), pszusername.len() as _, ::core::mem::transmute(pszpassword.as_ptr()), pszpassword.len() as _, ::core::mem::transmute(save), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1625,7 +1625,7 @@ pub unsafe fn CredUIPromptForCredentialsW<'a, Param1: ::windows::core::IntoParam
         extern "system" {
             fn CredUIPromptForCredentialsW(puiinfo: *const CREDUI_INFOW, psztargetname: ::windows::core::PCWSTR, pcontext: *mut SecHandle, dwautherror: u32, pszusername: ::windows::core::PWSTR, ulusernamebuffersize: u32, pszpassword: ::windows::core::PWSTR, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
-        ::core::mem::transmute(CredUIPromptForCredentialsW(::core::mem::transmute(puiinfo), psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszusername)), pszusername.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszpassword)), pszpassword.len() as _, ::core::mem::transmute(save), ::core::mem::transmute(dwflags)))
+        ::core::mem::transmute(CredUIPromptForCredentialsW(::core::mem::transmute(puiinfo), psztargetname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(dwautherror), ::core::mem::transmute(pszusername.as_ptr()), pszusername.len() as _, ::core::mem::transmute(pszpassword.as_ptr()), pszpassword.len() as _, ::core::mem::transmute(save), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1759,7 +1759,7 @@ pub unsafe fn CredUnprotectA<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn CredUnprotectA(fasself: super::super::Foundation::BOOL, pszprotectedcredentials: ::windows::core::PCSTR, cchprotectedcredentials: u32, pszcredentials: ::windows::core::PSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CredUnprotectA(fasself.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszprotectedcredentials)), pszprotectedcredentials.len() as _, ::core::mem::transmute(pszcredentials), ::core::mem::transmute(pcchmaxchars)))
+        ::core::mem::transmute(CredUnprotectA(fasself.into_param().abi(), ::core::mem::transmute(pszprotectedcredentials.as_ptr()), pszprotectedcredentials.len() as _, ::core::mem::transmute(pszcredentials), ::core::mem::transmute(pcchmaxchars)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1774,7 +1774,7 @@ pub unsafe fn CredUnprotectW<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn CredUnprotectW(fasself: super::super::Foundation::BOOL, pszprotectedcredentials: ::windows::core::PCWSTR, cchprotectedcredentials: u32, pszcredentials: ::windows::core::PWSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CredUnprotectW(fasself.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszprotectedcredentials)), pszprotectedcredentials.len() as _, ::core::mem::transmute(pszcredentials), ::core::mem::transmute(pcchmaxchars)))
+        ::core::mem::transmute(CredUnprotectW(fasself.into_param().abi(), ::core::mem::transmute(pszprotectedcredentials.as_ptr()), pszprotectedcredentials.len() as _, ::core::mem::transmute(pszcredentials), ::core::mem::transmute(pcchmaxchars)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3745,28 +3745,28 @@ pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
 }
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 #[inline]
-pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: &[::windows::core::GUID], mszcards: ::windows::core::PSTR, pcchcards: *mut u32) -> i32 {
+pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: ::core::option::Option<&[::windows::core::GUID]>, mszcards: ::windows::core::PSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: ::windows::core::PSTR, pcchcards: *mut u32) -> i32;
         }
-        ::core::mem::transmute(SCardListCardsA(::core::mem::transmute(hcontext), ::core::mem::transmute(pbatr), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgquidinterfaces)), rgquidinterfaces.len() as _, ::core::mem::transmute(mszcards), ::core::mem::transmute(pcchcards)))
+        ::core::mem::transmute(SCardListCardsA(::core::mem::transmute(hcontext), ::core::mem::transmute(pbatr), ::core::mem::transmute(rgquidinterfaces.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), rgquidinterfaces.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(mszcards), ::core::mem::transmute(pcchcards)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 #[inline]
-pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: &[::windows::core::GUID], mszcards: ::windows::core::PWSTR, pcchcards: *mut u32) -> i32 {
+pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: ::core::option::Option<&[::windows::core::GUID]>, mszcards: ::windows::core::PWSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::core::GUID, cguidinterfacecount: u32, mszcards: ::windows::core::PWSTR, pcchcards: *mut u32) -> i32;
         }
-        ::core::mem::transmute(SCardListCardsW(::core::mem::transmute(hcontext), ::core::mem::transmute(pbatr), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgquidinterfaces)), rgquidinterfaces.len() as _, ::core::mem::transmute(mszcards), ::core::mem::transmute(pcchcards)))
+        ::core::mem::transmute(SCardListCardsW(::core::mem::transmute(hcontext), ::core::mem::transmute(pbatr), ::core::mem::transmute(rgquidinterfaces.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), rgquidinterfaces.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(mszcards), ::core::mem::transmute(pcchcards)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

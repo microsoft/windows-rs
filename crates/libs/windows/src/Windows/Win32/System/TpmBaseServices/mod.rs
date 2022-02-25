@@ -17,14 +17,14 @@ pub unsafe fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *
 #[doc = "*Required features: 'Win32_System_TpmBaseServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeviceIDString(pszwindowsaik: &mut [u16], pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+pub unsafe fn GetDeviceIDString(pszwindowsaik: ::core::option::Option<&mut [u16]>, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetDeviceIDString(pszwindowsaik: ::windows::core::PWSTR, cchwindowsaik: u32, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        GetDeviceIDString(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszwindowsaik)), pszwindowsaik.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
+        GetDeviceIDString(::core::mem::transmute(pszwindowsaik.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), pszwindowsaik.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(pfprotectedbytpm)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

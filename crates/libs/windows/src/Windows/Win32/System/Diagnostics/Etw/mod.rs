@@ -3714,7 +3714,7 @@ pub unsafe fn EnumerateTraceGuids(guidpropertiesarray: &mut [*mut TRACE_GUID_PRO
         extern "system" {
             fn EnumerateTraceGuids(guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount: u32, guidcount: *mut u32) -> u32;
         }
-        ::core::mem::transmute(EnumerateTraceGuids(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(guidpropertiesarray)), guidpropertiesarray.len() as _, ::core::mem::transmute(guidcount)))
+        ::core::mem::transmute(EnumerateTraceGuids(::core::mem::transmute(guidpropertiesarray.as_ptr()), guidpropertiesarray.len() as _, ::core::mem::transmute(guidcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3867,28 +3867,28 @@ pub unsafe fn EventUnregister(reghandle: u64) -> u32 {
 }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[inline]
-pub unsafe fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdata: &[EVENT_DATA_DESCRIPTOR]) -> u32 {
+pub unsafe fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdata: ::core::option::Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(EventWrite(::core::mem::transmute(reghandle), ::core::mem::transmute(eventdescriptor), userdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(userdata))))
+        ::core::mem::transmute(EventWrite(::core::mem::transmute(reghandle), ::core::mem::transmute(eventdescriptor), userdata.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(userdata.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[inline]
-pub unsafe fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows::core::GUID, relatedactivityid: *const ::windows::core::GUID, userdata: &[EVENT_DATA_DESCRIPTOR]) -> u32 {
+pub unsafe fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows::core::GUID, relatedactivityid: *const ::windows::core::GUID, userdata: ::core::option::Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows::core::GUID, relatedactivityid: *const ::windows::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(EventWriteEx(::core::mem::transmute(reghandle), ::core::mem::transmute(eventdescriptor), ::core::mem::transmute(filter), ::core::mem::transmute(flags), ::core::mem::transmute(activityid), ::core::mem::transmute(relatedactivityid), userdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(userdata))))
+        ::core::mem::transmute(EventWriteEx(::core::mem::transmute(reghandle), ::core::mem::transmute(eventdescriptor), ::core::mem::transmute(filter), ::core::mem::transmute(flags), ::core::mem::transmute(activityid), ::core::mem::transmute(relatedactivityid), userdata.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(userdata.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3909,14 +3909,14 @@ pub unsafe fn EventWriteString<'a, Param3: ::windows::core::IntoParam<'a, ::wind
 }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[inline]
-pub unsafe fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows::core::GUID, relatedactivityid: *const ::windows::core::GUID, userdata: &[EVENT_DATA_DESCRIPTOR]) -> u32 {
+pub unsafe fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows::core::GUID, relatedactivityid: *const ::windows::core::GUID, userdata: ::core::option::Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows::core::GUID, relatedactivityid: *const ::windows::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(EventWriteTransfer(::core::mem::transmute(reghandle), ::core::mem::transmute(eventdescriptor), ::core::mem::transmute(activityid), ::core::mem::transmute(relatedactivityid), userdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(userdata))))
+        ::core::mem::transmute(EventWriteTransfer(::core::mem::transmute(reghandle), ::core::mem::transmute(eventdescriptor), ::core::mem::transmute(activityid), ::core::mem::transmute(relatedactivityid), userdata.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(userdata.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4020,7 +4020,7 @@ impl ITraceEvent {
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub unsafe fn SetPayload(&self, payload: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPayload)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(payload)), payload.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetPayload)(::core::mem::transmute_copy(self), ::core::mem::transmute(payload.as_ptr()), payload.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub unsafe fn SetEventDescriptor(&self, eventdescriptor: *const EVENT_DESCRIPTOR) -> ::windows::core::Result<()> {
@@ -4848,7 +4848,7 @@ pub unsafe fn ProcessTrace(handlearray: &[u64], starttime: *const super::super::
         extern "system" {
             fn ProcessTrace(handlearray: *const u64, handlecount: u32, starttime: *const super::super::super::Foundation::FILETIME, endtime: *const super::super::super::Foundation::FILETIME) -> u32;
         }
-        ::core::mem::transmute(ProcessTrace(::core::mem::transmute(::windows::core::as_ptr_or_null(handlearray)), handlearray.len() as _, ::core::mem::transmute(starttime), ::core::mem::transmute(endtime)))
+        ::core::mem::transmute(ProcessTrace(::core::mem::transmute(handlearray.as_ptr()), handlearray.len() as _, ::core::mem::transmute(starttime), ::core::mem::transmute(endtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4863,7 +4863,7 @@ pub unsafe fn QueryAllTracesA(propertyarray: &mut [*mut EVENT_TRACE_PROPERTIES],
         extern "system" {
             fn QueryAllTracesA(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
         }
-        ::core::mem::transmute(QueryAllTracesA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(propertyarray)), propertyarray.len() as _, ::core::mem::transmute(loggercount)))
+        ::core::mem::transmute(QueryAllTracesA(::core::mem::transmute(propertyarray.as_ptr()), propertyarray.len() as _, ::core::mem::transmute(loggercount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4878,7 +4878,7 @@ pub unsafe fn QueryAllTracesW(propertyarray: &mut [*mut EVENT_TRACE_PROPERTIES],
         extern "system" {
             fn QueryAllTracesW(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
         }
-        ::core::mem::transmute(QueryAllTracesW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(propertyarray)), propertyarray.len() as _, ::core::mem::transmute(loggercount)))
+        ::core::mem::transmute(QueryAllTracesW(::core::mem::transmute(propertyarray.as_ptr()), propertyarray.len() as _, ::core::mem::transmute(loggercount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4930,14 +4930,14 @@ pub unsafe fn QueryTraceW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterTraceGuidsA<'a, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, traceguidreg: &[TRACE_GUID_REGISTRATION], mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
+pub unsafe fn RegisterTraceGuidsA<'a, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, traceguidreg: ::core::option::Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegisterTraceGuidsA(requestaddress: ::windows::core::RawPtr, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: ::windows::core::PCSTR, mofresourcename: ::windows::core::PCSTR, registrationhandle: *mut u64) -> u32;
         }
-        ::core::mem::transmute(RegisterTraceGuidsA(::core::mem::transmute(requestaddress), ::core::mem::transmute(requestcontext), ::core::mem::transmute(controlguid), traceguidreg.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(traceguidreg)), mofimagepath.into_param().abi(), mofresourcename.into_param().abi(), ::core::mem::transmute(registrationhandle)))
+        ::core::mem::transmute(RegisterTraceGuidsA(::core::mem::transmute(requestaddress), ::core::mem::transmute(requestcontext), ::core::mem::transmute(controlguid), traceguidreg.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(traceguidreg.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), mofimagepath.into_param().abi(), mofresourcename.into_param().abi(), ::core::mem::transmute(registrationhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4945,14 +4945,14 @@ pub unsafe fn RegisterTraceGuidsA<'a, Param5: ::windows::core::IntoParam<'a, ::w
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterTraceGuidsW<'a, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, traceguidreg: &[TRACE_GUID_REGISTRATION], mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
+pub unsafe fn RegisterTraceGuidsW<'a, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, traceguidreg: ::core::option::Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegisterTraceGuidsW(requestaddress: ::windows::core::RawPtr, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: ::windows::core::PCWSTR, mofresourcename: ::windows::core::PCWSTR, registrationhandle: *mut u64) -> u32;
         }
-        ::core::mem::transmute(RegisterTraceGuidsW(::core::mem::transmute(requestaddress), ::core::mem::transmute(requestcontext), ::core::mem::transmute(controlguid), traceguidreg.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(traceguidreg)), mofimagepath.into_param().abi(), mofresourcename.into_param().abi(), ::core::mem::transmute(registrationhandle)))
+        ::core::mem::transmute(RegisterTraceGuidsW(::core::mem::transmute(requestaddress), ::core::mem::transmute(requestcontext), ::core::mem::transmute(controlguid), traceguidreg.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(traceguidreg.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), mofimagepath.into_param().abi(), mofresourcename.into_param().abi(), ::core::mem::transmute(registrationhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6680,14 +6680,14 @@ impl ::core::default::Default for TRACE_VERSION_INFO {
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const ::core::ffi::c_void, eventmatchallflags: *const super::super::super::Foundation::BOOLEAN, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
+pub unsafe fn TdhAggregatePayloadFilters<'a, const PARAM0: usize>(payloadfilterptrs: &[*const ::core::ffi::c_void; PARAM0], eventmatchallflags: ::core::option::Option<&[super::super::super::Foundation::BOOLEAN; PARAM0]>, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const ::core::ffi::c_void, eventmatchallflags: *const super::super::super::Foundation::BOOLEAN, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(TdhAggregatePayloadFilters(::core::mem::transmute(payloadfiltercount), ::core::mem::transmute(payloadfilterptrs), ::core::mem::transmute(eventmatchallflags), ::core::mem::transmute(eventfilterdescriptor)))
+        ::core::mem::transmute(TdhAggregatePayloadFilters(PARAM0 as _, ::core::mem::transmute(payloadfilterptrs.as_ptr()), ::core::mem::transmute(eventmatchallflags.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(eventfilterdescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6730,7 +6730,7 @@ pub unsafe fn TdhCreatePayloadFilter<'a, Param2: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn TdhCreatePayloadFilter(providerguid: *const ::windows::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: super::super::super::Foundation::BOOLEAN, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::core::mem::transmute(TdhCreatePayloadFilter(::core::mem::transmute(providerguid), ::core::mem::transmute(eventdescriptor), eventmatchany.into_param().abi(), payloadpredicates.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(payloadpredicates)), ::core::mem::transmute(payloadfilter)))
+        ::core::mem::transmute(TdhCreatePayloadFilter(::core::mem::transmute(providerguid), ::core::mem::transmute(eventdescriptor), eventmatchany.into_param().abi(), payloadpredicates.len() as _, ::core::mem::transmute(payloadpredicates.as_ptr()), ::core::mem::transmute(payloadfilter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6779,14 +6779,14 @@ pub unsafe fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows::core
 }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[inline]
-pub unsafe fn TdhEnumerateProviderFilters(guid: *const ::windows::core::GUID, tdhcontext: &[TDH_CONTEXT], filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32 {
+pub unsafe fn TdhEnumerateProviderFilters(guid: *const ::windows::core::GUID, tdhcontext: ::core::option::Option<&[TDH_CONTEXT]>, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn TdhEnumerateProviderFilters(guid: *const ::windows::core::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32;
         }
-        ::core::mem::transmute(TdhEnumerateProviderFilters(::core::mem::transmute(guid), tdhcontext.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tdhcontext)), ::core::mem::transmute(filtercount), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+        ::core::mem::transmute(TdhEnumerateProviderFilters(::core::mem::transmute(guid), tdhcontext.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(tdhcontext.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(filtercount), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6849,14 +6849,14 @@ pub unsafe fn TdhGetDecodingParameter<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[inline]
-pub unsafe fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontext: &[TDH_CONTEXT], buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32 {
+pub unsafe fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontext: ::core::option::Option<&[TDH_CONTEXT]>, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
         }
-        ::core::mem::transmute(TdhGetEventInformation(::core::mem::transmute(event), tdhcontext.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tdhcontext)), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+        ::core::mem::transmute(TdhGetEventInformation(::core::mem::transmute(event), tdhcontext.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(tdhcontext.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6891,28 +6891,28 @@ pub unsafe fn TdhGetManifestEventInformation(providerguid: *const ::windows::cor
 }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[inline]
-pub unsafe fn TdhGetProperty(pevent: *const EVENT_RECORD, ptdhcontext: &[TDH_CONTEXT], ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], buffersize: u32, pbuffer: *mut u8) -> u32 {
+pub unsafe fn TdhGetProperty(pevent: *const EVENT_RECORD, ptdhcontext: ::core::option::Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], buffersize: u32, pbuffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn TdhGetProperty(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, buffersize: u32, pbuffer: *mut u8) -> u32;
         }
-        ::core::mem::transmute(TdhGetProperty(::core::mem::transmute(pevent), ptdhcontext.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptdhcontext)), ppropertydata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppropertydata)), ::core::mem::transmute(buffersize), ::core::mem::transmute(pbuffer)))
+        ::core::mem::transmute(TdhGetProperty(::core::mem::transmute(pevent), ptdhcontext.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(ptdhcontext.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ppropertydata.len() as _, ::core::mem::transmute(ppropertydata.as_ptr()), ::core::mem::transmute(buffersize), ::core::mem::transmute(pbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 #[inline]
-pub unsafe fn TdhGetPropertySize(pevent: *const EVENT_RECORD, ptdhcontext: &[TDH_CONTEXT], ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], ppropertysize: *mut u32) -> u32 {
+pub unsafe fn TdhGetPropertySize(pevent: *const EVENT_RECORD, ptdhcontext: ::core::option::Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], ppropertysize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn TdhGetPropertySize(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, ppropertysize: *mut u32) -> u32;
         }
-        ::core::mem::transmute(TdhGetPropertySize(::core::mem::transmute(pevent), ptdhcontext.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptdhcontext)), ppropertydata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppropertydata)), ::core::mem::transmute(ppropertysize)))
+        ::core::mem::transmute(TdhGetPropertySize(::core::mem::transmute(pevent), ptdhcontext.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(ptdhcontext.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ppropertydata.len() as _, ::core::mem::transmute(ppropertydata.as_ptr()), ::core::mem::transmute(ppropertysize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -843,7 +843,7 @@ impl IEnhancedStorageSilo {
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
     pub unsafe fn SendCommand(&self, command: u8, pbcommandbuffer: &[u8], pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(command), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbcommandbuffer)), pbcommandbuffer.len() as _, ::core::mem::transmute(pbresponsebuffer), ::core::mem::transmute(pcbresponsebuffer)).ok()
+        (::windows::core::Interface::vtable(self).SendCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(command), ::core::mem::transmute(pbcommandbuffer.as_ptr()), pbcommandbuffer.len() as _, ::core::mem::transmute(pbresponsebuffer), ::core::mem::transmute(pcbresponsebuffer)).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_EnhancedStorage', 'Win32_Devices_PortableDevices'*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]

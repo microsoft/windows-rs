@@ -14,7 +14,10 @@ pub fn gen_param_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut tokens = quote! {};
 
     for (position, param) in params.iter().enumerate() {
-        if param.is_convertible() {
+        if let Some(ArrayInfo::RelativePtr(None)) = param.array_info {
+            let name: TokenStream = format!("PARAM{}", position).into();
+            tokens.combine(&quote! { const #name: usize, });
+        } else if param.is_convertible() {
             let name: TokenStream = format!("Param{}", position).into();
             let into = gen_element_name(&param.ty, gen);
             tokens.combine(&quote! { #name: ::windows::core::IntoParam<'a, #into>, });

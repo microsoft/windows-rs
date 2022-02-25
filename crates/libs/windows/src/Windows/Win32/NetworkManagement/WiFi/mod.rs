@@ -11155,7 +11155,7 @@ pub struct IEnumDot11AdHocInterfaces(::windows::core::IUnknown);
 impl IEnumDot11AdHocInterfaces {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocInterface>], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -11226,7 +11226,7 @@ pub struct IEnumDot11AdHocNetworks(::windows::core::IUnknown);
 impl IEnumDot11AdHocNetworks {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocNetwork>], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -11297,7 +11297,7 @@ pub struct IEnumDot11AdHocSecuritySettings(::windows::core::IUnknown);
 impl IEnumDot11AdHocSecuritySettings {
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocSecuritySettings>], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -15741,7 +15741,7 @@ pub unsafe fn WlanReasonCodeToString(dwreasoncode: u32, pstringbuffer: &[u16], p
         extern "system" {
             fn WlanReasonCodeToString(dwreasoncode: u32, dwbuffersize: u32, pstringbuffer: ::windows::core::PCWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
         }
-        ::core::mem::transmute(WlanReasonCodeToString(::core::mem::transmute(dwreasoncode), pstringbuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pstringbuffer)), ::core::mem::transmute(preserved)))
+        ::core::mem::transmute(WlanReasonCodeToString(::core::mem::transmute(dwreasoncode), pstringbuffer.len() as _, ::core::mem::transmute(pstringbuffer.as_ptr()), ::core::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15951,7 +15951,7 @@ pub unsafe fn WlanSetProfileList<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn WlanSetProfileList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows::core::GUID, dwitems: u32, strprofilenames: *const ::windows::core::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
         }
-        ::core::mem::transmute(WlanSetProfileList(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), strprofilenames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(strprofilenames)), ::core::mem::transmute(preserved)))
+        ::core::mem::transmute(WlanSetProfileList(hclienthandle.into_param().abi(), ::core::mem::transmute(pinterfaceguid), strprofilenames.len() as _, ::core::mem::transmute(strprofilenames.as_ptr()), ::core::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

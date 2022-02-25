@@ -47,14 +47,14 @@ pub unsafe fn CryptSIPGetCaps(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP
 #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation', 'Win32_Security_Cryptography_Catalog'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: &[u8], pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: ::core::option::Option<&[u8]>, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CryptSIPGetSealedDigest(::core::mem::transmute(psubjectinfo), ::core::mem::transmute(::windows::core::as_ptr_or_null(psig)), psig.len() as _, ::core::mem::transmute(pbdigest), ::core::mem::transmute(pcbdigest)))
+        ::core::mem::transmute(CryptSIPGetSealedDigest(::core::mem::transmute(psubjectinfo), ::core::mem::transmute(psig.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), psig.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(pbdigest), ::core::mem::transmute(pcbdigest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

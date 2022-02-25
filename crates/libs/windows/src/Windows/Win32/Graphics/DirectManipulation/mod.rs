@@ -760,15 +760,15 @@ impl IDirectManipulationContent {
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn GetOutputTransform(&self, matrix: &mut [f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOutputTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetOutputTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn GetContentTransform(&self, matrix: &mut [f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetContentTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetContentTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn SyncContentTransform(&self, matrix: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SyncContentTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SyncContentTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
 }
 impl ::core::convert::From<IDirectManipulationContent> for ::windows::core::IUnknown {
@@ -1490,8 +1490,8 @@ impl IDirectManipulationPrimaryContent {
         (::windows::core::Interface::vtable(self).SetSnapInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(motion), ::core::mem::transmute(interval), ::core::mem::transmute(offset)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
-    pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSnapPoints)(::core::mem::transmute_copy(self), ::core::mem::transmute(motion), ::core::mem::transmute(::windows::core::as_ptr_or_null(points)), points.len() as _).ok()
+    pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: ::core::option::Option<&[f32]>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSnapPoints)(::core::mem::transmute_copy(self), ::core::mem::transmute(motion), ::core::mem::transmute(points.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), points.as_ref().map_or(0, |value| value.len()) as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn SetSnapType(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> ::windows::core::Result<()> {
@@ -1515,7 +1515,7 @@ impl IDirectManipulationPrimaryContent {
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn GetInertiaEndTransform(&self, matrix: &mut [f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetInertiaEndTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetInertiaEndTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn GetCenterPoint(&self, centerx: *mut f32, centery: *mut f32) -> ::windows::core::Result<()> {
@@ -1756,11 +1756,11 @@ impl IDirectManipulationViewport {
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn SetViewportTransform(&self, matrix: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetViewportTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetViewportTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn SyncDisplayTransform(&self, matrix: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SyncDisplayTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SyncDisplayTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn GetPrimaryContent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -1966,11 +1966,11 @@ impl IDirectManipulationViewport2 {
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn SetViewportTransform(&self, matrix: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetViewportTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).base.SetViewportTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn SyncDisplayTransform(&self, matrix: &[f32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SyncDisplayTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(matrix)), matrix.len() as _).ok()
+        (::windows::core::Interface::vtable(self).base.SyncDisplayTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
     pub unsafe fn GetPrimaryContent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {

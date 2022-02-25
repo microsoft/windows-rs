@@ -1060,7 +1060,7 @@ pub unsafe fn LdapUTF8ToUnicode(lpsrcstr: &[u8], lpdeststr: &mut [u16]) -> i32 {
         extern "system" {
             fn LdapUTF8ToUnicode(lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32) -> i32;
         }
-        ::core::mem::transmute(LdapUTF8ToUnicode(::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdeststr)), lpdeststr.len() as _))
+        ::core::mem::transmute(LdapUTF8ToUnicode(::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1074,7 +1074,7 @@ pub unsafe fn LdapUnicodeToUTF8(lpsrcstr: &[u16], lpdeststr: &mut [u8]) -> i32 {
         extern "system" {
             fn LdapUnicodeToUTF8(lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpdeststr: ::windows::core::PSTR, cchdest: i32) -> i32;
         }
-        ::core::mem::transmute(LdapUnicodeToUTF8(::core::mem::transmute(::windows::core::as_ptr_or_null(lpsrcstr)), lpsrcstr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdeststr)), lpdeststr.len() as _))
+        ::core::mem::transmute(LdapUnicodeToUTF8(::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

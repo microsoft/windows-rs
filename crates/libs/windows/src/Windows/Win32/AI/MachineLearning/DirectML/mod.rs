@@ -7116,12 +7116,12 @@ impl IDMLBindingTable {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-    pub unsafe fn BindInputs(&self, bindings: &[DML_BINDING_DESC]) {
-        (::windows::core::Interface::vtable(self).BindInputs)(::core::mem::transmute_copy(self), bindings.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)))
+    pub unsafe fn BindInputs(&self, bindings: ::core::option::Option<&[DML_BINDING_DESC]>) {
+        (::windows::core::Interface::vtable(self).BindInputs)(::core::mem::transmute_copy(self), bindings.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(bindings.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-    pub unsafe fn BindOutputs(&self, bindings: &[DML_BINDING_DESC]) {
-        (::windows::core::Interface::vtable(self).BindOutputs)(::core::mem::transmute_copy(self), bindings.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(bindings)))
+    pub unsafe fn BindOutputs(&self, bindings: ::core::option::Option<&[DML_BINDING_DESC]>) {
+        (::windows::core::Interface::vtable(self).BindOutputs)(::core::mem::transmute_copy(self), bindings.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(bindings.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn BindTemporaryResource(&self, binding: *const DML_BINDING_DESC) {
@@ -7599,9 +7599,9 @@ impl IDMLDevice {
         (::windows::core::Interface::vtable(self).CompileOperator)(::core::mem::transmute_copy(self), op.into_param().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-    pub unsafe fn CreateOperatorInitializer<T: ::windows::core::Interface>(&self, operators: &[::core::option::Option<IDMLCompiledOperator>]) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateOperatorInitializer<T: ::windows::core::Interface>(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateOperatorInitializer)(::core::mem::transmute_copy(self), operators.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(operators)), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateOperatorInitializer)(::core::mem::transmute_copy(self), operators.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(operators.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CreateCommandRecorder<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -7616,11 +7616,11 @@ impl IDMLDevice {
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Evict)(::core::mem::transmute_copy(self), ppobjects.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects))).ok()
+        (::windows::core::Interface::vtable(self).Evict)(::core::mem::transmute_copy(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeResident)(::core::mem::transmute_copy(self), ppobjects.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects))).ok()
+        (::windows::core::Interface::vtable(self).MakeResident)(::core::mem::transmute_copy(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()> {
@@ -7743,9 +7743,9 @@ impl IDMLDevice1 {
         (::windows::core::Interface::vtable(self).base.CompileOperator)(::core::mem::transmute_copy(self), op.into_param().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-    pub unsafe fn CreateOperatorInitializer<T: ::windows::core::Interface>(&self, operators: &[::core::option::Option<IDMLCompiledOperator>]) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateOperatorInitializer<T: ::windows::core::Interface>(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base.CreateOperatorInitializer)(::core::mem::transmute_copy(self), operators.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(operators)), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.CreateOperatorInitializer)(::core::mem::transmute_copy(self), operators.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(operators.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn CreateCommandRecorder<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -7760,11 +7760,11 @@ impl IDMLDevice1 {
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Evict)(::core::mem::transmute_copy(self), ppobjects.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects))).ok()
+        (::windows::core::Interface::vtable(self).base.Evict)(::core::mem::transmute_copy(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.MakeResident)(::core::mem::transmute_copy(self), ppobjects.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppobjects))).ok()
+        (::windows::core::Interface::vtable(self).base.MakeResident)(::core::mem::transmute_copy(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()> {
@@ -8309,8 +8309,8 @@ impl IDMLOperatorInitializer {
         result__
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
-    pub unsafe fn Reset(&self, operators: &[::core::option::Option<IDMLCompiledOperator>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self), operators.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(operators))).ok()
+    pub unsafe fn Reset(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self), operators.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(operators.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))).ok()
     }
 }
 impl ::core::convert::From<IDMLOperatorInitializer> for ::windows::core::IUnknown {

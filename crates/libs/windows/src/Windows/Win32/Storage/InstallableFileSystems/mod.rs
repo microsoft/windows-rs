@@ -748,7 +748,7 @@ pub unsafe fn FilterGetDosName<'a, Param0: ::windows::core::IntoParam<'a, ::wind
         extern "system" {
             fn FilterGetDosName(lpvolumename: ::windows::core::PCWSTR, lpdosname: ::windows::core::PWSTR, dwdosnamebuffersize: u32) -> ::windows::core::HRESULT;
         }
-        FilterGetDosName(lpvolumename.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpdosname)), lpdosname.len() as _).ok()
+        FilterGetDosName(lpvolumename.into_param().abi(), ::core::mem::transmute(lpdosname.as_ptr()), lpdosname.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

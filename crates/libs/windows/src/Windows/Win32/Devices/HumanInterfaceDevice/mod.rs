@@ -8707,7 +8707,7 @@ pub unsafe fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, 
         extern "system" {
             fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *const HIDP_BUTTON_ARRAY_DATA, buttondatalength: u16, preparseddata: isize, report: ::windows::core::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_SetButtonArray(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(::windows::core::as_ptr_or_null(buttondata)), buttondata.len() as _, ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
+        HidP_SetButtonArray(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(buttondata.as_ptr()), buttondata.len() as _, ::core::mem::transmute(preparseddata), ::core::mem::transmute(report), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8797,7 +8797,7 @@ pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], key
         extern "system" {
             fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: ::windows::core::RawPtr, insertcodescontext: *const ::core::ffi::c_void) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_TranslateUsagesToI8042ScanCodes(::core::mem::transmute(::windows::core::as_ptr_or_null(changedusagelist)), changedusagelist.len() as _, ::core::mem::transmute(keyaction), ::core::mem::transmute(modifierstate), ::core::mem::transmute(insertcodesprocedure), ::core::mem::transmute(insertcodescontext)).ok()
+        HidP_TranslateUsagesToI8042ScanCodes(::core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len() as _, ::core::mem::transmute(keyaction), ::core::mem::transmute(modifierstate), ::core::mem::transmute(insertcodesprocedure), ::core::mem::transmute(insertcodescontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8820,14 +8820,14 @@ pub unsafe fn HidP_UnsetUsages<'a, Param6: ::windows::core::IntoParam<'a, ::wind
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_UsageListDifference(previoususagelist: &[u16], currentusagelist: &[u16], breakusagelist: &mut [u16], makeusagelist: &mut [u16]) -> ::windows::core::Result<()> {
+pub unsafe fn HidP_UsageListDifference<'a, const PARAM4: usize>(previoususagelist: &[u16; PARAM4], currentusagelist: &[u16; PARAM4], breakusagelist: &mut [u16; PARAM4], makeusagelist: &mut [u16; PARAM4]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_UsageListDifference(::core::mem::transmute(::windows::core::as_ptr_or_null(previoususagelist)), ::core::mem::transmute(::windows::core::as_ptr_or_null(currentusagelist)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(breakusagelist)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(makeusagelist)), makeusagelist.len() as _).ok()
+        HidP_UsageListDifference(::core::mem::transmute(previoususagelist.as_ptr()), ::core::mem::transmute(currentusagelist.as_ptr()), ::core::mem::transmute(breakusagelist.as_ptr()), ::core::mem::transmute(makeusagelist.as_ptr()), PARAM4 as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

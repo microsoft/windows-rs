@@ -251,7 +251,7 @@ impl BSTR {
         if value.is_empty() {
             return Self(::core::ptr::null_mut());
         }
-        unsafe { SysAllocStringLen(value) }
+        unsafe { SysAllocStringLen(Some(value)) }
     }
     pub fn as_wide(&self) -> &[u16] {
         if self.0.is_null() {
@@ -12973,14 +12973,14 @@ pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, :
 }
 #[doc = "*Required features: 'Win32_Foundation'*"]
 #[inline]
-pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
+pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> BSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> BSTR;
         }
-        ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _))
+        ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(strin.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), strin.as_ref().map_or(0, |value| value.len()) as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

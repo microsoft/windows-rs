@@ -663,7 +663,7 @@ pub unsafe fn DdqGetDiagnosticRecordBinaryDistribution<'a, Param0: ::windows::co
         extern "system" {
             fn DdqGetDiagnosticRecordBinaryDistribution(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: *const ::windows::core::PWSTR, producernamecount: u32, topnbinaries: u32, binarystats: *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS, statcount: *mut u32) -> ::windows::core::HRESULT;
         }
-        DdqGetDiagnosticRecordBinaryDistribution(hsession.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(producernames)), producernames.len() as _, ::core::mem::transmute(topnbinaries), ::core::mem::transmute(binarystats), ::core::mem::transmute(statcount)).ok()
+        DdqGetDiagnosticRecordBinaryDistribution(hsession.into_param().abi(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, ::core::mem::transmute(topnbinaries), ::core::mem::transmute(binarystats), ::core::mem::transmute(statcount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -874,7 +874,7 @@ pub unsafe fn DdqGetDiagnosticRecordSummary<'a, Param0: ::windows::core::IntoPar
             fn DdqGetDiagnosticRecordSummary(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: *const ::windows::core::PWSTR, producernamecount: u32, generalstats: *mut DIAGNOSTIC_DATA_GENERAL_STATS) -> ::windows::core::HRESULT;
         }
         let mut result__: DIAGNOSTIC_DATA_GENERAL_STATS = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordSummary(hsession.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(producernames)), producernames.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<DIAGNOSTIC_DATA_GENERAL_STATS>(result__)
+        DdqGetDiagnosticRecordSummary(hsession.into_param().abi(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<DIAGNOSTIC_DATA_GENERAL_STATS>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -888,7 +888,7 @@ pub unsafe fn DdqGetDiagnosticRecordTagDistribution<'a, Param0: ::windows::core:
         extern "system" {
             fn DdqGetDiagnosticRecordTagDistribution(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: *const ::windows::core::PWSTR, producernamecount: u32, tagstats: *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS, statcount: *mut u32) -> ::windows::core::HRESULT;
         }
-        DdqGetDiagnosticRecordTagDistribution(hsession.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(producernames)), producernames.len() as _, ::core::mem::transmute(tagstats), ::core::mem::transmute(statcount)).ok()
+        DdqGetDiagnosticRecordTagDistribution(hsession.into_param().abi(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, ::core::mem::transmute(tagstats), ::core::mem::transmute(statcount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

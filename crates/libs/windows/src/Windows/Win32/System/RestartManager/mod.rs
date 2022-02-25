@@ -452,14 +452,22 @@ pub unsafe fn RmJoinSession<'a, Param1: ::windows::core::IntoParam<'a, ::windows
 #[doc = "*Required features: 'Win32_System_RestartManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: &[::windows::core::PWSTR], rgapplications: &[RM_UNIQUE_PROCESS], rgsservicenames: &[::windows::core::PWSTR]) -> u32 {
+pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: ::core::option::Option<&[::windows::core::PWSTR]>, rgapplications: ::core::option::Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: ::core::option::Option<&[::windows::core::PWSTR]>) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RmRegisterResources(dwsessionhandle: u32, nfiles: u32, rgsfilenames: *const ::windows::core::PWSTR, napplications: u32, rgapplications: *const RM_UNIQUE_PROCESS, nservices: u32, rgsservicenames: *const ::windows::core::PWSTR) -> u32;
         }
-        ::core::mem::transmute(RmRegisterResources(::core::mem::transmute(dwsessionhandle), rgsfilenames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsfilenames)), rgapplications.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgapplications)), rgsservicenames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsservicenames))))
+        ::core::mem::transmute(RmRegisterResources(
+            ::core::mem::transmute(dwsessionhandle),
+            rgsfilenames.as_ref().map_or(0, |value| value.len()) as _,
+            ::core::mem::transmute(rgsfilenames.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
+            rgapplications.as_ref().map_or(0, |value| value.len()) as _,
+            ::core::mem::transmute(rgapplications.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
+            rgsservicenames.as_ref().map_or(0, |value| value.len()) as _,
+            ::core::mem::transmute(rgsservicenames.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
