@@ -5,7 +5,7 @@ under the org are considered "stable". Some crates such as `windows-sys` might
 be closer than others, but until a crate reaches `1.0.0` it may be subject to
 change.
 
-## Release schedule and versioning
+## Release Schedule and Versioning
 
 We're set to release new versions of crates every 3 weeks on Tuesdays. Currently all crates
 are pre-1.0 and have their semver-minor version bumped on release. We are
@@ -16,14 +16,17 @@ update this section with our versioning strategy.
 
 All crates in `windows-rs` interact with [Windows Metadata (`.winmd`)
 files](https://github.com/microsoft/win32metadata) which describe the various
-windows APIs. All Windows APIs can be split into two categories:
-`win32` APIs and `WinRT/COM` APIs. The way we bind to these APIs is different,
+Windows APIs. All Windows APIs can be split into two categories:
+`win32/COM` APIs and `WinRT` APIs. The way we bind to these APIs is different,
 but in the metadata they also have different stability guarantees:
 
 | Metadata category | Stable? |
 |-------------------|---------|
-| `Win32`           | ❌       |
-| `WinRT/COM`       | ✅       |
+| `Win32/COM`       | ❌       |
+| `WinRT`           | ✅       |
+
+When metadata is marked as "stable" it means that it will only ever be extended.
+Information will not be changed or removed.
 
 ## Crate Stability
 
@@ -40,16 +43,14 @@ two factors which both must be stable for the crate to be stable:
 | **`windows-sys`**     | ✅                | ❌                    | ❌ (but we're close) | ❌             |
 | **`windows-bindgen`** | ✅                | ✅                    | ❌                   | ❌             |
 
-Because of the scope of the project (`230.000+` unique types), marking anything
-as "stable" is a difficult task. Despite that, it is our explicit intent to
-eventually achieve that. Over time we hope to gradually mark more APIs as
-stable, propose concrete plans how to get to `1.0.0` stable releases for all
-crates, and ensure that any breakage before then is well-communicated to reduce
-friction.
+Because of the scope of the project (`230_000+` unique types), marking anything
+as "stable" is a difficult task. While we aspire to eventually provide stable
+versions of crates in the future, it is still too early to say anything
+meaningful of what that might look like, or when that might happen.
 
 ## Minimum Supported Rust Version (MSRV)
 
-The crates in `windows-rs` are tested to work on the latest _stable_ version of
+The crates in `windows-rs` are only guaranteed to work on the latest _stable_ version of
 Rust. We may introduce MSRV requirements once individual crates reach 1.0
 versions. But right now we're expecting to be able to significantly improve our
 APIs based on features expected to land in upcoming versions of Rust, and
