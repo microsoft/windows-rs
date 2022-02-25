@@ -25,6 +25,15 @@ fn gen_sys_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
+
+    if def.name().starts_with("Disp") && def.methods().next().is_none() {
+        if let Some(guid) = GUID::from_attributes(def.attributes()) {
+            let value = gen_guid(&guid, gen);
+            let guid = gen_element_name(&Type::GUID, gen);
+            return quote! { pub const #name: #guid = #value; };
+        }
+    }
+
     let is_exclusive = def.is_exclusive();
     let phantoms = gen_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
