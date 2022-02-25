@@ -78,6 +78,7 @@ jobs:
         cargo clippy -p windows-tokens &&
         cargo clippy -p windows &&
         cargo clippy -p sample_com_uri &&
+        cargo clippy -p sample_consent &&
         cargo clippy -p sample_core_app &&
         cargo clippy -p sample_create_window &&
         cargo clippy -p sample_create_window_sys &&

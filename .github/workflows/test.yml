@@ -111,6 +111,7 @@ jobs:
       run: |
         cargo test --target ${{ matrix.target }} -p windows-implement &&
         cargo test --target ${{ matrix.target }} -p sample_com_uri &&
+        cargo test --target ${{ matrix.target }} -p sample_consent &&
         cargo test --target ${{ matrix.target }} -p sample_core_app &&
         cargo test --target ${{ matrix.target }} -p sample_create_window &&
         cargo test --target ${{ matrix.target }} -p sample_create_window_sys &&
