@@ -345,7 +345,7 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
                 } else {
                     quote! { ::core::mem::transmute(#name.as_ptr()), }
                 };
-    
+
                 tokens.combine(&signature);
                 continue;
             }
