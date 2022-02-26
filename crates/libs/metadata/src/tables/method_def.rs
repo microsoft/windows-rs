@@ -104,7 +104,7 @@ impl MethodDef {
         let mut return_param = None;
         let preserve_sig = self.preserve_sig();
 
-        let mut params: Vec::<MethodParam> = params
+        let mut params: Vec<MethodParam> = params
             .filter_map(|def| {
                 if def.sequence() == 0 {
                     return_param = Some(def);
@@ -117,7 +117,7 @@ impl MethodDef {
                 }
             })
             .collect();
-                
+
         for position in 0..params.len() {
             // Point len params back to the corresponding ptr params.
             if let Some(ArrayInfo::RelativeLen(relative)) = params[position].array_info {
