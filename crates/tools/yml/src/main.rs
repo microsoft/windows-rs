@@ -19,7 +19,7 @@ env:
 jobs:
   test:
     name: Test
-    runs-on: windows-latest
+    runs-on: windows-2019
 
     strategy:
       matrix:
@@ -140,7 +140,7 @@ jobs:
   
   cargo_fmt:
     name: Check cargo formatting
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -149,7 +149,7 @@ jobs:
 
   cargo_doc:
     name: Check cargo docs
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -158,7 +158,7 @@ jobs:
 
   generation:
     name: Check generation of `tool_${{ matrix.generator }}`
-    runs-on: windows-latest
+    runs-on: windows-2019
     strategy:
       matrix:
         generator: [bindings, windows, sys, yml]
@@ -173,7 +173,7 @@ jobs:
 
   cargo_sys:
     name: Check windows-sys
-    runs-on: windows-latest
+    runs-on: windows-2019
     strategy:
       matrix:
         rust: [1.46.0, stable, nightly]
@@ -187,7 +187,7 @@ jobs:
 
   cargo_clippy:
     name: Check clippy
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
     - name: Checkout
       uses: actions/checkout@v2
