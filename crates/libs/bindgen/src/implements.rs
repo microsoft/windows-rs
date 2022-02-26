@@ -5,6 +5,10 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         return quote! {};
     }
 
+    if def.name().starts_with("Disp") && def.methods().next().is_none() {
+        return quote! {};
+    }
+
     let type_ident = gen_ident(def.name());
     let impl_ident = type_ident.join("_Impl");
     let vtbl_ident = type_ident.join("_Vtbl");
