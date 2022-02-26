@@ -17,7 +17,7 @@ update this section with our versioning strategy.
 All crates in `windows-rs` interact with [Windows Metadata (`.winmd`)
 files](https://github.com/microsoft/win32metadata) which describe the various
 Windows APIs. All Windows APIs can be split into two categories:
-`win32/COM` APIs and `WinRT` APIs. The way we bind to these APIs is different,
+`Win32/COM` APIs and `WinRT` APIs. The way we bind to these APIs is different,
 but in the metadata they also have different stability guarantees:
 
 | Metadata category | Stable? |
