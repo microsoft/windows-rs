@@ -15288,7 +15288,7 @@ impl IStillImageW {
     }
     #[doc = "*Required features: 'Win32_Devices_Fax'*"]
     pub unsafe fn GetSTILaunchInformation(&self, pwszdevicename: &mut [u16; 128], pdweventcode: *mut u32, pwszeventname: &mut [u16; 128]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSTILaunchInformation)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwszdevicename.as_mut_ptr()), ::core::mem::transmute(pdweventcode), ::core::mem::transmute(pwszeventname.as_mut_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetSTILaunchInformation)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwszdevicename.as_ptr()), ::core::mem::transmute(pdweventcode), ::core::mem::transmute(pwszeventname.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_Devices_Fax'*"]
     pub unsafe fn RegisterLaunchApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszappname: Param0, pwszcommandline: Param1) -> ::windows::core::Result<()> {

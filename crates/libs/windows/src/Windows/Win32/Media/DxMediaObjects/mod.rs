@@ -33,7 +33,7 @@ pub unsafe fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: &mut [u
         extern "system" {
             fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        DMOGetName(::core::mem::transmute(clsiddmo), ::core::mem::transmute(szname.as_mut_ptr())).ok()
+        DMOGetName(::core::mem::transmute(clsiddmo), ::core::mem::transmute(szname.as_ptr())).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -13206,7 +13206,7 @@ pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: &mut [u8; 256])
         extern "system" {
             fn if_indextoname(interfaceindex: u32, interfacename: ::windows::core::PSTR) -> ::windows::core::PSTR;
         }
-        ::core::mem::transmute(if_indextoname(::core::mem::transmute(interfaceindex), ::core::mem::transmute(interfacename.as_mut_ptr())))
+        ::core::mem::transmute(if_indextoname(::core::mem::transmute(interfaceindex), ::core::mem::transmute(interfacename.as_ptr())))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -28563,7 +28563,7 @@ pub unsafe fn tapiGetLocationInfo(lpszcountrycode: &mut [u8; 8], lpszcitycode: &
         extern "system" {
             fn tapiGetLocationInfo(lpszcountrycode: ::windows::core::PSTR, lpszcitycode: ::windows::core::PSTR) -> i32;
         }
-        ::core::mem::transmute(tapiGetLocationInfo(::core::mem::transmute(lpszcountrycode.as_mut_ptr()), ::core::mem::transmute(lpszcitycode.as_mut_ptr())))
+        ::core::mem::transmute(tapiGetLocationInfo(::core::mem::transmute(lpszcountrycode.as_ptr()), ::core::mem::transmute(lpszcitycode.as_ptr())))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -28577,7 +28577,7 @@ pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: &mut [u8; 8], lpszcitycode: 
         extern "system" {
             fn tapiGetLocationInfoA(lpszcountrycode: ::windows::core::PSTR, lpszcitycode: ::windows::core::PSTR) -> i32;
         }
-        ::core::mem::transmute(tapiGetLocationInfoA(::core::mem::transmute(lpszcountrycode.as_mut_ptr()), ::core::mem::transmute(lpszcitycode.as_mut_ptr())))
+        ::core::mem::transmute(tapiGetLocationInfoA(::core::mem::transmute(lpszcountrycode.as_ptr()), ::core::mem::transmute(lpszcitycode.as_ptr())))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -28591,7 +28591,7 @@ pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: &mut [u16; 8], lpszcitycode
         extern "system" {
             fn tapiGetLocationInfoW(lpszcountrycodew: ::windows::core::PWSTR, lpszcitycodew: ::windows::core::PWSTR) -> i32;
         }
-        ::core::mem::transmute(tapiGetLocationInfoW(::core::mem::transmute(lpszcountrycodew.as_mut_ptr()), ::core::mem::transmute(lpszcitycodew.as_mut_ptr())))
+        ::core::mem::transmute(tapiGetLocationInfoW(::core::mem::transmute(lpszcountrycodew.as_ptr()), ::core::mem::transmute(lpszcitycodew.as_ptr())))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
