@@ -7,6 +7,9 @@ impl PCSTR {
     pub fn is_null(&self) -> bool {
         self.0.is_null()
     }
+    pub fn as_ptr(self) -> *const u8 {
+        self.0
+    }
 }
 impl ::core::default::Default for PCSTR {
     fn default() -> Self {
@@ -30,6 +33,11 @@ impl ::core::fmt::Debug for PCSTR {
         f.debug_tuple("PCSTR").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<*const u8> for PCSTR {
+    fn from(value: *const u8) -> Self {
+        PCSTR(value)
+    }
+}
 unsafe impl Abi for PCSTR {
     type Abi = Self;
 
@@ -46,6 +54,11 @@ unsafe impl Abi for PCSTR {
 impl<'a> IntoParam<'a, PCSTR> for &str {
     fn into_param(self) -> Param<'a, PCSTR> {
         Param::Boxed(PCSTR(alloc::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<alloc::vec::Vec<u8>>().into_boxed_slice()) as _))
+    }
+}
+impl<'a> IntoParam<'a, PCSTR> for *const u8 {
+    fn into_param(self) -> ::windows::core::Param<'a, PCSTR> {
+        ::windows::core::Param::Owned(self.into())
     }
 }
 #[cfg(feature = "alloc")]

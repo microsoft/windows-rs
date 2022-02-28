@@ -4,7 +4,6 @@ use windows::core::Array;
 fn empty() {
     let empty = Array::<bool>::new();
     assert!(empty.is_empty());
-    assert!(empty.is_empty());
 }
 
 #[test]
