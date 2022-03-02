@@ -3,8 +3,9 @@ use bindings::*;
 
 /// Provides low-level access to a COM interface.
 ///
-/// This trait is automatically used by the generated bindings and should not be
-/// used directly.
+/// This trait is automatically implemented by the generated bindings and should not be
+/// implemented manually.
+///
 /// # Safety
 pub unsafe trait Interface: Sized {
     #[doc(hidden)]
