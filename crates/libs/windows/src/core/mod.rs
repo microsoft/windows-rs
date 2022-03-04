@@ -76,7 +76,6 @@ pub use weak::*;
 pub use weak_ref_count::*;
 
 /// A specialized [`Result`] type that provides Windows error information.
-#[must_use]
 pub type Result<T> = core::result::Result<T, Error>;
 
 #[doc(hidden)]
