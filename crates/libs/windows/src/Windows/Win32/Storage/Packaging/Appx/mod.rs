@@ -3736,7 +3736,7 @@ impl IAppxEncryptedPackageWriter2 {
     #[doc = "*Required features: 'Win32_Storage_Packaging_Appx', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadFilesEncrypted(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPayloadFilesEncrypted)(::core::mem::transmute_copy(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), ::core::mem::transmute(memorylimit)).ok()
+        (::windows::core::Interface::vtable(self).AddPayloadFilesEncrypted)(::core::mem::transmute_copy(self), payloadfiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(payloadfiles)), ::core::mem::transmute(memorylimit)).ok()
     }
 }
 impl ::core::convert::From<IAppxEncryptedPackageWriter2> for ::windows::core::IUnknown {
@@ -7577,7 +7577,7 @@ impl IAppxPackageWriter3 {
     #[doc = "*Required features: 'Win32_Storage_Packaging_Appx', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPayloadFiles(&self, payloadfiles: &[APPX_PACKAGE_WRITER_PAYLOAD_STREAM], memorylimit: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPayloadFiles)(::core::mem::transmute_copy(self), payloadfiles.len() as _, ::core::mem::transmute(payloadfiles.as_ptr()), ::core::mem::transmute(memorylimit)).ok()
+        (::windows::core::Interface::vtable(self).AddPayloadFiles)(::core::mem::transmute_copy(self), payloadfiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(payloadfiles)), ::core::mem::transmute(memorylimit)).ok()
     }
 }
 impl ::core::convert::From<IAppxPackageWriter3> for ::windows::core::IUnknown {

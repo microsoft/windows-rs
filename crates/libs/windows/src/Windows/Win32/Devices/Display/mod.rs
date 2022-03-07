@@ -1427,7 +1427,7 @@ pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<'a, Param0: ::windows::cor
         extern "system" {
             fn CapabilitiesRequestAndCapabilitiesReply(hmonitor: super::super::Foundation::HANDLE, pszasciicapabilitiesstring: ::windows::core::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32;
         }
-        ::core::mem::transmute(CapabilitiesRequestAndCapabilitiesReply(hmonitor.into_param().abi(), ::core::mem::transmute(pszasciicapabilitiesstring.as_ptr()), pszasciicapabilitiesstring.len() as _))
+        ::core::mem::transmute(CapabilitiesRequestAndCapabilitiesReply(hmonitor.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszasciicapabilitiesstring)), pszasciicapabilitiesstring.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3893,7 +3893,7 @@ pub unsafe fn DestroyPhysicalMonitors(pphysicalmonitorarray: &[PHYSICAL_MONITOR]
         extern "system" {
             fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *const PHYSICAL_MONITOR) -> i32;
         }
-        ::core::mem::transmute(DestroyPhysicalMonitors(pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr())))
+        ::core::mem::transmute(DestroyPhysicalMonitors(pphysicalmonitorarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pphysicalmonitorarray))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6926,7 +6926,7 @@ pub unsafe fn GetPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn GetPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> i32;
         }
-        ::core::mem::transmute(GetPhysicalMonitorsFromHMONITOR(hmonitor.into_param().abi(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr())))
+        ::core::mem::transmute(GetPhysicalMonitorsFromHMONITOR(hmonitor.into_param().abi(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pphysicalmonitorarray))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6941,7 +6941,7 @@ pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::cor
         extern "system" {
             fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: ::windows::core::RawPtr, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows::core::HRESULT;
         }
-        GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok()
+        GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), pphysicalmonitorarray.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pphysicalmonitorarray))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10933,14 +10933,14 @@ pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERE
 #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDisplayConfig(patharray: ::core::option::Option<&[DISPLAYCONFIG_PATH_INFO]>, modeinfoarray: ::core::option::Option<&[DISPLAYCONFIG_MODE_INFO]>, flags: u32) -> i32 {
+pub unsafe fn SetDisplayConfig(patharray: &[DISPLAYCONFIG_PATH_INFO], modeinfoarray: &[DISPLAYCONFIG_MODE_INFO], flags: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: u32, modeinfoarray: *const DISPLAYCONFIG_MODE_INFO, flags: u32) -> i32;
         }
-        ::core::mem::transmute(SetDisplayConfig(patharray.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(patharray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), modeinfoarray.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(modeinfoarray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(flags)))
+        ::core::mem::transmute(SetDisplayConfig(patharray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(patharray)), modeinfoarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(modeinfoarray)), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

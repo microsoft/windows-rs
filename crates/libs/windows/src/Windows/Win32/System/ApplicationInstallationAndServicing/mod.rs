@@ -1134,7 +1134,7 @@ pub unsafe fn CreatePatchFileByHandlesEx<'a, Param2: ::windows::core::IntoParam<
         extern "system" {
             fn CreatePatchFileByHandlesEx(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_H, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreatePatchFileByHandlesEx(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilehandle.into_param().abi(), patchfilehandle.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
+        ::core::mem::transmute(CreatePatchFileByHandlesEx(oldfileinfoarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(oldfileinfoarray)), newfilehandle.into_param().abi(), patchfilehandle.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1149,7 +1149,7 @@ pub unsafe fn CreatePatchFileExA<'a, Param2: ::windows::core::IntoParam<'a, ::wi
         extern "system" {
             fn CreatePatchFileExA(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_A, newfilename: ::windows::core::PCSTR, patchfilename: ::windows::core::PCSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreatePatchFileExA(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.into_param().abi(), patchfilename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
+        ::core::mem::transmute(CreatePatchFileExA(oldfileinfoarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(oldfileinfoarray)), newfilename.into_param().abi(), patchfilename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1164,7 +1164,7 @@ pub unsafe fn CreatePatchFileExW<'a, Param2: ::windows::core::IntoParam<'a, ::wi
         extern "system" {
             fn CreatePatchFileExW(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_W, newfilename: ::windows::core::PCWSTR, patchfilename: ::windows::core::PCWSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreatePatchFileExW(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.into_param().abi(), patchfilename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
+        ::core::mem::transmute(CreatePatchFileExW(oldfileinfoarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(oldfileinfoarray)), newfilename.into_param().abi(), patchfilename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2007,24 +2007,14 @@ pub unsafe fn GetDeltaSignatureW<'a, Param2: ::windows::core::IntoParam<'a, ::wi
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(filename: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFilePatchSignatureA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(filename: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetFilePatchSignatureA(filename: ::windows::core::PCSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetFilePatchSignatureA(
-            filename.into_param().abi(),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ignorerangearray.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(ignorerangearray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            retainrangearray.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(retainrangearray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(signaturebuffersize),
-            ::core::mem::transmute(signaturebuffer),
-        ))
+        ::core::mem::transmute(GetFilePatchSignatureA(filename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2032,25 +2022,14 @@ pub unsafe fn GetFilePatchSignatureA<'a, Param0: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesize: u32, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesize: u32, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesize: u32, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetFilePatchSignatureByBuffer(
-            ::core::mem::transmute(filebufferwritable),
-            ::core::mem::transmute(filesize),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ignorerangearray.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(ignorerangearray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            retainrangearray.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(retainrangearray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(signaturebuffersize),
-            ::core::mem::transmute(signaturebuffer),
-        ))
+        ::core::mem::transmute(GetFilePatchSignatureByBuffer(::core::mem::transmute(filebufferwritable), ::core::mem::transmute(filesize), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2058,24 +2037,14 @@ pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesiz
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFilePatchSignatureByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetFilePatchSignatureByHandle(filehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetFilePatchSignatureByHandle(
-            filehandle.into_param().abi(),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ignorerangearray.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(ignorerangearray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            retainrangearray.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(retainrangearray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(signaturebuffersize),
-            ::core::mem::transmute(signaturebuffer),
-        ))
+        ::core::mem::transmute(GetFilePatchSignatureByHandle(filehandle.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2083,24 +2052,14 @@ pub unsafe fn GetFilePatchSignatureByHandle<'a, Param0: ::windows::core::IntoPar
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(filename: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn GetFilePatchSignatureW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(filename: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE], signaturebuffersize: u32, signaturebuffer: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetFilePatchSignatureW(filename: ::windows::core::PCWSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetFilePatchSignatureW(
-            filename.into_param().abi(),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ignorerangearray.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(ignorerangearray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            retainrangearray.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(retainrangearray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(signaturebuffersize),
-            ::core::mem::transmute(signaturebuffer),
-        ))
+        ::core::mem::transmute(GetFilePatchSignatureW(filename.into_param().abi(), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray)), ::core::mem::transmute(signaturebuffersize), ::core::mem::transmute(signaturebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2643,7 +2602,7 @@ impl IMsmDependencies {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames.as_ptr()), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2772,7 +2731,7 @@ impl IMsmDependency {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames.as_ptr()), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2903,7 +2862,7 @@ impl IMsmError {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames.as_ptr()), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3068,7 +3027,7 @@ impl IMsmErrors {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames.as_ptr()), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3197,7 +3156,7 @@ impl IMsmGetFiles {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames.as_ptr()), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3315,7 +3274,7 @@ impl IMsmMerge {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames.as_ptr()), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3530,7 +3489,7 @@ impl IMsmStrings {
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames.as_ptr()), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5154,7 +5113,7 @@ impl IPMDeploymentManager {
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
     pub unsafe fn BeginUpdateLicense<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, offerid: Param1, pblicense: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginUpdateLicense)(::core::mem::transmute_copy(self), productid.into_param().abi(), offerid.into_param().abi(), ::core::mem::transmute(pblicense.as_ptr()), pblicense.len() as _).ok()
+        (::windows::core::Interface::vtable(self).BeginUpdateLicense)(::core::mem::transmute_copy(self), productid.into_param().abi(), offerid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pblicense)), pblicense.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5255,8 +5214,8 @@ impl IPMDeploymentManager {
         (::windows::core::Interface::vtable(self).GenerateXamlLightupXbfForCurrentLocale)(::core::mem::transmute_copy(self), packagefamilyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
-    pub unsafe fn AddLicenseForAppx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, pblicense: &[u8], pbplayreadyheader: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddLicenseForAppx)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(pblicense.as_ptr()), pblicense.len() as _, ::core::mem::transmute(pbplayreadyheader.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), pbplayreadyheader.as_ref().map_or(0, |value| value.len()) as _).ok()
+    pub unsafe fn AddLicenseForAppx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, pblicense: &[u8], pbplayreadyheader: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddLicenseForAppx)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pblicense)), pblicense.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbplayreadyheader)), pbplayreadyheader.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
     pub unsafe fn FixJunctionsForAppsOnSDCard(&self) -> ::windows::core::Result<()> {
@@ -6348,7 +6307,7 @@ impl IPMLiveTileJobInfo {
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
     pub unsafe fn set_TileXML(&self, ptilexml: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_TileXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptilexml.as_ptr()), ptilexml.len() as _).ok()
+        (::windows::core::Interface::vtable(self).set_TileXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ptilexml)), ptilexml.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
     pub unsafe fn UrlXML(&self, purlxml: *mut *mut u8, pcburlxml: *mut u32) -> ::windows::core::Result<()> {
@@ -6356,7 +6315,7 @@ impl IPMLiveTileJobInfo {
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
     pub unsafe fn set_UrlXML(&self, purlxml: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_UrlXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(purlxml.as_ptr()), purlxml.len() as _).ok()
+        (::windows::core::Interface::vtable(self).set_UrlXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(purlxml)), purlxml.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
     pub unsafe fn AttemptCount(&self) -> ::windows::core::Result<u32> {
@@ -9247,7 +9206,7 @@ pub unsafe fn MsiDetermineApplicablePatchesA<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn MsiDetermineApplicablePatchesA(szproductpackagepath: ::windows::core::PCSTR, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32;
         }
-        ::core::mem::transmute(MsiDetermineApplicablePatchesA(szproductpackagepath.into_param().abi(), ppatchinfo.len() as _, ::core::mem::transmute(ppatchinfo.as_ptr())))
+        ::core::mem::transmute(MsiDetermineApplicablePatchesA(szproductpackagepath.into_param().abi(), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9261,7 +9220,7 @@ pub unsafe fn MsiDetermineApplicablePatchesW<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn MsiDetermineApplicablePatchesW(szproductpackagepath: ::windows::core::PCWSTR, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32;
         }
-        ::core::mem::transmute(MsiDetermineApplicablePatchesW(szproductpackagepath.into_param().abi(), ppatchinfo.len() as _, ::core::mem::transmute(ppatchinfo.as_ptr())))
+        ::core::mem::transmute(MsiDetermineApplicablePatchesW(szproductpackagepath.into_param().abi(), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9275,7 +9234,7 @@ pub unsafe fn MsiDeterminePatchSequenceA<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn MsiDeterminePatchSequenceA(szproductcode: ::windows::core::PCSTR, szusersid: ::windows::core::PCSTR, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32;
         }
-        ::core::mem::transmute(MsiDeterminePatchSequenceA(szproductcode.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ppatchinfo.len() as _, ::core::mem::transmute(ppatchinfo.as_ptr())))
+        ::core::mem::transmute(MsiDeterminePatchSequenceA(szproductcode.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9289,7 +9248,7 @@ pub unsafe fn MsiDeterminePatchSequenceW<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn MsiDeterminePatchSequenceW(szproductcode: ::windows::core::PCWSTR, szusersid: ::windows::core::PCWSTR, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32;
         }
-        ::core::mem::transmute(MsiDeterminePatchSequenceW(szproductcode.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ppatchinfo.len() as _, ::core::mem::transmute(ppatchinfo.as_ptr())))
+        ::core::mem::transmute(MsiDeterminePatchSequenceW(szproductcode.into_param().abi(), szusersid.into_param().abi(), ::core::mem::transmute(dwcontext), ppatchinfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppatchinfo))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12365,25 +12324,14 @@ pub const MsmMerge: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, newfilecoffbase: u32, newfilecofftime: u32, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>) -> i32 {
+pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, newfilecoffbase: u32, newfilecofftime: u32, ignorerangearray: &[PATCH_IGNORE_RANGE], retainrangearray: &[PATCH_RETAIN_RANGE]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, newfilecoffbase: u32, newfilecofftime: u32, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE) -> i32;
         }
-        ::core::mem::transmute(NormalizeFileForPatchSignature(
-            ::core::mem::transmute(filebuffer),
-            ::core::mem::transmute(filesize),
-            ::core::mem::transmute(optionflags),
-            ::core::mem::transmute(optiondata),
-            ::core::mem::transmute(newfilecoffbase),
-            ::core::mem::transmute(newfilecofftime),
-            ignorerangearray.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(ignorerangearray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            retainrangearray.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(retainrangearray.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-        ))
+        ::core::mem::transmute(NormalizeFileForPatchSignature(::core::mem::transmute(filebuffer), ::core::mem::transmute(filesize), ::core::mem::transmute(optionflags), ::core::mem::transmute(optiondata), ::core::mem::transmute(newfilecoffbase), ::core::mem::transmute(newfilecofftime), ignorerangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ignorerangearray)), retainrangearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(retainrangearray))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14445,7 +14393,7 @@ pub unsafe fn SfpVerifyFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows
         extern "system" {
             fn SfpVerifyFile(pszfilename: ::windows::core::PCSTR, pszerror: ::windows::core::PCSTR, dwerrsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SfpVerifyFile(pszfilename.into_param().abi(), ::core::mem::transmute(pszerror.as_ptr()), pszerror.len() as _))
+        ::core::mem::transmute(SfpVerifyFile(pszfilename.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszerror)), pszerror.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

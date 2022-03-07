@@ -362,7 +362,7 @@ impl IRdcGenerator {
     #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Process<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, endofinput: Param0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffers: &mut [*mut RdcBufferPointer], rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Process)(::core::mem::transmute_copy(self), endofinput.into_param().abi(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), outputbuffers.len() as _, ::core::mem::transmute(outputbuffers.as_ptr()), ::core::mem::transmute(rdc_errorcode)).ok()
+        (::windows::core::Interface::vtable(self).Process)(::core::mem::transmute_copy(self), endofinput.into_param().abi(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), outputbuffers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputbuffers)), ::core::mem::transmute(rdc_errorcode)).ok()
     }
 }
 impl ::core::convert::From<IRdcGenerator> for ::windows::core::IUnknown {
@@ -581,7 +581,7 @@ impl IRdcLibrary {
     #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
     pub unsafe fn CreateGenerator(&self, igeneratorparametersarray: &[::core::option::Option<IRdcGeneratorParameters>]) -> ::windows::core::Result<IRdcGenerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGenerator)(::core::mem::transmute_copy(self), igeneratorparametersarray.len() as _, ::core::mem::transmute(igeneratorparametersarray.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<IRdcGenerator>(result__)
+        (::windows::core::Interface::vtable(self).CreateGenerator)(::core::mem::transmute_copy(self), igeneratorparametersarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(igeneratorparametersarray)), ::core::mem::transmute(&mut result__)).from_abi::<IRdcGenerator>(result__)
     }
     #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
     pub unsafe fn CreateComparator<'a, Param0: ::windows::core::IntoParam<'a, IRdcFileReader>>(&self, iseedsignaturesfile: Param0, comparatorbuffersize: u32) -> ::windows::core::Result<IRdcComparator> {

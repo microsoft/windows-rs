@@ -964,7 +964,7 @@ impl IEnumITfCompositionView {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, rgcompositionview: &mut [::core::option::Option<ITfCompositionView>], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgcompositionview.len() as _, ::core::mem::transmute(rgcompositionview.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgcompositionview.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgcompositionview)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1035,7 +1035,7 @@ impl IEnumSpeechCommands {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, pspcmds: &mut [*mut u16], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), pspcmds.len() as _, ::core::mem::transmute(pspcmds.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), pspcmds.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pspcmds)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1106,7 +1106,7 @@ impl IEnumTfCandidates {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, ppcand: &mut [::core::option::Option<ITfCandidateString>], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ppcand.len() as _, ::core::mem::transmute(ppcand.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ppcand.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppcand)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1177,7 +1177,7 @@ impl IEnumTfContextViews {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, rgviews: &mut [::core::option::Option<ITfContextView>], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgviews.len() as _, ::core::mem::transmute(rgviews.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgviews.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgviews)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1248,7 +1248,7 @@ impl IEnumTfContexts {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, rgcontext: &mut [::core::option::Option<ITfContext>], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgcontext.len() as _, ::core::mem::transmute(rgcontext.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgcontext.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgcontext)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1319,7 +1319,7 @@ impl IEnumTfDisplayAttributeInfo {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, rginfo: &mut [::core::option::Option<ITfDisplayAttributeInfo>], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rginfo.len() as _, ::core::mem::transmute(rginfo.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rginfo.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rginfo)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1390,7 +1390,7 @@ impl IEnumTfDocumentMgrs {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, rgdocumentmgr: &mut [::core::option::Option<ITfDocumentMgr>], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgdocumentmgr.len() as _, ::core::mem::transmute(rgdocumentmgr.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgdocumentmgr.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdocumentmgr)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1461,7 +1461,7 @@ impl IEnumTfFunctionProviders {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, ppcmdobj: &mut [::core::option::Option<ITfFunctionProvider>], pcfetch: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ppcmdobj.len() as _, ::core::mem::transmute(ppcmdobj.as_ptr()), ::core::mem::transmute(pcfetch)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ppcmdobj.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppcmdobj)), ::core::mem::transmute(pcfetch)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1532,7 +1532,7 @@ impl IEnumTfInputProcessorProfiles {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, pprofile: &mut [TF_INPUTPROCESSORPROFILE], pcfetch: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), pprofile.len() as _, ::core::mem::transmute(pprofile.as_ptr()), ::core::mem::transmute(pcfetch)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), pprofile.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pprofile)), ::core::mem::transmute(pcfetch)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1603,7 +1603,7 @@ impl IEnumTfLangBarItems {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, ppitem: &mut [::core::option::Option<ITfLangBarItem>], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ppitem.len() as _, ::core::mem::transmute(ppitem.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ppitem.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppitem)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1675,7 +1675,7 @@ impl IEnumTfLanguageProfiles {
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, pprofile: &mut [TF_LANGUAGEPROFILE], pcfetch: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), pprofile.len() as _, ::core::mem::transmute(pprofile.as_ptr()), ::core::mem::transmute(pcfetch)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), pprofile.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pprofile)), ::core::mem::transmute(pcfetch)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1750,7 +1750,7 @@ impl IEnumTfLatticeElements {
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, rgselements: &mut [TF_LMLATTELEMENT], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgselements.len() as _, ::core::mem::transmute(rgselements.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgselements.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgselements)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1824,7 +1824,7 @@ impl IEnumTfProperties {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, ppprop: &mut [::core::option::Option<ITfProperty>], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ppprop.len() as _, ::core::mem::transmute(ppprop.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ppprop.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppprop)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1896,7 +1896,7 @@ impl IEnumTfPropertyValue {
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Next(&self, rgvalues: &mut [TF_PROPERTYVAL], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgvalues.len() as _, ::core::mem::transmute(rgvalues.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgvalues.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgvalues)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1970,7 +1970,7 @@ impl IEnumTfRanges {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, pprange: &mut [::core::option::Option<ITfRange>], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), pprange.len() as _, ::core::mem::transmute(pprange.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), pprange.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pprange)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -2041,7 +2041,7 @@ impl IEnumTfUIElements {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Next(&self, ppelement: &mut [::core::option::Option<ITfUIElement>], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ppelement.len() as _, ::core::mem::transmute(ppelement.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ppelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppelement)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -2200,7 +2200,7 @@ impl ISpeechCommandProvider {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn ProcessCommand(&self, pszcommand: &[u16], langid: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(pszcommand.as_ptr()), pszcommand.len() as _, ::core::mem::transmute(langid)).ok()
+        (::windows::core::Interface::vtable(self).ProcessCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pszcommand)), pszcommand.len() as _, ::core::mem::transmute(langid)).ok()
     }
 }
 impl ::core::convert::From<ISpeechCommandProvider> for ::windows::core::IUnknown {
@@ -2279,21 +2279,21 @@ impl ITextStoreACP {
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSelection(&self, ulindex: u32, pselection: &mut [TS_SELECTION_ACP], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), pselection.len() as _, ::core::mem::transmute(pselection.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).GetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), pselection.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pselection)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelection(&self, pselection: &[TS_SELECTION_ACP]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelection)(::core::mem::transmute_copy(self), pselection.len() as _, ::core::mem::transmute(pselection.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetSelection)(::core::mem::transmute_copy(self), pselection.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pselection))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetText(&self, acpstart: i32, acpend: i32, pchplain: &mut [u16], pcchplainret: *mut u32, prgruninfo: &mut [TS_RUNINFO], pcruninforet: *mut u32, pacpnext: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), ::core::mem::transmute(pchplain.as_ptr()), pchplain.len() as _, ::core::mem::transmute(pcchplainret), ::core::mem::transmute(prgruninfo.as_ptr()), prgruninfo.len() as _, ::core::mem::transmute(pcruninforet), ::core::mem::transmute(pacpnext)).ok()
+        (::windows::core::Interface::vtable(self).GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchplain)), pchplain.len() as _, ::core::mem::transmute(pcchplainret), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgruninfo)), prgruninfo.len() as _, ::core::mem::transmute(pcruninforet), ::core::mem::transmute(pacpnext)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn SetText(&self, dwflags: u32, acpstart: i32, acpend: i32, pchtext: &[u16]) -> ::windows::core::Result<TS_TEXTCHANGE> {
         let mut result__: TS_TEXTCHANGE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<TS_TEXTCHANGE>(result__)
+        (::windows::core::Interface::vtable(self).SetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<TS_TEXTCHANGE>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2320,7 +2320,7 @@ impl ITextStoreACP {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &[u16], pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(pacpstart), ::core::mem::transmute(pacpend), ::core::mem::transmute(pchange)).ok()
+        (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _, ::core::mem::transmute(pacpstart), ::core::mem::transmute(pacpend), ::core::mem::transmute(pchange)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2329,25 +2329,25 @@ impl ITextStoreACP {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RequestSupportedAttrs(&self, dwflags: u32, pafilterattrs: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestSupportedAttrs)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).RequestSupportedAttrs)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RequestAttrsAtPosition(&self, acppos: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestAttrsAtPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acppos), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).RequestAttrsAtPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acppos), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs)), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RequestAttrsTransitioningAtPosition(&self, acppos: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acppos), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acppos), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs)), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32, pacpnext: *mut i32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindNextAttrTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acphalt), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), ::core::mem::transmute(dwflags), ::core::mem::transmute(pacpnext), ::core::mem::transmute(pffound), ::core::mem::transmute(plfoundoffset)).ok()
+        (::windows::core::Interface::vtable(self).FindNextAttrTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acphalt), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs)), ::core::mem::transmute(dwflags), ::core::mem::transmute(pacpnext), ::core::mem::transmute(pffound), ::core::mem::transmute(plfoundoffset)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, paattrvals: &mut [TS_ATTRVAL], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RetrieveRequestedAttrs)(::core::mem::transmute_copy(self), paattrvals.len() as _, ::core::mem::transmute(paattrvals.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).RetrieveRequestedAttrs)(::core::mem::transmute_copy(self), paattrvals.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paattrvals)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetEndACP(&self) -> ::windows::core::Result<i32> {
@@ -2519,21 +2519,21 @@ impl ITextStoreACP2 {
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSelection(&self, ulindex: u32, pselection: &mut [TS_SELECTION_ACP], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), pselection.len() as _, ::core::mem::transmute(pselection.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).GetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), pselection.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pselection)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelection(&self, pselection: &[TS_SELECTION_ACP]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelection)(::core::mem::transmute_copy(self), pselection.len() as _, ::core::mem::transmute(pselection.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetSelection)(::core::mem::transmute_copy(self), pselection.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pselection))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetText(&self, acpstart: i32, acpend: i32, pchplain: &mut [u16], pcchplainret: *mut u32, prgruninfo: &mut [TS_RUNINFO], pcruninforet: *mut u32, pacpnext: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), ::core::mem::transmute(pchplain.as_ptr()), pchplain.len() as _, ::core::mem::transmute(pcchplainret), ::core::mem::transmute(prgruninfo.as_ptr()), prgruninfo.len() as _, ::core::mem::transmute(pcruninforet), ::core::mem::transmute(pacpnext)).ok()
+        (::windows::core::Interface::vtable(self).GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchplain)), pchplain.len() as _, ::core::mem::transmute(pcchplainret), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgruninfo)), prgruninfo.len() as _, ::core::mem::transmute(pcruninforet), ::core::mem::transmute(pacpnext)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn SetText(&self, dwflags: u32, acpstart: i32, acpend: i32, pchtext: &[u16]) -> ::windows::core::Result<TS_TEXTCHANGE> {
         let mut result__: TS_TEXTCHANGE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<TS_TEXTCHANGE>(result__)
+        (::windows::core::Interface::vtable(self).SetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<TS_TEXTCHANGE>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2560,7 +2560,7 @@ impl ITextStoreACP2 {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &[u16], pacpstart: *mut i32, pacpend: *mut i32, pchange: *mut TS_TEXTCHANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(pacpstart), ::core::mem::transmute(pacpend), ::core::mem::transmute(pchange)).ok()
+        (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _, ::core::mem::transmute(pacpstart), ::core::mem::transmute(pacpend), ::core::mem::transmute(pchange)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2569,25 +2569,25 @@ impl ITextStoreACP2 {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RequestSupportedAttrs(&self, dwflags: u32, pafilterattrs: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestSupportedAttrs)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).RequestSupportedAttrs)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RequestAttrsAtPosition(&self, acppos: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestAttrsAtPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acppos), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).RequestAttrsAtPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acppos), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs)), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RequestAttrsTransitioningAtPosition(&self, acppos: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acppos), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acppos), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs)), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32, pacpnext: *mut i32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindNextAttrTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acphalt), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), ::core::mem::transmute(dwflags), ::core::mem::transmute(pacpnext), ::core::mem::transmute(pffound), ::core::mem::transmute(plfoundoffset)).ok()
+        (::windows::core::Interface::vtable(self).FindNextAttrTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acphalt), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs)), ::core::mem::transmute(dwflags), ::core::mem::transmute(pacpnext), ::core::mem::transmute(pffound), ::core::mem::transmute(plfoundoffset)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, paattrvals: &mut [TS_ATTRVAL], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RetrieveRequestedAttrs)(::core::mem::transmute_copy(self), paattrvals.len() as _, ::core::mem::transmute(paattrvals.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).RetrieveRequestedAttrs)(::core::mem::transmute_copy(self), paattrvals.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paattrvals)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetEndACP(&self) -> ::windows::core::Result<i32> {
@@ -2880,7 +2880,7 @@ impl ITextStoreACPSink {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn OnAttrsChange(&self, acpstart: i32, acpend: i32, paattrs: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnAttrsChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), paattrs.len() as _, ::core::mem::transmute(paattrs.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).OnAttrsChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), paattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(paattrs))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::core::Result<()> {
@@ -2970,7 +2970,7 @@ impl ITextStoreACPSinkEx {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn OnAttrsChange(&self, acpstart: i32, acpend: i32, paattrs: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.OnAttrsChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), paattrs.len() as _, ::core::mem::transmute(paattrs.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.OnAttrsChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), paattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(paattrs))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::core::Result<()> {
@@ -3084,21 +3084,21 @@ impl ITextStoreAnchor {
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSelection(&self, ulindex: u32, pselection: &mut [TS_SELECTION_ANCHOR], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), pselection.len() as _, ::core::mem::transmute(pselection.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).GetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), pselection.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pselection)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelection(&self, pselection: &[TS_SELECTION_ANCHOR]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelection)(::core::mem::transmute_copy(self), pselection.len() as _, ::core::mem::transmute(pselection.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetSelection)(::core::mem::transmute_copy(self), pselection.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pselection))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText<'a, Param1: ::windows::core::IntoParam<'a, IAnchor>, Param2: ::windows::core::IntoParam<'a, IAnchor>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, dwflags: u32, pastart: Param1, paend: Param2, pchtext: &mut [u16], pcch: *mut u32, fupdateanchor: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pastart.into_param().abi(), paend.into_param().abi(), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(pcch), fupdateanchor.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pastart.into_param().abi(), paend.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchtext)), pchtext.len() as _, ::core::mem::transmute(pcch), fupdateanchor.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn SetText<'a, Param1: ::windows::core::IntoParam<'a, IAnchor>, Param2: ::windows::core::IntoParam<'a, IAnchor>>(&self, dwflags: u32, pastart: Param1, paend: Param2, pchtext: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pastart.into_param().abi(), paend.into_param().abi(), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pastart.into_param().abi(), paend.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3118,25 +3118,25 @@ impl ITextStoreAnchor {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RequestSupportedAttrs(&self, dwflags: u32, pafilterattrs: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestSupportedAttrs)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).RequestSupportedAttrs)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RequestAttrsAtPosition<'a, Param0: ::windows::core::IntoParam<'a, IAnchor>>(&self, papos: Param0, pafilterattrs: &[::windows::core::GUID], dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestAttrsAtPosition)(::core::mem::transmute_copy(self), papos.into_param().abi(), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).RequestAttrsAtPosition)(::core::mem::transmute_copy(self), papos.into_param().abi(), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs)), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RequestAttrsTransitioningAtPosition<'a, Param0: ::windows::core::IntoParam<'a, IAnchor>>(&self, papos: Param0, pafilterattrs: &[::windows::core::GUID], dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(::core::mem::transmute_copy(self), papos.into_param().abi(), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(::core::mem::transmute_copy(self), papos.into_param().abi(), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs)), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindNextAttrTransition<'a, Param0: ::windows::core::IntoParam<'a, IAnchor>, Param1: ::windows::core::IntoParam<'a, IAnchor>>(&self, pastart: Param0, pahalt: Param1, pafilterattrs: &[::windows::core::GUID], dwflags: u32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindNextAttrTransition)(::core::mem::transmute_copy(self), pastart.into_param().abi(), pahalt.into_param().abi(), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), ::core::mem::transmute(dwflags), ::core::mem::transmute(pffound), ::core::mem::transmute(plfoundoffset)).ok()
+        (::windows::core::Interface::vtable(self).FindNextAttrTransition)(::core::mem::transmute_copy(self), pastart.into_param().abi(), pahalt.into_param().abi(), pafilterattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pafilterattrs)), ::core::mem::transmute(dwflags), ::core::mem::transmute(pffound), ::core::mem::transmute(plfoundoffset)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, paattrvals: &mut [TS_ATTRVAL], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RetrieveRequestedAttrs)(::core::mem::transmute_copy(self), paattrvals.len() as _, ::core::mem::transmute(paattrvals.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).RetrieveRequestedAttrs)(::core::mem::transmute_copy(self), paattrvals.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paattrvals)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetStart(&self) -> ::windows::core::Result<IAnchor> {
@@ -3184,7 +3184,7 @@ impl ITextStoreAnchor {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &[u16], ppastart: *mut ::core::option::Option<IAnchor>, ppaend: *mut ::core::option::Option<IAnchor>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(ppastart), ::core::mem::transmute(ppaend)).ok()
+        (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _, ::core::mem::transmute(ppastart), ::core::mem::transmute(ppaend)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3384,7 +3384,7 @@ impl ITextStoreAnchorSink {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn OnAttrsChange<'a, Param0: ::windows::core::IntoParam<'a, IAnchor>, Param1: ::windows::core::IntoParam<'a, IAnchor>>(&self, pastart: Param0, paend: Param1, paattrs: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnAttrsChange)(::core::mem::transmute_copy(self), pastart.into_param().abi(), paend.into_param().abi(), paattrs.len() as _, ::core::mem::transmute(paattrs.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).OnAttrsChange)(::core::mem::transmute_copy(self), pastart.into_param().abi(), paend.into_param().abi(), paattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(paattrs))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::core::Result<()> {
@@ -3474,7 +3474,7 @@ impl ITextStoreSinkAnchorEx {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn OnAttrsChange<'a, Param0: ::windows::core::IntoParam<'a, IAnchor>, Param1: ::windows::core::IntoParam<'a, IAnchor>>(&self, pastart: Param0, paend: Param1, paattrs: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.OnAttrsChange)(::core::mem::transmute_copy(self), pastart.into_param().abi(), paend.into_param().abi(), paattrs.len() as _, ::core::mem::transmute(paattrs.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.OnAttrsChange)(::core::mem::transmute_copy(self), pastart.into_param().abi(), paend.into_param().abi(), paattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(paattrs))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::core::Result<()> {
@@ -3745,11 +3745,11 @@ impl ITfCandidateListUIElement {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetPageIndex(&self, pindex: &mut [u32], pupagecnt: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPageIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(pindex.as_ptr()), pindex.len() as _, ::core::mem::transmute(pupagecnt)).ok()
+        (::windows::core::Interface::vtable(self).GetPageIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pindex)), pindex.len() as _, ::core::mem::transmute(pupagecnt)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn SetPageIndex(&self, pindex: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPageIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(pindex.as_ptr()), pindex.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetPageIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pindex)), pindex.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetCurrentPage(&self) -> ::windows::core::Result<u32> {
@@ -3887,11 +3887,11 @@ impl ITfCandidateListUIElementBehavior {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetPageIndex(&self, pindex: &mut [u32], pupagecnt: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetPageIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(pindex.as_ptr()), pindex.len() as _, ::core::mem::transmute(pupagecnt)).ok()
+        (::windows::core::Interface::vtable(self).base.GetPageIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pindex)), pindex.len() as _, ::core::mem::transmute(pupagecnt)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn SetPageIndex(&self, pindex: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetPageIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(pindex.as_ptr()), pindex.len() as _).ok()
+        (::windows::core::Interface::vtable(self).base.SetPageIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pindex)), pindex.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetCurrentPage(&self) -> ::windows::core::Result<u32> {
@@ -4091,11 +4091,11 @@ impl ITfCategoryMgr {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn FindClosestCategory(&self, rguid: *const ::windows::core::GUID, pcatid: *mut ::windows::core::GUID, ppcatidlist: &[*const ::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestCategory)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguid), ::core::mem::transmute(pcatid), ::core::mem::transmute(ppcatidlist.as_ptr()), ppcatidlist.len() as _).ok()
+        (::windows::core::Interface::vtable(self).FindClosestCategory)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguid), ::core::mem::transmute(pcatid), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppcatidlist)), ppcatidlist.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RegisterGUIDDescription(&self, rclsid: *const ::windows::core::GUID, rguid: *const ::windows::core::GUID, pchdesc: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterGUIDDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(rguid), ::core::mem::transmute(pchdesc.as_ptr()), pchdesc.len() as _).ok()
+        (::windows::core::Interface::vtable(self).RegisterGUIDDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(rguid), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchdesc)), pchdesc.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn UnregisterGUIDDescription(&self, rclsid: *const ::windows::core::GUID, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -4840,12 +4840,12 @@ impl ITfContext {
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSelection(&self, ec: u32, ulindex: u32, pselection: &mut [TF_SELECTION], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(ulindex), pselection.len() as _, ::core::mem::transmute(pselection.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).GetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(ulindex), pselection.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pselection)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelection(&self, ec: u32, pselection: &[TF_SELECTION]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), pselection.len() as _, ::core::mem::transmute(pselection.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), pselection.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pselection))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetStart(&self, ec: u32) -> ::windows::core::Result<ITfRange> {
@@ -4885,7 +4885,7 @@ impl ITfContext {
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn TrackProperties(&self, prgprop: &[*const ::windows::core::GUID], prgappprop: &[*const ::windows::core::GUID]) -> ::windows::core::Result<ITfReadOnlyProperty> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TrackProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(prgprop.as_ptr()), prgprop.len() as _, ::core::mem::transmute(prgappprop.as_ptr()), prgappprop.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ITfReadOnlyProperty>(result__)
+        (::windows::core::Interface::vtable(self).TrackProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(prgprop)), prgprop.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgappprop)), prgappprop.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ITfReadOnlyProperty>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn EnumProperties(&self) -> ::windows::core::Result<IEnumTfProperties> {
@@ -6028,7 +6028,7 @@ impl ITfEditRecord {
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetTextAndPropertyUpdates(&self, dwflags: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS, prgproperties: &[*const ::windows::core::GUID]) -> ::windows::core::Result<IEnumTfRanges> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTextAndPropertyUpdates)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(prgproperties.as_ptr()), prgproperties.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IEnumTfRanges>(result__)
+        (::windows::core::Interface::vtable(self).GetTextAndPropertyUpdates)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(prgproperties)), prgproperties.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IEnumTfRanges>(result__)
     }
 }
 impl ::core::convert::From<ITfEditRecord> for ::windows::core::IUnknown {
@@ -6208,7 +6208,7 @@ impl ITfFnAdviseText {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn OnTextUpdate<'a, Param0: ::windows::core::IntoParam<'a, ITfRange>>(&self, prange: Param0, pchtext: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnTextUpdate)(::core::mem::transmute_copy(self), prange.into_param().abi(), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _).ok()
+        (::windows::core::Interface::vtable(self).OnTextUpdate)(::core::mem::transmute_copy(self), prange.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn OnLatticeUpdate<'a, Param0: ::windows::core::IntoParam<'a, ITfRange>, Param1: ::windows::core::IntoParam<'a, ITfLMLattice>>(&self, prange: Param0, plattice: Param1) -> ::windows::core::Result<()> {
@@ -6288,7 +6288,7 @@ pub struct ITfFnBalloon(::windows::core::IUnknown);
 impl ITfFnBalloon {
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn UpdateBalloon(&self, style: TfLBBalloonStyle, pch: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateBalloon)(::core::mem::transmute_copy(self), ::core::mem::transmute(style), ::core::mem::transmute(pch.as_ptr()), pch.len() as _).ok()
+        (::windows::core::Interface::vtable(self).UpdateBalloon)(::core::mem::transmute_copy(self), ::core::mem::transmute(style), ::core::mem::transmute(::windows::core::as_ptr_or_null(pch)), pch.len() as _).ok()
     }
 }
 impl ::core::convert::From<ITfFnBalloon> for ::windows::core::IUnknown {
@@ -7944,7 +7944,22 @@ impl ITfInputProcessorProfileMgr {
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterProfile<'a, Param8: ::windows::core::IntoParam<'a, HKL>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pchdesc: &[u16], pchiconfile: &[u16], uiconindex: u32, hklsubstitute: Param8, dwpreferredlayout: u32, benabledbydefault: Param10, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(langid), ::core::mem::transmute(guidprofile), ::core::mem::transmute(pchdesc.as_ptr()), pchdesc.len() as _, ::core::mem::transmute(pchiconfile.as_ptr()), pchiconfile.len() as _, ::core::mem::transmute(uiconindex), hklsubstitute.into_param().abi(), ::core::mem::transmute(dwpreferredlayout), benabledbydefault.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).RegisterProfile)(
+            ::core::mem::transmute_copy(self),
+            ::core::mem::transmute(rclsid),
+            ::core::mem::transmute(langid),
+            ::core::mem::transmute(guidprofile),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pchdesc)),
+            pchdesc.len() as _,
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pchiconfile)),
+            pchiconfile.len() as _,
+            ::core::mem::transmute(uiconindex),
+            hklsubstitute.into_param().abi(),
+            ::core::mem::transmute(dwpreferredlayout),
+            benabledbydefault.into_param().abi(),
+            ::core::mem::transmute(dwflags),
+        )
+        .ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn UnregisterProfile(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, dwflags: u32) -> ::windows::core::Result<()> {
@@ -8082,7 +8097,7 @@ impl ITfInputProcessorProfiles {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn AddLanguageProfile(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pchdesc: &[u16], pchiconfile: &[u16], uiconindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddLanguageProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(langid), ::core::mem::transmute(guidprofile), ::core::mem::transmute(pchdesc.as_ptr()), pchdesc.len() as _, ::core::mem::transmute(pchiconfile.as_ptr()), pchiconfile.len() as _, ::core::mem::transmute(uiconindex)).ok()
+        (::windows::core::Interface::vtable(self).AddLanguageProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(langid), ::core::mem::transmute(guidprofile), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchdesc)), pchdesc.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pchiconfile)), pchiconfile.len() as _, ::core::mem::transmute(uiconindex)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RemoveLanguageProfile(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -8247,7 +8262,7 @@ impl ITfInputProcessorProfilesEx {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn AddLanguageProfile(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pchdesc: &[u16], pchiconfile: &[u16], uiconindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.AddLanguageProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(langid), ::core::mem::transmute(guidprofile), ::core::mem::transmute(pchdesc.as_ptr()), pchdesc.len() as _, ::core::mem::transmute(pchiconfile.as_ptr()), pchiconfile.len() as _, ::core::mem::transmute(uiconindex)).ok()
+        (::windows::core::Interface::vtable(self).base.AddLanguageProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(langid), ::core::mem::transmute(guidprofile), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchdesc)), pchdesc.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pchiconfile)), pchiconfile.len() as _, ::core::mem::transmute(uiconindex)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn RemoveLanguageProfile(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -8321,7 +8336,7 @@ impl ITfInputProcessorProfilesEx {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn SetLanguageProfileDisplayName(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pchfile: &[u16], uresid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLanguageProfileDisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(langid), ::core::mem::transmute(guidprofile), ::core::mem::transmute(pchfile.as_ptr()), pchfile.len() as _, ::core::mem::transmute(uresid)).ok()
+        (::windows::core::Interface::vtable(self).SetLanguageProfileDisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(langid), ::core::mem::transmute(guidprofile), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchfile)), pchfile.len() as _, ::core::mem::transmute(uresid)).ok()
     }
 }
 impl ::core::convert::From<ITfInputProcessorProfilesEx> for ::windows::core::IUnknown {
@@ -8598,7 +8613,7 @@ impl ITfInsertAtSelection {
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn InsertTextAtSelection(&self, ec: u32, dwflags: INSERT_TEXT_AT_SELECTION_FLAGS, pchtext: &[u16]) -> ::windows::core::Result<ITfRange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(dwflags), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ITfRange>(result__)
+        (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<ITfRange>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8975,7 +8990,7 @@ impl ITfKeystrokeMgr {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn PreserveKey(&self, tid: u32, rguid: *const ::windows::core::GUID, prekey: *const TF_PRESERVEDKEY, pchdesc: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PreserveKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(tid), ::core::mem::transmute(rguid), ::core::mem::transmute(prekey), ::core::mem::transmute(pchdesc.as_ptr()), pchdesc.len() as _).ok()
+        (::windows::core::Interface::vtable(self).PreserveKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(tid), ::core::mem::transmute(rguid), ::core::mem::transmute(prekey), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchdesc)), pchdesc.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn UnpreserveKey(&self, rguid: *const ::windows::core::GUID, pprekey: *const TF_PRESERVEDKEY) -> ::windows::core::Result<()> {
@@ -8983,7 +8998,7 @@ impl ITfKeystrokeMgr {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn SetPreservedKeyDescription(&self, rguid: *const ::windows::core::GUID, pchdesc: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPreservedKeyDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguid), ::core::mem::transmute(pchdesc.as_ptr()), pchdesc.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetPreservedKeyDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguid), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchdesc)), pchdesc.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9863,7 +9878,7 @@ impl ITfLangBarItemMgr {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetItemsStatus<'a, const PARAM0: usize>(&self, prgguid: &[::windows::core::GUID; PARAM0], pdwstatus: &mut [u32; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetItemsStatus)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(prgguid.as_ptr()), ::core::mem::transmute(pdwstatus.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetItemsStatus)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgguid)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwstatus))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetItemNum(&self) -> ::windows::core::Result<u32> {
@@ -9872,15 +9887,15 @@ impl ITfLangBarItemMgr {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetItems<'a, const PARAM0: usize>(&self, ppitem: &mut [::core::option::Option<ITfLangBarItem>; PARAM0], pinfo: &mut [TF_LANGBARITEMINFO; PARAM0], pdwstatus: &mut [u32; PARAM0], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetItems)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(ppitem.as_ptr()), ::core::mem::transmute(pinfo.as_ptr()), ::core::mem::transmute(pdwstatus.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).GetItems)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppitem)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pinfo)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwstatus)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn AdviseItemsSink<'a, const PARAM0: usize>(&self, ppunk: &[::core::option::Option<ITfLangBarItemSink>; PARAM0], pguiditem: &[::windows::core::GUID; PARAM0], pdwcookie: &mut [u32; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AdviseItemsSink)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(ppunk.as_ptr()), ::core::mem::transmute(pguiditem.as_ptr()), ::core::mem::transmute(pdwcookie.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).AdviseItemsSink)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunk)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pguiditem)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwcookie))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn UnadviseItemsSink(&self, pdwcookie: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnadviseItemsSink)(::core::mem::transmute_copy(self), pdwcookie.len() as _, ::core::mem::transmute(pdwcookie.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).UnadviseItemsSink)(::core::mem::transmute_copy(self), pdwcookie.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pdwcookie))).ok()
     }
 }
 impl ::core::convert::From<ITfLangBarItemMgr> for ::windows::core::IUnknown {
@@ -10235,7 +10250,7 @@ impl ITfMenu {
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn AddMenuItem<'a, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>, Param3: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(&self, uid: u32, dwflags: u32, hbmp: Param2, hbmpmask: Param3, pch: &[u16], ppmenu: *mut ::core::option::Option<ITfMenu>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddMenuItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(uid), ::core::mem::transmute(dwflags), hbmp.into_param().abi(), hbmpmask.into_param().abi(), ::core::mem::transmute(pch.as_ptr()), pch.len() as _, ::core::mem::transmute(ppmenu)).ok()
+        (::windows::core::Interface::vtable(self).AddMenuItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(uid), ::core::mem::transmute(dwflags), hbmp.into_param().abi(), hbmpmask.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pch)), pch.len() as _, ::core::mem::transmute(ppmenu)).ok()
     }
 }
 impl ::core::convert::From<ITfMenu> for ::windows::core::IUnknown {
@@ -10970,11 +10985,11 @@ pub struct ITfRange(::windows::core::IUnknown);
 impl ITfRange {
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetText(&self, ec: u32, dwflags: u32, pchtext: &mut [u16], pcch: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(dwflags), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(pcch)).ok()
+        (::windows::core::Interface::vtable(self).GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchtext)), pchtext.len() as _, ::core::mem::transmute(pcch)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn SetText(&self, ec: u32, dwflags: u32, pchtext: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(dwflags), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11174,11 +11189,11 @@ pub struct ITfRangeACP(::windows::core::IUnknown);
 impl ITfRangeACP {
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetText(&self, ec: u32, dwflags: u32, pchtext: &mut [u16], pcch: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(dwflags), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(pcch)).ok()
+        (::windows::core::Interface::vtable(self).base.GetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchtext)), pchtext.len() as _, ::core::mem::transmute(pcch)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn SetText(&self, ec: u32, dwflags: u32, pchtext: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(dwflags), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _).ok()
+        (::windows::core::Interface::vtable(self).base.SetText)(::core::mem::transmute_copy(self), ::core::mem::transmute(ec), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11938,7 +11953,7 @@ impl ITfSpeechUIServer {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn UpdateBalloon(&self, style: TfLBBalloonStyle, pch: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateBalloon)(::core::mem::transmute_copy(self), ::core::mem::transmute(style), ::core::mem::transmute(pch.as_ptr()), pch.len() as _).ok()
+        (::windows::core::Interface::vtable(self).UpdateBalloon)(::core::mem::transmute_copy(self), ::core::mem::transmute(style), ::core::mem::transmute(::windows::core::as_ptr_or_null(pch)), pch.len() as _).ok()
     }
 }
 impl ::core::convert::From<ITfSpeechUIServer> for ::windows::core::IUnknown {
@@ -12119,7 +12134,7 @@ impl ITfSystemLangBarItem {
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn SetTooltipString(&self, pchtooltip: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTooltipString)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchtooltip.as_ptr()), pchtooltip.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetTooltipString)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtooltip)), pchtooltip.len() as _).ok()
     }
 }
 impl ::core::convert::From<ITfSystemLangBarItem> for ::windows::core::IUnknown {
@@ -12238,7 +12253,7 @@ pub struct ITfSystemLangBarItemText(::windows::core::IUnknown);
 impl ITfSystemLangBarItemText {
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn SetItemText(&self, pch: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetItemText)(::core::mem::transmute_copy(self), ::core::mem::transmute(pch.as_ptr()), pch.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetItemText)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pch)), pch.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

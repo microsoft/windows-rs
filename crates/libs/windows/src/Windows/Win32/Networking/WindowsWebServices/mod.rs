@@ -14436,14 +14436,14 @@ pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_AS
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsCall(serviceproxy: *const WS_SERVICE_PROXY, operation: *const WS_OPERATION_DESCRIPTION, arguments: *const *const ::core::ffi::c_void, heap: *const WS_HEAP, callproperties: ::core::option::Option<&[WS_CALL_PROPERTY]>, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCall(serviceproxy: *const WS_SERVICE_PROXY, operation: *const WS_OPERATION_DESCRIPTION, arguments: *const *const ::core::ffi::c_void, heap: *const WS_HEAP, callproperties: &[WS_CALL_PROPERTY], asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCall(serviceproxy: *const WS_SERVICE_PROXY, operation: *const WS_OPERATION_DESCRIPTION, arguments: *const *const ::core::ffi::c_void, heap: *const WS_HEAP, callproperties: *const WS_CALL_PROPERTY, callpropertycount: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCall(::core::mem::transmute(serviceproxy), ::core::mem::transmute(operation), ::core::mem::transmute(arguments), ::core::mem::transmute(heap), ::core::mem::transmute(callproperties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), callproperties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
+        WsCall(::core::mem::transmute(serviceproxy), ::core::mem::transmute(operation), ::core::mem::transmute(arguments), ::core::mem::transmute(heap), ::core::mem::transmute(::windows::core::as_ptr_or_null(callproperties)), callproperties.len() as _, ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14562,35 +14562,35 @@ pub unsafe fn WsCopyNode(writer: *const WS_XML_WRITER, reader: *const WS_XML_REA
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, securitydescription: *const WS_SECURITY_DESCRIPTION, channel: *mut *mut WS_CHANNEL, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: &[WS_CHANNEL_PROPERTY], securitydescription: *const WS_SECURITY_DESCRIPTION, channel: *mut *mut WS_CHANNEL, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: *const WS_CHANNEL_PROPERTY, propertycount: u32, securitydescription: *const WS_SECURITY_DESCRIPTION, channel: *mut *mut WS_CHANNEL, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateChannel(::core::mem::transmute(channeltype), ::core::mem::transmute(channelbinding), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(securitydescription), ::core::mem::transmute(channel), ::core::mem::transmute(error)).ok()
+        WsCreateChannel(::core::mem::transmute(channeltype), ::core::mem::transmute(channelbinding), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(securitydescription), ::core::mem::transmute(channel), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, properties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, channel: *mut *mut WS_CHANNEL, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, properties: &[WS_CHANNEL_PROPERTY], channel: *mut *mut WS_CHANNEL, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateChannelForListener(listener: *const WS_LISTENER, properties: *const WS_CHANNEL_PROPERTY, propertycount: u32, channel: *mut *mut WS_CHANNEL, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateChannelForListener(::core::mem::transmute(listener), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(channel), ::core::mem::transmute(error)).ok()
+        WsCreateChannelForListener(::core::mem::transmute(listener), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(channel), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateError(properties: ::core::option::Option<&[WS_ERROR_PROPERTY]>) -> ::windows::core::Result<*mut WS_ERROR> {
+pub unsafe fn WsCreateError(properties: &[WS_ERROR_PROPERTY]) -> ::windows::core::Result<*mut WS_ERROR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14598,7 +14598,7 @@ pub unsafe fn WsCreateError(properties: ::core::option::Option<&[WS_ERROR_PROPER
             fn WsCreateError(properties: *const WS_ERROR_PROPERTY, propertycount: u32, error: *mut *mut WS_ERROR) -> ::windows::core::HRESULT;
         }
         let mut result__: *mut WS_ERROR = ::core::mem::zeroed();
-        WsCreateError(::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(&mut result__)).from_abi::<*mut WS_ERROR>(result__)
+        WsCreateError(::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<*mut WS_ERROR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14635,70 +14635,70 @@ pub unsafe fn WsCreateHeap(maxsize: usize, trimsize: usize, properties: *const W
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: ::core::option::Option<&[WS_LISTENER_PROPERTY]>, securitydescription: *const WS_SECURITY_DESCRIPTION, listener: *mut *mut WS_LISTENER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: &[WS_LISTENER_PROPERTY], securitydescription: *const WS_SECURITY_DESCRIPTION, listener: *mut *mut WS_LISTENER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: *const WS_LISTENER_PROPERTY, propertycount: u32, securitydescription: *const WS_SECURITY_DESCRIPTION, listener: *mut *mut WS_LISTENER, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateListener(::core::mem::transmute(channeltype), ::core::mem::transmute(channelbinding), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(securitydescription), ::core::mem::transmute(listener), ::core::mem::transmute(error)).ok()
+        WsCreateListener(::core::mem::transmute(channeltype), ::core::mem::transmute(channelbinding), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(securitydescription), ::core::mem::transmute(listener), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: ::core::option::Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: &[WS_MESSAGE_PROPERTY], message: *mut *mut WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: *const WS_MESSAGE_PROPERTY, propertycount: u32, message: *mut *mut WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateMessage(::core::mem::transmute(envelopeversion), ::core::mem::transmute(addressingversion), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(message), ::core::mem::transmute(error)).ok()
+        WsCreateMessage(::core::mem::transmute(envelopeversion), ::core::mem::transmute(addressingversion), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(message), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateMessageForChannel(channel: *const WS_CHANNEL, properties: ::core::option::Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateMessageForChannel(channel: *const WS_CHANNEL, properties: &[WS_MESSAGE_PROPERTY], message: *mut *mut WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateMessageForChannel(channel: *const WS_CHANNEL, properties: *const WS_MESSAGE_PROPERTY, propertycount: u32, message: *mut *mut WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateMessageForChannel(::core::mem::transmute(channel), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(message), ::core::mem::transmute(error)).ok()
+        WsCreateMessageForChannel(::core::mem::transmute(channel), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(message), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateMetadata(properties: ::core::option::Option<&[WS_METADATA_PROPERTY]>, metadata: *mut *mut WS_METADATA, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateMetadata(properties: &[WS_METADATA_PROPERTY], metadata: *mut *mut WS_METADATA, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateMetadata(properties: *const WS_METADATA_PROPERTY, propertycount: u32, metadata: *mut *mut WS_METADATA, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateMetadata(::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(metadata), ::core::mem::transmute(error)).ok()
+        WsCreateMetadata(::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(metadata), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateReader(properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, reader: *mut *mut WS_XML_READER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateReader(properties: &[WS_XML_READER_PROPERTY], reader: *mut *mut WS_XML_READER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateReader(properties: *const WS_XML_READER_PROPERTY, propertycount: u32, reader: *mut *mut WS_XML_READER, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateReader(::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(reader), ::core::mem::transmute(error)).ok()
+        WsCreateReader(::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(reader), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14706,7 +14706,7 @@ pub unsafe fn WsCreateReader(properties: ::core::option::Option<&[WS_XML_READER_
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: ::core::option::Option<&[WS_SERVICE_ENDPOINT_PROPERTY]>, addressurl: *const WS_STRING, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: &[WS_SERVICE_ENDPOINT_PROPERTY], addressurl: *const WS_STRING, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14715,8 +14715,8 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, 
         }
         WsCreateServiceEndpointFromTemplate(
             ::core::mem::transmute(channeltype),
-            ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            properties.as_ref().map_or(0, |value| value.len()) as _,
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)),
+            properties.len() as _,
             ::core::mem::transmute(addressurl),
             ::core::mem::transmute(contract),
             ::core::mem::transmute(authorizationcallback),
@@ -14737,95 +14737,84 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, 
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsCreateServiceHost(endpoints: ::core::option::Option<&[*const WS_SERVICE_ENDPOINT]>, serviceproperties: ::core::option::Option<&[WS_SERVICE_PROPERTY]>, servicehost: *mut *mut WS_SERVICE_HOST, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateServiceHost(endpoints: &[*const WS_SERVICE_ENDPOINT], serviceproperties: &[WS_SERVICE_PROPERTY], servicehost: *mut *mut WS_SERVICE_HOST, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateServiceHost(endpoints: *const *const WS_SERVICE_ENDPOINT, endpointcount: u16, serviceproperties: *const WS_SERVICE_PROPERTY, servicepropertycount: u32, servicehost: *mut *mut WS_SERVICE_HOST, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateServiceHost(::core::mem::transmute(endpoints.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), endpoints.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(serviceproperties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), serviceproperties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(servicehost), ::core::mem::transmute(error)).ok()
+        WsCreateServiceHost(::core::mem::transmute(::windows::core::as_ptr_or_null(endpoints)), endpoints.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(serviceproperties)), serviceproperties.len() as _, ::core::mem::transmute(servicehost), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: *const WS_SECURITY_DESCRIPTION, properties: ::core::option::Option<&[WS_PROXY_PROPERTY]>, channelproperties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: *const WS_SECURITY_DESCRIPTION, properties: &[WS_PROXY_PROPERTY], channelproperties: &[WS_CHANNEL_PROPERTY], serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: *const WS_SECURITY_DESCRIPTION, properties: *const WS_PROXY_PROPERTY, propertycount: u32, channelproperties: *const WS_CHANNEL_PROPERTY, channelpropertycount: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateServiceProxy(
-            ::core::mem::transmute(channeltype),
-            ::core::mem::transmute(channelbinding),
-            ::core::mem::transmute(securitydescription),
-            ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            properties.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(channelproperties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            channelproperties.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(serviceproxy),
-            ::core::mem::transmute(error),
-        )
-        .ok()
+        WsCreateServiceProxy(::core::mem::transmute(channeltype), ::core::mem::transmute(channelbinding), ::core::mem::transmute(securitydescription), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(channelproperties)), channelproperties.len() as _, ::core::mem::transmute(serviceproxy), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: ::core::option::Option<&[WS_PROXY_PROPERTY]>, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: &[WS_PROXY_PROPERTY], templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: *const WS_PROXY_PROPERTY, propertycount: u32, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateServiceProxyFromTemplate(::core::mem::transmute(channeltype), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(templatetype), ::core::mem::transmute(templatevalue), ::core::mem::transmute(templatesize), ::core::mem::transmute(templatedescription), ::core::mem::transmute(templatedescriptionsize), ::core::mem::transmute(serviceproxy), ::core::mem::transmute(error)).ok()
+        WsCreateServiceProxyFromTemplate(::core::mem::transmute(channeltype), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(templatetype), ::core::mem::transmute(templatevalue), ::core::mem::transmute(templatesize), ::core::mem::transmute(templatedescription), ::core::mem::transmute(templatedescriptionsize), ::core::mem::transmute(serviceproxy), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateWriter(properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, writer: *mut *mut WS_XML_WRITER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateWriter(properties: &[WS_XML_WRITER_PROPERTY], writer: *mut *mut WS_XML_WRITER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateWriter(properties: *const WS_XML_WRITER_PROPERTY, propertycount: u32, writer: *mut *mut WS_XML_WRITER, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateWriter(::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(writer), ::core::mem::transmute(error)).ok()
+        WsCreateWriter(::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(writer), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateXmlBuffer(heap: *const WS_HEAP, properties: ::core::option::Option<&[WS_XML_BUFFER_PROPERTY]>, buffer: *mut *mut WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateXmlBuffer(heap: *const WS_HEAP, properties: &[WS_XML_BUFFER_PROPERTY], buffer: *mut *mut WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateXmlBuffer(heap: *const WS_HEAP, properties: *const WS_XML_BUFFER_PROPERTY, propertycount: u32, buffer: *mut *mut WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateXmlBuffer(::core::mem::transmute(heap), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(buffer), ::core::mem::transmute(error)).ok()
+        WsCreateXmlBuffer(::core::mem::transmute(heap), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(buffer), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsCreateXmlSecurityToken(tokenxml: *const WS_XML_BUFFER, tokenkey: *const WS_SECURITY_KEY_HANDLE, properties: ::core::option::Option<&[WS_XML_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateXmlSecurityToken(tokenxml: *const WS_XML_BUFFER, tokenkey: *const WS_SECURITY_KEY_HANDLE, properties: &[WS_XML_SECURITY_TOKEN_PROPERTY], token: *mut *mut WS_SECURITY_TOKEN, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsCreateXmlSecurityToken(tokenxml: *const WS_XML_BUFFER, tokenkey: *const WS_SECURITY_KEY_HANDLE, properties: *const WS_XML_SECURITY_TOKEN_PROPERTY, propertycount: u32, token: *mut *mut WS_SECURITY_TOKEN, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateXmlSecurityToken(::core::mem::transmute(tokenxml), ::core::mem::transmute(tokenkey), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(token), ::core::mem::transmute(error)).ok()
+        WsCreateXmlSecurityToken(::core::mem::transmute(tokenxml), ::core::mem::transmute(tokenkey), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(token), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15809,7 +15798,7 @@ pub unsafe fn WsReadChars(reader: *const WS_XML_READER, chars: &mut [u16], actua
         extern "system" {
             fn WsReadChars(reader: *const WS_XML_READER, chars: ::windows::core::PWSTR, maxcharcount: u32, actualcharcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsReadChars(::core::mem::transmute(reader), ::core::mem::transmute(chars.as_ptr()), chars.len() as _, ::core::mem::transmute(actualcharcount), ::core::mem::transmute(error)).ok()
+        WsReadChars(::core::mem::transmute(reader), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(chars)), chars.len() as _, ::core::mem::transmute(actualcharcount), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15823,7 +15812,7 @@ pub unsafe fn WsReadCharsUtf8(reader: *const WS_XML_READER, bytes: &mut [u8], ac
         extern "system" {
             fn WsReadCharsUtf8(reader: *const WS_XML_READER, bytes: *mut u8, maxbytecount: u32, actualbytecount: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsReadCharsUtf8(::core::mem::transmute(reader), ::core::mem::transmute(bytes.as_ptr()), bytes.len() as _, ::core::mem::transmute(actualbytecount), ::core::mem::transmute(error)).ok()
+        WsReadCharsUtf8(::core::mem::transmute(reader), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(bytes)), bytes.len() as _, ::core::mem::transmute(actualbytecount), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16071,14 +16060,14 @@ pub unsafe fn WsReadXmlBuffer(reader: *const WS_XML_READER, heap: *const WS_HEAP
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: *const WS_XML_READER_ENCODING, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, bytes: *const ::core::ffi::c_void, bytecount: u32, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: *const WS_XML_READER_ENCODING, properties: &[WS_XML_READER_PROPERTY], bytes: *const ::core::ffi::c_void, bytecount: u32, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: *const WS_XML_READER_ENCODING, properties: *const WS_XML_READER_PROPERTY, propertycount: u32, bytes: *const ::core::ffi::c_void, bytecount: u32, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsReadXmlBufferFromBytes(::core::mem::transmute(reader), ::core::mem::transmute(encoding), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(bytes), ::core::mem::transmute(bytecount), ::core::mem::transmute(heap), ::core::mem::transmute(xmlbuffer), ::core::mem::transmute(error)).ok()
+        WsReadXmlBufferFromBytes(::core::mem::transmute(reader), ::core::mem::transmute(encoding), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(bytes), ::core::mem::transmute(bytecount), ::core::mem::transmute(heap), ::core::mem::transmute(xmlbuffer), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16093,7 +16082,7 @@ pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_ME
         extern "system" {
             fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: *const *const WS_MESSAGE_DESCRIPTION, messagedescriptioncount: u32, receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, index: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsReceiveMessage(::core::mem::transmute(channel), ::core::mem::transmute(message), ::core::mem::transmute(messagedescriptions.as_ptr()), messagedescriptions.len() as _, ::core::mem::transmute(receiveoption), ::core::mem::transmute(readbodyoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(index), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
+        WsReceiveMessage(::core::mem::transmute(channel), ::core::mem::transmute(message), ::core::mem::transmute(::windows::core::as_ptr_or_null(messagedescriptions)), messagedescriptions.len() as _, ::core::mem::transmute(receiveoption), ::core::mem::transmute(readbodyoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(index), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16203,14 +16192,14 @@ pub unsafe fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const 
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: ::core::option::Option<&[WS_REQUEST_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: &[WS_REQUEST_SECURITY_TOKEN_PROPERTY], token: *mut *mut WS_SECURITY_TOKEN, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: *const WS_REQUEST_SECURITY_TOKEN_PROPERTY, propertycount: u32, token: *mut *mut WS_SECURITY_TOKEN, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsRequestSecurityToken(::core::mem::transmute(channel), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(token), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
+        WsRequestSecurityToken(::core::mem::transmute(channel), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(token), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16458,28 +16447,28 @@ pub unsafe fn WsSetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsSetInput(reader: *const WS_XML_READER, encoding: *const WS_XML_READER_ENCODING, input: *const WS_XML_READER_INPUT, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsSetInput(reader: *const WS_XML_READER, encoding: *const WS_XML_READER_ENCODING, input: *const WS_XML_READER_INPUT, properties: &[WS_XML_READER_PROPERTY], error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsSetInput(reader: *const WS_XML_READER, encoding: *const WS_XML_READER_ENCODING, input: *const WS_XML_READER_INPUT, properties: *const WS_XML_READER_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsSetInput(::core::mem::transmute(reader), ::core::mem::transmute(encoding), ::core::mem::transmute(input), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(error)).ok()
+        WsSetInput(::core::mem::transmute(reader), ::core::mem::transmute(encoding), ::core::mem::transmute(input), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsSetInputToBuffer(reader: *const WS_XML_READER, buffer: *const WS_XML_BUFFER, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsSetInputToBuffer(reader: *const WS_XML_READER, buffer: *const WS_XML_BUFFER, properties: &[WS_XML_READER_PROPERTY], error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsSetInputToBuffer(reader: *const WS_XML_READER, buffer: *const WS_XML_BUFFER, properties: *const WS_XML_READER_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsSetInputToBuffer(::core::mem::transmute(reader), ::core::mem::transmute(buffer), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(error)).ok()
+        WsSetInputToBuffer(::core::mem::transmute(reader), ::core::mem::transmute(buffer), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16514,28 +16503,28 @@ pub unsafe fn WsSetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PR
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsSetOutput(writer: *const WS_XML_WRITER, encoding: *const WS_XML_WRITER_ENCODING, output: *const WS_XML_WRITER_OUTPUT, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsSetOutput(writer: *const WS_XML_WRITER, encoding: *const WS_XML_WRITER_ENCODING, output: *const WS_XML_WRITER_OUTPUT, properties: &[WS_XML_WRITER_PROPERTY], error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsSetOutput(writer: *const WS_XML_WRITER, encoding: *const WS_XML_WRITER_ENCODING, output: *const WS_XML_WRITER_OUTPUT, properties: *const WS_XML_WRITER_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsSetOutput(::core::mem::transmute(writer), ::core::mem::transmute(encoding), ::core::mem::transmute(output), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(error)).ok()
+        WsSetOutput(::core::mem::transmute(writer), ::core::mem::transmute(encoding), ::core::mem::transmute(output), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsSetOutputToBuffer(writer: *const WS_XML_WRITER, buffer: *const WS_XML_BUFFER, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsSetOutputToBuffer(writer: *const WS_XML_WRITER, buffer: *const WS_XML_BUFFER, properties: &[WS_XML_WRITER_PROPERTY], error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsSetOutputToBuffer(writer: *const WS_XML_WRITER, buffer: *const WS_XML_BUFFER, properties: *const WS_XML_WRITER_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsSetOutputToBuffer(::core::mem::transmute(writer), ::core::mem::transmute(buffer), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(error)).ok()
+        WsSetOutputToBuffer(::core::mem::transmute(writer), ::core::mem::transmute(buffer), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16598,28 +16587,28 @@ pub unsafe fn WsSkipNode(reader: *const WS_XML_READER, error: *const WS_ERROR) -
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const ::core::ffi::c_void, properties: ::core::option::Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const ::core::ffi::c_void, properties: &[WS_XML_CANONICALIZATION_PROPERTY], error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: ::windows::core::RawPtr, writecallbackstate: *const ::core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsStartReaderCanonicalization(::core::mem::transmute(reader), ::core::mem::transmute(writecallback), ::core::mem::transmute(writecallbackstate), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(error)).ok()
+        WsStartReaderCanonicalization(::core::mem::transmute(reader), ::core::mem::transmute(writecallback), ::core::mem::transmute(writecallbackstate), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const ::core::ffi::c_void, properties: ::core::option::Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const ::core::ffi::c_void, properties: &[WS_XML_CANONICALIZATION_PROPERTY], error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: ::windows::core::RawPtr, writecallbackstate: *const ::core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsStartWriterCanonicalization(::core::mem::transmute(writer), ::core::mem::transmute(writecallback), ::core::mem::transmute(writecallbackstate), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(error)).ok()
+        WsStartWriterCanonicalization(::core::mem::transmute(writer), ::core::mem::transmute(writecallback), ::core::mem::transmute(writecallbackstate), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16633,7 +16622,7 @@ pub unsafe fn WsTrimXmlWhitespace(chars: &[u16], trimmedchars: *mut *mut u16, tr
         extern "system" {
             fn WsTrimXmlWhitespace(chars: ::windows::core::PCWSTR, charcount: u32, trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsTrimXmlWhitespace(::core::mem::transmute(chars.as_ptr()), chars.len() as _, ::core::mem::transmute(trimmedchars), ::core::mem::transmute(trimmedcount), ::core::mem::transmute(error)).ok()
+        WsTrimXmlWhitespace(::core::mem::transmute(::windows::core::as_ptr_or_null(chars)), chars.len() as _, ::core::mem::transmute(trimmedchars), ::core::mem::transmute(trimmedcount), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16647,7 +16636,7 @@ pub unsafe fn WsVerifyXmlNCName(ncnamechars: &[u16], error: *const WS_ERROR) -> 
         extern "system" {
             fn WsVerifyXmlNCName(ncnamechars: ::windows::core::PCWSTR, ncnamecharcount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsVerifyXmlNCName(::core::mem::transmute(ncnamechars.as_ptr()), ncnamechars.len() as _, ::core::mem::transmute(error)).ok()
+        WsVerifyXmlNCName(::core::mem::transmute(::windows::core::as_ptr_or_null(ncnamechars)), ncnamechars.len() as _, ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16720,7 +16709,7 @@ pub unsafe fn WsWriteChars(writer: *const WS_XML_WRITER, chars: &[u16], error: *
         extern "system" {
             fn WsWriteChars(writer: *const WS_XML_WRITER, chars: ::windows::core::PCWSTR, charcount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsWriteChars(::core::mem::transmute(writer), ::core::mem::transmute(chars.as_ptr()), chars.len() as _, ::core::mem::transmute(error)).ok()
+        WsWriteChars(::core::mem::transmute(writer), ::core::mem::transmute(::windows::core::as_ptr_or_null(chars)), chars.len() as _, ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16734,7 +16723,7 @@ pub unsafe fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: &[u8], error
         extern "system" {
             fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: *const u8, bytecount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsWriteCharsUtf8(::core::mem::transmute(writer), ::core::mem::transmute(bytes.as_ptr()), bytes.len() as _, ::core::mem::transmute(error)).ok()
+        WsWriteCharsUtf8(::core::mem::transmute(writer), ::core::mem::transmute(::windows::core::as_ptr_or_null(bytes)), bytes.len() as _, ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16997,14 +16986,14 @@ pub unsafe fn WsWriteXmlBuffer(writer: *const WS_XML_WRITER, xmlbuffer: *const W
 }
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 #[inline]
-pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, encoding: *const WS_XML_WRITER_ENCODING, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, heap: *const WS_HEAP, bytes: *mut *mut ::core::ffi::c_void, bytecount: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
+pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, encoding: *const WS_XML_WRITER_ENCODING, properties: &[WS_XML_WRITER_PROPERTY], heap: *const WS_HEAP, bytes: *mut *mut ::core::ffi::c_void, bytecount: *mut u32, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, encoding: *const WS_XML_WRITER_ENCODING, properties: *const WS_XML_WRITER_PROPERTY, propertycount: u32, heap: *const WS_HEAP, bytes: *mut *mut ::core::ffi::c_void, bytecount: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsWriteXmlBufferToBytes(::core::mem::transmute(writer), ::core::mem::transmute(xmlbuffer), ::core::mem::transmute(encoding), ::core::mem::transmute(properties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), properties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(heap), ::core::mem::transmute(bytes), ::core::mem::transmute(bytecount), ::core::mem::transmute(error)).ok()
+        WsWriteXmlBufferToBytes(::core::mem::transmute(writer), ::core::mem::transmute(xmlbuffer), ::core::mem::transmute(encoding), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(heap), ::core::mem::transmute(bytes), ::core::mem::transmute(bytecount), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

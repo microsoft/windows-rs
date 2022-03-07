@@ -67,7 +67,7 @@ impl IWsbApplicationBackupSupport {
     #[doc = "*Required features: 'Win32_System_ServerBackup'*"]
     pub unsafe fn CheckConsistency<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, const PARAM3: usize>(&self, wszwritermetadata: Param0, wszcomponentname: Param1, wszcomponentlogicalpath: Param2, rgwszsourcevolumepath: &[::windows::core::PWSTR; PARAM3], rgwszsnapshotvolumepath: &[::windows::core::PWSTR; PARAM3]) -> ::windows::core::Result<IWsbApplicationAsync> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckConsistency)(::core::mem::transmute_copy(self), wszwritermetadata.into_param().abi(), wszcomponentname.into_param().abi(), wszcomponentlogicalpath.into_param().abi(), PARAM3 as _, ::core::mem::transmute(rgwszsourcevolumepath.as_ptr()), ::core::mem::transmute(rgwszsnapshotvolumepath.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<IWsbApplicationAsync>(result__)
+        (::windows::core::Interface::vtable(self).CheckConsistency)(::core::mem::transmute_copy(self), wszwritermetadata.into_param().abi(), wszcomponentname.into_param().abi(), wszcomponentlogicalpath.into_param().abi(), PARAM3 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgwszsourcevolumepath)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgwszsnapshotvolumepath)), ::core::mem::transmute(&mut result__)).from_abi::<IWsbApplicationAsync>(result__)
     }
 }
 impl ::core::convert::From<IWsbApplicationBackupSupport> for ::windows::core::IUnknown {
@@ -132,7 +132,7 @@ impl IWsbApplicationRestoreSupport {
     }
     #[doc = "*Required features: 'Win32_System_ServerBackup'*"]
     pub unsafe fn OrderComponents<'a, const PARAM0: usize>(&self, rgcomponentname: &[::windows::core::PWSTR; PARAM0], rgcomponentlogicalpaths: &[::windows::core::PWSTR; PARAM0], prgcomponentname: &mut [*mut ::windows::core::PWSTR; PARAM0], prgcomponentlogicalpath: &mut [*mut ::windows::core::PWSTR; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OrderComponents)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(rgcomponentname.as_ptr()), ::core::mem::transmute(rgcomponentlogicalpaths.as_ptr()), ::core::mem::transmute(prgcomponentname.as_ptr()), ::core::mem::transmute(prgcomponentlogicalpath.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).OrderComponents)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcomponentname)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcomponentlogicalpaths)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgcomponentname)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgcomponentlogicalpath))).ok()
     }
     #[doc = "*Required features: 'Win32_System_ServerBackup'*"]
     pub unsafe fn IsRollForwardSupported(&self) -> ::windows::core::Result<u8> {

@@ -1969,14 +1969,14 @@ pub unsafe fn GetNumaNodeProcessorMask(node: u8, processormask: *mut u64) -> sup
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_System_SystemInformation'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: ::core::option::Option<&mut [super::SystemInformation::GROUP_AFFINITY]>, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL {
+pub unsafe fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: &mut [super::SystemInformation::GROUP_AFFINITY], requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: *mut super::SystemInformation::GROUP_AFFINITY, processormaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetNumaNodeProcessorMask2(::core::mem::transmute(nodenumber), ::core::mem::transmute(processormasks.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), processormasks.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(requiredmaskcount)))
+        ::core::mem::transmute(GetNumaNodeProcessorMask2(::core::mem::transmute(nodenumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(processormasks)), processormasks.len() as _, ::core::mem::transmute(requiredmaskcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2104,14 +2104,14 @@ pub unsafe fn GetProcessDEPPolicy<'a, Param0: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_System_SystemInformation'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn GetProcessDefaultCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetmasks: ::core::option::Option<&mut [super::SystemInformation::GROUP_AFFINITY]>, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL {
+pub unsafe fn GetProcessDefaultCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetmasks: &mut [super::SystemInformation::GROUP_AFFINITY], requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetProcessDefaultCpuSetMasks(process: super::super::Foundation::HANDLE, cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetProcessDefaultCpuSetMasks(process.into_param().abi(), ::core::mem::transmute(cpusetmasks.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), cpusetmasks.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(requiredmaskcount)))
+        ::core::mem::transmute(GetProcessDefaultCpuSetMasks(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _, ::core::mem::transmute(requiredmaskcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2119,14 +2119,14 @@ pub unsafe fn GetProcessDefaultCpuSetMasks<'a, Param0: ::windows::core::IntoPara
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetProcessDefaultCpuSets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetids: ::core::option::Option<&mut [u32]>, requiredidcount: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetProcessDefaultCpuSets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetids: &mut [u32], requiredidcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetProcessDefaultCpuSets(process: super::super::Foundation::HANDLE, cpusetids: *mut u32, cpusetidcount: u32, requiredidcount: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetProcessDefaultCpuSets(process.into_param().abi(), ::core::mem::transmute(cpusetids.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), cpusetids.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(requiredidcount)))
+        ::core::mem::transmute(GetProcessDefaultCpuSets(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetids)), cpusetids.len() as _, ::core::mem::transmute(requiredidcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2479,14 +2479,14 @@ pub unsafe fn GetThreadPriorityBoost<'a, Param0: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_System_SystemInformation'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn GetThreadSelectedCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0, cpusetmasks: ::core::option::Option<&mut [super::SystemInformation::GROUP_AFFINITY]>, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL {
+pub unsafe fn GetThreadSelectedCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0, cpusetmasks: &mut [super::SystemInformation::GROUP_AFFINITY], requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetThreadSelectedCpuSetMasks(thread: super::super::Foundation::HANDLE, cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetThreadSelectedCpuSetMasks(thread.into_param().abi(), ::core::mem::transmute(cpusetmasks.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), cpusetmasks.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(requiredmaskcount)))
+        ::core::mem::transmute(GetThreadSelectedCpuSetMasks(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _, ::core::mem::transmute(requiredmaskcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2494,14 +2494,14 @@ pub unsafe fn GetThreadSelectedCpuSetMasks<'a, Param0: ::windows::core::IntoPara
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThreadSelectedCpuSets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0, cpusetids: ::core::option::Option<&mut [u32]>, requiredidcount: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetThreadSelectedCpuSets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0, cpusetids: &mut [u32], requiredidcount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetThreadSelectedCpuSets(thread: super::super::Foundation::HANDLE, cpusetids: *mut u32, cpusetidcount: u32, requiredidcount: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetThreadSelectedCpuSets(thread.into_param().abi(), ::core::mem::transmute(cpusetids.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), cpusetids.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(requiredidcount)))
+        ::core::mem::transmute(GetThreadSelectedCpuSets(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetids)), cpusetids.len() as _, ::core::mem::transmute(requiredidcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5803,14 +5803,14 @@ pub unsafe fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::F
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_System_SystemInformation'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn SetProcessDefaultCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetmasks: ::core::option::Option<&[super::SystemInformation::GROUP_AFFINITY]>) -> super::super::Foundation::BOOL {
+pub unsafe fn SetProcessDefaultCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetmasks: &[super::SystemInformation::GROUP_AFFINITY]) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetProcessDefaultCpuSetMasks(process: super::super::Foundation::HANDLE, cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetProcessDefaultCpuSetMasks(process.into_param().abi(), ::core::mem::transmute(cpusetmasks.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), cpusetmasks.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(SetProcessDefaultCpuSetMasks(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5818,14 +5818,14 @@ pub unsafe fn SetProcessDefaultCpuSetMasks<'a, Param0: ::windows::core::IntoPara
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetProcessDefaultCpuSets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetids: ::core::option::Option<&[u32]>) -> super::super::Foundation::BOOL {
+pub unsafe fn SetProcessDefaultCpuSets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetids: &[u32]) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetProcessDefaultCpuSets(process: super::super::Foundation::HANDLE, cpusetids: *const u32, cpusetidcount: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetProcessDefaultCpuSets(process.into_param().abi(), ::core::mem::transmute(cpusetids.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), cpusetids.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(SetProcessDefaultCpuSets(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetids)), cpusetids.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5840,7 +5840,7 @@ pub unsafe fn SetProcessDynamicEHContinuationTargets<'a, Param0: ::windows::core
         extern "system" {
             fn SetProcessDynamicEHContinuationTargets(process: super::super::Foundation::HANDLE, numberoftargets: u16, targets: *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetProcessDynamicEHContinuationTargets(process.into_param().abi(), targets.len() as _, ::core::mem::transmute(targets.as_ptr())))
+        ::core::mem::transmute(SetProcessDynamicEHContinuationTargets(process.into_param().abi(), targets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targets))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5855,7 +5855,7 @@ pub unsafe fn SetProcessDynamicEnforcedCetCompatibleRanges<'a, Param0: ::windows
         extern "system" {
             fn SetProcessDynamicEnforcedCetCompatibleRanges(process: super::super::Foundation::HANDLE, numberofranges: u16, ranges: *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetProcessDynamicEnforcedCetCompatibleRanges(process.into_param().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())))
+        ::core::mem::transmute(SetProcessDynamicEnforcedCetCompatibleRanges(process.into_param().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ranges))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6088,14 +6088,14 @@ pub unsafe fn SetThreadPriorityBoost<'a, Param0: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_System_SystemInformation'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn SetThreadSelectedCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0, cpusetmasks: ::core::option::Option<&[super::SystemInformation::GROUP_AFFINITY]>) -> super::super::Foundation::BOOL {
+pub unsafe fn SetThreadSelectedCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0, cpusetmasks: &[super::SystemInformation::GROUP_AFFINITY]) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetThreadSelectedCpuSetMasks(thread: super::super::Foundation::HANDLE, cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetThreadSelectedCpuSetMasks(thread.into_param().abi(), ::core::mem::transmute(cpusetmasks.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), cpusetmasks.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(SetThreadSelectedCpuSetMasks(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6110,7 +6110,7 @@ pub unsafe fn SetThreadSelectedCpuSets<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn SetThreadSelectedCpuSets(thread: super::super::Foundation::HANDLE, cpusetids: *const u32, cpusetidcount: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetThreadSelectedCpuSets(thread.into_param().abi(), ::core::mem::transmute(cpusetids.as_ptr()), cpusetids.len() as _))
+        ::core::mem::transmute(SetThreadSelectedCpuSets(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetids)), cpusetids.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7361,7 +7361,7 @@ pub unsafe fn WaitForMultipleObjects<'a, Param2: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn WaitForMultipleObjects(ncount: u32, lphandles: *const super::super::Foundation::HANDLE, bwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32) -> u32;
         }
-        ::core::mem::transmute(WaitForMultipleObjects(lphandles.len() as _, ::core::mem::transmute(lphandles.as_ptr()), bwaitall.into_param().abi(), ::core::mem::transmute(dwmilliseconds)))
+        ::core::mem::transmute(WaitForMultipleObjects(lphandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lphandles)), bwaitall.into_param().abi(), ::core::mem::transmute(dwmilliseconds)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7376,7 +7376,7 @@ pub unsafe fn WaitForMultipleObjectsEx<'a, Param2: ::windows::core::IntoParam<'a
         extern "system" {
             fn WaitForMultipleObjectsEx(ncount: u32, lphandles: *const super::super::Foundation::HANDLE, bwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
         }
-        ::core::mem::transmute(WaitForMultipleObjectsEx(lphandles.len() as _, ::core::mem::transmute(lphandles.as_ptr()), bwaitall.into_param().abi(), ::core::mem::transmute(dwmilliseconds), balertable.into_param().abi()))
+        ::core::mem::transmute(WaitForMultipleObjectsEx(lphandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lphandles)), bwaitall.into_param().abi(), ::core::mem::transmute(dwmilliseconds), balertable.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

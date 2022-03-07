@@ -378,7 +378,7 @@ pub unsafe fn AuditComputeEffectivePolicyBySid<'a, Param0: ::windows::core::Into
         extern "system" {
             fn AuditComputeEffectivePolicyBySid(psid: super::super::super::Foundation::PSID, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
         }
-        ::core::mem::transmute(AuditComputeEffectivePolicyBySid(psid.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
+        ::core::mem::transmute(AuditComputeEffectivePolicyBySid(psid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -393,7 +393,7 @@ pub unsafe fn AuditComputeEffectivePolicyByToken<'a, Param0: ::windows::core::In
         extern "system" {
             fn AuditComputeEffectivePolicyByToken(htokenhandle: super::super::super::Foundation::HANDLE, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
         }
-        ::core::mem::transmute(AuditComputeEffectivePolicyByToken(htokenhandle.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
+        ::core::mem::transmute(AuditComputeEffectivePolicyByToken(htokenhandle.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -587,7 +587,7 @@ pub unsafe fn AuditQueryPerUserPolicy<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn AuditQueryPerUserPolicy(psid: super::super::super::Foundation::PSID, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
         }
-        ::core::mem::transmute(AuditQueryPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
+        ::core::mem::transmute(AuditQueryPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -617,7 +617,7 @@ pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[::windows::core::GUID]
         extern "system" {
             fn AuditQuerySystemPolicy(psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
         }
-        ::core::mem::transmute(AuditQuerySystemPolicy(::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
+        ::core::mem::transmute(AuditQuerySystemPolicy(::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -662,7 +662,7 @@ pub unsafe fn AuditSetPerUserPolicy<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn AuditSetPerUserPolicy(psid: super::super::super::Foundation::PSID, pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN;
         }
-        ::core::mem::transmute(AuditSetPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len() as _))
+        ::core::mem::transmute(AuditSetPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pauditpolicy)), pauditpolicy.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -692,7 +692,7 @@ pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[AUDIT_POLICY_INFORMATION]) ->
         extern "system" {
             fn AuditSetSystemPolicy(pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN;
         }
-        ::core::mem::transmute(AuditSetSystemPolicy(::core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len() as _))
+        ::core::mem::transmute(AuditSetSystemPolicy(::core::mem::transmute(::windows::core::as_ptr_or_null(pauditpolicy)), pauditpolicy.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6573,7 +6573,7 @@ pub unsafe fn LsaAddAccountRights<'a, Param1: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn LsaAddAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, userrights: *const super::super::super::Foundation::UNICODE_STRING, countofrights: u32) -> super::super::super::Foundation::NTSTATUS;
         }
-        LsaAddAccountRights(::core::mem::transmute(policyhandle), accountsid.into_param().abi(), ::core::mem::transmute(userrights.as_ptr()), userrights.len() as _).ok()
+        LsaAddAccountRights(::core::mem::transmute(policyhandle), accountsid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(userrights)), userrights.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6991,14 +6991,14 @@ pub unsafe fn LsaOpenTrustedDomainByName(policyhandle: *const ::core::ffi::c_voi
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaQueryCAPs(capids: ::core::option::Option<&[super::super::super::Foundation::PSID]>, caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn LsaQueryCAPs(capids: &[super::super::super::Foundation::PSID], caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LsaQueryCAPs(capids: *const super::super::super::Foundation::PSID, capidcount: u32, caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> super::super::super::Foundation::NTSTATUS;
         }
-        LsaQueryCAPs(::core::mem::transmute(capids.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), capids.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(caps), ::core::mem::transmute(capcount)).ok()
+        LsaQueryCAPs(::core::mem::transmute(::windows::core::as_ptr_or_null(capids)), capids.len() as _, ::core::mem::transmute(caps), ::core::mem::transmute(capcount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7111,14 +7111,14 @@ pub unsafe fn LsaRegisterPolicyChangeNotification<'a, Param1: ::windows::core::I
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaRemoveAccountRights<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(policyhandle: *const ::core::ffi::c_void, accountsid: Param1, allrights: Param2, userrights: ::core::option::Option<&[super::super::super::Foundation::UNICODE_STRING]>) -> ::windows::core::Result<()> {
+pub unsafe fn LsaRemoveAccountRights<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(policyhandle: *const ::core::ffi::c_void, accountsid: Param1, allrights: Param2, userrights: &[super::super::super::Foundation::UNICODE_STRING]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LsaRemoveAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, allrights: super::super::super::Foundation::BOOLEAN, userrights: *const super::super::super::Foundation::UNICODE_STRING, countofrights: u32) -> super::super::super::Foundation::NTSTATUS;
         }
-        LsaRemoveAccountRights(::core::mem::transmute(policyhandle), accountsid.into_param().abi(), allrights.into_param().abi(), ::core::mem::transmute(userrights.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), userrights.as_ref().map_or(0, |value| value.len()) as _).ok()
+        LsaRemoveAccountRights(::core::mem::transmute(policyhandle), accountsid.into_param().abi(), allrights.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(userrights)), userrights.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7141,14 +7141,14 @@ pub unsafe fn LsaRetrievePrivateData(policyhandle: *const ::core::ffi::c_void, k
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaSetCAPs(capdns: ::core::option::Option<&[super::super::super::Foundation::UNICODE_STRING]>, flags: u32) -> ::windows::core::Result<()> {
+pub unsafe fn LsaSetCAPs(capdns: &[super::super::super::Foundation::UNICODE_STRING], flags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LsaSetCAPs(capdns: *const super::super::super::Foundation::UNICODE_STRING, capdncount: u32, flags: u32) -> super::super::super::Foundation::NTSTATUS;
         }
-        LsaSetCAPs(::core::mem::transmute(capdns.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), capdns.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(flags)).ok()
+        LsaSetCAPs(::core::mem::transmute(::windows::core::as_ptr_or_null(capdns)), capdns.len() as _, ::core::mem::transmute(flags)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20662,7 +20662,7 @@ pub unsafe fn SslGetExtensions(clienthello: &[u8], genericextensions: &mut [SCH_
         extern "system" {
             fn SslGetExtensions(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> i32;
         }
-        ::core::mem::transmute(SslGetExtensions(::core::mem::transmute(clienthello.as_ptr()), clienthello.len() as _, ::core::mem::transmute(genericextensions.as_ptr()), genericextensions.len() as _, ::core::mem::transmute(bytestoread), ::core::mem::transmute(flags)))
+        ::core::mem::transmute(SslGetExtensions(::core::mem::transmute(::windows::core::as_ptr_or_null(clienthello)), clienthello.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(genericextensions)), genericextensions.len() as _, ::core::mem::transmute(bytestoread), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22003,7 +22003,7 @@ pub unsafe fn TokenBindingGenerateMessage<'a, const PARAM2: usize>(tokenbindings
         extern "system" {
             fn TokenBindingGenerateMessage(tokenbindings: *const *const ::core::ffi::c_void, tokenbindingssize: *const u32, tokenbindingscount: u32, tokenbindingmessage: *mut *mut ::core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> i32;
         }
-        ::core::mem::transmute(TokenBindingGenerateMessage(::core::mem::transmute(tokenbindings.as_ptr()), ::core::mem::transmute(tokenbindingssize.as_ptr()), PARAM2 as _, ::core::mem::transmute(tokenbindingmessage), ::core::mem::transmute(tokenbindingmessagesize)))
+        ::core::mem::transmute(TokenBindingGenerateMessage(::core::mem::transmute(::windows::core::as_ptr_or_null(tokenbindings)), ::core::mem::transmute(::windows::core::as_ptr_or_null(tokenbindingssize)), PARAM2 as _, ::core::mem::transmute(tokenbindingmessage), ::core::mem::transmute(tokenbindingmessagesize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

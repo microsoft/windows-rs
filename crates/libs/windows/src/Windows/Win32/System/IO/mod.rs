@@ -144,7 +144,7 @@ pub unsafe fn GetQueuedCompletionStatusEx<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn GetQueuedCompletionStatusEx(completionport: super::super::Foundation::HANDLE, lpcompletionportentries: *mut OVERLAPPED_ENTRY, ulcount: u32, ulnumentriesremoved: *mut u32, dwmilliseconds: u32, falertable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetQueuedCompletionStatusEx(completionport.into_param().abi(), ::core::mem::transmute(lpcompletionportentries.as_ptr()), lpcompletionportentries.len() as _, ::core::mem::transmute(ulnumentriesremoved), ::core::mem::transmute(dwmilliseconds), falertable.into_param().abi()))
+        ::core::mem::transmute(GetQueuedCompletionStatusEx(completionport.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcompletionportentries)), lpcompletionportentries.len() as _, ::core::mem::transmute(ulnumentriesremoved), ::core::mem::transmute(dwmilliseconds), falertable.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

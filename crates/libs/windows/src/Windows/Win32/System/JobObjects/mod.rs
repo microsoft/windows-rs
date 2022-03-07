@@ -54,7 +54,7 @@ pub unsafe fn CreateJobSet(userjobset: &[JOB_SET_ARRAY], flags: u32) -> super::s
         extern "system" {
             fn CreateJobSet(numjob: u32, userjobset: *const JOB_SET_ARRAY, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateJobSet(userjobset.len() as _, ::core::mem::transmute(userjobset.as_ptr()), ::core::mem::transmute(flags)))
+        ::core::mem::transmute(CreateJobSet(userjobset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(userjobset)), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

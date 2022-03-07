@@ -739,7 +739,7 @@ pub unsafe fn GetCommPorts(lpportnumbers: &mut [u32], puportnumbersfound: *mut u
         extern "system" {
             fn GetCommPorts(lpportnumbers: *mut u32, uportnumberscount: u32, puportnumbersfound: *mut u32) -> u32;
         }
-        ::core::mem::transmute(GetCommPorts(::core::mem::transmute(lpportnumbers.as_ptr()), lpportnumbers.len() as _, ::core::mem::transmute(puportnumbersfound)))
+        ::core::mem::transmute(GetCommPorts(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpportnumbers)), lpportnumbers.len() as _, ::core::mem::transmute(puportnumbersfound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

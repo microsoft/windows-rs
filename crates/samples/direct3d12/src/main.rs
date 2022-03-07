@@ -392,7 +392,7 @@ mod d3d12_hello_triangle {
         unsafe {
             command_list.ClearRenderTargetView(rtv_handle, [0.0, 0.2, 0.4, 1.0].as_ptr(), &[]);
             command_list.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-            command_list.IASetVertexBuffers(0, Some(&[resources.vbv]));
+            command_list.IASetVertexBuffers(0, &[resources.vbv]);
             command_list.DrawInstanced(3, 1, 0, 0);
 
             // Indicate that the back buffer will now be used to present.

@@ -654,14 +654,14 @@ pub unsafe fn WcmSetProfileList<'a, Param2: ::windows::core::IntoParam<'a, super
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 #[inline]
-pub unsafe fn WcmSetProperty<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pinterface: *const ::windows::core::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pbdata: ::core::option::Option<&[u8]>) -> u32 {
+pub unsafe fn WcmSetProperty<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pinterface: *const ::windows::core::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pbdata: &[u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WcmSetProperty(pinterface: *const ::windows::core::GUID, strprofilename: ::windows::core::PCWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
         }
-        ::core::mem::transmute(WcmSetProperty(::core::mem::transmute(pinterface), strprofilename.into_param().abi(), ::core::mem::transmute(property), ::core::mem::transmute(preserved), pbdata.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(pbdata.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))))
+        ::core::mem::transmute(WcmSetProperty(::core::mem::transmute(pinterface), strprofilename.into_param().abi(), ::core::mem::transmute(property), ::core::mem::transmute(preserved), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

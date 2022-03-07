@@ -143,7 +143,7 @@ pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: &mut [u8; 256])
         extern "system" {
             fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS;
         }
-        ::core::mem::transmute(DceErrorInqTextA(::core::mem::transmute(rpcstatus), ::core::mem::transmute(errortext.as_ptr())))
+        ::core::mem::transmute(DceErrorInqTextA(::core::mem::transmute(rpcstatus), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -157,7 +157,7 @@ pub unsafe fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: &mut [u16; 256]
         extern "system" {
             fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RPC_STATUS;
         }
-        ::core::mem::transmute(DceErrorInqTextW(::core::mem::transmute(rpcstatus), ::core::mem::transmute(errortext.as_ptr())))
+        ::core::mem::transmute(DceErrorInqTextW(::core::mem::transmute(rpcstatus), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13893,7 +13893,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: &[RPC_INTERFACE_TEMPLAT
         extern "system" {
             fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TEMPLATEA, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
-        ::core::mem::transmute(RpcServerInterfaceGroupCreateA(::core::mem::transmute(interfaces.as_ptr()), interfaces.len() as _, ::core::mem::transmute(endpoints.as_ptr()), endpoints.len() as _, ::core::mem::transmute(idleperiod), ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
+        ::core::mem::transmute(RpcServerInterfaceGroupCreateA(::core::mem::transmute(::windows::core::as_ptr_or_null(interfaces)), interfaces.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(endpoints)), endpoints.len() as _, ::core::mem::transmute(idleperiod), ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13907,7 +13907,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: &[RPC_INTERFACE_TEMPLAT
         extern "system" {
             fn RpcServerInterfaceGroupCreateW(interfaces: *const RPC_INTERFACE_TEMPLATEW, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
-        ::core::mem::transmute(RpcServerInterfaceGroupCreateW(::core::mem::transmute(interfaces.as_ptr()), interfaces.len() as _, ::core::mem::transmute(endpoints.as_ptr()), endpoints.len() as _, ::core::mem::transmute(idleperiod), ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
+        ::core::mem::transmute(RpcServerInterfaceGroupCreateW(::core::mem::transmute(::windows::core::as_ptr_or_null(interfaces)), interfaces.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(endpoints)), endpoints.len() as _, ::core::mem::transmute(idleperiod), ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

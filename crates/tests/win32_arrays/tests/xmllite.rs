@@ -14,8 +14,8 @@ fn test() -> Result<()> {
         writer.WriteStartElement(None, "html", None)?;
         writer.WriteElementString(None, "head", None, "The quick brown fox jumps over the lazy dog")?;
         writer.WriteStartElement(None, "body", None)?;
-        writer.WriteChars(None)?;
-        writer.WriteChars(Some(&[0x52, 0x75, 0x73, 0x74]))?;
+        writer.WriteChars(&[])?;
+        writer.WriteChars(&[0x52, 0x75, 0x73, 0x74])?;
         writer.WriteEndDocument()?;
         writer.Flush()?;
 
@@ -88,8 +88,8 @@ fn lite() -> Result<()> {
         writer.SetOutput(&stream)?;
 
         writer.WriteStartElement(HSTRING::from("html").as_wide())?;
-        writer.WriteAttributeString(HSTRING::from("no-value").as_wide(), None)?;
-        writer.WriteAttributeString(HSTRING::from("with-value").as_wide(), Some(HSTRING::from("value").as_wide()))?;
+        writer.WriteAttributeString(HSTRING::from("no-value").as_wide(), &[])?;
+        writer.WriteAttributeString(HSTRING::from("with-value").as_wide(), HSTRING::from("value").as_wide())?;
         writer.WriteEndElement(HSTRING::from("html").as_wide())?;
         writer.Flush()?;
 

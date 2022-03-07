@@ -19,7 +19,7 @@ impl IMLOperatorAttributes {
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStringAttributeElement)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetStringAttributeElement)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
     }
 }
 impl ::core::convert::From<IMLOperatorAttributes> for ::windows::core::IUnknown {
@@ -138,7 +138,7 @@ impl IMLOperatorKernelContext {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetOutputTensor(&self, outputindex: u32, dimensionsizes: &[u32]) -> ::windows::core::Result<IMLOperatorTensor> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOutputTensor)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputindex), dimensionsizes.len() as _, ::core::mem::transmute(dimensionsizes.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<IMLOperatorTensor>(result__)
+        (::windows::core::Interface::vtable(self).GetOutputTensor)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputindex), dimensionsizes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(dimensionsizes)), ::core::mem::transmute(&mut result__)).from_abi::<IMLOperatorTensor>(result__)
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetOutputTensor2(&self, outputindex: u32) -> ::windows::core::Result<IMLOperatorTensor> {
@@ -225,7 +225,7 @@ impl IMLOperatorKernelCreationContext {
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetStringAttributeElement)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetStringAttributeElement)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -402,8 +402,8 @@ pub struct IMLOperatorKernelFactory_Vtbl {
 pub struct IMLOperatorRegistry(::windows::core::IUnknown);
 impl IMLOperatorRegistry {
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-    pub unsafe fn RegisterOperatorSetSchema<'a, Param4: ::windows::core::IntoParam<'a, IMLOperatorTypeInferrer>, Param5: ::windows::core::IntoParam<'a, IMLOperatorShapeInferrer>>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: ::core::option::Option<&[*const MLOperatorSchemaDescription]>, typeinferrer: Param4, shapeinferrer: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterOperatorSetSchema)(::core::mem::transmute_copy(self), ::core::mem::transmute(operatorsetid), ::core::mem::transmute(baselineversion), ::core::mem::transmute(schema.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), schema.as_ref().map_or(0, |value| value.len()) as _, typeinferrer.into_param().abi(), shapeinferrer.into_param().abi()).ok()
+    pub unsafe fn RegisterOperatorSetSchema<'a, Param4: ::windows::core::IntoParam<'a, IMLOperatorTypeInferrer>, Param5: ::windows::core::IntoParam<'a, IMLOperatorShapeInferrer>>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: &[*const MLOperatorSchemaDescription], typeinferrer: Param4, shapeinferrer: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterOperatorSetSchema)(::core::mem::transmute_copy(self), ::core::mem::transmute(operatorsetid), ::core::mem::transmute(baselineversion), ::core::mem::transmute(::windows::core::as_ptr_or_null(schema)), schema.len() as _, typeinferrer.into_param().abi(), shapeinferrer.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn RegisterOperatorKernel<'a, Param1: ::windows::core::IntoParam<'a, IMLOperatorKernelFactory>, Param2: ::windows::core::IntoParam<'a, IMLOperatorShapeInferrer>>(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: Param1, shapeinferrer: Param2) -> ::windows::core::Result<()> {
@@ -477,7 +477,7 @@ impl IMLOperatorShapeInferenceContext {
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetStringAttributeElement)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetStringAttributeElement)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -507,7 +507,7 @@ impl IMLOperatorShapeInferenceContext {
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetInputTensorShape(&self, inputindex: u32, dimensions: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetInputTensorShape)(::core::mem::transmute_copy(self), ::core::mem::transmute(inputindex), dimensions.len() as _, ::core::mem::transmute(dimensions.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetInputTensorShape)(::core::mem::transmute_copy(self), ::core::mem::transmute(inputindex), dimensions.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dimensions))).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn SetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::core::Result<()> {
@@ -652,7 +652,7 @@ impl IMLOperatorTensor {
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetShape(&self, dimensions: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetShape)(::core::mem::transmute_copy(self), dimensions.len() as _, ::core::mem::transmute(dimensions.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetShape)(::core::mem::transmute_copy(self), dimensions.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dimensions))).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetTensorDataType(&self) -> MLOperatorTensorDataType {
@@ -738,7 +738,7 @@ impl IMLOperatorTensorShapeDescription {
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetInputTensorShape(&self, inputindex: u32, dimensions: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetInputTensorShape)(::core::mem::transmute_copy(self), ::core::mem::transmute(inputindex), dimensions.len() as _, ::core::mem::transmute(dimensions.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetInputTensorShape)(::core::mem::transmute_copy(self), ::core::mem::transmute(inputindex), dimensions.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dimensions))).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn HasOutputShapeDescription(&self) -> bool {
@@ -751,7 +751,7 @@ impl IMLOperatorTensorShapeDescription {
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetOutputTensorShape(&self, outputindex: u32, dimensions: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOutputTensorShape)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputindex), dimensions.len() as _, ::core::mem::transmute(dimensions.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetOutputTensorShape)(::core::mem::transmute_copy(self), ::core::mem::transmute(outputindex), dimensions.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(dimensions))).ok()
     }
 }
 impl ::core::convert::From<IMLOperatorTensorShapeDescription> for ::windows::core::IUnknown {
@@ -824,7 +824,7 @@ impl IMLOperatorTypeInferenceContext {
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, name: Param0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetStringAttributeElement)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetStringAttributeElement)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(elementindex), attributeelement.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(attributeelement))).ok()
     }
     #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
     pub unsafe fn GetInputCount(&self) -> u32 {

@@ -1213,7 +1213,7 @@ impl BSTR {
         if value.is_empty() {
             return Self(::core::ptr::null_mut());
         }
-        unsafe { SysAllocStringLen(Some(value)) }
+        unsafe { SysAllocStringLen(value) }
     }
     pub fn as_wide(&self) -> &[u16] {
         if self.0.is_null() {
@@ -1428,14 +1428,14 @@ unsafe impl ::windows::core::Abi for HINSTANCE {
 }
 pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
 #[inline]
-pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> BSTR {
+pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> BSTR;
         }
-        ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(strin.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), strin.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

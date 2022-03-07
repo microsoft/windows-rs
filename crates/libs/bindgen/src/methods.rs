@@ -278,12 +278,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
                     quote! { &[#ty; #len] }
                 };
 
-                if param.def.flags().optional() {
-                    tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
-                } else {
-                    tokens.combine(&quote! { #name: #ty, });
-                }
-
+                tokens.combine(&quote! { #name: #ty, });
                 continue;
             }
         }
@@ -306,12 +301,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
                 }
             };
 
-            if param.def.flags().optional() {
-                tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
-            } else {
-                tokens.combine(&quote! { #name: #ty, });
-            }
-
+            tokens.combine(&quote! { #name: #ty, });
             continue;
         }
 
@@ -340,10 +330,10 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
 
         if let Some(ArrayInfo::Fixed(fixed)) = param.array_info {
             if fixed > 0 && param.def.free_with().is_none() {
-                let signature = if param.def.flags().optional() {
-                    quote! { ::core::mem::transmute(#name.as_ref().map_or_else(::core::ptr::null, |value|value.as_ptr())), }
+                let signature = if param.def.flags().output() {
+                    quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
                 } else {
-                    quote! { ::core::mem::transmute(#name.as_ptr()), }
+                    quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
                 };
 
                 tokens.combine(&signature);
@@ -352,10 +342,10 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
         }
 
         if let Some(ArrayInfo::RelativeLen(_)) = param.array_info {
-            let signature = if param.def.flags().optional() {
-                quote! { ::core::mem::transmute(#name.as_ref().map_or_else(::core::ptr::null, |value|value.as_ptr())), }
+            let signature = if param.def.flags().output() {
+                quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
             } else {
-                quote! { ::core::mem::transmute(#name.as_ptr()), }
+                quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
             };
 
             tokens.combine(&signature);
@@ -365,11 +355,7 @@ pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
         if let Some(ArrayInfo::RelativePtr(relative)) = param.array_info {
             if let Some(relative) = relative {
                 let name = gen_param_name(&params[relative].def);
-                if params[relative].def.flags().optional() {
-                    tokens.combine(&quote! { #name.as_ref().map_or(0, |value|value.len()) as _, });
-                } else {
-                    tokens.combine(&quote! { #name.len() as _, });
-                }
+                tokens.combine(&quote! { #name.len() as _, });
             } else {
                 let len: TokenStream = format!("PARAM{}", position).into();
                 tokens.combine(&quote! { #len as _, });

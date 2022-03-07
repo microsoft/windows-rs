@@ -179,7 +179,7 @@ pub unsafe fn ConvertInterfaceLuidToAlias(interfaceluid: *const NET_LUID_LH, int
         extern "system" {
             fn ConvertInterfaceLuidToAlias(interfaceluid: *const NET_LUID_LH, interfacealias: ::windows::core::PWSTR, length: usize) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceLuidToAlias(::core::mem::transmute(interfaceluid), ::core::mem::transmute(interfacealias.as_ptr()), interfacealias.len() as _).ok()
+        ConvertInterfaceLuidToAlias(::core::mem::transmute(interfaceluid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacealias)), interfacealias.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -224,7 +224,7 @@ pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const NET_LUID_LH, int
         extern "system" {
             fn ConvertInterfaceLuidToNameA(interfaceluid: *const NET_LUID_LH, interfacename: ::windows::core::PSTR, length: usize) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceLuidToNameA(::core::mem::transmute(interfaceluid), ::core::mem::transmute(interfacename.as_ptr()), interfacename.len() as _).ok()
+        ConvertInterfaceLuidToNameA(::core::mem::transmute(interfaceluid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacename)), interfacename.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -239,7 +239,7 @@ pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const NET_LUID_LH, int
         extern "system" {
             fn ConvertInterfaceLuidToNameW(interfaceluid: *const NET_LUID_LH, interfacename: ::windows::core::PWSTR, length: usize) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceLuidToNameW(::core::mem::transmute(interfaceluid), ::core::mem::transmute(interfacename.as_ptr()), interfacename.len() as _).ok()
+        ConvertInterfaceLuidToNameW(::core::mem::transmute(interfaceluid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacename)), interfacename.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2009,7 +2009,7 @@ pub unsafe fn GetNetworkInformation(networkguid: *const ::windows::core::GUID, c
         extern "system" {
             fn GetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: ::windows::core::PWSTR, length: u32) -> super::super::Foundation::NTSTATUS;
         }
-        GetNetworkInformation(::core::mem::transmute(networkguid), ::core::mem::transmute(compartmentid), ::core::mem::transmute(siteid), ::core::mem::transmute(networkname.as_ptr()), networkname.len() as _).ok()
+        GetNetworkInformation(::core::mem::transmute(networkguid), ::core::mem::transmute(compartmentid), ::core::mem::transmute(siteid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(networkname)), networkname.len() as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13206,7 +13206,7 @@ pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: &mut [u8; 256])
         extern "system" {
             fn if_indextoname(interfaceindex: u32, interfacename: ::windows::core::PSTR) -> ::windows::core::PSTR;
         }
-        ::core::mem::transmute(if_indextoname(::core::mem::transmute(interfaceindex), ::core::mem::transmute(interfacename.as_ptr())))
+        ::core::mem::transmute(if_indextoname(::core::mem::transmute(interfaceindex), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacename))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

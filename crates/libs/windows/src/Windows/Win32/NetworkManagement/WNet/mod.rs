@@ -2005,7 +2005,7 @@ pub unsafe fn WNetGetLastErrorA(lperror: *mut u32, lperrorbuf: &mut [u8], lpname
         extern "system" {
             fn WNetGetLastErrorA(lperror: *mut u32, lperrorbuf: ::windows::core::PSTR, nerrorbufsize: u32, lpnamebuf: ::windows::core::PSTR, nnamebufsize: u32) -> u32;
         }
-        ::core::mem::transmute(WNetGetLastErrorA(::core::mem::transmute(lperror), ::core::mem::transmute(lperrorbuf.as_ptr()), lperrorbuf.len() as _, ::core::mem::transmute(lpnamebuf.as_ptr()), lpnamebuf.len() as _))
+        ::core::mem::transmute(WNetGetLastErrorA(::core::mem::transmute(lperror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lperrorbuf)), lperrorbuf.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnamebuf)), lpnamebuf.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2019,7 +2019,7 @@ pub unsafe fn WNetGetLastErrorW(lperror: *mut u32, lperrorbuf: &mut [u16], lpnam
         extern "system" {
             fn WNetGetLastErrorW(lperror: *mut u32, lperrorbuf: ::windows::core::PWSTR, nerrorbufsize: u32, lpnamebuf: ::windows::core::PWSTR, nnamebufsize: u32) -> u32;
         }
-        ::core::mem::transmute(WNetGetLastErrorW(::core::mem::transmute(lperror), ::core::mem::transmute(lperrorbuf.as_ptr()), lperrorbuf.len() as _, ::core::mem::transmute(lpnamebuf.as_ptr()), lpnamebuf.len() as _))
+        ::core::mem::transmute(WNetGetLastErrorW(::core::mem::transmute(lperror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lperrorbuf)), lperrorbuf.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpnamebuf)), lpnamebuf.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

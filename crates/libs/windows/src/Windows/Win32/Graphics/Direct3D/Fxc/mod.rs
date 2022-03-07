@@ -172,7 +172,7 @@ pub unsafe fn D3DCompressShaders(pshaderdata: &[D3D_SHADER_DATA], uflags: u32) -
             fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32, ppcompresseddata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        D3DCompressShaders(pshaderdata.len() as _, ::core::mem::transmute(pshaderdata.as_ptr()), ::core::mem::transmute(uflags), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
+        D3DCompressShaders(pshaderdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pshaderdata)), ::core::mem::transmute(uflags), ::core::mem::transmute(&mut result__)).from_abi::<super::ID3DBlob>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -360,14 +360,14 @@ pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, sr
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Fxc'*"]
 #[inline]
-pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, poffsets: ::core::option::Option<&mut [usize]>, ptotalinsts: *mut usize) -> ::windows::core::Result<()> {
+pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, poffsets: &mut [usize], ptotalinsts: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, numinsts: usize, poffsets: *mut usize, ptotalinsts: *mut usize) -> ::windows::core::HRESULT;
         }
-        D3DGetTraceInstructionOffsets(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(flags), ::core::mem::transmute(startinstindex), poffsets.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(poffsets.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(ptotalinsts)).ok()
+        D3DGetTraceInstructionOffsets(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(flags), ::core::mem::transmute(startinstindex), poffsets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poffsets)), ::core::mem::transmute(ptotalinsts)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -474,8 +474,8 @@ impl ISideShowEvents {
         (::windows::core::Interface::vtable(self).ContentMissing)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_contentid), ::core::mem::transmute(&mut result__)).from_abi::<ISideShowContent>(result__)
     }
     #[doc = "*Required features: 'Win32_System_SideShow'*"]
-    pub unsafe fn ApplicationEvent<'a, Param0: ::windows::core::IntoParam<'a, ISideShowCapabilities>>(&self, in_picapabilities: Param0, in_dweventid: u32, in_pbeventdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ApplicationEvent)(::core::mem::transmute_copy(self), in_picapabilities.into_param().abi(), ::core::mem::transmute(in_dweventid), in_pbeventdata.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(in_pbeventdata.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))).ok()
+    pub unsafe fn ApplicationEvent<'a, Param0: ::windows::core::IntoParam<'a, ISideShowCapabilities>>(&self, in_picapabilities: Param0, in_dweventid: u32, in_pbeventdata: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ApplicationEvent)(::core::mem::transmute_copy(self), in_picapabilities.into_param().abi(), ::core::mem::transmute(in_dweventid), in_pbeventdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(in_pbeventdata))).ok()
     }
     #[doc = "*Required features: 'Win32_System_SideShow'*"]
     pub unsafe fn DeviceAdded<'a, Param0: ::windows::core::IntoParam<'a, ISideShowCapabilities>>(&self, in_pidevice: Param0) -> ::windows::core::Result<()> {

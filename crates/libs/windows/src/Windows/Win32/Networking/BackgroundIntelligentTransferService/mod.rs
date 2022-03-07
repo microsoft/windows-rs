@@ -1309,7 +1309,7 @@ impl IBITSExtensionSetup {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames.as_ptr()), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1443,7 +1443,7 @@ impl IBITSExtensionSetupFactory {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames.as_ptr()), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1619,7 +1619,7 @@ impl IBackgroundCopyCallback1 {
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn OnProgressEx<'a, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyGroup>, Param2: ::windows::core::IntoParam<'a, IBackgroundCopyJob1>>(&self, progresstype: u32, pgroup: Param1, pjob: Param2, dwfileindex: u32, dwprogressvalue: u32, pbyte: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnProgressEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(progresstype), pgroup.into_param().abi(), pjob.into_param().abi(), ::core::mem::transmute(dwfileindex), ::core::mem::transmute(dwprogressvalue), pbyte.len() as _, ::core::mem::transmute(pbyte.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).OnProgressEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(progresstype), pgroup.into_param().abi(), pjob.into_param().abi(), ::core::mem::transmute(dwfileindex), ::core::mem::transmute(dwprogressvalue), pbyte.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbyte))).ok()
     }
 }
 impl ::core::convert::From<IBackgroundCopyCallback1> for ::windows::core::IUnknown {
@@ -1779,7 +1779,7 @@ impl IBackgroundCopyCallback3 {
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn FileRangesTransferred<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyFile>>(&self, job: Param0, file: Param1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FileRangesTransferred)(::core::mem::transmute_copy(self), job.into_param().abi(), file.into_param().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).FileRangesTransferred)(::core::mem::transmute_copy(self), job.into_param().abi(), file.into_param().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
     }
 }
 impl ::core::convert::From<IBackgroundCopyCallback3> for ::windows::core::IUnknown {
@@ -2685,7 +2685,7 @@ impl IBackgroundCopyFile6 {
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn RequestFileRanges(&self, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestFileRanges)(::core::mem::transmute_copy(self), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).RequestFileRanges)(::core::mem::transmute_copy(self), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn GetFilledFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
@@ -2987,7 +2987,7 @@ pub struct IBackgroundCopyJob(::windows::core::IUnknown);
 impl IBackgroundCopyJob {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddFileSet)(::core::mem::transmute_copy(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).AddFileSet)(::core::mem::transmute_copy(self), pfileset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfileset))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1) -> ::windows::core::Result<()> {
@@ -3231,7 +3231,7 @@ impl IBackgroundCopyJob1 {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddFiles(&self, ppfileset: &[*const FILESETINFO]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddFiles)(::core::mem::transmute_copy(self), ppfileset.len() as _, ::core::mem::transmute(ppfileset.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).AddFiles)(::core::mem::transmute_copy(self), ppfileset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppfileset))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3319,7 +3319,7 @@ pub struct IBackgroundCopyJob2(::windows::core::IUnknown);
 impl IBackgroundCopyJob2 {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.AddFileSet)(::core::mem::transmute_copy(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.AddFileSet)(::core::mem::transmute_copy(self), pfileset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfileset))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1) -> ::windows::core::Result<()> {
@@ -3575,7 +3575,7 @@ pub struct IBackgroundCopyJob3(::windows::core::IUnknown);
 impl IBackgroundCopyJob3 {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.AddFileSet)(::core::mem::transmute_copy(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.base.AddFileSet)(::core::mem::transmute_copy(self), pfileset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfileset))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1) -> ::windows::core::Result<()> {
@@ -3757,7 +3757,7 @@ impl IBackgroundCopyJob3 {
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFileWithRanges<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddFileWithRanges)(::core::mem::transmute_copy(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).AddFileWithRanges)(::core::mem::transmute_copy(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> ::windows::core::Result<()> {
@@ -3864,7 +3864,7 @@ pub struct IBackgroundCopyJob4(::windows::core::IUnknown);
 impl IBackgroundCopyJob4 {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.AddFileSet)(::core::mem::transmute_copy(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.AddFileSet)(::core::mem::transmute_copy(self), pfileset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfileset))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1) -> ::windows::core::Result<()> {
@@ -4046,7 +4046,7 @@ impl IBackgroundCopyJob4 {
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFileWithRanges<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.AddFileWithRanges)(::core::mem::transmute_copy(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.AddFileWithRanges)(::core::mem::transmute_copy(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> ::windows::core::Result<()> {
@@ -4207,7 +4207,7 @@ pub struct IBackgroundCopyJob5(::windows::core::IUnknown);
 impl IBackgroundCopyJob5 {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.AddFileSet)(::core::mem::transmute_copy(self), pfileset.len() as _, ::core::mem::transmute(pfileset.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.base.AddFileSet)(::core::mem::transmute_copy(self), pfileset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfileset))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1) -> ::windows::core::Result<()> {
@@ -4389,7 +4389,7 @@ impl IBackgroundCopyJob5 {
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn AddFileWithRanges<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.AddFileWithRanges)(::core::mem::transmute_copy(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.base.AddFileWithRanges)(::core::mem::transmute_copy(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> ::windows::core::Result<()> {
@@ -4580,7 +4580,7 @@ pub struct IBackgroundCopyJobHttpOptions(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetClientCertificateByID<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientCertificateByID)(::core::mem::transmute_copy(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), ::core::mem::transmute(pcerthashblob.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetClientCertificateByID)(::core::mem::transmute_copy(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcerthashblob))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetClientCertificateByName<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, subjectname: Param2) -> ::windows::core::Result<()> {
@@ -4591,8 +4591,8 @@ impl IBackgroundCopyJobHttpOptions {
         (::windows::core::Interface::vtable(self).RemoveClientCertificate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
-    pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: ::core::option::Option<&mut [*mut u8; 20]>, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetClientCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(psubjectname)).ok()
+    pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: &mut [*mut u8; 20], psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetClientCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppcerthashblob)), ::core::mem::transmute(psubjectname)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetCustomHeaders<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, requestheaders: Param0) -> ::windows::core::Result<()> {
@@ -4672,7 +4672,7 @@ pub struct IBackgroundCopyJobHttpOptions2(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions2 {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetClientCertificateByID<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetClientCertificateByID)(::core::mem::transmute_copy(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), ::core::mem::transmute(pcerthashblob.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.SetClientCertificateByID)(::core::mem::transmute_copy(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcerthashblob))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetClientCertificateByName<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, subjectname: Param2) -> ::windows::core::Result<()> {
@@ -4683,8 +4683,8 @@ impl IBackgroundCopyJobHttpOptions2 {
         (::windows::core::Interface::vtable(self).base.RemoveClientCertificate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
-    pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: ::core::option::Option<&mut [*mut u8; 20]>, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetClientCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(psubjectname)).ok()
+    pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: &mut [*mut u8; 20], psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetClientCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppcerthashblob)), ::core::mem::transmute(psubjectname)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetCustomHeaders<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, requestheaders: Param0) -> ::windows::core::Result<()> {
@@ -4787,7 +4787,7 @@ pub struct IBackgroundCopyJobHttpOptions3(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions3 {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetClientCertificateByID<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetClientCertificateByID)(::core::mem::transmute_copy(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), ::core::mem::transmute(pcerthashblob.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetClientCertificateByID)(::core::mem::transmute_copy(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcerthashblob))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetClientCertificateByName<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, subjectname: Param2) -> ::windows::core::Result<()> {
@@ -4798,8 +4798,8 @@ impl IBackgroundCopyJobHttpOptions3 {
         (::windows::core::Interface::vtable(self).base.base.RemoveClientCertificate)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
-    pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: ::core::option::Option<&mut [*mut u8; 20]>, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetClientCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(psubjectname)).ok()
+    pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: &mut [*mut u8; 20], psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetClientCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppcerthashblob)), ::core::mem::transmute(psubjectname)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn SetCustomHeaders<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, requestheaders: Param0) -> ::windows::core::Result<()> {
@@ -5071,7 +5071,7 @@ pub struct IBackgroundCopyServerCertificateValidationCallback(::windows::core::I
 impl IBackgroundCopyServerCertificateValidationCallback {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn ValidateServerCertificate<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyFile>>(&self, job: Param0, file: Param1, certdata: &[u8], certencodingtype: u32, certstoredata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ValidateServerCertificate)(::core::mem::transmute_copy(self), job.into_param().abi(), file.into_param().abi(), certdata.len() as _, ::core::mem::transmute(certdata.as_ptr()), ::core::mem::transmute(certencodingtype), certstoredata.len() as _, ::core::mem::transmute(certstoredata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).ValidateServerCertificate)(::core::mem::transmute_copy(self), job.into_param().abi(), file.into_param().abi(), certdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(certdata)), ::core::mem::transmute(certencodingtype), certstoredata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(certstoredata))).ok()
     }
 }
 impl ::core::convert::From<IBackgroundCopyServerCertificateValidationCallback> for ::windows::core::IUnknown {
@@ -5580,7 +5580,7 @@ pub struct IEnumBackgroundCopyGroups(::windows::core::IUnknown);
 impl IEnumBackgroundCopyGroups {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn Next(&self, rgelt: &mut [::windows::core::GUID], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -5734,7 +5734,7 @@ pub struct IEnumBackgroundCopyJobs1(::windows::core::IUnknown);
 impl IEnumBackgroundCopyJobs1 {
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn Next(&self, rgelt: &mut [::windows::core::GUID], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_BackgroundIntelligentTransferService'*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {

@@ -2728,14 +2728,14 @@ pub unsafe fn RegEnableReflectionKey<'a, Param0: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: 'Win32_System_Registry', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegEnumKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: ::core::option::Option<&mut [u8]>) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn RegEnumKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: &mut [u8]) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegEnumKeyA(hkey: HKEY, dwindex: u32, lpname: ::windows::core::PSTR, cchname: u32) -> super::super::Foundation::WIN32_ERROR;
         }
-        ::core::mem::transmute(RegEnumKeyA(hkey.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(lpname.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), lpname.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(RegEnumKeyA(hkey.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpname)), lpname.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2773,14 +2773,14 @@ pub unsafe fn RegEnumKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hk
 #[doc = "*Required features: 'Win32_System_Registry', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegEnumKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: ::core::option::Option<&mut [u16]>) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn RegEnumKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: &mut [u16]) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegEnumKeyW(hkey: HKEY, dwindex: u32, lpname: ::windows::core::PWSTR, cchname: u32) -> super::super::Foundation::WIN32_ERROR;
         }
-        ::core::mem::transmute(RegEnumKeyW(hkey.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(lpname.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), lpname.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(RegEnumKeyW(hkey.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpname)), lpname.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3155,7 +3155,7 @@ pub unsafe fn RegQueryMultipleValuesA<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn RegQueryMultipleValuesA(hkey: HKEY, val_list: *mut VALENTA, num_vals: u32, lpvaluebuf: ::windows::core::PSTR, ldwtotsize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
-        ::core::mem::transmute(RegQueryMultipleValuesA(hkey.into_param().abi(), ::core::mem::transmute(val_list.as_ptr()), val_list.len() as _, ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(ldwtotsize)))
+        ::core::mem::transmute(RegQueryMultipleValuesA(hkey.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(val_list)), val_list.len() as _, ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(ldwtotsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3170,7 +3170,7 @@ pub unsafe fn RegQueryMultipleValuesW<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn RegQueryMultipleValuesW(hkey: HKEY, val_list: *mut VALENTW, num_vals: u32, lpvaluebuf: ::windows::core::PWSTR, ldwtotsize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
-        ::core::mem::transmute(RegQueryMultipleValuesW(hkey.into_param().abi(), ::core::mem::transmute(val_list.as_ptr()), val_list.len() as _, ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(ldwtotsize)))
+        ::core::mem::transmute(RegQueryMultipleValuesW(hkey.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(val_list)), val_list.len() as _, ::core::mem::transmute(lpvaluebuf), ::core::mem::transmute(ldwtotsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

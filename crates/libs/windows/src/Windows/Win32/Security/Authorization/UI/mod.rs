@@ -183,7 +183,7 @@ impl IEffectivePermission2 {
             psid.into_param().abi(),
             pdevicesid.into_param().abi(),
             pszservername.into_param().abi(),
-            ::core::mem::transmute(psecurityobjects.as_ptr()),
+            ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psecurityobjects)),
             PARAM4 as _,
             ::core::mem::transmute(pusergroups),
             ::core::mem::transmute(pauthzusergroupsoperations),
@@ -193,7 +193,7 @@ impl IEffectivePermission2 {
             ::core::mem::transmute(pauthzuserclaimsoperations),
             ::core::mem::transmute(pauthzdeviceclaims),
             ::core::mem::transmute(pauthzdeviceclaimsoperations),
-            ::core::mem::transmute(peffpermresultlists.as_ptr()),
+            ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(peffpermresultlists)),
         )
         .ok()
     }

@@ -685,14 +685,14 @@ pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
 #[doc = "*Required features: 'Win32_Security_AppLocker', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferIdentifyLevel(pcodeproperties: ::core::option::Option<&[SAFER_CODE_PROPERTIES_V2]>, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferIdentifyLevel(pcodeproperties: &[SAFER_CODE_PROPERTIES_V2], plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SaferIdentifyLevel(dwnumproperties: u32, pcodeproperties: *const SAFER_CODE_PROPERTIES_V2, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SaferIdentifyLevel(pcodeproperties.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(pcodeproperties.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved)))
+        ::core::mem::transmute(SaferIdentifyLevel(pcodeproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcodeproperties)), ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

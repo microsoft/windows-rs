@@ -190,7 +190,7 @@ pub unsafe fn CMCheckColors<'a, const PARAM2: usize>(hcmtransform: isize, lpainp
         extern "system" {
             fn CMCheckColors(hcmtransform: isize, lpainputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, lparesult: *mut u8) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CMCheckColors(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpainputcolors.as_ptr()), PARAM2 as _, ::core::mem::transmute(ctinput), ::core::mem::transmute(lparesult.as_ptr())))
+        ::core::mem::transmute(CMCheckColors(::core::mem::transmute(hcmtransform), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpainputcolors)), PARAM2 as _, ::core::mem::transmute(ctinput), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lparesult))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -205,7 +205,7 @@ pub unsafe fn CMCheckColorsInGamut(hcmtransform: isize, lpargbtriple: &[super::s
         extern "system" {
             fn CMCheckColorsInGamut(hcmtransform: isize, lpargbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, lparesult: *mut u8, ncount: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CMCheckColorsInGamut(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpargbtriple.as_ptr()), ::core::mem::transmute(lparesult), lpargbtriple.len() as _))
+        ::core::mem::transmute(CMCheckColorsInGamut(::core::mem::transmute(hcmtransform), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpargbtriple)), ::core::mem::transmute(lparesult), lpargbtriple.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -235,7 +235,7 @@ pub unsafe fn CMConvertColorNameToIndex<'a, const PARAM3: usize>(hprofile: isize
         extern "system" {
             fn CMConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CMConvertColorNameToIndex(::core::mem::transmute(hprofile), ::core::mem::transmute(pacolorname.as_ptr()), ::core::mem::transmute(paindex.as_ptr()), PARAM3 as _))
+        ::core::mem::transmute(CMConvertColorNameToIndex(::core::mem::transmute(hprofile), ::core::mem::transmute(::windows::core::as_ptr_or_null(pacolorname)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paindex)), PARAM3 as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -250,7 +250,7 @@ pub unsafe fn CMConvertIndexToColorName<'a, const PARAM3: usize>(hprofile: isize
         extern "system" {
             fn CMConvertIndexToColorName(hprofile: isize, paindex: *const u32, pacolorname: *mut *mut i8, dwcount: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CMConvertIndexToColorName(::core::mem::transmute(hprofile), ::core::mem::transmute(paindex.as_ptr()), ::core::mem::transmute(pacolorname.as_ptr()), PARAM3 as _))
+        ::core::mem::transmute(CMConvertIndexToColorName(::core::mem::transmute(hprofile), ::core::mem::transmute(::windows::core::as_ptr_or_null(paindex)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pacolorname)), PARAM3 as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -265,7 +265,7 @@ pub unsafe fn CMCreateDeviceLinkProfile(pahprofiles: &[isize], padwintents: &[u3
         extern "system" {
             fn CMCreateDeviceLinkProfile(pahprofiles: *const isize, nprofiles: u32, padwintents: *const u32, nintents: u32, dwflags: u32, lpprofiledata: *mut *mut u8) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CMCreateDeviceLinkProfile(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len() as _, ::core::mem::transmute(padwintents.as_ptr()), padwintents.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(lpprofiledata)))
+        ::core::mem::transmute(CMCreateDeviceLinkProfile(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintents)), padwintents.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(lpprofiledata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -279,7 +279,7 @@ pub unsafe fn CMCreateMultiProfileTransform(pahprofiles: &[isize], padwintents: 
         extern "system" {
             fn CMCreateMultiProfileTransform(pahprofiles: *const isize, nprofiles: u32, padwintents: *const u32, nintents: u32, dwflags: u32) -> isize;
         }
-        ::core::mem::transmute(CMCreateMultiProfileTransform(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len() as _, ::core::mem::transmute(padwintents.as_ptr()), padwintents.len() as _, ::core::mem::transmute(dwflags)))
+        ::core::mem::transmute(CMCreateMultiProfileTransform(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintents)), padwintents.len() as _, ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -493,7 +493,7 @@ pub unsafe fn CMTranslateColors<'a, const PARAM2: usize>(hcmtransform: isize, lp
         extern "system" {
             fn CMTranslateColors(hcmtransform: isize, lpainputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, lpaoutputcolors: *mut COLOR, ctoutput: COLORTYPE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CMTranslateColors(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpainputcolors.as_ptr()), PARAM2 as _, ::core::mem::transmute(ctinput), ::core::mem::transmute(lpaoutputcolors.as_ptr()), ::core::mem::transmute(ctoutput)))
+        ::core::mem::transmute(CMTranslateColors(::core::mem::transmute(hcmtransform), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpainputcolors)), PARAM2 as _, ::core::mem::transmute(ctinput), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpaoutputcolors)), ::core::mem::transmute(ctoutput)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1021,7 +1021,7 @@ pub unsafe fn CheckColors<'a, const PARAM2: usize>(hcolortransform: isize, painp
         extern "system" {
             fn CheckColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paresult: *mut u8) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CheckColors(::core::mem::transmute(hcolortransform), ::core::mem::transmute(painputcolors.as_ptr()), PARAM2 as _, ::core::mem::transmute(ctinput), ::core::mem::transmute(paresult.as_ptr())))
+        ::core::mem::transmute(CheckColors(::core::mem::transmute(hcolortransform), ::core::mem::transmute(::windows::core::as_ptr_or_null(painputcolors)), PARAM2 as _, ::core::mem::transmute(ctinput), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paresult))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1036,7 +1036,7 @@ pub unsafe fn CheckColorsInGamut<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn CheckColorsInGamut(hdc: super::super::Graphics::Gdi::HDC, lprgbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, dlpbuffer: *mut ::core::ffi::c_void, ncount: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CheckColorsInGamut(hdc.into_param().abi(), ::core::mem::transmute(lprgbtriple.as_ptr()), ::core::mem::transmute(dlpbuffer), lprgbtriple.len() as _))
+        ::core::mem::transmute(CheckColorsInGamut(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lprgbtriple)), ::core::mem::transmute(dlpbuffer), lprgbtriple.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1188,7 +1188,7 @@ pub unsafe fn ConvertColorNameToIndex<'a, const PARAM3: usize>(hprofile: isize, 
         extern "system" {
             fn ConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ConvertColorNameToIndex(::core::mem::transmute(hprofile), ::core::mem::transmute(pacolorname.as_ptr()), ::core::mem::transmute(paindex.as_ptr()), PARAM3 as _))
+        ::core::mem::transmute(ConvertColorNameToIndex(::core::mem::transmute(hprofile), ::core::mem::transmute(::windows::core::as_ptr_or_null(pacolorname)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paindex)), PARAM3 as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1203,7 +1203,7 @@ pub unsafe fn ConvertIndexToColorName<'a, const PARAM3: usize>(hprofile: isize, 
         extern "system" {
             fn ConvertIndexToColorName(hprofile: isize, paindex: *const u32, pacolorname: *mut *mut i8, dwcount: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ConvertIndexToColorName(::core::mem::transmute(hprofile), ::core::mem::transmute(paindex.as_ptr()), ::core::mem::transmute(pacolorname.as_ptr()), PARAM3 as _))
+        ::core::mem::transmute(ConvertIndexToColorName(::core::mem::transmute(hprofile), ::core::mem::transmute(::windows::core::as_ptr_or_null(paindex)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pacolorname)), PARAM3 as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1278,7 +1278,7 @@ pub unsafe fn CreateDeviceLinkProfile(hprofile: &[isize], padwintent: &[u32], dw
         extern "system" {
             fn CreateDeviceLinkProfile(hprofile: *const isize, nprofiles: u32, padwintent: *const u32, nintents: u32, dwflags: u32, pprofiledata: *mut *mut u8, indexpreferredcmm: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateDeviceLinkProfile(::core::mem::transmute(hprofile.as_ptr()), hprofile.len() as _, ::core::mem::transmute(padwintent.as_ptr()), padwintent.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(pprofiledata), ::core::mem::transmute(indexpreferredcmm)))
+        ::core::mem::transmute(CreateDeviceLinkProfile(::core::mem::transmute(::windows::core::as_ptr_or_null(hprofile)), hprofile.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintent)), padwintent.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(pprofiledata), ::core::mem::transmute(indexpreferredcmm)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1292,7 +1292,7 @@ pub unsafe fn CreateMultiProfileTransform(pahprofiles: &[isize], padwintent: &[u
         extern "system" {
             fn CreateMultiProfileTransform(pahprofiles: *const isize, nprofiles: u32, padwintent: *const u32, nintents: u32, dwflags: u32, indexpreferredcmm: u32) -> isize;
         }
-        ::core::mem::transmute(CreateMultiProfileTransform(::core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len() as _, ::core::mem::transmute(padwintent.as_ptr()), padwintent.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(indexpreferredcmm)))
+        ::core::mem::transmute(CreateMultiProfileTransform(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintent)), padwintent.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(indexpreferredcmm)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2306,18 +2306,18 @@ impl IDeviceModelPlugIn {
     }
     #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
     pub unsafe fn DeviceToColorimetricColors(&self, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: &mut [XYZColorF]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeviceToColorimetricColors)(::core::mem::transmute_copy(self), pxyzcolors.len() as _, ::core::mem::transmute(cchannels), ::core::mem::transmute(pdevicevalues), ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).DeviceToColorimetricColors)(::core::mem::transmute_copy(self), pxyzcolors.len() as _, ::core::mem::transmute(cchannels), ::core::mem::transmute(pdevicevalues), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pxyzcolors))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
     pub unsafe fn ColorimetricToDeviceColors(&self, cchannels: u32, pxyzcolors: &[XYZColorF]) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ColorimetricToDeviceColors)(::core::mem::transmute_copy(self), pxyzcolors.len() as _, ::core::mem::transmute(cchannels), ::core::mem::transmute(pxyzcolors.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).ColorimetricToDeviceColors)(::core::mem::transmute_copy(self), pxyzcolors.len() as _, ::core::mem::transmute(cchannels), ::core::mem::transmute(::windows::core::as_ptr_or_null(pxyzcolors)), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ColorimetricToDeviceColorsWithBlack<'a, const PARAM0: usize>(&self, cchannels: u32, pxyzcolors: &[XYZColorF; PARAM0], pblackinformation: &[BlackInformation; PARAM0]) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ColorimetricToDeviceColorsWithBlack)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(cchannels), ::core::mem::transmute(pxyzcolors.as_ptr()), ::core::mem::transmute(pblackinformation.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).ColorimetricToDeviceColorsWithBlack)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(cchannels), ::core::mem::transmute(::windows::core::as_ptr_or_null(pxyzcolors)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pblackinformation)), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
     pub unsafe fn SetTransformDeviceModelInfo<'a, Param1: ::windows::core::IntoParam<'a, IDeviceModelPlugIn>>(&self, imodelposition: u32, pidevicemodelother: Param1) -> ::windows::core::Result<()> {
@@ -2334,7 +2334,7 @@ impl IDeviceModelPlugIn {
     }
     #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
     pub unsafe fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, pvertices: *mut f32, ptriangles: &mut [GamutShellTriangle]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetGamutBoundaryMesh)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchannels), ::core::mem::transmute(cvertices), ptriangles.len() as _, ::core::mem::transmute(pvertices), ::core::mem::transmute(ptriangles.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetGamutBoundaryMesh)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchannels), ::core::mem::transmute(cvertices), ptriangles.len() as _, ::core::mem::transmute(pvertices), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptriangles))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
     pub unsafe fn GetNeutralAxisSize(&self) -> ::windows::core::Result<u32> {
@@ -2343,7 +2343,7 @@ impl IDeviceModelPlugIn {
     }
     #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
     pub unsafe fn GetNeutralAxis(&self, pxyzcolors: &mut [XYZColorF]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNeutralAxis)(::core::mem::transmute_copy(self), pxyzcolors.len() as _, ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetNeutralAxis)(::core::mem::transmute_copy(self), pxyzcolors.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pxyzcolors))).ok()
     }
 }
 impl ::core::convert::From<IDeviceModelPlugIn> for ::windows::core::IUnknown {
@@ -2419,7 +2419,7 @@ impl IGamutMapModelPlugIn {
     }
     #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
     pub unsafe fn SourceToDestinationAppearanceColors<'a, const PARAM0: usize>(&self, pinputcolors: &[JChColorF; PARAM0], poutputcolors: &mut [JChColorF; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SourceToDestinationAppearanceColors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pinputcolors.as_ptr()), ::core::mem::transmute(poutputcolors.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SourceToDestinationAppearanceColors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputcolors)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poutputcolors))).ok()
     }
 }
 impl ::core::convert::From<IGamutMapModelPlugIn> for ::windows::core::IUnknown {
@@ -3118,7 +3118,7 @@ pub unsafe fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, p
         extern "system" {
             fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *const u32, pelement: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetColorProfileElement(::core::mem::transmute(hprofile), ::core::mem::transmute(tag), ::core::mem::transmute(dwoffset), pelement.len() as _, ::core::mem::transmute(pelement.as_ptr())))
+        ::core::mem::transmute(SetColorProfileElement(::core::mem::transmute(hprofile), ::core::mem::transmute(tag), ::core::mem::transmute(dwoffset), pelement.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pelement))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3328,7 +3328,7 @@ pub unsafe fn TranslateColors<'a, const PARAM2: usize>(hcolortransform: isize, p
         extern "system" {
             fn TranslateColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paoutputcolors: *mut COLOR, ctoutput: COLORTYPE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(TranslateColors(::core::mem::transmute(hcolortransform), ::core::mem::transmute(painputcolors.as_ptr()), PARAM2 as _, ::core::mem::transmute(ctinput), ::core::mem::transmute(paoutputcolors.as_ptr()), ::core::mem::transmute(ctoutput)))
+        ::core::mem::transmute(TranslateColors(::core::mem::transmute(hcolortransform), ::core::mem::transmute(::windows::core::as_ptr_or_null(painputcolors)), PARAM2 as _, ::core::mem::transmute(ctinput), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paoutputcolors)), ::core::mem::transmute(ctoutput)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3591,7 +3591,7 @@ pub unsafe fn WcsCheckColors(hcolortransform: isize, ninputchannels: u32, cdtinp
         extern "system" {
             fn WcsCheckColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, paresult: *mut u8) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WcsCheckColors(::core::mem::transmute(hcolortransform), paresult.len() as _, ::core::mem::transmute(ninputchannels), ::core::mem::transmute(cdtinput), ::core::mem::transmute(cbinput), ::core::mem::transmute(pinputdata), ::core::mem::transmute(paresult.as_ptr())))
+        ::core::mem::transmute(WcsCheckColors(::core::mem::transmute(hcolortransform), paresult.len() as _, ::core::mem::transmute(ninputchannels), ::core::mem::transmute(cdtinput), ::core::mem::transmute(cbinput), ::core::mem::transmute(pinputdata), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paresult))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

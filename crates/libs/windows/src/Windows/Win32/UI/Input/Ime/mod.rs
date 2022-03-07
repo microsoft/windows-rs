@@ -2939,7 +2939,7 @@ pub struct IFECommon(::windows::core::IUnknown);
 impl IFECommon {
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn IsDefaultIME(&self, szname: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsDefaultIME)(::core::mem::transmute_copy(self), ::core::mem::transmute(szname.as_ptr()), szname.len() as _).ok()
+        (::windows::core::Interface::vtable(self).IsDefaultIME)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(szname)), szname.len() as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn SetDefaultIME(&self) -> ::windows::core::Result<()> {
@@ -3129,8 +3129,8 @@ pub struct IFEDictionary(::windows::core::IUnknown);
 impl IFEDictionary {
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Open(&self, pchdictpath: ::core::option::Option<&mut [u8; 260]>, pshf: *mut IMESHF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchdictpath.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(pshf)).ok()
+    pub unsafe fn Open(&self, pchdictpath: &mut [u8; 260], pshf: *mut IMESHF) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchdictpath)), ::core::mem::transmute(pshf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -3138,8 +3138,8 @@ impl IFEDictionary {
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetHeader(&self, pchdictpath: ::core::option::Option<&mut [u8; 260]>, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetHeader)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchdictpath.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(pshf), ::core::mem::transmute(pjfmt), ::core::mem::transmute(pultype)).ok()
+    pub unsafe fn GetHeader(&self, pchdictpath: &mut [u8; 260], pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetHeader)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchdictpath)), ::core::mem::transmute(pshf), ::core::mem::transmute(pjfmt), ::core::mem::transmute(pultype)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5937,14 +5937,14 @@ pub unsafe fn ImmGetDefaultIMEWnd<'a, Param0: ::windows::core::IntoParam<'a, sup
 #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ImmGetDescriptionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszdescription: ::core::option::Option<&mut [u8]>) -> u32 {
+pub unsafe fn ImmGetDescriptionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszdescription: &mut [u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ImmGetDescriptionA(param0: super::super::TextServices::HKL, lpszdescription: ::windows::core::PSTR, ubuflen: u32) -> u32;
         }
-        ::core::mem::transmute(ImmGetDescriptionA(param0.into_param().abi(), ::core::mem::transmute(lpszdescription.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), lpszdescription.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(ImmGetDescriptionA(param0.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdescription)), lpszdescription.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5952,14 +5952,14 @@ pub unsafe fn ImmGetDescriptionA<'a, Param0: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ImmGetDescriptionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszdescription: ::core::option::Option<&mut [u16]>) -> u32 {
+pub unsafe fn ImmGetDescriptionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszdescription: &mut [u16]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ImmGetDescriptionW(param0: super::super::TextServices::HKL, lpszdescription: ::windows::core::PWSTR, ubuflen: u32) -> u32;
         }
-        ::core::mem::transmute(ImmGetDescriptionW(param0.into_param().abi(), ::core::mem::transmute(lpszdescription.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), lpszdescription.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(ImmGetDescriptionW(param0.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdescription)), lpszdescription.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6057,14 +6057,14 @@ pub unsafe fn ImmGetIMCLockCount<'a, Param0: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ImmGetIMEFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszfilename: ::core::option::Option<&mut [u8]>) -> u32 {
+pub unsafe fn ImmGetIMEFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszfilename: &mut [u8]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ImmGetIMEFileNameA(param0: super::super::TextServices::HKL, lpszfilename: ::windows::core::PSTR, ubuflen: u32) -> u32;
         }
-        ::core::mem::transmute(ImmGetIMEFileNameA(param0.into_param().abi(), ::core::mem::transmute(lpszfilename.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), lpszfilename.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(ImmGetIMEFileNameA(param0.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilename)), lpszfilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6072,14 +6072,14 @@ pub unsafe fn ImmGetIMEFileNameA<'a, Param0: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ImmGetIMEFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszfilename: ::core::option::Option<&mut [u16]>) -> u32 {
+pub unsafe fn ImmGetIMEFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszfilename: &mut [u16]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ImmGetIMEFileNameW(param0: super::super::TextServices::HKL, lpszfilename: ::windows::core::PWSTR, ubuflen: u32) -> u32;
         }
-        ::core::mem::transmute(ImmGetIMEFileNameW(param0.into_param().abi(), ::core::mem::transmute(lpszfilename.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), lpszfilename.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(ImmGetIMEFileNameW(param0.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilename)), lpszfilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6154,7 +6154,7 @@ pub unsafe fn ImmGetRegisterWordStyleA<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn ImmGetRegisterWordStyleA(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32;
         }
-        ::core::mem::transmute(ImmGetRegisterWordStyleA(param0.into_param().abi(), lpstylebuf.len() as _, ::core::mem::transmute(lpstylebuf.as_ptr())))
+        ::core::mem::transmute(ImmGetRegisterWordStyleA(param0.into_param().abi(), lpstylebuf.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstylebuf))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6169,7 +6169,7 @@ pub unsafe fn ImmGetRegisterWordStyleW<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn ImmGetRegisterWordStyleW(param0: super::super::TextServices::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32;
         }
-        ::core::mem::transmute(ImmGetRegisterWordStyleW(param0.into_param().abi(), lpstylebuf.len() as _, ::core::mem::transmute(lpstylebuf.as_ptr())))
+        ::core::mem::transmute(ImmGetRegisterWordStyleW(param0.into_param().abi(), lpstylebuf.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstylebuf))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

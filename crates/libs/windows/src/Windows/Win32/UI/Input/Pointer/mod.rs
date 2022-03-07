@@ -234,7 +234,7 @@ pub unsafe fn GetPointerInputTransform(pointerid: u32, inputtransform: &mut [INP
         extern "system" {
             fn GetPointerInputTransform(pointerid: u32, historycount: u32, inputtransform: *mut INPUT_TRANSFORM) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetPointerInputTransform(::core::mem::transmute(pointerid), inputtransform.len() as _, ::core::mem::transmute(inputtransform.as_ptr())))
+        ::core::mem::transmute(GetPointerInputTransform(::core::mem::transmute(pointerid), inputtransform.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(inputtransform))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -324,7 +324,7 @@ pub unsafe fn GetRawPointerDeviceData(pointerid: u32, historycount: u32, pproper
         extern "system" {
             fn GetRawPointerDeviceData(pointerid: u32, historycount: u32, propertiescount: u32, pproperties: *const super::super::Controls::POINTER_DEVICE_PROPERTY, pvalues: *mut i32) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetRawPointerDeviceData(::core::mem::transmute(pointerid), ::core::mem::transmute(historycount), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr()), ::core::mem::transmute(pvalues)))
+        ::core::mem::transmute(GetRawPointerDeviceData(::core::mem::transmute(pointerid), ::core::mem::transmute(historycount), pproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pproperties)), ::core::mem::transmute(pvalues)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -497,7 +497,7 @@ pub unsafe fn InjectSyntheticPointerInput<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn InjectSyntheticPointerInput(device: super::super::Controls::HSYNTHETICPOINTERDEVICE, pointerinfo: *const super::super::Controls::POINTER_TYPE_INFO, count: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(InjectSyntheticPointerInput(device.into_param().abi(), ::core::mem::transmute(pointerinfo.as_ptr()), pointerinfo.len() as _))
+        ::core::mem::transmute(InjectSyntheticPointerInput(device.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pointerinfo)), pointerinfo.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -512,7 +512,7 @@ pub unsafe fn InjectTouchInput(contacts: &[POINTER_TOUCH_INFO]) -> super::super:
         extern "system" {
             fn InjectTouchInput(count: u32, contacts: *const POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(InjectTouchInput(contacts.len() as _, ::core::mem::transmute(contacts.as_ptr())))
+        ::core::mem::transmute(InjectTouchInput(contacts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(contacts))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

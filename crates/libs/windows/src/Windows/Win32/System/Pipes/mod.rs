@@ -167,14 +167,14 @@ pub unsafe fn GetNamedPipeClientSessionId<'a, Param0: ::windows::core::IntoParam
 #[doc = "*Required features: 'Win32_System_Pipes', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNamedPipeHandleStateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hnamedpipe: Param0, lpstate: *mut NAMED_PIPE_MODE, lpcurinstances: *mut u32, lpmaxcollectioncount: *mut u32, lpcollectdatatimeout: *mut u32, lpusername: ::core::option::Option<&mut [u8]>) -> super::super::Foundation::BOOL {
+pub unsafe fn GetNamedPipeHandleStateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hnamedpipe: Param0, lpstate: *mut NAMED_PIPE_MODE, lpcurinstances: *mut u32, lpmaxcollectioncount: *mut u32, lpcollectdatatimeout: *mut u32, lpusername: &mut [u8]) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetNamedPipeHandleStateA(hnamedpipe: super::super::Foundation::HANDLE, lpstate: *mut NAMED_PIPE_MODE, lpcurinstances: *mut u32, lpmaxcollectioncount: *mut u32, lpcollectdatatimeout: *mut u32, lpusername: ::windows::core::PSTR, nmaxusernamesize: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetNamedPipeHandleStateA(hnamedpipe.into_param().abi(), ::core::mem::transmute(lpstate), ::core::mem::transmute(lpcurinstances), ::core::mem::transmute(lpmaxcollectioncount), ::core::mem::transmute(lpcollectdatatimeout), ::core::mem::transmute(lpusername.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), lpusername.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(GetNamedPipeHandleStateA(hnamedpipe.into_param().abi(), ::core::mem::transmute(lpstate), ::core::mem::transmute(lpcurinstances), ::core::mem::transmute(lpmaxcollectioncount), ::core::mem::transmute(lpcollectdatatimeout), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpusername)), lpusername.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -182,14 +182,14 @@ pub unsafe fn GetNamedPipeHandleStateA<'a, Param0: ::windows::core::IntoParam<'a
 #[doc = "*Required features: 'Win32_System_Pipes', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNamedPipeHandleStateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hnamedpipe: Param0, lpstate: *mut NAMED_PIPE_MODE, lpcurinstances: *mut u32, lpmaxcollectioncount: *mut u32, lpcollectdatatimeout: *mut u32, lpusername: ::core::option::Option<&mut [u16]>) -> super::super::Foundation::BOOL {
+pub unsafe fn GetNamedPipeHandleStateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hnamedpipe: Param0, lpstate: *mut NAMED_PIPE_MODE, lpcurinstances: *mut u32, lpmaxcollectioncount: *mut u32, lpcollectdatatimeout: *mut u32, lpusername: &mut [u16]) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetNamedPipeHandleStateW(hnamedpipe: super::super::Foundation::HANDLE, lpstate: *mut NAMED_PIPE_MODE, lpcurinstances: *mut u32, lpmaxcollectioncount: *mut u32, lpcollectdatatimeout: *mut u32, lpusername: ::windows::core::PWSTR, nmaxusernamesize: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetNamedPipeHandleStateW(hnamedpipe.into_param().abi(), ::core::mem::transmute(lpstate), ::core::mem::transmute(lpcurinstances), ::core::mem::transmute(lpmaxcollectioncount), ::core::mem::transmute(lpcollectdatatimeout), ::core::mem::transmute(lpusername.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), lpusername.as_ref().map_or(0, |value| value.len()) as _))
+        ::core::mem::transmute(GetNamedPipeHandleStateW(hnamedpipe.into_param().abi(), ::core::mem::transmute(lpstate), ::core::mem::transmute(lpcurinstances), ::core::mem::transmute(lpmaxcollectioncount), ::core::mem::transmute(lpcollectdatatimeout), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpusername)), lpusername.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -1893,7 +1893,7 @@ pub unsafe fn EapHostPeerConfigBlob2Xml<'a, Param1: ::windows::core::IntoParam<'
         extern "system" {
             fn EapHostPeerConfigBlob2Xml(dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, dwsizeofconfigin: u32, pconfigin: *const u8, ppconfigdoc: *mut ::windows::core::RawPtr, ppeaperror: *mut *mut EAP_ERROR) -> u32;
         }
-        ::core::mem::transmute(EapHostPeerConfigBlob2Xml(::core::mem::transmute(dwflags), eapmethodtype.into_param().abi(), pconfigin.len() as _, ::core::mem::transmute(pconfigin.as_ptr()), ::core::mem::transmute(ppconfigdoc), ::core::mem::transmute(ppeaperror)))
+        ::core::mem::transmute(EapHostPeerConfigBlob2Xml(::core::mem::transmute(dwflags), eapmethodtype.into_param().abi(), pconfigin.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pconfigin)), ::core::mem::transmute(ppconfigdoc), ::core::mem::transmute(ppeaperror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1923,7 +1923,7 @@ pub unsafe fn EapHostPeerCredentialsXml2Blob<'a, Param1: ::windows::core::IntoPa
         extern "system" {
             fn EapHostPeerCredentialsXml2Blob(dwflags: u32, pcredentialsdoc: ::windows::core::RawPtr, dwsizeofconfigin: u32, pconfigin: *const u8, pdwsizeofcredentialsout: *mut u32, ppcredentialsout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32;
         }
-        ::core::mem::transmute(EapHostPeerCredentialsXml2Blob(::core::mem::transmute(dwflags), pcredentialsdoc.into_param().abi(), pconfigin.len() as _, ::core::mem::transmute(pconfigin.as_ptr()), ::core::mem::transmute(pdwsizeofcredentialsout), ::core::mem::transmute(ppcredentialsout), ::core::mem::transmute(peapmethodtype), ::core::mem::transmute(ppeaperror)))
+        ::core::mem::transmute(EapHostPeerCredentialsXml2Blob(::core::mem::transmute(dwflags), pcredentialsdoc.into_param().abi(), pconfigin.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pconfigin)), ::core::mem::transmute(pdwsizeofcredentialsout), ::core::mem::transmute(ppcredentialsout), ::core::mem::transmute(peapmethodtype), ::core::mem::transmute(ppeaperror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2044,7 +2044,7 @@ pub unsafe fn EapHostPeerGetEncryptedPassword<'a, Param1: ::windows::core::IntoP
 #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EapHostPeerGetIdentity<'a, Param2: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwversion: u32, dwflags: u32, eapmethodtype: Param2, pconnectiondata: &[u8], puserdata: ::core::option::Option<&[u8]>, htokenimpersonateuser: Param7, pfinvokeui: *mut super::super::Foundation::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut ::windows::core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32 {
+pub unsafe fn EapHostPeerGetIdentity<'a, Param2: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwversion: u32, dwflags: u32, eapmethodtype: Param2, pconnectiondata: &[u8], puserdata: &[u8], htokenimpersonateuser: Param7, pfinvokeui: *mut super::super::Foundation::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut ::windows::core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2056,9 +2056,9 @@ pub unsafe fn EapHostPeerGetIdentity<'a, Param2: ::windows::core::IntoParam<'a, 
             ::core::mem::transmute(dwflags),
             eapmethodtype.into_param().abi(),
             pconnectiondata.len() as _,
-            ::core::mem::transmute(pconnectiondata.as_ptr()),
-            puserdata.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(puserdata.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondata)),
+            puserdata.len() as _,
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(puserdata)),
             htokenimpersonateuser.into_param().abi(),
             ::core::mem::transmute(pfinvokeui),
             ::core::mem::transmute(pdwsizeofuserdataout),
@@ -2081,7 +2081,7 @@ pub unsafe fn EapHostPeerGetMethodProperties<'a, Param2: ::windows::core::IntoPa
         extern "system" {
             fn EapHostPeerGetMethodProperties(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, huserimpersonationtoken: super::super::Foundation::HANDLE, dweapconndatasize: u32, pbeapconndata: *const u8, dwuserdatasize: u32, pbuserdata: *const u8, pmethodpropertyarray: *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32;
         }
-        ::core::mem::transmute(EapHostPeerGetMethodProperties(::core::mem::transmute(dwversion), ::core::mem::transmute(dwflags), eapmethodtype.into_param().abi(), huserimpersonationtoken.into_param().abi(), pbeapconndata.len() as _, ::core::mem::transmute(pbeapconndata.as_ptr()), pbuserdata.len() as _, ::core::mem::transmute(pbuserdata.as_ptr()), ::core::mem::transmute(pmethodpropertyarray), ::core::mem::transmute(ppeaperror)))
+        ::core::mem::transmute(EapHostPeerGetMethodProperties(::core::mem::transmute(dwversion), ::core::mem::transmute(dwflags), eapmethodtype.into_param().abi(), huserimpersonationtoken.into_param().abi(), pbeapconndata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbeapconndata)), pbuserdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbuserdata)), ::core::mem::transmute(pmethodpropertyarray), ::core::mem::transmute(ppeaperror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2174,14 +2174,14 @@ pub unsafe fn EapHostPeerInitialize() -> u32 {
 #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EapHostPeerInvokeConfigUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>>(hwndparent: Param0, dwflags: u32, eapmethodtype: Param2, pconfigin: ::core::option::Option<&[u8]>, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
+pub unsafe fn EapHostPeerInvokeConfigUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>>(hwndparent: Param0, dwflags: u32, eapmethodtype: Param2, pconfigin: &[u8], pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerInvokeConfigUI(hwndparent: super::super::Foundation::HWND, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, dwsizeofconfigin: u32, pconfigin: *const u8, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32;
         }
-        ::core::mem::transmute(EapHostPeerInvokeConfigUI(hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), eapmethodtype.into_param().abi(), pconfigin.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(pconfigin.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(pdwsizeofconfigout), ::core::mem::transmute(ppconfigout), ::core::mem::transmute(ppeaperror)))
+        ::core::mem::transmute(EapHostPeerInvokeConfigUI(hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), eapmethodtype.into_param().abi(), pconfigin.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pconfigin)), ::core::mem::transmute(pdwsizeofconfigout), ::core::mem::transmute(ppconfigout), ::core::mem::transmute(ppeaperror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2189,7 +2189,7 @@ pub unsafe fn EapHostPeerInvokeConfigUI<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EapHostPeerInvokeIdentityUI<'a, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(dwversion: u32, eapmethodtype: Param1, dwflags: u32, hwndparent: Param3, pconnectiondata: &[u8], puserdata: ::core::option::Option<&[u8]>, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut ::windows::core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn EapHostPeerInvokeIdentityUI<'a, Param1: ::windows::core::IntoParam<'a, EAP_METHOD_TYPE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(dwversion: u32, eapmethodtype: Param1, dwflags: u32, hwndparent: Param3, pconnectiondata: &[u8], puserdata: &[u8], pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut ::windows::core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2202,9 +2202,9 @@ pub unsafe fn EapHostPeerInvokeIdentityUI<'a, Param1: ::windows::core::IntoParam
             ::core::mem::transmute(dwflags),
             hwndparent.into_param().abi(),
             pconnectiondata.len() as _,
-            ::core::mem::transmute(pconnectiondata.as_ptr()),
-            puserdata.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(puserdata.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondata)),
+            puserdata.len() as _,
+            ::core::mem::transmute(::windows::core::as_ptr_or_null(puserdata)),
             ::core::mem::transmute(pdwsizeofuserdataout),
             ::core::mem::transmute(ppuserdataout),
             ::core::mem::transmute(ppwszidentity),
@@ -2218,14 +2218,14 @@ pub unsafe fn EapHostPeerInvokeIdentityUI<'a, Param1: ::windows::core::IntoParam
 #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EapHostPeerInvokeInteractiveUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, puicontextdata: ::core::option::Option<&[u8]>, pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
+pub unsafe fn EapHostPeerInvokeInteractiveUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, puicontextdata: &[u8], pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn EapHostPeerInvokeInteractiveUI(hwndparent: super::super::Foundation::HWND, dwsizeofuicontextdata: u32, puicontextdata: *const u8, pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32;
         }
-        ::core::mem::transmute(EapHostPeerInvokeInteractiveUI(hwndparent.into_param().abi(), puicontextdata.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(puicontextdata.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(pdwsizeofdatafrominteractiveui), ::core::mem::transmute(ppdatafrominteractiveui), ::core::mem::transmute(ppeaperror)))
+        ::core::mem::transmute(EapHostPeerInvokeInteractiveUI(hwndparent.into_param().abi(), puicontextdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puicontextdata)), ::core::mem::transmute(pdwsizeofdatafrominteractiveui), ::core::mem::transmute(ppdatafrominteractiveui), ::core::mem::transmute(ppeaperror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2345,7 +2345,7 @@ pub unsafe fn EapHostPeerQueryCredentialInputFields<'a, Param0: ::windows::core:
         extern "system" {
             fn EapHostPeerQueryCredentialInputFields(huserimpersonationtoken: super::super::Foundation::HANDLE, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, dweapconndatasize: u32, pbeapconndata: *const u8, peapconfiginputfieldarray: *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32;
         }
-        ::core::mem::transmute(EapHostPeerQueryCredentialInputFields(huserimpersonationtoken.into_param().abi(), eapmethodtype.into_param().abi(), ::core::mem::transmute(dwflags), pbeapconndata.len() as _, ::core::mem::transmute(pbeapconndata.as_ptr()), ::core::mem::transmute(peapconfiginputfieldarray), ::core::mem::transmute(ppeaperror)))
+        ::core::mem::transmute(EapHostPeerQueryCredentialInputFields(huserimpersonationtoken.into_param().abi(), eapmethodtype.into_param().abi(), ::core::mem::transmute(dwflags), pbeapconndata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbeapconndata)), ::core::mem::transmute(peapconfiginputfieldarray), ::core::mem::transmute(ppeaperror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2359,7 +2359,7 @@ pub unsafe fn EapHostPeerQueryInteractiveUIInputFields(dwversion: u32, dwflags: 
         extern "system" {
             fn EapHostPeerQueryInteractiveUIInputFields(dwversion: u32, dwflags: u32, dwsizeofuicontextdata: u32, puicontextdata: *const u8, peapinteractiveuidata: *mut EAP_INTERACTIVE_UI_DATA, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::core::mem::transmute(EapHostPeerQueryInteractiveUIInputFields(::core::mem::transmute(dwversion), ::core::mem::transmute(dwflags), puicontextdata.len() as _, ::core::mem::transmute(puicontextdata.as_ptr()), ::core::mem::transmute(peapinteractiveuidata), ::core::mem::transmute(ppeaperror), ::core::mem::transmute(ppvreserved)))
+        ::core::mem::transmute(EapHostPeerQueryInteractiveUIInputFields(::core::mem::transmute(dwversion), ::core::mem::transmute(dwflags), puicontextdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puicontextdata)), ::core::mem::transmute(peapinteractiveuidata), ::core::mem::transmute(ppeaperror), ::core::mem::transmute(ppvreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2373,7 +2373,7 @@ pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: u32,
         extern "system" {
             fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: u32, dwflags: u32, dwsizeofuicontextdata: u32, puicontextdata: *const u8, peapinteractiveuidata: *const EAP_INTERACTIVE_UI_DATA, pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut ::core::ffi::c_void) -> u32;
         }
-        ::core::mem::transmute(EapHostPeerQueryUIBlobFromInteractiveUIInputFields(::core::mem::transmute(dwversion), ::core::mem::transmute(dwflags), puicontextdata.len() as _, ::core::mem::transmute(puicontextdata.as_ptr()), ::core::mem::transmute(peapinteractiveuidata), ::core::mem::transmute(pdwsizeofdatafrominteractiveui), ::core::mem::transmute(ppdatafrominteractiveui), ::core::mem::transmute(ppeaperror), ::core::mem::transmute(ppvreserved)))
+        ::core::mem::transmute(EapHostPeerQueryUIBlobFromInteractiveUIInputFields(::core::mem::transmute(dwversion), ::core::mem::transmute(dwflags), puicontextdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puicontextdata)), ::core::mem::transmute(peapinteractiveuidata), ::core::mem::transmute(pdwsizeofdatafrominteractiveui), ::core::mem::transmute(ppdatafrominteractiveui), ::core::mem::transmute(ppeaperror), ::core::mem::transmute(ppvreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2388,7 +2388,7 @@ pub unsafe fn EapHostPeerQueryUserBlobFromCredentialInputFields<'a, Param0: ::wi
         extern "system" {
             fn EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken: super::super::Foundation::HANDLE, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, dweapconndatasize: u32, pbeapconndata: *const u8, peapconfiginputfieldarray: *const EAP_CONFIG_INPUT_FIELD_ARRAY, pdwuserblobsize: *mut u32, ppbuserblob: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32;
         }
-        ::core::mem::transmute(EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken.into_param().abi(), eapmethodtype.into_param().abi(), ::core::mem::transmute(dwflags), pbeapconndata.len() as _, ::core::mem::transmute(pbeapconndata.as_ptr()), ::core::mem::transmute(peapconfiginputfieldarray), ::core::mem::transmute(pdwuserblobsize), ::core::mem::transmute(ppbuserblob), ::core::mem::transmute(ppeaperror)))
+        ::core::mem::transmute(EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken.into_param().abi(), eapmethodtype.into_param().abi(), ::core::mem::transmute(dwflags), pbeapconndata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbeapconndata)), ::core::mem::transmute(peapconfiginputfieldarray), ::core::mem::transmute(pdwuserblobsize), ::core::mem::transmute(ppbuserblob), ::core::mem::transmute(ppeaperror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2968,12 +2968,12 @@ impl IEAPProviderConfig {
     #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RouterInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
+        (::windows::core::Interface::vtable(self).RouterInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeCredentialsUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RouterInvokeCredentialsUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len() as _, ::core::mem::transmute(puserdatain.as_ptr()), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
+        (::windows::core::Interface::vtable(self).RouterInvokeCredentialsUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puserdatain)), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
     }
 }
 impl ::core::convert::From<IEAPProviderConfig> for ::windows::core::IUnknown {
@@ -3056,12 +3056,12 @@ impl IEAPProviderConfig2 {
     #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.RouterInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
+        (::windows::core::Interface::vtable(self).base.RouterInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeCredentialsUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.RouterInvokeCredentialsUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len() as _, ::core::mem::transmute(puserdatain.as_ptr()), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
+        (::windows::core::Interface::vtable(self).base.RouterInvokeCredentialsUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puserdatain)), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3164,12 +3164,12 @@ impl IEAPProviderConfig3 {
     #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeConfigUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.RouterInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
+        (::windows::core::Interface::vtable(self).base.base.RouterInvokeConfigUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeCredentialsUI<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: Param2, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.RouterInvokeCredentialsUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len() as _, ::core::mem::transmute(puserdatain.as_ptr()), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
+        (::windows::core::Interface::vtable(self).base.base.RouterInvokeCredentialsUI)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweaptypeid), ::core::mem::transmute(uconnectionparam), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puserdatain)), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
     }
     #[doc = "*Required features: 'Win32_Security_ExtensibleAuthenticationProtocol', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

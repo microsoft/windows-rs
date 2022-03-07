@@ -2234,7 +2234,7 @@ impl IRoSimpleMetaDataBuilder {
     }
     #[doc = "*Required features: 'Win32_System_WinRT'*"]
     pub unsafe fn SetInterfaceGroupParameterizedDefault<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, defaultinterfacenameelements: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInterfaceGroupParameterizedDefault)(::core::mem::transmute_copy(self), name.into_param().abi(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(defaultinterfacenameelements.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetInterfaceGroupParameterizedDefault)(::core::mem::transmute_copy(self), name.into_param().abi(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(defaultinterfacenameelements))).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT'*"]
     pub unsafe fn SetRuntimeClassSimpleDefault<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, defaultinterfacename: Param1, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -2242,11 +2242,11 @@ impl IRoSimpleMetaDataBuilder {
     }
     #[doc = "*Required features: 'Win32_System_WinRT'*"]
     pub unsafe fn SetRuntimeClassParameterizedDefault<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, defaultinterfacenameelements: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRuntimeClassParameterizedDefault)(::core::mem::transmute_copy(self), name.into_param().abi(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(defaultinterfacenameelements.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetRuntimeClassParameterizedDefault)(::core::mem::transmute_copy(self), name.into_param().abi(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(defaultinterfacenameelements))).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT'*"]
     pub unsafe fn SetStruct<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, fieldtypenames: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStruct)(::core::mem::transmute_copy(self), name.into_param().abi(), fieldtypenames.len() as _, ::core::mem::transmute(fieldtypenames.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetStruct)(::core::mem::transmute_copy(self), name.into_param().abi(), fieldtypenames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(fieldtypenames))).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT'*"]
     pub unsafe fn SetEnum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, basetype: Param1) -> ::windows::core::Result<()> {
@@ -3502,7 +3502,7 @@ pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, Param2: ::windows::core::Int
         extern "system" {
             fn RoGetParameterizedTypeInstanceIID(nameelementcount: u32, nameelements: *const ::windows::core::PWSTR, metadatalocator: ::windows::core::RawPtr, iid: *mut ::windows::core::GUID, pextra: *mut ROPARAMIIDHANDLE) -> ::windows::core::HRESULT;
         }
-        RoGetParameterizedTypeInstanceIID(nameelements.len() as _, ::core::mem::transmute(nameelements.as_ptr()), metadatalocator.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(pextra)).ok()
+        RoGetParameterizedTypeInstanceIID(nameelements.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(nameelements)), metadatalocator.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(pextra)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3582,14 +3582,14 @@ pub unsafe fn RoOriginateError<'a, Param1: ::windows::core::IntoParam<'a, ::wind
 #[doc = "*Required features: 'Win32_System_WinRT', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
+pub unsafe fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, message: &[u16; 512]) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, message: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(RoOriginateErrorW(::core::mem::transmute(error), ::core::mem::transmute(cchmax), ::core::mem::transmute(message.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))))
+        ::core::mem::transmute(RoOriginateErrorW(::core::mem::transmute(error), ::core::mem::transmute(cchmax), ::core::mem::transmute(::windows::core::as_ptr_or_null(message))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3633,7 +3633,7 @@ pub unsafe fn RoRegisterActivationFactories<'a, const PARAM2: usize>(activatable
             fn RoRegisterActivationFactories(activatableclassids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, activationfactorycallbacks: *const isize, count: u32, cookie: *mut isize) -> ::windows::core::HRESULT;
         }
         let mut result__: isize = ::core::mem::zeroed();
-        RoRegisterActivationFactories(::core::mem::transmute(activatableclassids.as_ptr()), ::core::mem::transmute(activationfactorycallbacks.as_ptr()), PARAM2 as _, ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
+        RoRegisterActivationFactories(::core::mem::transmute(::windows::core::as_ptr_or_null(activatableclassids)), ::core::mem::transmute(::windows::core::as_ptr_or_null(activationfactorycallbacks)), PARAM2 as _, ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3741,14 +3741,14 @@ pub unsafe fn RoTransformError<'a, Param2: ::windows::core::IntoParam<'a, ::wind
 #[doc = "*Required features: 'Win32_System_WinRT', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
+pub unsafe fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: &[u16; 512]) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(RoTransformErrorW(::core::mem::transmute(olderror), ::core::mem::transmute(newerror), ::core::mem::transmute(cchmax), ::core::mem::transmute(message.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))))
+        ::core::mem::transmute(RoTransformErrorW(::core::mem::transmute(olderror), ::core::mem::transmute(newerror), ::core::mem::transmute(cchmax), ::core::mem::transmute(::windows::core::as_ptr_or_null(message))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3888,7 +3888,7 @@ pub unsafe fn WindowsConcatString<'a, Param0: ::windows::core::IntoParam<'a, ::w
 }
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 #[inline]
-pub unsafe fn WindowsCreateString(sourcestring: ::core::option::Option<&[u16]>) -> ::windows::core::Result<::windows::core::HSTRING> {
+pub unsafe fn WindowsCreateString(sourcestring: &[u16]) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3896,7 +3896,7 @@ pub unsafe fn WindowsCreateString(sourcestring: ::core::option::Option<&[u16]>) 
             fn WindowsCreateString(sourcestring: ::windows::core::PCWSTR, length: u32, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }
         let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-        WindowsCreateString(::core::mem::transmute(sourcestring.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), sourcestring.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::HSTRING>(result__)
+        WindowsCreateString(::core::mem::transmute(::windows::core::as_ptr_or_null(sourcestring)), sourcestring.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::HSTRING>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

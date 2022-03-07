@@ -665,26 +665,14 @@ pub unsafe fn AccessCheckAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: Param1, clienttoken: Param2, desiredaccess: u32, objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL {
+pub unsafe fn AccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: Param1, clienttoken: Param2, desiredaccess: u32, objecttypelist: &mut [OBJECT_TYPE_LIST], genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AccessCheckByType(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AccessCheckByType(
-            ::core::mem::transmute(psecuritydescriptor),
-            principalselfsid.into_param().abi(),
-            clienttoken.into_param().abi(),
-            ::core::mem::transmute(desiredaccess),
-            ::core::mem::transmute(objecttypelist.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            objecttypelist.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(genericmapping),
-            ::core::mem::transmute(privilegeset),
-            ::core::mem::transmute(privilegesetlength),
-            ::core::mem::transmute(grantedaccess),
-            ::core::mem::transmute(accessstatus),
-        ))
+        ::core::mem::transmute(AccessCheckByType(::core::mem::transmute(psecuritydescriptor), principalselfsid.into_param().abi(), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(objecttypelist)), objecttypelist.len() as _, ::core::mem::transmute(genericmapping), ::core::mem::transmute(privilegeset), ::core::mem::transmute(privilegesetlength), ::core::mem::transmute(grantedaccess), ::core::mem::transmute(accessstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -702,7 +690,7 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::core::IntoP
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
     flags: u32,
-    objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST]>,
+    objecttypelist: &mut [OBJECT_TYPE_LIST],
     genericmapping: *const GENERIC_MAPPING,
     objectcreation: Param12,
     grantedaccess: *mut u32,
@@ -725,8 +713,8 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::core::IntoP
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
             ::core::mem::transmute(flags),
-            ::core::mem::transmute(objecttypelist.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            objecttypelist.as_ref().map_or(0, |value| value.len()) as _,
+            ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(objecttypelist)),
+            objecttypelist.len() as _,
             ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
             ::core::mem::transmute(grantedaccess),
@@ -750,7 +738,7 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::core::IntoP
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
     flags: u32,
-    objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST]>,
+    objecttypelist: &mut [OBJECT_TYPE_LIST],
     genericmapping: *const GENERIC_MAPPING,
     objectcreation: Param12,
     grantedaccess: *mut u32,
@@ -773,8 +761,8 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::core::IntoP
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
             ::core::mem::transmute(flags),
-            ::core::mem::transmute(objecttypelist.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            objecttypelist.as_ref().map_or(0, |value| value.len()) as _,
+            ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(objecttypelist)),
+            objecttypelist.len() as _,
             ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
             ::core::mem::transmute(grantedaccess),
@@ -1802,14 +1790,14 @@ pub unsafe fn CreatePrivateObjectSecurityEx<'a, Param4: ::windows::core::IntoPar
 #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance<'a, Param5: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(parentdescriptor: *const SECURITY_DESCRIPTOR, creatordescriptor: *const SECURITY_DESCRIPTOR, newdescriptor: *mut *mut SECURITY_DESCRIPTOR, objecttypes: ::core::option::Option<&[*const ::windows::core::GUID]>, iscontainerobject: Param5, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: Param7, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
+pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance<'a, Param5: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(parentdescriptor: *const SECURITY_DESCRIPTOR, creatordescriptor: *const SECURITY_DESCRIPTOR, newdescriptor: *mut *mut SECURITY_DESCRIPTOR, objecttypes: &[*const ::windows::core::GUID], iscontainerobject: Param5, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: Param7, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: *const SECURITY_DESCRIPTOR, creatordescriptor: *const SECURITY_DESCRIPTOR, newdescriptor: *mut *mut SECURITY_DESCRIPTOR, objecttypes: *const *const ::windows::core::GUID, guidcount: u32, iscontainerobject: super::Foundation::BOOL, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: super::Foundation::HANDLE, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreatePrivateObjectSecurityWithMultipleInheritance(::core::mem::transmute(parentdescriptor), ::core::mem::transmute(creatordescriptor), ::core::mem::transmute(newdescriptor), ::core::mem::transmute(objecttypes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), objecttypes.as_ref().map_or(0, |value| value.len()) as _, iscontainerobject.into_param().abi(), ::core::mem::transmute(autoinheritflags), token.into_param().abi(), ::core::mem::transmute(genericmapping)))
+        ::core::mem::transmute(CreatePrivateObjectSecurityWithMultipleInheritance(::core::mem::transmute(parentdescriptor), ::core::mem::transmute(creatordescriptor), ::core::mem::transmute(newdescriptor), ::core::mem::transmute(::windows::core::as_ptr_or_null(objecttypes)), objecttypes.len() as _, iscontainerobject.into_param().abi(), ::core::mem::transmute(autoinheritflags), token.into_param().abi(), ::core::mem::transmute(genericmapping)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1817,24 +1805,14 @@ pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance<'a, Param5: ::w
 #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateRestrictedToken<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(existingtokenhandle: Param0, flags: CREATE_RESTRICTED_TOKEN_FLAGS, sidstodisable: ::core::option::Option<&[SID_AND_ATTRIBUTES]>, privilegestodelete: ::core::option::Option<&[LUID_AND_ATTRIBUTES]>, sidstorestrict: ::core::option::Option<&[SID_AND_ATTRIBUTES]>, newtokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL {
+pub unsafe fn CreateRestrictedToken<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(existingtokenhandle: Param0, flags: CREATE_RESTRICTED_TOKEN_FLAGS, sidstodisable: &[SID_AND_ATTRIBUTES], privilegestodelete: &[LUID_AND_ATTRIBUTES], sidstorestrict: &[SID_AND_ATTRIBUTES], newtokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateRestrictedToken(existingtokenhandle: super::Foundation::HANDLE, flags: CREATE_RESTRICTED_TOKEN_FLAGS, disablesidcount: u32, sidstodisable: *const SID_AND_ATTRIBUTES, deleteprivilegecount: u32, privilegestodelete: *const LUID_AND_ATTRIBUTES, restrictedsidcount: u32, sidstorestrict: *const SID_AND_ATTRIBUTES, newtokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateRestrictedToken(
-            existingtokenhandle.into_param().abi(),
-            ::core::mem::transmute(flags),
-            sidstodisable.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(sidstodisable.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            privilegestodelete.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(privilegestodelete.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            sidstorestrict.as_ref().map_or(0, |value| value.len()) as _,
-            ::core::mem::transmute(sidstorestrict.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(newtokenhandle),
-        ))
+        ::core::mem::transmute(CreateRestrictedToken(existingtokenhandle.into_param().abi(), ::core::mem::transmute(flags), sidstodisable.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sidstodisable)), privilegestodelete.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(privilegestodelete)), sidstorestrict.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sidstorestrict)), ::core::mem::transmute(newtokenhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4957,7 +4935,7 @@ pub unsafe fn SetCachedSigningLevel<'a, Param3: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn SetCachedSigningLevel(sourcefiles: *const super::Foundation::HANDLE, sourcefilecount: u32, flags: u32, targetfile: super::Foundation::HANDLE) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetCachedSigningLevel(::core::mem::transmute(sourcefiles.as_ptr()), sourcefiles.len() as _, ::core::mem::transmute(flags), targetfile.into_param().abi()))
+        ::core::mem::transmute(SetCachedSigningLevel(::core::mem::transmute(::windows::core::as_ptr_or_null(sourcefiles)), sourcefiles.len() as _, ::core::mem::transmute(flags), targetfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

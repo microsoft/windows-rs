@@ -26,7 +26,7 @@ pub fn gen() -> TokenStream {
                     return Self(::core::ptr::null_mut());
                 }
 
-                unsafe { SysAllocStringLen(Some(value)) }
+                unsafe { SysAllocStringLen(value) }
             }
 
             pub fn as_wide(&self) -> &[u16] {

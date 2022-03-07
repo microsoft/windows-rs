@@ -4246,11 +4246,11 @@ impl IDXGIDevice {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsurface))).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn QueryResourceResidency<'a, const PARAM2: usize>(&self, ppresources: &[::core::option::Option<::windows::core::IUnknown>; PARAM2], presidencystatus: &mut [DXGI_RESIDENCY; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(presidencystatus.as_ptr()), PARAM2 as _).ok()
+        (::windows::core::Interface::vtable(self).QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(presidencystatus)), PARAM2 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
@@ -4364,11 +4364,11 @@ impl IDXGIDevice1 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsurface))).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn QueryResourceResidency<'a, const PARAM2: usize>(&self, ppresources: &[::core::option::Option<::windows::core::IUnknown>; PARAM2], presidencystatus: &mut [DXGI_RESIDENCY; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(presidencystatus.as_ptr()), PARAM2 as _).ok()
+        (::windows::core::Interface::vtable(self).base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(presidencystatus)), PARAM2 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
@@ -4505,11 +4505,11 @@ impl IDXGIDevice2 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsurface))).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn QueryResourceResidency<'a, const PARAM2: usize>(&self, ppresources: &[::core::option::Option<::windows::core::IUnknown>; PARAM2], presidencystatus: &mut [DXGI_RESIDENCY; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(presidencystatus.as_ptr()), PARAM2 as _).ok()
+        (::windows::core::Interface::vtable(self).base.base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(presidencystatus)), PARAM2 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
@@ -4531,13 +4531,13 @@ impl IDXGIDevice2 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn OfferResources(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OfferResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(priority)).ok()
+        (::windows::core::Interface::vtable(self).OfferResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReclaimResources(&self, ppresources: &[::core::option::Option<IDXGIResource>]) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReclaimResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ReclaimResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4688,11 +4688,11 @@ impl IDXGIDevice3 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsurface))).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn QueryResourceResidency<'a, const PARAM2: usize>(&self, ppresources: &[::core::option::Option<::windows::core::IUnknown>; PARAM2], presidencystatus: &mut [DXGI_RESIDENCY; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(presidencystatus.as_ptr()), PARAM2 as _).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(presidencystatus)), PARAM2 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
@@ -4714,13 +4714,13 @@ impl IDXGIDevice3 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn OfferResources(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.OfferResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(priority)).ok()
+        (::windows::core::Interface::vtable(self).base.OfferResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReclaimResources(&self, ppresources: &[::core::option::Option<IDXGIResource>]) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ReclaimResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base.ReclaimResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4887,11 +4887,11 @@ impl IDXGIDevice4 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppsurface))).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn QueryResourceResidency<'a, const PARAM2: usize>(&self, ppresources: &[::core::option::Option<::windows::core::IUnknown>; PARAM2], presidencystatus: &mut [DXGI_RESIDENCY; PARAM2]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(presidencystatus.as_ptr()), PARAM2 as _).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(presidencystatus)), PARAM2 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
@@ -4913,13 +4913,13 @@ impl IDXGIDevice4 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn OfferResources(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.OfferResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(priority)).ok()
+        (::windows::core::Interface::vtable(self).base.base.OfferResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReclaimResources(&self, ppresources: &[::core::option::Option<IDXGIResource>]) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.ReclaimResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base.base.ReclaimResources)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4932,12 +4932,12 @@ impl IDXGIDevice4 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn OfferResources1(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OfferResources1)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(priority), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).OfferResources1)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(priority), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn ReclaimResources1(&self, ppresources: &[::core::option::Option<IDXGIResource>]) -> ::windows::core::Result<DXGI_RECLAIM_RESOURCE_RESULTS> {
         let mut result__: DXGI_RECLAIM_RESOURCE_RESULTS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReclaimResources1)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_RECLAIM_RESOURCE_RESULTS>(result__)
+        (::windows::core::Interface::vtable(self).ReclaimResources1)(::core::mem::transmute_copy(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_RECLAIM_RESOURCE_RESULTS>(result__)
     }
 }
 impl ::core::convert::From<IDXGIDevice4> for ::windows::core::IUnknown {
@@ -9077,7 +9077,7 @@ impl IDXGIOutput5 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn DuplicateOutput1<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, flags: u32, psupportedformats: &[Common::DXGI_FORMAT]) -> ::windows::core::Result<IDXGIOutputDuplication> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DuplicateOutput1)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(flags), psupportedformats.len() as _, ::core::mem::transmute(psupportedformats.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
+        (::windows::core::Interface::vtable(self).DuplicateOutput1)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(flags), psupportedformats.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psupportedformats)), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
     }
 }
 impl ::core::convert::From<IDXGIOutput5> for ::windows::core::IUnknown {
@@ -9369,7 +9369,7 @@ impl IDXGIOutput6 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn DuplicateOutput1<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, flags: u32, psupportedformats: &[Common::DXGI_FORMAT]) -> ::windows::core::Result<IDXGIOutputDuplication> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.DuplicateOutput1)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(flags), psupportedformats.len() as _, ::core::mem::transmute(psupportedformats.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
+        (::windows::core::Interface::vtable(self).base.DuplicateOutput1)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(flags), psupportedformats.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psupportedformats)), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -11450,7 +11450,7 @@ impl IDXGISwapChain3 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResizeBuffers1<'a, const PARAM0: usize>(&self, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: &[u32; PARAM0], pppresentqueue: &[::core::option::Option<::windows::core::IUnknown>; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResizeBuffers1)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(pcreationnodemask.as_ptr()), ::core::mem::transmute(pppresentqueue.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).ResizeBuffers1)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcreationnodemask)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pppresentqueue))).ok()
     }
 }
 impl ::core::convert::From<IDXGISwapChain3> for ::windows::core::IUnknown {
@@ -11794,11 +11794,11 @@ impl IDXGISwapChain4 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResizeBuffers1<'a, const PARAM0: usize>(&self, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: &[u32; PARAM0], pppresentqueue: &[::core::option::Option<::windows::core::IUnknown>; PARAM0]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ResizeBuffers1)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(pcreationnodemask.as_ptr()), ::core::mem::transmute(pppresentqueue.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base.ResizeBuffers1)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcreationnodemask)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pppresentqueue))).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, pmetadata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHDRMetaData)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), pmetadata.as_ref().map_or(0, |value| value.len()) as _, ::core::mem::transmute(pmetadata.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))).ok()
+    pub unsafe fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, pmetadata: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHDRMetaData)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), pmetadata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pmetadata))).ok()
     }
 }
 impl ::core::convert::From<IDXGISwapChain4> for ::windows::core::IUnknown {

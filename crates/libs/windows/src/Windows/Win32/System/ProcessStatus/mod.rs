@@ -178,7 +178,7 @@ pub unsafe fn K32GetDeviceDriverBaseNameA(imagebase: *const ::core::ffi::c_void,
         extern "system" {
             fn K32GetDeviceDriverBaseNameA(imagebase: *const ::core::ffi::c_void, lpfilename: ::windows::core::PSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetDeviceDriverBaseNameA(::core::mem::transmute(imagebase), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _))
+        ::core::mem::transmute(K32GetDeviceDriverBaseNameA(::core::mem::transmute(imagebase), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -192,7 +192,7 @@ pub unsafe fn K32GetDeviceDriverBaseNameW(imagebase: *const ::core::ffi::c_void,
         extern "system" {
             fn K32GetDeviceDriverBaseNameW(imagebase: *const ::core::ffi::c_void, lpbasename: ::windows::core::PWSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetDeviceDriverBaseNameW(::core::mem::transmute(imagebase), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _))
+        ::core::mem::transmute(K32GetDeviceDriverBaseNameW(::core::mem::transmute(imagebase), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbasename)), lpbasename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -206,7 +206,7 @@ pub unsafe fn K32GetDeviceDriverFileNameA(imagebase: *const ::core::ffi::c_void,
         extern "system" {
             fn K32GetDeviceDriverFileNameA(imagebase: *const ::core::ffi::c_void, lpfilename: ::windows::core::PSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetDeviceDriverFileNameA(::core::mem::transmute(imagebase), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _))
+        ::core::mem::transmute(K32GetDeviceDriverFileNameA(::core::mem::transmute(imagebase), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -220,7 +220,7 @@ pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const ::core::ffi::c_void,
         extern "system" {
             fn K32GetDeviceDriverFileNameW(imagebase: *const ::core::ffi::c_void, lpfilename: ::windows::core::PWSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetDeviceDriverFileNameW(::core::mem::transmute(imagebase), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _))
+        ::core::mem::transmute(K32GetDeviceDriverFileNameW(::core::mem::transmute(imagebase), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -235,7 +235,7 @@ pub unsafe fn K32GetMappedFileNameA<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn K32GetMappedFileNameA(hprocess: super::super::Foundation::HANDLE, lpv: *const ::core::ffi::c_void, lpfilename: ::windows::core::PSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetMappedFileNameA(hprocess.into_param().abi(), ::core::mem::transmute(lpv), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _))
+        ::core::mem::transmute(K32GetMappedFileNameA(hprocess.into_param().abi(), ::core::mem::transmute(lpv), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -250,7 +250,7 @@ pub unsafe fn K32GetMappedFileNameW<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn K32GetMappedFileNameW(hprocess: super::super::Foundation::HANDLE, lpv: *const ::core::ffi::c_void, lpfilename: ::windows::core::PWSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetMappedFileNameW(hprocess.into_param().abi(), ::core::mem::transmute(lpv), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _))
+        ::core::mem::transmute(K32GetMappedFileNameW(hprocess.into_param().abi(), ::core::mem::transmute(lpv), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -265,7 +265,7 @@ pub unsafe fn K32GetModuleBaseNameA<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn K32GetModuleBaseNameA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpbasename: ::windows::core::PSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetModuleBaseNameA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _))
+        ::core::mem::transmute(K32GetModuleBaseNameA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbasename)), lpbasename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -280,7 +280,7 @@ pub unsafe fn K32GetModuleBaseNameW<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn K32GetModuleBaseNameW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpbasename: ::windows::core::PWSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetModuleBaseNameW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _))
+        ::core::mem::transmute(K32GetModuleBaseNameW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbasename)), lpbasename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -295,7 +295,7 @@ pub unsafe fn K32GetModuleFileNameExA<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn K32GetModuleFileNameExA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpfilename: ::windows::core::PSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetModuleFileNameExA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _))
+        ::core::mem::transmute(K32GetModuleFileNameExA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -310,7 +310,7 @@ pub unsafe fn K32GetModuleFileNameExW<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn K32GetModuleFileNameExW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpfilename: ::windows::core::PWSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetModuleFileNameExW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _))
+        ::core::mem::transmute(K32GetModuleFileNameExW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpfilename)), lpfilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -355,7 +355,7 @@ pub unsafe fn K32GetProcessImageFileNameA<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn K32GetProcessImageFileNameA(hprocess: super::super::Foundation::HANDLE, lpimagefilename: ::windows::core::PSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetProcessImageFileNameA(hprocess.into_param().abi(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len() as _))
+        ::core::mem::transmute(K32GetProcessImageFileNameA(hprocess.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpimagefilename)), lpimagefilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -370,7 +370,7 @@ pub unsafe fn K32GetProcessImageFileNameW<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn K32GetProcessImageFileNameW(hprocess: super::super::Foundation::HANDLE, lpimagefilename: ::windows::core::PWSTR, nsize: u32) -> u32;
         }
-        ::core::mem::transmute(K32GetProcessImageFileNameW(hprocess.into_param().abi(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len() as _))
+        ::core::mem::transmute(K32GetProcessImageFileNameW(hprocess.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpimagefilename)), lpimagefilename.len() as _))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
