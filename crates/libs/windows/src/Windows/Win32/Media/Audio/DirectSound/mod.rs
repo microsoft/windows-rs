@@ -2436,8 +2436,8 @@ impl IDirectSoundBuffer8 {
         (::windows::core::Interface::vtable(self).base.Restore)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
-    pub unsafe fn SetFX<'a, const PARAM0: usize>(&self, pdsfxdesc: ::core::option::Option<&[DSEFFECTDESC; PARAM0]>, pdwresultcodes: ::core::option::Option<&mut [u32; PARAM0]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFX)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pdsfxdesc.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(pdwresultcodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))).ok()
+    pub unsafe fn SetFX(&self, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFX)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweffectscount), ::core::mem::transmute(pdsfxdesc), ::core::mem::transmute(pdwresultcodes)).ok()
     }
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
     pub unsafe fn AcquireResources(&self, dwflags: u32, pdwresultcodes: &mut [u32]) -> ::windows::core::Result<()> {

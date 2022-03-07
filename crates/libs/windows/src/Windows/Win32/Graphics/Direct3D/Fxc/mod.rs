@@ -226,14 +226,14 @@ pub unsafe fn D3DCreateLinker() -> ::windows::core::Result<super::super::Direct3
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Fxc'*"]
 #[inline]
-pub unsafe fn D3DDecompressShaders<'a, const PARAM2: usize>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ustartindex: u32, pindices: ::core::option::Option<&[u32; PARAM2]>, uflags: u32, ppshaders: &mut [::core::option::Option<super::ID3DBlob>; PARAM2], ptotalshaders: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut ::core::option::Option<super::ID3DBlob>, ptotalshaders: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut ::windows::core::RawPtr, ptotalshaders: *mut u32) -> ::windows::core::HRESULT;
         }
-        D3DDecompressShaders(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), PARAM2 as _, ::core::mem::transmute(ustartindex), ::core::mem::transmute(pindices.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(uflags), ::core::mem::transmute(ppshaders.as_ptr()), ::core::mem::transmute(ptotalshaders)).ok()
+        D3DDecompressShaders(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(unumshaders), ::core::mem::transmute(ustartindex), ::core::mem::transmute(pindices), ::core::mem::transmute(uflags), ::core::mem::transmute(ppshaders), ::core::mem::transmute(ptotalshaders)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

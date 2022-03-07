@@ -135,6 +135,25 @@ impl MethodDef {
             }
         }
 
+        let mut sets = BTreeMap::<usize, Vec<usize>>::new();
+
+        // Finds sets of ptr params pointing at the same len param.
+        for (position, param) in params.iter().enumerate() {
+            if let Some(ArrayInfo::RelativeLen(relative)) = param.array_info {
+                sets.entry(relative).or_default().push(position);
+            }
+        }
+
+        // Remove any sets that have optional ptr params.
+        for (len, ptrs) in sets {
+            if ptrs.len() > 1 && ptrs.iter().any(|ptr| params[*ptr].def.flags().optional()) {
+                params[len].array_info = None;
+                for ptr in ptrs {
+                    params[ptr].array_info = None;
+                }
+            }
+        }
+
         Signature { params, return_type, return_param, preserve_sig }
     }
 

@@ -4653,14 +4653,14 @@ pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[::core::option::Op
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PSCreatePropertyChangeArray<'a, const PARAM3: usize>(rgpropkey: ::core::option::Option<&[PROPERTYKEY; PARAM3]>, rgflags: ::core::option::Option<&[PKA_FLAGS; PARAM3]>, rgpropvar: ::core::option::Option<&[super::super::super::System::Com::StructuredStorage::PROPVARIANT; PARAM3]>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, cchanges: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, cchanges: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        PSCreatePropertyChangeArray(::core::mem::transmute(rgpropkey.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(rgflags.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(rgpropvar.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        PSCreatePropertyChangeArray(::core::mem::transmute(rgpropkey), ::core::mem::transmute(rgflags), ::core::mem::transmute(rgpropvar), ::core::mem::transmute(cchanges), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

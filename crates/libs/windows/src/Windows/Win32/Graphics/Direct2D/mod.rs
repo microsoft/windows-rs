@@ -26511,8 +26511,8 @@ pub struct ID2D1Resource_Vtbl {
 pub struct ID2D1ResourceTexture(::windows::core::IUnknown);
 impl ID2D1ResourceTexture {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-    pub unsafe fn Update<'a, const PARAM3: usize>(&self, minimumextents: ::core::option::Option<&[u32; PARAM3]>, maximimumextents: ::core::option::Option<&[u32; PARAM3]>, strides: *const u32, data: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Update)(::core::mem::transmute_copy(self), ::core::mem::transmute(minimumextents.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(maximimumextents.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(strides), PARAM3 as _, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+    pub unsafe fn Update(&self, minimumextents: *const u32, maximimumextents: *const u32, strides: *const u32, dimensions: u32, data: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Update)(::core::mem::transmute_copy(self), ::core::mem::transmute(minimumextents), ::core::mem::transmute(maximimumextents), ::core::mem::transmute(strides), ::core::mem::transmute(dimensions), ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
 }
 impl ::core::convert::From<ID2D1ResourceTexture> for ::windows::core::IUnknown {
@@ -27012,17 +27012,8 @@ impl ID2D1SpriteBatch {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetSprites<'a, const PARAM1: usize>(&self, startindex: u32, destinationrectangles: ::core::option::Option<&mut [Common::D2D_RECT_F; PARAM1]>, sourcerectangles: ::core::option::Option<&mut [Common::D2D_RECT_U; PARAM1]>, colors: ::core::option::Option<&mut [Common::D2D1_COLOR_F; PARAM1]>, transforms: ::core::option::Option<&mut [super::super::super::Foundation::Numerics::Matrix3x2; PARAM1]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSprites)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(startindex),
-            PARAM1 as _,
-            ::core::mem::transmute(destinationrectangles.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(sourcerectangles.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(colors.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(transforms.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-        )
-        .ok()
+    pub unsafe fn GetSprites(&self, startindex: u32, spritecount: u32, destinationrectangles: *mut Common::D2D_RECT_F, sourcerectangles: *mut Common::D2D_RECT_U, colors: *mut Common::D2D1_COLOR_F, transforms: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetSprites)(::core::mem::transmute_copy(self), ::core::mem::transmute(startindex), ::core::mem::transmute(spritecount), ::core::mem::transmute(destinationrectangles), ::core::mem::transmute(sourcerectangles), ::core::mem::transmute(colors), ::core::mem::transmute(transforms)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn GetSpriteCount(&self) -> u32 {

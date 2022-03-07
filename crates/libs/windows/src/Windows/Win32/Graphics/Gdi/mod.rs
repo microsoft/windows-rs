@@ -8687,14 +8687,14 @@ pub unsafe fn ExtSelectClipRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, 
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExtTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const PARAM6: usize>(hdc: Param0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::core::option::Option<&[u8; PARAM6]>, lpdx: ::core::option::Option<&[i32; PARAM6]>) -> super::super::Foundation::BOOL {
+pub unsafe fn ExtTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ExtTextOutA(hdc: HDC, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ExtTextOutA(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM6 as _, ::core::mem::transmute(lpdx.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))))
+        ::core::mem::transmute(ExtTextOutA(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring), ::core::mem::transmute(c), ::core::mem::transmute(lpdx)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8702,14 +8702,14 @@ pub unsafe fn ExtTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExtTextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const PARAM6: usize>(hdc: Param0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::core::option::Option<&[u16; PARAM6]>, lpdx: ::core::option::Option<&[i32; PARAM6]>) -> super::super::Foundation::BOOL {
+pub unsafe fn ExtTextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCWSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ExtTextOutW(hdc: HDC, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCWSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ExtTextOutW(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM6 as _, ::core::mem::transmute(lpdx.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))))
+        ::core::mem::transmute(ExtTextOutW(hdc.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring), ::core::mem::transmute(c), ::core::mem::transmute(lpdx)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10216,14 +10216,14 @@ pub unsafe fn GetCharABCWidthsFloatW<'a, Param0: ::windows::core::IntoParam<'a, 
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCharABCWidthsI<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const PARAM2: usize>(hdc: Param0, gifirst: u32, pgi: ::core::option::Option<&[u16; PARAM2]>, pabc: &mut [ABC; PARAM2]) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCharABCWidthsI<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, gifirst: u32, cgi: u32, pgi: *const u16, pabc: *mut ABC) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetCharABCWidthsI(hdc: HDC, gifirst: u32, cgi: u32, pgi: *const u16, pabc: *mut ABC) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetCharABCWidthsI(hdc.into_param().abi(), ::core::mem::transmute(gifirst), PARAM2 as _, ::core::mem::transmute(pgi.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(pabc.as_ptr())))
+        ::core::mem::transmute(GetCharABCWidthsI(hdc.into_param().abi(), ::core::mem::transmute(gifirst), ::core::mem::transmute(cgi), ::core::mem::transmute(pgi), ::core::mem::transmute(pabc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10321,14 +10321,14 @@ pub unsafe fn GetCharWidthFloatW<'a, Param0: ::windows::core::IntoParam<'a, HDC>
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCharWidthI<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const PARAM2: usize>(hdc: Param0, gifirst: u32, pgi: ::core::option::Option<&[u16; PARAM2]>, piwidths: &mut [i32; PARAM2]) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCharWidthI<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, gifirst: u32, cgi: u32, pgi: *const u16, piwidths: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetCharWidthI(hdc: HDC, gifirst: u32, cgi: u32, pgi: *const u16, piwidths: *mut i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetCharWidthI(hdc.into_param().abi(), ::core::mem::transmute(gifirst), PARAM2 as _, ::core::mem::transmute(pgi.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(piwidths.as_ptr())))
+        ::core::mem::transmute(GetCharWidthI(hdc.into_param().abi(), ::core::mem::transmute(gifirst), ::core::mem::transmute(cgi), ::core::mem::transmute(pgi), ::core::mem::transmute(piwidths)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11051,14 +11051,14 @@ pub unsafe fn GetPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, HPALE
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const PARAM3: usize>(hdc: Param0, apt: ::core::option::Option<&mut [super::super::Foundation::POINT; PARAM3]>, aj: ::core::option::Option<&mut [u8; PARAM3]>) -> i32 {
+pub unsafe fn GetPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, apt: *mut super::super::Foundation::POINT, aj: *mut u8, cpt: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetPath(hdc: HDC, apt: *mut super::super::Foundation::POINT, aj: *mut u8, cpt: i32) -> i32;
         }
-        ::core::mem::transmute(GetPath(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(aj.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _))
+        ::core::mem::transmute(GetPath(hdc.into_param().abi(), ::core::mem::transmute(apt), ::core::mem::transmute(aj), ::core::mem::transmute(cpt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11307,14 +11307,14 @@ pub unsafe fn GetTextColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTextExtentExPointA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const PARAM2: usize>(hdc: Param0, lpszstring: &[u8; PARAM2], nmaxextent: i32, lpnfit: *mut i32, lpndx: ::core::option::Option<&mut [i32; PARAM2]>, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
+pub unsafe fn GetTextExtentExPointA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpszstring: ::windows::core::PCSTR, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetTextExtentExPointA(hdc: HDC, lpszstring: ::windows::core::PCSTR, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetTextExtentExPointA(hdc.into_param().abi(), ::core::mem::transmute(lpszstring.as_ptr()), PARAM2 as _, ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(lpsize)))
+        ::core::mem::transmute(GetTextExtentExPointA(hdc.into_param().abi(), ::core::mem::transmute(lpszstring), ::core::mem::transmute(cchstring), ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx), ::core::mem::transmute(lpsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11322,14 +11322,14 @@ pub unsafe fn GetTextExtentExPointA<'a, Param0: ::windows::core::IntoParam<'a, H
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTextExtentExPointI<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const PARAM2: usize>(hdc: Param0, lpwszstring: &[u16; PARAM2], nmaxextent: i32, lpnfit: *mut i32, lpndx: ::core::option::Option<&mut [i32; PARAM2]>, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
+pub unsafe fn GetTextExtentExPointI<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpwszstring: *const u16, cwchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetTextExtentExPointI(hdc: HDC, lpwszstring: *const u16, cwchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetTextExtentExPointI(hdc.into_param().abi(), ::core::mem::transmute(lpwszstring.as_ptr()), PARAM2 as _, ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(lpsize)))
+        ::core::mem::transmute(GetTextExtentExPointI(hdc.into_param().abi(), ::core::mem::transmute(lpwszstring), ::core::mem::transmute(cwchstring), ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx), ::core::mem::transmute(lpsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11337,14 +11337,14 @@ pub unsafe fn GetTextExtentExPointI<'a, Param0: ::windows::core::IntoParam<'a, H
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTextExtentExPointW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, const PARAM2: usize>(hdc: Param0, lpszstring: &[u16; PARAM2], nmaxextent: i32, lpnfit: *mut i32, lpndx: ::core::option::Option<&mut [i32; PARAM2]>, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
+pub unsafe fn GetTextExtentExPointW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpszstring: ::windows::core::PCWSTR, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetTextExtentExPointW(hdc: HDC, lpszstring: ::windows::core::PCWSTR, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetTextExtentExPointW(hdc.into_param().abi(), ::core::mem::transmute(lpszstring.as_ptr()), PARAM2 as _, ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(lpsize)))
+        ::core::mem::transmute(GetTextExtentExPointW(hdc.into_param().abi(), ::core::mem::transmute(lpszstring), ::core::mem::transmute(cchstring), ::core::mem::transmute(nmaxextent), ::core::mem::transmute(lpnfit), ::core::mem::transmute(lpndx), ::core::mem::transmute(lpsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -10738,28 +10738,28 @@ pub unsafe fn PostThreadMessageW<'a, Param2: ::windows::core::IntoParam<'a, supe
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 #[inline]
-pub unsafe fn PrivateExtractIconsA<'a, const PARAM6: usize>(szfilename: &[u8; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: ::core::option::Option<&mut [HICON; PARAM6]>, piconid: ::core::option::Option<&mut [u32; PARAM6]>, flags: u32) -> u32 {
+pub unsafe fn PrivateExtractIconsA(szfilename: &[u8; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PrivateExtractIconsA(szfilename: ::windows::core::PCSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
         }
-        ::core::mem::transmute(PrivateExtractIconsA(::core::mem::transmute(szfilename.as_ptr()), ::core::mem::transmute(niconindex), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon), ::core::mem::transmute(phicon.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(piconid.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM6 as _, ::core::mem::transmute(flags)))
+        ::core::mem::transmute(PrivateExtractIconsA(::core::mem::transmute(szfilename.as_ptr()), ::core::mem::transmute(niconindex), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon), ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 #[inline]
-pub unsafe fn PrivateExtractIconsW<'a, const PARAM6: usize>(szfilename: &[u16; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: ::core::option::Option<&mut [HICON; PARAM6]>, piconid: ::core::option::Option<&mut [u32; PARAM6]>, flags: u32) -> u32 {
+pub unsafe fn PrivateExtractIconsW(szfilename: &[u16; 260], niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PrivateExtractIconsW(szfilename: ::windows::core::PCWSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
         }
-        ::core::mem::transmute(PrivateExtractIconsW(::core::mem::transmute(szfilename.as_ptr()), ::core::mem::transmute(niconindex), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon), ::core::mem::transmute(phicon.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(piconid.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM6 as _, ::core::mem::transmute(flags)))
+        ::core::mem::transmute(PrivateExtractIconsW(::core::mem::transmute(szfilename.as_ptr()), ::core::mem::transmute(niconindex), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon), ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

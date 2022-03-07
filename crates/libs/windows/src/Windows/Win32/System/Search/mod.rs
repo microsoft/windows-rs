@@ -8513,8 +8513,8 @@ impl IAccessor {
     }
     #[doc = "*Required features: 'Win32_System_Search', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateAccessor<'a, const PARAM1: usize>(&self, dwaccessorflags: u32, rgbindings: &[DBBINDING; PARAM1], cbrowsize: usize, phaccessor: *mut usize, rgstatus: ::core::option::Option<&mut [u32; PARAM1]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateAccessor)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaccessorflags), PARAM1 as _, ::core::mem::transmute(rgbindings.as_ptr()), ::core::mem::transmute(cbrowsize), ::core::mem::transmute(phaccessor), ::core::mem::transmute(rgstatus.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))).ok()
+    pub unsafe fn CreateAccessor(&self, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut usize, rgstatus: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateAccessor)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaccessorflags), ::core::mem::transmute(cbindings), ::core::mem::transmute(rgbindings), ::core::mem::transmute(cbrowsize), ::core::mem::transmute(phaccessor), ::core::mem::transmute(rgstatus)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Search', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8979,8 +8979,8 @@ impl IColumnsInfo {
     }
     #[doc = "*Required features: 'Win32_System_Search', 'Win32_Storage_IndexServer'*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
-    pub unsafe fn MapColumnIDs<'a, const PARAM0: usize>(&self, rgcolumnids: ::core::option::Option<&[super::super::Storage::IndexServer::DBID; PARAM0]>, rgcolumns: ::core::option::Option<&mut [usize; PARAM0]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MapColumnIDs)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(rgcolumnids.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(rgcolumns.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))).ok()
+    pub unsafe fn MapColumnIDs(&self, ccolumnids: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgcolumns: *mut usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MapColumnIDs)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolumnids), ::core::mem::transmute(rgcolumnids), ::core::mem::transmute(rgcolumns)).ok()
     }
 }
 impl ::core::convert::From<IColumnsInfo> for ::windows::core::IUnknown {
@@ -9047,8 +9047,8 @@ impl IColumnsInfo2 {
     }
     #[doc = "*Required features: 'Win32_System_Search', 'Win32_Storage_IndexServer'*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
-    pub unsafe fn MapColumnIDs<'a, const PARAM0: usize>(&self, rgcolumnids: ::core::option::Option<&[super::super::Storage::IndexServer::DBID; PARAM0]>, rgcolumns: ::core::option::Option<&mut [usize; PARAM0]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.MapColumnIDs)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(rgcolumnids.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(rgcolumns.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))).ok()
+    pub unsafe fn MapColumnIDs(&self, ccolumnids: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgcolumns: *mut usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.MapColumnIDs)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolumnids), ::core::mem::transmute(rgcolumnids), ::core::mem::transmute(rgcolumns)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Search', 'Win32_Storage_IndexServer', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -9780,8 +9780,8 @@ impl ICommandWithParameters {
         (::windows::core::Interface::vtable(self).MapParameterNames)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(rgparamnames.as_ptr()), ::core::mem::transmute(rgparamordinals.as_ptr())).ok()
     }
     #[doc = "*Required features: 'Win32_System_Search'*"]
-    pub unsafe fn SetParameterInfo<'a, const PARAM0: usize>(&self, rgparamordinals: ::core::option::Option<&[usize; PARAM0]>, rgparambindinfo: ::core::option::Option<&[DBPARAMBINDINFO; PARAM0]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParameterInfo)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(rgparamordinals.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(rgparambindinfo.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))).ok()
+    pub unsafe fn SetParameterInfo(&self, cparams: usize, rgparamordinals: *const usize, rgparambindinfo: *const DBPARAMBINDINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetParameterInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(cparams), ::core::mem::transmute(rgparamordinals), ::core::mem::transmute(rgparambindinfo)).ok()
     }
 }
 impl ::core::convert::From<ICommandWithParameters> for ::windows::core::IUnknown {
@@ -17566,13 +17566,13 @@ impl IScopedOperations {
     }
     #[doc = "*Required features: 'Win32_System_Search', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Copy<'a, const PARAM0: usize, Param4: ::windows::core::IntoParam<'a, super::Com::IAuthenticate>>(&self, rgpwszsourceurls: ::core::option::Option<&[::windows::core::PWSTR; PARAM0]>, rgpwszdesturls: &[::windows::core::PWSTR; PARAM0], dwcopyflags: u32, pauthenticate: Param4, rgdwstatus: &mut [u32; PARAM0], rgpwsznewurls: ::core::option::Option<&mut [::windows::core::PWSTR; PARAM0]>, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Copy)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(rgpwszsourceurls.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(rgpwszdesturls.as_ptr()), ::core::mem::transmute(dwcopyflags), pauthenticate.into_param().abi(), ::core::mem::transmute(rgdwstatus.as_ptr()), ::core::mem::transmute(rgpwsznewurls.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(ppstringsbuffer)).ok()
+    pub unsafe fn Copy<'a, Param4: ::windows::core::IntoParam<'a, super::Com::IAuthenticate>>(&self, crows: usize, rgpwszsourceurls: *const ::windows::core::PWSTR, rgpwszdesturls: *const ::windows::core::PWSTR, dwcopyflags: u32, pauthenticate: Param4, rgdwstatus: *mut u32, rgpwsznewurls: *mut ::windows::core::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Copy)(::core::mem::transmute_copy(self), ::core::mem::transmute(crows), ::core::mem::transmute(rgpwszsourceurls), ::core::mem::transmute(rgpwszdesturls), ::core::mem::transmute(dwcopyflags), pauthenticate.into_param().abi(), ::core::mem::transmute(rgdwstatus), ::core::mem::transmute(rgpwsznewurls), ::core::mem::transmute(ppstringsbuffer)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Search', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Move<'a, const PARAM0: usize, Param4: ::windows::core::IntoParam<'a, super::Com::IAuthenticate>>(&self, rgpwszsourceurls: ::core::option::Option<&[::windows::core::PWSTR; PARAM0]>, rgpwszdesturls: &[::windows::core::PWSTR; PARAM0], dwmoveflags: u32, pauthenticate: Param4, rgdwstatus: &mut [u32; PARAM0], rgpwsznewurls: ::core::option::Option<&mut [::windows::core::PWSTR; PARAM0]>, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(rgpwszsourceurls.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(rgpwszdesturls.as_ptr()), ::core::mem::transmute(dwmoveflags), pauthenticate.into_param().abi(), ::core::mem::transmute(rgdwstatus.as_ptr()), ::core::mem::transmute(rgpwsznewurls.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(ppstringsbuffer)).ok()
+    pub unsafe fn Move<'a, Param4: ::windows::core::IntoParam<'a, super::Com::IAuthenticate>>(&self, crows: usize, rgpwszsourceurls: *const ::windows::core::PWSTR, rgpwszdesturls: *const ::windows::core::PWSTR, dwmoveflags: u32, pauthenticate: Param4, rgdwstatus: *mut u32, rgpwsznewurls: *mut ::windows::core::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Move)(::core::mem::transmute_copy(self), ::core::mem::transmute(crows), ::core::mem::transmute(rgpwszsourceurls), ::core::mem::transmute(rgpwszdesturls), ::core::mem::transmute(dwmoveflags), pauthenticate.into_param().abi(), ::core::mem::transmute(rgdwstatus), ::core::mem::transmute(rgpwsznewurls), ::core::mem::transmute(ppstringsbuffer)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Search'*"]
     pub unsafe fn Delete<'a, const PARAM0: usize>(&self, rgpwszurls: &[::windows::core::PWSTR; PARAM0], dwdeleteflags: u32, rgdwstatus: &mut [u32; PARAM0]) -> ::windows::core::Result<()> {

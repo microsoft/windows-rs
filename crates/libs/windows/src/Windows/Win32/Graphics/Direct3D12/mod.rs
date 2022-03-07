@@ -48,14 +48,14 @@ pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const ::c
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
 #[inline]
-pub unsafe fn D3D12EnableExperimentalFeatures<'a, const PARAM0: usize>(piids: &[::windows::core::GUID; PARAM0], pconfigurationstructs: ::core::option::Option<&[u8; PARAM0]>, pconfigurationstructsizes: ::core::option::Option<&[u32; PARAM0]>) -> ::windows::core::Result<()> {
+pub unsafe fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::windows::core::GUID, pconfigurationstructs: *const ::core::ffi::c_void, pconfigurationstructsizes: *const u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::windows::core::GUID, pconfigurationstructs: *const ::core::ffi::c_void, pconfigurationstructsizes: *const u32) -> ::windows::core::HRESULT;
         }
-        D3D12EnableExperimentalFeatures(PARAM0 as _, ::core::mem::transmute(piids.as_ptr()), ::core::mem::transmute(pconfigurationstructs.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(pconfigurationstructsizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr()))).ok()
+        D3D12EnableExperimentalFeatures(::core::mem::transmute(numfeatures), ::core::mem::transmute(piids), ::core::mem::transmute(pconfigurationstructs), ::core::mem::transmute(pconfigurationstructsizes)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18269,20 +18269,8 @@ impl ID3D12CommandQueue {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, const PARAM1: usize, Param4: ::windows::core::IntoParam<'a, ID3D12Heap>, const PARAM5: usize>(&self, presource: Param0, presourceregionstartcoordinates: ::core::option::Option<&[D3D12_TILED_RESOURCE_COORDINATE; PARAM1]>, presourceregionsizes: ::core::option::Option<&[D3D12_TILE_REGION_SIZE; PARAM1]>, pheap: Param4, prangeflags: ::core::option::Option<&[D3D12_TILE_RANGE_FLAGS; PARAM5]>, pheaprangestartoffsets: ::core::option::Option<&[u32; PARAM5]>, prangetilecounts: ::core::option::Option<&[u32; PARAM5]>, flags: D3D12_TILE_MAPPING_FLAGS) {
-        (::windows::core::Interface::vtable(self).UpdateTileMappings)(
-            ::core::mem::transmute_copy(self),
-            presource.into_param().abi(),
-            PARAM1 as _,
-            ::core::mem::transmute(presourceregionstartcoordinates.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(presourceregionsizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            pheap.into_param().abi(),
-            PARAM5 as _,
-            ::core::mem::transmute(prangeflags.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pheaprangestartoffsets.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prangetilecounts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(flags),
-        )
+    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D12Resource>, Param4: ::windows::core::IntoParam<'a, ID3D12Heap>>(&self, presource: Param0, numresourceregions: u32, presourceregionstartcoordinates: *const D3D12_TILED_RESOURCE_COORDINATE, presourceregionsizes: *const D3D12_TILE_REGION_SIZE, pheap: Param4, numranges: u32, prangeflags: *const D3D12_TILE_RANGE_FLAGS, pheaprangestartoffsets: *const u32, prangetilecounts: *const u32, flags: D3D12_TILE_MAPPING_FLAGS) {
+        (::windows::core::Interface::vtable(self).UpdateTileMappings)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(numresourceregions), ::core::mem::transmute(presourceregionstartcoordinates), ::core::mem::transmute(presourceregionsizes), pheap.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(pheaprangestartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19875,8 +19863,8 @@ impl ID3D12Device {
         (::windows::core::Interface::vtable(self).CreateSampler)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn CopyDescriptors<'a, const PARAM0: usize, const PARAM3: usize>(&self, pdestdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM0], pdestdescriptorrangesizes: ::core::option::Option<&[u32; PARAM0]>, psrcdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM3], psrcdescriptorrangesizes: ::core::option::Option<&[u32; PARAM3]>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        (::windows::core::Interface::vtable(self).CopyDescriptors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pdestdescriptorrangestarts.as_ptr()), ::core::mem::transmute(pdestdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _, ::core::mem::transmute(psrcdescriptorrangestarts.as_ptr()), ::core::mem::transmute(psrcdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(descriptorheapstype))
+    pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+        (::windows::core::Interface::vtable(self).CopyDescriptors)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -19950,18 +19938,8 @@ impl ID3D12Device {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).GetCopyableFootprints)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).GetCopyableFootprints)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -20232,8 +20210,8 @@ impl ID3D12Device1 {
         (::windows::core::Interface::vtable(self).base.CreateSampler)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn CopyDescriptors<'a, const PARAM0: usize, const PARAM3: usize>(&self, pdestdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM0], pdestdescriptorrangesizes: ::core::option::Option<&[u32; PARAM0]>, psrcdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM3], psrcdescriptorrangesizes: ::core::option::Option<&[u32; PARAM3]>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        (::windows::core::Interface::vtable(self).base.CopyDescriptors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pdestdescriptorrangestarts.as_ptr()), ::core::mem::transmute(pdestdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _, ::core::mem::transmute(psrcdescriptorrangestarts.as_ptr()), ::core::mem::transmute(psrcdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(descriptorheapstype))
+    pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+        (::windows::core::Interface::vtable(self).base.CopyDescriptors)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -20307,18 +20285,8 @@ impl ID3D12Device1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).base.GetCopyableFootprints)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).base.GetCopyableFootprints)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -20547,8 +20515,8 @@ impl ID3D12Device2 {
         (::windows::core::Interface::vtable(self).base.base.CreateSampler)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn CopyDescriptors<'a, const PARAM0: usize, const PARAM3: usize>(&self, pdestdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM0], pdestdescriptorrangesizes: ::core::option::Option<&[u32; PARAM0]>, psrcdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM3], psrcdescriptorrangesizes: ::core::option::Option<&[u32; PARAM3]>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.CopyDescriptors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pdestdescriptorrangestarts.as_ptr()), ::core::mem::transmute(pdestdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _, ::core::mem::transmute(psrcdescriptorrangestarts.as_ptr()), ::core::mem::transmute(psrcdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(descriptorheapstype))
+    pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.CopyDescriptors)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -20622,18 +20590,8 @@ impl ID3D12Device2 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).base.base.GetCopyableFootprints)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).base.base.GetCopyableFootprints)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -20882,8 +20840,8 @@ impl ID3D12Device3 {
         (::windows::core::Interface::vtable(self).base.base.base.CreateSampler)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn CopyDescriptors<'a, const PARAM0: usize, const PARAM3: usize>(&self, pdestdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM0], pdestdescriptorrangesizes: ::core::option::Option<&[u32; PARAM0]>, psrcdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM3], psrcdescriptorrangesizes: ::core::option::Option<&[u32; PARAM3]>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pdestdescriptorrangestarts.as_ptr()), ::core::mem::transmute(pdestdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _, ::core::mem::transmute(psrcdescriptorrangestarts.as_ptr()), ::core::mem::transmute(psrcdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(descriptorheapstype))
+    pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -20957,18 +20915,8 @@ impl ID3D12Device3 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).base.base.base.GetCopyableFootprints)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).base.base.base.GetCopyableFootprints)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -21257,8 +21205,8 @@ impl ID3D12Device4 {
         (::windows::core::Interface::vtable(self).base.base.base.base.CreateSampler)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn CopyDescriptors<'a, const PARAM0: usize, const PARAM3: usize>(&self, pdestdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM0], pdestdescriptorrangesizes: ::core::option::Option<&[u32; PARAM0]>, psrcdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM3], psrcdescriptorrangesizes: ::core::option::Option<&[u32; PARAM3]>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pdestdescriptorrangestarts.as_ptr()), ::core::mem::transmute(pdestdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _, ::core::mem::transmute(psrcdescriptorrangestarts.as_ptr()), ::core::mem::transmute(psrcdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(descriptorheapstype))
+    pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -21332,18 +21280,8 @@ impl ID3D12Device4 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetCopyableFootprints)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetCopyableFootprints)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -21429,9 +21367,9 @@ impl ID3D12Device4 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetResourceAllocationInfo1<'a, const PARAM1: usize>(&self, visiblemask: u32, presourcedescs: &[D3D12_RESOURCE_DESC; PARAM1], presourceallocationinfo1: ::core::option::Option<&mut [D3D12_RESOURCE_ALLOCATION_INFO1; PARAM1]>) -> D3D12_RESOURCE_ALLOCATION_INFO {
+    pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), PARAM1 as _, ::core::mem::transmute(presourcedescs.as_ptr()), ::core::mem::transmute(presourceallocationinfo1.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())));
+        (::windows::core::Interface::vtable(self).GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
         result__
     }
 }
@@ -21692,8 +21630,8 @@ impl ID3D12Device5 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateSampler)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn CopyDescriptors<'a, const PARAM0: usize, const PARAM3: usize>(&self, pdestdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM0], pdestdescriptorrangesizes: ::core::option::Option<&[u32; PARAM0]>, psrcdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM3], psrcdescriptorrangesizes: ::core::option::Option<&[u32; PARAM3]>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pdestdescriptorrangestarts.as_ptr()), ::core::mem::transmute(pdestdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _, ::core::mem::transmute(psrcdescriptorrangestarts.as_ptr()), ::core::mem::transmute(psrcdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(descriptorheapstype))
+    pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -21767,18 +21705,8 @@ impl ID3D12Device5 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetCopyableFootprints)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetCopyableFootprints)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -21864,9 +21792,9 @@ impl ID3D12Device5 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetResourceAllocationInfo1<'a, const PARAM1: usize>(&self, visiblemask: u32, presourcedescs: &[D3D12_RESOURCE_DESC; PARAM1], presourceallocationinfo1: ::core::option::Option<&mut [D3D12_RESOURCE_ALLOCATION_INFO1; PARAM1]>) -> D3D12_RESOURCE_ALLOCATION_INFO {
+    pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), PARAM1 as _, ::core::mem::transmute(presourcedescs.as_ptr()), ::core::mem::transmute(presourceallocationinfo1.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())));
+        (::windows::core::Interface::vtable(self).base.GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
         result__
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -22179,8 +22107,8 @@ impl ID3D12Device6 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateSampler)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn CopyDescriptors<'a, const PARAM0: usize, const PARAM3: usize>(&self, pdestdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM0], pdestdescriptorrangesizes: ::core::option::Option<&[u32; PARAM0]>, psrcdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM3], psrcdescriptorrangesizes: ::core::option::Option<&[u32; PARAM3]>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pdestdescriptorrangestarts.as_ptr()), ::core::mem::transmute(pdestdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _, ::core::mem::transmute(psrcdescriptorrangestarts.as_ptr()), ::core::mem::transmute(psrcdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(descriptorheapstype))
+    pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -22254,18 +22182,8 @@ impl ID3D12Device6 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetCopyableFootprints)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetCopyableFootprints)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -22351,9 +22269,9 @@ impl ID3D12Device6 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetResourceAllocationInfo1<'a, const PARAM1: usize>(&self, visiblemask: u32, presourcedescs: &[D3D12_RESOURCE_DESC; PARAM1], presourceallocationinfo1: ::core::option::Option<&mut [D3D12_RESOURCE_ALLOCATION_INFO1; PARAM1]>) -> D3D12_RESOURCE_ALLOCATION_INFO {
+    pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), PARAM1 as _, ::core::mem::transmute(presourcedescs.as_ptr()), ::core::mem::transmute(presourceallocationinfo1.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())));
+        (::windows::core::Interface::vtable(self).base.base.GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
         result__
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -22685,8 +22603,8 @@ impl ID3D12Device7 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CreateSampler)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn CopyDescriptors<'a, const PARAM0: usize, const PARAM3: usize>(&self, pdestdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM0], pdestdescriptorrangesizes: ::core::option::Option<&[u32; PARAM0]>, psrcdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM3], psrcdescriptorrangesizes: ::core::option::Option<&[u32; PARAM3]>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pdestdescriptorrangestarts.as_ptr()), ::core::mem::transmute(pdestdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _, ::core::mem::transmute(psrcdescriptorrangestarts.as_ptr()), ::core::mem::transmute(psrcdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(descriptorheapstype))
+    pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -22760,18 +22678,8 @@ impl ID3D12Device7 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.GetCopyableFootprints)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.GetCopyableFootprints)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -22857,9 +22765,9 @@ impl ID3D12Device7 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetResourceAllocationInfo1<'a, const PARAM1: usize>(&self, visiblemask: u32, presourcedescs: &[D3D12_RESOURCE_DESC; PARAM1], presourceallocationinfo1: ::core::option::Option<&mut [D3D12_RESOURCE_ALLOCATION_INFO1; PARAM1]>) -> D3D12_RESOURCE_ALLOCATION_INFO {
+    pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), PARAM1 as _, ::core::mem::transmute(presourcedescs.as_ptr()), ::core::mem::transmute(presourceallocationinfo1.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())));
+        (::windows::core::Interface::vtable(self).base.base.base.GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
         result__
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -23219,8 +23127,8 @@ impl ID3D12Device8 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.CreateSampler)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn CopyDescriptors<'a, const PARAM0: usize, const PARAM3: usize>(&self, pdestdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM0], pdestdescriptorrangesizes: ::core::option::Option<&[u32; PARAM0]>, psrcdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM3], psrcdescriptorrangesizes: ::core::option::Option<&[u32; PARAM3]>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pdestdescriptorrangestarts.as_ptr()), ::core::mem::transmute(pdestdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _, ::core::mem::transmute(psrcdescriptorrangestarts.as_ptr()), ::core::mem::transmute(psrcdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(descriptorheapstype))
+    pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -23294,18 +23202,8 @@ impl ID3D12Device8 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.GetCopyableFootprints)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.GetCopyableFootprints)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -23391,9 +23289,9 @@ impl ID3D12Device8 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetResourceAllocationInfo1<'a, const PARAM1: usize>(&self, visiblemask: u32, presourcedescs: &[D3D12_RESOURCE_DESC; PARAM1], presourceallocationinfo1: ::core::option::Option<&mut [D3D12_RESOURCE_ALLOCATION_INFO1; PARAM1]>) -> D3D12_RESOURCE_ALLOCATION_INFO {
+    pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), PARAM1 as _, ::core::mem::transmute(presourcedescs.as_ptr()), ::core::mem::transmute(presourceallocationinfo1.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())));
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
         result__
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -23450,9 +23348,9 @@ impl ID3D12Device8 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetResourceAllocationInfo2<'a, const PARAM1: usize>(&self, visiblemask: u32, presourcedescs: &[D3D12_RESOURCE_DESC1; PARAM1], presourceallocationinfo1: ::core::option::Option<&mut [D3D12_RESOURCE_ALLOCATION_INFO1; PARAM1]>) -> D3D12_RESOURCE_ALLOCATION_INFO {
+    pub unsafe fn GetResourceAllocationInfo2(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetResourceAllocationInfo2)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), PARAM1 as _, ::core::mem::transmute(presourcedescs.as_ptr()), ::core::mem::transmute(presourceallocationinfo1.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())));
+        (::windows::core::Interface::vtable(self).GetResourceAllocationInfo2)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
         result__
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
@@ -23471,18 +23369,8 @@ impl ID3D12Device8 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints1<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).GetCopyableFootprints1)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).GetCopyableFootprints1)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
 }
 impl ::core::convert::From<ID3D12Device8> for ::windows::core::IUnknown {
@@ -23824,8 +23712,8 @@ impl ID3D12Device9 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.base.CreateSampler)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), destdescriptor.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn CopyDescriptors<'a, const PARAM0: usize, const PARAM3: usize>(&self, pdestdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM0], pdestdescriptorrangesizes: ::core::option::Option<&[u32; PARAM0]>, psrcdescriptorrangestarts: &[D3D12_CPU_DESCRIPTOR_HANDLE; PARAM3], psrcdescriptorrangesizes: ::core::option::Option<&[u32; PARAM3]>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pdestdescriptorrangestarts.as_ptr()), ::core::mem::transmute(pdestdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), PARAM3 as _, ::core::mem::transmute(psrcdescriptorrangestarts.as_ptr()), ::core::mem::transmute(psrcdescriptorrangesizes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(descriptorheapstype))
+    pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.base.CopyDescriptors)(::core::mem::transmute_copy(self), ::core::mem::transmute(numdestdescriptorranges), ::core::mem::transmute(pdestdescriptorrangestarts), ::core::mem::transmute(pdestdescriptorrangesizes), ::core::mem::transmute(numsrcdescriptorranges), ::core::mem::transmute(psrcdescriptorrangestarts), ::core::mem::transmute(psrcdescriptorrangesizes), ::core::mem::transmute(descriptorheapstype))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CopyDescriptorsSimple<'a, Param1: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>, Param2: ::windows::core::IntoParam<'a, D3D12_CPU_DESCRIPTOR_HANDLE>>(&self, numdescriptors: u32, destdescriptorrangestart: Param1, srcdescriptorrangestart: Param2, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -23899,18 +23787,8 @@ impl ID3D12Device9 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.base.GetCopyableFootprints)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.base.GetCopyableFootprints)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CreateQueryHeap<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -23996,9 +23874,9 @@ impl ID3D12Device9 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetResourceAllocationInfo1<'a, const PARAM1: usize>(&self, visiblemask: u32, presourcedescs: &[D3D12_RESOURCE_DESC; PARAM1], presourceallocationinfo1: ::core::option::Option<&mut [D3D12_RESOURCE_ALLOCATION_INFO1; PARAM1]>) -> D3D12_RESOURCE_ALLOCATION_INFO {
+    pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), PARAM1 as _, ::core::mem::transmute(presourcedescs.as_ptr()), ::core::mem::transmute(presourceallocationinfo1.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())));
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetResourceAllocationInfo1)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
         result__
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
@@ -24055,9 +23933,9 @@ impl ID3D12Device9 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetResourceAllocationInfo2<'a, const PARAM1: usize>(&self, visiblemask: u32, presourcedescs: &[D3D12_RESOURCE_DESC1; PARAM1], presourceallocationinfo1: ::core::option::Option<&mut [D3D12_RESOURCE_ALLOCATION_INFO1; PARAM1]>) -> D3D12_RESOURCE_ALLOCATION_INFO {
+    pub unsafe fn GetResourceAllocationInfo2(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetResourceAllocationInfo2)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), PARAM1 as _, ::core::mem::transmute(presourcedescs.as_ptr()), ::core::mem::transmute(presourceallocationinfo1.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())));
+        (::windows::core::Interface::vtable(self).base.GetResourceAllocationInfo2)(::core::mem::transmute_copy(self), &mut result__, ::core::mem::transmute(visiblemask), ::core::mem::transmute(numresourcedescs), ::core::mem::transmute(presourcedescs), ::core::mem::transmute(presourceallocationinfo1));
         result__
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
@@ -24076,18 +23954,8 @@ impl ID3D12Device9 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCopyableFootprints1<'a, const PARAM2: usize>(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, baseoffset: u64, playouts: ::core::option::Option<&mut [D3D12_PLACED_SUBRESOURCE_FOOTPRINT; PARAM2]>, pnumrows: ::core::option::Option<&mut [u32; PARAM2]>, prowsizeinbytes: ::core::option::Option<&mut [u64; PARAM2]>, ptotalbytes: *mut u64) {
-        (::windows::core::Interface::vtable(self).base.GetCopyableFootprints1)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(presourcedesc),
-            ::core::mem::transmute(firstsubresource),
-            PARAM2 as _,
-            ::core::mem::transmute(baseoffset),
-            ::core::mem::transmute(playouts.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(pnumrows.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(prowsizeinbytes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            ::core::mem::transmute(ptotalbytes),
-        )
+    pub unsafe fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+        (::windows::core::Interface::vtable(self).base.GetCopyableFootprints1)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedesc), ::core::mem::transmute(firstsubresource), ::core::mem::transmute(numsubresources), ::core::mem::transmute(baseoffset), ::core::mem::transmute(playouts), ::core::mem::transmute(pnumrows), ::core::mem::transmute(prowsizeinbytes), ::core::mem::transmute(ptotalbytes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn CreateShaderCacheSession<T: ::windows::core::Interface>(&self, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
@@ -26415,8 +26283,8 @@ impl ID3D12GraphicsCommandList2 {
         (::windows::core::Interface::vtable(self).base.SetViewInstanceMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
 }
 impl ::core::convert::From<ID3D12GraphicsCommandList2> for ::windows::core::IUnknown {
@@ -26835,8 +26703,8 @@ impl ID3D12GraphicsCommandList3 {
         (::windows::core::Interface::vtable(self).base.base.SetViewInstanceMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).base.WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).base.WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
@@ -27279,8 +27147,8 @@ impl ID3D12GraphicsCommandList4 {
         (::windows::core::Interface::vtable(self).base.base.base.SetViewInstanceMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
@@ -27795,8 +27663,8 @@ impl ID3D12GraphicsCommandList5 {
         (::windows::core::Interface::vtable(self).base.base.base.base.SetViewInstanceMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).base.base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).base.base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {
@@ -28326,8 +28194,8 @@ impl ID3D12GraphicsCommandList6 {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.SetViewInstanceMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(mask))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D12'*"]
     pub unsafe fn SetProtectedResourceSession<'a, Param0: ::windows::core::IntoParam<'a, ID3D12ProtectedResourceSession>>(&self, pprotectedresourcesession: Param0) {

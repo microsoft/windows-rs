@@ -15143,8 +15143,8 @@ impl ID3D12VideoDecodeCommandList {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15413,8 +15413,8 @@ impl ID3D12VideoDecodeCommandList1 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).base.WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).base.WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -15675,8 +15675,8 @@ impl ID3D12VideoDecodeCommandList2 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -17266,8 +17266,8 @@ impl ID3D12VideoEncodeCommandList {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -17554,8 +17554,8 @@ impl ID3D12VideoEncodeCommandList1 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).base.WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).base.WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -17835,8 +17835,8 @@ impl ID3D12VideoEncodeCommandList2 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -19058,8 +19058,8 @@ impl ID3D12VideoProcessCommandList {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -19328,8 +19328,8 @@ impl ID3D12VideoProcessCommandList1 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).base.WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).base.WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
@@ -19590,8 +19590,8 @@ impl ID3D12VideoProcessCommandList2 {
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn WriteBufferImmediate<'a, const PARAM0: usize>(&self, pparams: &[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER; PARAM0], pmodes: ::core::option::Option<&[super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE; PARAM0]>) {
-        (::windows::core::Interface::vtable(self).base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(pparams.as_ptr()), ::core::mem::transmute(pmodes.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())))
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+        (::windows::core::Interface::vtable(self).base.base.WriteBufferImmediate)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes))
     }
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]

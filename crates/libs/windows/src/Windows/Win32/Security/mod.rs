@@ -788,26 +788,14 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::core::IntoP
 #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultList<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, const PARAM5: usize>(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: Param1, clienttoken: Param2, desiredaccess: u32, objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST; PARAM5]>, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: &mut [u32; PARAM5], accessstatuslist: &mut [u32; PARAM5]) -> super::Foundation::BOOL {
+pub unsafe fn AccessCheckByTypeResultList<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: Param1, clienttoken: Param2, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AccessCheckByTypeResultList(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AccessCheckByTypeResultList(
-            ::core::mem::transmute(psecuritydescriptor),
-            principalselfsid.into_param().abi(),
-            clienttoken.into_param().abi(),
-            ::core::mem::transmute(desiredaccess),
-            ::core::mem::transmute(objecttypelist.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            PARAM5 as _,
-            ::core::mem::transmute(genericmapping),
-            ::core::mem::transmute(privilegeset),
-            ::core::mem::transmute(privilegesetlength),
-            ::core::mem::transmute(grantedaccesslist.as_ptr()),
-            ::core::mem::transmute(accessstatuslist.as_ptr()),
-        ))
+        ::core::mem::transmute(AccessCheckByTypeResultList(::core::mem::transmute(psecuritydescriptor), principalselfsid.into_param().abi(), clienttoken.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(objecttypelist), ::core::mem::transmute(objecttypelistlength), ::core::mem::transmute(genericmapping), ::core::mem::transmute(privilegeset), ::core::mem::transmute(privilegesetlength), ::core::mem::transmute(grantedaccesslist), ::core::mem::transmute(accessstatuslist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -815,7 +803,7 @@ pub unsafe fn AccessCheckByTypeResultList<'a, Param1: ::windows::core::IntoParam
 #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, const PARAM10: usize, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
     handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
@@ -825,11 +813,12 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::c
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
     flags: u32,
-    objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST; PARAM10]>,
+    objecttypelist: *mut OBJECT_TYPE_LIST,
+    objecttypelistlength: u32,
     genericmapping: *const GENERIC_MAPPING,
     objectcreation: Param12,
-    grantedaccess: &mut [u32; PARAM10],
-    accessstatuslist: &mut [u32; PARAM10],
+    grantedaccess: *mut u32,
+    accessstatuslist: *mut u32,
     pfgenerateonclose: *mut i32,
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
@@ -848,12 +837,12 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::c
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
             ::core::mem::transmute(flags),
-            ::core::mem::transmute(objecttypelist.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            PARAM10 as _,
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
             ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::core::mem::transmute(grantedaccess.as_ptr()),
-            ::core::mem::transmute(accessstatuslist.as_ptr()),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(accessstatuslist),
             ::core::mem::transmute(pfgenerateonclose),
         ))
     }
@@ -863,7 +852,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::c
 #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>, const PARAM11: usize, Param13: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param13: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
     handleid: *const ::core::ffi::c_void,
     clienttoken: Param2,
@@ -874,11 +863,12 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::wi
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
     flags: u32,
-    objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST; PARAM11]>,
+    objecttypelist: *mut OBJECT_TYPE_LIST,
+    objecttypelistlength: u32,
     genericmapping: *const GENERIC_MAPPING,
     objectcreation: Param13,
-    grantedaccess: &mut [u32; PARAM11],
-    accessstatuslist: &mut [u32; PARAM11],
+    grantedaccess: *mut u32,
+    accessstatuslist: *mut u32,
     pfgenerateonclose: *mut i32,
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
@@ -898,12 +888,12 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::wi
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
             ::core::mem::transmute(flags),
-            ::core::mem::transmute(objecttypelist.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            PARAM11 as _,
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
             ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::core::mem::transmute(grantedaccess.as_ptr()),
-            ::core::mem::transmute(accessstatuslist.as_ptr()),
+            ::core::mem::transmute(grantedaccess),
+            ::core::mem::transmute(accessstatuslist),
             ::core::mem::transmute(pfgenerateonclose),
         ))
     }
@@ -913,7 +903,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::wi
 #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>, const PARAM11: usize, Param13: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param13: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
     handleid: *const ::core::ffi::c_void,
     clienttoken: Param2,
@@ -924,11 +914,12 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::wi
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
     flags: u32,
-    objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST; PARAM11]>,
+    objecttypelist: *mut OBJECT_TYPE_LIST,
+    objecttypelistlength: u32,
     genericmapping: *const GENERIC_MAPPING,
     objectcreation: Param13,
-    grantedaccesslist: &mut [u32; PARAM11],
-    accessstatuslist: &mut [u32; PARAM11],
+    grantedaccesslist: *mut u32,
+    accessstatuslist: *mut u32,
     pfgenerateonclose: *mut i32,
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
@@ -948,12 +939,12 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::wi
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
             ::core::mem::transmute(flags),
-            ::core::mem::transmute(objecttypelist.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            PARAM11 as _,
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
             ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::core::mem::transmute(grantedaccesslist.as_ptr()),
-            ::core::mem::transmute(accessstatuslist.as_ptr()),
+            ::core::mem::transmute(grantedaccesslist),
+            ::core::mem::transmute(accessstatuslist),
             ::core::mem::transmute(pfgenerateonclose),
         ))
     }
@@ -963,7 +954,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::wi
 #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, const PARAM10: usize, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
     subsystemname: Param0,
     handleid: *const ::core::ffi::c_void,
     objecttypename: Param2,
@@ -973,11 +964,12 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::c
     desiredaccess: u32,
     audittype: AUDIT_EVENT_TYPE,
     flags: u32,
-    objecttypelist: ::core::option::Option<&mut [OBJECT_TYPE_LIST; PARAM10]>,
+    objecttypelist: *mut OBJECT_TYPE_LIST,
+    objecttypelistlength: u32,
     genericmapping: *const GENERIC_MAPPING,
     objectcreation: Param12,
-    grantedaccesslist: &mut [u32; PARAM10],
-    accessstatuslist: &mut [u32; PARAM10],
+    grantedaccesslist: *mut u32,
+    accessstatuslist: *mut u32,
     pfgenerateonclose: *mut i32,
 ) -> super::Foundation::BOOL {
     #[cfg(windows)]
@@ -996,12 +988,12 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::c
             ::core::mem::transmute(desiredaccess),
             ::core::mem::transmute(audittype),
             ::core::mem::transmute(flags),
-            ::core::mem::transmute(objecttypelist.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())),
-            PARAM10 as _,
+            ::core::mem::transmute(objecttypelist),
+            ::core::mem::transmute(objecttypelistlength),
             ::core::mem::transmute(genericmapping),
             objectcreation.into_param().abi(),
-            ::core::mem::transmute(grantedaccesslist.as_ptr()),
-            ::core::mem::transmute(accessstatuslist.as_ptr()),
+            ::core::mem::transmute(grantedaccesslist),
+            ::core::mem::transmute(accessstatuslist),
             ::core::mem::transmute(pfgenerateonclose),
         ))
     }

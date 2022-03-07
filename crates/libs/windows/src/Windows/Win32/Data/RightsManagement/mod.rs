@@ -401,14 +401,14 @@ pub unsafe fn DRMCreateLicenseStorageSession<'a, Param4: ::windows::core::IntoPa
 #[doc = "*Required features: 'Win32_Data_RightsManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateRight<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, const PARAM3: usize>(wszrightname: Param0, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME, pwszextendedinfoname: ::core::option::Option<&[::windows::core::PWSTR; PARAM3]>, pwszextendedinfovalue: ::core::option::Option<&[::windows::core::PWSTR; PARAM3]>, phright: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn DRMCreateRight<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(wszrightname: Param0, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: *const ::windows::core::PWSTR, pwszextendedinfovalue: *const ::windows::core::PWSTR, phright: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DRMCreateRight(wszrightname: ::windows::core::PCWSTR, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: *const ::windows::core::PWSTR, pwszextendedinfovalue: *const ::windows::core::PWSTR, phright: *mut u32) -> ::windows::core::HRESULT;
         }
-        DRMCreateRight(wszrightname.into_param().abi(), ::core::mem::transmute(pstfrom), ::core::mem::transmute(pstuntil), PARAM3 as _, ::core::mem::transmute(pwszextendedinfoname.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(pwszextendedinfovalue.as_ref().map_or_else(::core::ptr::null, |value| value.as_ptr())), ::core::mem::transmute(phright)).ok()
+        DRMCreateRight(wszrightname.into_param().abi(), ::core::mem::transmute(pstfrom), ::core::mem::transmute(pstuntil), ::core::mem::transmute(cextendedinfo), ::core::mem::transmute(pwszextendedinfoname), ::core::mem::transmute(pwszextendedinfovalue), ::core::mem::transmute(phright)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
