@@ -30,7 +30,7 @@ impl Error {
     }
 
     pub fn from_win32() -> Self {
-        unsafe { Self{ code: GetLastError().into(), info: None } }
+        unsafe { Self { code: GetLastError().into(), info: None } }
     }
 
     /// The error code describing the error.

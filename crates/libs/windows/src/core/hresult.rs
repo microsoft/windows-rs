@@ -37,7 +37,7 @@ impl HRESULT {
         if self.is_ok() {
             Ok(())
         } else {
-            Err(Error{code: self, info: None })
+            Err(Error { code: self, info: None })
         }
     }
 
