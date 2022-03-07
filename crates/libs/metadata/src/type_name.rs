@@ -74,6 +74,7 @@ impl TypeName {
     pub const LARGE_INTEGER: Self = Self::from_const("Windows.Win32.Foundation", "LARGE_INTEGER");
     pub const ULARGE_INTEGER: Self = Self::from_const("Windows.Win32.Foundation", "ULARGE_INTEGER");
     pub const IRestrictedErrorInfo: Self = Self::from_const("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
+    pub const IDispatch: Self = Self::from_const("Windows.Win32.System.Com", "IDispatch");
 
     const fn from_const(namespace: &'static str, name: &'static str) -> Self {
         Self { namespace, name }
