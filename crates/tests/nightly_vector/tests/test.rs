@@ -8,11 +8,11 @@ use windows::Foundation::*;
 use windows::Win32::Foundation::*;
 
 pub(crate) fn err_bounds() -> Error {
-    Error::fast_error(E_BOUNDS)
+    E_BOUNDS.into()
 }
 
 pub(crate) fn err_memory() -> Error {
-    Error::fast_error(E_OUTOFMEMORY)
+    E_OUTOFMEMORY.into()
 }
 
 #[implement(

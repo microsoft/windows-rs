@@ -114,6 +114,7 @@ jobs:
         cargo clippy -p test_deprecated &&
         cargo clippy -p test_does_not_return &&
         cargo clippy -p test_enums &&
+        cargo clippy -p test_error &&
         cargo clippy -p test_handles &&
         cargo clippy -p test_helpers &&
         cargo clippy -p test_interop &&
