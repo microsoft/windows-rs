@@ -1,7 +1,4 @@
-use windows::{
-    core::*,  
-    Win32::Foundation::*,
-};
+use windows::{core::*, Win32::Foundation::*};
 
 #[test]
 fn hresult() -> Result<()> {
