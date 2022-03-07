@@ -32,7 +32,7 @@ fn test() -> Result<()> {
 }
 
 // A test version of BCryptVerifySignature to ensure that we can handle alternative status codes
-// in a reasonable manner with the help of to_hresult.
+// in a reasonable manner with the help of `Into`.
 
 #[allow(non_snake_case)]
 fn BCryptVerifySignature(status: NTSTATUS) -> Result<()> {
@@ -42,7 +42,7 @@ fn BCryptVerifySignature(status: NTSTATUS) -> Result<()> {
 fn is_valid(status: NTSTATUS) -> Result<bool> {
     match BCryptVerifySignature(status) {
         Err(e) => {
-            if e.code() == STATUS_INVALID_SIGNATURE.to_hresult() {
+            if e.code() == STATUS_INVALID_SIGNATURE.into() {
                 Ok(false)
             } else {
                 Err(e)

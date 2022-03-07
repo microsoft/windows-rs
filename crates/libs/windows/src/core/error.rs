@@ -4,8 +4,8 @@ use bindings::*;
 /// An error object consists of both an error code as well as detailed error information for debugging.
 #[derive(Clone, PartialEq)]
 pub struct Error {
-    code: HRESULT,
-    info: Option<IRestrictedErrorInfo>,
+    pub(crate) code: HRESULT,
+    pub(crate) info: Option<IRestrictedErrorInfo>,
 }
 
 impl Error {
@@ -29,13 +29,8 @@ impl Error {
         }
     }
 
-    #[doc(hidden)]
-    pub const fn fast_error(code: HRESULT) -> Self {
-        Self { code, info: None }
-    }
-
     pub fn from_win32() -> Self {
-        unsafe { Self::fast_error(GetLastError().into()) }
+        unsafe { Self{ code: GetLastError().into(), info: None } }
     }
 
     /// The error code describing the error.
@@ -82,7 +77,6 @@ impl Error {
     }
 }
 
-// TODO: This should be the same as fast_error and the code that relies on this should be explicit (swap to optimize for fast)
 impl core::convert::From<Error> for HRESULT {
     fn from(error: Error) -> Self {
         let code = error.code;
