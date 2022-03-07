@@ -96,7 +96,7 @@ impl Type {
     pub fn type_name(&self) -> TypeName {
         match self {
             Self::TypeDef(def) => def.type_name(),
-            _ => unimplemented!(),
+            _ => TypeName::None,
         }
     }
 
