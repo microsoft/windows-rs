@@ -14861,7 +14861,91 @@ pub struct ITTAPICallCenter_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AgentHandlers: usize,
 }
-pub const ITTAPIDispatchEventNotification: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f34325b_7e62_11d2_9457_00c04f8ec888);
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct ITTAPIDispatchEventNotification(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl ITTAPIDispatchEventNotification {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTAPIDispatchEventNotification> for ::windows::core::IUnknown {
+    fn from(value: ITTAPIDispatchEventNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTAPIDispatchEventNotification> for ::windows::core::IUnknown {
+    fn from(value: &ITTAPIDispatchEventNotification) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITTAPIDispatchEventNotification {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITTAPIDispatchEventNotification {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITTAPIDispatchEventNotification> for super::super::System::Com::IDispatch {
+    fn from(value: ITTAPIDispatchEventNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITTAPIDispatchEventNotification> for super::super::System::Com::IDispatch {
+    fn from(value: &ITTAPIDispatchEventNotification) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for ITTAPIDispatchEventNotification {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a ITTAPIDispatchEventNotification {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ITTAPIDispatchEventNotification {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for ITTAPIDispatchEventNotification {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for ITTAPIDispatchEventNotification {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for ITTAPIDispatchEventNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITTAPIDispatchEventNotification").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for ITTAPIDispatchEventNotification {
+    type Vtable = ITTAPIDispatchEventNotification_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f34325b_7e62_11d2_9457_00c04f8ec888);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ITTAPIDispatchEventNotification_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTAPIEventNotification(::windows::core::IUnknown);

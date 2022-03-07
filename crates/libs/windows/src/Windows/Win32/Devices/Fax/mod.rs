@@ -4147,7 +4147,91 @@ pub struct IFaxAccountIncomingQueue_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetJob: usize,
 }
-pub const IFaxAccountNotify: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b5e5bd1_b8a9_47a0_a323_ef4a293ba06a);
+#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct IFaxAccountNotify(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IFaxAccountNotify {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IFaxAccountNotify> for ::windows::core::IUnknown {
+    fn from(value: IFaxAccountNotify) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IFaxAccountNotify> for ::windows::core::IUnknown {
+    fn from(value: &IFaxAccountNotify) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFaxAccountNotify {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFaxAccountNotify {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IFaxAccountNotify> for super::super::System::Com::IDispatch {
+    fn from(value: IFaxAccountNotify) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IFaxAccountNotify> for super::super::System::Com::IDispatch {
+    fn from(value: &IFaxAccountNotify) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFaxAccountNotify {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFaxAccountNotify {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IFaxAccountNotify {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for IFaxAccountNotify {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for IFaxAccountNotify {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for IFaxAccountNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxAccountNotify").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IFaxAccountNotify {
+    type Vtable = IFaxAccountNotify_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b5e5bd1_b8a9_47a0_a323_ef4a293ba06a);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFaxAccountNotify_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -13273,8 +13357,176 @@ pub struct IFaxServer2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Security2: usize,
 }
-pub const IFaxServerNotify: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e037b27_cf8a_4abd_b1e0_5704943bea6f);
-pub const IFaxServerNotify2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616ca8d6_a77a_4062_abfd_0e471241c7aa);
+#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct IFaxServerNotify(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IFaxServerNotify {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IFaxServerNotify> for ::windows::core::IUnknown {
+    fn from(value: IFaxServerNotify) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IFaxServerNotify> for ::windows::core::IUnknown {
+    fn from(value: &IFaxServerNotify) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFaxServerNotify {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFaxServerNotify {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IFaxServerNotify> for super::super::System::Com::IDispatch {
+    fn from(value: IFaxServerNotify) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IFaxServerNotify> for super::super::System::Com::IDispatch {
+    fn from(value: &IFaxServerNotify) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFaxServerNotify {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFaxServerNotify {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IFaxServerNotify {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for IFaxServerNotify {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for IFaxServerNotify {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for IFaxServerNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxServerNotify").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IFaxServerNotify {
+    type Vtable = IFaxServerNotify_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e037b27_cf8a_4abd_b1e0_5704943bea6f);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFaxServerNotify_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
+}
+#[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct IFaxServerNotify2(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IFaxServerNotify2 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IFaxServerNotify2> for ::windows::core::IUnknown {
+    fn from(value: IFaxServerNotify2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IFaxServerNotify2> for ::windows::core::IUnknown {
+    fn from(value: &IFaxServerNotify2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFaxServerNotify2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFaxServerNotify2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IFaxServerNotify2> for super::super::System::Com::IDispatch {
+    fn from(value: IFaxServerNotify2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IFaxServerNotify2> for super::super::System::Com::IDispatch {
+    fn from(value: &IFaxServerNotify2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFaxServerNotify2 {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFaxServerNotify2 {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IFaxServerNotify2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for IFaxServerNotify2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for IFaxServerNotify2 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for IFaxServerNotify2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFaxServerNotify2").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IFaxServerNotify2 {
+    type Vtable = IFaxServerNotify2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616ca8d6_a77a_4062_abfd_0e471241c7aa);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFaxServerNotify2_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const IS_DIGITAL_CAMERA_STR: &'static str = "IsDigitalCamera";
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]

@@ -1173,7 +1173,91 @@ pub struct IMSMQDestination_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-pub const IMSMQEvent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e077_dccd_11d0_aa4b_0060970debae);
+#[doc = "*Required features: 'Win32_System_MessageQueuing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct IMSMQEvent(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IMSMQEvent {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IMSMQEvent> for ::windows::core::IUnknown {
+    fn from(value: IMSMQEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IMSMQEvent> for ::windows::core::IUnknown {
+    fn from(value: &IMSMQEvent) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQEvent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQEvent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IMSMQEvent> for super::Com::IDispatch {
+    fn from(value: IMSMQEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IMSMQEvent> for super::Com::IDispatch {
+    fn from(value: &IMSMQEvent) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQEvent {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQEvent {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IMSMQEvent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for IMSMQEvent {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for IMSMQEvent {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for IMSMQEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQEvent").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IMSMQEvent {
+    type Vtable = IMSMQEvent_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e077_dccd_11d0_aa4b_0060970debae);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMSMQEvent_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -10797,6 +10881,90 @@ impl ::core::fmt::Debug for XACT_STATUS {
         f.debug_tuple("XACT_STATUS").field(&self.0).finish()
     }
 }
-pub const _DMSMQEventEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e078_dccd_11d0_aa4b_0060970debae);
+#[doc = "*Required features: 'Win32_System_MessageQueuing', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct _DMSMQEventEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl _DMSMQEventEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_DMSMQEventEvents> for ::windows::core::IUnknown {
+    fn from(value: _DMSMQEventEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_DMSMQEventEvents> for ::windows::core::IUnknown {
+    fn from(value: &_DMSMQEventEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _DMSMQEventEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _DMSMQEventEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_DMSMQEventEvents> for super::Com::IDispatch {
+    fn from(value: _DMSMQEventEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_DMSMQEventEvents> for super::Com::IDispatch {
+    fn from(value: &_DMSMQEventEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for _DMSMQEventEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a _DMSMQEventEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for _DMSMQEventEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for _DMSMQEventEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for _DMSMQEventEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for _DMSMQEventEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMSMQEventEvents").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for _DMSMQEventEvents {
+    type Vtable = _DMSMQEventEvents_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e078_dccd_11d0_aa4b_0060970debae);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct _DMSMQEventEvents_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -213,7 +213,7 @@ fn gen_agile(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn disp_interface(def: &TypeDef) -> Option<GUID> {
-    if def.methods().next().is_none() && (def.name().starts_with("Disp") || def.vtable_types().last().map(|base| base.type_name()) == Some(TypeName::IDispatch)) {
+    if def.methods().next().is_none() && def.name().starts_with("Disp") {
         GUID::from_attributes(def.attributes())
     } else {
         None

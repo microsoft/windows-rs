@@ -2572,7 +2572,91 @@ pub struct IRTCCollection_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-pub const IRTCDispatchEventNotification: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x176ddfbe_fec0_4d55_bc87_84cff1ef7f91);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct IRTCDispatchEventNotification(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IRTCDispatchEventNotification {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IRTCDispatchEventNotification> for ::windows::core::IUnknown {
+    fn from(value: IRTCDispatchEventNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IRTCDispatchEventNotification> for ::windows::core::IUnknown {
+    fn from(value: &IRTCDispatchEventNotification) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRTCDispatchEventNotification {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRTCDispatchEventNotification {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IRTCDispatchEventNotification> for super::Com::IDispatch {
+    fn from(value: IRTCDispatchEventNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IRTCDispatchEventNotification> for super::Com::IDispatch {
+    fn from(value: &IRTCDispatchEventNotification) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IRTCDispatchEventNotification {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IRTCDispatchEventNotification {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IRTCDispatchEventNotification {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for IRTCDispatchEventNotification {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for IRTCDispatchEventNotification {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for IRTCDispatchEventNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCDispatchEventNotification").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IRTCDispatchEventNotification {
+    type Vtable = IRTCDispatchEventNotification_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x176ddfbe_fec0_4d55_bc87_84cff1ef7f91);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRTCDispatchEventNotification_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCEnumBuddies(::windows::core::IUnknown);

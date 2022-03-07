@@ -120,7 +120,91 @@ impl ::core::fmt::Debug for AdrEmailFlags {
         f.debug_tuple("AdrEmailFlags").field(&self.0).finish()
     }
 }
-pub const DIFsrmClassificationEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26942db0_dabf_41d8_bbdd_b129a9f70424);
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct DIFsrmClassificationEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl DIFsrmClassificationEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<DIFsrmClassificationEvents> for ::windows::core::IUnknown {
+    fn from(value: DIFsrmClassificationEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&DIFsrmClassificationEvents> for ::windows::core::IUnknown {
+    fn from(value: &DIFsrmClassificationEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DIFsrmClassificationEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DIFsrmClassificationEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<DIFsrmClassificationEvents> for super::super::System::Com::IDispatch {
+    fn from(value: DIFsrmClassificationEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&DIFsrmClassificationEvents> for super::super::System::Com::IDispatch {
+    fn from(value: &DIFsrmClassificationEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for DIFsrmClassificationEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a DIFsrmClassificationEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for DIFsrmClassificationEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for DIFsrmClassificationEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for DIFsrmClassificationEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for DIFsrmClassificationEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIFsrmClassificationEvents").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for DIFsrmClassificationEvents {
+    type Vtable = DIFsrmClassificationEvents_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26942db0_dabf_41d8_bbdd_b129a9f70424);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct DIFsrmClassificationEvents_Vtbl {
+    pub base: super::super::System::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080u32;
 #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]

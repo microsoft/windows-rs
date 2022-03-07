@@ -1565,7 +1565,91 @@ pub struct IDownloadCompletedCallback_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Invoke: usize,
 }
-pub const IDownloadCompletedCallbackArgs: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa565b23_498c_47a0_979d_e7d5b1813360);
+#[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct IDownloadCompletedCallbackArgs(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IDownloadCompletedCallbackArgs {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IDownloadCompletedCallbackArgs> for ::windows::core::IUnknown {
+    fn from(value: IDownloadCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IDownloadCompletedCallbackArgs> for ::windows::core::IUnknown {
+    fn from(value: &IDownloadCompletedCallbackArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDownloadCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDownloadCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IDownloadCompletedCallbackArgs> for super::Com::IDispatch {
+    fn from(value: IDownloadCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IDownloadCompletedCallbackArgs> for super::Com::IDispatch {
+    fn from(value: &IDownloadCompletedCallbackArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IDownloadCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IDownloadCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IDownloadCompletedCallbackArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for IDownloadCompletedCallbackArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for IDownloadCompletedCallbackArgs {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for IDownloadCompletedCallbackArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDownloadCompletedCallbackArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IDownloadCompletedCallbackArgs {
+    type Vtable = IDownloadCompletedCallbackArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa565b23_498c_47a0_979d_e7d5b1813360);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDownloadCompletedCallbackArgs_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -2503,7 +2587,91 @@ pub struct IInstallationCompletedCallback_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Invoke: usize,
 }
-pub const IInstallationCompletedCallbackArgs: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x250e2106_8efb_4705_9653_ef13c581b6a1);
+#[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct IInstallationCompletedCallbackArgs(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IInstallationCompletedCallbackArgs {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IInstallationCompletedCallbackArgs> for ::windows::core::IUnknown {
+    fn from(value: IInstallationCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IInstallationCompletedCallbackArgs> for ::windows::core::IUnknown {
+    fn from(value: &IInstallationCompletedCallbackArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInstallationCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInstallationCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IInstallationCompletedCallbackArgs> for super::Com::IDispatch {
+    fn from(value: IInstallationCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IInstallationCompletedCallbackArgs> for super::Com::IDispatch {
+    fn from(value: &IInstallationCompletedCallbackArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IInstallationCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IInstallationCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IInstallationCompletedCallbackArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for IInstallationCompletedCallbackArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for IInstallationCompletedCallbackArgs {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for IInstallationCompletedCallbackArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInstallationCompletedCallbackArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IInstallationCompletedCallbackArgs {
+    type Vtable = IInstallationCompletedCallbackArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x250e2106_8efb_4705_9653_ef13c581b6a1);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IInstallationCompletedCallbackArgs_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -3214,7 +3382,91 @@ pub struct ISearchCompletedCallback_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Invoke: usize,
 }
-pub const ISearchCompletedCallbackArgs: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa700a634_2850_4c47_938a_9e4b6e5af9a6);
+#[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct ISearchCompletedCallbackArgs(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl ISearchCompletedCallbackArgs {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ISearchCompletedCallbackArgs> for ::windows::core::IUnknown {
+    fn from(value: ISearchCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ISearchCompletedCallbackArgs> for ::windows::core::IUnknown {
+    fn from(value: &ISearchCompletedCallbackArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISearchCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISearchCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ISearchCompletedCallbackArgs> for super::Com::IDispatch {
+    fn from(value: ISearchCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ISearchCompletedCallbackArgs> for super::Com::IDispatch {
+    fn from(value: &ISearchCompletedCallbackArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISearchCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISearchCompletedCallbackArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ISearchCompletedCallbackArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for ISearchCompletedCallbackArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for ISearchCompletedCallbackArgs {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for ISearchCompletedCallbackArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISearchCompletedCallbackArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for ISearchCompletedCallbackArgs {
+    type Vtable = ISearchCompletedCallbackArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa700a634_2850_4c47_938a_9e4b6e5af9a6);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISearchCompletedCallbackArgs_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]

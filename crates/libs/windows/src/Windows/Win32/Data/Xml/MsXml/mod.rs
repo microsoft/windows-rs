@@ -19183,7 +19183,91 @@ impl ::core::fmt::Debug for XHR_PROPERTY {
 pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615u64;
-pub const XMLDOMDocumentEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa427_272f_11d2_836f_0000f87a7782);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct XMLDOMDocumentEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl XMLDOMDocumentEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<XMLDOMDocumentEvents> for ::windows::core::IUnknown {
+    fn from(value: XMLDOMDocumentEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&XMLDOMDocumentEvents> for ::windows::core::IUnknown {
+    fn from(value: &XMLDOMDocumentEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for XMLDOMDocumentEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a XMLDOMDocumentEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<XMLDOMDocumentEvents> for super::super::super::System::Com::IDispatch {
+    fn from(value: XMLDOMDocumentEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&XMLDOMDocumentEvents> for super::super::super::System::Com::IDispatch {
+    fn from(value: &XMLDOMDocumentEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for XMLDOMDocumentEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a XMLDOMDocumentEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for XMLDOMDocumentEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for XMLDOMDocumentEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for XMLDOMDocumentEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for XMLDOMDocumentEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XMLDOMDocumentEvents").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for XMLDOMDocumentEvents {
+    type Vtable = XMLDOMDocumentEvents_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa427_272f_11d2_836f_0000f87a7782);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct XMLDOMDocumentEvents_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+}
 pub const XMLDSOControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x550dda30_0541_11d2_9ca9_0060b0ec3d39);
 pub const XMLDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfc399af_d876_11d0_9c10_00c04fc99c8e);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]

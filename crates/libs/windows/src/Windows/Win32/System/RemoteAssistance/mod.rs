@@ -7,7 +7,91 @@ pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;
 pub const DISPID_EVENT_ON_STATE_CHANGED: u32 = 5u32;
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
 pub const DISPID_EVENT_ON_TERMINATION: u32 = 6u32;
-pub const DRendezvousSessionEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
+#[doc = "*Required features: 'Win32_System_RemoteAssistance', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct DRendezvousSessionEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl DRendezvousSessionEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<DRendezvousSessionEvents> for ::windows::core::IUnknown {
+    fn from(value: DRendezvousSessionEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&DRendezvousSessionEvents> for ::windows::core::IUnknown {
+    fn from(value: &DRendezvousSessionEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DRendezvousSessionEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DRendezvousSessionEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<DRendezvousSessionEvents> for super::Com::IDispatch {
+    fn from(value: DRendezvousSessionEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&DRendezvousSessionEvents> for super::Com::IDispatch {
+    fn from(value: &DRendezvousSessionEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for DRendezvousSessionEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a DRendezvousSessionEvents {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for DRendezvousSessionEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for DRendezvousSessionEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for DRendezvousSessionEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for DRendezvousSessionEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRendezvousSessionEvents").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for DRendezvousSessionEvents {
+    type Vtable = DRendezvousSessionEvents_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct DRendezvousSessionEvents_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
 #[repr(transparent)]
 pub struct IRendezvousApplication(::windows::core::IUnknown);

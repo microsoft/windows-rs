@@ -4024,8 +4024,176 @@ pub struct IFont_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     SetHdc: usize,
 }
-pub const IFontDisp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbef6e003_a874_101a_8bba_00aa00300cab);
-pub const IFontEventsDisp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ef6100a_af88_11d0_9846_00c04fc29993);
+#[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct IFontDisp(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IFontDisp {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IFontDisp> for ::windows::core::IUnknown {
+    fn from(value: IFontDisp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IFontDisp> for ::windows::core::IUnknown {
+    fn from(value: &IFontDisp) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFontDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFontDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IFontDisp> for super::Com::IDispatch {
+    fn from(value: IFontDisp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IFontDisp> for super::Com::IDispatch {
+    fn from(value: &IFontDisp) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IFontDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IFontDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IFontDisp {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for IFontDisp {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for IFontDisp {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for IFontDisp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFontDisp").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IFontDisp {
+    type Vtable = IFontDisp_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbef6e003_a874_101a_8bba_00aa00300cab);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFontDisp_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
+}
+#[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct IFontEventsDisp(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IFontEventsDisp {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IFontEventsDisp> for ::windows::core::IUnknown {
+    fn from(value: IFontEventsDisp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IFontEventsDisp> for ::windows::core::IUnknown {
+    fn from(value: &IFontEventsDisp) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFontEventsDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFontEventsDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IFontEventsDisp> for super::Com::IDispatch {
+    fn from(value: IFontEventsDisp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IFontEventsDisp> for super::Com::IDispatch {
+    fn from(value: &IFontEventsDisp) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IFontEventsDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IFontEventsDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IFontEventsDisp {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for IFontEventsDisp {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for IFontEventsDisp {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for IFontEventsDisp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFontEventsDisp").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IFontEventsDisp {
+    type Vtable = IFontEventsDisp_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ef6100a_af88_11d0_9846_00c04fc29993);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFontEventsDisp_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -8803,7 +8971,91 @@ pub struct IPicture2_Vtbl {
     SaveAsFile: usize,
     pub Attributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattr: *mut u32) -> ::windows::core::HRESULT,
 }
-pub const IPictureDisp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf80981_bf32_101a_8bbb_00aa00300cab);
+#[doc = "*Required features: 'Win32_System_Ole', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct IPictureDisp(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IPictureDisp {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IPictureDisp> for ::windows::core::IUnknown {
+    fn from(value: IPictureDisp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IPictureDisp> for ::windows::core::IUnknown {
+    fn from(value: &IPictureDisp) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPictureDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPictureDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IPictureDisp> for super::Com::IDispatch {
+    fn from(value: IPictureDisp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IPictureDisp> for super::Com::IDispatch {
+    fn from(value: &IPictureDisp) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IPictureDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IPictureDisp {
+    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPictureDisp {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for IPictureDisp {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for IPictureDisp {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for IPictureDisp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPictureDisp").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IPictureDisp {
+    type Vtable = IPictureDisp_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf80981_bf32_101a_8bbb_00aa00300cab);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPictureDisp_Vtbl {
+    pub base: super::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_System_Ole'*"]
 #[repr(transparent)]
 pub struct IPointerInactive(::windows::core::IUnknown);

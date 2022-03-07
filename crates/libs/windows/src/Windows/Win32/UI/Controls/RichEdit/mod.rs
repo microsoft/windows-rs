@@ -2388,7 +2388,91 @@ pub struct IRicheditUiaOverrides_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetPropertyOverrideValue: usize,
 }
-pub const ITextDisplays: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5f2_7206_11d8_a2c7_00a0d1d6c6b3);
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct ITextDisplays(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl ITextDisplays {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITextDisplays> for ::windows::core::IUnknown {
+    fn from(value: ITextDisplays) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITextDisplays> for ::windows::core::IUnknown {
+    fn from(value: &ITextDisplays) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextDisplays {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextDisplays {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<ITextDisplays> for super::super::super::System::Com::IDispatch {
+    fn from(value: ITextDisplays) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&ITextDisplays> for super::super::super::System::Com::IDispatch {
+    fn from(value: &ITextDisplays) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for ITextDisplays {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IDispatch> for &'a ITextDisplays {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ITextDisplays {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for ITextDisplays {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for ITextDisplays {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for ITextDisplays {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextDisplays").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for ITextDisplays {
+    type Vtable = ITextDisplays_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241f5f2_7206_11d8_a2c7_00a0d1d6c6b3);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ITextDisplays_Vtbl {
+    pub base: super::super::super::System::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
