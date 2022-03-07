@@ -47,7 +47,6 @@ pub use heap::*;
 pub use hresult::*;
 pub use hstring::*;
 pub use inspectable::*;
-#[doc(hidden)]
 pub use interface::*;
 #[doc(hidden)]
 pub use into_param::*;
@@ -70,13 +69,11 @@ pub use to_impl::*;
 pub use unknown::*;
 #[doc(hidden)]
 pub use waiter::*;
-#[doc(hidden)]
 pub use weak::*;
 #[doc(hidden)]
 pub use weak_ref_count::*;
 
 /// A specialized [`Result`] type that provides Windows error information.
-#[must_use]
 pub type Result<T> = core::result::Result<T, Error>;
 
 #[doc(hidden)]
