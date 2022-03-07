@@ -508,8 +508,8 @@ pub struct IDedupBackupSupport(::windows::core::IUnknown);
 impl IDedupBackupSupport {
     #[doc = "*Required features: 'Win32_Storage_DataDeduplication', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RestoreFiles<'a, Param2: ::windows::core::IntoParam<'a, IDedupReadFileCallback>>(&self, filefullpaths: &[super::super::Foundation::BSTR], store: Param2, flags: u32, fileresults: &mut [::windows::core::HRESULT]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestoreFiles)(::core::mem::transmute_copy(self), fileresults.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(filefullpaths)), store.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(fileresults))).ok()
+    pub unsafe fn RestoreFiles<'a, const PARAM0: usize, Param2: ::windows::core::IntoParam<'a, IDedupReadFileCallback>>(&self, filefullpaths: &[super::super::Foundation::BSTR; PARAM0], store: Param2, flags: u32, fileresults: &mut [::windows::core::HRESULT; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RestoreFiles)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(filefullpaths)), store.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(fileresults))).ok()
     }
 }
 impl ::core::convert::From<IDedupBackupSupport> for ::windows::core::IUnknown {

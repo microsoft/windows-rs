@@ -140,8 +140,8 @@ impl DIFsrmClassificationEvents {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1803,8 +1803,8 @@ impl IFsrmAccessDeniedRemediationClient {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1921,8 +1921,8 @@ impl IFsrmAction {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2057,8 +2057,8 @@ impl IFsrmActionCommand {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2313,8 +2313,8 @@ impl IFsrmActionEmail {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2601,8 +2601,8 @@ impl IFsrmActionEmail2 {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2868,8 +2868,8 @@ impl IFsrmActionEventLog {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3053,8 +3053,8 @@ impl IFsrmActionReport {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3246,8 +3246,8 @@ impl IFsrmAutoApplyQuota {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3563,8 +3563,8 @@ impl IFsrmClassificationManager {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3905,8 +3905,8 @@ impl IFsrmClassificationManager2 {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4193,8 +4193,8 @@ impl IFsrmClassificationRule {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4486,8 +4486,8 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4813,8 +4813,8 @@ impl IFsrmClassifierModuleImplementation {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5006,8 +5006,8 @@ impl IFsrmCollection {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5163,8 +5163,8 @@ impl IFsrmCommittableCollection {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5384,8 +5384,8 @@ impl IFsrmDerivedObjectsResult {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5512,8 +5512,8 @@ impl IFsrmExportImport {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5677,8 +5677,8 @@ impl IFsrmFileCondition {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5796,8 +5796,8 @@ impl IFsrmFileConditionProperty {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6008,8 +6008,8 @@ impl IFsrmFileGroup {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6221,8 +6221,8 @@ impl IFsrmFileGroupImported {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6445,8 +6445,8 @@ impl IFsrmFileGroupManager {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6603,8 +6603,8 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7132,8 +7132,8 @@ impl IFsrmFileManagementJobManager {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7290,8 +7290,8 @@ impl IFsrmFileScreen {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7557,8 +7557,8 @@ impl IFsrmFileScreenBase {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7763,8 +7763,8 @@ impl IFsrmFileScreenException {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7948,8 +7948,8 @@ impl IFsrmFileScreenManager {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8146,8 +8146,8 @@ impl IFsrmFileScreenTemplate {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8396,8 +8396,8 @@ impl IFsrmFileScreenTemplateImported {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8665,8 +8665,8 @@ impl IFsrmFileScreenTemplateManager {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8823,8 +8823,8 @@ impl IFsrmMutableCollection {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9020,8 +9020,8 @@ impl IFsrmObject {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9163,8 +9163,8 @@ impl IFsrmPathMapper {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9281,8 +9281,8 @@ impl IFsrmPipelineModuleConnector {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9434,8 +9434,8 @@ impl IFsrmPipelineModuleDefinition {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9743,8 +9743,8 @@ impl IFsrmPipelineModuleImplementation {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9866,8 +9866,8 @@ impl IFsrmProperty {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10010,8 +10010,8 @@ impl IFsrmPropertyBag {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10314,8 +10314,8 @@ impl IFsrmPropertyBag2 {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10587,8 +10587,8 @@ impl IFsrmPropertyCondition {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10749,8 +10749,8 @@ impl IFsrmPropertyDefinition {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10992,8 +10992,8 @@ impl IFsrmPropertyDefinition2 {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11266,8 +11266,8 @@ impl IFsrmPropertyDefinitionValue {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11414,8 +11414,8 @@ impl IFsrmQuota {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11738,8 +11738,8 @@ impl IFsrmQuotaBase {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11969,8 +11969,8 @@ impl IFsrmQuotaManager {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12196,8 +12196,8 @@ impl IFsrmQuotaManagerEx {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12409,8 +12409,8 @@ impl IFsrmQuotaObject {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12694,8 +12694,8 @@ impl IFsrmQuotaTemplate {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12962,8 +12962,8 @@ impl IFsrmQuotaTemplateImported {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13249,8 +13249,8 @@ impl IFsrmQuotaTemplateManager {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13407,8 +13407,8 @@ impl IFsrmReport {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13593,8 +13593,8 @@ impl IFsrmReportJob {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13893,8 +13893,8 @@ impl IFsrmReportManager {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14094,8 +14094,8 @@ impl IFsrmReportScheduler {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14238,8 +14238,8 @@ impl IFsrmRule {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14497,8 +14497,8 @@ impl IFsrmSetting {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14704,8 +14704,8 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15015,8 +15015,8 @@ impl IFsrmStorageModuleImplementation {
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

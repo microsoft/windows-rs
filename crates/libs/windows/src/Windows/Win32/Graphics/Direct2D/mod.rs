@@ -11510,8 +11510,8 @@ impl ID2D1ComputeTransform {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MapInputRectsToOutputRect(&self, inputrects: &[super::super::Foundation::RECT], inputopaquesubrects: &[super::super::Foundation::RECT], outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.MapInputRectsToOutputRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputrects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputopaquesubrects)), inputopaquesubrects.len() as _, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
+    pub unsafe fn MapInputRectsToOutputRect<'a, const PARAM2: usize>(&self, inputrects: &[super::super::Foundation::RECT; PARAM2], inputopaquesubrects: &[super::super::Foundation::RECT; PARAM2], outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.MapInputRectsToOutputRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputrects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputopaquesubrects)), PARAM2 as _, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13859,8 +13859,8 @@ impl ID2D1DeviceContext {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION], requiredinputrects: &mut [Common::D2D_RECT_F]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), requiredinputrects.len() as _).ok()
+    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>, const PARAM4: usize>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION; PARAM4], requiredinputrects: &mut [Common::D2D_RECT_F; PARAM4]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), PARAM4 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -14496,8 +14496,8 @@ impl ID2D1DeviceContext1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION], requiredinputrects: &mut [Common::D2D_RECT_F]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), requiredinputrects.len() as _).ok()
+    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>, const PARAM4: usize>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION; PARAM4], requiredinputrects: &mut [Common::D2D_RECT_F; PARAM4]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), PARAM4 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -15066,8 +15066,8 @@ impl ID2D1DeviceContext2 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION], requiredinputrects: &mut [Common::D2D_RECT_F]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), requiredinputrects.len() as _).ok()
+    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>, const PARAM4: usize>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION; PARAM4], requiredinputrects: &mut [Common::D2D_RECT_F; PARAM4]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), PARAM4 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -15114,7 +15114,7 @@ impl ID2D1DeviceContext2 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: &[u8], strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents.as_ptr()), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(strides.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
+        (::windows::core::Interface::vtable(self).CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(::windows::core::as_ptr_or_null(extents)), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(strides)), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -15740,8 +15740,8 @@ impl ID2D1DeviceContext3 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION], requiredinputrects: &mut [Common::D2D_RECT_F]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), requiredinputrects.len() as _).ok()
+    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>, const PARAM4: usize>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION; PARAM4], requiredinputrects: &mut [Common::D2D_RECT_F; PARAM4]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), PARAM4 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -15788,7 +15788,7 @@ impl ID2D1DeviceContext3 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: &[u8], strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents.as_ptr()), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(strides.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(::windows::core::as_ptr_or_null(extents)), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(strides)), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -16416,8 +16416,8 @@ impl ID2D1DeviceContext4 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION], requiredinputrects: &mut [Common::D2D_RECT_F]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), requiredinputrects.len() as _).ok()
+    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>, const PARAM4: usize>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION; PARAM4], requiredinputrects: &mut [Common::D2D_RECT_F; PARAM4]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), PARAM4 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -16464,7 +16464,7 @@ impl ID2D1DeviceContext4 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: &[u8], strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents.as_ptr()), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(strides.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(::windows::core::as_ptr_or_null(extents)), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(strides)), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -17170,8 +17170,8 @@ impl ID2D1DeviceContext5 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION], requiredinputrects: &mut [Common::D2D_RECT_F]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), requiredinputrects.len() as _).ok()
+    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>, const PARAM4: usize>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION; PARAM4], requiredinputrects: &mut [Common::D2D_RECT_F; PARAM4]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), PARAM4 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -17218,7 +17218,7 @@ impl ID2D1DeviceContext5 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: &[u8], strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents.as_ptr()), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(strides.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(::windows::core::as_ptr_or_null(extents)), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(strides)), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -17954,8 +17954,8 @@ impl ID2D1DeviceContext6 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION], requiredinputrects: &mut [Common::D2D_RECT_F]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), requiredinputrects.len() as _).ok()
+    pub unsafe fn GetEffectRequiredInputRectangles<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Effect>, const PARAM4: usize>(&self, rendereffect: Param0, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: &[D2D1_EFFECT_INPUT_DESCRIPTION; PARAM4], requiredinputrects: &mut [Common::D2D_RECT_F; PARAM4]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetEffectRequiredInputRectangles)(::core::mem::transmute_copy(self), rendereffect.into_param().abi(), ::core::mem::transmute(renderimagerectangle), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputdescriptions)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(requiredinputrects)), PARAM4 as _).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -18002,7 +18002,7 @@ impl ID2D1DeviceContext6 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: &[u8], strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents.as_ptr()), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(strides.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(::windows::core::as_ptr_or_null(extents)), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(strides)), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -18442,8 +18442,8 @@ impl ID2D1DrawTransform {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MapInputRectsToOutputRect(&self, inputrects: &[super::super::Foundation::RECT], inputopaquesubrects: &[super::super::Foundation::RECT], outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.MapInputRectsToOutputRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputrects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputopaquesubrects)), inputopaquesubrects.len() as _, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
+    pub unsafe fn MapInputRectsToOutputRect<'a, const PARAM2: usize>(&self, inputrects: &[super::super::Foundation::RECT; PARAM2], inputopaquesubrects: &[super::super::Foundation::RECT; PARAM2], outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.MapInputRectsToOutputRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputrects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputopaquesubrects)), PARAM2 as _, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19237,7 +19237,7 @@ impl ID2D1EffectContext1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: &[u8], strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents.as_ptr()), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(strides.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
+        (::windows::core::Interface::vtable(self).CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(::windows::core::as_ptr_or_null(extents)), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(strides)), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
 }
 impl ::core::convert::From<ID2D1EffectContext1> for ::windows::core::IUnknown {
@@ -19418,7 +19418,7 @@ impl ID2D1EffectContext2 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: &[u8], strides: &[u32; 2]) -> ::windows::core::Result<ID2D1LookupTable3D> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(extents.as_ptr()), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(strides.as_ptr()), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateLookupTable3D)(::core::mem::transmute_copy(self), ::core::mem::transmute(precision), ::core::mem::transmute(::windows::core::as_ptr_or_null(extents)), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(strides)), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1LookupTable3D>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -26883,8 +26883,8 @@ impl ID2D1SourceTransform {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MapInputRectsToOutputRect(&self, inputrects: &[super::super::Foundation::RECT], inputopaquesubrects: &[super::super::Foundation::RECT], outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.MapInputRectsToOutputRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputrects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputopaquesubrects)), inputopaquesubrects.len() as _, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
+    pub unsafe fn MapInputRectsToOutputRect<'a, const PARAM2: usize>(&self, inputrects: &[super::super::Foundation::RECT; PARAM2], inputopaquesubrects: &[super::super::Foundation::RECT; PARAM2], outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.MapInputRectsToOutputRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputrects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputopaquesubrects)), PARAM2 as _, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28592,8 +28592,8 @@ impl ID2D1Transform {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MapInputRectsToOutputRect(&self, inputrects: &[super::super::Foundation::RECT], inputopaquesubrects: &[super::super::Foundation::RECT], outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MapInputRectsToOutputRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputrects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputopaquesubrects)), inputopaquesubrects.len() as _, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
+    pub unsafe fn MapInputRectsToOutputRect<'a, const PARAM2: usize>(&self, inputrects: &[super::super::Foundation::RECT; PARAM2], inputopaquesubrects: &[super::super::Foundation::RECT; PARAM2], outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MapInputRectsToOutputRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputrects)), ::core::mem::transmute(::windows::core::as_ptr_or_null(inputopaquesubrects)), PARAM2 as _, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

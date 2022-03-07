@@ -52137,28 +52137,28 @@ pub unsafe fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const 
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFConvertFromFP16Array(pdest: &mut [f32], psrc: &[u16]) -> ::windows::core::Result<()> {
+pub unsafe fn MFConvertFromFP16Array<'a, const PARAM2: usize>(pdest: &mut [f32; PARAM2], psrc: &[u16; PARAM2]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount: u32) -> ::windows::core::HRESULT;
         }
-        MFConvertFromFP16Array(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdest)), ::core::mem::transmute(::windows::core::as_ptr_or_null(psrc)), psrc.len() as _).ok()
+        MFConvertFromFP16Array(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdest)), ::core::mem::transmute(::windows::core::as_ptr_or_null(psrc)), PARAM2 as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
-pub unsafe fn MFConvertToFP16Array(pdest: &mut [u16], psrc: &[f32]) -> ::windows::core::Result<()> {
+pub unsafe fn MFConvertToFP16Array<'a, const PARAM2: usize>(pdest: &mut [u16; PARAM2], psrc: &[f32; PARAM2]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u32) -> ::windows::core::HRESULT;
         }
-        MFConvertToFP16Array(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdest)), ::core::mem::transmute(::windows::core::as_ptr_or_null(psrc)), psrc.len() as _).ok()
+        MFConvertToFP16Array(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdest)), ::core::mem::transmute(::windows::core::as_ptr_or_null(psrc)), PARAM2 as _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

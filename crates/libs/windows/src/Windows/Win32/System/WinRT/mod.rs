@@ -3589,7 +3589,7 @@ pub unsafe fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, me
         extern "system" {
             fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, message: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(RoOriginateErrorW(::core::mem::transmute(error), ::core::mem::transmute(cchmax), ::core::mem::transmute(message.as_ptr())))
+        ::core::mem::transmute(RoOriginateErrorW(::core::mem::transmute(error), ::core::mem::transmute(cchmax), ::core::mem::transmute(::windows::core::as_ptr_or_null(message))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3625,7 +3625,7 @@ pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<'a, Param0: ::windows::co
 }
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 #[inline]
-pub unsafe fn RoRegisterActivationFactories(activatableclassids: &[::windows::core::HSTRING], activationfactorycallbacks: &[isize]) -> ::windows::core::Result<isize> {
+pub unsafe fn RoRegisterActivationFactories<'a, const PARAM2: usize>(activatableclassids: &[::windows::core::HSTRING; PARAM2], activationfactorycallbacks: &[isize; PARAM2]) -> ::windows::core::Result<isize> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3633,7 +3633,7 @@ pub unsafe fn RoRegisterActivationFactories(activatableclassids: &[::windows::co
             fn RoRegisterActivationFactories(activatableclassids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, activationfactorycallbacks: *const isize, count: u32, cookie: *mut isize) -> ::windows::core::HRESULT;
         }
         let mut result__: isize = ::core::mem::zeroed();
-        RoRegisterActivationFactories(::core::mem::transmute(::windows::core::as_ptr_or_null(activatableclassids)), ::core::mem::transmute(::windows::core::as_ptr_or_null(activationfactorycallbacks)), activationfactorycallbacks.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
+        RoRegisterActivationFactories(::core::mem::transmute(::windows::core::as_ptr_or_null(activatableclassids)), ::core::mem::transmute(::windows::core::as_ptr_or_null(activationfactorycallbacks)), PARAM2 as _, ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3748,7 +3748,7 @@ pub unsafe fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::
         extern "system" {
             fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(RoTransformErrorW(::core::mem::transmute(olderror), ::core::mem::transmute(newerror), ::core::mem::transmute(cchmax), ::core::mem::transmute(message.as_ptr())))
+        ::core::mem::transmute(RoTransformErrorW(::core::mem::transmute(olderror), ::core::mem::transmute(newerror), ::core::mem::transmute(cchmax), ::core::mem::transmute(::windows::core::as_ptr_or_null(message))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

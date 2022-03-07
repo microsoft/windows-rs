@@ -21521,14 +21521,14 @@ pub unsafe fn CryptHashData(hhash: usize, pbdata: *const u8, dwdatalen: u32, dwf
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptHashMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(phashpara: *const CRYPT_HASH_MESSAGE_PARA, fdetachedhash: Param1, rgpbtobehashed: &[*const u8], rgcbtobehashed: &[u32], pbhashedblob: *mut u8, pcbhashedblob: *mut u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CryptHashMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, const PARAM2: usize>(phashpara: *const CRYPT_HASH_MESSAGE_PARA, fdetachedhash: Param1, rgpbtobehashed: &[*const u8; PARAM2], rgcbtobehashed: &[u32; PARAM2], pbhashedblob: *mut u8, pcbhashedblob: *mut u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CryptHashMessage(phashpara: *const CRYPT_HASH_MESSAGE_PARA, fdetachedhash: super::super::Foundation::BOOL, ctobehashed: u32, rgpbtobehashed: *const *const u8, rgcbtobehashed: *const u32, pbhashedblob: *mut u8, pcbhashedblob: *mut u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CryptHashMessage(::core::mem::transmute(phashpara), fdetachedhash.into_param().abi(), rgcbtobehashed.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpbtobehashed)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcbtobehashed)), ::core::mem::transmute(pbhashedblob), ::core::mem::transmute(pcbhashedblob), ::core::mem::transmute(pbcomputedhash), ::core::mem::transmute(pcbcomputedhash)))
+        ::core::mem::transmute(CryptHashMessage(::core::mem::transmute(phashpara), fdetachedhash.into_param().abi(), PARAM2 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpbtobehashed)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcbtobehashed)), ::core::mem::transmute(pbhashedblob), ::core::mem::transmute(pcbhashedblob), ::core::mem::transmute(pbcomputedhash), ::core::mem::transmute(pcbcomputedhash)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22565,14 +22565,14 @@ pub unsafe fn CryptVerifyCertificateSignatureEx<'a, Param0: ::windows::core::Int
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptVerifyDetachedMessageHash(phashpara: *const CRYPT_HASH_MESSAGE_PARA, pbdetachedhashblob: *const u8, cbdetachedhashblob: u32, rgpbtobehashed: &[*const u8], rgcbtobehashed: &[u32], pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CryptVerifyDetachedMessageHash<'a, const PARAM3: usize>(phashpara: *const CRYPT_HASH_MESSAGE_PARA, pbdetachedhashblob: *const u8, cbdetachedhashblob: u32, rgpbtobehashed: &[*const u8; PARAM3], rgcbtobehashed: &[u32; PARAM3], pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CryptVerifyDetachedMessageHash(phashpara: *const CRYPT_HASH_MESSAGE_PARA, pbdetachedhashblob: *const u8, cbdetachedhashblob: u32, ctobehashed: u32, rgpbtobehashed: *const *const u8, rgcbtobehashed: *const u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CryptVerifyDetachedMessageHash(::core::mem::transmute(phashpara), ::core::mem::transmute(pbdetachedhashblob), ::core::mem::transmute(cbdetachedhashblob), rgcbtobehashed.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpbtobehashed)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcbtobehashed)), ::core::mem::transmute(pbcomputedhash), ::core::mem::transmute(pcbcomputedhash)))
+        ::core::mem::transmute(CryptVerifyDetachedMessageHash(::core::mem::transmute(phashpara), ::core::mem::transmute(pbdetachedhashblob), ::core::mem::transmute(cbdetachedhashblob), PARAM3 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpbtobehashed)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcbtobehashed)), ::core::mem::transmute(pbcomputedhash), ::core::mem::transmute(pcbcomputedhash)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -22580,14 +22580,14 @@ pub unsafe fn CryptVerifyDetachedMessageHash(phashpara: *const CRYPT_HASH_MESSAG
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptVerifyDetachedMessageSignature(pverifypara: *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: u32, pbdetachedsignblob: *const u8, cbdetachedsignblob: u32, rgpbtobesigned: &[*const u8], rgcbtobesigned: &[u32], ppsignercert: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL {
+pub unsafe fn CryptVerifyDetachedMessageSignature<'a, const PARAM4: usize>(pverifypara: *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: u32, pbdetachedsignblob: *const u8, cbdetachedsignblob: u32, rgpbtobesigned: &[*const u8; PARAM4], rgcbtobesigned: &[u32; PARAM4], ppsignercert: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CryptVerifyDetachedMessageSignature(pverifypara: *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: u32, pbdetachedsignblob: *const u8, cbdetachedsignblob: u32, ctobesigned: u32, rgpbtobesigned: *const *const u8, rgcbtobesigned: *const u32, ppsignercert: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CryptVerifyDetachedMessageSignature(::core::mem::transmute(pverifypara), ::core::mem::transmute(dwsignerindex), ::core::mem::transmute(pbdetachedsignblob), ::core::mem::transmute(cbdetachedsignblob), rgcbtobesigned.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpbtobesigned)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcbtobesigned)), ::core::mem::transmute(ppsignercert)))
+        ::core::mem::transmute(CryptVerifyDetachedMessageSignature(::core::mem::transmute(pverifypara), ::core::mem::transmute(dwsignerindex), ::core::mem::transmute(pbdetachedsignblob), ::core::mem::transmute(cbdetachedsignblob), PARAM4 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpbtobesigned)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcbtobesigned)), ::core::mem::transmute(ppsignercert)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23911,8 +23911,8 @@ impl ICertSrvSetup {
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -24186,8 +24186,8 @@ impl ICertSrvSetupKeyInformation {
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -24392,8 +24392,8 @@ impl ICertSrvSetupKeyInformationCollection {
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -24531,8 +24531,8 @@ impl ICertificateEnrollmentPolicyServerSetup {
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -24687,8 +24687,8 @@ impl ICertificateEnrollmentServerSetup {
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -24858,8 +24858,8 @@ impl IMSCEPSetup {
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

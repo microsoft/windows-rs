@@ -9212,8 +9212,8 @@ impl IADs {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9437,8 +9437,8 @@ impl IADsADSystemInfo {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9666,8 +9666,8 @@ impl IADsAccessControlEntry {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9875,8 +9875,8 @@ impl IADsAccessControlList {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10039,8 +10039,8 @@ impl IADsAcl {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10336,8 +10336,8 @@ impl IADsBackLink {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10474,8 +10474,8 @@ impl IADsCaseIgnoreList {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10601,8 +10601,8 @@ impl IADsClass {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11058,8 +11058,8 @@ impl IADsCollection {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11200,8 +11200,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11708,8 +11708,8 @@ impl IADsComputerOperations {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11926,8 +11926,8 @@ impl IADsContainer {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12133,8 +12133,8 @@ impl IADsDNWithBinary {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12279,8 +12279,8 @@ impl IADsDNWithString {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12425,8 +12425,8 @@ impl IADsDeleteOps {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12538,8 +12538,8 @@ impl IADsDomain {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12835,8 +12835,8 @@ impl IADsEmail {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13047,8 +13047,8 @@ impl IADsFaxNumber {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13193,8 +13193,8 @@ impl IADsFileService {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13576,8 +13576,8 @@ impl IADsFileServiceOperations {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13849,8 +13849,8 @@ impl IADsFileShare {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14126,8 +14126,8 @@ impl IADsGroup {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14386,8 +14386,8 @@ impl IADsHold {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14524,8 +14524,8 @@ impl IADsLargeInteger {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14654,8 +14654,8 @@ impl IADsLocality {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14933,8 +14933,8 @@ impl IADsMembers {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15072,8 +15072,8 @@ impl IADsNameTranslate {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15241,8 +15241,8 @@ impl IADsNamespaces {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15463,8 +15463,8 @@ impl IADsNetAddress {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15601,8 +15601,8 @@ impl IADsO {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15918,8 +15918,8 @@ impl IADsOU {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16254,8 +16254,8 @@ impl IADsObjectOptions {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16381,8 +16381,8 @@ impl IADsOctetList {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16508,8 +16508,8 @@ impl IADsOpenDSObject {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16626,8 +16626,8 @@ impl IADsPath {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16783,8 +16783,8 @@ impl IADsPathname {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16976,8 +16976,8 @@ impl IADsPostalAddress {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -17103,8 +17103,8 @@ impl IADsPrintJob {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -17444,8 +17444,8 @@ impl IADsPrintJobOperations {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -17686,8 +17686,8 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18104,8 +18104,8 @@ impl IADsPrintQueueOperations {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18338,8 +18338,8 @@ impl IADsProperty {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18622,8 +18622,8 @@ impl IADsPropertyEntry {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18795,8 +18795,8 @@ impl IADsPropertyList {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18971,8 +18971,8 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19280,8 +19280,8 @@ impl IADsPropertyValue2 {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19406,8 +19406,8 @@ impl IADsReplicaPointer {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19585,8 +19585,8 @@ impl IADsResource {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19824,8 +19824,8 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -20084,8 +20084,8 @@ impl IADsSecurityUtility {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -20232,8 +20232,8 @@ impl IADsService {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -20639,8 +20639,8 @@ impl IADsServiceOperations {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -20877,8 +20877,8 @@ impl IADsSession {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -21132,8 +21132,8 @@ impl IADsSyntax {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -21346,8 +21346,8 @@ impl IADsTimestamp {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -21476,8 +21476,8 @@ impl IADsTypedName {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -21625,8 +21625,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -22587,8 +22587,8 @@ impl IADsWinNTSystemInfo {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR], lcid: u32, rgdispid: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), rgdispid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
+    pub unsafe fn GetIDsOfNames<'a, const PARAM2: usize>(&self, riid: *const ::windows::core::GUID, rgsznames: &[::windows::core::PWSTR; PARAM2], lcid: u32, rgdispid: &mut [i32; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsznames)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgdispid))).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

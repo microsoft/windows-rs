@@ -370,7 +370,7 @@ pub unsafe fn GetKeyboardLayoutNameA(pwszklid: &mut [u8; 9]) -> super::super::su
         extern "system" {
             fn GetKeyboardLayoutNameA(pwszklid: ::windows::core::PSTR) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetKeyboardLayoutNameA(::core::mem::transmute(pwszklid.as_mut_ptr())))
+        ::core::mem::transmute(GetKeyboardLayoutNameA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszklid))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -385,7 +385,7 @@ pub unsafe fn GetKeyboardLayoutNameW(pwszklid: &mut [u16; 9]) -> super::super::s
         extern "system" {
             fn GetKeyboardLayoutNameW(pwszklid: ::windows::core::PWSTR) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetKeyboardLayoutNameW(::core::mem::transmute(pwszklid.as_mut_ptr())))
+        ::core::mem::transmute(GetKeyboardLayoutNameW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszklid))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -400,7 +400,7 @@ pub unsafe fn GetKeyboardState(lpkeystate: &mut [u8; 256]) -> super::super::supe
         extern "system" {
             fn GetKeyboardState(lpkeystate: *mut u8) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetKeyboardState(::core::mem::transmute(lpkeystate.as_mut_ptr())))
+        ::core::mem::transmute(GetKeyboardState(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpkeystate))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1584,7 +1584,7 @@ pub unsafe fn SetKeyboardState(lpkeystate: &[u8; 256]) -> super::super::super::F
         extern "system" {
             fn SetKeyboardState(lpkeystate: *const u8) -> super::super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetKeyboardState(::core::mem::transmute(lpkeystate.as_ptr())))
+        ::core::mem::transmute(SetKeyboardState(::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1723,7 +1723,7 @@ pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: &[u8; 256], lpc
         extern "system" {
             fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32) -> i32;
         }
-        ::core::mem::transmute(ToAscii(::core::mem::transmute(uvirtkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(lpkeystate.as_ptr()), ::core::mem::transmute(lpchar), ::core::mem::transmute(uflags)))
+        ::core::mem::transmute(ToAscii(::core::mem::transmute(uvirtkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(lpchar), ::core::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1738,7 +1738,7 @@ pub unsafe fn ToAsciiEx<'a, Param5: ::windows::core::IntoParam<'a, super::super:
         extern "system" {
             fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
         }
-        ::core::mem::transmute(ToAsciiEx(::core::mem::transmute(uvirtkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(lpkeystate.as_ptr()), ::core::mem::transmute(lpchar), ::core::mem::transmute(uflags), dwhkl.into_param().abi()))
+        ::core::mem::transmute(ToAsciiEx(::core::mem::transmute(uvirtkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(lpchar), ::core::mem::transmute(uflags), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1752,7 +1752,7 @@ pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], p
         extern "system" {
             fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32) -> i32;
         }
-        ::core::mem::transmute(ToUnicode(::core::mem::transmute(wvirtkey), ::core::mem::transmute(wscancode), ::core::mem::transmute(lpkeystate.as_ptr()), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszbuff)), pwszbuff.len() as _, ::core::mem::transmute(wflags)))
+        ::core::mem::transmute(ToUnicode(::core::mem::transmute(wvirtkey), ::core::mem::transmute(wscancode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszbuff)), pwszbuff.len() as _, ::core::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1767,7 +1767,7 @@ pub unsafe fn ToUnicodeEx<'a, Param6: ::windows::core::IntoParam<'a, super::supe
         extern "system" {
             fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
         }
-        ::core::mem::transmute(ToUnicodeEx(::core::mem::transmute(wvirtkey), ::core::mem::transmute(wscancode), ::core::mem::transmute(lpkeystate.as_ptr()), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszbuff)), pwszbuff.len() as _, ::core::mem::transmute(wflags), dwhkl.into_param().abi()))
+        ::core::mem::transmute(ToUnicodeEx(::core::mem::transmute(wvirtkey), ::core::mem::transmute(wscancode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpkeystate)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszbuff)), pwszbuff.len() as _, ::core::mem::transmute(wflags), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

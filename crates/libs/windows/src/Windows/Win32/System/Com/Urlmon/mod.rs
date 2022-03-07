@@ -3248,7 +3248,7 @@ impl IInternetSecurityManager {
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid.as_mut_ptr()), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbsecurityid)), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
@@ -3339,7 +3339,7 @@ impl IInternetSecurityManagerEx {
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid.as_mut_ptr()), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).base.GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbsecurityid)), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
@@ -3447,7 +3447,7 @@ impl IInternetSecurityManagerEx2 {
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid.as_mut_ptr()), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).base.base.GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbsecurityid)), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
@@ -3479,7 +3479,7 @@ impl IInternetSecurityManagerEx2 {
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn GetSecurityIdEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(&self, puri: Param0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSecurityIdEx2)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(pbsecurityid.as_mut_ptr()), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).GetSecurityIdEx2)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbsecurityid)), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn QueryCustomPolicyEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(&self, puri: Param0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::Result<()> {
@@ -6069,28 +6069,28 @@ pub unsafe fn RegisterFormatEnumerator<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
 #[inline]
-pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>>(pbc: Param0, rgsztypes: &[::windows::core::PSTR], rgclsid: &[::windows::core::GUID], reserved: u32) -> ::windows::core::Result<()> {
+pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, const PARAM1: usize>(pbc: Param0, rgsztypes: &[::windows::core::PSTR; PARAM1], rgclsid: &[::windows::core::GUID; PARAM1], reserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegisterMediaTypeClass(pbc: ::windows::core::RawPtr, ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
         }
-        RegisterMediaTypeClass(pbc.into_param().abi(), rgclsid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsztypes)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgclsid)), ::core::mem::transmute(reserved)).ok()
+        RegisterMediaTypeClass(pbc.into_param().abi(), PARAM1 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsztypes)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgclsid)), ::core::mem::transmute(reserved)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
 #[inline]
-pub unsafe fn RegisterMediaTypes(rgsztypes: &[::windows::core::PSTR], rgcftypes: &mut [u16]) -> ::windows::core::Result<()> {
+pub unsafe fn RegisterMediaTypes<'a, const PARAM0: usize>(rgsztypes: &[::windows::core::PSTR; PARAM0], rgcftypes: &mut [u16; PARAM0]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
         }
-        RegisterMediaTypes(rgcftypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsztypes)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgcftypes))).ok()
+        RegisterMediaTypes(PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsztypes)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgcftypes))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

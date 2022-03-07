@@ -9041,14 +9041,14 @@ pub unsafe fn JetOpenTableW<'a, Param0: ::windows::core::IntoParam<'a, super::St
 #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTempTable<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, prgcolumndef: &[JET_COLUMNDEF], grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: &mut [u32]) -> i32 {
+pub unsafe fn JetOpenTempTable<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, const PARAM2: usize>(sesid: Param0, prgcolumndef: &[JET_COLUMNDEF; PARAM2], grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: &mut [u32; PARAM2]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetOpenTempTable(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
         }
-        ::core::mem::transmute(JetOpenTempTable(sesid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(prgcolumndef)), prgcolumnid.len() as _, ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgcolumnid))))
+        ::core::mem::transmute(JetOpenTempTable(sesid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(prgcolumndef)), PARAM2 as _, ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgcolumnid))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9056,14 +9056,14 @@ pub unsafe fn JetOpenTempTable<'a, Param0: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTempTable2<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, prgcolumndef: &[JET_COLUMNDEF], lcid: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: &mut [u32]) -> i32 {
+pub unsafe fn JetOpenTempTable2<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, const PARAM2: usize>(sesid: Param0, prgcolumndef: &[JET_COLUMNDEF; PARAM2], lcid: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: &mut [u32; PARAM2]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetOpenTempTable2(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, lcid: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
         }
-        ::core::mem::transmute(JetOpenTempTable2(sesid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(prgcolumndef)), prgcolumnid.len() as _, ::core::mem::transmute(lcid), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgcolumnid))))
+        ::core::mem::transmute(JetOpenTempTable2(sesid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(prgcolumndef)), PARAM2 as _, ::core::mem::transmute(lcid), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgcolumnid))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9071,14 +9071,14 @@ pub unsafe fn JetOpenTempTable2<'a, Param0: ::windows::core::IntoParam<'a, super
 #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTempTable3<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, prgcolumndef: &[JET_COLUMNDEF], pidxunicode: *const JET_UNICODEINDEX, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: &mut [u32]) -> i32 {
+pub unsafe fn JetOpenTempTable3<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, const PARAM2: usize>(sesid: Param0, prgcolumndef: &[JET_COLUMNDEF; PARAM2], pidxunicode: *const JET_UNICODEINDEX, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: &mut [u32; PARAM2]) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetOpenTempTable3(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, pidxunicode: *const JET_UNICODEINDEX, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
         }
-        ::core::mem::transmute(JetOpenTempTable3(sesid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(prgcolumndef)), prgcolumnid.len() as _, ::core::mem::transmute(pidxunicode), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgcolumnid))))
+        ::core::mem::transmute(JetOpenTempTable3(sesid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(prgcolumndef)), PARAM2 as _, ::core::mem::transmute(pidxunicode), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgcolumnid))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9146,14 +9146,14 @@ pub unsafe fn JetPrereadIndexRanges<'a, Param0: ::windows::core::IntoParam<'a, s
 #[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetPrereadKeys<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, rgpvkeys: &[*const ::core::ffi::c_void], rgcbkeys: &[u32], pckeyspreread: *mut i32, grbit: u32) -> i32 {
+pub unsafe fn JetPrereadKeys<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>, const PARAM4: usize>(sesid: Param0, tableid: Param1, rgpvkeys: &[*const ::core::ffi::c_void; PARAM4], rgcbkeys: &[u32; PARAM4], pckeyspreread: *mut i32, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn JetPrereadKeys(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgpvkeys: *const *const ::core::ffi::c_void, rgcbkeys: *const u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32;
         }
-        ::core::mem::transmute(JetPrereadKeys(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpvkeys)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcbkeys)), rgcbkeys.len() as _, ::core::mem::transmute(pckeyspreread), ::core::mem::transmute(grbit)))
+        ::core::mem::transmute(JetPrereadKeys(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpvkeys)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcbkeys)), PARAM4 as _, ::core::mem::transmute(pckeyspreread), ::core::mem::transmute(grbit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

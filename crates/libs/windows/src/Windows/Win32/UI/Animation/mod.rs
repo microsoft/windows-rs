@@ -98,8 +98,8 @@ impl IUIAnimationInterpolator2 {
         (::windows::core::Interface::vtable(self).GetDimension)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Animation'*"]
-    pub unsafe fn SetInitialValueAndVelocity(&self, initialvalue: &[f64], initialvelocity: &[f64]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialValueAndVelocity)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(initialvalue)), ::core::mem::transmute(::windows::core::as_ptr_or_null(initialvelocity)), initialvelocity.len() as _).ok()
+    pub unsafe fn SetInitialValueAndVelocity<'a, const PARAM2: usize>(&self, initialvalue: &[f64; PARAM2], initialvelocity: &[f64; PARAM2]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInitialValueAndVelocity)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(initialvalue)), ::core::mem::transmute(::windows::core::as_ptr_or_null(initialvelocity)), PARAM2 as _).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Animation'*"]
     pub unsafe fn SetDuration(&self, duration: f64) -> ::windows::core::Result<()> {
@@ -1990,9 +1990,9 @@ impl IUIAnimationTransitionLibrary2 {
         (::windows::core::Interface::vtable(self).CreateCubicTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(duration), ::core::mem::transmute(finalvalue), ::core::mem::transmute(finalvelocity), ::core::mem::transmute(&mut result__)).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Animation'*"]
-    pub unsafe fn CreateCubicVectorTransition(&self, duration: f64, finalvalue: &[f64], finalvelocity: &[f64]) -> ::windows::core::Result<IUIAnimationTransition2> {
+    pub unsafe fn CreateCubicVectorTransition<'a, const PARAM3: usize>(&self, duration: f64, finalvalue: &[f64; PARAM3], finalvelocity: &[f64; PARAM3]) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCubicVectorTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(duration), ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvalue)), ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvelocity)), finalvelocity.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateCubicVectorTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(duration), ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvalue)), ::core::mem::transmute(::windows::core::as_ptr_or_null(finalvelocity)), PARAM3 as _, ::core::mem::transmute(&mut result__)).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Animation'*"]
     pub unsafe fn CreateSmoothStopTransition(&self, maximumduration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
@@ -2470,8 +2470,8 @@ pub struct IUIAnimationVariableChangeHandler_Vtbl {
 pub struct IUIAnimationVariableChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationVariableChangeHandler2 {
     #[doc = "*Required features: 'Win32_UI_Animation'*"]
-    pub unsafe fn OnValueChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard2>, Param1: ::windows::core::IntoParam<'a, IUIAnimationVariable2>>(&self, storyboard: Param0, variable: Param1, newvalue: &[f64], previousvalue: &[f64]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnValueChanged)(::core::mem::transmute_copy(self), storyboard.into_param().abi(), variable.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(newvalue)), ::core::mem::transmute(::windows::core::as_ptr_or_null(previousvalue)), previousvalue.len() as _).ok()
+    pub unsafe fn OnValueChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard2>, Param1: ::windows::core::IntoParam<'a, IUIAnimationVariable2>, const PARAM4: usize>(&self, storyboard: Param0, variable: Param1, newvalue: &[f64; PARAM4], previousvalue: &[f64; PARAM4]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnValueChanged)(::core::mem::transmute_copy(self), storyboard.into_param().abi(), variable.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(newvalue)), ::core::mem::transmute(::windows::core::as_ptr_or_null(previousvalue)), PARAM4 as _).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariableChangeHandler2> for ::windows::core::IUnknown {
@@ -2635,8 +2635,8 @@ pub struct IUIAnimationVariableIntegerChangeHandler_Vtbl {
 pub struct IUIAnimationVariableIntegerChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationVariableIntegerChangeHandler2 {
     #[doc = "*Required features: 'Win32_UI_Animation'*"]
-    pub unsafe fn OnIntegerValueChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard2>, Param1: ::windows::core::IntoParam<'a, IUIAnimationVariable2>>(&self, storyboard: Param0, variable: Param1, newvalue: &[i32], previousvalue: &[i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIntegerValueChanged)(::core::mem::transmute_copy(self), storyboard.into_param().abi(), variable.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(newvalue)), ::core::mem::transmute(::windows::core::as_ptr_or_null(previousvalue)), previousvalue.len() as _).ok()
+    pub unsafe fn OnIntegerValueChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard2>, Param1: ::windows::core::IntoParam<'a, IUIAnimationVariable2>, const PARAM4: usize>(&self, storyboard: Param0, variable: Param1, newvalue: &[i32; PARAM4], previousvalue: &[i32; PARAM4]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnIntegerValueChanged)(::core::mem::transmute_copy(self), storyboard.into_param().abi(), variable.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(newvalue)), ::core::mem::transmute(::windows::core::as_ptr_or_null(previousvalue)), PARAM4 as _).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariableIntegerChangeHandler2> for ::windows::core::IUnknown {

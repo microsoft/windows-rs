@@ -3294,7 +3294,7 @@ pub unsafe fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SY
         extern "system" {
             fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, pwsztime: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WinHttpTimeFromSystemTime(::core::mem::transmute(pst), ::core::mem::transmute(pwsztime.as_mut_ptr())))
+        ::core::mem::transmute(WinHttpTimeFromSystemTime(::core::mem::transmute(pst), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztime))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

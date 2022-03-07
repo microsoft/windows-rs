@@ -3130,7 +3130,7 @@ impl IFEDictionary {
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Open(&self, pchdictpath: &mut [u8; 260], pshf: *mut IMESHF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchdictpath.as_mut_ptr()), ::core::mem::transmute(pshf)).ok()
+        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchdictpath)), ::core::mem::transmute(pshf)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -3139,7 +3139,7 @@ impl IFEDictionary {
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHeader(&self, pchdictpath: &mut [u8; 260], pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetHeader)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchdictpath.as_mut_ptr()), ::core::mem::transmute(pshf), ::core::mem::transmute(pjfmt), ::core::mem::transmute(pultype)).ok()
+        (::windows::core::Interface::vtable(self).GetHeader)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchdictpath)), ::core::mem::transmute(pshf), ::core::mem::transmute(pjfmt), ::core::mem::transmute(pultype)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

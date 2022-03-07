@@ -914,14 +914,14 @@ pub unsafe fn AVISaveA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::cor
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveOptions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, uiflags: u32, ppavi: &[::core::option::Option<IAVIStream>], plpoptions: &mut [*mut AVICOMPRESSOPTIONS]) -> isize {
+pub unsafe fn AVISaveOptions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, const PARAM2: usize>(hwnd: Param0, uiflags: u32, ppavi: &[::core::option::Option<IAVIStream>; PARAM2], plpoptions: &mut [*mut AVICOMPRESSOPTIONS; PARAM2]) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
         }
-        ::core::mem::transmute(AVISaveOptions(hwnd.into_param().abi(), ::core::mem::transmute(uiflags), plpoptions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppavi)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(plpoptions))))
+        ::core::mem::transmute(AVISaveOptions(hwnd.into_param().abi(), ::core::mem::transmute(uiflags), PARAM2 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppavi)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(plpoptions))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -943,14 +943,14 @@ pub unsafe fn AVISaveOptionsFree(plpoptions: &[*const AVICOMPRESSOPTIONS]) -> ::
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, ppavi: &[::core::option::Option<IAVIStream>], plpoptions: &[*const AVICOMPRESSOPTIONS]) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, const PARAM3: usize>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, ppavi: &[::core::option::Option<IAVIStream>; PARAM3], plpoptions: &[*const AVICOMPRESSOPTIONS; PARAM3]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVISaveVA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
-        AVISaveVA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), plpoptions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppavi)), ::core::mem::transmute(::windows::core::as_ptr_or_null(plpoptions))).ok()
+        AVISaveVA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), PARAM3 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppavi)), ::core::mem::transmute(::windows::core::as_ptr_or_null(plpoptions))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -958,14 +958,14 @@ pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::co
 #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, ppavi: &[::core::option::Option<IAVIStream>], plpoptions: &[*const AVICOMPRESSOPTIONS]) -> ::windows::core::Result<()> {
+pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, const PARAM3: usize>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, ppavi: &[::core::option::Option<IAVIStream>; PARAM3], plpoptions: &[*const AVICOMPRESSOPTIONS; PARAM3]) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVISaveVW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
-        AVISaveVW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), plpoptions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppavi)), ::core::mem::transmute(::windows::core::as_ptr_or_null(plpoptions))).ok()
+        AVISaveVW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), PARAM3 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppavi)), ::core::mem::transmute(::windows::core::as_ptr_or_null(plpoptions))).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18052,7 +18052,7 @@ pub unsafe fn mmioOpenA(pszfilename: &mut [u8; 128], pmmioinfo: *mut MMIOINFO, f
         extern "system" {
             fn mmioOpenA(pszfilename: ::windows::core::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
         }
-        ::core::mem::transmute(mmioOpenA(::core::mem::transmute(pszfilename.as_mut_ptr()), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
+        ::core::mem::transmute(mmioOpenA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszfilename)), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18067,7 +18067,7 @@ pub unsafe fn mmioOpenW(pszfilename: &mut [u16; 128], pmmioinfo: *mut MMIOINFO, 
         extern "system" {
             fn mmioOpenW(pszfilename: ::windows::core::PWSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
         }
-        ::core::mem::transmute(mmioOpenW(::core::mem::transmute(pszfilename.as_mut_ptr()), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
+        ::core::mem::transmute(mmioOpenW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszfilename)), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

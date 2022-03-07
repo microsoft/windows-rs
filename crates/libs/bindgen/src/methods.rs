@@ -260,88 +260,52 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
     }
 }
 
-fn prep_win32_params(params: &[MethodParam]) -> Vec<(&MethodParam, Option<ArrayInfo>)> {
-    let mut has_array_info = false;
-
-    let mut params: Vec<(&MethodParam, Option<ArrayInfo>)> = params
-        .iter()
-        .map(|param| {
-            let array_info = param.def.array_info();
-            has_array_info |= array_info.is_some();
-            (param, array_info)
-        })
-        .collect();
-
-    if has_array_info {
-        for position in 0..params.len() {
-            // Point len params back to the corresponding ptr params.
-            if let Some(ArrayInfo::RelativeLen(relative)) = params[position].1 {
-                // The len params must be input only.
-                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
-                if !params[relative].0.def.flags().output() && position != relative {
-                    params[relative].1 = Some(ArrayInfo::RelativePtr(position));
-                } else {
-                    params[position].1 = None;
-                }
-            }
-        }
-
-        let mut sets = BTreeMap::<usize, Vec<usize>>::new();
-
-        // Finds sets of ptr params pointing at the same len param.
-        for (position, param) in params.iter().enumerate() {
-            if let Some(ArrayInfo::RelativeLen(relative)) = param.1 {
-                sets.entry(relative).or_default().push(position);
-            }
-        }
-
-        // Remove any sets that have optional ptr params.
-        for (len, ptrs) in sets {
-            if ptrs.len() > 1 && ptrs.iter().any(|ptr| params[*ptr].0.def.flags().optional()) {
-                params[len].1 = None;
-                for ptr in ptrs {
-                    params[ptr].1 = None;
-                }
-            }
-        }
-    }
-
-    params
-}
-
 pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut tokens = quote! {};
 
-    for (position, (param, array_info)) in prep_win32_params(params).iter().enumerate() {
+    for (position, param) in params.iter().enumerate() {
         let name = gen_param_name(&param.def);
 
-        if let Some(ArrayInfo::Fixed(fixed)) = array_info {
-            if *fixed > 0 && param.def.free_with().is_none() {
+        if let Some(ArrayInfo::Fixed(fixed)) = param.array_info {
+            if fixed > 0 && param.def.free_with().is_none() {
                 let ty = param.ty.deref();
                 let ty = gen_default_type(&ty, gen);
-                let len = Literal::u32_unsuffixed(*fixed as _);
+                let len = Literal::u32_unsuffixed(fixed as _);
 
-                if param.def.flags().output() {
-                    tokens.combine(&quote! { #name: &mut [#ty; #len], });
+                let ty = if param.def.flags().output() {
+                    quote! { &mut [#ty; #len] }
                 } else {
-                    tokens.combine(&quote! { #name: &[#ty; #len], });
-                }
+                    quote! { &[#ty; #len] }
+                };
+
+                tokens.combine(&quote! { #name: #ty, });
                 continue;
             }
         }
 
-        if let Some(ArrayInfo::RelativeLen(_)) = array_info {
+        if let Some(ArrayInfo::RelativeLen(len)) = param.array_info {
             let ty = param.ty.deref();
             let ty = gen_default_type(&ty, gen);
-            if param.def.flags().output() {
-                tokens.combine(&quote! { #name: &mut [#ty], });
+            let ty = if let Some(ArrayInfo::RelativePtr(Some(_))) = params[len].array_info {
+                if param.def.flags().output() {
+                    quote! { &mut [#ty] }
+                } else {
+                    quote! { &[#ty] }
+                }
             } else {
-                tokens.combine(&quote! { #name: &[#ty], });
-            }
+                let len: TokenStream = format!("PARAM{}", len).into();
+                if param.def.flags().output() {
+                    quote! { &mut [#ty; #len] }
+                } else {
+                    quote! { &[#ty; #len] }
+                }
+            };
+
+            tokens.combine(&quote! { #name: #ty, });
             continue;
         }
 
-        if let Some(ArrayInfo::RelativePtr(_)) = array_info {
+        if let Some(ArrayInfo::RelativePtr(_)) = param.array_info {
             continue;
         }
 
@@ -361,32 +325,41 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 pub fn gen_win32_args(params: &[MethodParam]) -> TokenStream {
     let mut tokens = quote! {};
 
-    for (param, array_info) in prep_win32_params(params) {
+    for (position, param) in params.iter().enumerate() {
         let name = gen_param_name(&param.def);
 
-        if let Some(ArrayInfo::Fixed(fixed)) = array_info {
+        if let Some(ArrayInfo::Fixed(fixed)) = param.array_info {
             if fixed > 0 && param.def.free_with().is_none() {
-                if param.def.flags().output() {
-                    tokens.combine(&quote! { ::core::mem::transmute(#name.as_mut_ptr()), });
+                let signature = if param.def.flags().output() {
+                    quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
                 } else {
-                    tokens.combine(&quote! { ::core::mem::transmute(#name.as_ptr()), });
-                }
+                    quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
+                };
+
+                tokens.combine(&signature);
                 continue;
             }
         }
 
-        if let Some(ArrayInfo::RelativeLen(_)) = array_info {
-            if param.def.flags().output() {
-                tokens.combine(&quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), });
+        if let Some(ArrayInfo::RelativeLen(_)) = param.array_info {
+            let signature = if param.def.flags().output() {
+                quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
             } else {
-                tokens.combine(&quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), });
-            }
+                quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
+            };
+
+            tokens.combine(&signature);
             continue;
         }
 
-        if let Some(ArrayInfo::RelativePtr(relative)) = array_info {
-            let name = gen_param_name(&params[relative].def);
-            tokens.combine(&quote! { #name.len() as _, });
+        if let Some(ArrayInfo::RelativePtr(relative)) = param.array_info {
+            if let Some(relative) = relative {
+                let name = gen_param_name(&params[relative].def);
+                tokens.combine(&quote! { #name.len() as _, });
+            } else {
+                let len: TokenStream = format!("PARAM{}", position).into();
+                tokens.combine(&quote! { #len as _, });
+            }
             continue;
         }
 

@@ -143,7 +143,7 @@ pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: &mut [u8; 256])
         extern "system" {
             fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS;
         }
-        ::core::mem::transmute(DceErrorInqTextA(::core::mem::transmute(rpcstatus), ::core::mem::transmute(errortext.as_mut_ptr())))
+        ::core::mem::transmute(DceErrorInqTextA(::core::mem::transmute(rpcstatus), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -157,7 +157,7 @@ pub unsafe fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: &mut [u16; 256]
         extern "system" {
             fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RPC_STATUS;
         }
-        ::core::mem::transmute(DceErrorInqTextW(::core::mem::transmute(rpcstatus), ::core::mem::transmute(errortext.as_mut_ptr())))
+        ::core::mem::transmute(DceErrorInqTextW(::core::mem::transmute(rpcstatus), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

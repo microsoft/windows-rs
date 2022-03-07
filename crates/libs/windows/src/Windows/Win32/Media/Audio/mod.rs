@@ -13237,7 +13237,7 @@ pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: u32, pwkya: *const u16, fucache: u32) -> u32;
         }
-        ::core::mem::transmute(midiOutCacheDrumPatches(hmo.into_param().abi(), ::core::mem::transmute(upatch), ::core::mem::transmute(pwkya.as_ptr()), ::core::mem::transmute(fucache)))
+        ::core::mem::transmute(midiOutCacheDrumPatches(hmo.into_param().abi(), ::core::mem::transmute(upatch), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwkya)), ::core::mem::transmute(fucache)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13251,7 +13251,7 @@ pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::core::IntoParam<'a, HMI
         extern "system" {
             fn midiOutCachePatches(hmo: HMIDIOUT, ubank: u32, pwpa: *const u16, fucache: u32) -> u32;
         }
-        ::core::mem::transmute(midiOutCachePatches(hmo.into_param().abi(), ::core::mem::transmute(ubank), ::core::mem::transmute(pwpa.as_ptr()), ::core::mem::transmute(fucache)))
+        ::core::mem::transmute(midiOutCachePatches(hmo.into_param().abi(), ::core::mem::transmute(ubank), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwpa)), ::core::mem::transmute(fucache)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

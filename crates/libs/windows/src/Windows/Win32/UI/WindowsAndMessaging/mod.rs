@@ -10745,7 +10745,7 @@ pub unsafe fn PrivateExtractIconsA(szfilename: &[u8; 260], niconindex: i32, cxic
         extern "system" {
             fn PrivateExtractIconsA(szfilename: ::windows::core::PCSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
         }
-        ::core::mem::transmute(PrivateExtractIconsA(::core::mem::transmute(szfilename.as_ptr()), ::core::mem::transmute(niconindex), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon), ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), ::core::mem::transmute(flags)))
+        ::core::mem::transmute(PrivateExtractIconsA(::core::mem::transmute(::windows::core::as_ptr_or_null(szfilename)), ::core::mem::transmute(niconindex), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon), ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10759,7 +10759,7 @@ pub unsafe fn PrivateExtractIconsW(szfilename: &[u16; 260], niconindex: i32, cxi
         extern "system" {
             fn PrivateExtractIconsW(szfilename: ::windows::core::PCWSTR, niconindex: i32, cxicon: i32, cyicon: i32, phicon: *mut HICON, piconid: *mut u32, nicons: u32, flags: u32) -> u32;
         }
-        ::core::mem::transmute(PrivateExtractIconsW(::core::mem::transmute(szfilename.as_ptr()), ::core::mem::transmute(niconindex), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon), ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), ::core::mem::transmute(flags)))
+        ::core::mem::transmute(PrivateExtractIconsW(::core::mem::transmute(::windows::core::as_ptr_or_null(szfilename)), ::core::mem::transmute(niconindex), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon), ::core::mem::transmute(phicon), ::core::mem::transmute(piconid), ::core::mem::transmute(nicons), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13634,14 +13634,14 @@ pub unsafe fn SetPropW<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSysColors(lpaelements: &[i32], lpargbvalues: &[u32]) -> super::super::Foundation::BOOL {
+pub unsafe fn SetSysColors<'a, const PARAM0: usize>(lpaelements: &[i32; PARAM0], lpargbvalues: &[u32; PARAM0]) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetSysColors(lpargbvalues.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpaelements)), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpargbvalues))))
+        ::core::mem::transmute(SetSysColors(PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpaelements)), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpargbvalues))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

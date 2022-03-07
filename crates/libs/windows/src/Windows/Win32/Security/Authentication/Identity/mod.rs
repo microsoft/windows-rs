@@ -21996,14 +21996,14 @@ pub unsafe fn TokenBindingGenerateIDForUri<'a, Param1: ::windows::core::IntoPara
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 #[inline]
-pub unsafe fn TokenBindingGenerateMessage(tokenbindings: &[*const ::core::ffi::c_void], tokenbindingssize: &[u32], tokenbindingmessage: *mut *mut ::core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> i32 {
+pub unsafe fn TokenBindingGenerateMessage<'a, const PARAM2: usize>(tokenbindings: &[*const ::core::ffi::c_void; PARAM2], tokenbindingssize: &[u32; PARAM2], tokenbindingmessage: *mut *mut ::core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn TokenBindingGenerateMessage(tokenbindings: *const *const ::core::ffi::c_void, tokenbindingssize: *const u32, tokenbindingscount: u32, tokenbindingmessage: *mut *mut ::core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> i32;
         }
-        ::core::mem::transmute(TokenBindingGenerateMessage(::core::mem::transmute(::windows::core::as_ptr_or_null(tokenbindings)), ::core::mem::transmute(::windows::core::as_ptr_or_null(tokenbindingssize)), tokenbindingssize.len() as _, ::core::mem::transmute(tokenbindingmessage), ::core::mem::transmute(tokenbindingmessagesize)))
+        ::core::mem::transmute(TokenBindingGenerateMessage(::core::mem::transmute(::windows::core::as_ptr_or_null(tokenbindings)), ::core::mem::transmute(::windows::core::as_ptr_or_null(tokenbindingssize)), PARAM2 as _, ::core::mem::transmute(tokenbindingmessage), ::core::mem::transmute(tokenbindingmessagesize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

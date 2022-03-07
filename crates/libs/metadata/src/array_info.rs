@@ -2,5 +2,5 @@
 pub enum ArrayInfo {
     Fixed(usize),
     RelativeLen(usize),
-    RelativePtr(usize),
+    RelativePtr(Option<usize>),
 }

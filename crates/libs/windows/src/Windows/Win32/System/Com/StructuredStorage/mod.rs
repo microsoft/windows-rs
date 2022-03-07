@@ -1630,13 +1630,13 @@ pub struct IPropertyBag2(::windows::core::IUnknown);
 impl IPropertyBag2 {
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read<'a, Param2: ::windows::core::IntoParam<'a, super::IErrorLog>>(&self, ppropbag: &[PROPBAG2], perrlog: Param2, pvarvalue: &mut [super::VARIANT], phrerror: &mut [::windows::core::HRESULT]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), phrerror.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppropbag)), perrlog.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvarvalue)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(phrerror))).ok()
+    pub unsafe fn Read<'a, const PARAM0: usize, Param2: ::windows::core::IntoParam<'a, super::IErrorLog>>(&self, ppropbag: &[PROPBAG2; PARAM0], perrlog: Param2, pvarvalue: &mut [super::VARIANT; PARAM0], phrerror: &mut [::windows::core::HRESULT; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppropbag)), perrlog.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvarvalue)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(phrerror))).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write(&self, ppropbag: &[PROPBAG2], pvarvalue: &[super::VARIANT]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Write)(::core::mem::transmute_copy(self), pvarvalue.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppropbag)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvarvalue))).ok()
+    pub unsafe fn Write<'a, const PARAM0: usize>(&self, ppropbag: &[PROPBAG2; PARAM0], pvarvalue: &[super::VARIANT; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Write)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppropbag)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvarvalue))).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub unsafe fn CountProperties(&self) -> ::windows::core::Result<u32> {
@@ -1787,25 +1787,25 @@ pub struct IPropertyStorage(::windows::core::IUnknown);
 impl IPropertyStorage {
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReadMultiple(&self, rgpspec: &[PROPSPEC], rgpropvar: &mut [PROPVARIANT]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadMultiple)(::core::mem::transmute_copy(self), rgpropvar.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpropvar))).ok()
+    pub unsafe fn ReadMultiple<'a, const PARAM0: usize>(&self, rgpspec: &[PROPSPEC; PARAM0], rgpropvar: &mut [PROPVARIANT; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadMultiple)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpropvar))).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteMultiple(&self, rgpspec: &[PROPSPEC], rgpropvar: &[PROPVARIANT], propidnamefirst: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteMultiple)(::core::mem::transmute_copy(self), rgpropvar.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropvar)), ::core::mem::transmute(propidnamefirst)).ok()
+    pub unsafe fn WriteMultiple<'a, const PARAM0: usize>(&self, rgpspec: &[PROPSPEC; PARAM0], rgpropvar: &[PROPVARIANT; PARAM0], propidnamefirst: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteMultiple)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropvar)), ::core::mem::transmute(propidnamefirst)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub unsafe fn DeleteMultiple(&self, rgpspec: &[PROPSPEC]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteMultiple)(::core::mem::transmute_copy(self), rgpspec.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec))).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-    pub unsafe fn ReadPropertyNames(&self, rgpropid: &[u32], rglpwstrname: &mut [::windows::core::PWSTR]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadPropertyNames)(::core::mem::transmute_copy(self), rglpwstrname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropid)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rglpwstrname))).ok()
+    pub unsafe fn ReadPropertyNames<'a, const PARAM0: usize>(&self, rgpropid: &[u32; PARAM0], rglpwstrname: &mut [::windows::core::PWSTR; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadPropertyNames)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropid)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rglpwstrname))).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-    pub unsafe fn WritePropertyNames(&self, rgpropid: &[u32], rglpwstrname: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WritePropertyNames)(::core::mem::transmute_copy(self), rglpwstrname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropid)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rglpwstrname))).ok()
+    pub unsafe fn WritePropertyNames<'a, const PARAM0: usize>(&self, rgpropid: &[u32; PARAM0], rglpwstrname: &[::windows::core::PWSTR; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WritePropertyNames)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropid)), ::core::mem::transmute(::windows::core::as_ptr_or_null(rglpwstrname))).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub unsafe fn DeletePropertyNames(&self, rgpropid: &[u32]) -> ::windows::core::Result<()> {

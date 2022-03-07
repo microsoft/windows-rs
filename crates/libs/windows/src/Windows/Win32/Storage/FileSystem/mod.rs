@@ -7324,7 +7324,7 @@ pub unsafe fn GetExpandedNameA<'a, Param0: ::windows::core::IntoParam<'a, ::wind
         extern "system" {
             fn GetExpandedNameA(lpszsource: ::windows::core::PCSTR, lpszbuffer: ::windows::core::PSTR) -> i32;
         }
-        ::core::mem::transmute(GetExpandedNameA(lpszsource.into_param().abi(), ::core::mem::transmute(lpszbuffer.as_mut_ptr())))
+        ::core::mem::transmute(GetExpandedNameA(lpszsource.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszbuffer))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7338,7 +7338,7 @@ pub unsafe fn GetExpandedNameW<'a, Param0: ::windows::core::IntoParam<'a, ::wind
         extern "system" {
             fn GetExpandedNameW(lpszsource: ::windows::core::PCWSTR, lpszbuffer: ::windows::core::PWSTR) -> i32;
         }
-        ::core::mem::transmute(GetExpandedNameW(lpszsource.into_param().abi(), ::core::mem::transmute(lpszbuffer.as_mut_ptr())))
+        ::core::mem::transmute(GetExpandedNameW(lpszsource.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszbuffer))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8057,7 +8057,7 @@ pub unsafe fn GetTempFileNameA<'a, Param0: ::windows::core::IntoParam<'a, ::wind
         extern "system" {
             fn GetTempFileNameA(lppathname: ::windows::core::PCSTR, lpprefixstring: ::windows::core::PCSTR, uunique: u32, lptempfilename: ::windows::core::PSTR) -> u32;
         }
-        ::core::mem::transmute(GetTempFileNameA(lppathname.into_param().abi(), lpprefixstring.into_param().abi(), ::core::mem::transmute(uunique), ::core::mem::transmute(lptempfilename.as_mut_ptr())))
+        ::core::mem::transmute(GetTempFileNameA(lppathname.into_param().abi(), lpprefixstring.into_param().abi(), ::core::mem::transmute(uunique), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptempfilename))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8071,7 +8071,7 @@ pub unsafe fn GetTempFileNameW<'a, Param0: ::windows::core::IntoParam<'a, ::wind
         extern "system" {
             fn GetTempFileNameW(lppathname: ::windows::core::PCWSTR, lpprefixstring: ::windows::core::PCWSTR, uunique: u32, lptempfilename: ::windows::core::PWSTR) -> u32;
         }
-        ::core::mem::transmute(GetTempFileNameW(lppathname.into_param().abi(), lpprefixstring.into_param().abi(), ::core::mem::transmute(uunique), ::core::mem::transmute(lptempfilename.as_mut_ptr())))
+        ::core::mem::transmute(GetTempFileNameW(lppathname.into_param().abi(), lpprefixstring.into_param().abi(), ::core::mem::transmute(uunique), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lptempfilename))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

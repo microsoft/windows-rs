@@ -1011,7 +1011,7 @@ pub unsafe fn CreateUrlCacheEntryA<'a, Param0: ::windows::core::IntoParam<'a, ::
         extern "system" {
             fn CreateUrlCacheEntryA(lpszurlname: ::windows::core::PCSTR, dwexpectedfilesize: u32, lpszfileextension: ::windows::core::PCSTR, lpszfilename: ::windows::core::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateUrlCacheEntryA(lpszurlname.into_param().abi(), ::core::mem::transmute(dwexpectedfilesize), lpszfileextension.into_param().abi(), ::core::mem::transmute(lpszfilename.as_mut_ptr()), ::core::mem::transmute(dwreserved)))
+        ::core::mem::transmute(CreateUrlCacheEntryA(lpszurlname.into_param().abi(), ::core::mem::transmute(dwexpectedfilesize), lpszfileextension.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilename)), ::core::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1026,7 +1026,7 @@ pub unsafe fn CreateUrlCacheEntryExW<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn CreateUrlCacheEntryExW(lpszurlname: ::windows::core::PCWSTR, dwexpectedfilesize: u32, lpszfileextension: ::windows::core::PCWSTR, lpszfilename: ::windows::core::PWSTR, dwreserved: u32, fpreserveincomingfilename: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateUrlCacheEntryExW(lpszurlname.into_param().abi(), ::core::mem::transmute(dwexpectedfilesize), lpszfileextension.into_param().abi(), ::core::mem::transmute(lpszfilename.as_mut_ptr()), ::core::mem::transmute(dwreserved), fpreserveincomingfilename.into_param().abi()))
+        ::core::mem::transmute(CreateUrlCacheEntryExW(lpszurlname.into_param().abi(), ::core::mem::transmute(dwexpectedfilesize), lpszfileextension.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilename)), ::core::mem::transmute(dwreserved), fpreserveincomingfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1041,7 +1041,7 @@ pub unsafe fn CreateUrlCacheEntryW<'a, Param0: ::windows::core::IntoParam<'a, ::
         extern "system" {
             fn CreateUrlCacheEntryW(lpszurlname: ::windows::core::PCWSTR, dwexpectedfilesize: u32, lpszfileextension: ::windows::core::PCWSTR, lpszfilename: ::windows::core::PWSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateUrlCacheEntryW(lpszurlname.into_param().abi(), ::core::mem::transmute(dwexpectedfilesize), lpszfileextension.into_param().abi(), ::core::mem::transmute(lpszfilename.as_mut_ptr()), ::core::mem::transmute(dwreserved)))
+        ::core::mem::transmute(CreateUrlCacheEntryW(lpszurlname.into_param().abi(), ::core::mem::transmute(dwexpectedfilesize), lpszfileextension.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilename)), ::core::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10423,14 +10423,14 @@ pub unsafe fn UpdateUrlCacheContentPath<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UrlCacheCheckEntriesExist(rgpwszurls: &[::windows::core::PWSTR], rgfexist: &mut [super::super::Foundation::BOOL]) -> u32 {
+pub unsafe fn UrlCacheCheckEntriesExist<'a, const PARAM1: usize>(rgpwszurls: &[::windows::core::PWSTR; PARAM1], rgfexist: &mut [super::super::Foundation::BOOL; PARAM1]) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn UrlCacheCheckEntriesExist(rgpwszurls: *const ::windows::core::PWSTR, centries: u32, rgfexist: *mut super::super::Foundation::BOOL) -> u32;
         }
-        ::core::mem::transmute(UrlCacheCheckEntriesExist(::core::mem::transmute(::windows::core::as_ptr_or_null(rgpwszurls)), rgfexist.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgfexist))))
+        ::core::mem::transmute(UrlCacheCheckEntriesExist(::core::mem::transmute(::windows::core::as_ptr_or_null(rgpwszurls)), PARAM1 as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgfexist))))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

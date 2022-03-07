@@ -9877,8 +9877,8 @@ impl ITfLangBarItemMgr {
         (::windows::core::Interface::vtable(self).GetItemFloatingRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwthreadid), ::core::mem::transmute(rguid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-    pub unsafe fn GetItemsStatus(&self, prgguid: &[::windows::core::GUID], pdwstatus: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetItemsStatus)(::core::mem::transmute_copy(self), pdwstatus.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgguid)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwstatus))).ok()
+    pub unsafe fn GetItemsStatus<'a, const PARAM0: usize>(&self, prgguid: &[::windows::core::GUID; PARAM0], pdwstatus: &mut [u32; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetItemsStatus)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgguid)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwstatus))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn GetItemNum(&self) -> ::windows::core::Result<u32> {
@@ -9886,12 +9886,12 @@ impl ITfLangBarItemMgr {
         (::windows::core::Interface::vtable(self).GetItemNum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-    pub unsafe fn GetItems(&self, ppitem: &mut [::core::option::Option<ITfLangBarItem>], pinfo: &mut [TF_LANGBARITEMINFO], pdwstatus: &mut [u32], pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetItems)(::core::mem::transmute_copy(self), pdwstatus.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppitem)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pinfo)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwstatus)), ::core::mem::transmute(pcfetched)).ok()
+    pub unsafe fn GetItems<'a, const PARAM0: usize>(&self, ppitem: &mut [::core::option::Option<ITfLangBarItem>; PARAM0], pinfo: &mut [TF_LANGBARITEMINFO; PARAM0], pdwstatus: &mut [u32; PARAM0], pcfetched: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetItems)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppitem)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pinfo)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwstatus)), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-    pub unsafe fn AdviseItemsSink(&self, ppunk: &[::core::option::Option<ITfLangBarItemSink>], pguiditem: &[::windows::core::GUID], pdwcookie: &mut [u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AdviseItemsSink)(::core::mem::transmute_copy(self), pdwcookie.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunk)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pguiditem)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwcookie))).ok()
+    pub unsafe fn AdviseItemsSink<'a, const PARAM0: usize>(&self, ppunk: &[::core::option::Option<ITfLangBarItemSink>; PARAM0], pguiditem: &[::windows::core::GUID; PARAM0], pdwcookie: &mut [u32; PARAM0]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AdviseItemsSink)(::core::mem::transmute_copy(self), PARAM0 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppunk)), ::core::mem::transmute(::windows::core::as_ptr_or_null(pguiditem)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pdwcookie))).ok()
     }
     #[doc = "*Required features: 'Win32_UI_TextServices'*"]
     pub unsafe fn UnadviseItemsSink(&self, pdwcookie: &[u32]) -> ::windows::core::Result<()> {

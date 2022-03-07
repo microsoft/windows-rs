@@ -6679,14 +6679,14 @@ pub unsafe fn SHPropStgReadMultiple<'a, Param0: ::windows::core::IntoParam<'a, s
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn SHPropStgWriteMultiple<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyStorage>>(pps: Param0, pucodepage: *mut u32, rgpspec: &[super::super::super::System::Com::StructuredStorage::PROPSPEC], rgvar: &mut [super::super::super::System::Com::StructuredStorage::PROPVARIANT], propidnamefirst: u32) -> ::windows::core::Result<()> {
+pub unsafe fn SHPropStgWriteMultiple<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyStorage>, const PARAM2: usize>(pps: Param0, pucodepage: *mut u32, rgpspec: &[super::super::super::System::Com::StructuredStorage::PROPSPEC; PARAM2], rgvar: &mut [super::super::super::System::Com::StructuredStorage::PROPVARIANT; PARAM2], propidnamefirst: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SHPropStgWriteMultiple(pps: ::windows::core::RawPtr, pucodepage: *mut u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::HRESULT;
         }
-        SHPropStgWriteMultiple(pps.into_param().abi(), ::core::mem::transmute(pucodepage), rgvar.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgvar)), ::core::mem::transmute(propidnamefirst)).ok()
+        SHPropStgWriteMultiple(pps.into_param().abi(), ::core::mem::transmute(pucodepage), PARAM2 as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgvar)), ::core::mem::transmute(propidnamefirst)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
