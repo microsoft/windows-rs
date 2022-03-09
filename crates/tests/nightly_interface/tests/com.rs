@@ -1,6 +1,4 @@
 #![allow(non_snake_case)]
-#![feature(const_fn_trait_bound)]
-#![feature(const_fn_fn_ptr_basics)]
 
 use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
 
