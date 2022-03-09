@@ -3,7 +3,7 @@ use bindings::*;
 
 /// An error code value returned by most COM functions.
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Default, Eq, PartialEq)]
 #[must_use]
 #[allow(non_camel_case_types)]
 pub struct HRESULT(pub i32);
@@ -107,6 +107,12 @@ impl<T> core::convert::From<Result<T>> for HRESULT {
         }
 
         HRESULT(0)
+    }
+}
+
+impl core::fmt::Debug for HRESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.write_fmt(format_args!("HRESULT(0x{:08X})", self.0))
     }
 }
 
