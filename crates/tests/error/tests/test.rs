@@ -12,6 +12,9 @@ fn hresult() -> Result<()> {
     assert_eq!(S_OK.is_ok(), true);
     assert_eq!(S_OK.is_err(), false);
 
+    assert_eq!(format!("{:?}", S_OK), "HRESULT(0x00000000)");
+    assert_eq!(format!("{:?}", E_INVALIDARG), "HRESULT(0x80070057)");
+
     S_OK.ok()
 }
 
@@ -29,6 +32,9 @@ fn win32_error() -> Result<()> {
     assert_eq!(ERROR_SUCCESS.is_ok(), true);
     assert_eq!(ERROR_SUCCESS.is_err(), false);
 
+    assert_eq!(format!("{:?}", ERROR_SUCCESS), "WIN32_ERROR(0)");
+    assert_eq!(format!("{:?}", ERROR_BAD_ARGUMENTS), "WIN32_ERROR(160)");
+
     ERROR_SUCCESS.ok()
 }
 
@@ -44,6 +50,9 @@ fn ntstatus() -> Result<()> {
     assert_eq!(STATUS_NOT_FOUND.is_err(), true);
     assert_eq!(STATUS_SUCCESS.is_ok(), true);
     assert_eq!(STATUS_SUCCESS.is_err(), false);
+
+    assert_eq!(format!("{:?}", STATUS_SUCCESS), "NTSTATUS(0x00000000)");
+    assert_eq!(format!("{:?}", STATUS_NOT_FOUND), "NTSTATUS(0xC0000225)");
 
     STATUS_SUCCESS.ok()
 }
