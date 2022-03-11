@@ -114,8 +114,9 @@ impl Interface {
                         quote! { #pat }
                     })
                     .collect::<Vec<_>>();
+                let ret = &m.ret;
                 quote! {
-                    #vis unsafe fn #name(&self, #(#args)*) -> ::windows::core::HRESULT {
+                    #vis unsafe fn #name(&self, #(#args)*) #ret {
                         (::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), #(#params)*)
                     }
                 }
@@ -141,9 +142,10 @@ impl Interface {
                     panic!("TODO: handle methods with non-pass through arguments");
                 }
                 let args = m.gen_args();
+                let ret = &m.ret;
                 quote! {
                     #(#docs)*
-                    unsafe fn #name(&self, #(#args)*) -> ::windows::core::HRESULT;
+                    unsafe fn #name(&self, #(#args)*) #ret;
                 }
             })
             .collect::<Vec<_>>();
@@ -190,8 +192,9 @@ impl Interface {
                         quote! { #pat }
                     })
                     .collect::<Vec<_>>();
+                let ret = &m.ret;
                 quote! {
-                    unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) -> ::windows::core::HRESULT {
+                    unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
                         let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
                         let this = (*this).get_impl() as *mut Impl;
                         (*this).#name(#(#params),*).into()

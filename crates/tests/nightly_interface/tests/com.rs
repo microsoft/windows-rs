@@ -11,7 +11,7 @@ pub unsafe trait ICustomUri: IUnknown {
     unsafe fn HasProperty(&self) -> HRESULT;
     unsafe fn GetAbsoluteUri(&self) -> HRESULT;
     unsafe fn GetAuthority(&self) -> HRESULT;
-    unsafe fn GetDisplayUri(&self) -> HRESULT;
+    unsafe fn GetDisplayUri(&self) -> i32;
     unsafe fn GetDomain(&self, value: *mut BSTR) -> HRESULT;
     // etc
 }
@@ -38,7 +38,7 @@ impl ICustomUri_Impl for CustomUri {
     unsafe fn GetAuthority(&self) -> HRESULT {
         todo!()
     }
-    unsafe fn GetDisplayUri(&self) -> HRESULT {
+    unsafe fn GetDisplayUri(&self) -> i32 {
         todo!()
     }
     unsafe fn GetDomain(&self, value: *mut BSTR) -> HRESULT {
