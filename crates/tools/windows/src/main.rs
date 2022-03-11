@@ -70,6 +70,7 @@ windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.33.0" }
 [dependencies]
 windows-implement = { path = "../implement",  version = "0.33.0", optional = true }
 windows-interface = { path = "../interface",  version = "0.33.0", optional = true }
+windows-define = { path = "../define",  version = "0.33.0", optional = true }
 
 [features]
 default = []
@@ -77,6 +78,7 @@ deprecated = []
 alloc = []
 implement = ["windows-implement"]
 interface = ["windows-interface"]
+define = ["windows-define"]
 "#
         .as_bytes(),
     )
