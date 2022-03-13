@@ -2,6 +2,7 @@
 // https://en.wikipedia.org/wiki/Portable_Executable
 // https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
 // https://docs.microsoft.com/en-us/archive/msdn-magazine/2002/february/inside-windows-win32-portable-executable-file-format-in-detail
+// https://github.com/dotnet/runtime/blob/94c0a7c13d158eb79d27223f474ec8f8db747f11/src/coreclr/dlls/mscorpe/pewriter.cpp
 
 use std::mem::*;
 use std::slice::*;
@@ -10,7 +11,7 @@ pub fn test() {
     let mut buffer = Vec::<u8>::new();
     let dos = ImageDosHeader::new();
     write(&mut buffer, &dos);
-    let pe = ImageNtHeaderPlus::new();
+    let pe = ImageNtHeader::new();
     write(&mut buffer, &pe);
     let sections = ImageSectionHeader::new();
     write(&mut buffer, &sections);
@@ -18,6 +19,9 @@ pub fn test() {
     write(&mut buffer, &cor);
 
     std::fs::write("/git/test.winmd", buffer).unwrap();
+
+    assert!(size_of::<ImageDosHeader>() == 0x40);
+    assert!(size_of::<ImageOptionalHeader>() == 0xE0);
 }
 
 fn write<T:Sized>(buffer: &mut Vec::<u8>, value: &T) {
@@ -29,21 +33,61 @@ fn write<T:Sized>(buffer: &mut Vec::<u8>, value: &T) {
 impl ImageDosHeader {
     fn new() -> Self {
         Self {
-            signature: IMAGE_DOS_SIGNATURE,
-            lfanew: size_of::<Self>() as _,
+            magic: 0x5A4D, // MZ
+            lfarlc: 0x40, // file address of relocation table
+            lfanew: size_of::<Self>() as _, // file address of next header
             ..Default::default()
         }
     }
 }
 
-impl ImageNtHeaderPlus {
+impl ImageNtHeader {
     fn new() -> Self {
         let mut new = Self {
-            signature: IMAGE_NT_SIGNATURE,
-            ..Default::default()
+            signature: 0x4550, // PE\0\0
+            file_header: ImageFileHeader::new(),
+            optional_header: ImageOptionalHeader::new(),
         };
-        new.optional_header.data_directory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].virtual_address = 0;
+        new.optional_header.data_directory[14].virtual_address = 0;
         new
+    }
+}
+
+impl ImageFileHeader {
+    fn new() -> Self {
+        Self {
+            machine: 0x14C, // x86
+            number_of_sections: 2,
+            size_of_optional_header: size_of::<ImageOptionalHeader>() as _,
+            characteristics: 0x2102, // DLL
+            ..Default::default()
+        }
+    }
+}
+
+impl ImageOptionalHeader {
+    fn new() -> Self {
+        Self {
+            magic: 0x10B, // PE32
+            major_linker_version: 0xB,
+            size_of_initialized_data: 0x400,
+            image_base: 0x400000,
+            section_alignment: 0x1000,
+            file_alignment: 0x200,
+            major_operating_system_version: 6,
+            minor_operating_system_version: 2,
+            major_subsystem_version: 6,
+            minor_subsystem_version: 2,
+            size_of_image: 0, // TODO: needs filling in
+            size_of_headers: 0x200,
+            subsystem: 3, // console
+            dll_characteristics: 0x540,
+            size_of_stack_reserve: 0x100000,
+            size_of_heap_reserve: 0x1000,
+            loader_flags: 0x100000,
+            number_of_rva_and_sizes: 0x10,
+            ..Default::default()
+        }
     }
 }
 
@@ -64,17 +108,10 @@ impl ImageCorHeader {
     }
 }
 
-const IMAGE_DOS_SIGNATURE: u16 = 0x5A4D; // Hi Mark!
-const IMAGE_NT_SIGNATURE: u32 = 0x4550; // PE00
-const MAGIC_PE32: u16 = 0x10B;
-const MAGIC_PE32PLUS: u16 = 0x20B;
-const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: u32 = 14;
-const STORAGE_MAGIC_SIG: u32 = 0x424A_5342;
-
 #[repr(C)]
 #[derive(Default)]
 struct ImageDosHeader {
-    signature: u16,
+    magic: u16,
     cblp: u16,
     cp: u16,
     crlc: u16,
@@ -97,6 +134,21 @@ struct ImageDosHeader {
 
 #[repr(C)]
 #[derive(Default)]
+struct ImageDataDirectory {
+    virtual_address: u32,
+    size: u32,
+}
+
+#[repr(C)]
+#[derive(Default)]
+struct ImageNtHeader {
+    signature: u32,
+    file_header: ImageFileHeader,
+    optional_header: ImageOptionalHeader,
+}
+
+#[repr(C)]
+#[derive(Default)]
 struct ImageFileHeader {
     machine: u16,
     number_of_sections: u16,
@@ -109,22 +161,7 @@ struct ImageFileHeader {
 
 #[repr(C)]
 #[derive(Default)]
-struct ImageDataDirectory {
-    virtual_address: u32,
-    size: u32,
-}
-
-#[repr(C)]
-#[derive(Default)]
-struct ImageNtHeaderPlus {
-    signature: u32,
-    file_header: ImageFileHeader,
-    optional_header: ImageOptionalHeaderPlus,
-}
-
-#[repr(C)]
-#[derive(Default)]
-struct ImageOptionalHeaderPlus {
+struct ImageOptionalHeader {
     magic: u16,
     major_linker_version: u8,
     minor_linker_version: u8,
@@ -133,7 +170,8 @@ struct ImageOptionalHeaderPlus {
     size_of_uninitialized_data: u32,
     address_of_entry_point: u32,
     base_of_code: u32,
-    image_base: u64,
+    base_of_data: u32,
+    image_base: u32,
     section_alignment: u32,
     file_alignment: u32,
     major_operating_system_version: u16,
@@ -148,10 +186,10 @@ struct ImageOptionalHeaderPlus {
     check_sum: u32,
     subsystem: u16,
     dll_characteristics: u16,
-    size_of_stack_reserve: u64,
-    size_of_stack_commit: u64,
-    size_of_heap_reserve: u64,
-    size_of_heap_commit: u64,
+    size_of_stack_reserve: u32,
+    size_of_stack_commit: u32,
+    size_of_heap_reserve: u32,
+    size_of_heap_commit: u32,
     loader_flags: u32,
     number_of_rva_and_sizes: u32,
     data_directory: [ImageDataDirectory; 16],
