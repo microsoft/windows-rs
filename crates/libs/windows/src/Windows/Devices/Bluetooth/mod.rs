@@ -2704,7 +2704,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothServiceCapabilities {
 pub struct BluetoothSignalStrengthFilter(::windows::core::IUnknown);
 impl BluetoothSignalStrengthFilter {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothSignalStrengthFilter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

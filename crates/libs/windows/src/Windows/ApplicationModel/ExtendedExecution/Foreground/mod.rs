@@ -193,7 +193,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedR
 pub struct ExtendedExecutionForegroundSession(::windows::core::IUnknown);
 impl ExtendedExecutionForegroundSession {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ExtendedExecutionForegroundSession, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

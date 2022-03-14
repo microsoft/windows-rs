@@ -4,7 +4,7 @@
 pub struct BluetoothLEAdvertisement(::windows::core::IUnknown);
 impl BluetoothLEAdvertisement {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisement, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -161,7 +161,7 @@ unsafe impl ::core::marker::Sync for BluetoothLEAdvertisement {}
 pub struct BluetoothLEAdvertisementBytePattern(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementBytePattern {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementBytePattern, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -299,7 +299,7 @@ unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementBytePattern {}
 pub struct BluetoothLEAdvertisementDataSection(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementDataSection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementDataSection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -590,7 +590,7 @@ impl ::windows::core::RuntimeName for BluetoothLEAdvertisementDataTypes {
 pub struct BluetoothLEAdvertisementFilter(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementFilter {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementFilter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -762,7 +762,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementFlags {
 pub struct BluetoothLEAdvertisementPublisher(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementPublisher {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementPublisher, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1306,7 +1306,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementType {
 pub struct BluetoothLEAdvertisementWatcher(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementWatcher {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementWatcher, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1660,7 +1660,7 @@ unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherStoppedEvent
 pub struct BluetoothLEManufacturerData(::windows::core::IUnknown);
 impl BluetoothLEManufacturerData {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEManufacturerData, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

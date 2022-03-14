@@ -111,7 +111,7 @@ pub struct IResourceLoaderStatics4_Vtbl {
 pub struct ResourceLoader(::windows::core::IUnknown);
 impl ResourceLoader {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ResourceLoader, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

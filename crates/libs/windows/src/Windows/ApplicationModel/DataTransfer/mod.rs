@@ -146,7 +146,7 @@ impl ::windows::core::RuntimeName for Clipboard {
 pub struct ClipboardContentOptions(::windows::core::IUnknown);
 impl ClipboardContentOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ClipboardContentOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -581,7 +581,7 @@ unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItemsResultStatus {
 pub struct DataPackage(::windows::core::IUnknown);
 impl DataPackage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DataPackage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4269,7 +4269,7 @@ unsafe impl ::core::marker::Sync for ShareTargetInfo {}
 pub struct ShareUIOptions(::windows::core::IUnknown);
 impl ShareUIOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ShareUIOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

@@ -66,7 +66,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapCreateOptions {
 pub struct BitmapImage(::windows::core::IUnknown);
 impl BitmapImage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BitmapImage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1303,7 +1303,7 @@ pub struct IXamlRenderingBackgroundTaskOverrides_Vtbl {
 pub struct RenderTargetBitmap(::windows::core::IUnknown);
 impl RenderTargetBitmap {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RenderTargetBitmap, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1489,7 +1489,7 @@ unsafe impl ::core::marker::Sync for RenderTargetBitmap {}
 pub struct SoftwareBitmapSource(::windows::core::IUnknown);
 impl SoftwareBitmapSource {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SoftwareBitmapSource, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

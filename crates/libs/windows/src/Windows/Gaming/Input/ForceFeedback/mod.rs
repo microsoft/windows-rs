@@ -196,7 +196,7 @@ unsafe impl ::windows::core::RuntimeType for ConditionForceEffectKind {
 pub struct ConstantForceEffect(::windows::core::IUnknown);
 impl ConstantForceEffect {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ConstantForceEffect, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1110,7 +1110,7 @@ unsafe impl ::windows::core::RuntimeType for PeriodicForceEffectKind {
 pub struct RampForceEffect(::windows::core::IUnknown);
 impl RampForceEffect {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RampForceEffect, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

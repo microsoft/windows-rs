@@ -648,7 +648,7 @@ pub struct IMidiTimeCodeMessageFactory_Vtbl {
 pub struct MidiActiveSensingMessage(::windows::core::IUnknown);
 impl MidiActiveSensingMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MidiActiveSensingMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -933,7 +933,7 @@ unsafe impl ::core::marker::Sync for MidiChannelPressureMessage {}
 pub struct MidiContinueMessage(::windows::core::IUnknown);
 impl MidiContinueMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MidiContinueMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2764,7 +2764,7 @@ unsafe impl ::core::marker::Sync for MidiSongSelectMessage {}
 pub struct MidiStartMessage(::windows::core::IUnknown);
 impl MidiStartMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MidiStartMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2896,7 +2896,7 @@ unsafe impl ::core::marker::Sync for MidiStartMessage {}
 pub struct MidiStopMessage(::windows::core::IUnknown);
 impl MidiStopMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MidiStopMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3367,7 +3367,7 @@ unsafe impl ::core::marker::Sync for MidiSystemExclusiveMessage {}
 pub struct MidiSystemResetMessage(::windows::core::IUnknown);
 impl MidiSystemResetMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MidiSystemResetMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3652,7 +3652,7 @@ unsafe impl ::core::marker::Sync for MidiTimeCodeMessage {}
 pub struct MidiTimingClockMessage(::windows::core::IUnknown);
 impl MidiTimingClockMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MidiTimingClockMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3784,7 +3784,7 @@ unsafe impl ::core::marker::Sync for MidiTimingClockMessage {}
 pub struct MidiTuneRequestMessage(::windows::core::IUnknown);
 impl MidiTuneRequestMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MidiTuneRequestMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

@@ -39,7 +39,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveNotificationContentKind {
 pub struct AdaptiveNotificationText(::windows::core::IUnknown);
 impl AdaptiveNotificationText {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AdaptiveNotificationText, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2169,7 +2169,7 @@ impl ::windows::core::RuntimeName for KnownNotificationBindings {
 pub struct Notification(::windows::core::IUnknown);
 impl Notification {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Notification, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2402,7 +2402,7 @@ unsafe impl ::core::marker::Sync for NotificationBinding {}
 pub struct NotificationData(::windows::core::IUnknown);
 impl NotificationData {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NotificationData, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

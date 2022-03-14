@@ -577,7 +577,7 @@ unsafe impl ::core::marker::Sync for VoiceCommandConfirmationResult {}
 pub struct VoiceCommandContentTile(::windows::core::IUnknown);
 impl VoiceCommandContentTile {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VoiceCommandContentTile, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1366,7 +1366,7 @@ unsafe impl ::core::marker::Sync for VoiceCommandServiceConnection {}
 pub struct VoiceCommandUserMessage(::windows::core::IUnknown);
 impl VoiceCommandUserMessage {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VoiceCommandUserMessage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

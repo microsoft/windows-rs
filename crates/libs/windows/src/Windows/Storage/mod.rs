@@ -461,7 +461,7 @@ pub struct ApplicationDataCompositeValue(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl ApplicationDataCompositeValue {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ApplicationDataCompositeValue, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7536,7 +7536,7 @@ unsafe impl ::core::marker::Sync for StorageLibraryChangeTracker {}
 pub struct StorageLibraryChangeTrackerOptions(::windows::core::IUnknown);
 impl StorageLibraryChangeTrackerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageLibraryChangeTrackerOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

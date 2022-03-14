@@ -2122,7 +2122,7 @@ where
 pub struct PropertySet(::windows::core::IUnknown);
 impl PropertySet {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PropertySet, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2379,7 +2379,7 @@ unsafe impl ::core::marker::Sync for PropertySet {}
 pub struct StringMap(::windows::core::IUnknown);
 impl StringMap {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StringMap, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2614,7 +2614,7 @@ unsafe impl ::core::marker::Sync for StringMap {}
 pub struct ValueSet(::windows::core::IUnknown);
 impl ValueSet {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ValueSet, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

@@ -2373,7 +2373,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallDirection {
 pub struct PhoneCallHistoryEntry(::windows::core::IUnknown);
 impl PhoneCallHistoryEntry {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PhoneCallHistoryEntry, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2685,7 +2685,7 @@ unsafe impl ::core::marker::Sync for PhoneCallHistoryEntry {}
 pub struct PhoneCallHistoryEntryAddress(::windows::core::IUnknown);
 impl PhoneCallHistoryEntryAddress {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PhoneCallHistoryEntryAddress, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2965,7 +2965,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryQueryDesiredMe
 pub struct PhoneCallHistoryEntryQueryOptions(::windows::core::IUnknown);
 impl PhoneCallHistoryEntryQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PhoneCallHistoryEntryQueryOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4169,7 +4169,7 @@ unsafe impl ::core::marker::Sync for PhoneCallsResult {}
 pub struct PhoneDialOptions(::windows::core::IUnknown);
 impl PhoneDialOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PhoneDialOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

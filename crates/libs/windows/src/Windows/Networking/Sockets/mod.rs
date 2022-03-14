@@ -369,7 +369,7 @@ unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerStatus {
 pub struct DatagramSocket(::windows::core::IUnknown);
 impl DatagramSocket {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DatagramSocket, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3070,7 +3070,7 @@ pub struct IWebSocketServerCustomValidationRequestedEventArgs_Vtbl {
 pub struct MessageWebSocket(::windows::core::IUnknown);
 impl MessageWebSocket {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MessageWebSocket, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5228,7 +5228,7 @@ unsafe impl ::windows::core::RuntimeType for SocketSslErrorSeverity {
 pub struct StreamSocket(::windows::core::IUnknown);
 impl StreamSocket {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StreamSocket, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5873,7 +5873,7 @@ unsafe impl ::core::marker::Sync for StreamSocketInformation {}
 pub struct StreamSocketListener(::windows::core::IUnknown);
 impl StreamSocketListener {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StreamSocketListener, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6397,7 +6397,7 @@ unsafe impl ::core::marker::Sync for StreamSocketListenerInformation {}
 pub struct StreamWebSocket(::windows::core::IUnknown);
 impl StreamWebSocket {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StreamWebSocket, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7147,7 +7147,7 @@ pub struct WebSocketKeepAlive(::windows::core::IUnknown);
 #[cfg(feature = "ApplicationModel_Background")]
 impl WebSocketKeepAlive {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebSocketKeepAlive, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

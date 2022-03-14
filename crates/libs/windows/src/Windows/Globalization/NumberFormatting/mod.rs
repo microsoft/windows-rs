@@ -533,7 +533,7 @@ unsafe impl ::windows::core::RuntimeType for CurrencyFormatterMode {
 pub struct DecimalFormatter(::windows::core::IUnknown);
 impl DecimalFormatter {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DecimalFormatter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2084,7 +2084,7 @@ pub struct ISignificantDigitsOption_Vtbl {
 pub struct IncrementNumberRounder(::windows::core::IUnknown);
 impl IncrementNumberRounder {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<IncrementNumberRounder, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2264,7 +2264,7 @@ unsafe impl ::core::marker::Sync for IncrementNumberRounder {}
 pub struct NumeralSystemTranslator(::windows::core::IUnknown);
 impl NumeralSystemTranslator {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NumeralSystemTranslator, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2399,7 +2399,7 @@ unsafe impl ::core::marker::Sync for NumeralSystemTranslator {}
 pub struct PercentFormatter(::windows::core::IUnknown);
 impl PercentFormatter {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PercentFormatter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2862,7 +2862,7 @@ unsafe impl ::core::marker::Sync for PercentFormatter {}
 pub struct PermilleFormatter(::windows::core::IUnknown);
 impl PermilleFormatter {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PermilleFormatter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3368,7 +3368,7 @@ unsafe impl ::windows::core::RuntimeType for RoundingAlgorithm {
 pub struct SignificantDigitsNumberRounder(::windows::core::IUnknown);
 impl SignificantDigitsNumberRounder {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SignificantDigitsNumberRounder, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

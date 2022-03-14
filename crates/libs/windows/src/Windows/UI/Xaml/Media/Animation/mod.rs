@@ -4,7 +4,7 @@
 pub struct AddDeleteThemeTransition(::windows::core::IUnknown);
 impl AddDeleteThemeTransition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AddDeleteThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -128,7 +128,7 @@ unsafe impl ::core::marker::Sync for AddDeleteThemeTransition {}
 pub struct BackEase(::windows::core::IUnknown);
 impl BackEase {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -394,7 +394,7 @@ unsafe impl ::core::marker::Sync for BasicConnectedAnimationConfiguration {}
 pub struct BeginStoryboard(::windows::core::IUnknown);
 impl BeginStoryboard {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BeginStoryboard, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -543,7 +543,7 @@ unsafe impl ::core::marker::Sync for BeginStoryboard {}
 pub struct BounceEase(::windows::core::IUnknown);
 impl BounceEase {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BounceEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -712,7 +712,7 @@ unsafe impl ::core::marker::Sync for BounceEase {}
 pub struct CircleEase(::windows::core::IUnknown);
 impl CircleEase {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CircleEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -871,7 +871,7 @@ unsafe impl ::windows::core::RuntimeType for ClockState {
 pub struct ColorAnimation(::windows::core::IUnknown);
 impl ColorAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ColorAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1106,7 +1106,7 @@ unsafe impl ::core::marker::Sync for ColorAnimation {}
 pub struct ColorAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl ColorAnimationUsingKeyFrames {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ColorAnimationUsingKeyFrames, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1410,7 +1410,7 @@ pub struct ColorKeyFrameCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl ColorKeyFrameCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ColorKeyFrameCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1675,7 +1675,7 @@ unsafe impl ::core::marker::Sync for ColorKeyFrameCollection {}
 pub struct CommonNavigationTransitionInfo(::windows::core::IUnknown);
 impl CommonNavigationTransitionInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CommonNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2235,7 +2235,7 @@ unsafe impl ::core::marker::Sync for ConnectedAnimationService {}
 pub struct ContentThemeTransition(::windows::core::IUnknown);
 impl ContentThemeTransition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContentThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2404,7 +2404,7 @@ unsafe impl ::core::marker::Sync for ContentThemeTransition {}
 pub struct ContinuumNavigationTransitionInfo(::windows::core::IUnknown);
 impl ContinuumNavigationTransitionInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContinuumNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2609,7 +2609,7 @@ unsafe impl ::core::marker::Sync for ContinuumNavigationTransitionInfo {}
 pub struct CubicEase(::windows::core::IUnknown);
 impl CubicEase {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CubicEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2850,7 +2850,7 @@ unsafe impl ::core::marker::Sync for DirectConnectedAnimationConfiguration {}
 pub struct DiscreteColorKeyFrame(::windows::core::IUnknown);
 impl DiscreteColorKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DiscreteColorKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2974,7 +2974,7 @@ unsafe impl ::core::marker::Sync for DiscreteColorKeyFrame {}
 pub struct DiscreteDoubleKeyFrame(::windows::core::IUnknown);
 impl DiscreteDoubleKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DiscreteDoubleKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3098,7 +3098,7 @@ unsafe impl ::core::marker::Sync for DiscreteDoubleKeyFrame {}
 pub struct DiscreteObjectKeyFrame(::windows::core::IUnknown);
 impl DiscreteObjectKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DiscreteObjectKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3222,7 +3222,7 @@ unsafe impl ::core::marker::Sync for DiscreteObjectKeyFrame {}
 pub struct DiscretePointKeyFrame(::windows::core::IUnknown);
 impl DiscretePointKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DiscretePointKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3346,7 +3346,7 @@ unsafe impl ::core::marker::Sync for DiscretePointKeyFrame {}
 pub struct DoubleAnimation(::windows::core::IUnknown);
 impl DoubleAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DoubleAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3581,7 +3581,7 @@ unsafe impl ::core::marker::Sync for DoubleAnimation {}
 pub struct DoubleAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl DoubleAnimationUsingKeyFrames {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DoubleAnimationUsingKeyFrames, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3885,7 +3885,7 @@ pub struct DoubleKeyFrameCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl DoubleKeyFrameCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DoubleKeyFrameCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4150,7 +4150,7 @@ unsafe impl ::core::marker::Sync for DoubleKeyFrameCollection {}
 pub struct DragItemThemeAnimation(::windows::core::IUnknown);
 impl DragItemThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DragItemThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4299,7 +4299,7 @@ unsafe impl ::core::marker::Sync for DragItemThemeAnimation {}
 pub struct DragOverThemeAnimation(::windows::core::IUnknown);
 impl DragOverThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DragOverThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4490,7 +4490,7 @@ unsafe impl ::core::marker::Sync for DragOverThemeAnimation {}
 pub struct DrillInNavigationTransitionInfo(::windows::core::IUnknown);
 impl DrillInNavigationTransitionInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DrillInNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4614,7 +4614,7 @@ unsafe impl ::core::marker::Sync for DrillInNavigationTransitionInfo {}
 pub struct DrillInThemeAnimation(::windows::core::IUnknown);
 impl DrillInThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DrillInThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4823,7 +4823,7 @@ unsafe impl ::core::marker::Sync for DrillInThemeAnimation {}
 pub struct DrillOutThemeAnimation(::windows::core::IUnknown);
 impl DrillOutThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DrillOutThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5032,7 +5032,7 @@ unsafe impl ::core::marker::Sync for DrillOutThemeAnimation {}
 pub struct DropTargetItemThemeAnimation(::windows::core::IUnknown);
 impl DropTargetItemThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DropTargetItemThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5181,7 +5181,7 @@ unsafe impl ::core::marker::Sync for DropTargetItemThemeAnimation {}
 pub struct EasingColorKeyFrame(::windows::core::IUnknown);
 impl EasingColorKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EasingColorKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5330,7 +5330,7 @@ unsafe impl ::core::marker::Sync for EasingColorKeyFrame {}
 pub struct EasingDoubleKeyFrame(::windows::core::IUnknown);
 impl EasingDoubleKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EasingDoubleKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5644,7 +5644,7 @@ unsafe impl ::windows::core::RuntimeType for EasingMode {
 pub struct EasingPointKeyFrame(::windows::core::IUnknown);
 impl EasingPointKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EasingPointKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5793,7 +5793,7 @@ unsafe impl ::core::marker::Sync for EasingPointKeyFrame {}
 pub struct EdgeUIThemeTransition(::windows::core::IUnknown);
 impl EdgeUIThemeTransition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EdgeUIThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5944,7 +5944,7 @@ unsafe impl ::core::marker::Sync for EdgeUIThemeTransition {}
 pub struct ElasticEase(::windows::core::IUnknown);
 impl ElasticEase {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ElasticEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6113,7 +6113,7 @@ unsafe impl ::core::marker::Sync for ElasticEase {}
 pub struct EntranceNavigationTransitionInfo(::windows::core::IUnknown);
 impl EntranceNavigationTransitionInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EntranceNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6260,7 +6260,7 @@ unsafe impl ::core::marker::Sync for EntranceNavigationTransitionInfo {}
 pub struct EntranceThemeTransition(::windows::core::IUnknown);
 impl EntranceThemeTransition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EntranceThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6449,7 +6449,7 @@ unsafe impl ::core::marker::Sync for EntranceThemeTransition {}
 pub struct ExponentialEase(::windows::core::IUnknown);
 impl ExponentialEase {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ExponentialEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6598,7 +6598,7 @@ unsafe impl ::core::marker::Sync for ExponentialEase {}
 pub struct FadeInThemeAnimation(::windows::core::IUnknown);
 impl FadeInThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FadeInThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6747,7 +6747,7 @@ unsafe impl ::core::marker::Sync for FadeInThemeAnimation {}
 pub struct FadeOutThemeAnimation(::windows::core::IUnknown);
 impl FadeOutThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FadeOutThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9569,7 +9569,7 @@ pub struct ITransitionFactory_Vtbl {
 pub struct KeySpline(::windows::core::IUnknown);
 impl KeySpline {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KeySpline, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9839,7 +9839,7 @@ unsafe impl ::core::marker::Sync for KeyTimeHelper {}
 pub struct LinearColorKeyFrame(::windows::core::IUnknown);
 impl LinearColorKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LinearColorKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -9963,7 +9963,7 @@ unsafe impl ::core::marker::Sync for LinearColorKeyFrame {}
 pub struct LinearDoubleKeyFrame(::windows::core::IUnknown);
 impl LinearDoubleKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LinearDoubleKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10087,7 +10087,7 @@ unsafe impl ::core::marker::Sync for LinearDoubleKeyFrame {}
 pub struct LinearPointKeyFrame(::windows::core::IUnknown);
 impl LinearPointKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LinearPointKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10211,7 +10211,7 @@ unsafe impl ::core::marker::Sync for LinearPointKeyFrame {}
 pub struct NavigationThemeTransition(::windows::core::IUnknown);
 impl NavigationThemeTransition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NavigationThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10456,7 +10456,7 @@ unsafe impl ::core::marker::Sync for NavigationTransitionInfo {}
 pub struct ObjectAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl ObjectAnimationUsingKeyFrames {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ObjectAnimationUsingKeyFrames, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -10760,7 +10760,7 @@ pub struct ObjectKeyFrameCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl ObjectKeyFrameCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ObjectKeyFrameCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -11025,7 +11025,7 @@ unsafe impl ::core::marker::Sync for ObjectKeyFrameCollection {}
 pub struct PaneThemeTransition(::windows::core::IUnknown);
 impl PaneThemeTransition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PaneThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -11176,7 +11176,7 @@ unsafe impl ::core::marker::Sync for PaneThemeTransition {}
 pub struct PointAnimation(::windows::core::IUnknown);
 impl PointAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PointAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -11411,7 +11411,7 @@ unsafe impl ::core::marker::Sync for PointAnimation {}
 pub struct PointAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl PointAnimationUsingKeyFrames {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PointAnimationUsingKeyFrames, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -11717,7 +11717,7 @@ pub struct PointKeyFrameCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl PointKeyFrameCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PointKeyFrameCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -11982,7 +11982,7 @@ unsafe impl ::core::marker::Sync for PointKeyFrameCollection {}
 pub struct PointerDownThemeAnimation(::windows::core::IUnknown);
 impl PointerDownThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PointerDownThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12131,7 +12131,7 @@ unsafe impl ::core::marker::Sync for PointerDownThemeAnimation {}
 pub struct PointerUpThemeAnimation(::windows::core::IUnknown);
 impl PointerUpThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PointerUpThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12280,7 +12280,7 @@ unsafe impl ::core::marker::Sync for PointerUpThemeAnimation {}
 pub struct PopInThemeAnimation(::windows::core::IUnknown);
 impl PopInThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PopInThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12469,7 +12469,7 @@ unsafe impl ::core::marker::Sync for PopInThemeAnimation {}
 pub struct PopOutThemeAnimation(::windows::core::IUnknown);
 impl PopOutThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PopOutThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12618,7 +12618,7 @@ unsafe impl ::core::marker::Sync for PopOutThemeAnimation {}
 pub struct PopupThemeTransition(::windows::core::IUnknown);
 impl PopupThemeTransition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PopupThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12787,7 +12787,7 @@ unsafe impl ::core::marker::Sync for PopupThemeTransition {}
 pub struct PowerEase(::windows::core::IUnknown);
 impl PowerEase {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PowerEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -12936,7 +12936,7 @@ unsafe impl ::core::marker::Sync for PowerEase {}
 pub struct QuadraticEase(::windows::core::IUnknown);
 impl QuadraticEase {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<QuadraticEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13060,7 +13060,7 @@ unsafe impl ::core::marker::Sync for QuadraticEase {}
 pub struct QuarticEase(::windows::core::IUnknown);
 impl QuarticEase {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<QuarticEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13184,7 +13184,7 @@ unsafe impl ::core::marker::Sync for QuarticEase {}
 pub struct QuinticEase(::windows::core::IUnknown);
 impl QuinticEase {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<QuinticEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13308,7 +13308,7 @@ unsafe impl ::core::marker::Sync for QuinticEase {}
 pub struct ReorderThemeTransition(::windows::core::IUnknown);
 impl ReorderThemeTransition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ReorderThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13645,7 +13645,7 @@ unsafe impl ::windows::core::RuntimeType for RepeatBehaviorType {
 pub struct RepositionThemeAnimation(::windows::core::IUnknown);
 impl RepositionThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RepositionThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13834,7 +13834,7 @@ unsafe impl ::core::marker::Sync for RepositionThemeAnimation {}
 pub struct RepositionThemeTransition(::windows::core::IUnknown);
 impl RepositionThemeTransition {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RepositionThemeTransition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -13983,7 +13983,7 @@ unsafe impl ::core::marker::Sync for RepositionThemeTransition {}
 pub struct SineEase(::windows::core::IUnknown);
 impl SineEase {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SineEase, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14142,7 +14142,7 @@ unsafe impl ::windows::core::RuntimeType for SlideNavigationTransitionEffect {
 pub struct SlideNavigationTransitionInfo(::windows::core::IUnknown);
 impl SlideNavigationTransitionInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SlideNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14291,7 +14291,7 @@ unsafe impl ::core::marker::Sync for SlideNavigationTransitionInfo {}
 pub struct SplineColorKeyFrame(::windows::core::IUnknown);
 impl SplineColorKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SplineColorKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14440,7 +14440,7 @@ unsafe impl ::core::marker::Sync for SplineColorKeyFrame {}
 pub struct SplineDoubleKeyFrame(::windows::core::IUnknown);
 impl SplineDoubleKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SplineDoubleKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14589,7 +14589,7 @@ unsafe impl ::core::marker::Sync for SplineDoubleKeyFrame {}
 pub struct SplinePointKeyFrame(::windows::core::IUnknown);
 impl SplinePointKeyFrame {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SplinePointKeyFrame, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -14738,7 +14738,7 @@ unsafe impl ::core::marker::Sync for SplinePointKeyFrame {}
 pub struct SplitCloseThemeAnimation(::windows::core::IUnknown);
 impl SplitCloseThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SplitCloseThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -15089,7 +15089,7 @@ unsafe impl ::core::marker::Sync for SplitCloseThemeAnimation {}
 pub struct SplitOpenThemeAnimation(::windows::core::IUnknown);
 impl SplitOpenThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SplitOpenThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -15440,7 +15440,7 @@ unsafe impl ::core::marker::Sync for SplitOpenThemeAnimation {}
 pub struct Storyboard(::windows::core::IUnknown);
 impl Storyboard {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Storyboard, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -15672,7 +15672,7 @@ unsafe impl ::core::marker::Sync for Storyboard {}
 pub struct SuppressNavigationTransitionInfo(::windows::core::IUnknown);
 impl SuppressNavigationTransitionInfo {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SuppressNavigationTransitionInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -15796,7 +15796,7 @@ unsafe impl ::core::marker::Sync for SuppressNavigationTransitionInfo {}
 pub struct SwipeBackThemeAnimation(::windows::core::IUnknown);
 impl SwipeBackThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SwipeBackThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -15985,7 +15985,7 @@ unsafe impl ::core::marker::Sync for SwipeBackThemeAnimation {}
 pub struct SwipeHintThemeAnimation(::windows::core::IUnknown);
 impl SwipeHintThemeAnimation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SwipeHintThemeAnimation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -16430,7 +16430,7 @@ pub struct TimelineCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl TimelineCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimelineCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -16793,7 +16793,7 @@ pub struct TransitionCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl TransitionCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TransitionCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

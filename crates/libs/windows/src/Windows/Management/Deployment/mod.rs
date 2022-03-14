@@ -71,7 +71,7 @@ unsafe impl ::windows::core::RuntimeType for AddPackageByAppInstallerOptions {
 pub struct AddPackageOptions(::windows::core::IUnknown);
 impl AddPackageOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AddPackageOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -474,7 +474,7 @@ unsafe impl ::core::marker::Sync for AppInstallerManager {}
 pub struct AutoUpdateSettingsOptions(::windows::core::IUnknown);
 impl AutoUpdateSettingsOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AutoUpdateSettingsOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -728,7 +728,7 @@ unsafe impl ::core::marker::Sync for AutoUpdateSettingsOptions {}
 pub struct CreateSharedPackageContainerOptions(::windows::core::IUnknown);
 impl CreateSharedPackageContainerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CreateSharedPackageContainerOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -948,7 +948,7 @@ unsafe impl ::core::marker::Sync for CreateSharedPackageContainerResult {}
 pub struct DeleteSharedPackageContainerOptions(::windows::core::IUnknown);
 impl DeleteSharedPackageContainerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DeleteSharedPackageContainerOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1401,7 +1401,7 @@ unsafe impl ::core::marker::Sync for DeploymentResult {}
 pub struct FindSharedPackageContainerOptions(::windows::core::IUnknown);
 impl FindSharedPackageContainerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FindSharedPackageContainerOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2485,7 +2485,7 @@ pub struct IUpdateSharedPackageContainerResult_Vtbl {
 pub struct PackageAllUserProvisioningOptions(::windows::core::IUnknown);
 impl PackageAllUserProvisioningOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PackageAllUserProvisioningOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2623,7 +2623,7 @@ unsafe impl ::windows::core::RuntimeType for PackageInstallState {
 pub struct PackageManager(::windows::core::IUnknown);
 impl PackageManager {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PackageManager, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3959,7 +3959,7 @@ unsafe impl ::core::marker::Sync for PackageVolume {}
 pub struct RegisterPackageOptions(::windows::core::IUnknown);
 impl RegisterPackageOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RegisterPackageOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4690,7 +4690,7 @@ unsafe impl ::windows::core::RuntimeType for SharedPackageContainerOperationStat
 pub struct StagePackageOptions(::windows::core::IUnknown);
 impl StagePackageOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StagePackageOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4965,7 +4965,7 @@ unsafe impl ::windows::core::RuntimeType for StubPackageOption {
 pub struct UpdateSharedPackageContainerOptions(::windows::core::IUnknown);
 impl UpdateSharedPackageContainerOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UpdateSharedPackageContainerOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

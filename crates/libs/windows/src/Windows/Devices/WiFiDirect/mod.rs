@@ -486,7 +486,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectAdvertisementListenStateD
 pub struct WiFiDirectAdvertisementPublisher(::windows::core::IUnknown);
 impl WiFiDirectAdvertisementPublisher {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WiFiDirectAdvertisementPublisher, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -775,7 +775,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectConfigurationMethod {
 pub struct WiFiDirectConnectionListener(::windows::core::IUnknown);
 impl WiFiDirectConnectionListener {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WiFiDirectConnectionListener, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -874,7 +874,7 @@ unsafe impl ::core::marker::Sync for WiFiDirectConnectionListener {}
 pub struct WiFiDirectConnectionParameters(::windows::core::IUnknown);
 impl WiFiDirectConnectionParameters {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WiFiDirectConnectionParameters, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1527,7 +1527,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectError {
 pub struct WiFiDirectInformationElement(::windows::core::IUnknown);
 impl WiFiDirectInformationElement {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WiFiDirectInformationElement, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

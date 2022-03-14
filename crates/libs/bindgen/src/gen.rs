@@ -11,6 +11,7 @@ pub struct Gen<'a> {
     pub min_inherit: bool,
     pub min_xaml: bool,
     pub windows_extern: bool,
+    pub component: bool,
 }
 
 impl Gen<'_> {

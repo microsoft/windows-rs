@@ -491,7 +491,7 @@ unsafe impl ::core::marker::Sync for BlockCollection {}
 pub struct Bold(::windows::core::IUnknown);
 impl Bold {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Bold, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -655,7 +655,7 @@ unsafe impl ::core::marker::Sync for Bold {}
 pub struct ContactContentLinkProvider(::windows::core::IUnknown);
 impl ContactContentLinkProvider {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContactContentLinkProvider, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -779,7 +779,7 @@ unsafe impl ::core::marker::Sync for ContactContentLinkProvider {}
 pub struct ContentLink(::windows::core::IUnknown);
 impl ContentLink {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContentLink, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1478,7 +1478,7 @@ unsafe impl ::core::marker::Sync for ContentLinkProvider {}
 pub struct ContentLinkProviderCollection(::windows::core::IUnknown);
 impl ContentLinkProviderCollection {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContentLinkProviderCollection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1726,7 +1726,7 @@ unsafe impl ::core::marker::Sync for ContentLinkProviderCollection {}
 pub struct Glyphs(::windows::core::IUnknown);
 impl Glyphs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Glyphs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2138,7 +2138,7 @@ unsafe impl ::core::marker::Sync for Glyphs {}
 pub struct Hyperlink(::windows::core::IUnknown);
 impl Hyperlink {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Hyperlink, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4448,7 +4448,7 @@ unsafe impl ::core::marker::Sync for InlineCollection {}
 pub struct InlineUIContainer(::windows::core::IUnknown);
 impl InlineUIContainer {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InlineUIContainer, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4605,7 +4605,7 @@ unsafe impl ::core::marker::Sync for InlineUIContainer {}
 pub struct Italic(::windows::core::IUnknown);
 impl Italic {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Italic, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4769,7 +4769,7 @@ unsafe impl ::core::marker::Sync for Italic {}
 pub struct LineBreak(::windows::core::IUnknown);
 impl LineBreak {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LineBreak, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4947,7 +4947,7 @@ unsafe impl ::windows::core::RuntimeType for LogicalDirection {
 pub struct Paragraph(::windows::core::IUnknown);
 impl Paragraph {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Paragraph, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5125,7 +5125,7 @@ unsafe impl ::core::marker::Sync for Paragraph {}
 pub struct PlaceContentLinkProvider(::windows::core::IUnknown);
 impl PlaceContentLinkProvider {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlaceContentLinkProvider, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5249,7 +5249,7 @@ unsafe impl ::core::marker::Sync for PlaceContentLinkProvider {}
 pub struct Run(::windows::core::IUnknown);
 impl Run {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Run, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7471,7 +7471,7 @@ unsafe impl ::core::marker::Sync for Typography {}
 pub struct Underline(::windows::core::IUnknown);
 impl Underline {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Underline, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

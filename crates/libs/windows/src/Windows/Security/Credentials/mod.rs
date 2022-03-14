@@ -977,7 +977,7 @@ unsafe impl ::windows::core::RuntimeType for KeyCredentialStatus {
 pub struct PasswordCredential(::windows::core::IUnknown);
 impl PasswordCredential {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PasswordCredential, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1128,7 +1128,7 @@ pub struct PasswordCredentialPropertyStore(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl PasswordCredentialPropertyStore {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PasswordCredentialPropertyStore, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1430,7 +1430,7 @@ unsafe impl ::core::marker::Sync for PasswordCredentialPropertyStore {}
 pub struct PasswordVault(::windows::core::IUnknown);
 impl PasswordVault {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PasswordVault, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

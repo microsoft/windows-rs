@@ -1681,7 +1681,7 @@ pub struct BitmapPropertySet(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl BitmapPropertySet {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BitmapPropertySet, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1990,7 +1990,7 @@ impl ::core::default::Default for BitmapSize {
 pub struct BitmapTransform(::windows::core::IUnknown);
 impl BitmapTransform {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BitmapTransform, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

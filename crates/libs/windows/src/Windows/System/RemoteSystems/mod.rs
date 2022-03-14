@@ -3629,7 +3629,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitation {}
 pub struct RemoteSystemSessionInvitationListener(::windows::core::IUnknown);
 impl RemoteSystemSessionInvitationListener {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RemoteSystemSessionInvitationListener, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4307,7 +4307,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionMessageChannelRe
 pub struct RemoteSystemSessionOptions(::windows::core::IUnknown);
 impl RemoteSystemSessionOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RemoteSystemSessionOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

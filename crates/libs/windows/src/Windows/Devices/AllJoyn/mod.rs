@@ -857,7 +857,7 @@ pub struct AllJoynBusAttachment(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl AllJoynBusAttachment {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AllJoynBusAttachment, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1328,7 +1328,7 @@ pub struct AllJoynBusObject(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl AllJoynBusObject {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AllJoynBusObject, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

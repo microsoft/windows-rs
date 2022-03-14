@@ -2837,7 +2837,7 @@ unsafe impl ::core::marker::Sync for AudioGraphUnrecoverableErrorOccurredEventAr
 pub struct AudioNodeEmitter(::windows::core::IUnknown);
 impl AudioNodeEmitter {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AudioNodeEmitter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3618,7 +3618,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterShapeKind {
 pub struct AudioNodeListener(::windows::core::IUnknown);
 impl AudioNodeListener {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AudioNodeListener, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

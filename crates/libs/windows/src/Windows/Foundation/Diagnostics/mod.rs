@@ -2327,7 +2327,7 @@ unsafe impl ::core::marker::Sync for LoggingChannel {}
 pub struct LoggingChannelOptions(::windows::core::IUnknown);
 impl LoggingChannelOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LoggingChannelOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2487,7 +2487,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingFieldFormat {
 pub struct LoggingFields(::windows::core::IUnknown);
 impl LoggingFields {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LoggingFields, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3222,7 +3222,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingOpcode {
 pub struct LoggingOptions(::windows::core::IUnknown);
 impl LoggingOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LoggingOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3566,7 +3566,7 @@ unsafe impl ::core::marker::Sync for LoggingSession {}
 pub struct RuntimeBrokerErrorSettings(::windows::core::IUnknown);
 impl RuntimeBrokerErrorSettings {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RuntimeBrokerErrorSettings, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

@@ -4559,7 +4559,7 @@ pub struct NDDownloadEngineNotifier(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl NDDownloadEngineNotifier {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NDDownloadEngineNotifier, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5012,7 +5012,7 @@ pub struct NDStorageFileHelper(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl NDStorageFileHelper {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NDStorageFileHelper, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5146,7 +5146,7 @@ pub struct NDStreamParserNotifier(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl NDStreamParserNotifier {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NDStreamParserNotifier, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6176,7 +6176,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 pub struct PlayReadyDomainJoinServiceRequest(::windows::core::IUnknown);
 impl PlayReadyDomainJoinServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlayReadyDomainJoinServiceRequest, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6426,7 +6426,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReady
 pub struct PlayReadyDomainLeaveServiceRequest(::windows::core::IUnknown);
 impl PlayReadyDomainLeaveServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlayReadyDomainLeaveServiceRequest, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6770,7 +6770,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyITADataFormat {
 pub struct PlayReadyITADataGenerator(::windows::core::IUnknown);
 impl PlayReadyITADataGenerator {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlayReadyITADataGenerator, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6861,7 +6861,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 pub struct PlayReadyIndividualizationServiceRequest(::windows::core::IUnknown);
 impl PlayReadyIndividualizationServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlayReadyIndividualizationServiceRequest, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7258,7 +7258,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicense> for &PlayReadyLicense
 pub struct PlayReadyLicenseAcquisitionServiceRequest(::windows::core::IUnknown);
 impl PlayReadyLicenseAcquisitionServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlayReadyLicenseAcquisitionServiceRequest, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7536,7 +7536,7 @@ pub struct PlayReadyLicenseIterable(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyLicenseIterable {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlayReadyLicenseIterable, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8025,7 +8025,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicenseSession2> for &PlayRead
 pub struct PlayReadyMeteringReportServiceRequest(::windows::core::IUnknown);
 impl PlayReadyMeteringReportServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlayReadyMeteringReportServiceRequest, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -8249,7 +8249,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReady
 pub struct PlayReadyRevocationServiceRequest(::windows::core::IUnknown);
 impl PlayReadyRevocationServiceRequest {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlayReadyRevocationServiceRequest, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

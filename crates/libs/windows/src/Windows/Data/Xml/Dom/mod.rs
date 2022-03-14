@@ -3922,7 +3922,7 @@ unsafe impl ::core::marker::Sync for XmlComment {}
 pub struct XmlDocument(::windows::core::IUnknown);
 impl XmlDocument {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<XmlDocument, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6189,7 +6189,7 @@ unsafe impl ::core::marker::Sync for XmlEntityReference {}
 pub struct XmlLoadSettings(::windows::core::IUnknown);
 impl XmlLoadSettings {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<XmlLoadSettings, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

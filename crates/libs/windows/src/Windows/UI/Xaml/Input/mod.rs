@@ -4,7 +4,7 @@
 pub struct AccessKeyDisplayDismissedEventArgs(::windows::core::IUnknown);
 impl AccessKeyDisplayDismissedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AccessKeyDisplayDismissedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -88,7 +88,7 @@ unsafe impl ::core::marker::Sync for AccessKeyDisplayDismissedEventArgs {}
 pub struct AccessKeyDisplayRequestedEventArgs(::windows::core::IUnknown);
 impl AccessKeyDisplayRequestedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AccessKeyDisplayRequestedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -180,7 +180,7 @@ unsafe impl ::core::marker::Sync for AccessKeyDisplayRequestedEventArgs {}
 pub struct AccessKeyInvokedEventArgs(::windows::core::IUnknown);
 impl AccessKeyInvokedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AccessKeyInvokedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -624,7 +624,7 @@ unsafe impl ::core::marker::Sync for CharacterReceivedRoutedEventArgs {}
 pub struct ContextRequestedEventArgs(::windows::core::IUnknown);
 impl ContextRequestedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContextRequestedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -832,7 +832,7 @@ pub struct DoubleTappedEventHandler_Vtbl {
 pub struct DoubleTappedRoutedEventArgs(::windows::core::IUnknown);
 impl DoubleTappedRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DoubleTappedRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1052,7 +1052,7 @@ unsafe impl ::core::marker::Sync for ExecuteRequestedEventArgs {}
 pub struct FindNextElementOptions(::windows::core::IUnknown);
 impl FindNextElementOptions {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FindNextElementOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -2073,7 +2073,7 @@ pub struct HoldingEventHandler_Vtbl {
 pub struct HoldingRoutedEventArgs(::windows::core::IUnknown);
 impl HoldingRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<HoldingRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3883,7 +3883,7 @@ unsafe impl ::core::marker::Sync for InertiaTranslationBehavior {}
 pub struct InputScope(::windows::core::IUnknown);
 impl InputScope {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InputScope, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -3996,7 +3996,7 @@ unsafe impl ::core::marker::Sync for InputScope {}
 pub struct InputScopeName(::windows::core::IUnknown);
 impl InputScopeName {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InputScopeName, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5137,7 +5137,7 @@ pub struct ManipulationCompletedEventHandler_Vtbl {
 pub struct ManipulationCompletedRoutedEventArgs(::windows::core::IUnknown);
 impl ManipulationCompletedRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ManipulationCompletedRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5388,7 +5388,7 @@ pub struct ManipulationDeltaEventHandler_Vtbl {
 pub struct ManipulationDeltaRoutedEventArgs(::windows::core::IUnknown);
 impl ManipulationDeltaRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ManipulationDeltaRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5653,7 +5653,7 @@ pub struct ManipulationInertiaStartingEventHandler_Vtbl {
 pub struct ManipulationInertiaStartingRoutedEventArgs(::windows::core::IUnknown);
 impl ManipulationInertiaStartingRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ManipulationInertiaStartingRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -5925,7 +5925,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationModes {
 pub struct ManipulationPivot(::windows::core::IUnknown);
 impl ManipulationPivot {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ManipulationPivot, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -6384,7 +6384,7 @@ pub struct ManipulationStartingEventHandler_Vtbl {
 pub struct ManipulationStartingRoutedEventArgs(::windows::core::IUnknown);
 impl ManipulationStartingRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ManipulationStartingRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7201,7 +7201,7 @@ pub struct RightTappedEventHandler_Vtbl {
 pub struct RightTappedRoutedEventArgs(::windows::core::IUnknown);
 impl RightTappedRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RightTappedRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -7666,7 +7666,7 @@ pub struct TappedEventHandler_Vtbl {
 pub struct TappedRoutedEventArgs(::windows::core::IUnknown);
 impl TappedRoutedEventArgs {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TappedRoutedEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

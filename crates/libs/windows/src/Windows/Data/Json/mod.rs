@@ -269,7 +269,7 @@ pub struct IJsonValueStatics2_Vtbl {
 pub struct JsonArray(::windows::core::IUnknown);
 impl JsonArray {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<JsonArray, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -745,7 +745,7 @@ unsafe impl ::windows::core::RuntimeType for JsonErrorStatus {
 pub struct JsonObject(::windows::core::IUnknown);
 impl JsonObject {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<JsonObject, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

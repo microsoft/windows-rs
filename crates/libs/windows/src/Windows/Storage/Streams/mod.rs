@@ -787,7 +787,7 @@ unsafe impl ::core::marker::Sync for DataReaderLoadOperation {}
 pub struct DataWriter(::windows::core::IUnknown);
 impl DataWriter {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DataWriter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -4036,7 +4036,7 @@ pub struct IRandomAccessStreamWithContentType_Vtbl {
 pub struct InMemoryRandomAccessStream(::windows::core::IUnknown);
 impl InMemoryRandomAccessStream {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InMemoryRandomAccessStream, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

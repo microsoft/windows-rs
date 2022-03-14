@@ -274,7 +274,7 @@ unsafe impl ::windows::core::RuntimeType for HdcpProtection {
 pub struct HdcpSession(::windows::core::IUnknown);
 impl HdcpSession {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<HdcpSession, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -782,7 +782,7 @@ pub struct IServiceRequestedEventArgs2_Vtbl {
 pub struct MediaProtectionManager(::windows::core::IUnknown);
 impl MediaProtectionManager {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaProtectionManager, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1101,7 +1101,7 @@ unsafe impl ::core::marker::Sync for MediaProtectionServiceCompletion {}
 pub struct ProtectionCapabilities(::windows::core::IUnknown);
 impl ProtectionCapabilities {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ProtectionCapabilities, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

@@ -4,7 +4,7 @@
 pub struct EasClientDeviceInformation(::windows::core::IUnknown);
 impl EasClientDeviceInformation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EasClientDeviceInformation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -150,7 +150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a E
 pub struct EasClientSecurityPolicy(::windows::core::IUnknown);
 impl EasClientSecurityPolicy {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EasClientSecurityPolicy, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();

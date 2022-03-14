@@ -1514,7 +1514,7 @@ impl ::windows::core::RuntimeName for WalletManager {
 pub struct WalletRelevantLocation(::windows::core::IUnknown);
 impl WalletRelevantLocation {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WalletRelevantLocation, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
@@ -1661,7 +1661,7 @@ unsafe impl ::windows::core::RuntimeType for WalletSummaryViewPosition {
 pub struct WalletTransaction(::windows::core::IUnknown);
 impl WalletTransaction {
     pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WalletTransaction, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
