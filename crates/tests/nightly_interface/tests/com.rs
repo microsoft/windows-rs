@@ -8,7 +8,7 @@ pub unsafe trait ICustomUri: IUnknown {
     unsafe fn GetPropertyBSTR(&self) -> HRESULT;
     unsafe fn GetPropertyLength(&self) -> HRESULT;
     unsafe fn GetPropertyDWORD(&self) -> HRESULT;
-    unsafe fn HasProperty(&self) -> HRESULT;
+    unsafe fn HasProperty(&self); // Note: this definition is missing its return value
     unsafe fn GetAbsoluteUri(&self) -> HRESULT;
     unsafe fn GetAuthority(&self) -> HRESULT;
     unsafe fn GetDisplayUri(&self) -> i32;
@@ -29,7 +29,7 @@ impl ICustomUri_Impl for CustomUri {
     unsafe fn GetPropertyDWORD(&self) -> HRESULT {
         todo!()
     }
-    unsafe fn HasProperty(&self) -> HRESULT {
+    unsafe fn HasProperty(&self) {
         todo!()
     }
     unsafe fn GetAbsoluteUri(&self) -> HRESULT {
