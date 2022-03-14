@@ -54,10 +54,10 @@ macro_rules! expected_token {
 /// }
 /// ```
 struct Interface {
-    pub visibility: syn::Visibility,
-    pub name: syn::Ident,
-    pub parent: Option<syn::Path>,
-    pub methods: Vec<InterfaceMethod>,
+    visibility: syn::Visibility,
+    name: syn::Ident,
+    parent: Option<syn::Path>,
+    methods: Vec<InterfaceMethod>,
     docs: Vec<syn::Attribute>,
 }
 
@@ -67,8 +67,8 @@ impl Interface {
         let vis = &self.visibility;
         let name = &self.name;
         let docs = &self.docs;
-        let parent = self.parent.as_ref().map(|p| quote!(#p)).unwrap_or_else(|| quote!(::windows::core::IUnknown));
-        let vtable_name = quote::format_ident!("{}_Vtbl", name);
+        let parent = self.parent();
+        let vtable_name = quote::format_ident!("{}Vtbl", name);
         let guid = guid.to_tokens()?;
         let implementation = self.gen_implementation();
         let com_trait = self.get_com_trait();
@@ -154,8 +154,7 @@ impl Interface {
     /// Generates the vtable for a COM interface
     fn gen_vtable(&self, vtable_name: &syn::Ident) -> proc_macro2::TokenStream {
         let name = &self.name;
-        // TODO
-        let parent_vtable = quote!(::windows::core::IUnknownVtbl);
+        let parent_vtable = self.parent_vtable();
         let vtable_entries = self
             .methods
             .iter()
@@ -207,8 +206,7 @@ impl Interface {
             #[repr(C)]
             #[doc(hidden)]
             pub struct #vtable_name {
-                // TODO: handle non-IUnknown parents
-                pub base: ::windows::core::IUnknownVtbl,
+                pub base: #parent_vtable,
                 #(#vtable_entries)*
             }
 
@@ -269,6 +267,18 @@ impl Interface {
                 }
             }
         }
+    }
+
+    fn parent(&self) -> proc_macro2::TokenStream {
+        self.parent.as_ref().map(|p| quote!(#p)).unwrap_or_else(|| quote!(::windows::core::IUnknown))
+    }
+
+    fn parent_vtable(&self) -> proc_macro2::TokenStream {
+        self.parent.as_ref().map(|p| {
+            let ident = p.segments.last().expect("segements should never be empty").ident.to_string();
+            let i = quote::format_ident!("{}Vtbl", ident);
+            quote!(#i)
+        }).unwrap_or_else(|| quote!(::windows::core::IUnknownVTable))
     }
 }
 
