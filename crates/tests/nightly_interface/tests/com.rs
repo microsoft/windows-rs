@@ -8,10 +8,10 @@ pub unsafe trait ICustomUri: IUnknown {
     unsafe fn GetPropertyBSTR(&self, property: Uri_PROPERTY, value: *mut BSTR, flags: u32) -> HRESULT;
     unsafe fn GetPropertyLength(&self) -> HRESULT;
     unsafe fn GetPropertyDWORD(&self, property: Uri_PROPERTY, value: *mut u32, flags: u32) -> HRESULT;
-    unsafe fn HasProperty(&self) -> HRESULT;
+    unsafe fn HasProperty(&self); // Note: this definition is missing its return value
     unsafe fn GetAbsoluteUri(&self) -> HRESULT;
     unsafe fn GetAuthority(&self) -> HRESULT;
-    unsafe fn GetDisplayUri(&self) -> HRESULT;
+    unsafe fn GetDisplayUri(&self) -> i32;
     unsafe fn GetDomain(&self, value: *mut BSTR) -> HRESULT;
     // etc
 }
@@ -35,7 +35,7 @@ impl ICustomUri_Impl for CustomUri {
         *value = 123;
         S_OK
     }
-    unsafe fn HasProperty(&self) -> HRESULT {
+    unsafe fn HasProperty(&self) {
         todo!()
     }
     unsafe fn GetAbsoluteUri(&self) -> HRESULT {
@@ -44,7 +44,7 @@ impl ICustomUri_Impl for CustomUri {
     unsafe fn GetAuthority(&self) -> HRESULT {
         todo!()
     }
-    unsafe fn GetDisplayUri(&self) -> HRESULT {
+    unsafe fn GetDisplayUri(&self) -> i32 {
         todo!()
     }
     unsafe fn GetDomain(&self, value: *mut BSTR) -> HRESULT {
