@@ -10,8 +10,8 @@ pub struct IActivationFactory(IUnknown);
 impl IActivationFactory {
     pub fn ActivateInstance<I: Interface>(&self) -> ::windows::core::Result<I> {
         unsafe {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ActivateInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IInspectable>(result__)?.cast()
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(self).ActivateInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IInspectable>(result__)?.cast()
         }
     }
 }
