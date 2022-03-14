@@ -48,7 +48,10 @@ impl ImageNtHeader {
             file_header: ImageFileHeader::new(),
             optional_header: ImageOptionalHeader::new(),
         };
-        new.optional_header.data_directory[14].virtual_address = 0;
+        new.optional_header.data_directory[14] = ImageDataDirectory {
+            virtual_address: 0x1000,
+            size: 0x48,
+        };
         new
     }
 }
